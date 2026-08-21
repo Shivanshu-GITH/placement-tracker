@@ -1,0 +1,15 @@
+{
+ "sheets": [
+  "sheets/striver_a2z.json",
+  "sheets/striver_sde.json",
+  "sheets/striver_sde79.json",
+  "sheets/love_babbar.json",
+  "sheets/apna_college.json",
+  "sheets/arsh_goyal.json",
+  "sheets/striver_cp.json",
+  "sheets/core_cs.json",
+  "sheets/aptitude.json",
+  "sheets/system_design.json",
+  "sheets/interview_hr.json"
+ ]
+}

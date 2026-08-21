@@ -1,0 +1,3105 @@
+{
+ "slug": "arsh-goyal",
+ "title": "Arsh Goyal DSA Sheet",
+ "category": "dsa",
+ "description": "280 interview-frequent problems tagged with the companies that asked them — great for company-focused prep.",
+ "source": "Arsh Goyal (45-day plan)",
+ "topics": [
+  {
+   "slug": "arsh-arrays-0",
+   "title": "Arrays",
+   "items": [
+    {
+     "slug": "arsh-0-find-the-duplicate-number",
+     "title": "Find The Duplicate Number",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/find-the-duplicate-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-1-sort-colors",
+     "title": "Sort Colors",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/sort-colors/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-2-remove-duplicates-from-sorted-array",
+     "title": "Remove Duplicates From Sorted Array",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-3-set-matrix-zeroes",
+     "title": "Set Matrix Zeroes",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/set-matrix-zeroes/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-4-move-zeroes",
+     "title": "Move Zeroes",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/move-zeroes/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-5-best-time-to-buy-and-sell-stock",
+     "title": "Best Time To Buy And Sell Stock",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,microsoft"
+    },
+    {
+     "slug": "arsh-6-https-www-geeksforgeeks-org-chocolate-distribution-problem",
+     "title": "https://www.geeksforgeeks.org/chocolate-distribution-problem/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/chocolate-distribution-problem/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,microsoft"
+    },
+    {
+     "slug": "arsh-7-two-sum",
+     "title": "Two Sum",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/two-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-8-best-time-to-buy-and-sell-stock-ii",
+     "title": "Best Time To Buy And Sell Stock Ii",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-9-subarray-sums-divisible-by-k",
+     "title": "Subarray Sums Divisible By K",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subarray-sums-divisible-by-k/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-10-find-all-duplicates-in-an-array",
+     "title": "Find All Duplicates In An Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-all-duplicates-in-an-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-11-container-with-most-water",
+     "title": "Container With Most Water",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/container-with-most-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,intuit"
+    },
+    {
+     "slug": "arsh-12-3sum",
+     "title": "3sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/3sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon"
+    },
+    {
+     "slug": "arsh-13-4sum",
+     "title": "4sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/4sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-14-maximum-points-you-can-obtain-from-cards",
+     "title": "Maximum Points You Can Obtain From Cards",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-15-subarray-sum-equals-k",
+     "title": "Subarray Sum Equals K",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-16-spiral-matrix",
+     "title": "Spiral Matrix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/spiral-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-17-word-search",
+     "title": "Word Search",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-search/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-18-jump-game",
+     "title": "Jump Game",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/jump-game/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-19-merge-sorted-array",
+     "title": "Merge Sorted Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-20-majority-element",
+     "title": "Majority Element",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/majority-element/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-21-reverse-pairs",
+     "title": "Reverse Pairs",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reverse-pairs/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-22-https-www-geeksforgeeks-org-print-all-possible-combinations-",
+     "title": "https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-23-game-of-life",
+     "title": "Game Of Life",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/game-of-life/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-24-max-value-of-equation",
+     "title": "Max Value Of Equation",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/max-value-of-equation/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-25-insert-delete-getrandom-o1-duplicates-allowed",
+     "title": "Insert Delete Getrandom O1 Duplicates Allowed",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-26-largest-rectangle-in-histogram",
+     "title": "Largest Rectangle In Histogram",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-27-max-value-of-equation",
+     "title": "Max Value Of Equation",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/max-value-of-equation/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  },
+  {
+   "slug": "arsh-strings-1",
+   "title": "Strings",
+   "items": [
+    {
+     "slug": "arsh-28-valid-parentheses",
+     "title": "Valid Parentheses",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/valid-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-29-https-www-geeksforgeeks-org-print-all-the-duplicates-in-the-",
+     "title": "https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-30-implement-strstr",
+     "title": "Implement Strstr",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/implement-strstr/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-31-longest-common-prefix",
+     "title": "Longest Common Prefix",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/longest-common-prefix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-32-valid-palindrome-ii",
+     "title": "Valid Palindrome Ii",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/valid-palindrome-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-33-integer-to-roman",
+     "title": "Integer To Roman",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/integer-to-roman/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-34-generate-parentheses",
+     "title": "Generate Parentheses",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/generate-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-35-simplify-path",
+     "title": "Simplify Path",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/simplify-path/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    },
+    {
+     "slug": "arsh-36-smallest-window-in-a-string-containing-all-the-characters-of",
+     "title": "Smallest Window In A String Containing All The Characters Of Another String 1587115621",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-window-in-a-string-containing-all-the-characters-of-another-string-1587115621/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-37-reverse-words-in-a-string",
+     "title": "Reverse Words In A String",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-38-https-www-geeksforgeeks-org-rabin-karp-algorithm-for-pattern",
+     "title": "https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-39-group-anagrams",
+     "title": "Group Anagrams",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/group-anagrams/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-40-word-wrap1646",
+     "title": "Word Wrap1646",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-wrap1646/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-41-basic-calculator-ii",
+     "title": "Basic Calculator Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/basic-calculator-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-42-valid-number",
+     "title": "Valid Number",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/valid-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-43-integer-to-english-words",
+     "title": "Integer To English Words",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/integer-to-english-words/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-44-minimum-window-substring",
+     "title": "Minimum Window Substring",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-window-substring/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-45-text-justification",
+     "title": "Text Justification",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/text-justification/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-46-https-www-geeksforgeeks-org-boyer-moore-algorithm-for-patter",
+     "title": "https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-47-distinct-subsequences",
+     "title": "Distinct Subsequences",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/distinct-subsequences/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  },
+  {
+   "slug": "arsh-matrix-problems-2",
+   "title": "Matrix Problems",
+   "items": [
+    {
+     "slug": "arsh-48-https-www-geeksforgeeks-org-maximum-size-rectangle-binary-su",
+     "title": "https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-49-https-www-geeksforgeeks-org-find-number-of-islands",
+     "title": "https://www.geeksforgeeks.org/find-number-of-islands/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-number-of-islands/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-50-https-www-geeksforgeeks-org-given-matrix-o-x-replace-o-x-sur",
+     "title": "https://www.geeksforgeeks.org/given-matrix-o-x-replace-o-x-surrounded-x/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-matrix-o-x-replace-o-x-surrounded-x/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-51-spiral-matrix",
+     "title": "Spiral Matrix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/spiral-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-52-rotate-image",
+     "title": "Rotate Image",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotate-image/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-mathematical-problems-3",
+   "title": "Mathematical Problems",
+   "items": [
+    {
+     "slug": "arsh-53-minimum-moves-to-equal-array-elements",
+     "title": "Minimum Moves To Equal Array Elements",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-54-add-binary",
+     "title": "Add Binary",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/add-binary/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-55-maximum-product-of-three-numbers",
+     "title": "Maximum Product Of Three Numbers",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-product-of-three-numbers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-56-excel-sheet-column-title",
+     "title": "Excel Sheet Column Title",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/excel-sheet-column-title/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-57-happy-number",
+     "title": "Happy Number",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/happy-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-58-palindrome-number",
+     "title": "Palindrome Number",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/palindrome-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-59-missing-number",
+     "title": "Missing Number",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/missing-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-60-reverse-integer",
+     "title": "Reverse Integer",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-integer/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-61-power-of-two",
+     "title": "Power Of Two",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/power-of-two/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-62-max-points-on-a-line",
+     "title": "Max Points On A Line",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/max-points-on-a-line/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-63-valid-square",
+     "title": "Valid Square",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-square/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-64-the-kth-factor-of-n",
+     "title": "The Kth Factor Of N",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/the-kth-factor-of-n/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,intuit"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-sorting-and-searching-4",
+   "title": "Sorting and Searching",
+   "items": [
+    {
+     "slug": "arsh-65-https-www-geeksforgeeks-org-permute-two-arrays-sum-every-pai",
+     "title": "https://www.geeksforgeeks.org/permute-two-arrays-sum-every-pair-greater-equal-k/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/permute-two-arrays-sum-every-pair-greater-equal-k/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-66-https-www-geeksforgeeks-org-ceiling-in-a-sorted-array",
+     "title": "https://www.geeksforgeeks.org/ceiling-in-a-sorted-array/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/ceiling-in-a-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-67-https-www-geeksforgeeks-org-find-a-pair-with-the-given-diffe",
+     "title": "https://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-68-https-www-geeksforgeeks-org-permute-two-arrays-sum-every-pai",
+     "title": "https://www.geeksforgeeks.org/permute-two-arrays-sum-every-pair-greater-equal-k/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/permute-two-arrays-sum-every-pair-greater-equal-k/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-69-https-www-geeksforgeeks-org-check-reversing-sub-array-make-a",
+     "title": "https://www.geeksforgeeks.org/check-reversing-sub-array-make-array-sorted/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/check-reversing-sub-array-make-array-sorted/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-70-https-www-geeksforgeeks-org-radix-sort",
+     "title": "https://www.geeksforgeeks.org/radix-sort/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/radix-sort/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-71-https-www-geeksforgeeks-org-a-product-array-puzzle",
+     "title": "https://www.geeksforgeeks.org/a-product-array-puzzle/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/a-product-array-puzzle/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,microsoft"
+    },
+    {
+     "slug": "arsh-72-https-www-geeksforgeeks-org-make-array-elements-equal-minimu",
+     "title": "https://www.geeksforgeeks.org/make-array-elements-equal-minimum-cost/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/make-array-elements-equal-minimum-cost/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,microsoft"
+    },
+    {
+     "slug": "arsh-73-find-peak-element",
+     "title": "Find Peak Element",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-peak-element/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-74-allocate-minimum-number-of-pages0937",
+     "title": "Allocate Minimum Number Of Pages0937",
+     "difficulty": "hard",
+     "url": "https://practice.geeksforgeeks.org/problems/allocate-minimum-number-of-pages0937/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-75-https-www-geeksforgeeks-org-minimum-number-swaps-required-so",
+     "title": "https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-76-https-www-spoj-com-problems-aggrcow",
+     "title": "https://www.spoj.com/problems/AGGRCOW/",
+     "difficulty": "hard",
+     "url": "https://www.spoj.com/problems/AGGRCOW/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-77-search-in-rotated-sorted-array",
+     "title": "Search In Rotated Sorted Array",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-78-count-of-smaller-numbers-after-self",
+     "title": "Count Of Smaller Numbers After Self",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-79-split-array-largest-sum",
+     "title": "Split Array Largest Sum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/split-array-largest-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  },
+  {
+   "slug": "arsh-linked-list-5",
+   "title": "Linked List",
+   "items": [
+    {
+     "slug": "arsh-80-middle-of-the-linked-list",
+     "title": "Middle Of The Linked List",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,microsoft"
+    },
+    {
+     "slug": "arsh-81-linked-list-cycle",
+     "title": "Linked List Cycle",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/linked-list-cycle/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-82-convert-binary-number-in-a-linked-list-to-integer",
+     "title": "Convert Binary Number In A Linked List To Integer",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-83-remove-duplicates-from-sorted-list",
+     "title": "Remove Duplicates From Sorted List",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-84-https-www-geeksforgeeks-org-sort-a-linked-list-of-0s-1s-or-2",
+     "title": "https://www.geeksforgeeks.org/sort-a-linked-list-of-0s-1s-or-2s/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/sort-a-linked-list-of-0s-1s-or-2s/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-85-remove-linked-list-elements",
+     "title": "Remove Linked List Elements",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/remove-linked-list-elements/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-86-merge-two-sorted-lists",
+     "title": "Merge Two Sorted Lists",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-87-https-www-geeksforgeeks-org-multiply-two-numbers-represented",
+     "title": "https://www.geeksforgeeks.org/multiply-two-numbers-represented-linked-lists/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/multiply-two-numbers-represented-linked-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-88-intersection-of-two-linked-lists",
+     "title": "Intersection Of Two Linked Lists",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-89-https-www-geeksforgeeks-org-given-only-a-pointer-to-a-node-t",
+     "title": "https://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-90-palindrome-linked-list",
+     "title": "Palindrome Linked List",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/palindrome-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-91-reverse-linked-list",
+     "title": "Reverse Linked List",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-92-add-two-numbers",
+     "title": "Add Two Numbers",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/add-two-numbers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-93-copy-list-with-random-pointer",
+     "title": "Copy List With Random Pointer",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-94-add-two-numbers-ii",
+     "title": "Add Two Numbers Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/add-two-numbers-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-95-reverse-linked-list-ii",
+     "title": "Reverse Linked List Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reverse-linked-list-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-96-reorder-list",
+     "title": "Reorder List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reorder-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-97-remove-nth-node-from-end-of-list",
+     "title": "Remove Nth Node From End Of List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-98-flatten-a-multilevel-doubly-linked-list",
+     "title": "Flatten A Multilevel Doubly Linked List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-99-partition-list",
+     "title": "Partition List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/partition-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-100-remove-duplicates-from-sorted-list-ii",
+     "title": "Remove Duplicates From Sorted List Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-101-https-www-geeksforgeeks-org-linked-list-in-zig-zag-fashion",
+     "title": "https://www.geeksforgeeks.org/linked-list-in-zig-zag-fashion/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/linked-list-in-zig-zag-fashion/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-102-sort-list",
+     "title": "Sort List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sort-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-103-https-www-geeksforgeeks-org-segregate-even-and-odd-elements-",
+     "title": "https://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-104-https-www-geeksforgeeks-org-rearrange-a-given-linked-list-in",
+     "title": "https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-105-merge-k-sorted-lists",
+     "title": "Merge K Sorted Lists",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-106-reverse-nodes-in-k-group",
+     "title": "Reverse Nodes In K Group",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-107-https-www-geeksforgeeks-org-merge-sort-for-linked-list",
+     "title": "https://www.geeksforgeeks.org/merge-sort-for-linked-list/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/merge-sort-for-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-108-https-www-geeksforgeeks-org-flattening-a-linked-list",
+     "title": "https://www.geeksforgeeks.org/flattening-a-linked-list/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/flattening-a-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-109-https-www-geeksforgeeks-org-subtract-two-numbers-represented",
+     "title": "https://www.geeksforgeeks.org/subtract-two-numbers-represented-as-linked-lists/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/subtract-two-numbers-represented-as-linked-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-stacks-and-queues-6",
+   "title": "Stacks and Queues",
+   "items": [
+    {
+     "slug": "arsh-110-implement-queue-using-stacks",
+     "title": "Implement Queue Using Stacks",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/implement-queue-using-stacks/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-111-backspace-string-compare",
+     "title": "Backspace String Compare",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/backspace-string-compare/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    },
+    {
+     "slug": "arsh-112-implement-stack-using-queues",
+     "title": "Implement Stack Using Queues",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/implement-stack-using-queues/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-113-https-www-geeksforgeeks-org-implement-stack-queue-using-dequ",
+     "title": "https://www.geeksforgeeks.org/implement-stack-queue-using-deque/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/implement-stack-queue-using-deque/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    },
+    {
+     "slug": "arsh-114-next-greater-element-i",
+     "title": "Next Greater Element I",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/next-greater-element-i/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman sachs"
+    },
+    {
+     "slug": "arsh-115-https-www-geeksforgeeks-org-stack-set-4-evaluation-postfix-e",
+     "title": "https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman sachs"
+    },
+    {
+     "slug": "arsh-116-https-www-geeksforgeeks-org-implement-two-stacks-in-an-array",
+     "title": "https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-117-minimum-cost-tree-from-leaf-values",
+     "title": "Minimum Cost Tree From Leaf Values",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-118-daily-temperatures",
+     "title": "Daily Temperatures",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/daily-temperatures/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-119-distance-of-nearest-cell-having-1-1587115620",
+     "title": "Distance Of Nearest Cell Having 1 1587115620",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-120-online-stock-span",
+     "title": "Online Stock Span",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/online-stock-span/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-121-rotten-oranges2536",
+     "title": "Rotten Oranges2536",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    },
+    {
+     "slug": "arsh-122-sum-of-subarray-minimums",
+     "title": "Sum Of Subarray Minimums",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sum-of-subarray-minimums/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    },
+    {
+     "slug": "arsh-123-evaluate-reverse-polish-notation",
+     "title": "Evaluate Reverse Polish Notation",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-124-circular-tour",
+     "title": "Circular Tour",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/circular-tour/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-125-remove-all-adjacent-duplicates-in-string-ii",
+     "title": "Remove All Adjacent Duplicates In String Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-126-flatten-nested-list-iterator",
+     "title": "Flatten Nested List Iterator",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/flatten-nested-list-iterator/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-127-https-www-geeksforgeeks-org-find-the-maximum-of-minimums-for",
+     "title": "https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-128-https-www-geeksforgeeks-org-lru-cache-implementation",
+     "title": "https://www.geeksforgeeks.org/lru-cache-implementation/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/lru-cache-implementation/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-129-http-geeksforgeeks-org-the-celebrity-problem",
+     "title": "http://geeksforgeeks.org/the-celebrity-problem/",
+     "difficulty": "hard",
+     "url": "http://geeksforgeeks.org/the-celebrity-problem/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  },
+  {
+   "slug": "arsh-trees-7",
+   "title": "Trees",
+   "items": [
+    {
+     "slug": "arsh-130-diameter-of-binary-tree",
+     "title": "Diameter Of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-131-invert-binary-tree",
+     "title": "Invert Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/invert-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-132-subtree-of-another-tree",
+     "title": "Subtree Of Another Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/subtree-of-another-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-133-range-sum-of-bst",
+     "title": "Range Sum Of Bst",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/range-sum-of-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-134-symmetric-tree",
+     "title": "Symmetric Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/symmetric-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-135-convert-sorted-array-to-binary-search-tree",
+     "title": "Convert Sorted Array To Binary Search Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-136-merge-two-binary-trees",
+     "title": "Merge Two Binary Trees",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/merge-two-binary-trees/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-137-maximum-depth-of-binary-tree",
+     "title": "Maximum Depth Of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-138-binary-tree-paths",
+     "title": "Binary Tree Paths",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-paths/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-139-same-tree",
+     "title": "Same Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/same-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-140-lowest-common-ancestor-of-a-binary-search-tree",
+     "title": "Lowest Common Ancestor Of A Binary Search Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-141-path-sum",
+     "title": "Path Sum",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-142-minimum-absolute-difference-in-bst",
+     "title": "Minimum Absolute Difference In Bst",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/minimum-absolute-difference-in-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-143-sum-of-left-leaves",
+     "title": "Sum Of Left Leaves",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/sum-of-left-leaves/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-144-balanced-binary-tree",
+     "title": "Balanced Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/balanced-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-145-predecessor-and-successor",
+     "title": "Predecessor And Successor",
+     "difficulty": "easy",
+     "url": "https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-146-binary-tree-inorder-traversal",
+     "title": "Binary Tree Inorder Traversal",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-147-check-whether-bst-contains-dead-end",
+     "title": "Check Whether Bst Contains Dead End",
+     "difficulty": "easy",
+     "url": "https://practice.geeksforgeeks.org/problems/check-whether-bst-contains-dead-end/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-148-binary-search-tree-iterator",
+     "title": "Binary Search Tree Iterator",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-search-tree-iterator/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-149-lowest-common-ancestor-of-a-binary-tree",
+     "title": "Lowest Common Ancestor Of A Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-150-unique-binary-search-trees-ii",
+     "title": "Unique Binary Search Trees Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/unique-binary-search-trees-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-151-all-nodes-distance-k-in-binary-tree",
+     "title": "All Nodes Distance K In Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-152-validate-binary-search-tree",
+     "title": "Validate Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-153-binary-tree-right-side-view",
+     "title": "Binary Tree Right Side View",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-right-side-view/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-154-redundant-connection",
+     "title": "Redundant Connection",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/redundant-connection/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-155-binary-tree-level-order-traversal",
+     "title": "Binary Tree Level Order Traversal",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-156-path-sum-iii",
+     "title": "Path Sum Iii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/path-sum-iii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-157-construct-binary-tree-from-preorder-and-postorder-traversal",
+     "title": "Construct Binary Tree From Preorder And Postorder Traversal",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-158-unique-binary-search-trees",
+     "title": "Unique Binary Search Trees",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/unique-binary-search-trees/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-159-recover-binary-search-tree",
+     "title": "Recover Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/recover-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-160-populating-next-right-pointers-in-each-node",
+     "title": "Populating Next Right Pointers In Each Node",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-161-flatten-binary-tree-to-linked-list",
+     "title": "Flatten Binary Tree To Linked List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-162-maximum-width-of-binary-tree",
+     "title": "Maximum Width Of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-width-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-163-min-distance-between-two-given-nodes-of-a-binary-tree",
+     "title": "Min Distance Between Two Given Nodes Of A Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/min-distance-between-two-given-nodes-of-a-binary-tree/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-164-kth-smallest-element-in-a-bst",
+     "title": "Kth Smallest Element In A Bst",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-165-binary-tree-zigzag-level-order-traversal",
+     "title": "Binary Tree Zigzag Level Order Traversal",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-166-count-bst-nodes-that-lie-in-a-given-range",
+     "title": "Count Bst Nodes That Lie In A Given Range",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-bst-nodes-that-lie-in-a-given-range/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-167-preorder-to-postorder4423",
+     "title": "Preorder To Postorder4423",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/preorder-to-postorder4423/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-168-binary-tree-to-dll",
+     "title": "Binary Tree To Dll",
+     "difficulty": "hard",
+     "url": "https://practice.geeksforgeeks.org/problems/binary-tree-to-dll/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-169-binary-tree-maximum-path-sum",
+     "title": "Binary Tree Maximum Path Sum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-170-sum-of-distances-in-tree",
+     "title": "Sum Of Distances In Tree",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sum-of-distances-in-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-171-binary-tree-cameras",
+     "title": "Binary Tree Cameras",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/binary-tree-cameras/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-172-vertical-order-traversal-of-a-binary-tree",
+     "title": "Vertical Order Traversal Of A Binary Tree",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-173-https-www-geeksforgeeks-org-print-k-sum-paths-binary-tree",
+     "title": "https://www.geeksforgeeks.org/print-k-sum-paths-binary-tree/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/print-k-sum-paths-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-174-serialize-and-deserialize-binary-tree",
+     "title": "Serialize And Deserialize Binary Tree",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-175-https-www-geeksforgeeks-org-find-median-bst-time-o1-space",
+     "title": "https://www.geeksforgeeks.org/find-median-bst-time-o1-space/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/find-median-bst-time-o1-space/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-176-https-www-geeksforgeeks-org-largest-bst-binary-tree-set-2",
+     "title": "https://www.geeksforgeeks.org/largest-bst-binary-tree-set-2/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/largest-bst-binary-tree-set-2/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-177-https-www-geeksforgeeks-org-construct-bst-from-given-preorde",
+     "title": "https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  },
+  {
+   "slug": "arsh-graphs-8",
+   "title": "GRAPHS",
+   "items": [
+    {
+     "slug": "arsh-178-bfs-traversal-of-graph",
+     "title": "Bfs Traversal Of Graph",
+     "difficulty": "easy",
+     "url": "https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-179-https-www-geeksforgeeks-org-depth-first-search-or-dfs-for-a-",
+     "title": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-180-number-of-islands",
+     "title": "Number Of Islands",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/number-of-islands/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-181-flood-fill",
+     "title": "Flood Fill",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/flood-fill/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-182-rat-in-a-maze-problem",
+     "title": "Rat In A Maze Problem",
+     "difficulty": "easy",
+     "url": "https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-183-detect-cycle-in-an-undirected-graph",
+     "title": "Detect Cycle In An Undirected Graph",
+     "difficulty": "easy",
+     "url": "https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-184-https-www-geeksforgeeks-org-detect-cycle-in-a-graph",
+     "title": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/",
+     "difficulty": "easy",
+     "url": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-185-steps-by-knight5927",
+     "title": "Steps By Knight5927",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/steps-by-knight5927/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-186-decode-string",
+     "title": "Decode String",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/decode-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-187-shortest-bridge",
+     "title": "Shortest Bridge",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/shortest-bridge/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon"
+    },
+    {
+     "slug": "arsh-188-number-of-operations-to-make-network-connected",
+     "title": "Number Of Operations To Make Network Connected",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/number-of-operations-to-make-network-connected/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-189-find-eventual-safe-states",
+     "title": "Find Eventual Safe States",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-eventual-safe-states/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-190-strongly-connected-components-kosarajus-algo",
+     "title": "Strongly Connected Components Kosarajus Algo",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-191-time-needed-to-inform-all-employees",
+     "title": "Time Needed To Inform All Employees",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/time-needed-to-inform-all-employees/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-192-https-www-geeksforgeeks-org-graph-coloring-applications-text",
+     "title": "https://www.geeksforgeeks.org/graph-coloring-applications/#:~:text=Graph%20coloring%20problem%20is%20to,are%20colored%20using%20same%20color.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/graph-coloring-applications/#:~:text=Graph%20coloring%20problem%20is%20to,are%20colored%20using%20same%20color.",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-193-most-stones-removed-with-same-row-or-column",
+     "title": "Most Stones Removed With Same Row Or Column",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-194-as-far-from-land-as-possible",
+     "title": "As Far From Land As Possible",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/as-far-from-land-as-possible/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-195-find-the-city-with-the-smallest-number-of-neighbors-at-a-thr",
+     "title": "Find The City With The Smallest Number Of Neighbors At A Threshold Distance",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-196-https-www-geeksforgeeks-org-find-whether-it-is-possible-to-f",
+     "title": "https://www.geeksforgeeks.org/find-whether-it-is-possible-to-finish-all-tasks-or-not-from-given-dependencies/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-whether-it-is-possible-to-finish-all-tasks-or-not-from-given-dependencies/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-197-https-www-geeksforgeeks-org-prims-minimum-spanning-tree-mst-",
+     "title": "https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,microsoft"
+    },
+    {
+     "slug": "arsh-198-implementing-floyd-warshall2042",
+     "title": "Implementing Floyd Warshall2042",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-199-evaluate-division",
+     "title": "Evaluate Division",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/evaluate-division/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-200-snakes-and-ladders",
+     "title": "Snakes And Ladders",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/snakes-and-ladders/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-201-topological-sort",
+     "title": "Topological Sort",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/topological-sort/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-202-cheapest-flights-within-k-stops",
+     "title": "Cheapest Flights Within K Stops",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/description/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-203-https-www-geeksforgeeks-org-detect-negative-cycle-graph-bell",
+     "title": "https://www.geeksforgeeks.org/detect-negative-cycle-graph-bellman-ford/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/detect-negative-cycle-graph-bellman-ford/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-204-https-www-geeksforgeeks-org-bipartite-graph",
+     "title": "https://www.geeksforgeeks.org/bipartite-graph/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/bipartite-graph/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-205-longest-increasing-path-in-a-matrix",
+     "title": "Longest Increasing Path In A Matrix",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-206-making-a-large-island",
+     "title": "Making A Large Island",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/making-a-large-island/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-207-remove-boxes",
+     "title": "Remove Boxes",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/remove-boxes/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-208-critical-connections-in-a-network",
+     "title": "Critical Connections In A Network",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/critical-connections-in-a-network/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-209-alien-dictionary",
+     "title": "Alien Dictionary",
+     "difficulty": "hard",
+     "url": "https://practice.geeksforgeeks.org/problems/alien-dictionary/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-210-https-www-geeksforgeeks-org-water-jug-problem-using-bfs",
+     "title": "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-211-https-www-geeksforgeeks-org-travelling-salesman-problem-set-",
+     "title": "https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-212-https-www-geeksforgeeks-org-total-number-spanning-trees-grap",
+     "title": "https://www.geeksforgeeks.org/total-number-spanning-trees-graph/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/total-number-spanning-trees-graph/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-213-word-ladder",
+     "title": "Word Ladder",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/word-ladder/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-214-https-www-geeksforgeeks-org-minimize-cash-flow-among-given-s",
+     "title": "https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  },
+  {
+   "slug": "arsh-tries-9",
+   "title": "Tries",
+   "items": [
+    {
+     "slug": "arsh-215-design-add-and-search-words-data-structure",
+     "title": "Design Add And Search Words Data Structure",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-216-https-www-geeksforgeeks-org-word-break-problem-trie-solution",
+     "title": "https://www.geeksforgeeks.org/word-break-problem-trie-solution/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/word-break-problem-trie-solution/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon"
+    },
+    {
+     "slug": "arsh-217-https-www-geeksforgeeks-org-trie-insert-and-search",
+     "title": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-218-k-anagrams-1",
+     "title": "K Anagrams 1",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/k-anagrams-1/0",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-219-palindrome-pairs",
+     "title": "Palindrome Pairs",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/palindrome-pairs/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-220-phone-directory",
+     "title": "Phone Directory",
+     "difficulty": "hard",
+     "url": "https://practice.geeksforgeeks.org/problems/phone-directory/0",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  },
+  {
+   "slug": "arsh-heaps-pqs-10",
+   "title": "Heaps / PQs",
+   "items": [
+    {
+     "slug": "arsh-221-top-k-frequent-elements",
+     "title": "Top K Frequent Elements",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-222-kth-largest-element-in-an-array",
+     "title": "Kth Largest Element In An Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-223-ugly-number-ii",
+     "title": "Ugly Number Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/ugly-number-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-224-furthest-building-you-can-reach",
+     "title": "Furthest Building You Can Reach",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/furthest-building-you-can-reach/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-225-kth-smallest-element-in-a-sorted-matrix",
+     "title": "Kth Smallest Element In A Sorted Matrix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-226-reorganize-string",
+     "title": "Reorganize String",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reorganize-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman sachs"
+    },
+    {
+     "slug": "arsh-227-find-the-most-competitive-subsequence",
+     "title": "Find The Most Competitive Subsequence",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-the-most-competitive-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-228-smallest-positive-missing-number-1587115621",
+     "title": "Smallest Positive Missing Number 1587115621",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-positive-missing-number-1587115621/1/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "arsh-229-largest-subarray-with-0-sum",
+     "title": "Largest Subarray With 0 Sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-230-k-closest-points-to-origin",
+     "title": "K Closest Points To Origin",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/k-closest-points-to-origin/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-231-minimum-number-of-refueling-stops",
+     "title": "Minimum Number Of Refueling Stops",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-number-of-refueling-stops/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-232-minimum-cost-to-hire-k-workers",
+     "title": "Minimum Cost To Hire K Workers",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,microsoft"
+    },
+    {
+     "slug": "arsh-233-swim-in-rising-water",
+     "title": "Swim In Rising Water",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/swim-in-rising-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-234-sliding-window-maximum",
+     "title": "Sliding Window Maximum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sliding-window-maximum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,goldman sachs"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-dynamic-programming-11",
+   "title": "Dynamic Programming",
+   "items": [
+    {
+     "slug": "arsh-235-climbing-stairs",
+     "title": "Climbing Stairs",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/climbing-stairs",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-236-maximum-product-subarray",
+     "title": "Maximum Product Subarray",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-product-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-237-ones-and-zeroes",
+     "title": "Ones And Zeroes",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/ones-and-zeroes/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-238-counting-bits",
+     "title": "Counting Bits",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/counting-bits/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-239-knight-dialer",
+     "title": "Knight Dialer",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/knight-dialer/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "arsh-240-cutted-segments1642",
+     "title": "Cutted Segments1642",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/cutted-segments1642/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,microsoft"
+    },
+    {
+     "slug": "arsh-241-unique-paths",
+     "title": "Unique Paths",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/unique-paths/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-242-minimum-path-sum",
+     "title": "Minimum Path Sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-243-coin-change",
+     "title": "Coin Change",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/coin-change/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-244-decode-ways",
+     "title": "Decode Ways",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/decode-ways/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman sachs"
+    },
+    {
+     "slug": "arsh-245-maximum-length-of-repeated-subarray",
+     "title": "Maximum Length Of Repeated Subarray",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-length-of-repeated-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon"
+    },
+    {
+     "slug": "arsh-246-longest-increasing-subsequence",
+     "title": "Longest Increasing Subsequence",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,microsoft"
+    },
+    {
+     "slug": "arsh-247-longest-common-substring1452",
+     "title": "Longest Common Substring1452",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-common-substring1452/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-248-count-square-submatrices-with-all-ones",
+     "title": "Count Square Submatrices With All Ones",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-square-submatrices-with-all-ones/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-249-maximal-square",
+     "title": "Maximal Square",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximal-square/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-250-mobile-numeric-keypad5456",
+     "title": "Mobile Numeric Keypad5456",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/mobile-numeric-keypad5456/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-251-https-www-geeksforgeeks-org-weighted-job-scheduling",
+     "title": "https://www.geeksforgeeks.org/weighted-job-scheduling/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/weighted-job-scheduling/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-252-delete-and-earn",
+     "title": "Delete And Earn",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-and-earn/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-253-range-sum-query-2d-immutable",
+     "title": "Range Sum Query 2d Immutable",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/range-sum-query-2d-immutable/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon"
+    },
+    {
+     "slug": "arsh-254-https-www-geeksforgeeks-org-optimal-binary-search-tree-dp-24",
+     "title": "https://www.geeksforgeeks.org/optimal-binary-search-tree-dp-24/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/optimal-binary-search-tree-dp-24/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman sachs"
+    },
+    {
+     "slug": "arsh-255-frog-jump",
+     "title": "Frog Jump",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/frog-jump/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-256-best-time-to-buy-and-sell-stock-iv",
+     "title": "Best Time To Buy And Sell Stock Iv",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-257-minimum-insertion-steps-to-make-a-string-palindrome",
+     "title": "Minimum Insertion Steps To Make A String Palindrome",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-258-https-www-geeksforgeeks-org-largest-area-rectangular-sub-mat",
+     "title": "https://www.geeksforgeeks.org/largest-area-rectangular-sub-matrix-equal-number-1s-0s/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/largest-area-rectangular-sub-matrix-equal-number-1s-0s/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman sachs"
+    },
+    {
+     "slug": "arsh-259-trapping-rain-water",
+     "title": "Trapping Rain Water",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/trapping-rain-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-260-minimum-cost-to-merge-stones",
+     "title": "Minimum Cost To Merge Stones",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-cost-to-merge-stones/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,microsoft"
+    },
+    {
+     "slug": "arsh-261-count-different-palindromic-subsequences",
+     "title": "Count Different Palindromic Subsequences",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/count-different-palindromic-subsequences/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-262-maximal-rectangle",
+     "title": "Maximal Rectangle",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/maximal-rectangle/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    },
+    {
+     "slug": "arsh-263-burst-balloons",
+     "title": "Burst Balloons",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/burst-balloons/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-264-super-egg-drop",
+     "title": "Super Egg Drop",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/super-egg-drop/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-two-pointer-approach-12",
+   "title": "Two Pointer Approach",
+   "items": [
+    {
+     "slug": "arsh-265-sort-colors",
+     "title": "Sort Colors",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sort-colors/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-266-longest-repeating-character-replacement",
+     "title": "Longest Repeating Character Replacement",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-267-maximum-number-of-visible-points",
+     "title": "Maximum Number Of Visible Points",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-number-of-visible-points/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-greedy-algorithms-13",
+   "title": "Greedy Algorithms",
+   "items": [
+    {
+     "slug": "arsh-268-gas-station",
+     "title": "Gas Station",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/gas-station/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-269-https-www-geeksforgeeks-org-minimum-cost-for-acquiring-all-c",
+     "title": "https://www.geeksforgeeks.org/minimum-cost-for-acquiring-all-coins-with-k-extra-coins-allowed-with-every-coin/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-cost-for-acquiring-all-coins-with-k-extra-coins-allowed-with-every-coin/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,microsoft"
+    },
+    {
+     "slug": "arsh-270-restore-the-array-from-adjacent-pairs",
+     "title": "Restore The Array From Adjacent Pairs",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-271-task-scheduler",
+     "title": "Task Scheduler",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/task-scheduler/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-272-minimum-deletions-to-make-character-frequencies-unique",
+     "title": "Minimum Deletions To Make Character Frequencies Unique",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs"
+    },
+    {
+     "slug": "arsh-273-remove-k-digits",
+     "title": "Remove K Digits",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-k-digits/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "arsh-274-https-www-spoj-com-problems-chocola",
+     "title": "https://www.spoj.com/problems/CHOCOLA/",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/CHOCOLA/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-275-non-overlapping-intervals",
+     "title": "Non Overlapping Intervals",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/non-overlapping-intervals/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-276-minimum-deletion-cost-to-avoid-repeating-letters",
+     "title": "Minimum Deletion Cost To Avoid Repeating Letters",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-deletion-cost-to-avoid-repeating-letters/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-277-https-www-geeksforgeeks-org-minimum-sum-two-numbers-formed-d",
+     "title": "https://www.geeksforgeeks.org/minimum-sum-two-numbers-formed-digits-array-2/",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-sum-two-numbers-formed-digits-array-2/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,intuit,microsoft"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-backtracking-14",
+   "title": "Backtracking",
+   "items": [
+    {
+     "slug": "arsh-278-combination-sum-ii",
+     "title": "Combination Sum Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combination-sum-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-279-subset-sum-problem2014",
+     "title": "Subset Sum Problem2014",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman sachs"
+    },
+    {
+     "slug": "arsh-280-combinations",
+     "title": "Combinations",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combinations/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-281-subsets-ii",
+     "title": "Subsets Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subsets-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-282-m-coloring-problem-1587115620",
+     "title": "M Coloring Problem 1587115620",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-283-beautiful-arrangement",
+     "title": "Beautiful Arrangement",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/beautiful-arrangement/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-284-palindrome-partitioning",
+     "title": "Palindrome Partitioning",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/palindrome-partitioning/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-285-permutations-ii",
+     "title": "Permutations Ii",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/permutations-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "arsh-286-word-search-ii",
+     "title": "Word Search Ii",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/word-search-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-287-sudoku-solver",
+     "title": "Sudoku Solver",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sudoku-solver/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman sachs"
+    },
+    {
+     "slug": "arsh-288-n-queens",
+     "title": "N Queens",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/n-queens/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "arsh-289-unique-paths-iii",
+     "title": "Unique Paths Iii",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/unique-paths-iii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "arsh-290-https-www-geeksforgeeks-org-find-maximum-number-possible-by-",
+     "title": "https://www.geeksforgeeks.org/find-maximum-number-possible-by-doing-at-most-k-swaps/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/find-maximum-number-possible-by-doing-at-most-k-swaps/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-291-https-www-geeksforgeeks-org-partition-set-k-subsets-equal-su",
+     "title": "https://www.geeksforgeeks.org/partition-set-k-subsets-equal-sum/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/partition-set-k-subsets-equal-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-292-https-www-geeksforgeeks-org-tug-of-war",
+     "title": "https://www.geeksforgeeks.org/tug-of-war/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/tug-of-war/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "arsh-293-https-www-geeksforgeeks-org-find-paths-from-corner-cell-to-m",
+     "title": "https://www.geeksforgeeks.org/find-paths-from-corner-cell-to-middle-cell-in-maze/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/find-paths-from-corner-cell-to-middle-cell-in-maze/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman sachs,microsoft"
+    },
+    {
+     "slug": "arsh-294-https-www-geeksforgeeks-org-solving-cryptarithmetic-puzzles-",
+     "title": "https://www.geeksforgeeks.org/solving-cryptarithmetic-puzzles-backtracking-8/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/solving-cryptarithmetic-puzzles-backtracking-8/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-295-https-www-geeksforgeeks-org-print-palindromic-partitions-str",
+     "title": "https://www.geeksforgeeks.org/print-palindromic-partitions-string/",
+     "difficulty": "hard",
+     "url": "https://www.geeksforgeeks.org/print-palindromic-partitions-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    }
+   ]
+  },
+  {
+   "slug": "arsh-segment-tree-15",
+   "title": "Segment Tree",
+   "items": [
+    {
+     "slug": "arsh-296-range-sum-query-immutable",
+     "title": "Range Sum Query Immutable",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/range-sum-query-immutable/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-297-range-sum-query-mutable",
+     "title": "Range Sum Query Mutable",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/range-sum-query-mutable/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "arsh-298-count-of-smaller-numbers-after-self",
+     "title": "Count Of Smaller Numbers After Self",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon"
+    },
+    {
+     "slug": "arsh-299-count-of-range-sum",
+     "title": "Count Of Range Sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-of-range-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    }
+   ]
+  }
+ ]
+}

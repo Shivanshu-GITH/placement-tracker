@@ -1,0 +1,1458 @@
+{
+ "slug": "core-cs",
+ "title": "CS Core Subjects",
+ "category": "core",
+ "description": "Complete interview & campus-exam theory: OS, DBMS, CN, OOP, COA plus hands-on SQL.",
+ "source": "Curated syllabus",
+ "topics": [
+  {
+   "slug": "core-operating-systems",
+   "title": "Operating Systems",
+   "items": [
+    {
+     "slug": "core-0-introduction-types-of-os",
+     "title": "Introduction & Types of OS",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Introduction%20%26%20Types%20of%20OS%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-1-process-vs-program-vs-thread",
+     "title": "Process vs Program vs Thread",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Process%20vs%20Program%20vs%20Thread%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-2-process-states-pcb",
+     "title": "Process states & PCB",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Process%20states%20%26%20PCB%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-3-process-scheduling-context-switching",
+     "title": "Process scheduling & context switching",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Process%20scheduling%20%26%20context%20switching%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-4-fcfs-scheduling",
+     "title": "FCFS Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=FCFS%20Scheduling%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-5-sjf-srtf-scheduling",
+     "title": "SJF & SRTF Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SJF%20%26%20SRTF%20Scheduling%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-6-priority-scheduling",
+     "title": "Priority Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Priority%20Scheduling%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-7-round-robin-scheduling",
+     "title": "Round Robin Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Round%20Robin%20Scheduling%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-8-multilevel-queue-scheduling",
+     "title": "Multilevel Queue Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Multilevel%20Queue%20Scheduling%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-9-inter-process-communication-ipc",
+     "title": "Inter-Process Communication (IPC)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Inter-Process%20Communication%20%28IPC%29%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-10-threads-multithreading",
+     "title": "Threads & Multithreading",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Threads%20%26%20Multithreading%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-11-user-vs-kernel-threads",
+     "title": "User vs Kernel threads",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=User%20vs%20Kernel%20threads%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-12-critical-section-problem-race-conditions",
+     "title": "Critical Section Problem & Race Conditions",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Critical%20Section%20Problem%20%26%20Race%20Conditions%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-13-peterson-s-solution",
+     "title": "Peterson's Solution",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Peterson%27s%20Solution%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-14-semaphores-binary-counting",
+     "title": "Semaphores (Binary & Counting)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Semaphores%20%28Binary%20%26%20Counting%29%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-15-mutex-vs-semaphore",
+     "title": "Mutex vs Semaphore",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mutex%20vs%20Semaphore%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-16-monitors",
+     "title": "Monitors",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Monitors%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-17-producer-consumer-problem",
+     "title": "Producer-Consumer Problem",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Producer-Consumer%20Problem%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-18-readers-writers-problem",
+     "title": "Readers-Writers Problem",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Readers-Writers%20Problem%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-19-dining-philosophers-problem",
+     "title": "Dining Philosophers Problem",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Dining%20Philosophers%20Problem%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-20-deadlock-coffman-conditions",
+     "title": "Deadlock & Coffman Conditions",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Deadlock%20%26%20Coffman%20Conditions%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-21-deadlock-prevention",
+     "title": "Deadlock Prevention",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Deadlock%20Prevention%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-22-deadlock-avoidance-banker-s-algorithm",
+     "title": "Deadlock Avoidance (Banker's Algorithm)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Deadlock%20Avoidance%20%28Banker%27s%20Algorithm%29%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-23-deadlock-detection-recovery",
+     "title": "Deadlock Detection & Recovery",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Deadlock%20Detection%20%26%20Recovery%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-24-contiguous-memory-allocation",
+     "title": "Contiguous Memory Allocation",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Contiguous%20Memory%20Allocation%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-25-internal-vs-external-fragmentation",
+     "title": "Internal vs External Fragmentation",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Internal%20vs%20External%20Fragmentation%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-26-paging",
+     "title": "Paging",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Paging%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-27-segmentation",
+     "title": "Segmentation",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Segmentation%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-28-virtual-memory-demand-paging",
+     "title": "Virtual Memory & Demand Paging",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Virtual%20Memory%20%26%20Demand%20Paging%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-29-page-faults-tlb",
+     "title": "Page Faults & TLB",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Page%20Faults%20%26%20TLB%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-30-fifo-page-replacement",
+     "title": "FIFO Page Replacement",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=FIFO%20Page%20Replacement%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-31-lru-page-replacement",
+     "title": "LRU Page Replacement",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=LRU%20Page%20Replacement%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-32-optimal-page-replacement",
+     "title": "Optimal Page Replacement",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Optimal%20Page%20Replacement%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-33-belady-s-anomaly",
+     "title": "Belady's Anomaly",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Belady%27s%20Anomaly%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-34-thrashing",
+     "title": "Thrashing",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Thrashing%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-35-disk-scheduling-fcfs-sstf-scan-c-scan-look",
+     "title": "Disk Scheduling (FCFS/SSTF/SCAN/C-SCAN/LOOK)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Disk%20Scheduling%20%28FCFS/SSTF/SCAN/C-SCAN/LOOK%29%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-36-file-systems-allocation-methods",
+     "title": "File Systems & Allocation methods",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=File%20Systems%20%26%20Allocation%20methods%20operating%20system%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms",
+   "title": "DBMS",
+   "items": [
+    {
+     "slug": "core-37-dbms-vs-file-system",
+     "title": "DBMS vs File System",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DBMS%20vs%20File%20System%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-38-dbms-architecture-3-schema",
+     "title": "DBMS Architecture (3-schema)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DBMS%20Architecture%20%283-schema%29%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-39-er-model-er-diagrams",
+     "title": "ER Model & ER Diagrams",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ER%20Model%20%26%20ER%20Diagrams%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-40-extended-er-features",
+     "title": "Extended ER Features",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Extended%20ER%20Features%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-41-relational-model-relational-algebra",
+     "title": "Relational Model & Relational Algebra",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Relational%20Model%20%26%20Relational%20Algebra%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-42-keys-primary-candidate-foreign-super",
+     "title": "Keys (Primary/Candidate/Foreign/Super)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Keys%20%28Primary/Candidate/Foreign/Super%29%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-43-integrity-constraints",
+     "title": "Integrity Constraints",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Integrity%20Constraints%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-44-sql-ddl-dml-dcl-tcl",
+     "title": "SQL: DDL, DML, DCL, TCL",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SQL%3A%20DDL%2C%20DML%2C%20DCL%2C%20TCL%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-45-sql-select-where-order-by",
+     "title": "SQL SELECT, WHERE, ORDER BY",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SQL%20SELECT%2C%20WHERE%2C%20ORDER%20BY%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-46-joins-inner-outer-self-cross",
+     "title": "Joins (Inner/Outer/Self/Cross)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Joins%20%28Inner/Outer/Self/Cross%29%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-47-aggregate-functions-group-by-having",
+     "title": "Aggregate Functions & GROUP BY / HAVING",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Aggregate%20Functions%20%26%20GROUP%20BY%20/%20HAVING%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-48-subqueries-nested-queries",
+     "title": "Subqueries & Nested Queries",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Subqueries%20%26%20Nested%20Queries%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-49-set-operations-union-intersect-except",
+     "title": "Set Operations (UNION/INTERSECT/EXCEPT)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Set%20Operations%20%28UNION/INTERSECT/EXCEPT%29%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-50-views",
+     "title": "Views",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Views%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-51-functional-dependencies",
+     "title": "Functional Dependencies",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Functional%20Dependencies%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-52-closure-attribute-sets",
+     "title": "Closure & Attribute sets",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Closure%20%26%20Attribute%20sets%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-53-normalization-1nf",
+     "title": "Normalization: 1NF",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Normalization%3A%201NF%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-54-normalization-2nf",
+     "title": "Normalization: 2NF",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Normalization%3A%202NF%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-55-normalization-3nf",
+     "title": "Normalization: 3NF",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Normalization%3A%203NF%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-56-bcnf",
+     "title": "BCNF",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=BCNF%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-57-4nf-5nf",
+     "title": "4NF & 5NF",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=4NF%20%26%205NF%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-58-denormalization",
+     "title": "Denormalization",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Denormalization%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-59-transactions-acid-properties",
+     "title": "Transactions & ACID Properties",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Transactions%20%26%20ACID%20Properties%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-60-transaction-states-schedules",
+     "title": "Transaction states & Schedules",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Transaction%20states%20%26%20Schedules%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-61-serializability-conflict-view",
+     "title": "Serializability (Conflict & View)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Serializability%20%28Conflict%20%26%20View%29%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-62-concurrency-control-locks-2pl",
+     "title": "Concurrency Control: Locks & 2PL",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Concurrency%20Control%3A%20Locks%20%26%202PL%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-63-timestamp-ordering-protocol",
+     "title": "Timestamp Ordering Protocol",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Timestamp%20Ordering%20Protocol%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-64-deadlock-in-dbms",
+     "title": "Deadlock in DBMS",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Deadlock%20in%20DBMS%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-65-indexing-primary-secondary-clustered",
+     "title": "Indexing (Primary/Secondary/Clustered)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Indexing%20%28Primary/Secondary/Clustered%29%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-66-b-trees-b-trees",
+     "title": "B Trees & B+ Trees",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=B%20Trees%20%26%20B%2B%20Trees%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-67-hashing-static-dynamic",
+     "title": "Hashing (Static & Dynamic)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Hashing%20%28Static%20%26%20Dynamic%29%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-68-query-processing-optimization",
+     "title": "Query Processing & Optimization",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Query%20Processing%20%26%20Optimization%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-69-triggers-stored-procedures",
+     "title": "Triggers & Stored Procedures",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Triggers%20%26%20Stored%20Procedures%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-70-database-recovery-logging",
+     "title": "Database Recovery & Logging",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Database%20Recovery%20%26%20Logging%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-71-sql-vs-nosql",
+     "title": "SQL vs NoSQL",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SQL%20vs%20NoSQL%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-72-types-of-nosql-databases",
+     "title": "Types of NoSQL databases",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Types%20of%20NoSQL%20databases%20dbms%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-computer-networks",
+   "title": "Computer Networks",
+   "items": [
+    {
+     "slug": "core-73-introduction-network-types-lan-wan",
+     "title": "Introduction & Network Types (LAN/WAN)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Introduction%20%26%20Network%20Types%20%28LAN/WAN%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-74-osi-model-7-layers",
+     "title": "OSI Model (7 Layers)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=OSI%20Model%20%287%20Layers%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-75-tcp-ip-model",
+     "title": "TCP/IP Model",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCP/IP%20Model%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-76-transmission-media-guided-unguided",
+     "title": "Transmission Media (Guided/Unguided)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Transmission%20Media%20%28Guided/Unguided%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-77-network-topologies",
+     "title": "Network Topologies",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Network%20Topologies%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-78-circuit-vs-packet-switching",
+     "title": "Circuit vs Packet Switching",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Circuit%20vs%20Packet%20Switching%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-79-physical-layer-encoding",
+     "title": "Physical Layer & Encoding",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Physical%20Layer%20%26%20Encoding%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-80-data-link-layer-framing",
+     "title": "Data Link Layer & Framing",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Data%20Link%20Layer%20%26%20Framing%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-81-error-detection-parity-checksum-crc",
+     "title": "Error Detection (Parity/Checksum/CRC)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Error%20Detection%20%28Parity/Checksum/CRC%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-82-error-correction-hamming-code",
+     "title": "Error Correction (Hamming Code)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Error%20Correction%20%28Hamming%20Code%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-83-flow-control-stop-and-wait",
+     "title": "Flow Control: Stop-and-Wait",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Flow%20Control%3A%20Stop-and-Wait%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-84-sliding-window-go-back-n-sr",
+     "title": "Sliding Window (Go-Back-N/SR)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sliding%20Window%20%28Go-Back-N/SR%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-85-mac-protocols-aloha",
+     "title": "MAC Protocols: ALOHA",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=MAC%20Protocols%3A%20ALOHA%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-86-csma-cd-csma-ca",
+     "title": "CSMA/CD & CSMA/CA",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CSMA/CD%20%26%20CSMA/CA%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-87-ethernet-switches-vs-hubs-vs-routers",
+     "title": "Ethernet & Switches vs Hubs vs Routers",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Ethernet%20%26%20Switches%20vs%20Hubs%20vs%20Routers%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-88-ipv4-addressing-classes",
+     "title": "IPv4 Addressing & Classes",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=IPv4%20Addressing%20%26%20Classes%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-89-subnetting-supernetting",
+     "title": "Subnetting & Supernetting",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Subnetting%20%26%20Supernetting%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-90-cidr-vlsm",
+     "title": "CIDR & VLSM",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CIDR%20%26%20VLSM%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-91-ipv6",
+     "title": "IPv6",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=IPv6%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-92-arp-rarp-icmp",
+     "title": "ARP, RARP, ICMP",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ARP%2C%20RARP%2C%20ICMP%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-93-routing-distance-vector",
+     "title": "Routing: Distance Vector",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Routing%3A%20Distance%20Vector%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-94-routing-link-state-dijkstra-ospf",
+     "title": "Routing: Link State (Dijkstra/OSPF)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Routing%3A%20Link%20State%20%28Dijkstra/OSPF%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-95-nat-dhcp",
+     "title": "NAT & DHCP",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=NAT%20%26%20DHCP%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-96-transport-layer-tcp-vs-udp",
+     "title": "Transport Layer: TCP vs UDP",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Transport%20Layer%3A%20TCP%20vs%20UDP%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-97-tcp-3-way-handshake-connection-termination",
+     "title": "TCP 3-Way Handshake & Connection Termination",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCP%203-Way%20Handshake%20%26%20Connection%20Termination%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-98-tcp-flow-control-congestion-control",
+     "title": "TCP Flow Control & Congestion Control",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCP%20Flow%20Control%20%26%20Congestion%20Control%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-99-ports-sockets",
+     "title": "Ports & Sockets",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Ports%20%26%20Sockets%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-100-dns-dns-resolution",
+     "title": "DNS & DNS Resolution",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DNS%20%26%20DNS%20Resolution%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-101-http-https-methods-status-codes",
+     "title": "HTTP/HTTPS & Methods & Status Codes",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=HTTP/HTTPS%20%26%20Methods%20%26%20Status%20Codes%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-102-ssl-tls-handshake",
+     "title": "SSL/TLS & Handshake",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SSL/TLS%20%26%20Handshake%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-103-cookies-sessions-caching",
+     "title": "Cookies, Sessions & Caching",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cookies%2C%20Sessions%20%26%20Caching%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-104-firewalls-vpn",
+     "title": "Firewalls & VPN",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Firewalls%20%26%20VPN%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-105-web-how-a-url-loads-end-to-end",
+     "title": "Web: How a URL loads (end-to-end)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Web%3A%20How%20a%20URL%20loads%20%28end-to-end%29%20computer%20networks%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-object-oriented-programming",
+   "title": "Object-Oriented Programming",
+   "items": [
+    {
+     "slug": "core-106-class-object",
+     "title": "Class & Object",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Class%20%26%20Object%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-107-encapsulation",
+     "title": "Encapsulation",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Encapsulation%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-108-abstraction",
+     "title": "Abstraction",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Abstraction%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-109-inheritance",
+     "title": "Inheritance",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Inheritance%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-110-polymorphism",
+     "title": "Polymorphism",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Polymorphism%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-111-types-of-inheritance",
+     "title": "Types of Inheritance",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Types%20of%20Inheritance%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-112-compile-time-vs-run-time-polymorphism",
+     "title": "Compile-time vs Run-time Polymorphism",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Compile-time%20vs%20Run-time%20Polymorphism%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-113-method-overloading",
+     "title": "Method Overloading",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Method%20Overloading%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-114-method-overriding",
+     "title": "Method Overriding",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Method%20Overriding%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-115-static-vs-dynamic-binding",
+     "title": "Static vs Dynamic Binding",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Static%20vs%20Dynamic%20Binding%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-116-abstract-class-vs-interface",
+     "title": "Abstract Class vs Interface",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Abstract%20Class%20vs%20Interface%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-117-access-modifiers",
+     "title": "Access Modifiers",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Access%20Modifiers%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-118-constructors-destructors",
+     "title": "Constructors & Destructors",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Constructors%20%26%20Destructors%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-119-copy-constructor",
+     "title": "Copy Constructor",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Copy%20Constructor%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-120-shallow-vs-deep-copy",
+     "title": "Shallow vs Deep Copy",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Shallow%20vs%20Deep%20Copy%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-121-this-self-reference",
+     "title": "'this' / 'self' reference",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=%27this%27%20/%20%27self%27%20reference%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-122-virtual-functions-vtable",
+     "title": "Virtual Functions & VTable",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Virtual%20Functions%20%26%20VTable%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-123-friend-function-friend-class",
+     "title": "Friend Function & Friend Class",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Friend%20Function%20%26%20Friend%20Class%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-124-operator-overloading",
+     "title": "Operator Overloading",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Operator%20Overloading%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-125-diamond-problem",
+     "title": "Diamond Problem",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Diamond%20Problem%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-126-composition-vs-inheritance",
+     "title": "Composition vs Inheritance",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Composition%20vs%20Inheritance%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-127-association-aggregation-composition",
+     "title": "Association, Aggregation & Composition",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Association%2C%20Aggregation%20%26%20Composition%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-128-exception-handling",
+     "title": "Exception Handling",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Exception%20Handling%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-129-generics-templates",
+     "title": "Generics / Templates",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Generics%20/%20Templates%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-130-solid-principles",
+     "title": "SOLID Principles",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SOLID%20Principles%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-131-design-patterns-overview",
+     "title": "Design Patterns overview",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Patterns%20overview%20oops%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-computer-organization-coa",
+   "title": "Computer Organization (COA)",
+   "items": [
+    {
+     "slug": "core-132-number-systems-data-representation",
+     "title": "Number Systems & Data Representation",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Number%20Systems%20%26%20Data%20Representation%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-133-fixed-floating-point-ieee-754",
+     "title": "Fixed & Floating Point (IEEE 754)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Fixed%20%26%20Floating%20Point%20%28IEEE%20754%29%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-134-boolean-algebra-logic-gates",
+     "title": "Boolean Algebra & Logic Gates",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Boolean%20Algebra%20%26%20Logic%20Gates%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-135-combinational-circuits-mux-decoder-adder",
+     "title": "Combinational Circuits (Mux/Decoder/Adder)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Combinational%20Circuits%20%28Mux/Decoder/Adder%29%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-136-sequential-circuits-flip-flops",
+     "title": "Sequential Circuits (Flip-Flops)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sequential%20Circuits%20%28Flip-Flops%29%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-137-cpu-organization-registers",
+     "title": "CPU Organization & Registers",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CPU%20Organization%20%26%20Registers%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-138-instruction-cycle-formats",
+     "title": "Instruction Cycle & Formats",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Instruction%20Cycle%20%26%20Formats%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-139-addressing-modes",
+     "title": "Addressing Modes",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Addressing%20Modes%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-140-data-path-control-unit-hardwired-vs-microprogrammed",
+     "title": "Data Path & Control Unit (Hardwired vs Microprogrammed)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Data%20Path%20%26%20Control%20Unit%20%28Hardwired%20vs%20Microprogrammed%29%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-141-pipelining-hazards",
+     "title": "Pipelining & Hazards",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Pipelining%20%26%20Hazards%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-142-cache-memory-mapping",
+     "title": "Cache Memory & Mapping",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cache%20Memory%20%26%20Mapping%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-143-memory-hierarchy",
+     "title": "Memory Hierarchy",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Memory%20Hierarchy%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-144-i-o-interrupts-dma",
+     "title": "I/O & Interrupts & DMA",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=I/O%20%26%20Interrupts%20%26%20DMA%20computer%20organization%20architecture%20gate",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-sql-practice-hands-on",
+   "title": "SQL Practice (hands-on)",
+   "items": [
+    {
+     "slug": "core-145-combine-two-tables",
+     "title": "Combine Two Tables",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/combine-two-tables/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-146-second-highest-salary",
+     "title": "Second Highest Salary",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/second-highest-salary/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-147-nth-highest-salary",
+     "title": "Nth Highest Salary",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/nth-highest-salary/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-148-rank-scores",
+     "title": "Rank Scores",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rank-scores/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-149-consecutive-numbers",
+     "title": "Consecutive Numbers",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/consecutive-numbers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-150-employees-earning-more-than-their-managers",
+     "title": "Employees Earning More Than Their Managers",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-151-duplicate-emails",
+     "title": "Duplicate Emails",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/duplicate-emails/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-152-customers-who-never-order",
+     "title": "Customers Who Never Order",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/customers-who-never-order/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-153-department-highest-salary",
+     "title": "Department Highest Salary",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/department-highest-salary/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-154-rising-temperature",
+     "title": "Rising Temperature",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/rising-temperature/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-155-trips-and-users",
+     "title": "Trips and Users",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/trips-and-users/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    },
+    {
+     "slug": "core-156-human-traffic-of-stadium",
+     "title": "Human Traffic of Stadium",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/human-traffic-of-stadium/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "core"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,906 @@
+{
+ "slug": "core-os",
+ "title": "Operating Systems",
+ "category": "core",
+ "description": "Complete Operating Systems for interviews & campus exams — every topic broken into its sub-concepts.",
+ "source": "Curated (UNNATI granular syllabus)",
+ "tree": [
+  {
+   "slug": "core-os-n0",
+   "title": "Fundamentals",
+   "children": [
+    {
+     "slug": "core-os-n1",
+     "title": "What an OS actually does",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=What%20an%20OS%20actually%20does%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-0-what-an-os-actually-does",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n2",
+     "title": "Kernel vs user mode",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Kernel%20vs%20user%20mode%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-1-kernel-vs-user-mode",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n3",
+     "title": "System calls and traps",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=System%20calls%20and%20traps%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-2-system-calls-and-traps",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n4",
+     "title": "Monolithic vs microkernel vs hybrid",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Monolithic%20vs%20microkernel%20vs%20hybrid%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-3-monolithic-vs-microkernel-vs-hybrid",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n5",
+     "title": "Types: batch, time-sharing, RTOS, distributed",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Types%3A%20batch%2C%20time-sharing%2C%20RTOS%2C%20distributed%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-4-types-batch-time-sharing-rtos-distributed",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n6",
+   "title": "Processes",
+   "children": [
+    {
+     "slug": "core-os-n7",
+     "title": "Program vs process vs thread",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Program%20vs%20process%20vs%20thread%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-5-program-vs-process-vs-thread",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n8",
+     "title": "Process states and transitions",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Process%20states%20and%20transitions%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-6-process-states-and-transitions",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n9",
+     "title": "PCB contents",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=PCB%20contents%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-7-pcb-contents",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n10",
+     "title": "Context switching and its cost",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Context%20switching%20and%20its%20cost%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-8-context-switching-and-its-cost",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n11",
+     "title": "fork(), exec(), wait(), zombie and orphan processes",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=fork%28%29%2C%20exec%28%29%2C%20wait%28%29%2C%20zombie%20and%20orphan%20processes%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-9-fork-exec-wait-zombie-and-orphan-processes",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n12",
+   "title": "Threads",
+   "children": [
+    {
+     "slug": "core-os-n13",
+     "title": "User-level vs kernel-level threads",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=User-level%20vs%20kernel-level%20threads%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-10-user-level-vs-kernel-level-threads",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n14",
+     "title": "Many-to-one, one-to-one, many-to-many models",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Many-to-one%2C%20one-to-one%2C%20many-to-many%20models%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-11-many-to-one-one-to-one-many-to-many-models",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n15",
+     "title": "Thread pools",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Thread%20pools%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-12-thread-pools",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n16",
+     "title": "Concurrency vs parallelism",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Concurrency%20vs%20parallelism%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-13-concurrency-vs-parallelism",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n17",
+     "title": "Thread-safety and reentrancy",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Thread-safety%20and%20reentrancy%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-14-thread-safety-and-reentrancy",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n18",
+   "title": "CPU Scheduling",
+   "children": [
+    {
+     "slug": "core-os-n19",
+     "title": "Scheduling criteria: throughput, turnaround, waiting, response",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Scheduling%20criteria%3A%20throughput%2C%20turnaround%2C%20waiting%2C%20response%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-15-scheduling-criteria-throughput-turnaround-waiting-response",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n20",
+     "title": "FCFS + convoy effect",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=FCFS%20%2B%20convoy%20effect%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-16-fcfs-convoy-effect",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n21",
+     "title": "SJF and SRTF",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SJF%20and%20SRTF%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-17-sjf-and-srtf",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n22",
+     "title": "Priority scheduling and starvation/aging",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Priority%20scheduling%20and%20starvation/aging%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-18-priority-scheduling-and-starvation-aging",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n23",
+     "title": "Round Robin and quantum choice",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Round%20Robin%20and%20quantum%20choice%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-19-round-robin-and-quantum-choice",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n24",
+     "title": "Multilevel queue and feedback queue",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Multilevel%20queue%20and%20feedback%20queue%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-20-multilevel-queue-and-feedback-queue",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n25",
+     "title": "Gantt chart numericals",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Gantt%20chart%20numericals%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-21-gantt-chart-numericals",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n26",
+   "title": "Synchronisation",
+   "children": [
+    {
+     "slug": "core-os-n27",
+     "title": "Race conditions",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Race%20conditions%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-22-race-conditions",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n28",
+     "title": "Critical section requirements",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Critical%20section%20requirements%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-23-critical-section-requirements",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n29",
+     "title": "Peterson’s solution",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Peterson%E2%80%99s%20solution%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-24-peterson-s-solution",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n30",
+     "title": "Hardware support: test-and-set, compare-and-swap",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Hardware%20support%3A%20test-and-set%2C%20compare-and-swap%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-25-hardware-support-test-and-set-compare-and-swap",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n31",
+     "title": "Mutex vs binary semaphore vs counting semaphore",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mutex%20vs%20binary%20semaphore%20vs%20counting%20semaphore%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-26-mutex-vs-binary-semaphore-vs-counting-semaphore",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n32",
+     "title": "Monitors and condition variables",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Monitors%20and%20condition%20variables%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-27-monitors-and-condition-variables",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n33",
+     "title": "Producer–consumer",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Producer%E2%80%93consumer%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-28-producer-consumer",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n34",
+     "title": "Readers–writers",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Readers%E2%80%93writers%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-29-readers-writers",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n35",
+     "title": "Dining philosophers",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Dining%20philosophers%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-30-dining-philosophers",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n36",
+     "title": "Busy waiting vs blocking",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Busy%20waiting%20vs%20blocking%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-31-busy-waiting-vs-blocking",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n37",
+   "title": "Deadlock",
+   "children": [
+    {
+     "slug": "core-os-n38",
+     "title": "Four necessary conditions",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Four%20necessary%20conditions%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-32-four-necessary-conditions",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n39",
+     "title": "Resource allocation graph",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Resource%20allocation%20graph%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-33-resource-allocation-graph",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n40",
+     "title": "Prevention: attacking each condition",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Prevention%3A%20attacking%20each%20condition%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-34-prevention-attacking-each-condition",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n41",
+     "title": "Avoidance and safe states",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Avoidance%20and%20safe%20states%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-35-avoidance-and-safe-states",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n42",
+     "title": "Banker’s algorithm (work it by hand)",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Banker%E2%80%99s%20algorithm%20%28work%20it%20by%20hand%29%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-36-banker-s-algorithm-work-it-by-hand",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n43",
+     "title": "Detection and recovery",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Detection%20and%20recovery%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-37-detection-and-recovery",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n44",
+     "title": "Starvation vs deadlock vs livelock",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Starvation%20vs%20deadlock%20vs%20livelock%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-38-starvation-vs-deadlock-vs-livelock",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n45",
+   "title": "Memory Management",
+   "children": [
+    {
+     "slug": "core-os-n46",
+     "title": "Address binding, logical vs physical",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Address%20binding%2C%20logical%20vs%20physical%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-39-address-binding-logical-vs-physical",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n47",
+     "title": "Contiguous allocation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Contiguous%20allocation%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-40-contiguous-allocation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n48",
+     "title": "Internal vs external fragmentation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Internal%20vs%20external%20fragmentation%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-41-internal-vs-external-fragmentation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n49",
+     "title": "First fit, best fit, worst fit",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=First%20fit%2C%20best%20fit%2C%20worst%20fit%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-42-first-fit-best-fit-worst-fit",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n50",
+     "title": "Compaction",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Compaction%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-43-compaction",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n51",
+     "title": "Swapping",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Swapping%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-44-swapping",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n52",
+   "title": "Paging & Segmentation",
+   "children": [
+    {
+     "slug": "core-os-n53",
+     "title": "Paging basics and page tables",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Paging%20basics%20and%20page%20tables%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-45-paging-basics-and-page-tables",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n54",
+     "title": "TLB and effective access time",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TLB%20and%20effective%20access%20time%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-46-tlb-and-effective-access-time",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n55",
+     "title": "Multilevel and inverted page tables",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Multilevel%20and%20inverted%20page%20tables%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-47-multilevel-and-inverted-page-tables",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n56",
+     "title": "Segmentation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Segmentation%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-48-segmentation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n57",
+     "title": "Segmented paging",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Segmented%20paging%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-49-segmented-paging",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n58",
+     "title": "Page table entry fields",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Page%20table%20entry%20fields%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-50-page-table-entry-fields",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n59",
+   "title": "Virtual Memory",
+   "children": [
+    {
+     "slug": "core-os-n60",
+     "title": "Demand paging",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Demand%20paging%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-51-demand-paging",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n61",
+     "title": "Page fault handling step by step",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Page%20fault%20handling%20step%20by%20step%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-52-page-fault-handling-step-by-step",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n62",
+     "title": "FIFO, LRU, Optimal, Clock",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=FIFO%2C%20LRU%2C%20Optimal%2C%20Clock%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-53-fifo-lru-optimal-clock",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n63",
+     "title": "Belady’s anomaly",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Belady%E2%80%99s%20anomaly%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-54-belady-s-anomaly",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n64",
+     "title": "Thrashing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Thrashing%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-55-thrashing",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n65",
+     "title": "Working set model",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Working%20set%20model%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-56-working-set-model",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n66",
+     "title": "Copy-on-write",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Copy-on-write%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-57-copy-on-write",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n67",
+   "title": "File Systems",
+   "children": [
+    {
+     "slug": "core-os-n68",
+     "title": "File attributes and operations",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=File%20attributes%20and%20operations%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-58-file-attributes-and-operations",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n69",
+     "title": "Directory structures",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Directory%20structures%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-59-directory-structures",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n70",
+     "title": "Contiguous, linked, indexed allocation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Contiguous%2C%20linked%2C%20indexed%20allocation%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-60-contiguous-linked-indexed-allocation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n71",
+     "title": "Inodes",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Inodes%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-61-inodes",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n72",
+     "title": "Free space management",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Free%20space%20management%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-62-free-space-management",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n73",
+     "title": "Journaling basics",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Journaling%20basics%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-63-journaling-basics",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n74",
+     "title": "Hard links vs soft links",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Hard%20links%20vs%20soft%20links%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-64-hard-links-vs-soft-links",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n75",
+   "title": "Disk & I/O",
+   "children": [
+    {
+     "slug": "core-os-n76",
+     "title": "Disk structure, seek and rotational latency",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Disk%20structure%2C%20seek%20and%20rotational%20latency%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-65-disk-structure-seek-and-rotational-latency",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n77",
+     "title": "FCFS, SSTF, SCAN, C-SCAN, LOOK",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=FCFS%2C%20SSTF%2C%20SCAN%2C%20C-SCAN%2C%20LOOK%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-66-fcfs-sstf-scan-c-scan-look",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n78",
+     "title": "RAID levels",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=RAID%20levels%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-67-raid-levels",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n79",
+     "title": "Buffering, caching, spooling",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Buffering%2C%20caching%2C%20spooling%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-68-buffering-caching-spooling",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n80",
+     "title": "Interrupt vs polling vs DMA",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Interrupt%20vs%20polling%20vs%20DMA%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-69-interrupt-vs-polling-vs-dma",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-os-n81",
+   "title": "IPC",
+   "children": [
+    {
+     "slug": "core-os-n82",
+     "title": "Shared memory",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Shared%20memory%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-70-shared-memory",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n83",
+     "title": "Message passing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Message%20passing%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-71-message-passing",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n84",
+     "title": "Pipes and named pipes",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Pipes%20and%20named%20pipes%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-72-pipes-and-named-pipes",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n85",
+     "title": "Sockets",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sockets%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-73-sockets",
+     "tags": "core"
+    },
+    {
+     "slug": "core-os-n86",
+     "title": "Signals",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Signals%20operating%20system%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-os-74-signals",
+     "tags": "core"
+    }
+   ]
+  }
+ ]
+}

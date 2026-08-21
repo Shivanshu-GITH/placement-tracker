@@ -1,0 +1,4212 @@
+{
+ "slug": "striver-a2z",
+ "title": "Striver A2Z DSA Course",
+ "category": "dsa",
+ "description": "The complete A-to-Z path: 455 problems from basics to advanced, in learning order. Ideal as your primary roadmap.",
+ "source": "takeuforward.org",
+ "topics": [
+  {
+   "slug": "a2z-learn-the-basics",
+   "title": "Learn the basics",
+   "items": [
+    {
+     "slug": "a2z-0-user-input-output",
+     "title": "User Input / Output",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/c/c-basic-input-output/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/c/c-basic-input-output/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-1-data-types",
+     "title": "Data Types",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/cpp",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-2-if-else-statements",
+     "title": "If Else statements",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/if-else/if-else-statements/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/if-else/if-else-statements/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-3-switch-statement",
+     "title": "Switch Statement",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/switch-case/switch-case-statements/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/switch-case/switch-case-statements/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-4-what-are-arrays-strings",
+     "title": "What are arrays, strings?",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/cpp",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-5-for-loops",
+     "title": "For loops",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/for-loop/understanding-for-loop/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/for-loop/understanding-for-loop/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-6-while-loops",
+     "title": "While loops",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/while-loop/while-loops-in-programming/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/while-loop/while-loops-in-programming/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-7-functions-pass-by-reference-and-value",
+     "title": "Functions (Pass by Reference and Value)",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/cpp",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-8-time-complexity-learn-basics-and-then-analyse-in-next-steps",
+     "title": "Time Complexity [Learn Basics, and then analyse in next Steps]",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/time-complexity/time-and-space-complexity-strivers-a2z-dsa-course/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/time-complexity/time-and-space-complexity-strivers-a2z-dsa-course/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-9-patterns",
+     "title": "Patterns",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/strivers-a2z-dsa-course/must-do-pattern-problems-before-starting-dsa/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/must-do-pattern-problems-before-starting-dsa/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-10-c-stl",
+     "title": "C++ STL",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/c/c-stl-tutorial-most-frequent-used-stl-containers/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/c/c-stl-tutorial-most-frequent-used-stl-containers/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-11-java-collections",
+     "title": "Java Collections",
+     "difficulty": "easy",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-12-count-digits",
+     "title": "Count Digits",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/count-digits-in-a-number/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-digits-in-a-number/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-13-reverse-a-number",
+     "title": "Reverse a Number",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-integer/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/maths/reverse-digits-of-a-number",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-14-check-palindrome",
+     "title": "Check Palindrome",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/palindrome-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-a-number-is-palindrome-or-not/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-15-gcd-or-hcf",
+     "title": "GCD Or HCF",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/find-gcd-of-two-numbers/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-gcd-of-two-numbers/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-16-armstrong-numbers",
+     "title": "Armstrong Numbers",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/armstrong-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/maths/check-if-a-number-is-armstrong-number-or-not/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-17-print-all-divisors",
+     "title": "Print all Divisors",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/print-all-divisors-of-a-given-number/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/print-all-divisors-of-a-given-number/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-18-check-for-prime",
+     "title": "Check for Prime",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/check-if-a-number-is-prime-or-not/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-a-number-is-prime-or-not/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-19-understand-recursion-by-print-something-n-times",
+     "title": "Understand recursion by print something N times",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/recursion/introduction-to-recursion-understand-recursion-by-printing-something-n-times/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/recursion/introduction-to-recursion-understand-recursion-by-printing-something-n-times/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-20-print-name-n-times-using-recursion",
+     "title": "Print name N times using recursion",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/recursion/print-name-n-times-using-recursion/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/recursion/print-name-n-times-using-recursion/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-21-print-1-to-n-using-recursion",
+     "title": "Print 1 to N using recursion",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/recursion/print-1-to-n-using-recursion/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/recursion/print-1-to-n-using-recursion/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-22-print-n-to-1-using-recursion",
+     "title": "Print N to 1 using recursion",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/recursion/print-n-to-1-using-recursion/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/recursion/print-n-to-1-using-recursion/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-23-sum-of-first-n-numbers",
+     "title": "Sum of first N numbers",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/sum-of-first-n-natural-numbers/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/sum-of-first-n-natural-numbers/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-24-factorial-of-n-numbers",
+     "title": "Factorial of N numbers",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/factorial-of-a-number-iterative-and-recursive/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/factorial-of-a-number-iterative-and-recursive/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-25-reverse-an-array",
+     "title": "Reverse an array",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/reverse-a-given-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-a-given-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-26-check-if-a-string-is-palindrome-or-not",
+     "title": "Check if a string is palindrome or not",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-palindrome/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-the-given-string-is-palindrome-or-not/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-27-fibonacci-number",
+     "title": "Fibonacci Number",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/fibonacci-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/print-fibonacci-series-up-to-nth-term/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-28-hashing-theory",
+     "title": "Hashing Theory",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/hashing/hashing-maps-time-complexity-collisions-division-rule-of-hashing-strivers-a2z-dsa-course/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/hashing/hashing-maps-time-complexity-collisions-division-rule-of-hashing-strivers-a2z-dsa-course/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-29-counting-frequencies-of-array-elements",
+     "title": "Counting frequencies of array elements",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/count-frequency-of-each-element-in-the-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-frequency-of-each-element-in-the-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-30-find-the-highest-lowest-frequency-element",
+     "title": "Find the highest/lowest frequency element",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/frequency-of-the-most-frequent-element/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/find-the-highest-lowest-frequency-element/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-learn-important-sorting-techniques",
+   "title": "Learn Important Sorting Techniques",
+   "items": [
+    {
+     "slug": "a2z-31-selection-sort",
+     "title": "Selection Sort",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/sorting/selection-sort-algorithm/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/sorting/selection-sort-algorithm/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-32-bubble-sort",
+     "title": "Bubble Sort",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/bubble-sort-algorithm/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/bubble-sort-algorithm/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-33-insertion-sort",
+     "title": "Insertion Sort",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/insertion-sort-algorithm/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/insertion-sort-algorithm/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-34-merge-sort",
+     "title": "Merge Sort",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/merge-sort-algorithm/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/merge-sort-algorithm/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-35-recursive-bubble-sort",
+     "title": "Recursive Bubble Sort",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/arrays/recursive-bubble-sort-algorithm/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/recursive-bubble-sort-algorithm/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-36-recursive-insertion-sort",
+     "title": "Recursive Insertion Sort",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/arrays/recursive-insertion-sort-algorithm/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/recursive-insertion-sort-algorithm/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-37-quick-sort",
+     "title": "Quick Sort",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/quick-sort-algorithm/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/quick-sort-algorithm/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-solve-problems-on-arrays",
+   "title": "Solve Problems on Arrays",
+   "items": [
+    {
+     "slug": "a2z-38-largest-element-in-an-array",
+     "title": "Largest Element in an Array",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/find-the-largest-element-in-an-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-largest-element-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-39-second-largest-element-in-an-array-without-sorting",
+     "title": "Second Largest Element in an Array without sorting",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/find-second-smallest-and-second-largest-element-in-an-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-second-smallest-and-second-largest-element-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-40-check-if-the-array-is-sorted",
+     "title": "Check if the array is sorted",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/#:~:text=Input%3A%20nums%20%3D%20%5B2%2C,no%20rotation)%20to%20make%20nums.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-an-array-is-sorted/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-41-remove-duplicates-from-sorted-array",
+     "title": "Remove duplicates from Sorted array",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/#:~:text=Input%3A%20nums%20%3D%20%5B0%2C,%2C%203%2C%20and%204%20respectively.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/remove-duplicates-in-place-from-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-42-left-rotate-an-array-by-one-place",
+     "title": "Left Rotate an array by one place",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/rotate-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/left-rotate-the-array-by-one/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-43-left-rotate-an-array-by-d-places",
+     "title": "Left rotate an array by D places",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/rotate-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotate-array-by-k-elements/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-44-move-zeros-to-end",
+     "title": "Move Zeros to end",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/move-zeroes/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/move-all-zeros-to-the-end-of-the-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-45-linear-search",
+     "title": "Linear Search",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/linear-search-in-c/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/linear-search-in-c/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-46-find-the-union",
+     "title": "Find the Union",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/union-of-two-sorted-arrays/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/union-of-two-sorted-arrays/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-47-find-missing-number-in-an-array",
+     "title": "Find missing number in an array",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/missing-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/find-the-missing-number-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-48-maximum-consecutive-ones",
+     "title": "Maximum Consecutive Ones",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/max-consecutive-ones/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-maximum-consecutive-ones-in-the-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-49-find-the-number-that-appears-once-and-other-numbers-twice",
+     "title": "Find the number that appears once, and other numbers twice.",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/single-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/find-the-number-that-appears-once-and-the-other-numbers-twice/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-50-longest-subarray-with-given-sum-k-positives",
+     "title": "Longest subarray with given sum K(positives)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-51-longest-subarray-with-sum-k-positives-negatives",
+     "title": "Longest subarray with sum K (Positives + Negatives)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/arrays/longest-subarray-with-sum-k-postives-and-negatives/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/longest-subarray-with-sum-k-postives-and-negatives/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-52-2sum-problem",
+     "title": "2Sum Problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/two-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-53-sort-an-array-of-0-s-1-s-and-2-s",
+     "title": "Sort an array of 0's 1's and 2's",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sort-colors/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/sort-an-array-of-0s-1s-and-2s/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-54-majority-element-n-2-times",
+     "title": "Majority Element (>n/2 times)",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/majority-element/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-majority-element-that-occurs-more-than-n-2-times/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-55-kadane-s-algorithm-maximum-subarray-sum",
+     "title": "Kadane's Algorithm, maximum subarray sum",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-56-print-subarray-with-maximum-subarray-sum-extended-version-of",
+     "title": "Print subarray with maximum subarray sum (extended version of above problem)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-57-stock-buy-and-sell",
+     "title": "Stock Buy and Sell",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/stock-buy-and-sell/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-58-rearrange-the-array-in-alternating-positive-and-negative-ite",
+     "title": "Rearrange the array in alternating positive and negative items",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rearrange-array-elements-by-sign/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/rearrange-array-elements-by-sign/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-59-next-permutation",
+     "title": "Next Permutation",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/next-permutation/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/next_permutation-find-next-lexicographically-greater-permutation/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-60-leaders-in-an-array-problem",
+     "title": "Leaders in an Array problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/leaders-in-an-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/leaders-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-61-longest-consecutive-sequence-in-an-array",
+     "title": "Longest Consecutive Sequence in an Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-consecutive-sequence/solution/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-consecutive-sequence-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-62-set-matrix-zeros",
+     "title": "Set Matrix Zeros",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/set-matrix-zeroes/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/set-matrix-zero/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-63-rotate-matrix-by-90-degrees",
+     "title": "Rotate Matrix by 90 degrees",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotate-image/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotate-image-by-90-degree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-64-print-the-matrix-in-spiral-manner",
+     "title": "Print the matrix in spiral manner",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/spiral-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/spiral-traversal-of-matrix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-65-count-subarrays-with-given-sum",
+     "title": "Count subarrays with given sum",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/count-subarray-sum-equals-k/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-66-pascal-s-triangle",
+     "title": "Pascal's Triangle",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/pascals-triangle/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/program-to-generate-pascals-triangle/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-67-majority-element-n-3-times",
+     "title": "Majority Element (n/3 times)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/majority-element-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/majority-elementsn-3-times-find-the-elements-that-appears-more-than-n-3-times-in-the-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-68-3-sum-problem",
+     "title": "3-Sum Problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/3sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/3-sum-find-triplets-that-add-up-to-a-zero/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-69-4-sum-problem",
+     "title": "4-Sum Problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/4sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/4-sum-find-quads-that-add-up-to-a-target-value/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-70-largest-subarray-with-0-sum",
+     "title": "Largest Subarray with 0 Sum",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/length-of-the-longest-subarray-with-zero-sum/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/length-of-the-longest-subarray-with-zero-sum/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-71-count-number-of-subarrays-with-given-xor-k",
+     "title": "Count number of subarrays with given xor K",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-72-merge-overlapping-subintervals",
+     "title": "Merge Overlapping Subintervals",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-intervals/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-73-merge-two-sorted-arrays-without-extra-space",
+     "title": "Merge two sorted arrays without extra space",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/merge-two-sorted-arrays-without-extra-space/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-74-find-the-repeating-and-missing-number",
+     "title": "Find the repeating and missing number",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-75-count-inversions",
+     "title": "Count Inversions",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/count-inversions-in-an-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-inversions-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-76-reverse-pairs",
+     "title": "Reverse Pairs",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/reverse-pairs/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-reverse-pairs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-77-maximum-product-subarray",
+     "title": "Maximum Product Subarray",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-product-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-product-subarray-in-an-array/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-binary-search",
+   "title": "Binary Search",
+   "items": [
+    {
+     "slug": "a2z-78-binary-search-to-find-x-in-sorted-array",
+     "title": "Binary Search to find X in sorted array",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-search/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/binary-search-explained/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-79-implement-lower-bound",
+     "title": "Implement Lower Bound",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/arrays/implement-lower-bound-bs-2/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/implement-lower-bound-bs-2/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-80-implement-upper-bound",
+     "title": "Implement Upper Bound",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/arrays/implement-upper-bound/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/implement-upper-bound/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-81-search-insert-position",
+     "title": "Search Insert Position",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/search-insert-position/#:~:text=Search%20Insert%20Position%20%2D%20LeetCode&text=Given%20a%20sorted%20array%20of,(log%20n)%20runtime%20complexity.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/search-insert-position/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-82-floor-ceil-in-sorted-array",
+     "title": "Floor/Ceil in Sorted Array",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/arrays/floor-and-ceil-in-sorted-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/floor-and-ceil-in-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-83-find-the-first-or-last-occurrence-of-a-given-number-in-a-sor",
+     "title": "Find the first or last occurrence of a given number in a sorted array",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/last-occurrence-in-a-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-84-count-occurrences-of-a-number-in-a-sorted-array-with-duplica",
+     "title": "Count occurrences of a number in a sorted array with duplicates",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/count-occurrences-in-sorted-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-occurrences-in-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-85-search-in-rotated-sorted-array-i",
+     "title": "Search in Rotated Sorted Array I",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/search-element-in-a-rotated-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-86-search-in-rotated-sorted-array-ii",
+     "title": "Search in Rotated Sorted Array II",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/search-element-in-rotated-sorted-array-ii/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-87-find-minimum-in-rotated-sorted-array",
+     "title": "Find minimum in Rotated Sorted Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-in-rotated-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-88-find-out-how-many-times-has-an-array-been-rotated",
+     "title": "Find out how many times has an array been rotated",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/arrays/find-out-how-many-times-the-array-has-been-rotated/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/find-out-how-many-times-the-array-has-been-rotated/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-89-single-element-in-a-sorted-array",
+     "title": "Single element in a Sorted Array",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/single-element-in-a-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/search-single-element-in-a-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-90-find-peak-element",
+     "title": "Find peak element",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-peak-element/#:~:text=Find%20Peak%20Element%20%2D%20LeetCode&text=A%20peak%20element%20is%20an,to%20any%20of%20the%20peaks.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/peak-element-in-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-91-find-square-root-of-a-number-in-log-n",
+     "title": "Find square root of a number in log n",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/binary-search/finding-sqrt-of-a-number-using-binary-search/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-search/finding-sqrt-of-a-number-using-binary-search/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-92-find-the-nth-root-of-a-number-using-binary-search",
+     "title": "Find the Nth root of a number using binary search",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/nth-root-of-a-number-using-binary-search/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/nth-root-of-a-number-using-binary-search/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-93-koko-eating-bananas",
+     "title": "Koko Eating Bananas",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/koko-eating-bananas/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/binary-search/koko-eating-bananas/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-94-minimum-days-to-make-m-bouquets",
+     "title": "Minimum days to make M bouquets",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/minimum-days-to-make-m-bouquets/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-95-find-the-smallest-divisor",
+     "title": "Find the smallest Divisor",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/find-the-smallest-divisor-given-a-threshold/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-96-capacity-to-ship-packages-within-d-days",
+     "title": "Capacity to Ship Packages within D Days",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/capacity-to-ship-packages-within-d-days/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-97-kth-missing-positive-number",
+     "title": "Kth Missing Positive Number",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/kth-missing-positive-number/#:~:text=Given%20an%20array%20arr%20of,13%2C...%5D.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/kth-missing-positive-number/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-98-aggressive-cows",
+     "title": "Aggressive Cows",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-99-book-allocation-problem",
+     "title": "Book Allocation Problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-100-split-array-largest-sum",
+     "title": "Split array - Largest Sum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/split-array-largest-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/split-array-largest-sum/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-101-painter-s-partition",
+     "title": "Painter's partition",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/arrays/painters-partition-problem/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/painters-partition-problem/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-102-minimize-max-distance-to-gas-station",
+     "title": "Minimize Max Distance to Gas Station",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimize-max-distance-to-gas-station/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/minimise-maximum-distance-between-gas-stations/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-103-median-of-2-sorted-arrays",
+     "title": "Median of 2 sorted arrays",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/median-of-two-sorted-arrays-of-different-sizes/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-104-kth-element-of-2-sorted-arrays",
+     "title": "Kth element of 2 sorted arrays",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/k-th-element-of-two-sorted-arrays/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/k-th-element-of-two-sorted-arrays/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-105-find-the-row-with-maximum-number-of-1-s",
+     "title": "Find the row with maximum number of 1's",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/arrays/find-the-row-with-maximum-number-of-1s/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/arrays/find-the-row-with-maximum-number-of-1s/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-106-search-in-a-2-d-matrix",
+     "title": "Search in a 2 D matrix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-a-2d-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/search-in-a-sorted-2d-matrix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-107-search-in-a-row-and-column-wise-sorted-matrix",
+     "title": "Search in a row and column wise sorted matrix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-a-2d-matrix-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/search-in-a-row-and-column-wise-sorted-matrix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-108-find-peak-element-2d-matrix",
+     "title": "Find Peak Element (2D Matrix)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-a-peak-element-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-109-matrix-median",
+     "title": "Matrix Median",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/median-of-row-wise-sorted-matrix/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/median-of-row-wise-sorted-matrix/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-strings",
+   "title": "Strings",
+   "items": [
+    {
+     "slug": "a2z-110-remove-outermost-paranthesis",
+     "title": "Remove outermost Paranthesis",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/remove-outermost-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-111-reverse-words-in-a-given-string-palindrome-check",
+     "title": "Reverse words in a given string / Palindrome Check",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-words-in-a-string/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-112-largest-odd-number-in-a-string",
+     "title": "Largest odd number in a string",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/largest-odd-number-in-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-113-longest-common-prefix",
+     "title": "Longest Common Prefix",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/longest-common-prefix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-114-isomorphic-string",
+     "title": "Isomorphic String",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/isomorphic-strings/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-115-check-whether-one-string-is-a-rotation-of-another",
+     "title": "check whether one string is a rotation of another",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotate-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-116-check-if-two-strings-are-anagram-of-each-other",
+     "title": "Check if two strings are anagram of each other",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-anagram/#:~:text=Given%20two%20strings%20s%20and,the%20original%20letters%20exactly%20once.&text=Constraints%3A,.length%20%3C%3D%205%20*%2010",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-two-strings-are-anagrams-of-each-other/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-117-sort-characters-by-frequency",
+     "title": "Sort Characters by frequency",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/sort-characters-by-frequency/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-118-maximum-nesting-depth-of-paranthesis",
+     "title": "Maximum Nesting Depth of Paranthesis",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-119-roman-number-to-integer-and-vice-versa",
+     "title": "Roman Number to Integer and vice versa",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/roman-to-integer/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-120-implement-atoi",
+     "title": "Implement Atoi",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-121-count-number-of-substrings",
+     "title": "Count Number of Substrings",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-122-longest-palindromic-substring-do-it-without-dp",
+     "title": "Longest Palindromic Substring[Do it without DP]",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-123-sum-of-beauty-of-all-substring",
+     "title": "Sum of Beauty of all substring",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sum-of-beauty-of-all-substrings/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-124-reverse-every-word-in-a-string",
+     "title": "Reverse Every Word in A String",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-learn-linkedlist",
+   "title": "Learn LinkedList",
+   "items": [
+    {
+     "slug": "a2z-125-introduction-to-linkedlist-learn-about-struct-and-how-is-nod",
+     "title": "Introduction to LinkedList, learn about struct, and how is node represented",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/linked-list/linked-list-introduction",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/linked-list/linked-list-introduction",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-126-inserting-a-node-in-linkedlist",
+     "title": "Inserting a node in LinkedList",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/linked-list/insert-at-the-head-of-a-linked-list",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/linked-list/insert-at-the-head-of-a-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-127-deleting-a-node-in-linkedlist",
+     "title": "Deleting a node in LinkedList",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/delete-last-node-of-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-128-find-the-length-of-the-linkedlist-learn-traversal",
+     "title": "Find the length of the linkedlist [learn traversal]",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/linked-list/find-the-length-of-a-linked-list",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/linked-list/find-the-length-of-a-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-129-search-an-element-in-the-ll",
+     "title": "Search an element in the LL",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/linked-list/search-an-element-in-a-linked-list",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/linked-list/search-an-element-in-a-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-130-introduction-to-dll-learn-about-struct-and-how-is-node-repre",
+     "title": "Introduction to DLL, learn about struct, and how is node represented",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/linked-list/introduction-to-doubly-linked-list",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/linked-list/introduction-to-doubly-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-131-insert-a-node-in-dll",
+     "title": "Insert a node in DLL",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/insert-at-end-of-doubly-linked-list/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/insert-at-end-of-doubly-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-132-delete-a-node-in-dll",
+     "title": "Delete a node in DLL",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/delete-last-node-of-a-doubly-linked-list/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/delete-last-node-of-a-doubly-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-133-reverse-a-dll",
+     "title": "Reverse a DLL",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/reverse-a-doubly-linked-list/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-a-doubly-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-134-middle-of-a-linkedlist-tortoisehare-method",
+     "title": "Middle of a LinkedList [TortoiseHare Method]",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-middle-element-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-135-reverse-a-linkedlist-iterative",
+     "title": "Reverse a LinkedList [Iterative]",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-136-reverse-a-ll-recursive",
+     "title": "Reverse a LL [Recursive]",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-137-detect-a-loop-in-ll",
+     "title": "Detect a loop in LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/linked-list-cycle/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-138-find-the-starting-point-in-ll",
+     "title": "Find the starting point in LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/linked-list-cycle-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/starting-point-of-loop-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-139-length-of-loop-in-ll",
+     "title": "Length of Loop in LL",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/linked-list/length-of-loop-in-linked-list",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/linked-list/length-of-loop-in-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-140-check-if-ll-is-palindrome-or-not",
+     "title": "Check if LL is palindrome or not",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/palindrome-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-given-linked-list-is-plaindrome/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-141-segrregate-odd-and-even-nodes-in-ll",
+     "title": "Segrregate odd and even nodes in LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/odd-even-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/segregate-even-and-odd-nodes-in-linkedlist",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-142-remove-nth-node-from-the-back-of-the-ll",
+     "title": "Remove Nth node from the back of the LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/remove-n-th-node-from-the-end-of-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-143-delete-the-middle-node-of-ll",
+     "title": "Delete the middle node of LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/#:~:text=You%20are%20given%20the%20head,than%20or%20equal%20to%20x%20.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/linked-list/delete-the-middle-node-of-the-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-144-sort-ll",
+     "title": "Sort LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sort-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/linked-list/sort-a-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-145-sort-a-ll-of-0-s-1-s-and-2-s-by-changing-links",
+     "title": "Sort a LL of 0's 1's and 2's by changing links",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/sort-a-ll-of-0's-1's-and-2's",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-146-find-the-intersection-point-of-y-ll",
+     "title": "Find the intersection point of Y LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-intersection-of-two-linked-lists/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-147-add-1-to-a-number-represented-by-ll",
+     "title": "Add 1 to a number represented by LL",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/add-one-to-a-number-represented-by-ll/",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-148-add-2-numbers-in-ll",
+     "title": "Add 2 numbers in LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/add-two-numbers/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/add-two-numbers-represented-as-linked-lists/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-149-delete-all-occurrences-of-a-key-in-dll",
+     "title": "Delete all occurrences of a key in DLL",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/delete-all-occurrences-of-a-key-in-dll",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-150-find-pairs-with-given-sum-in-dll",
+     "title": "Find pairs with given sum in DLL",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/find-pairs-with-given-sum-in-doubly-linked-list",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-151-remove-duplicates-from-sorted-dll",
+     "title": "Remove duplicates from sorted DLL",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/remove-duplicated-from-sorted-dll",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-152-reverse-ll-in-group-of-given-size-k",
+     "title": "Reverse LL in group of given size K",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-linked-list-in-groups-of-size-k/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-153-rotate-a-ll",
+     "title": "Rotate a LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotate-list/description/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotate-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-154-flattening-of-ll",
+     "title": "Flattening of LL",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/flattening-a-linked-list/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/flattening-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-155-clone-a-linked-list-with-random-and-next-pointer",
+     "title": "Clone a Linked List with random and next pointer",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/clone-linked-list-with-random-and-next-pointer/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-recursion",
+   "title": "Recursion",
+   "items": [
+    {
+     "slug": "a2z-156-recursive-implementation-of-atoi",
+     "title": "Recursive Implementation of atoi()",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-157-pow-x-n",
+     "title": "Pow(x, n)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/powx-n/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-powxn-x-raised-to-the-power-n/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-158-count-good-numbers",
+     "title": "Count Good numbers",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/count-good-numbers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-159-sort-a-stack-using-recursion",
+     "title": "Sort a stack using recursion",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/sort-a-stack",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-160-reverse-a-stack-using-recursion",
+     "title": "Reverse a stack using recursion",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/reverse-a-stack",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-161-generate-all-binary-strings",
+     "title": "Generate all binary strings",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/generate-binary-strings-without-consecutive-1s",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-162-generate-paranthesis",
+     "title": "Generate Paranthesis",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/generate-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-163-print-all-subsequences-power-set",
+     "title": "Print all subsequences/Power Set",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subsets/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-164-learn-all-patterns-of-subsequences-theory",
+     "title": "Learn All Patterns of Subsequences (Theory)",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-165-count-all-subsequences-with-sum-k",
+     "title": "Count all subsequences with sum K",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/count-all-subsequences-with-sum-k",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-166-check-if-there-exists-a-subsequence-with-sum-k",
+     "title": "Check if there exists a subsequence with sum K",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/check-if-there-exists-a-subsequence-with-sum-k",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-167-combination-sum",
+     "title": "Combination Sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combination-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/combination-sum-1/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-168-combination-sum-ii",
+     "title": "Combination Sum-II",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combination-sum-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/combination-sum-ii-find-all-unique-combinations/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-169-subset-sum-i",
+     "title": "Subset Sum-I",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-170-subset-sum-ii",
+     "title": "Subset Sum-II",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subsets-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/subset-ii-print-all-the-unique-subsets/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-171-combination-sum-iii",
+     "title": "Combination Sum - III",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/combination-sum-iii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-172-letter-combinations-of-a-phone-number",
+     "title": "Letter Combinations of a Phone number",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-173-palindrome-partitioning",
+     "title": "Palindrome Partitioning",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/palindrome-partitioning/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/palindrome-partitioning/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-174-word-search",
+     "title": "Word Search",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-search/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/word-search-leetcode/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-175-n-queen",
+     "title": "N Queen",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/n-queens/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/n-queen-problem-return-all-distinct-solutions-to-the-n-queens-puzzle/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-176-rat-in-a-maze",
+     "title": "Rat in a Maze",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/rat-in-a-maze/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/rat-in-a-maze/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-177-word-break",
+     "title": "Word Break",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-break/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-178-m-coloring-problem",
+     "title": "M Coloring Problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/m-coloring-problem/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/m-coloring-problem/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-179-sudoko-solver",
+     "title": "Sudoko Solver",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sudoku-solver/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/sudoku-solver/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-180-expression-add-operators",
+     "title": "Expression Add Operators",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/expression-add-operators/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-bit-manipulation",
+   "title": "Bit Manipulation",
+   "items": [
+    {
+     "slug": "a2z-181-introduction-to-bit-manipulation-theory",
+     "title": "Introduction to Bit Manipulation [Theory]",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/introduction-to-bits-and-tricks",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-182-check-if-the-i-th-bit-is-set-or-not",
+     "title": "Check if the i-th bit is set or not",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/check-if-the-i-th-bit-is-set-or-not",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-183-check-if-a-number-is-odd-or-not",
+     "title": "Check if a number is odd or not",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/check-if-a-number-is-odd-or-not",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-184-check-if-a-number-is-power-of-2-or-not",
+     "title": "Check if a number is power of 2 or not",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/power-of-two/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-185-count-the-number-of-set-bits",
+     "title": "Count the number of set bits",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/count-the-number-of-set-bits",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-186-set-unset-the-rightmost-unset-bit",
+     "title": "Set/Unset the rightmost unset bit",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/swap-two-numbers",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-187-swap-two-numbers",
+     "title": "Swap two numbers",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/prime-factorisation-of-a-number",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-188-divide-two-integers-without-using-multiplication-division-an",
+     "title": "Divide two integers without using multiplication, division and mod operator",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/divide-two-integers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-189-count-number-of-bits-to-be-flipped-to-convert-a-to-b",
+     "title": "Count number of bits to be flipped to convert A to B",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-190-find-the-number-that-appears-odd-number-of-times",
+     "title": "Find the number that appears odd number of times",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/single-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-191-power-set",
+     "title": "Power Set",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subsets/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-192-find-xor-of-numbers-from-l-to-r",
+     "title": "Find xor of numbers from L to R",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/xor-of-numbers-in-a-given-range",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-193-find-the-two-numbers-appearing-odd-number-of-times",
+     "title": "Find the two numbers appearing odd number of times",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/single-number---iii",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-194-print-prime-factors-of-a-number",
+     "title": "Print Prime Factors of a Number",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/prime-factorisation-of-a-number",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-195-all-divisors-of-a-number",
+     "title": "All Divisors of a Number",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/divisors-of-a-number",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-196-sieve-of-eratosthenes",
+     "title": "Sieve of Eratosthenes",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-primes/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-197-find-prime-factorisation-of-a-number-using-sieve",
+     "title": "Find Prime Factorisation of a Number using Sieve",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/prime-factorisation-of-a-number",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-198-power-n-x",
+     "title": "Power(n, x)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/powx-n/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-stack-and-queues",
+   "title": "Stack and Queues",
+   "items": [
+    {
+     "slug": "a2z-199-implement-stack-using-arrays",
+     "title": "Implement Stack using Arrays",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/implement-stack-using-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-stack-using-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-200-implement-queue-using-arrays",
+     "title": "Implement Queue using Arrays",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/implement-queue-using-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-queue-using-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-201-implement-stack-using-queue",
+     "title": "Implement Stack using Queue",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/implement-stack-using-queues/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-stack-using-single-queue/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-202-implement-queue-using-stack",
+     "title": "Implement Queue using Stack",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/implement-queue-using-stacks/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-queue-using-stack/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-203-implement-stack-using-linkedlist",
+     "title": "Implement stack using Linkedlist",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/implement-stack-using-linked-list/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-stack-using-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-204-implement-queue-using-linkedlist",
+     "title": "Implement queue using Linkedlist",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/implement-queue-using-linked-list/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-queue-using-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-205-check-for-balanced-paranthesis",
+     "title": "Check for balanced paranthesis",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-for-balanced-parentheses/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-206-implement-min-stack",
+     "title": "Implement Min Stack",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/min-stack/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-min-stack-o2n-and-on-space-complexity/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-207-infix-to-postfix-conversion-using-stack",
+     "title": "Infix to Postfix Conversion using Stack",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/infix-to-postfix/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/infix-to-postfix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-208-prefix-to-infix-conversion",
+     "title": "Prefix to Infix Conversion",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-209-prefix-to-postfix-conversion",
+     "title": "Prefix to Postfix Conversion",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-210-postfix-to-prefix-conversion",
+     "title": "Postfix to Prefix Conversion",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-211-postfix-to-infix",
+     "title": "Postfix to Infix",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-212-convert-infix-to-prefix-notation",
+     "title": "Convert Infix To Prefix Notation",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/infix-to-prefix/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/infix-to-prefix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-213-next-greater-element",
+     "title": "Next Greater Element",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/next-greater-element-i/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/next-greater-element-using-stack/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-214-next-greater-element-2",
+     "title": "Next Greater Element 2",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/next-greater-element-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-215-next-smaller-element",
+     "title": "Next Smaller Element",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/next-smaller-element",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-216-number-of-nges-to-the-right",
+     "title": "Number of NGEs to the right",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/next-greater-element",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-217-trapping-rainwater",
+     "title": "Trapping Rainwater",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/trapping-rain-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/trapping-rainwater/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-218-sum-of-subarray-minimum",
+     "title": "Sum of subarray minimum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sum-of-subarray-minimums/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-219-asteroid-collision",
+     "title": "Asteroid Collision",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/asteroid-collision/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-220-sum-of-subarray-ranges",
+     "title": "Sum of subarray ranges",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sum-of-subarray-ranges/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-221-remove-k-digits",
+     "title": "Remove k Digits",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-k-digits/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-222-largest-rectangle-in-a-histogram",
+     "title": "Largest rectangle in a histogram",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/area-of-largest-rectangle-in-histogram/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-223-maximal-rectangles",
+     "title": "Maximal Rectangles",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/maximal-rectangle/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-224-sliding-window-maximum",
+     "title": "Sliding Window maximum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sliding-window-maximum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/sliding-window-maximum/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-225-stock-span-problem",
+     "title": "Stock span problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/online-stock-span/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-226-the-celebrity-problem",
+     "title": "The Celebrity Problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/accounts/login/?next=/problems/find-the-celebrity/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-227-lru-cache-important",
+     "title": "LRU cache (IMPORTANT)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/lru-cache/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-lru-cache/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-228-lfu-cache",
+     "title": "LFU cache",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/lfu-cache/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-sliding-window-two-pointer-combined-problems",
+   "title": "Sliding Window & Two Pointer Combined Problems",
+   "items": [
+    {
+     "slug": "a2z-229-longest-substring-without-repeating-characters",
+     "title": "Longest Substring Without Repeating Characters",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-230-max-consecutive-ones-iii",
+     "title": "Max Consecutive Ones III",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/max-consecutive-ones-iii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-231-fruit-into-baskets",
+     "title": "Fruit Into Baskets",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/fruit-into-baskets",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-232-longest-repeating-character-replacement",
+     "title": "longest repeating character replacement",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-233-binary-subarray-with-sum",
+     "title": "Binary subarray with sum",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-subarrays-with-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-234-count-number-of-nice-subarrays",
+     "title": "Count number of nice subarrays",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-number-of-nice-subarrays/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-235-number-of-substring-containing-all-three-characters",
+     "title": "Number of substring containing all three characters",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-236-maximum-point-you-can-obtain-from-cards",
+     "title": "Maximum point you can obtain from cards",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-237-longest-substring-with-at-most-k-distinct-characters",
+     "title": "Longest Substring with At Most K Distinct Characters",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-238-subarray-with-k-different-integers",
+     "title": "Subarray with k different integers",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/subarrays-with-k-different-integers/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-239-minimum-window-substring",
+     "title": "Minimum Window Substring",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-window-substring/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-240-minimum-window-subsequence",
+     "title": "Minimum Window Subsequence",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-window-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-heaps",
+   "title": "Heaps",
+   "items": [
+    {
+     "slug": "a2z-241-introduction-to-priority-queues-using-binary-heaps",
+     "title": "Introduction to Priority Queues using Binary Heaps",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-242-min-heap-and-max-heap-implementation",
+     "title": "Min Heap and Max Heap Implementation",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/implement-min-heap",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-243-check-if-an-array-represents-a-min-heap-or-not",
+     "title": "Check if an array represents a min-heap or not",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/check-if-an-array-represents-a-min-heap-",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-244-convert-min-heap-to-max-heap",
+     "title": "Convert min Heap to max Heap",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/convert-min-heap-to-max-heap",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-245-kth-largest-element-in-an-array-use-priority-queue",
+     "title": "Kth largest element in an array [use priority queue]",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-246-kth-smallest-element-in-an-array-use-priority-queue",
+     "title": "Kth smallest element in an array [use priority queue]",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-247-sort-k-sorted-array",
+     "title": "Sort K sorted array",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/merge-k-sorted-lists",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-248-merge-m-sorted-lists",
+     "title": "Merge M sorted Lists",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-249-replace-each-array-element-by-its-corresponding-rank",
+     "title": "Replace each array element by its corresponding rank",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/replace-elements-by-its-rank-in-the-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/replace-elements-by-its-rank-in-the-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-250-task-scheduler",
+     "title": "Task Scheduler",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/task-scheduler/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-251-hands-of-straights",
+     "title": "Hands of Straights",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/hand-of-straights/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-252-design-twitter",
+     "title": "Design twitter",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/design-twitter/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-253-connect-n-ropes-with-minimal-cost",
+     "title": "Connect `n` ropes with minimal cost",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/minimum-cost-to-connect-sticks",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-254-kth-largest-element-in-a-stream-of-running-integers",
+     "title": "Kth largest element in a stream of running integers",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/#:~:text=Implement%20KthLargest%20class%3A,largest%20element%20in%20the%20stream.",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-255-maximum-sum-combination",
+     "title": "Maximum Sum Combination",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/maximum-sum-combination",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-256-find-median-from-data-stream",
+     "title": "Find Median from Data Stream",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-257-k-most-frequent-elements",
+     "title": "K most frequent elements",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-greedy-algorithms",
+   "title": "Greedy Algorithms",
+   "items": [
+    {
+     "slug": "a2z-258-assign-cookies",
+     "title": "Assign Cookies",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/assign-cookies/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/Greedy/assign-cookies",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-259-fractional-knapsack-problem",
+     "title": "Fractional Knapsack Problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/fractional-knapsack-problem-greedy-approach/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/fractional-knapsack-problem-greedy-approach/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-260-greedy-algorithm-to-find-minimum-number-of-coins",
+     "title": "Greedy algorithm to find minimum number of coins",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/find-minimum-number-of-coins/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-minimum-number-of-coins/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-261-lemonade-change",
+     "title": "Lemonade Change",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/lemonade-change/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/Greedy/lemonade-change",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-262-valid-paranthesis-checker",
+     "title": "Valid Paranthesis Checker",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-parenthesis-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-263-n-meetings-in-one-room",
+     "title": "N meetings in one room",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/n-meetings-in-one-room/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/n-meetings-in-one-room/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-264-jump-game",
+     "title": "Jump Game",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/jump-game/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/Greedy/jump-game-i",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-265-jump-game-2",
+     "title": "Jump Game 2",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/jump-game-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-266-minimum-number-of-platforms-required-for-a-railway",
+     "title": "Minimum number of platforms required for a railway",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-267-job-sequencing-problem",
+     "title": "Job sequencing Problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/job-sequencing-problem/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/job-sequencing-problem/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-268-candy",
+     "title": "Candy",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/candy/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-269-program-for-shortest-job-first-or-sjf-cpu-scheduling",
+     "title": "Program for Shortest Job First (or SJF) CPU Scheduling",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/Greedy/shortest-job-first-or-sjf-cpu-scheduling",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/Greedy/shortest-job-first-or-sjf-cpu-scheduling",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-270-program-for-least-recently-used-lru-page-replacement-algorit",
+     "title": "Program for Least Recently Used (LRU) Page Replacement Algorithm",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-271-insert-interval",
+     "title": "Insert Interval",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/insert-interval/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/?s=Insert+Interval",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-272-merge-intervals",
+     "title": "Merge Intervals",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-intervals/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-273-non-overlapping-intervals",
+     "title": "Non-overlapping Intervals",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/non-overlapping-intervals/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-binary-trees",
+   "title": "Binary Trees",
+   "items": [
+    {
+     "slug": "a2z-274-introduction-to-trees",
+     "title": "Introduction to Trees",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/binary-tree/introduction-to-trees/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-tree/introduction-to-trees/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-275-binary-tree-representation-in-c",
+     "title": "Binary Tree Representation in C++",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/binary-tree/binary-tree-representation-in-c/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-tree/binary-tree-representation-in-c/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-276-binary-tree-representation-in-java",
+     "title": "Binary Tree Representation in Java",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/binary-tree/binary-tree-representation-in-java/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-tree/binary-tree-representation-in-java/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-277-binary-tree-traversals-in-binary-tree",
+     "title": "Binary Tree Traversals in Binary Tree",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/binary-tree/binary-tree-traversal-inorder-preorder-postorder/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-tree/binary-tree-traversal-inorder-preorder-postorder/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-278-preorder-traversal-of-binary-tree",
+     "title": "Preorder Traversal of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/preorder-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-279-inorder-traversal-of-binary-tree",
+     "title": "Inorder Traversal of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-280-post-order-traversal-of-binary-tree",
+     "title": "Post-order Traversal of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/post-order-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-281-level-order-traversal-level-order-traversal-in-spiral-form",
+     "title": "Level order Traversal / Level order traversal in spiral form",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/level-order-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-282-iterative-preorder-traversal-of-binary-tree",
+     "title": "Iterative Preorder Traversal of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/iterative-preorder-traversal-of-binary-tree",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-283-iterative-inorder-traversal-of-binary-tree",
+     "title": "Iterative Inorder Traversal of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-284-post-order-traversal-of-binary-tree-using-2-stack",
+     "title": "Post-order Traversal of Binary Tree using 2 stack",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/iterative-postorder-traversal-of-binary-tree-using-2-stack",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-285-post-order-traversal-of-binary-tree-using-1-stack",
+     "title": "Post-order Traversal of Binary Tree using 1 stack",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/post-order-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-286-preorder-inorder-and-postorder-traversal-in-one-traversal",
+     "title": "Preorder, Inorder, and Postorder Traversal in one Traversal",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/preorder-inorder-postorder-traversals-in-one-traversal/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/preorder-inorder-postorder-traversals-in-one-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-287-height-of-a-binary-tree",
+     "title": "Height of a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-depth-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-288-check-if-the-binary-tree-is-height-balanced-or-not",
+     "title": "Check if the Binary tree is height-balanced or not",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/balanced-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-the-binary-tree-is-balanced-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-289-diameter-of-binary-tree",
+     "title": "Diameter of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/calculate-the-diameter-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-290-maximum-path-sum",
+     "title": "Maximum path sum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-sum-path-in-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-291-check-if-two-trees-are-identical-or-not",
+     "title": "Check if two trees are identical or not",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/same-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-two-trees-are-identical/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-292-zig-zag-traversal-of-binary-tree",
+     "title": "Zig Zag Traversal of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/zig-zag-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-293-boundary-traversal-of-binary-tree",
+     "title": "Boundary Traversal of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/boundary-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/boundary-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-294-vertical-order-traversal-of-binary-tree",
+     "title": "Vertical Order Traversal of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/vertical-order-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-295-top-view-of-binary-tree",
+     "title": "Top View of Binary Tree",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/top-view-of-a-binary-tree/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/top-view-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-296-bottom-view-of-binary-tree",
+     "title": "Bottom View of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-297-right-left-view-of-binary-tree",
+     "title": "Right/Left View of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-right-side-view/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/right-left-view-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-298-symmetric-binary-tree",
+     "title": "Symmetric Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/symmetric-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-for-symmetrical-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-299-root-to-node-path-in-binary-tree",
+     "title": "Root to Node Path in Binary Tree",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/print-root-to-node-path-in-a-binary-tree/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/print-root-to-node-path-in-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-300-lca-in-binary-tree",
+     "title": "LCA in Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-301-maximum-width-of-a-binary-tree",
+     "title": "Maximum width of a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-width-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-width-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-302-check-for-children-sum-property",
+     "title": "Check for Children Sum Property",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-303-print-all-the-nodes-at-a-distance-of-k-in-a-binary-tree",
+     "title": "Print all the Nodes at a distance of K in a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-304-minimum-time-taken-to-burn-the-binary-tree-from-a-node",
+     "title": "Minimum time taken to BURN the Binary Tree from a Node",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/minimum-time-taken-to-burn-the-bt-from-a-given-node",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-305-count-total-nodes-in-a-complete-binary-tree",
+     "title": "Count total Nodes in a COMPLETE Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-complete-tree-nodes/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/binary-tree/count-number-of-nodes-in-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-306-requirements-needed-to-construct-a-unique-binary-tree-theory",
+     "title": "Requirements needed to construct a Unique Binary Tree | Theory",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/requirements-needed-to-construct-a-unique-bt",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-307-construct-binary-tree-from-inorder-and-preorder",
+     "title": "Construct Binary Tree from inorder and preorder",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/construct-a-binary-tree-from-inorder-and-preorder-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-308-construct-the-binary-tree-from-postorder-and-inorder-travers",
+     "title": "Construct the Binary Tree from Postorder and Inorder Traversal",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/construct-binary-tree-from-inorder-and-postorder-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-309-serialize-and-deserialize-binary-tree",
+     "title": "Serialize and deserialize Binary Tree",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/serialize-and-deserialize-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-310-morris-preorder-traversal-of-a-binary-tree",
+     "title": "Morris Preorder Traversal of a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/morris-preorder-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-311-morris-inorder-traversal-of-a-binary-tree",
+     "title": "Morris Inorder Traversal of a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/morris-inorder-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-312-flatten-binary-tree-to-linkedlist",
+     "title": "Flatten Binary Tree to LinkedList",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/flatten-binary-tree-to-linked-list/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-binary-search-trees",
+   "title": "Binary Search Trees",
+   "items": [
+    {
+     "slug": "a2z-313-introduction-to-binary-search-tree",
+     "title": "Introduction to Binary Search Tree",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/binary-search-tree/introduction-to-binary-search-trees/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-search-tree/introduction-to-binary-search-trees/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-314-search-in-a-binary-search-tree",
+     "title": "Search in a Binary Search Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/search-in-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/search-in-a-binary-search-tree-2/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-315-find-min-max-in-bst",
+     "title": "Find Min/Max in BST",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-316-ceil-in-a-binary-search-tree",
+     "title": "Ceil in a Binary Search Tree",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/binary-search-tree/ceil-in-a-binary-search-tree/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-search-tree/ceil-in-a-binary-search-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-317-floor-in-a-binary-search-tree",
+     "title": "Floor in a Binary Search Tree",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/binary-search-tree/floor-in-a-binary-search-tree/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/binary-search-tree/floor-in-a-binary-search-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-318-insert-a-given-node-in-binary-search-tree",
+     "title": "Insert a given Node in Binary Search Tree",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/insert-into-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-319-delete-a-node-in-binary-search-tree",
+     "title": "Delete a Node in Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-node-in-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-320-find-k-th-smallest-largest-element-in-bst",
+     "title": "Find K-th smallest/largest element in BST",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-binary-search-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-321-check-if-a-tree-is-a-bst-or-bt",
+     "title": "Check if a tree is a BST or BT",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-322-lca-in-binary-search-tree",
+     "title": "LCA in Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-323-construct-a-bst-from-a-preorder-traversal",
+     "title": "Construct a BST from a preorder traversal",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-324-inorder-successor-predecessor-in-bst",
+     "title": "Inorder Successor/Predecessor in BST",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/inorder-successor-in-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-325-merge-2-bst-s",
+     "title": "Merge 2 BST's",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/binary-search-tree-iterator/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-326-two-sum-in-bst-check-if-there-exists-a-pair-with-sum-k",
+     "title": "Two Sum In BST | Check if there exists a pair with Sum K",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-327-recover-bst-correct-bst-with-two-nodes-swapped",
+     "title": "Recover BST | Correct BST with two nodes swapped",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/recover-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-328-largest-bst-in-binary-tree",
+     "title": "Largest BST in Binary Tree",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/largest-bst-in-binary-tree",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-graphs",
+   "title": "Graphs",
+   "items": [
+    {
+     "slug": "a2z-329-graph-and-types",
+     "title": "Graph and Types",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/graph/introduction-to-graph/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/graph/introduction-to-graph/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-330-graph-representation-c",
+     "title": "Graph Representation | C++",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/graph/graph-representation-in-c/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/graph/graph-representation-in-c/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-331-graph-representation-java",
+     "title": "Graph Representation | Java",
+     "difficulty": "easy",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-332-connected-components-logic-explanation",
+     "title": "Connected Components | Logic Explanation",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/connected-components-in-graphs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-333-bfs",
+     "title": "BFS",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-334-dfs",
+     "title": "DFS",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/depth-first-search-dfs/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/depth-first-search-dfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-335-number-of-provinces-leetcode",
+     "title": "Number of provinces (leetcode)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/number-of-provinces/#:~:text=A%20province%20is%20a%20group,the%20total%20number%20of%20provinces.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-provinces/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-336-connected-components-problem-in-matrix",
+     "title": "Connected Components Problem in Matrix",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/connected-components",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-337-rotten-oranges",
+     "title": "Rotten Oranges",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotting-oranges/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotten-oranges-min-time-to-rot-all-oranges-bfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-338-flood-fill",
+     "title": "Flood fill",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/flood-fill/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/flood-fill-algorithm-graphs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-339-cycle-detection-in-unirected-graph-bfs",
+     "title": "Cycle Detection in unirected Graph (bfs)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-bfs/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-bfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-340-cycle-detection-in-undirected-graph-dfs",
+     "title": "Cycle Detection in undirected Graph (dfs)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-dfs/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-dfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-341-0-1-matrix-bfs-problem",
+     "title": "0/1 Matrix (Bfs Problem)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/01-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/distance-of-nearest-cell-having-1/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-342-surrounded-regions-dfs",
+     "title": "Surrounded Regions (dfs)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/surrounded-regions/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/surrounded-regions-replace-os-with-xs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-343-number-of-enclaves-flood-fill-implementation-multisource",
+     "title": "Number of Enclaves [flood fill implementation - multisource]",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/number-of-enclaves/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/number-of-enclaves/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-344-word-ladder-1",
+     "title": "Word ladder - 1",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/word-ladder/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/word-ladder-i-g-29/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-345-word-ladder-2",
+     "title": "Word ladder - 2",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/word-ladder-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/g-30-word-ladder-ii/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-346-number-of-distinct-islands-dfs-multisource",
+     "title": "Number of Distinct Islands [dfs multisource]",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/number-of-distinct-islands-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-islands/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-347-bipartite-graph-dfs",
+     "title": "Bipartite Graph (DFS)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/is-graph-bipartite/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/bipartite-graph-dfs-implementation/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-348-cycle-detection-in-directed-graph-dfs",
+     "title": "Cycle Detection in Directed Graph (DFS)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule-ii/discuss/293048/detecting-cycle-in-directed-graph-problem",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-cycle-in-a-directed-graph-using-dfs-g-19/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-349-topo-sort",
+     "title": "Topo Sort",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/topological-sort-algorithm-dfs-g-21/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/topological-sort-algorithm-dfs-g-21/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-350-kahn-s-algorithm",
+     "title": "Kahn's Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/kahns-algorithm-topological-sort-algorithm-bfs-g-22/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/kahns-algorithm-topological-sort-algorithm-bfs-g-22/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-351-cycle-detection-in-directed-graph-bfs",
+     "title": "Cycle Detection in Directed Graph (BFS)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/detect-a-cycle-in-a-directed-graph",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-352-course-schedule-i",
+     "title": "Course Schedule - I",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-353-course-schedule-ii",
+     "title": "Course Schedule - II",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-354-find-eventual-safe-states",
+     "title": "Find eventual safe states",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-eventual-safe-states/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-eventual-safe-states-bfs-topological-sort-g-25/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-355-alien-dictionary",
+     "title": "Alien dictionary",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/alien-dictionary/solution/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/alien-dictionary-topological-sort-g-26/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-356-shortest-path-in-ug-with-unit-weights",
+     "title": "Shortest Path in UG with unit weights",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/shortest-path-in-undirected-graph-with-unit-distance-g-28/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/shortest-path-in-undirected-graph-with-unit-distance-g-28/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-357-shortest-path-in-dag",
+     "title": "Shortest Path in DAG",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/shortest-path-in-directed-acyclic-graph-topological-sort-g-27/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/shortest-path-in-directed-acyclic-graph-topological-sort-g-27/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-358-djisktra-s-algorithm",
+     "title": "Djisktra's Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-359-why-priority-queue-is-used-in-djisktra-s-algorithm",
+     "title": "Why priority Queue is used in Djisktra's Algorithm",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-360-shortest-path-in-a-binary-maze",
+     "title": "Shortest path in a binary maze",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/shortest-path-in-binary-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/g-36-shortest-distance-in-a-binary-maze/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-361-path-with-minimum-effort",
+     "title": "Path with minimum effort",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/path-with-minimum-effort/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/g-37-path-with-minimum-effort/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-362-cheapest-flights-within-k-stops",
+     "title": "Cheapest flights within k stops",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/g-38-cheapest-flights-within-k-stops/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-363-network-delay-time",
+     "title": "Network Delay time",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/network-delay-time/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-364-number-of-ways-to-arrive-at-destination",
+     "title": "Number of ways to arrive at destination",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/g-40-number-of-ways-to-arrive-at-destination/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-365-minimum-steps-to-reach-end-from-start-by-performing-multipli",
+     "title": "Minimum steps to reach end from start by performing multiplication and mod operations with array elements",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/graph/g-39-minimum-multiplications-to-reach-end/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/graph/g-39-minimum-multiplications-to-reach-end/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-366-bellman-ford-algorithm",
+     "title": "Bellman Ford Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/bellman-ford-algorithm-g-41/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/bellman-ford-algorithm-g-41/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-367-floyd-warshal-algorithm",
+     "title": "Floyd Warshal Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-368-find-the-city-with-the-smallest-number-of-neighbors-in-a-thr",
+     "title": "Find the city with the smallest number of neighbors in a threshold distance",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-city-with-the-smallest-number-of-neighbours-at-a-threshold-distance-g-43/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-369-minimum-spanning-tree",
+     "title": "Minimum Spanning Tree",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/minimum-spanning-tree-theory-g-44/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-spanning-tree-theory-g-44/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-370-prim-s-algorithm",
+     "title": "Prim's Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/prims-algorithm-minimum-spanning-tree-c-and-java-g-45/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/prims-algorithm-minimum-spanning-tree-c-and-java-g-45/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-371-disjoint-set-union-by-rank",
+     "title": "Disjoint Set [Union by Rank]",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/disjoint-set-union-by-rank-union-by-size-path-compression-g-46/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/disjoint-set-union-by-rank-union-by-size-path-compression-g-46/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-372-disjoint-set-union-by-size",
+     "title": "Disjoint Set [Union by Size]",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/disjoint-set-union-by-rank-union-by-size-path-compression-g-46/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/disjoint-set-union-by-rank-union-by-size-path-compression-g-46/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-373-kruskal-s-algorithm",
+     "title": "Kruskal's Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-374-number-of-operations-to-make-network-connected",
+     "title": "Number of operations to make network connected",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/number-of-operations-to-make-network-connected/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-operations-to-make-network-connected-dsu-g-49/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-375-most-stones-removed-with-same-rows-or-columns",
+     "title": "Most stones removed with same rows or columns",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/most-stones-removed-with-same-row-or-column-dsu-g-53/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-376-accounts-merge",
+     "title": "Accounts merge",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/accounts-merge/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/accounts-merge-dsu-g-50/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-377-number-of-island-ii",
+     "title": "Number of island II",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/number-of-islands-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/number-of-islands-ii-online-queries-dsu-g-51/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-378-making-a-large-island",
+     "title": "Making a Large Island",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/making-a-large-island/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/making-a-large-island-dsu-g-52/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-379-swim-in-rising-water",
+     "title": "Swim in rising water",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/swim-in-rising-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-380-bridges-in-graph",
+     "title": "Bridges in Graph",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/critical-connections-in-a-network/discuss/382385/find-bridges-in-a-graph",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/bridges-in-graph-using-tarjans-algorithm-of-time-in-and-low-time-g-55/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-381-articulation-point",
+     "title": "Articulation Point",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/articulation-point-in-graph-g-56/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/articulation-point-in-graph-g-56/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-382-kosaraju-s-algorithm",
+     "title": "Kosaraju's Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-dynamic-programming",
+   "title": "Dynamic Programming",
+   "items": [
+    {
+     "slug": "a2z-383-dynamic-programming-introduction",
+     "title": "Dynamic Programming Introduction",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/dynamic-programming-introduction/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dynamic-programming-introduction/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-384-climbing-stars",
+     "title": "Climbing Stars",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/climbing-stairs/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/dynamic-programming-climbing-stairs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-385-frog-jump-dp-3",
+     "title": "Frog Jump(DP-3)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/dynamic-programming-frog-jump-dp-3/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dynamic-programming-frog-jump-dp-3/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-386-frog-jump-with-k-distances-dp-4",
+     "title": "Frog Jump with k distances(DP-4)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/dynamic-programming-frog-jump-with-k-distances-dp-4/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dynamic-programming-frog-jump-with-k-distances-dp-4/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-387-maximum-sum-of-non-adjacent-elements-dp-5",
+     "title": "Maximum sum of non-adjacent elements (DP 5)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/house-robber/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-sum-of-non-adjacent-elements-dp-5/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-388-house-robber-dp-6",
+     "title": "House Robber (DP 6)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/house-robber-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/dynamic-programming-house-robber-dp-6/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-389-ninja-s-training-dp-7",
+     "title": "Ninja's Training (DP 7)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/dynamic-programming-ninjas-training-dp-7/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dynamic-programming-ninjas-training-dp-7/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-390-grid-unique-paths-dp-on-grids-dp8",
+     "title": "Grid Unique Paths : DP on Grids (DP8)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/unique-paths/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/grid-unique-paths-dp-on-grids-dp8/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-391-grid-unique-paths-2-dp-9",
+     "title": "Grid Unique Paths 2 (DP 9)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/unique-paths-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/grid-unique-paths-2-dp-9/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-392-minimum-path-sum-in-grid-dp-10",
+     "title": "Minimum path sum in Grid (DP 10)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-path-sum-in-a-grid-dp-10/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-393-minimum-path-sum-in-triangular-grid-dp-11",
+     "title": "Minimum path sum in Triangular Grid (DP 11)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/triangle/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-path-sum-in-triangular-grid-dp-11/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-394-minimum-maximum-falling-path-sum-dp-12",
+     "title": "Minimum/Maximum Falling Path Sum (DP-12)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-falling-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-maximum-falling-path-sum-dp-12/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-395-3-d-dp-ninja-and-his-friends-dp-13",
+     "title": "3-d DP : Ninja and his friends (DP-13)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/3-d-dp-ninja-and-his-friends-dp-13/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/3-d-dp-ninja-and-his-friends-dp-13/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-396-subset-sum-equal-to-target-dp-14",
+     "title": "Subset sum equal to target (DP- 14)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-397-partition-equal-subset-sum-dp-15",
+     "title": "Partition Equal Subset Sum (DP- 15)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/partition-equal-subset-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/partition-equal-subset-sum-dp-15/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-398-partition-set-into-2-subsets-with-min-absolute-sum-diff-dp-1",
+     "title": "Partition Set Into 2 Subsets With Min Absolute Sum Diff (DP- 16)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/partition-set-into-2-subsets-with-min-absolute-sum-diff-dp-16/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-399-count-subsets-with-sum-k-dp-17",
+     "title": "Count Subsets with Sum K (DP - 17)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/count-subsets-with-sum-k-dp-17/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-subsets-with-sum-k-dp-17/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-400-count-partitions-with-given-difference-dp-18",
+     "title": "Count Partitions with Given Difference (DP - 18)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/count-partitions-with-given-difference-dp-18/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-partitions-with-given-difference-dp-18/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-401-assign-cookies",
+     "title": "Assign Cookies",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/assign-cookies/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-402-minimum-coins-dp-20",
+     "title": "Minimum Coins (DP - 20)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/coin-change/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-coins-dp-20/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-403-target-sum-dp-21",
+     "title": "Target Sum (DP - 21)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/target-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/target-sum-dp-21/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-404-coin-change-2-dp-22",
+     "title": "Coin Change 2 (DP - 22)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/coin-change-2/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/coin-change-2-dp-22/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-405-unbounded-knapsack-dp-23",
+     "title": "Unbounded Knapsack (DP - 23)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/unbounded-knapsack-dp-23/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/unbounded-knapsack-dp-23/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-406-rod-cutting-problem-dp-24",
+     "title": "Rod Cutting Problem | (DP - 24)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/rod-cutting-problem-dp-24/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/rod-cutting-problem-dp-24/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-407-longest-common-subsequence-dp-25",
+     "title": "Longest Common Subsequence | (DP - 25)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-common-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-408-print-longest-common-subsequence-dp-26",
+     "title": "Print Longest Common Subsequence | (DP - 26)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/print-longest-common-subsequence-dp-26/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/print-longest-common-subsequence-dp-26/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-409-longest-common-substring-dp-27",
+     "title": "Longest Common Substring | (DP - 27)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/longest-common-substring-dp-27/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-common-substring-dp-27/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-410-longest-palindromic-subsequence-dp-28",
+     "title": "Longest Palindromic Subsequence | (DP-28)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-palindromic-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-palindromic-subsequence-dp-28/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-411-minimum-insertions-to-make-string-palindrome-dp-29",
+     "title": "Minimum insertions to make string palindrome | DP-29",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-insertions-to-make-string-palindrome-dp-29/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-412-minimum-insertions-deletions-to-convert-string-dp-30",
+     "title": "Minimum Insertions/Deletions to Convert String | (DP- 30)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/delete-operation-for-two-strings/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-insertions-deletions-to-convert-string-dp-30/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-413-shortest-common-supersequence-dp-31",
+     "title": "Shortest Common Supersequence | (DP - 31)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/shortest-common-supersequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/shortest-common-supersequence-dp-31/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-414-distinct-subsequences-dp-32",
+     "title": "Distinct Subsequences| (DP-32)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/distinct-subsequences/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/distinct-subsequences-dp-32/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-415-edit-distance-dp-33",
+     "title": "Edit Distance | (DP-33)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/edit-distance/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/edit-distance-dp-33/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-416-wildcard-matching-dp-34",
+     "title": "Wildcard Matching | (DP-34)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/wildcard-matching/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/wildcard-matching-dp-34/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-417-best-time-to-buy-and-sell-stock-dp-35",
+     "title": "Best Time to Buy and Sell Stock |(DP-35)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/stock-buy-and-sell-dp-35/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-418-buy-and-sell-stock-ii-dp-36",
+     "title": "Buy and Sell Stock - II|(DP-36)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/buy-and-sell-stock-ii-dp-36/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-419-buy-and-sell-stocks-iii-dp-37",
+     "title": "Buy and Sell Stocks III|(DP-37)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/buy-and-sell-stock-iii-dp-37/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-420-buy-and-stock-sell-iv-dp-38",
+     "title": "Buy and Stock Sell IV |(DP-38)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/buy-and-sell-stock-iv-dp-38/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-421-buy-and-sell-stocks-with-cooldown-dp-39",
+     "title": "Buy and Sell Stocks With Cooldown|(DP-39)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/buy-and-sell-stocks-with-cooldown-dp-39/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-422-buy-and-sell-stocks-with-transaction-fee-dp-40",
+     "title": "Buy and Sell Stocks With Transaction Fee|(DP-40)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/buy-and-sell-stocks-with-transaction-fees-dp-40/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-423-longest-increasing-subsequence-dp-41",
+     "title": "Longest Increasing Subsequence |(DP-41)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-increasing-subsequence-dp-41/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-424-printing-longest-increasing-subsequence-dp-42",
+     "title": "Printing Longest Increasing Subsequence|(DP-42)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/printing-longest-increasing-subsequence-dp-42/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/printing-longest-increasing-subsequence-dp-42/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-425-longest-increasing-subsequence-dp-43",
+     "title": "Longest Increasing Subsequence |(DP-43)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/longest-increasing-subsequence-binary-search-dp-43/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-increasing-subsequence-binary-search-dp-43/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-426-largest-divisible-subset-dp-44",
+     "title": "Largest Divisible Subset|(DP-44)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/largest-divisible-subset/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-divisible-subset-dp-44/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-427-longest-string-chain-dp-45",
+     "title": "Longest String Chain|(DP-45)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-string-chain/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-string-chain-dp-45/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-428-longest-bitonic-subsequence-dp-46",
+     "title": "Longest Bitonic Subsequence |(DP-46)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/longest-bitonic-subsequence-dp-46/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-bitonic-subsequence-dp-46/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-429-number-of-longest-increasing-subsequences-dp-47",
+     "title": "Number of Longest Increasing Subsequences|(DP-47)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/number-of-longest-increasing-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-longest-increasing-subsequences-dp-47/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-430-matrix-chain-multiplication-dp-48",
+     "title": "Matrix Chain Multiplication|(DP-48)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/dynamic-programming/matrix-chain-multiplication-dp-48/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/dynamic-programming/matrix-chain-multiplication-dp-48/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-431-matrix-chain-multiplication-bottom-up-dp-49",
+     "title": "Matrix Chain Multiplication | Bottom-Up|(DP-49)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/matrix-chain-multiplication-tabulation-method-dp-49/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/matrix-chain-multiplication-tabulation-method-dp-49/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-432-minimum-cost-to-cut-the-stick-dp-50",
+     "title": "Minimum Cost to Cut the Stick|(DP-50)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-cost-to-cut-a-stick/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-cost-to-cut-the-stick-dp-50/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-433-burst-balloons-dp-51",
+     "title": "Burst Balloons|(DP-51)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/burst-balloons/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/burst-balloons-partition-dp-dp-51/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-434-evaluate-boolean-expression-to-true-dp-52",
+     "title": "Evaluate Boolean Expression to True|(DP-52)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/parsing-a-boolean-expression/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/evaluate-boolean-expression-to-true-partition-dp-dp-52/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-435-palindrome-partitioning-ii-dp-53",
+     "title": "Palindrome Partitioning - II|(DP-53)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/palindrome-partitioning-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/palindrome-partitioning-ii-front-partition-dp-53/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-436-partition-array-for-maximum-sum-dp-54",
+     "title": "Partition Array for Maximum Sum|(DP-54)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/partition-array-for-maximum-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/partition-array-for-maximum-sum-front-partition-dp-54/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-437-maximum-rectangle-area-with-all-1-s-dp-55",
+     "title": "Maximum Rectangle Area with all 1's|(DP-55)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/maximal-rectangle/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-rectangle-area-with-all-1s-dp-on-rectangles-dp-55/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-438-count-square-submatrices-with-all-ones-dp-56",
+     "title": "Count Square Submatrices with All Ones|(DP-56)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/count-square-submatrices-with-all-ones/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-square-submatrices-with-all-1s-dp-on-rectangles-dp-56/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-tries",
+   "title": "Tries",
+   "items": [
+    {
+     "slug": "a2z-439-implement-trie-insert-search-startswith",
+     "title": "Implement TRIE | INSERT | SEARCH | STARTSWITH",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-trie-1/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-440-implement-trie-2-prefix-tree",
+     "title": "Implement Trie - 2 (Prefix Tree)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/implement-trie-ii/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-trie-ii/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-441-longest-string-with-all-prefixes",
+     "title": "Longest String with All Prefixes",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/longest-word-with-all-prefixes",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-442-number-of-distinct-substrings-in-a-string",
+     "title": "Number of Distinct Substrings in a String",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-443-bit-prerequisites-for-trie-problems",
+     "title": "Bit PreRequisites for TRIE Problems",
+     "difficulty": "hard",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-444-maximum-xor-of-two-numbers-in-an-array",
+     "title": "Maximum XOR of two numbers in an array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-xor-of-two-numbers-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-445-maximum-xor-with-an-element-from-array",
+     "title": "Maximum XOR With an Element From Array",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/trie/maximum-xor-queries-trie/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "a2z-strings",
+   "title": "Strings",
+   "items": [
+    {
+     "slug": "a2z-446-minimum-number-of-bracket-reversals-needed-to-make-an-expres",
+     "title": "Minimum number of bracket reversals needed to make an expression balanced",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-447-count-and-say",
+     "title": "Count and say",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-and-say/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-448-hashing-in-strings-theory",
+     "title": "Hashing In Strings | Theory",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-449-rabin-karp",
+     "title": "Rabin Karp",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/repeated-string-match/discuss/416144/Rabin-Karp-algorithm-C%2B%2B-implementation",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-450-z-function",
+     "title": "Z-Function",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/implement-strstr/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-451-kmp-algo-lps-pi-array",
+     "title": "KMP algo / LPS(pi) array",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/implement-strstr/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-452-shortest-palindrome",
+     "title": "Shortest Palindrome",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/shortest-palindrome/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-453-longest-happy-prefix",
+     "title": "Longest happy prefix",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-happy-prefix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "a2z-454-count-palindromic-subsequence-in-given-string",
+     "title": "Count palindromic subsequence in given string",
+     "difficulty": "hard",
+     "url": "",
+     "platform": "",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2355 @@
+{
+ "slug": "aptitude",
+ "title": "Aptitude & Reasoning",
+ "category": "aptitude",
+ "description": "Quant, Logical, Verbal & DI — each topic broken into its exact question-types (the layer most people miss).",
+ "source": "Curated (Apna College structure + type inventory)",
+ "tree": [
+  {
+   "slug": "aptitude-n0",
+   "title": "Quantitative Aptitude",
+   "children": [
+    {
+     "slug": "aptitude-n1",
+     "title": "Percentages",
+     "children": [
+      {
+       "slug": "aptitude-n2",
+       "title": "Basic percentage conversion",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Basic%20percentage%20conversion%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-0-basic-percentage-conversion",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n3",
+       "title": "Percentage change (increase/decrease)",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Percentage%20change%20%28increase/decrease%29%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-1-percentage-change-increase-decrease",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n4",
+       "title": "Successive percentage change",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Successive%20percentage%20change%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-2-successive-percentage-change",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n5",
+       "title": "Reversal — increase then decrease to original",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Reversal%20%E2%80%94%20increase%20then%20decrease%20to%20original%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-3-reversal-increase-then-decrease-to-original",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n6",
+       "title": "Net effect formula",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Net%20effect%20formula%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-4-net-effect-formula",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n7",
+       "title": "Population growth and depreciation",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Population%20growth%20and%20depreciation%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-5-population-growth-and-depreciation",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n8",
+       "title": "Marks, passing percentage, exam problems",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Marks%2C%20passing%20percentage%2C%20exam%20problems%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-6-marks-passing-percentage-exam-problems",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n9",
+       "title": "Price–consumption inverse relation",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Price%E2%80%93consumption%20inverse%20relation%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-7-price-consumption-inverse-relation",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n10",
+       "title": "Error percentage",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Error%20percentage%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-8-error-percentage",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n11",
+       "title": "Percentage in Data Interpretation",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Percentage%20in%20Data%20Interpretation%20Percentages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-9-percentage-in-data-interpretation",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n12",
+     "title": "Simplification",
+     "children": [
+      {
+       "slug": "aptitude-n13",
+       "title": "BODMAS",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=BODMAS%20Simplification%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-10-bodmas",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n14",
+       "title": "Surds and indices",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Surds%20and%20indices%20Simplification%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-11-surds-and-indices",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n15",
+       "title": "Approximation techniques",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Approximation%20techniques%20Simplification%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-12-approximation-techniques",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n16",
+       "title": "Fractions to decimals shortcuts",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Fractions%20to%20decimals%20shortcuts%20Simplification%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-13-fractions-to-decimals-shortcuts",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n17",
+       "title": "Squares, cubes, square roots to memorise",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Squares%2C%20cubes%2C%20square%20roots%20to%20memorise%20Simplification%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-14-squares-cubes-square-roots-to-memorise",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n18",
+     "title": "Ratio and Proportion",
+     "children": [
+      {
+       "slug": "aptitude-n19",
+       "title": "Simple ratio",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Simple%20ratio%20Ratio%20and%20Proportion%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-15-simple-ratio",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n20",
+       "title": "Compound ratio",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Compound%20ratio%20Ratio%20and%20Proportion%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-16-compound-ratio",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n21",
+       "title": "Direct and inverse proportion",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Direct%20and%20inverse%20proportion%20Ratio%20and%20Proportion%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-17-direct-and-inverse-proportion",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n22",
+       "title": "Dividing a quantity in a ratio",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Dividing%20a%20quantity%20in%20a%20ratio%20Ratio%20and%20Proportion%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-18-dividing-a-quantity-in-a-ratio",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n23",
+       "title": "Ratio with age/mixture overlap",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Ratio%20with%20age/mixture%20overlap%20Ratio%20and%20Proportion%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-19-ratio-with-age-mixture-overlap",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n24",
+       "title": "Componendo and dividendo",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Componendo%20and%20dividendo%20Ratio%20and%20Proportion%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-20-componendo-and-dividendo",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n25",
+     "title": "Profit and Loss",
+     "children": [
+      {
+       "slug": "aptitude-n26",
+       "title": "CP, SP, profit/loss percent",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=CP%2C%20SP%2C%20profit/loss%20percent%20Profit%20and%20Loss%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-21-cp-sp-profit-loss-percent",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n27",
+       "title": "Successive discounts",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Successive%20discounts%20Profit%20and%20Loss%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-22-successive-discounts",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n28",
+       "title": "Marked price and discount chains",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Marked%20price%20and%20discount%20chains%20Profit%20and%20Loss%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-23-marked-price-and-discount-chains",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n29",
+       "title": "Dishonest dealer / false weights",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Dishonest%20dealer%20/%20false%20weights%20Profit%20and%20Loss%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-24-dishonest-dealer-false-weights",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n30",
+       "title": "Profit on cost vs on selling price",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Profit%20on%20cost%20vs%20on%20selling%20price%20Profit%20and%20Loss%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-25-profit-on-cost-vs-on-selling-price",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n31",
+       "title": "Break-even and multiple articles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Break-even%20and%20multiple%20articles%20Profit%20and%20Loss%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-26-break-even-and-multiple-articles",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n32",
+     "title": "Partnership",
+     "children": [
+      {
+       "slug": "aptitude-n33",
+       "title": "Simple partnership",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Simple%20partnership%20Partnership%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-27-simple-partnership",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n34",
+       "title": "Compound partnership (time-weighted)",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Compound%20partnership%20%28time-weighted%29%20Partnership%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-28-compound-partnership-time-weighted",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n35",
+       "title": "Working vs sleeping partner",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Working%20vs%20sleeping%20partner%20Partnership%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-29-working-vs-sleeping-partner",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n36",
+       "title": "Profit sharing with varying investment",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Profit%20sharing%20with%20varying%20investment%20Partnership%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-30-profit-sharing-with-varying-investment",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n37",
+     "title": "Simple & Compound Interest",
+     "children": [
+      {
+       "slug": "aptitude-n38",
+       "title": "SI basics",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=SI%20basics%20Simple%20%26%20Compound%20Interest%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-31-si-basics",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n39",
+       "title": "CI annually, half-yearly, quarterly",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=CI%20annually%2C%20half-yearly%2C%20quarterly%20Simple%20%26%20Compound%20Interest%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-32-ci-annually-half-yearly-quarterly",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n40",
+       "title": "Difference between CI and SI for 2 and 3 years",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Difference%20between%20CI%20and%20SI%20for%202%20and%203%20years%20Simple%20%26%20Compound%20Interest%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-33-difference-between-ci-and-si-for-2-and-3-years",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n41",
+       "title": "Compound growth and population",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Compound%20growth%20and%20population%20Simple%20%26%20Compound%20Interest%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-34-compound-growth-and-population",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n42",
+       "title": "Instalments and EMI basics",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Instalments%20and%20EMI%20basics%20Simple%20%26%20Compound%20Interest%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-35-instalments-and-emi-basics",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n43",
+     "title": "Averages",
+     "children": [
+      {
+       "slug": "aptitude-n44",
+       "title": "Simple average",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Simple%20average%20Averages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-36-simple-average",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n45",
+       "title": "Weighted average",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Weighted%20average%20Averages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-37-weighted-average",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n46",
+       "title": "Average of consecutive numbers",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Average%20of%20consecutive%20numbers%20Averages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-38-average-of-consecutive-numbers",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n47",
+       "title": "Change in average on adding/removing",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Change%20in%20average%20on%20adding/removing%20Averages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-39-change-in-average-on-adding-removing",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n48",
+       "title": "Average speed",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Average%20speed%20Averages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-40-average-speed",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n49",
+     "title": "Mixture and Alligation",
+     "children": [
+      {
+       "slug": "aptitude-n50",
+       "title": "Alligation rule",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Alligation%20rule%20Mixture%20and%20Alligation%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-41-alligation-rule",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n51",
+       "title": "Mixing two solutions",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Mixing%20two%20solutions%20Mixture%20and%20Alligation%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-42-mixing-two-solutions",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n52",
+       "title": "Repeated replacement formula",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Repeated%20replacement%20formula%20Mixture%20and%20Alligation%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-43-repeated-replacement-formula",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n53",
+       "title": "Mixture with profit/loss overlap",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Mixture%20with%20profit/loss%20overlap%20Mixture%20and%20Alligation%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-44-mixture-with-profit-loss-overlap",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n54",
+     "title": "Time and Work",
+     "children": [
+      {
+       "slug": "aptitude-n55",
+       "title": "Individual and combined work rate",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Individual%20and%20combined%20work%20rate%20Time%20and%20Work%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-45-individual-and-combined-work-rate",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n56",
+       "title": "Work with efficiency ratios",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Work%20with%20efficiency%20ratios%20Time%20and%20Work%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-46-work-with-efficiency-ratios",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n57",
+       "title": "Men-days-hours (chain rule)",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Men-days-hours%20%28chain%20rule%29%20Time%20and%20Work%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-47-men-days-hours-chain-rule",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n58",
+       "title": "Pipes and cisterns with leaks",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Pipes%20and%20cisterns%20with%20leaks%20Time%20and%20Work%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-48-pipes-and-cisterns-with-leaks",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n59",
+       "title": "Alternate day working",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Alternate%20day%20working%20Time%20and%20Work%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-49-alternate-day-working",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n60",
+       "title": "Wages distribution",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Wages%20distribution%20Time%20and%20Work%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-50-wages-distribution",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n61",
+     "title": "Trains, Boats and Streams",
+     "children": [
+      {
+       "slug": "aptitude-n62",
+       "title": "Train crossing pole/platform",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Train%20crossing%20pole/platform%20Trains%2C%20Boats%20and%20Streams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-51-train-crossing-pole-platform",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n63",
+       "title": "Two trains same and opposite direction",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Two%20trains%20same%20and%20opposite%20direction%20Trains%2C%20Boats%20and%20Streams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-52-two-trains-same-and-opposite-direction",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n64",
+       "title": "Upstream and downstream",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Upstream%20and%20downstream%20Trains%2C%20Boats%20and%20Streams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-53-upstream-and-downstream",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n65",
+       "title": "Still water speed",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Still%20water%20speed%20Trains%2C%20Boats%20and%20Streams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-54-still-water-speed",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n66",
+       "title": "Average speed round trip",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Average%20speed%20round%20trip%20Trains%2C%20Boats%20and%20Streams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-55-average-speed-round-trip",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n67",
+     "title": "Time, Speed and Distance",
+     "children": [
+      {
+       "slug": "aptitude-n68",
+       "title": "Basic TSD",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Basic%20TSD%20Time%2C%20Speed%20and%20Distance%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-56-basic-tsd",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n69",
+       "title": "Relative speed",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Relative%20speed%20Time%2C%20Speed%20and%20Distance%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-57-relative-speed",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n70",
+       "title": "Average speed (harmonic mean cases)",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Average%20speed%20%28harmonic%20mean%20cases%29%20Time%2C%20Speed%20and%20Distance%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-58-average-speed-harmonic-mean-cases",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n71",
+       "title": "Races and head starts",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Races%20and%20head%20starts%20Time%2C%20Speed%20and%20Distance%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-59-races-and-head-starts",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n72",
+       "title": "Circular track meetings",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Circular%20track%20meetings%20Time%2C%20Speed%20and%20Distance%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-60-circular-track-meetings",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n73",
+     "title": "Ages",
+     "children": [
+      {
+       "slug": "aptitude-n74",
+       "title": "Present, past, future age equations",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Present%2C%20past%2C%20future%20age%20equations%20Ages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-61-present-past-future-age-equations",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n75",
+       "title": "Ratio-based age problems",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Ratio-based%20age%20problems%20Ages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-62-ratio-based-age-problems",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n76",
+       "title": "Average age of a group",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Average%20age%20of%20a%20group%20Ages%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-63-average-age-of-a-group",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n77",
+     "title": "Numbers, Divisibility, Remainders, Cyclicity",
+     "children": [
+      {
+       "slug": "aptitude-n78",
+       "title": "Divisibility rules",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Divisibility%20rules%20Numbers%2C%20Divisibility%2C%20Remainders%2C%20Cyclicity%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-64-divisibility-rules",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n79",
+       "title": "Unit digit and cyclicity",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Unit%20digit%20and%20cyclicity%20Numbers%2C%20Divisibility%2C%20Remainders%2C%20Cyclicity%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-65-unit-digit-and-cyclicity",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n80",
+       "title": "Remainder theorem basics",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Remainder%20theorem%20basics%20Numbers%2C%20Divisibility%2C%20Remainders%2C%20Cyclicity%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-66-remainder-theorem-basics",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n81",
+       "title": "Number of factors",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Number%20of%20factors%20Numbers%2C%20Divisibility%2C%20Remainders%2C%20Cyclicity%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-67-number-of-factors",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n82",
+       "title": "Sum of factors",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Sum%20of%20factors%20Numbers%2C%20Divisibility%2C%20Remainders%2C%20Cyclicity%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-68-sum-of-factors",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n83",
+       "title": "Last two digits",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Last%20two%20digits%20Numbers%2C%20Divisibility%2C%20Remainders%2C%20Cyclicity%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-69-last-two-digits",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n84",
+       "title": "Base system conversion",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Base%20system%20conversion%20Numbers%2C%20Divisibility%2C%20Remainders%2C%20Cyclicity%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-70-base-system-conversion",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n85",
+     "title": "HCF and LCM",
+     "children": [
+      {
+       "slug": "aptitude-n86",
+       "title": "HCF/LCM computation",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=HCF/LCM%20computation%20HCF%20and%20LCM%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-71-hcf-lcm-computation",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n87",
+       "title": "LCM of fractions",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=LCM%20of%20fractions%20HCF%20and%20LCM%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-72-lcm-of-fractions",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n88",
+       "title": "Word problems: bells, lights, tiles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Word%20problems%3A%20bells%2C%20lights%2C%20tiles%20HCF%20and%20LCM%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-73-word-problems-bells-lights-tiles",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n89",
+       "title": "HCF-LCM product relation",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=HCF-LCM%20product%20relation%20HCF%20and%20LCM%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-74-hcf-lcm-product-relation",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n90",
+     "title": "Geometry",
+     "children": [
+      {
+       "slug": "aptitude-n91",
+       "title": "Lines and angles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Lines%20and%20angles%20Geometry%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-75-lines-and-angles",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n92",
+       "title": "Triangle properties and similarity",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Triangle%20properties%20and%20similarity%20Geometry%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-76-triangle-properties-and-similarity",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n93",
+       "title": "Pythagorean triples",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Pythagorean%20triples%20Geometry%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-77-pythagorean-triples",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n94",
+       "title": "Circles: chords, tangents",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Circles%3A%20chords%2C%20tangents%20Geometry%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-78-circles-chords-tangents",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n95",
+       "title": "Coordinate geometry basics",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Coordinate%20geometry%20basics%20Geometry%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-79-coordinate-geometry-basics",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n96",
+     "title": "Mensuration",
+     "children": [
+      {
+       "slug": "aptitude-n97",
+       "title": "2D areas and perimeters",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=2D%20areas%20and%20perimeters%20Mensuration%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-80-2d-areas-and-perimeters",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n98",
+       "title": "3D volumes and surface areas",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=3D%20volumes%20and%20surface%20areas%20Mensuration%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-81-3d-volumes-and-surface-areas",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n99",
+       "title": "Cylinder, cone, sphere",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Cylinder%2C%20cone%2C%20sphere%20Mensuration%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-82-cylinder-cone-sphere",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n100",
+       "title": "Combination solids",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Combination%20solids%20Mensuration%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-83-combination-solids",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n101",
+       "title": "Scaling effects on area and volume",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Scaling%20effects%20on%20area%20and%20volume%20Mensuration%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-84-scaling-effects-on-area-and-volume",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n102",
+     "title": "Permutation and Combination",
+     "children": [
+      {
+       "slug": "aptitude-n103",
+       "title": "Fundamental counting principle",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Fundamental%20counting%20principle%20Permutation%20and%20Combination%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-85-fundamental-counting-principle",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n104",
+       "title": "Permutations with repetition",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Permutations%20with%20repetition%20Permutation%20and%20Combination%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-86-permutations-with-repetition",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n105",
+       "title": "Circular permutations",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Circular%20permutations%20Permutation%20and%20Combination%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-87-circular-permutations",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n106",
+       "title": "Combinations",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Combinations%20Permutation%20and%20Combination%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-88-combinations",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n107",
+       "title": "Grouping and distribution",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Grouping%20and%20distribution%20Permutation%20and%20Combination%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-89-grouping-and-distribution",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n108",
+       "title": "Selection with restrictions",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Selection%20with%20restrictions%20Permutation%20and%20Combination%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-90-selection-with-restrictions",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n109",
+     "title": "Probability",
+     "children": [
+      {
+       "slug": "aptitude-n110",
+       "title": "Basic probability",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Basic%20probability%20Probability%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-91-basic-probability",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n111",
+       "title": "Independent and dependent events",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Independent%20and%20dependent%20events%20Probability%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-92-independent-and-dependent-events",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n112",
+       "title": "Conditional probability",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Conditional%20probability%20Probability%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-93-conditional-probability",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n113",
+       "title": "Probability with cards, dice, balls",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Probability%20with%20cards%2C%20dice%2C%20balls%20Probability%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-94-probability-with-cards-dice-balls",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n114",
+       "title": "At least one / complement method",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=At%20least%20one%20/%20complement%20method%20Probability%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-95-at-least-one-complement-method",
+       "tags": "apt"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "aptitude-n115",
+   "title": "Data Interpretation",
+   "children": [
+    {
+     "slug": "aptitude-n116",
+     "title": "Tables",
+     "children": [
+      {
+       "slug": "aptitude-n117",
+       "title": "Single table",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Single%20table%20Tables%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-96-single-table",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n118",
+       "title": "Multi-table comparison",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Multi-table%20comparison%20Tables%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-97-multi-table-comparison",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n119",
+       "title": "Missing value tables",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Missing%20value%20tables%20Tables%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-98-missing-value-tables",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n120",
+     "title": "Bar Charts",
+     "children": [
+      {
+       "slug": "aptitude-n121",
+       "title": "Simple bar",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Simple%20bar%20Bar%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-99-simple-bar",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n122",
+       "title": "Stacked bar",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Stacked%20bar%20Bar%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-100-stacked-bar",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n123",
+       "title": "Grouped bar",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Grouped%20bar%20Bar%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-101-grouped-bar",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n124",
+     "title": "Pie Charts",
+     "children": [
+      {
+       "slug": "aptitude-n125",
+       "title": "Single pie",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Single%20pie%20Pie%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-102-single-pie",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n126",
+       "title": "Two pies compared",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Two%20pies%20compared%20Pie%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-103-two-pies-compared",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n127",
+       "title": "Pie with absolute values",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Pie%20with%20absolute%20values%20Pie%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-104-pie-with-absolute-values",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n128",
+     "title": "Mixed Charts",
+     "children": [
+      {
+       "slug": "aptitude-n129",
+       "title": "Bar + line",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Bar%20%2B%20line%20Mixed%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-105-bar-line",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n130",
+       "title": "Pie + table",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Pie%20%2B%20table%20Mixed%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-106-pie-table",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n131",
+       "title": "Caselet DI",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Caselet%20DI%20Mixed%20Charts%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-107-caselet-di",
+       "tags": "apt"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "aptitude-n132",
+   "title": "Logical Reasoning",
+   "children": [
+    {
+     "slug": "aptitude-n133",
+     "title": "Series (Number)",
+     "children": [
+      {
+       "slug": "aptitude-n134",
+       "title": "Arithmetic and geometric series",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Arithmetic%20and%20geometric%20series%20Series%20%28Number%29%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-108-arithmetic-and-geometric-series",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n135",
+       "title": "Mixed operation series",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Mixed%20operation%20series%20Series%20%28Number%29%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-109-mixed-operation-series",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n136",
+       "title": "Wrong term identification",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Wrong%20term%20identification%20Series%20%28Number%29%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-110-wrong-term-identification",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n137",
+     "title": "Series (Letter and Mixed)",
+     "children": [
+      {
+       "slug": "aptitude-n138",
+       "title": "Letter series",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Letter%20series%20Series%20%28Letter%20and%20Mixed%29%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-111-letter-series",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n139",
+       "title": "Alphanumeric series",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Alphanumeric%20series%20Series%20%28Letter%20and%20Mixed%29%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-112-alphanumeric-series",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n140",
+       "title": "Continuous pattern",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Continuous%20pattern%20Series%20%28Letter%20and%20Mixed%29%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-113-continuous-pattern",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n141",
+     "title": "Coding Decoding",
+     "children": [
+      {
+       "slug": "aptitude-n142",
+       "title": "Letter coding",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Letter%20coding%20Coding%20Decoding%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-114-letter-coding",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n143",
+       "title": "Number coding",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Number%20coding%20Coding%20Decoding%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-115-number-coding",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n144",
+       "title": "Substitution coding",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Substitution%20coding%20Coding%20Decoding%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-116-substitution-coding",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n145",
+       "title": "Conditional coding",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Conditional%20coding%20Coding%20Decoding%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-117-conditional-coding",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n146",
+     "title": "Clocks and Calendars",
+     "children": [
+      {
+       "slug": "aptitude-n147",
+       "title": "Angle between hands",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Angle%20between%20hands%20Clocks%20and%20Calendars%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-118-angle-between-hands",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n148",
+       "title": "Incorrect clocks",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Incorrect%20clocks%20Clocks%20and%20Calendars%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-119-incorrect-clocks",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n149",
+       "title": "Odd days and day of week",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Odd%20days%20and%20day%20of%20week%20Clocks%20and%20Calendars%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-120-odd-days-and-day-of-week",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n150",
+       "title": "Leap year logic",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Leap%20year%20logic%20Clocks%20and%20Calendars%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-121-leap-year-logic",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n151",
+     "title": "Blood Relations",
+     "children": [
+      {
+       "slug": "aptitude-n152",
+       "title": "Direct relation puzzles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Direct%20relation%20puzzles%20Blood%20Relations%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-122-direct-relation-puzzles",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n153",
+       "title": "Coded relations",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Coded%20relations%20Blood%20Relations%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-123-coded-relations",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n154",
+       "title": "Family tree with gender clues",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Family%20tree%20with%20gender%20clues%20Blood%20Relations%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-124-family-tree-with-gender-clues",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n155",
+     "title": "Direction Sense",
+     "children": [
+      {
+       "slug": "aptitude-n156",
+       "title": "Basic direction tracing",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Basic%20direction%20tracing%20Direction%20Sense%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-125-basic-direction-tracing",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n157",
+       "title": "Shadow-based direction",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Shadow-based%20direction%20Direction%20Sense%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-126-shadow-based-direction",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n158",
+       "title": "Distance calculation",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Distance%20calculation%20Direction%20Sense%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-127-distance-calculation",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n159",
+     "title": "Syllogism",
+     "children": [
+      {
+       "slug": "aptitude-n160",
+       "title": "Two-statement syllogism",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Two-statement%20syllogism%20Syllogism%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-128-two-statement-syllogism",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n161",
+       "title": "Three-statement",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Three-statement%20Syllogism%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-129-three-statement",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n162",
+       "title": "Possibility cases",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Possibility%20cases%20Syllogism%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-130-possibility-cases",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n163",
+       "title": "Venn method",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Venn%20method%20Syllogism%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-131-venn-method",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n164",
+     "title": "Cubes and Dice",
+     "children": [
+      {
+       "slug": "aptitude-n165",
+       "title": "Painted cube counting",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Painted%20cube%20counting%20Cubes%20and%20Dice%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-132-painted-cube-counting",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n166",
+       "title": "Dice opposite faces",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Dice%20opposite%20faces%20Cubes%20and%20Dice%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-133-dice-opposite-faces",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n167",
+       "title": "Cube folding",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Cube%20folding%20Cubes%20and%20Dice%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-134-cube-folding",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n168",
+     "title": "Linear Arrangements",
+     "children": [
+      {
+       "slug": "aptitude-n169",
+       "title": "Single row",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Single%20row%20Linear%20Arrangements%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-135-single-row",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n170",
+       "title": "Two rows facing each other",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Two%20rows%20facing%20each%20other%20Linear%20Arrangements%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-136-two-rows-facing-each-other",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n171",
+       "title": "With attribute matching",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=With%20attribute%20matching%20Linear%20Arrangements%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-137-with-attribute-matching",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n172",
+     "title": "Circular Arrangements",
+     "children": [
+      {
+       "slug": "aptitude-n173",
+       "title": "Facing centre",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Facing%20centre%20Circular%20Arrangements%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-138-facing-centre",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n174",
+       "title": "Facing outward",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Facing%20outward%20Circular%20Arrangements%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-139-facing-outward",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n175",
+       "title": "Mixed facing",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Mixed%20facing%20Circular%20Arrangements%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-140-mixed-facing",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n176",
+       "title": "With attributes",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=With%20attributes%20Circular%20Arrangements%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-141-with-attributes",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n177",
+     "title": "Ordering and Sequencing Puzzles",
+     "children": [
+      {
+       "slug": "aptitude-n178",
+       "title": "Ranking",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Ranking%20Ordering%20and%20Sequencing%20Puzzles%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-142-ranking",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n179",
+       "title": "Floor puzzles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Floor%20puzzles%20Ordering%20and%20Sequencing%20Puzzles%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-143-floor-puzzles",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n180",
+       "title": "Scheduling puzzles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Scheduling%20puzzles%20Ordering%20and%20Sequencing%20Puzzles%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-144-scheduling-puzzles",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n181",
+     "title": "Games and Misc Puzzles",
+     "children": [
+      {
+       "slug": "aptitude-n182",
+       "title": "Tournament logic",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Tournament%20logic%20Games%20and%20Misc%20Puzzles%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-145-tournament-logic",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n183",
+       "title": "Classic interview puzzles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Classic%20interview%20puzzles%20Games%20and%20Misc%20Puzzles%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-146-classic-interview-puzzles",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n184",
+       "title": "Weighing and measuring puzzles",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Weighing%20and%20measuring%20puzzles%20Games%20and%20Misc%20Puzzles%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-147-weighing-and-measuring-puzzles",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n185",
+     "title": "Critical Reasoning",
+     "children": [
+      {
+       "slug": "aptitude-n186",
+       "title": "Assumptions",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Assumptions%20Critical%20Reasoning%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-148-assumptions",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n187",
+       "title": "Conclusions",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Conclusions%20Critical%20Reasoning%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-149-conclusions",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n188",
+       "title": "Strengthen and weaken",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Strengthen%20and%20weaken%20Critical%20Reasoning%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-150-strengthen-and-weaken",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n189",
+       "title": "Cause and effect",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Cause%20and%20effect%20Critical%20Reasoning%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-151-cause-and-effect",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n190",
+     "title": "Venn Diagrams",
+     "children": [
+      {
+       "slug": "aptitude-n191",
+       "title": "Two-set problems",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Two-set%20problems%20Venn%20Diagrams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-152-two-set-problems",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n192",
+       "title": "Three-set problems",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Three-set%20problems%20Venn%20Diagrams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-153-three-set-problems",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n193",
+       "title": "Maximum and minimum overlap",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Maximum%20and%20minimum%20overlap%20Venn%20Diagrams%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-154-maximum-and-minimum-overlap",
+       "tags": "apt"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "aptitude-n194",
+   "title": "Verbal Ability",
+   "children": [
+    {
+     "slug": "aptitude-n195",
+     "title": "Spotting Errors",
+     "children": [
+      {
+       "slug": "aptitude-n196",
+       "title": "Subject-verb agreement",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Subject-verb%20agreement%20Spotting%20Errors%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-155-subject-verb-agreement",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n197",
+       "title": "Tense errors",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Tense%20errors%20Spotting%20Errors%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-156-tense-errors",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n198",
+       "title": "Preposition errors",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Preposition%20errors%20Spotting%20Errors%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-157-preposition-errors",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n199",
+       "title": "Article errors",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Article%20errors%20Spotting%20Errors%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-158-article-errors",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n200",
+       "title": "Pronoun errors",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Pronoun%20errors%20Spotting%20Errors%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-159-pronoun-errors",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n201",
+     "title": "Synonyms",
+     "children": [
+      {
+       "slug": "aptitude-n202",
+       "title": "Common word list",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Common%20word%20list%20Synonyms%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-160-common-word-list",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n203",
+       "title": "Context-based",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Context-based%20Synonyms%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-161-context-based",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n204",
+     "title": "Antonyms",
+     "children": [
+      {
+       "slug": "aptitude-n205",
+       "title": "Common word list",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Common%20word%20list%20Antonyms%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-162-common-word-list",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n206",
+       "title": "Context-based",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Context-based%20Antonyms%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-163-context-based",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n207",
+     "title": "Direct Indirect Speech",
+     "children": [
+      {
+       "slug": "aptitude-n208",
+       "title": "Statements",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Statements%20Direct%20Indirect%20Speech%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-164-statements",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n209",
+       "title": "Questions",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Questions%20Direct%20Indirect%20Speech%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-165-questions",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n210",
+       "title": "Commands",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Commands%20Direct%20Indirect%20Speech%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-166-commands",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n211",
+     "title": "Cloze Test",
+     "children": [
+      {
+       "slug": "aptitude-n212",
+       "title": "Vocabulary fit",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Vocabulary%20fit%20Cloze%20Test%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-167-vocabulary-fit",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n213",
+       "title": "Grammar fit",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Grammar%20fit%20Cloze%20Test%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-168-grammar-fit",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n214",
+       "title": "Logic fit",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Logic%20fit%20Cloze%20Test%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-169-logic-fit",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n215",
+     "title": "Sentence Improvement",
+     "children": [
+      {
+       "slug": "aptitude-n216",
+       "title": "Grammar correction",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Grammar%20correction%20Sentence%20Improvement%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-170-grammar-correction",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n217",
+       "title": "Idiomatic usage",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Idiomatic%20usage%20Sentence%20Improvement%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-171-idiomatic-usage",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n218",
+       "title": "Redundancy removal",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Redundancy%20removal%20Sentence%20Improvement%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-172-redundancy-removal",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n219",
+     "title": "Idioms and Phrases",
+     "children": [
+      {
+       "slug": "aptitude-n220",
+       "title": "Common idioms",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Common%20idioms%20Idioms%20and%20Phrases%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-173-common-idioms",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n221",
+       "title": "Phrasal verbs",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Phrasal%20verbs%20Idioms%20and%20Phrases%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-174-phrasal-verbs",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n222",
+     "title": "One Word Substitution",
+     "children": [
+      {
+       "slug": "aptitude-n223",
+       "title": "People",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=People%20One%20Word%20Substitution%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-175-people",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n224",
+       "title": "Places and things",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Places%20and%20things%20One%20Word%20Substitution%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-176-places-and-things",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n225",
+       "title": "Behaviours",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Behaviours%20One%20Word%20Substitution%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-177-behaviours",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n226",
+     "title": "Active Passive",
+     "children": [
+      {
+       "slug": "aptitude-n227",
+       "title": "Simple tenses",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Simple%20tenses%20Active%20Passive%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-178-simple-tenses",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n228",
+       "title": "Perfect tenses",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Perfect%20tenses%20Active%20Passive%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-179-perfect-tenses",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n229",
+       "title": "Modals and imperatives",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Modals%20and%20imperatives%20Active%20Passive%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-180-modals-and-imperatives",
+       "tags": "apt"
+      }
+     ]
+    },
+    {
+     "slug": "aptitude-n230",
+     "title": "Reading Comprehension",
+     "children": [
+      {
+       "slug": "aptitude-n231",
+       "title": "Main idea",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Main%20idea%20Reading%20Comprehension%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-181-main-idea",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n232",
+       "title": "Inference",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Inference%20Reading%20Comprehension%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-182-inference",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n233",
+       "title": "Tone and attitude",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Tone%20and%20attitude%20Reading%20Comprehension%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-183-tone-and-attitude",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n234",
+       "title": "Vocabulary in context",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Vocabulary%20in%20context%20Reading%20Comprehension%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-184-vocabulary-in-context",
+       "tags": "apt"
+      },
+      {
+       "slug": "aptitude-n235",
+       "title": "Speed reading technique",
+       "leaf": true,
+       "leafType": "concept",
+       "difficulty": "medium",
+       "url": "https://www.google.com/search?q=Speed%20reading%20technique%20Reading%20Comprehension%20aptitude",
+       "platform": "Learn",
+       "canon": "u:apt-185-speed-reading-technique",
+       "tags": "apt"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

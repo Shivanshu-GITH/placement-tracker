@@ -1,0 +1,558 @@
+{
+ "slug": "system-design",
+ "title": "System Design",
+ "category": "system",
+ "description": "HLD building blocks, the most-asked design case studies, and LLD/OOD with design patterns.",
+ "source": "Curated syllabus",
+ "topics": [
+  {
+   "slug": "sd-fundamentals-hld-building-blocks",
+   "title": "Fundamentals (HLD building blocks)",
+   "items": [
+    {
+     "slug": "sd-0-client-server-network-basics",
+     "title": "Client-Server & Network basics",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Client-Server%20%26%20Network%20basics%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-1-scalability-vertical-vs-horizontal",
+     "title": "Scalability: Vertical vs Horizontal",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Scalability%3A%20Vertical%20vs%20Horizontal%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-2-load-balancing-algorithms",
+     "title": "Load Balancing & Algorithms",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Load%20Balancing%20%26%20Algorithms%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-3-caching-cache-eviction-lru-lfu",
+     "title": "Caching & Cache Eviction (LRU/LFU)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Caching%20%26%20Cache%20Eviction%20%28LRU/LFU%29%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-4-cdn-content-delivery-network",
+     "title": "CDN (Content Delivery Network)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CDN%20%28Content%20Delivery%20Network%29%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-5-sql-vs-nosql-choosing-a-db",
+     "title": "SQL vs NoSQL: choosing a DB",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SQL%20vs%20NoSQL%3A%20choosing%20a%20DB%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-6-database-indexing",
+     "title": "Database Indexing",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Database%20Indexing%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-7-database-replication-master-slave-master-master",
+     "title": "Database Replication (Master-Slave/Master-Master)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Database%20Replication%20%28Master-Slave/Master-Master%29%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-8-database-sharding-partitioning",
+     "title": "Database Sharding & Partitioning",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Database%20Sharding%20%26%20Partitioning%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-9-cap-theorem",
+     "title": "CAP Theorem",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CAP%20Theorem%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-10-pacelc-consistency-models",
+     "title": "PACELC & Consistency Models",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=PACELC%20%26%20Consistency%20Models%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-11-consistent-hashing",
+     "title": "Consistent Hashing",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Consistent%20Hashing%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-12-message-queues-kafka-rabbitmq",
+     "title": "Message Queues (Kafka/RabbitMQ)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Message%20Queues%20%28Kafka/RabbitMQ%29%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-13-pub-sub-pattern",
+     "title": "Pub-Sub Pattern",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Pub-Sub%20Pattern%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-14-rate-limiting",
+     "title": "Rate Limiting",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Rate%20Limiting%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-15-api-gateway",
+     "title": "API Gateway",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=API%20Gateway%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-16-proxy-forward-reverse",
+     "title": "Proxy (Forward & Reverse)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Proxy%20%28Forward%20%26%20Reverse%29%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-17-monolith-vs-microservices",
+     "title": "Monolith vs Microservices",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Monolith%20vs%20Microservices%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-18-blob-object-storage",
+     "title": "Blob / Object Storage",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Blob%20/%20Object%20Storage%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-19-bloom-filters",
+     "title": "Bloom Filters",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Bloom%20Filters%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-20-leader-election-consensus-raft-paxos",
+     "title": "Leader Election & Consensus (Raft/Paxos)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Leader%20Election%20%26%20Consensus%20%28Raft/Paxos%29%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-21-distributed-transactions-2pc-saga",
+     "title": "Distributed Transactions (2PC & Saga)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Distributed%20Transactions%20%282PC%20%26%20Saga%29%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-22-idempotency",
+     "title": "Idempotency",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Idempotency%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-23-websockets-vs-long-polling-vs-sse",
+     "title": "WebSockets vs Long Polling vs SSE",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=WebSockets%20vs%20Long%20Polling%20vs%20SSE%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-24-back-of-the-envelope-estimation",
+     "title": "Back-of-the-Envelope Estimation",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Back-of-the-Envelope%20Estimation%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-25-availability-reliability-slas",
+     "title": "Availability, Reliability & SLAs",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Availability%2C%20Reliability%20%26%20SLAs%20system%20design",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    }
+   ]
+  },
+  {
+   "slug": "sd-hld-case-studies-most-asked",
+   "title": "HLD Case Studies (most-asked)",
+   "items": [
+    {
+     "slug": "sd-26-design-a-url-shortener-tinyurl",
+     "title": "Design a URL Shortener (TinyURL)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20URL%20Shortener%20%28TinyURL%29%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-27-design-a-rate-limiter",
+     "title": "Design a Rate Limiter",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Rate%20Limiter%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-28-design-twitter-news-feed",
+     "title": "Design Twitter / News Feed",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Twitter%20/%20News%20Feed%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-29-design-whatsapp-messenger",
+     "title": "Design WhatsApp / Messenger",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20WhatsApp%20/%20Messenger%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-30-design-instagram",
+     "title": "Design Instagram",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Instagram%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-31-design-youtube-netflix",
+     "title": "Design YouTube / Netflix",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20YouTube%20/%20Netflix%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-32-design-uber-lyft",
+     "title": "Design Uber / Lyft",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Uber%20/%20Lyft%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-33-design-a-web-crawler",
+     "title": "Design a Web Crawler",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Web%20Crawler%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-34-design-dropbox-google-drive",
+     "title": "Design Dropbox / Google Drive",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Dropbox%20/%20Google%20Drive%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-35-design-a-notification-system",
+     "title": "Design a Notification System",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Notification%20System%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-36-design-an-e-commerce-amazon",
+     "title": "Design an E-commerce (Amazon)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20an%20E-commerce%20%28Amazon%29%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-37-design-search-autocomplete-typeahead",
+     "title": "Design Search Autocomplete / Typeahead",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Search%20Autocomplete%20/%20Typeahead%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-38-design-google-maps",
+     "title": "Design Google Maps",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Google%20Maps%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-39-design-bookmyshow-ticketmaster",
+     "title": "Design BookMyShow / Ticketmaster",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20BookMyShow%20/%20Ticketmaster%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-40-design-a-payment-system",
+     "title": "Design a Payment System",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Payment%20System%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-41-design-a-distributed-cache",
+     "title": "Design a Distributed Cache",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Distributed%20Cache%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-42-design-a-key-value-store",
+     "title": "Design a Key-Value Store",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Key-Value%20Store%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-43-design-a-distributed-message-queue",
+     "title": "Design a Distributed Message Queue",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Distributed%20Message%20Queue%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-44-design-a-logging-metrics-system",
+     "title": "Design a Logging/Metrics system",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Logging/Metrics%20system%20system%20design%20interview",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    }
+   ]
+  },
+  {
+   "slug": "sd-low-level-design-lld-ood",
+   "title": "Low-Level Design (LLD / OOD)",
+   "items": [
+    {
+     "slug": "sd-45-ood-process-requirements",
+     "title": "OOD process & requirements",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=OOD%20process%20%26%20requirements%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-46-solid-principles-applied",
+     "title": "SOLID Principles (applied)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SOLID%20Principles%20%28applied%29%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-47-uml-class-sequence-diagrams",
+     "title": "UML Class & Sequence Diagrams",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=UML%20Class%20%26%20Sequence%20Diagrams%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-48-creational-patterns-singleton-factory-builder",
+     "title": "Creational Patterns (Singleton/Factory/Builder)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Creational%20Patterns%20%28Singleton/Factory/Builder%29%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-49-structural-patterns-adapter-decorator-facade-proxy",
+     "title": "Structural Patterns (Adapter/Decorator/Facade/Proxy)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Structural%20Patterns%20%28Adapter/Decorator/Facade/Proxy%29%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-50-behavioral-patterns-observer-strategy-state-command",
+     "title": "Behavioral Patterns (Observer/Strategy/State/Command)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Behavioral%20Patterns%20%28Observer/Strategy/State/Command%29%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-51-design-a-parking-lot",
+     "title": "Design a Parking Lot",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Parking%20Lot%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-52-design-an-elevator-system",
+     "title": "Design an Elevator System",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20an%20Elevator%20System%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-53-design-a-vending-machine",
+     "title": "Design a Vending Machine",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Vending%20Machine%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-54-design-splitwise",
+     "title": "Design Splitwise",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Splitwise%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-55-design-tic-tac-toe-chess",
+     "title": "Design Tic-Tac-Toe / Chess",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20Tic-Tac-Toe%20/%20Chess%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-56-design-a-rate-limiter-lld",
+     "title": "Design a Rate Limiter (LLD)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Rate%20Limiter%20%28LLD%29%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-57-design-a-notification-logger-library",
+     "title": "Design a Notification/Logger library",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Notification/Logger%20library%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    },
+    {
+     "slug": "sd-58-design-a-cab-booking-lld",
+     "title": "Design a Cab Booking (LLD)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20a%20Cab%20Booking%20%28LLD%29%20low%20level%20design%20lld",
+     "platform": "Concept",
+     "resourceUrl": "",
+     "tags": "system"
+    }
+   ]
+  }
+ ]
+}

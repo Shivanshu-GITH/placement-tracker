@@ -1,0 +1,17 @@
+flutter_native_splash:
+  # Native splash shown before Flutter boots. Brand indigo in light, deep
+  # slate in dark, with the white rocket mark centered.
+  color: "#6366F1"
+  image: "assets/icon/fg.png"
+  color_dark: "#0E0E16"
+  image_dark: "assets/icon/fg.png"
+
+  android_12:
+    color: "#6366F1"
+    image: "assets/icon/fg.png"
+    color_dark: "#0E0E16"
+    image_dark: "assets/icon/fg.png"
+
+  android: true
+  ios: true
+  web: false

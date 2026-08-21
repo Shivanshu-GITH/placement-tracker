@@ -1,0 +1,950 @@
+{
+ "slug": "core-dbms",
+ "title": "DBMS + SQL",
+ "category": "core",
+ "description": "Complete DBMS + SQL for interviews & campus exams — every topic broken into its sub-concepts.",
+ "source": "Curated (UNNATI granular syllabus)",
+ "tree": [
+  {
+   "slug": "core-dbms-n0",
+   "title": "Foundations",
+   "children": [
+    {
+     "slug": "core-dbms-n1",
+     "title": "DBMS vs file system",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DBMS%20vs%20file%20system%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-0-dbms-vs-file-system",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n2",
+     "title": "Three-level architecture",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Three-level%20architecture%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-1-three-level-architecture",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n3",
+     "title": "Logical and physical data independence",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Logical%20and%20physical%20data%20independence%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-2-logical-and-physical-data-independence",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n4",
+     "title": "DBA roles",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DBA%20roles%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-3-dba-roles",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n5",
+     "title": "Data models overview",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Data%20models%20overview%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-4-data-models-overview",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n6",
+   "title": "ER Modelling",
+   "children": [
+    {
+     "slug": "core-dbms-n7",
+     "title": "Entities, attributes, relationships",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Entities%2C%20attributes%2C%20relationships%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-5-entities-attributes-relationships",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n8",
+     "title": "Weak entities",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Weak%20entities%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-6-weak-entities",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n9",
+     "title": "Cardinality and participation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cardinality%20and%20participation%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-7-cardinality-and-participation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n10",
+     "title": "Generalisation, specialisation, aggregation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Generalisation%2C%20specialisation%2C%20aggregation%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-8-generalisation-specialisation-aggregation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n11",
+     "title": "ER to relational mapping",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ER%20to%20relational%20mapping%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-9-er-to-relational-mapping",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n12",
+   "title": "Relational Model",
+   "children": [
+    {
+     "slug": "core-dbms-n13",
+     "title": "Relations, tuples, domains",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Relations%2C%20tuples%2C%20domains%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-10-relations-tuples-domains",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n14",
+     "title": "Super key, candidate key, primary key, alternate key",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Super%20key%2C%20candidate%20key%2C%20primary%20key%2C%20alternate%20key%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-11-super-key-candidate-key-primary-key-alternate-key",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n15",
+     "title": "Foreign keys and referential integrity",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Foreign%20keys%20and%20referential%20integrity%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-12-foreign-keys-and-referential-integrity",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n16",
+     "title": "Entity and referential integrity constraints",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Entity%20and%20referential%20integrity%20constraints%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-13-entity-and-referential-integrity-constraints",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n17",
+     "title": "Relational algebra operators",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Relational%20algebra%20operators%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-14-relational-algebra-operators",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n18",
+     "title": "Tuple and domain relational calculus",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Tuple%20and%20domain%20relational%20calculus%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-15-tuple-and-domain-relational-calculus",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n19",
+   "title": "SQL — core",
+   "children": [
+    {
+     "slug": "core-dbms-n20",
+     "title": "DDL: create, alter, drop, truncate",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DDL%3A%20create%2C%20alter%2C%20drop%2C%20truncate%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-16-ddl-create-alter-drop-truncate",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n21",
+     "title": "DML: insert, update, delete",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DML%3A%20insert%2C%20update%2C%20delete%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-17-dml-insert-update-delete",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n22",
+     "title": "Constraints: not null, unique, check, default",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Constraints%3A%20not%20null%2C%20unique%2C%20check%2C%20default%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-18-constraints-not-null-unique-check-default",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n23",
+     "title": "SELECT, WHERE, ORDER BY, LIMIT",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SELECT%2C%20WHERE%2C%20ORDER%20BY%2C%20LIMIT%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-19-select-where-order-by-limit",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n24",
+     "title": "GROUP BY and HAVING",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=GROUP%20BY%20and%20HAVING%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-20-group-by-and-having",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n25",
+     "title": "DISTINCT and aliases",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DISTINCT%20and%20aliases%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-21-distinct-and-aliases",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n26",
+     "title": "NULL semantics and three-valued logic",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=NULL%20semantics%20and%20three-valued%20logic%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-22-null-semantics-and-three-valued-logic",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n27",
+   "title": "SQL — joins & subqueries",
+   "children": [
+    {
+     "slug": "core-dbms-n28",
+     "title": "Inner join",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Inner%20join%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-23-inner-join",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n29",
+     "title": "Left, right, full outer join",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Left%2C%20right%2C%20full%20outer%20join%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-24-left-right-full-outer-join",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n30",
+     "title": "Self join",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Self%20join%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-25-self-join",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n31",
+     "title": "Cross join",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cross%20join%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-26-cross-join",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n32",
+     "title": "Natural join vs explicit ON",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Natural%20join%20vs%20explicit%20ON%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-27-natural-join-vs-explicit-on",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n33",
+     "title": "Subqueries and correlated subqueries",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Subqueries%20and%20correlated%20subqueries%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-28-subqueries-and-correlated-subqueries",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n34",
+     "title": "EXISTS vs IN vs ANY/ALL",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=EXISTS%20vs%20IN%20vs%20ANY/ALL%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-29-exists-vs-in-vs-any-all",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n35",
+     "title": "UNION vs UNION ALL vs INTERSECT vs EXCEPT",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=UNION%20vs%20UNION%20ALL%20vs%20INTERSECT%20vs%20EXCEPT%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-30-union-vs-union-all-vs-intersect-vs-except",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n36",
+   "title": "SQL — advanced",
+   "children": [
+    {
+     "slug": "core-dbms-n37",
+     "title": "Aggregate functions",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Aggregate%20functions%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-31-aggregate-functions",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n38",
+     "title": "Window functions: ROW_NUMBER, RANK, DENSE_RANK",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Window%20functions%3A%20ROW_NUMBER%2C%20RANK%2C%20DENSE_RANK%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-32-window-functions-row-number-rank-dense-rank",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n39",
+     "title": "PARTITION BY and frames",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=PARTITION%20BY%20and%20frames%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-33-partition-by-and-frames",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n40",
+     "title": "CTEs and recursive CTEs",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CTEs%20and%20recursive%20CTEs%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-34-ctes-and-recursive-ctes",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n41",
+     "title": "Views and materialised views",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Views%20and%20materialised%20views%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-35-views-and-materialised-views",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n42",
+     "title": "Stored procedures and functions",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Stored%20procedures%20and%20functions%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-36-stored-procedures-and-functions",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n43",
+     "title": "Triggers",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Triggers%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-37-triggers",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n44",
+     "title": "Nth highest salary (know 3 ways)",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Nth%20highest%20salary%20%28know%203%20ways%29%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-38-nth-highest-salary-know-3-ways",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n45",
+   "title": "Normalization",
+   "children": [
+    {
+     "slug": "core-dbms-n46",
+     "title": "Functional dependencies",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Functional%20dependencies%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-39-functional-dependencies",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n47",
+     "title": "Attribute closure",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Attribute%20closure%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-40-attribute-closure",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n48",
+     "title": "Finding candidate keys",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Finding%20candidate%20keys%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-41-finding-candidate-keys",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n49",
+     "title": "1NF, 2NF, 3NF",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=1NF%2C%202NF%2C%203NF%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-42-1nf-2nf-3nf",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n50",
+     "title": "BCNF",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=BCNF%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-43-bcnf",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n51",
+     "title": "4NF and multivalued dependencies",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=4NF%20and%20multivalued%20dependencies%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-44-4nf-and-multivalued-dependencies",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n52",
+     "title": "Lossless join decomposition",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Lossless%20join%20decomposition%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-45-lossless-join-decomposition",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n53",
+     "title": "Dependency preservation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Dependency%20preservation%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-46-dependency-preservation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n54",
+     "title": "When to denormalise",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=When%20to%20denormalise%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-47-when-to-denormalise",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n55",
+   "title": "Transactions",
+   "children": [
+    {
+     "slug": "core-dbms-n56",
+     "title": "ACID properties",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ACID%20properties%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-48-acid-properties",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n57",
+     "title": "Transaction states",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Transaction%20states%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-49-transaction-states",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n58",
+     "title": "Schedules: serial, non-serial",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Schedules%3A%20serial%2C%20non-serial%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-50-schedules-serial-non-serial",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n59",
+     "title": "Conflict serializability and precedence graph",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Conflict%20serializability%20and%20precedence%20graph%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-51-conflict-serializability-and-precedence-graph",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n60",
+     "title": "View serializability",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=View%20serializability%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-52-view-serializability",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n61",
+     "title": "Recoverable and cascadeless schedules",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Recoverable%20and%20cascadeless%20schedules%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-53-recoverable-and-cascadeless-schedules",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n62",
+   "title": "Concurrency Control",
+   "children": [
+    {
+     "slug": "core-dbms-n63",
+     "title": "Lock-based protocols",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Lock-based%20protocols%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-54-lock-based-protocols",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n64",
+     "title": "Two-phase locking and strict 2PL",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Two-phase%20locking%20and%20strict%202PL%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-55-two-phase-locking-and-strict-2pl",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n65",
+     "title": "Isolation levels",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Isolation%20levels%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-56-isolation-levels",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n66",
+     "title": "Dirty read, non-repeatable read, phantom read",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Dirty%20read%2C%20non-repeatable%20read%2C%20phantom%20read%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-57-dirty-read-non-repeatable-read-phantom-read",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n67",
+     "title": "Timestamp ordering",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Timestamp%20ordering%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-58-timestamp-ordering",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n68",
+     "title": "Optimistic concurrency",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Optimistic%20concurrency%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-59-optimistic-concurrency",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n69",
+     "title": "Deadlock in DBMS: wait-die, wound-wait",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Deadlock%20in%20DBMS%3A%20wait-die%2C%20wound-wait%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-60-deadlock-in-dbms-wait-die-wound-wait",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n70",
+   "title": "Recovery",
+   "children": [
+    {
+     "slug": "core-dbms-n71",
+     "title": "Log-based recovery",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Log-based%20recovery%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-61-log-based-recovery",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n72",
+     "title": "Undo and redo",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Undo%20and%20redo%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-62-undo-and-redo",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n73",
+     "title": "Checkpoints",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Checkpoints%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-63-checkpoints",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n74",
+     "title": "Shadow paging",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Shadow%20paging%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-64-shadow-paging",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n75",
+     "title": "ARIES at a high level",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ARIES%20at%20a%20high%20level%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-65-aries-at-a-high-level",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n76",
+   "title": "Indexing & Storage",
+   "children": [
+    {
+     "slug": "core-dbms-n77",
+     "title": "Dense vs sparse index",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Dense%20vs%20sparse%20index%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-66-dense-vs-sparse-index",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n78",
+     "title": "Primary, clustered, secondary index",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Primary%2C%20clustered%2C%20secondary%20index%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-67-primary-clustered-secondary-index",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n79",
+     "title": "B-tree",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=B-tree%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-68-b-tree",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n80",
+     "title": "B+ tree and why DBs prefer it",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=B%2B%20tree%20and%20why%20DBs%20prefer%20it%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-69-b-tree-and-why-dbs-prefer-it",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n81",
+     "title": "Hash indexing: static, dynamic, extendible",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Hash%20indexing%3A%20static%2C%20dynamic%2C%20extendible%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-70-hash-indexing-static-dynamic-extendible",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n82",
+     "title": "Covering index",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Covering%20index%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-71-covering-index",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n83",
+     "title": "When an index hurts",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=When%20an%20index%20hurts%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-72-when-an-index-hurts",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n84",
+     "title": "Query plans and EXPLAIN",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Query%20plans%20and%20EXPLAIN%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-73-query-plans-and-explain",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-dbms-n85",
+   "title": "Beyond relational",
+   "children": [
+    {
+     "slug": "core-dbms-n86",
+     "title": "SQL vs NoSQL trade-offs",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SQL%20vs%20NoSQL%20trade-offs%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-74-sql-vs-nosql-trade-offs",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n87",
+     "title": "Document, key-value, column, graph stores",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Document%2C%20key-value%2C%20column%2C%20graph%20stores%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-75-document-key-value-column-graph-stores",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n88",
+     "title": "CAP theorem",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CAP%20theorem%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-76-cap-theorem",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n89",
+     "title": "Sharding and replication",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sharding%20and%20replication%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-77-sharding-and-replication",
+     "tags": "core"
+    },
+    {
+     "slug": "core-dbms-n90",
+     "title": "Normalisation vs denormalisation in practice",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Normalisation%20vs%20denormalisation%20in%20practice%20dbms%20sql%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-dbms-78-normalisation-vs-denormalisation-in-practice",
+     "tags": "core"
+    }
+   ]
+  }
+ ]
+}

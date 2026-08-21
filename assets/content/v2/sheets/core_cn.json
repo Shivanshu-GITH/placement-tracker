@@ -1,0 +1,762 @@
+{
+ "slug": "core-cn",
+ "title": "Computer Networks",
+ "category": "core",
+ "description": "Complete Computer Networks for interviews & campus exams — every topic broken into its sub-concepts.",
+ "source": "Curated (UNNATI granular syllabus)",
+ "tree": [
+  {
+   "slug": "core-cn-n0",
+   "title": "Foundations",
+   "children": [
+    {
+     "slug": "core-cn-n1",
+     "title": "LAN, MAN, WAN",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=LAN%2C%20MAN%2C%20WAN%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-0-lan-man-wan",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n2",
+     "title": "Topologies",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Topologies%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-1-topologies",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n3",
+     "title": "Circuit vs packet switching",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Circuit%20vs%20packet%20switching%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-2-circuit-vs-packet-switching",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n4",
+     "title": "Bandwidth, latency, throughput, jitter",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Bandwidth%2C%20latency%2C%20throughput%2C%20jitter%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-3-bandwidth-latency-throughput-jitter",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n5",
+     "title": "OSI model, all 7 layers",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=OSI%20model%2C%20all%207%20layers%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-4-osi-model-all-7-layers",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n6",
+     "title": "TCP/IP model and how it maps to OSI",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCP/IP%20model%20and%20how%20it%20maps%20to%20OSI%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-5-tcp-ip-model-and-how-it-maps-to-osi",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n7",
+   "title": "Physical Layer",
+   "children": [
+    {
+     "slug": "core-cn-n8",
+     "title": "Transmission media",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Transmission%20media%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-6-transmission-media",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n9",
+     "title": "Analog vs digital signalling",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Analog%20vs%20digital%20signalling%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-7-analog-vs-digital-signalling",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n10",
+     "title": "Multiplexing: FDM, TDM, WDM",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Multiplexing%3A%20FDM%2C%20TDM%2C%20WDM%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-8-multiplexing-fdm-tdm-wdm",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n11",
+     "title": "Nyquist and Shannon limits",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Nyquist%20and%20Shannon%20limits%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-9-nyquist-and-shannon-limits",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n12",
+   "title": "Data Link Layer",
+   "children": [
+    {
+     "slug": "core-cn-n13",
+     "title": "Framing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Framing%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-10-framing",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n14",
+     "title": "Error detection: parity, checksum, CRC",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Error%20detection%3A%20parity%2C%20checksum%2C%20CRC%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-11-error-detection-parity-checksum-crc",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n15",
+     "title": "Error correction: Hamming code",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Error%20correction%3A%20Hamming%20code%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-12-error-correction-hamming-code",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n16",
+     "title": "Stop-and-wait ARQ",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Stop-and-wait%20ARQ%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-13-stop-and-wait-arq",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n17",
+     "title": "Go-Back-N",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Go-Back-N%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-14-go-back-n",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n18",
+     "title": "Selective Repeat",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Selective%20Repeat%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-15-selective-repeat",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n19",
+     "title": "Sliding window and efficiency",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sliding%20window%20and%20efficiency%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-16-sliding-window-and-efficiency",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n20",
+   "title": "MAC & LAN",
+   "children": [
+    {
+     "slug": "core-cn-n21",
+     "title": "ALOHA, slotted ALOHA",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ALOHA%2C%20slotted%20ALOHA%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-17-aloha-slotted-aloha",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n22",
+     "title": "CSMA, CSMA/CD, CSMA/CA",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CSMA%2C%20CSMA/CD%2C%20CSMA/CA%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-18-csma-csma-cd-csma-ca",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n23",
+     "title": "Ethernet frame format",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Ethernet%20frame%20format%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-19-ethernet-frame-format",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n24",
+     "title": "Hub vs switch vs bridge vs router",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Hub%20vs%20switch%20vs%20bridge%20vs%20router%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-20-hub-vs-switch-vs-bridge-vs-router",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n25",
+     "title": "VLANs",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=VLANs%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-21-vlans",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n26",
+     "title": "MAC addressing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=MAC%20addressing%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-22-mac-addressing",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n27",
+   "title": "Network Layer",
+   "children": [
+    {
+     "slug": "core-cn-n28",
+     "title": "IPv4 addressing and classes",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=IPv4%20addressing%20and%20classes%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-23-ipv4-addressing-and-classes",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n29",
+     "title": "Subnetting and CIDR (drill numericals)",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Subnetting%20and%20CIDR%20%28drill%20numericals%29%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-24-subnetting-and-cidr-drill-numericals",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n30",
+     "title": "Supernetting",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Supernetting%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-25-supernetting",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n31",
+     "title": "IPv6 and why",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=IPv6%20and%20why%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-26-ipv6-and-why",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n32",
+     "title": "NAT and PAT",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=NAT%20and%20PAT%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-27-nat-and-pat",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n33",
+     "title": "IP fragmentation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=IP%20fragmentation%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-28-ip-fragmentation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n34",
+     "title": "ARP and RARP",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ARP%20and%20RARP%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-29-arp-and-rarp",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n35",
+     "title": "ICMP and how ping/traceroute work",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=ICMP%20and%20how%20ping/traceroute%20work%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-30-icmp-and-how-ping-traceroute-work",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n36",
+     "title": "DHCP",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DHCP%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-31-dhcp",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n37",
+   "title": "Routing",
+   "children": [
+    {
+     "slug": "core-cn-n38",
+     "title": "Static vs dynamic routing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Static%20vs%20dynamic%20routing%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-32-static-vs-dynamic-routing",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n39",
+     "title": "Distance vector and count-to-infinity",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Distance%20vector%20and%20count-to-infinity%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-33-distance-vector-and-count-to-infinity",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n40",
+     "title": "Link state and Dijkstra",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Link%20state%20and%20Dijkstra%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-34-link-state-and-dijkstra",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n41",
+     "title": "RIP",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=RIP%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-35-rip",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n42",
+     "title": "OSPF",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=OSPF%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-36-ospf",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n43",
+     "title": "BGP and why the internet needs it",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=BGP%20and%20why%20the%20internet%20needs%20it%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-37-bgp-and-why-the-internet-needs-it",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n44",
+   "title": "Transport Layer",
+   "children": [
+    {
+     "slug": "core-cn-n45",
+     "title": "TCP header fields",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCP%20header%20fields%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-38-tcp-header-fields",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n46",
+     "title": "Three-way handshake",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Three-way%20handshake%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-39-three-way-handshake",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n47",
+     "title": "Four-way teardown and TIME_WAIT",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Four-way%20teardown%20and%20TIME_WAIT%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-40-four-way-teardown-and-time-wait",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n48",
+     "title": "TCP flow control and receive window",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCP%20flow%20control%20and%20receive%20window%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-41-tcp-flow-control-and-receive-window",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n49",
+     "title": "Congestion control: slow start, AIMD, fast retransmit, fast recovery",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Congestion%20control%3A%20slow%20start%2C%20AIMD%2C%20fast%20retransmit%2C%20fast%20recovery%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-42-congestion-control-slow-start-aimd-fast-retransmit-fast-reco",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n50",
+     "title": "UDP header and use cases",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=UDP%20header%20and%20use%20cases%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-43-udp-header-and-use-cases",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n51",
+     "title": "TCP vs UDP: when to pick which",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCP%20vs%20UDP%3A%20when%20to%20pick%20which%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-44-tcp-vs-udp-when-to-pick-which",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n52",
+     "title": "Ports and sockets",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Ports%20and%20sockets%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-45-ports-and-sockets",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n53",
+     "title": "Head-of-line blocking",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Head-of-line%20blocking%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-46-head-of-line-blocking",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n54",
+   "title": "Application Layer",
+   "children": [
+    {
+     "slug": "core-cn-n55",
+     "title": "DNS: recursive vs iterative resolution, record types, caching",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=DNS%3A%20recursive%20vs%20iterative%20resolution%2C%20record%20types%2C%20caching%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-47-dns-recursive-vs-iterative-resolution-record-types-caching",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n56",
+     "title": "HTTP methods, status codes, headers",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=HTTP%20methods%2C%20status%20codes%2C%20headers%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-48-http-methods-status-codes-headers",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n57",
+     "title": "HTTP/1.1 vs HTTP/2 vs HTTP/3 (QUIC)",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=HTTP/1.1%20vs%20HTTP/2%20vs%20HTTP/3%20%28QUIC%29%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-49-http-1-1-vs-http-2-vs-http-3-quic",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n58",
+     "title": "HTTPS and the TLS handshake",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=HTTPS%20and%20the%20TLS%20handshake%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-50-https-and-the-tls-handshake",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n59",
+     "title": "Symmetric vs asymmetric encryption, certificates",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Symmetric%20vs%20asymmetric%20encryption%2C%20certificates%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-51-symmetric-vs-asymmetric-encryption-certificates",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n60",
+     "title": "Cookies vs sessions vs tokens",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cookies%20vs%20sessions%20vs%20tokens%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-52-cookies-vs-sessions-vs-tokens",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n61",
+     "title": "SMTP, IMAP, POP3",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=SMTP%2C%20IMAP%2C%20POP3%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-53-smtp-imap-pop3",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n62",
+     "title": "FTP",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=FTP%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-54-ftp",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n63",
+     "title": "WebSockets vs polling vs SSE",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=WebSockets%20vs%20polling%20vs%20SSE%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-55-websockets-vs-polling-vs-sse",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n64",
+   "title": "Security",
+   "children": [
+    {
+     "slug": "core-cn-n65",
+     "title": "Public key infrastructure",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Public%20key%20infrastructure%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-56-public-key-infrastructure",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n66",
+     "title": "Digital signatures",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Digital%20signatures%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-57-digital-signatures",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n67",
+     "title": "Firewalls",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Firewalls%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-58-firewalls",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n68",
+     "title": "Common attacks: MITM, DDoS, spoofing, XSS, CSRF, SQL injection",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Common%20attacks%3A%20MITM%2C%20DDoS%2C%20spoofing%2C%20XSS%2C%20CSRF%2C%20SQL%20injection%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-59-common-attacks-mitm-ddos-spoofing-xss-csrf-sql-injection",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n69",
+     "title": "VPN basics",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=VPN%20basics%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-60-vpn-basics",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-cn-n70",
+   "title": "The integrating question",
+   "children": [
+    {
+     "slug": "core-cn-n71",
+     "title": "What happens when you type a URL — full trace, no gaps",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=What%20happens%20when%20you%20type%20a%20URL%20%E2%80%94%20full%20trace%2C%20no%20gaps%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-61-what-happens-when-you-type-a-url-full-trace-no-gaps",
+     "tags": "core"
+    },
+    {
+     "slug": "core-cn-n72",
+     "title": "Trace it again including DNS cache layers, TCP, TLS, HTTP, render",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Trace%20it%20again%20including%20DNS%20cache%20layers%2C%20TCP%2C%20TLS%2C%20HTTP%2C%20render%20computer%20networks%20gate%20interview",
+     "platform": "Learn",
+     "canon": "u:core-cn-62-trace-it-again-including-dns-cache-layers-tcp-tls-http-rende",
+     "tags": "core"
+    }
+   ]
+  }
+ ]
+}

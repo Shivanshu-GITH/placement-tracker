@@ -1,0 +1,2413 @@
+{
+ "slug": "striver-sde",
+ "title": "Striver SDE Sheet",
+ "category": "dsa",
+ "description": "The classic 191-problem fast-track across 27 days — the go-to for focused interview prep.",
+ "source": "takeuforward.org",
+ "tree": [
+  {
+   "slug": "striver-sde-n0",
+   "title": "Arrays",
+   "children": [
+    {
+     "slug": "striver-sde-n1",
+     "title": "Set Matrix Zeros",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/set-matrix-zeroes/",
+     "platform": "LeetCode",
+     "canon": "lc:set-matrix-zeroes",
+     "resourceUrl": "https://takeuforward.org/data-structure/set-matrix-zero/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n2",
+     "title": "Pascal's Triangle",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/pascals-triangle/",
+     "platform": "LeetCode",
+     "canon": "lc:pascals-triangle",
+     "resourceUrl": "https://takeuforward.org/data-structure/program-to-generate-pascals-triangle/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n3",
+     "title": "Next Permutation",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/next-permutation/",
+     "platform": "LeetCode",
+     "canon": "lc:next-permutation",
+     "resourceUrl": "https://takeuforward.org/data-structure/next_permutation-find-next-lexicographically-greater-permutation/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n4",
+     "title": "Kadane's Algorithm",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-subarray/",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-subarray",
+     "resourceUrl": "https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n5",
+     "title": "Sort an array of 0's, 1's and 2's",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sort-colors/",
+     "platform": "LeetCode",
+     "canon": "lc:sort-colors",
+     "resourceUrl": "https://takeuforward.org/data-structure/sort-an-array-of-0s-1s-and-2s/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n6",
+     "title": "Stock Buy and Sell",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+     "platform": "LeetCode",
+     "canon": "lc:best-time-to-buy-and-sell-stock",
+     "resourceUrl": "https://takeuforward.org/data-structure/stock-buy-and-sell/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n7",
+   "title": "Arrays Part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n8",
+     "title": "Rotate Matrix",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotate-image/",
+     "platform": "LeetCode",
+     "canon": "lc:rotate-image",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotate-image-by-90-degree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n9",
+     "title": "Merge Overlapping Subintervals",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-intervals/",
+     "platform": "LeetCode",
+     "canon": "lc:merge-intervals",
+     "resourceUrl": "https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n10",
+     "title": "Merge two sorted arrays without extra space",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-sorted-array/",
+     "platform": "LeetCode",
+     "canon": "lc:merge-sorted-array",
+     "resourceUrl": "https://takeuforward.org/data-structure/merge-two-sorted-arrays-without-extra-space/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n11",
+     "title": "Find the duplicate in an array of N+1 integers",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-the-duplicate-number/",
+     "platform": "LeetCode",
+     "canon": "lc:find-the-duplicate-number",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-duplicate-in-an-array-of-n1-integers/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n12",
+     "title": "Repeat and Missing Number",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-10-repeat-and-missing-number",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n13",
+     "title": "Inversion of Array (Pre-req: Merge Sort)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/count-inversions-in-an-array/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-11-inversion-of-array-pre-req-merge-sort",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-inversions-in-an-array/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n14",
+   "title": "Arrays Part-III",
+   "children": [
+    {
+     "slug": "striver-sde-n15",
+     "title": "Search in a 2 D matrix",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-a-2d-matrix/",
+     "platform": "LeetCode",
+     "canon": "lc:search-a-2d-matrix",
+     "resourceUrl": "https://takeuforward.org/data-structure/search-in-a-sorted-2d-matrix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n16",
+     "title": "Pow(x, n)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/powx-n/",
+     "platform": "LeetCode",
+     "canon": "lc:powx-n",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-powxn-x-raised-to-the-power-n/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n17",
+     "title": "Majority Element (>n/2 times)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/majority-element/",
+     "platform": "LeetCode",
+     "canon": "lc:majority-element",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-majority-element-that-occurs-more-than-n-2-times/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n18",
+     "title": "Majority Element (n/3 times)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/majority-element-ii/",
+     "platform": "LeetCode",
+     "canon": "lc:majority-element-ii",
+     "resourceUrl": "https://takeuforward.org/data-structure/majority-elementsn-3-times-find-the-elements-that-appears-more-than-n-3-times-in-the-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n19",
+     "title": "Grid Unique Paths",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/unique-paths/",
+     "platform": "LeetCode",
+     "canon": "lc:unique-paths",
+     "resourceUrl": "https://takeuforward.org/data-structure/grid-unique-paths-count-paths-from-left-top-to-the-right-bottom-of-a-matrix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n20",
+     "title": "Reverse Pairs (Leetcode)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/reverse-pairs/",
+     "platform": "LeetCode",
+     "canon": "lc:reverse-pairs",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-reverse-pairs/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n21",
+   "title": "Arrays Part-IV",
+   "children": [
+    {
+     "slug": "striver-sde-n22",
+     "title": "2Sum Problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/two-sum/",
+     "platform": "LeetCode",
+     "canon": "lc:two-sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n23",
+     "title": "4-Sum Problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/4sum/",
+     "platform": "LeetCode",
+     "canon": "lc:4sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/4-sum-find-quads-that-add-up-to-a-target-value/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n24",
+     "title": "Longest Consecutive Sequence",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-consecutive-sequence/",
+     "platform": "LeetCode",
+     "canon": "lc:longest-consecutive-sequence",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-consecutive-sequence-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n25",
+     "title": "Largest Subarray with K sum",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/length-of-the-longest-subarray-with-zero-sum/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-21-largest-subarray-with-k-sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/length-of-the-longest-subarray-with-zero-sum/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n26",
+     "title": "Count number of subarrays with given xor K",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-22-count-number-of-subarrays-with-given-xor-k",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n27",
+     "title": "Longest Substring without repeat",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+     "platform": "LeetCode",
+     "canon": "lc:longest-substring-without-repeating-characters",
+     "resourceUrl": "https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n28",
+   "title": "Linked List",
+   "children": [
+    {
+     "slug": "striver-sde-n29",
+     "title": "Reverse a LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-linked-list/",
+     "platform": "LeetCode",
+     "canon": "lc:reverse-linked-list",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n30",
+     "title": "Find the middle of LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+     "platform": "LeetCode",
+     "canon": "lc:middle-of-the-linked-list",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-middle-element-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n31",
+     "title": "Merge two sorted Linked List (use method used in mergeSort)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+     "platform": "LeetCode",
+     "canon": "lc:merge-two-sorted-lists",
+     "resourceUrl": "https://takeuforward.org/data-structure/merge-two-sorted-linked-lists/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n32",
+     "title": "Remove N-th node from back of LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+     "platform": "LeetCode",
+     "canon": "lc:remove-nth-node-from-end-of-list",
+     "resourceUrl": "https://takeuforward.org/data-structure/remove-n-th-node-from-the-end-of-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n33",
+     "title": "Add two numbers as LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/add-two-numbers/",
+     "platform": "LeetCode",
+     "canon": "lc:add-two-numbers",
+     "resourceUrl": "https://takeuforward.org/data-structure/add-two-numbers-represented-as-linked-lists/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n34",
+     "title": "Delete a given Node when a node is given.(0(1) solution)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+     "platform": "LeetCode",
+     "canon": "lc:delete-node-in-a-linked-list",
+     "resourceUrl": "https://takeuforward.org/data-structure/delete-given-node-in-a-linked-list-o1-approach/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n35",
+   "title": "Linked List Part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n36",
+     "title": "Find intersection point of Y LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+     "platform": "LeetCode",
+     "canon": "lc:intersection-of-two-linked-lists",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-intersection-of-two-linked-lists/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n37",
+     "title": "Detect a cycle in Linked List",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/linked-list-cycle/",
+     "platform": "LeetCode",
+     "canon": "lc:linked-list-cycle",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n38",
+     "title": "Reverse a LinkedList in groups of size k.",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+     "platform": "LeetCode",
+     "canon": "lc:reverse-nodes-in-k-group",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-linked-list-in-groups-of-size-k/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n39",
+     "title": "Check if a LinkedList is palindrome or not.",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/palindrome-linked-list/",
+     "platform": "LeetCode",
+     "canon": "lc:palindrome-linked-list",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-given-linked-list-is-plaindrome/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n40",
+     "title": "Find the starting point of the Loop of LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/linked-list-cycle-ii/",
+     "platform": "LeetCode",
+     "canon": "lc:linked-list-cycle-ii",
+     "resourceUrl": "https://takeuforward.org/data-structure/starting-point-of-loop-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n41",
+     "title": "Flattening of a LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/flattening-a-linked-list/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-35-flattening-of-a-linkedlist",
+     "resourceUrl": "https://takeuforward.org/data-structure/flattening-a-linked-list/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n42",
+   "title": "Linked List and Arrays",
+   "children": [
+    {
+     "slug": "striver-sde-n43",
+     "title": "Rotate a LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotate-list/description/",
+     "platform": "LeetCode",
+     "canon": "lc:rotate-list",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotate-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n44",
+     "title": "Clone a Linked List with random and next pointer",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+     "platform": "LeetCode",
+     "canon": "lc:copy-list-with-random-pointer",
+     "resourceUrl": "https://takeuforward.org/data-structure/clone-linked-list-with-random-and-next-pointer/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n45",
+     "title": "3 sum",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/3sum/",
+     "platform": "LeetCode",
+     "canon": "lc:3sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/3-sum-find-triplets-that-add-up-to-a-zero/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n46",
+     "title": "Trapping Rainwater",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/trapping-rain-water/",
+     "platform": "LeetCode",
+     "canon": "lc:trapping-rain-water",
+     "resourceUrl": "https://takeuforward.org/data-structure/trapping-rainwater/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n47",
+     "title": "Remove Duplicate from Sorted array",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+     "platform": "LeetCode",
+     "canon": "lc:remove-duplicates-from-sorted-array",
+     "resourceUrl": "https://takeuforward.org/data-structure/remove-duplicates-in-place-from-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n48",
+     "title": "Max consecutive ones",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/max-consecutive-ones/",
+     "platform": "LeetCode",
+     "canon": "lc:max-consecutive-ones",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-maximum-consecutive-ones-in-the-array/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n49",
+   "title": "Greedy Algorithm",
+   "children": [
+    {
+     "slug": "striver-sde-n50",
+     "title": "N meetings in one room",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/n-meetings-in-one-room/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-42-n-meetings-in-one-room",
+     "resourceUrl": "https://takeuforward.org/data-structure/n-meetings-in-one-room/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n51",
+     "title": "Minimum number of platforms required for a railway",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-43-minimum-number-of-platforms-required-for-a-railway",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n52",
+     "title": "Job sequencing Problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/job-sequencing-problem/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-44-job-sequencing-problem",
+     "resourceUrl": "https://takeuforward.org/data-structure/job-sequencing-problem/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n53",
+     "title": "Fractional Knapsack Problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/fractional-knapsack-problem-greedy-approach/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-45-fractional-knapsack-problem",
+     "resourceUrl": "https://takeuforward.org/data-structure/fractional-knapsack-problem-greedy-approach/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n54",
+     "title": "Greedy algorithm to find minimum number of coins",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/find-minimum-number-of-coins/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-46-greedy-algorithm-to-find-minimum-number-of-coins",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-minimum-number-of-coins/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n55",
+     "title": "Assign Cookies",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/assign-cookies/",
+     "platform": "LeetCode",
+     "canon": "lc:assign-cookies",
+     "resourceUrl": "https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n56",
+   "title": "Recursion",
+   "children": [
+    {
+     "slug": "striver-sde-n57",
+     "title": "Subset Sums",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-48-subset-sums",
+     "resourceUrl": "https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n58",
+     "title": "Subset-II",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subsets-ii/",
+     "platform": "LeetCode",
+     "canon": "lc:subsets-ii",
+     "resourceUrl": "https://takeuforward.org/data-structure/subset-ii-print-all-the-unique-subsets/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n59",
+     "title": "Combination sum-1",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combination-sum/",
+     "platform": "LeetCode",
+     "canon": "lc:combination-sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/combination-sum-1/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n60",
+     "title": "Combination sum-2",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combination-sum-ii/",
+     "platform": "LeetCode",
+     "canon": "lc:combination-sum-ii",
+     "resourceUrl": "https://takeuforward.org/data-structure/combination-sum-ii-find-all-unique-combinations/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n61",
+     "title": "Palindrome Partitioning",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/palindrome-partitioning/",
+     "platform": "LeetCode",
+     "canon": "lc:palindrome-partitioning",
+     "resourceUrl": "https://takeuforward.org/data-structure/palindrome-partitioning/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n62",
+     "title": "K-th permutation Sequence",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/permutation-sequence/",
+     "platform": "LeetCode",
+     "canon": "lc:permutation-sequence",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-k-th-permutation-sequence/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n63",
+   "title": "Recursion and Backtracking",
+   "children": [
+    {
+     "slug": "striver-sde-n64",
+     "title": "Print all permutations of a string/array",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/permutations/",
+     "platform": "LeetCode",
+     "canon": "lc:permutations",
+     "resourceUrl": "https://takeuforward.org/data-structure/print-all-permutations-of-a-string-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n65",
+     "title": "N queens Problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/n-queens/",
+     "platform": "LeetCode",
+     "canon": "lc:n-queens",
+     "resourceUrl": "https://takeuforward.org/data-structure/n-queen-problem-return-all-distinct-solutions-to-the-n-queens-puzzle/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n66",
+     "title": "Sudoko Solver",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sudoku-solver/",
+     "platform": "LeetCode",
+     "canon": "lc:sudoku-solver",
+     "resourceUrl": "https://takeuforward.org/data-structure/sudoku-solver/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n67",
+     "title": "M Coloring Problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/m-coloring-problem/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-57-m-coloring-problem",
+     "resourceUrl": "https://takeuforward.org/data-structure/m-coloring-problem/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n68",
+     "title": "Rat in a Maze",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/rat-in-a-maze/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-58-rat-in-a-maze",
+     "resourceUrl": "https://takeuforward.org/data-structure/rat-in-a-maze/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n69",
+     "title": "Word Break (print all ways)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/word-break",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-59-word-break-print-all-ways",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n70",
+   "title": "Binary Search",
+   "children": [
+    {
+     "slug": "striver-sde-n71",
+     "title": "The N-th root of an integer",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/nth-root-of-a-number-using-binary-search/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-60-the-n-th-root-of-an-integer",
+     "resourceUrl": "https://takeuforward.org/data-structure/nth-root-of-a-number-using-binary-search/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n72",
+     "title": "Matrix Median",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/median-of-row-wise-sorted-matrix/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-61-matrix-median",
+     "resourceUrl": "https://takeuforward.org/data-structure/median-of-row-wise-sorted-matrix/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n73",
+     "title": "Find the element that appears once in a sorted array, and the rest element appears twice (Binary search)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/single-element-in-a-sorted-array/",
+     "platform": "LeetCode",
+     "canon": "lc:single-element-in-a-sorted-array",
+     "resourceUrl": "https://takeuforward.org/data-structure/search-single-element-in-a-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n74",
+     "title": "Search element in a sorted and rotated array/ find pivot where it is rotated",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "canon": "lc:search-in-rotated-sorted-array",
+     "resourceUrl": "https://takeuforward.org/data-structure/search-element-in-a-rotated-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n75",
+     "title": "Median of 2 sorted arrays",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+     "platform": "LeetCode",
+     "canon": "lc:median-of-two-sorted-arrays",
+     "resourceUrl": "https://takeuforward.org/data-structure/median-of-two-sorted-arrays-of-different-sizes/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n76",
+     "title": "K-th element of two sorted arrays",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/k-th-element-of-two-sorted-arrays/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-65-k-th-element-of-two-sorted-arrays",
+     "resourceUrl": "https://takeuforward.org/data-structure/k-th-element-of-two-sorted-arrays/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n77",
+     "title": "Allocate Minimum Number of Pages",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-66-allocate-minimum-number-of-pages",
+     "resourceUrl": "https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n78",
+     "title": "Aggressive Cows",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-67-aggressive-cows",
+     "resourceUrl": "https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n79",
+   "title": "Heaps",
+   "children": [
+    {
+     "slug": "striver-sde-n80",
+     "title": "Max heap, Min Heap Implementation (Only for interviews)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/implement-max-heap",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-68-max-heap-min-heap-implementation-only-for-interviews",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n81",
+     "title": "Kth Largest Element",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+     "platform": "LeetCode",
+     "canon": "lc:kth-largest-element-in-an-array",
+     "resourceUrl": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n82",
+     "title": "Maximum Sum Combination",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/maximum-sum-combination",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-70-maximum-sum-combination",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n83",
+     "title": "Find Median from Data Stream",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+     "platform": "LeetCode",
+     "canon": "lc:find-median-from-data-stream",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n84",
+     "title": "Merge K sorted arrays",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "canon": "u:striver-sde-72-merge-k-sorted-arrays",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n85",
+     "title": "K most frequent elements",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+     "platform": "LeetCode",
+     "canon": "lc:top-k-frequent-elements",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n86",
+   "title": "Stack and Queue",
+   "children": [
+    {
+     "slug": "striver-sde-n87",
+     "title": "Implement Stack using Arrays",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/implement-stack-using-array/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-74-implement-stack-using-arrays",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-stack-using-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n88",
+     "title": "Implement Queue using Arrays",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/implement-queue-using-array/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-75-implement-queue-using-arrays",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-queue-using-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n89",
+     "title": "Implement Stack using Queue (using single queue)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/implement-stack-using-queues/",
+     "platform": "LeetCode",
+     "canon": "lc:implement-stack-using-queues",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-stack-using-single-queue/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n90",
+     "title": "Implement Queue using Stack (0(1) amortized method)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/implement-queue-using-stacks/",
+     "platform": "LeetCode",
+     "canon": "lc:implement-queue-using-stacks",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-queue-using-stack/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n91",
+     "title": "Check for balanced parentheses",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-parentheses/",
+     "platform": "LeetCode",
+     "canon": "lc:valid-parentheses",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-for-balanced-parentheses/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n92",
+     "title": "Next Greater Element",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/next-greater-element-i/",
+     "platform": "LeetCode",
+     "canon": "lc:next-greater-element-i",
+     "resourceUrl": "https://takeuforward.org/data-structure/next-greater-element-using-stack/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n93",
+     "title": "Sort a Stack",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/sort-a-stack",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-80-sort-a-stack",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n94",
+   "title": "Stack and Queue Part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n95",
+     "title": "Next Smaller Element",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/next-smaller-element",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-81-next-smaller-element",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n96",
+     "title": "LRU cache (IMPORTANT)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/lru-cache/",
+     "platform": "LeetCode",
+     "canon": "lc:lru-cache",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-lru-cache/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n97",
+     "title": "LFU cache",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/lfu-cache/",
+     "platform": "LeetCode",
+     "canon": "lc:lfu-cache",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n98",
+     "title": "Largest rectangle in a histogram",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+     "platform": "LeetCode",
+     "canon": "lc:largest-rectangle-in-histogram",
+     "resourceUrl": "https://takeuforward.org/data-structure/area-of-largest-rectangle-in-histogram/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n99",
+     "title": "Sliding Window maximum",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sliding-window-maximum/",
+     "platform": "LeetCode",
+     "canon": "lc:sliding-window-maximum",
+     "resourceUrl": "https://takeuforward.org/data-structure/sliding-window-maximum/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n100",
+     "title": "Implement Min Stack",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/min-stack/",
+     "platform": "LeetCode",
+     "canon": "lc:min-stack",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-min-stack-o2n-and-on-space-complexity/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n101",
+     "title": "Rotten Orange (Using BFS)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotting-oranges/",
+     "platform": "LeetCode",
+     "canon": "lc:rotting-oranges",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotten-oranges-min-time-to-rot-all-oranges-bfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n102",
+     "title": "Stock span problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/online-stock-span/",
+     "platform": "LeetCode",
+     "canon": "lc:online-stock-span",
+     "resourceUrl": "https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n103",
+     "title": "Find the maximum of minimums of every window size",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "canon": "u:striver-sde-89-find-the-maximum-of-minimums-of-every-window-size",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n104",
+     "title": "The Celebrity Problem",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/accounts/login/?next=/problems/find-the-celebrity/",
+     "platform": "LeetCode",
+     "canon": "lc:find-the-celebrity",
+     "resourceUrl": "https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n105",
+   "title": "String",
+   "children": [
+    {
+     "slug": "striver-sde-n106",
+     "title": "Reverse Words in a String",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+     "platform": "LeetCode",
+     "canon": "lc:reverse-words-in-a-string",
+     "resourceUrl": "https://takeuforward.org/data-structure/reverse-words-in-a-string/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n107",
+     "title": "Longest Palindrome in a string",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+     "platform": "LeetCode",
+     "canon": "lc:longest-palindromic-substring",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n108",
+     "title": "Roman Number to Integer and vice versa",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/roman-to-integer/",
+     "platform": "LeetCode",
+     "canon": "lc:roman-to-integer",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n109",
+     "title": "Implement ATOI/STRSTR",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+     "platform": "LeetCode",
+     "canon": "lc:string-to-integer-atoi",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n110",
+     "title": "Longest Common Prefix",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/longest-common-prefix/",
+     "platform": "LeetCode",
+     "canon": "lc:longest-common-prefix",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n111",
+     "title": "Rabin Karp",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/repeated-string-match/discuss/416144/Rabin-Karp-algorithm-C%2B%2B-implementation",
+     "platform": "LeetCode",
+     "canon": "lc:repeated-string-match",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n112",
+   "title": "String Part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n113",
+     "title": "Z-Function",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/implement-strstr/",
+     "platform": "LeetCode",
+     "canon": "lc:implement-strstr",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n114",
+     "title": "KMP algo / LPS(pi) array",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/implement-strstr/",
+     "platform": "LeetCode",
+     "canon": "lc:implement-strstr",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n115",
+     "title": "Minimum characters needed to be inserted in the beginning to make it palindromic",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/minimum-insertions-to-make-string-palindrome",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-99-minimum-characters-needed-to-be-inserted-in-the-beginning-to",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n116",
+     "title": "Check for Anagrams",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/valid-anagram/",
+     "platform": "LeetCode",
+     "canon": "lc:valid-anagram",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n117",
+     "title": "Count and say",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-and-say/",
+     "platform": "LeetCode",
+     "canon": "lc:count-and-say",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n118",
+     "title": "Compare version numbers",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/compare-version-numbers/",
+     "platform": "LeetCode",
+     "canon": "lc:compare-version-numbers",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n119",
+   "title": "Binary Tree",
+   "children": [
+    {
+     "slug": "striver-sde-n120",
+     "title": "Inorder Traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-tree-inorder-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n121",
+     "title": "Preorder Traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-preorder-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-tree-preorder-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/preorder-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n122",
+     "title": "Postorder Traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-postorder-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-tree-postorder-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/post-order-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n123",
+     "title": "Morris Inorder Traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-tree-inorder-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/morris-inorder-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n124",
+     "title": "Morris Preorder Traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/morris-preorder-traversal-of-a-binary-tree/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-107-morris-preorder-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/morris-preorder-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n125",
+     "title": "LeftView Of Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/right-left-view-of-binary-tree/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-108-leftview-of-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/right-left-view-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n126",
+     "title": "Bottom View of Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-109-bottom-view-of-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n127",
+     "title": "Top View of Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/data-structure/top-view-of-a-binary-tree/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-110-top-view-of-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/top-view-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n128",
+     "title": "Preorder inorder postorder in a single traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/preorder-inorder-postorder-traversals-in-one-traversal/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-111-preorder-inorder-postorder-in-a-single-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/preorder-inorder-postorder-traversals-in-one-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n129",
+     "title": "Vertical order traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:vertical-order-traversal-of-a-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/vertical-order-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n130",
+     "title": "Root to Node Path in Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/print-root-to-node-path-in-a-binary-tree/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-113-root-to-node-path-in-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/print-root-to-node-path-in-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n131",
+     "title": "Max width of a Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-width-of-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-width-of-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-width-of-a-binary-tree/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n132",
+   "title": "Binary Tree part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n133",
+     "title": "Level order Traversal / Level order traversal in spiral form",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-tree-level-order-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/level-order-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n134",
+     "title": "Height of a Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-depth-of-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-depth-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n135",
+     "title": "Diameter of Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:diameter-of-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/calculate-the-diameter-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n136",
+     "title": "Check if the Binary tree is height-balanced or not",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/balanced-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:balanced-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-the-binary-tree-is-balanced-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n137",
+     "title": "LCA in Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:lowest-common-ancestor-of-a-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n138",
+     "title": "Check if two trees are identical or not",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/same-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:same-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-if-two-trees-are-identical/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n139",
+     "title": "Zig Zag Traversal of Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-tree-zigzag-level-order-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/zig-zag-traversal-of-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n140",
+     "title": "Boundary Traversal of Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/boundary-of-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:boundary-of-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/boundary-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n141",
+   "title": "Binary Tree part-III",
+   "children": [
+    {
+     "slug": "striver-sde-n142",
+     "title": "Maximum path sum",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-tree-maximum-path-sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-sum-path-in-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n143",
+     "title": "Construct Binary Tree from inorder and preorder",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:construct-binary-tree-from-preorder-and-inorder-traversal",
+     "resourceUrl": "https://takeuforward.org/data-structure/construct-a-binary-tree-from-inorder-and-preorder-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n144",
+     "title": "Construct Binary Tree from Inorder and Postorder",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:construct-binary-tree-from-inorder-and-postorder-traversal",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n145",
+     "title": "Symmetric Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/symmetric-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:symmetric-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-for-symmetrical-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n146",
+     "title": "Flatten Binary Tree to LinkedList",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+     "platform": "LeetCode",
+     "canon": "lc:flatten-binary-tree-to-linked-list",
+     "resourceUrl": "https://takeuforward.org/data-structure/flatten-binary-tree-to-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n147",
+     "title": "Check if Binary Tree is the mirror of itself or not",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/check-for-symmetrical-bts",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-128-check-if-binary-tree-is-the-mirror-of-itself-or-not",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n148",
+     "title": "Check for Children Sum Property",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-129-check-for-children-sum-property",
+     "resourceUrl": "https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n149",
+   "title": "Binary Search Tree",
+   "children": [
+    {
+     "slug": "striver-sde-n150",
+     "title": "Populate Next Right pointers of Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/",
+     "platform": "LeetCode",
+     "canon": "lc:populating-next-right-pointers-in-each-node",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n151",
+     "title": "Search given Key in BST",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/search-in-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:search-in-a-binary-search-tree",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n152",
+     "title": "Construct BST from given keys",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:convert-sorted-array-to-binary-search-tree",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n153",
+     "title": "Construct a BST from a preorder traversal",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/",
+     "platform": "LeetCode",
+     "canon": "lc:construct-binary-search-tree-from-preorder-traversal",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n154",
+     "title": "Check is a BT is BST or not",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:validate-binary-search-tree",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n155",
+     "title": "Find LCA of two nodes in BST",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:lowest-common-ancestor-of-a-binary-search-tree",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n156",
+     "title": "Find the inorder predecessor/successor of a given Key in BST.",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/inorder-successor-and-predecessor-in-bst",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-136-find-the-inorder-predecessor-successor-of-a-given-key-in-bst",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n157",
+   "title": "Binary Search Tree Part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n158",
+     "title": "Floor in a BST",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/floor-and-ceil-in-a-bst",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-137-floor-in-a-bst",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n159",
+     "title": "Ceil in a BST",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://takeuforward.org/plus/dsa/problems/floor-and-ceil-in-a-bst",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-138-ceil-in-a-bst",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n160",
+     "title": "Find K-th smallest element in BST",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+     "platform": "LeetCode",
+     "canon": "lc:kth-smallest-element-in-a-bst",
+     "resourceUrl": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-binary-search-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n161",
+     "title": "Find K-th largest element in BST",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-binary-search-tree/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-140-find-k-th-largest-element-in-bst",
+     "resourceUrl": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-binary-search-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n162",
+     "title": "Find a pair with a given sum in BST",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/",
+     "platform": "LeetCode",
+     "canon": "lc:two-sum-iv-input-is-a-bst",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n163",
+     "title": "BST iterator",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-search-tree-iterator/",
+     "platform": "LeetCode",
+     "canon": "lc:binary-search-tree-iterator",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n164",
+     "title": "Size of the largest BST in a Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-sum-bst-in-binary-tree",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n165",
+     "title": "Serialize and deserialize Binary Tree",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:serialize-and-deserialize-binary-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/serialize-and-deserialize-a-binary-tree/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n166",
+   "title": "Binary Trees[Miscellaneous]",
+   "children": [
+    {
+     "slug": "striver-sde-n167",
+     "title": "Binary Tree to Double Linked List",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
+     "platform": "LeetCode",
+     "canon": "lc:flatten-binary-tree-to-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n168",
+     "title": "Find median in a stream of running integers.",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+     "platform": "LeetCode",
+     "canon": "lc:find-median-from-data-stream",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n169",
+     "title": "K-th largest element in a stream.",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+     "platform": "LeetCode",
+     "canon": "lc:kth-largest-element-in-a-stream",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n170",
+     "title": "Distinct numbers in Window.",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/distinct-numbers-in-each-subarray",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-148-distinct-numbers-in-window",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n171",
+     "title": "K-th largest element in an unsorted array.",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+     "platform": "LeetCode",
+     "canon": "lc:kth-largest-element-in-an-array",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n172",
+     "title": "Flood-fill Algorithm",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/flood-fill/",
+     "platform": "LeetCode",
+     "canon": "lc:flood-fill",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n173",
+   "title": "Graph",
+   "children": [
+    {
+     "slug": "striver-sde-n174",
+     "title": "Clone a graph (Not that easy as it looks)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/clone-graph/",
+     "platform": "LeetCode",
+     "canon": "lc:clone-graph",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n175",
+     "title": "DFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/depth-first-search-dfs/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-152-dfs",
+     "resourceUrl": "https://takeuforward.org/data-structure/depth-first-search-dfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n176",
+     "title": "BFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-153-bfs",
+     "resourceUrl": "https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n177",
+     "title": "Detect A cycle in Undirected Graph using BFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule/",
+     "platform": "LeetCode",
+     "canon": "lc:course-schedule",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-bfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n178",
+     "title": "Detect A cycle in Undirected Graph using DFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule/",
+     "platform": "LeetCode",
+     "canon": "lc:course-schedule",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-dfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n179",
+     "title": "Detect A cycle in a Directed Graph using DFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule/",
+     "platform": "LeetCode",
+     "canon": "lc:course-schedule",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-a-cycle-in-directed-graph-topological-sort-kahns-algorithm-g-23/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n180",
+     "title": "Detect A cycle in a Directed Graph using BFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule/",
+     "platform": "LeetCode",
+     "canon": "lc:course-schedule",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n181",
+     "title": "Topological Sort BFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/topological-sort-bfs/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-158-topological-sort-bfs",
+     "resourceUrl": "https://takeuforward.org/data-structure/topological-sort-bfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n182",
+     "title": "Topological Sort DFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/topological-sort-using-dfs/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-159-topological-sort-dfs",
+     "resourceUrl": "https://takeuforward.org/data-structure/topological-sort-using-dfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n183",
+     "title": "Number of islands(Do in Grid and Graph Both)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/number-of-islands/",
+     "platform": "LeetCode",
+     "canon": "lc:number-of-islands",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-distinct-islands/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n184",
+     "title": "Bipartite Check using BFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/is-graph-bipartite/",
+     "platform": "LeetCode",
+     "canon": "lc:is-graph-bipartite",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n185",
+     "title": "Bipartite Check using DFS",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/is-graph-bipartite/",
+     "platform": "LeetCode",
+     "canon": "lc:is-graph-bipartite",
+     "resourceUrl": "https://takeuforward.org/graph/bipartite-graph-dfs-implementation/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n186",
+   "title": "Graph Part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n187",
+     "title": "Strongly Connected Component(using KosaRajuΓÇÖs algo)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/766485/kosaraju-algorithm-on",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-number-of-non-overlapping-substrings",
+     "resourceUrl": "https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n188",
+     "title": "DijkstraΓÇÖs Algorithm",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/g-35-print-shortest-path-dijkstras-algorithm/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-164-dijkstra-s-algorithm",
+     "resourceUrl": "https://takeuforward.org/data-structure/g-35-print-shortest-path-dijkstras-algorithm/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n189",
+     "title": "Bellman-Ford Algo",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/bellman-ford-algorithm-g-41/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-165-bellman-ford-algo",
+     "resourceUrl": "https://takeuforward.org/data-structure/bellman-ford-algorithm-g-41/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n190",
+     "title": "Floyd Warshall Algorithm",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-166-floyd-warshall-algorithm",
+     "resourceUrl": "https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n191",
+     "title": "MST using Prim's Algo",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/prims-algorithm-minimum-spanning-tree-c-and-java-g-45/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-167-mst-using-prim-s-algo",
+     "resourceUrl": "https://takeuforward.org/data-structure/prims-algorithm-minimum-spanning-tree-c-and-java-g-45/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n192",
+     "title": "MST using KruskalΓÇÖs Algo",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-168-mst-using-kruskal-s-algo",
+     "resourceUrl": "https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n193",
+   "title": "Dynamic Programming",
+   "children": [
+    {
+     "slug": "striver-sde-n194",
+     "title": "Max Product Subarray",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-product-subarray/",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-product-subarray",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-product-subarray-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n195",
+     "title": "Longest Increasing Subsequence",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+     "platform": "LeetCode",
+     "canon": "lc:longest-increasing-subsequence",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-increasing-subsequence-dp-41/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n196",
+     "title": "Longest Common Subsequence",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-common-subsequence/",
+     "platform": "LeetCode",
+     "canon": "lc:longest-common-subsequence",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n197",
+     "title": "0-1 Knapsack",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/0-1-knapsack-dp-19/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-172-0-1-knapsack",
+     "resourceUrl": "https://takeuforward.org/data-structure/0-1-knapsack-dp-19/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n198",
+     "title": "Edit Distance",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/edit-distance/",
+     "platform": "LeetCode",
+     "canon": "lc:edit-distance",
+     "resourceUrl": "https://takeuforward.org/data-structure/edit-distance-dp-33/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n199",
+     "title": "Maximum sum increasing subsequence",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "",
+     "platform": "",
+     "canon": "u:striver-sde-174-maximum-sum-increasing-subsequence",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n200",
+     "title": "Matrix Chain Multiplication",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/dynamic-programming/matrix-chain-multiplication-dp-48/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-175-matrix-chain-multiplication",
+     "resourceUrl": "https://takeuforward.org/dynamic-programming/matrix-chain-multiplication-dp-48/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n201",
+   "title": "Dynamic Programming Part-II",
+   "children": [
+    {
+     "slug": "striver-sde-n202",
+     "title": "Minimum sum path in the matrix, (count paths and similar type do, also backtrack to find the Minimum path)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-path-sum/",
+     "platform": "LeetCode",
+     "canon": "lc:minimum-path-sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-path-sum-in-a-grid-dp-10/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n203",
+     "title": "Coin change",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/coin-change/",
+     "platform": "LeetCode",
+     "canon": "lc:coin-change",
+     "resourceUrl": "https://takeuforward.org/data-structure/coin-change-2-dp-22/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n204",
+     "title": "Subset Sum",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/partition-equal-subset-sum/",
+     "platform": "LeetCode",
+     "canon": "lc:partition-equal-subset-sum",
+     "resourceUrl": "https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n205",
+     "title": "Rod Cutting",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimum-cost-to-cut-a-stick/",
+     "platform": "LeetCode",
+     "canon": "lc:minimum-cost-to-cut-a-stick",
+     "resourceUrl": "https://takeuforward.org/data-structure/rod-cutting-problem-dp-24/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n206",
+     "title": "Egg Dropping",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "",
+     "platform": "",
+     "canon": "u:striver-sde-180-egg-dropping",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n207",
+     "title": "Word Break",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-break/",
+     "platform": "LeetCode",
+     "canon": "lc:word-break",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n208",
+     "title": "Palindrome Partitioning (MCM Variation)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/palindrome-partitioning",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-182-palindrome-partitioning-mcm-variation",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n209",
+     "title": "Maximum profit in Job scheduling",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "",
+     "platform": "",
+     "canon": "u:striver-sde-183-maximum-profit-in-job-scheduling",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde-n210",
+   "title": "Trie",
+   "children": [
+    {
+     "slug": "striver-sde-n211",
+     "title": "Implement Trie (Prefix Tree)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+     "platform": "LeetCode",
+     "canon": "lc:implement-trie-prefix-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-trie-1/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n212",
+     "title": "Implement Trie - 2 (Prefix Tree)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/implement-trie-ii/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-185-implement-trie-2-prefix-tree",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-trie-ii/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n213",
+     "title": "Longest String with All Prefixes",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/longest-word-with-all-prefixes",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-186-longest-string-with-all-prefixes",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n214",
+     "title": "Number of Distinct Substrings in a String",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-187-number-of-distinct-substrings-in-a-string",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n215",
+     "title": "Power Set (this is very important)",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/",
+     "platform": "takeUforward",
+     "canon": "u:striver-sde-188-power-set-this-is-very-important",
+     "resourceUrl": "https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n216",
+     "title": "Maximum XOR of two numbers in an array",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-xor-of-two-numbers-in-an-array",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-xor-of-two-numbers-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde-n217",
+     "title": "Maximum XOR With an Element From Array",
+     "leaf": true,
+     "leafType": "problem",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/",
+     "platform": "LeetCode",
+     "canon": "lc:maximum-xor-with-an-element-from-array",
+     "resourceUrl": "https://takeuforward.org/trie/maximum-xor-queries-trie/",
+     "tags": "dsa"
+    }
+   ]
+  }
+ ]
+}

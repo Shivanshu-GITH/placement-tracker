@@ -1,0 +1,2805 @@
+{
+ "slug": "striver-cp",
+ "title": "Striver CP Sheet",
+ "category": "dsa",
+ "description": "Competitive-programming ladder (Codeforces-based) for contest and off-campus prep.",
+ "source": "takeuforward.org",
+ "topics": [
+  {
+   "slug": "cp-implementation-constructive-0",
+   "title": "Implementation / Constructive",
+   "items": [
+    {
+     "slug": "cp-0-bit",
+     "title": "Bit++",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/282/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-1-chewba-ca-and-number",
+     "title": "Chewbaсca and Number",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/514/problem/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-2-beautiful-matrix",
+     "title": "Beautiful Matrix",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/263/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-3-soft-drinking",
+     "title": "Soft Drinking",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/151/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-4-the-new-year-meeting-friends",
+     "title": "The New Year: Meeting Friends",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/723/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-5-sum-of-round-numbers",
+     "title": "Sum of Round Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1352/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-6-fox-and-snake",
+     "title": "Fox And Snake",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/510/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-7-anton-and-polyhedrons",
+     "title": "Anton and Polyhedrons",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/785/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-8-arrival-of-the-general",
+     "title": "Arrival of the General",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/144/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-9-in-search-of-an-easy-problem",
+     "title": "In Search of an Easy Problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1030/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-10-presents",
+     "title": "Presents",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/136/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-11-nearly-lucky-number",
+     "title": "Nearly Lucky Number",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/110/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-12-tram",
+     "title": "Tram",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/116/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-13-wrong-subtraction",
+     "title": "Wrong Subtraction",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/977/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-14-soldier-and-bananas",
+     "title": "Soldier and Bananas",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/546/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-15-bear-and-big-brother",
+     "title": "Bear and Big Brother",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/791/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-16-boy-or-girl",
+     "title": "Boy or Girl",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/236/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-17-word-capitalization",
+     "title": "Word Capitalization",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/281/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-18-helpful-maths",
+     "title": "Helpful Maths",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/339/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-19-c",
+     "title": "C+=",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1368/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-20-maximum-increase",
+     "title": "Maximum Increase",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/702/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-21-gennady-and-a-card-game",
+     "title": "Gennady and a Card Game",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1097/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-22-vanya-and-cubes",
+     "title": "Vanya and Cubes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/492/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-23-boring-apartments",
+     "title": "Boring Apartments",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1433/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-24-erasing-zeroes",
+     "title": "Erasing Zeroes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1303/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-25-repeating-cipher",
+     "title": "Repeating Cipher",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1095/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-26-fix-you",
+     "title": "Fix You",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1391/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-27-string-task",
+     "title": "String Task",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/118/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-28-assigning-to-classes",
+     "title": "Assigning to Classes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1300/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-29-numbers-on-whiteboard",
+     "title": "Numbers on Whiteboard",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1430/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-30-petr-and-book",
+     "title": "Petr and Book",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/139/problem/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-31-k-string",
+     "title": "k-String",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/219/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-32-game-23",
+     "title": "Game 23",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1141/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-33-present-from-lena",
+     "title": "Present from Lena",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/118/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-34-donut-shops",
+     "title": "Donut Shops",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1373/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-35-buttons",
+     "title": "Buttons",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/268/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-36-dreamoon-and-stairs",
+     "title": "Dreamoon and Stairs",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/476/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-37-new-year-transportation",
+     "title": "New Year Transportation",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/500/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-38-caps-lock",
+     "title": "cAPS lOCK",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/131/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-39-chocolates",
+     "title": "Chocolates",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1139/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-40-city-day",
+     "title": "City Day",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1199/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-41-diverse-substring",
+     "title": "Diverse Substring",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1073/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-42-lucky-sum-of-digits",
+     "title": "Lucky Sum of Digits",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/109/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-43-rooms-and-staircases",
+     "title": "Rooms and Staircases",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1244/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-44-palindromic-twist",
+     "title": "Palindromic Twist",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1027/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-45-shuffle-hashing",
+     "title": "Shuffle Hashing",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1278/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-46-middle-of-the-contest",
+     "title": "Middle of the Contest",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1133/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-47-or-in-matrix",
+     "title": "OR in Matrix",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/486/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-48-balanced-rating-changes",
+     "title": "Balanced Rating Changes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1237/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-49-amr-and-music",
+     "title": "Amr and Music",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/507/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-maths-1",
+   "title": "Maths",
+   "items": [
+    {
+     "slug": "cp-50-ichihime-and-triangle",
+     "title": "Ichihime and Triangle",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1337/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-51-lcm-problem",
+     "title": "LCM Problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1389/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-52-mahmoud-and-ehab-and-the-even-odd-game",
+     "title": "Mahmoud and Ehab and the even-odd game",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/959/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-53-array-with-odd-sum",
+     "title": "Array with Odd Sum",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1296/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-54-floor-number",
+     "title": "Floor Number",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1426/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-55-three-pairwise-maximums",
+     "title": "Three Pairwise Maximums",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1385/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-56-park-lighting",
+     "title": "Park Lighting",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1358/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-57-collecting-coins",
+     "title": "Collecting Coins",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1294/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-58-required-remainder",
+     "title": "Required Remainder",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1374/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-59-magical-sticks",
+     "title": "Magical Sticks",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1371/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-60-minimal-square",
+     "title": "Minimal Square",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1360/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-61-even-array",
+     "title": "Even Array",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1367/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-62-most-unstable-array",
+     "title": "Most Unstable Array",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1353/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-63-balanced-array",
+     "title": "Balanced Array",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1343/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-64-buy-a-shovel",
+     "title": "Buy a Shovel",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/732/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-65-restoring-three-numbers",
+     "title": "Restoring Three Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1154/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-66-yet-another-two-integers-problem",
+     "title": "Yet Another Two Integers Problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1409/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-67-candies-and-two-sisters",
+     "title": "Candies and Two Sisters",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1335/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-68-divisibility-problem",
+     "title": "Divisibility Problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1328/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-69-elephant",
+     "title": "Elephant",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/617/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-70-domino-piling",
+     "title": "Domino piling",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/50/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-71-emotes",
+     "title": "Emotes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1117/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-72-drinks-choosing",
+     "title": "Drinks Choosing",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1195/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-73-chunga-changa",
+     "title": "Chunga-Changa",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1181/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-74-dice-tower",
+     "title": "Dice Tower",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1266/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-75-digital-root",
+     "title": "Digital root",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1107/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-76-heating",
+     "title": "Heating",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1260/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-77-competitive-programmer",
+     "title": "Competitive Programmer",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1266/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-78-triangles-on-a-rectangle",
+     "title": "Triangles on a Rectangle",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1620/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-79-pasha-and-stick",
+     "title": "Pasha and Stick",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/610/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-80-young-physicist",
+     "title": "Young Physicist",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/69/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-81-theatre-square",
+     "title": "Theatre-Square",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-82-water-lily",
+     "title": "Water Lily",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1199/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-83-magic-stick",
+     "title": "Magic Stick",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1257/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-84-bowwow-and-the-timetable",
+     "title": "BowWow and the Timetable",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1204/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-85-drazil-and-date",
+     "title": "Drazil and Date",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/515/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-86-boboniu-likes-to-color-balls",
+     "title": "Boboniu Likes to Color Balls",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1395/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-87-lovely-palindromes",
+     "title": "Lovely Palindromes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/688/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-88-string-lcm",
+     "title": "String LCM",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1473/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-89-k-divisible-sum",
+     "title": "K-divisible Sum",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1476/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-90-berland-poker",
+     "title": "Berland Poker",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1359/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-91-road-to-zero",
+     "title": "Road To Zero",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1342/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-92-dungeon",
+     "title": "Dungeon",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1463/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-93-caisa-and-pylons",
+     "title": "Caisa and Pylons",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/463/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-94-gcd-length",
+     "title": "GCD Length",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1511/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-95-lucky-numbers",
+     "title": "Lucky Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/630/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-96-number-circle",
+     "title": "Number Circle",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1189/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-97-non-coprime-partition",
+     "title": "Non-Coprime Partition",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1038/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-98-hexagons",
+     "title": "Hexagons!",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/630/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-99-sequence-with-digits",
+     "title": "Sequence with Digits",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1355/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-binary-search-2",
+   "title": "Binary Search",
+   "items": [
+    {
+     "slug": "cp-100-hamburgers",
+     "title": "Hamburgers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/371/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-101-magic-powder-1",
+     "title": "Magic Powder - 1",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/670/problem/D1",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-102-pipeline",
+     "title": "Pipeline",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/287/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-103-poisoned-dagger",
+     "title": "Poisoned Dagger",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1613/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-104-mike-and-chocolate-thieves",
+     "title": "Mike and Chocolate Thieves",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/689/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-105-increasing-by-modulo",
+     "title": "Increasing by Modulo",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1169/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-106-vasya-and-robot",
+     "title": "Vasya and Robot",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1073/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-107-multiplication-table",
+     "title": "Multiplication Table",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/448/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-108-stressful-training",
+     "title": "Stressful Training",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1132/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-109-water-taps",
+     "title": "Water Taps",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/954/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-110-minimax-problem",
+     "title": "Minimax Problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1288/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-111-odd-even-subsequence",
+     "title": "Odd-Even Subsequence",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1370/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-prime-sieve-prime-factorisation-3",
+   "title": "Prime, Sieve, Prime Factorisation",
+   "items": [
+    {
+     "slug": "cp-112-prime-generator",
+     "title": "Prime Generator",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/PRIME1/cstart=10",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-113-printing-some-primes",
+     "title": "Printing some primes",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/TDPRIMES/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-114-finding-the-kth-prime",
+     "title": "Finding the Kth Prime",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/TDKPRIME/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-115-good-sequences",
+     "title": "Good Sequences",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/264/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-116-taxes",
+     "title": "Taxes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/735/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-117-soldier-and-number-game",
+     "title": "Soldier and Number Game",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/546/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-118-reducing-fractions",
+     "title": "Reducing Fractions",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/222/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-119-petya-and-divisors",
+     "title": "Petya and Divisors",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/111/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-120-primes-and-multiplication",
+     "title": "Primes and Multiplication",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1228/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-121-gcd-counting",
+     "title": "GCD Counting",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1101/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-bit-manipulation-power-set-4",
+   "title": "Bit Manipulation/Power Set",
+   "items": [
+    {
+     "slug": "cp-122-new-year-s-eve",
+     "title": "New Year's Eve",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/912/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-123-special-numbers",
+     "title": "Special Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1594/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-124-petr-and-a-combination-lock",
+     "title": "Petr and a Combination Lock",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1097/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-125-array-elimination",
+     "title": "Array Elimination",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1602/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-126-powers-of-two",
+     "title": "Powers Of Two",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1095/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-127-berland-crossword",
+     "title": "Berland Crossword",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1494/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-128-dima-and-a-bad-xor",
+     "title": "Dima and a Bad XOR",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1151/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-129-p-binary",
+     "title": "p-binary",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1225/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-130-ehab-and-the-expected-xor-problem",
+     "title": "Ehab and the Expected XOR Problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1174/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-131-505",
+     "title": "505",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1391/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-132-zookeeper-and-the-infinite-zoo",
+     "title": "Zookeeper and The Infinite Zoo",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1491/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-stack-queues-priorityqueues-5",
+   "title": "Stack/Queues/PriorityQueues",
+   "items": [
+    {
+     "slug": "cp-133-alternating-current",
+     "title": "Alternating Current",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/343/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-134-cd-and-pwd-commands",
+     "title": "Cd and pwd commands",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/158/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-135-longest-regular-bracket-sequence",
+     "title": "Longest Regular Bracket Sequence",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/5/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-136-pair-of-numbers",
+     "title": "Pair of Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/359/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-137-great-vova-wall-version-1",
+     "title": "Great Vova Wall (Version 1)",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1092/problem/D1",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-138-skyscrapers-hard-version",
+     "title": "Skyscrapers (hard version)",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1313/problem/C2",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-139-phoenix-and-towers",
+     "title": "Phoenix and Towers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1515/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-140-psychos-in-a-line",
+     "title": "Psychos in a Line",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/319/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-141-strip",
+     "title": "Strip",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/487/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-142-great-vova-wall-version-2",
+     "title": "Great Vova Wall (Version 2)",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1092/problem/D2",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-143-special-segments-of-permutation",
+     "title": "Special Segments of Permutation",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1156/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-144-stack-sorting",
+     "title": "Stack Sorting",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/911/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-145-breaking-good",
+     "title": "Breaking Good",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/507/problem/E?locale=en",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-string-algorithms-6",
+   "title": "String Algorithms",
+   "items": [
+    {
+     "slug": "cp-146-good-substrings",
+     "title": "Good Substrings",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/271/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-147-prefix-suffix-palindrome-hard-version",
+     "title": "Prefix-Suffix Palindrome (Hard version)",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1326/problem/D2",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-148-watto-and-mechanism",
+     "title": "Watto and Mechanism",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/514/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-149-palindrome-degree",
+     "title": "Palindrome Degree",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/7/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-150-spy-syndrome-2",
+     "title": "Spy Syndrome 2",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/633/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-151-segment-occurrences",
+     "title": "Segment Occurrences",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1016/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-152-password",
+     "title": "Password",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/126/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-153-muh-and-cube-walls",
+     "title": "MUH and Cube Walls",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/471/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-154-camp-schedule",
+     "title": "Camp Schedule",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1138/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-155-prefixes-and-suffixes",
+     "title": "Prefixes and Suffixes",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/432/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-156-erase-and-extend-hard-version",
+     "title": "Erase and Extend (Hard Version)",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1537/problem/E2",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-157-number-of-palindromes",
+     "title": "Number of Palindromes",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/NUMOFPAL/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-158-longest-palindromic-substring",
+     "title": "Longest Palindromic Substring",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/LPS/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-159-mirror-strings",
+     "title": "Mirror Strings !!!",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/MSUBSTR/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-160-extend-to-palindrome",
+     "title": "Extend to Palindrome",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/EPALIN/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-161-sonya-and-matrix-beauty",
+     "title": "Sonya and Matrix Beauty",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1080/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-bfs-7",
+   "title": "BFS",
+   "items": [
+    {
+     "slug": "cp-162-xor-paths",
+     "title": "Xor-Paths",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1006/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-tree-s-8",
+   "title": "Tree's",
+   "items": [
+    {
+     "slug": "cp-163-subordinates",
+     "title": "Subordinates",
+     "difficulty": "medium",
+     "url": "https://cses.fi/problemset/task/1674",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-164-tree-matching",
+     "title": "Tree Matching",
+     "difficulty": "medium",
+     "url": "https://cses.fi/problemset/task/1130",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-165-circumference-of-a-tree",
+     "title": "Circumference of a Tree",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/gym/102694/problem/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-166-dynamic-diameter",
+     "title": "Dynamic Diameter",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/gym/102694/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-167-military-problem",
+     "title": "Military Problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1006/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-168-tree-distances-ii",
+     "title": "Tree Distances II",
+     "difficulty": "medium",
+     "url": "https://cses.fi/problemset/task/1133",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-169-three-paths-on-a-tree",
+     "title": "Three Paths on a Tree",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1294/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-lca-9",
+   "title": "LCA",
+   "items": [
+    {
+     "slug": "cp-170-sloth-naptime",
+     "title": "Sloth Naptime",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/gym/102694/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-171-cycle-free-flow",
+     "title": "Cycle Free Flow",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/gym/102694/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-172-tree-queries",
+     "title": "Tree Queries",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1328/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-173-1-trees-and-queries",
+     "title": "1-Trees and Queries",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1304/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-174-blood-cousins",
+     "title": "Blood Cousins",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/208/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-175-fools-and-roads",
+     "title": "Fools and Roads",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/191/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-176-a-and-b-and-lecture-rooms",
+     "title": "A and B and Lecture Rooms",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/519/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-177-duff-in-the-army",
+     "title": "Duff-in-the-Army",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/587/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-178-minimum-spanning-tree-for-each-edge",
+     "title": "Minimum spanning tree for each edge",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/609/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-179-information-graph",
+     "title": "Information Graph",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/466/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-180-filthy-rich-trees",
+     "title": "Filthy Rich Trees",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/gym/102694/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-181-the-lorax",
+     "title": "The-Lorax",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/gym/102694/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-graph-algorithms-10",
+   "title": "Graph Algorithms",
+   "items": [
+    {
+     "slug": "cp-182-two-buttons",
+     "title": "Two Buttons",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/520/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-183-party",
+     "title": "Party",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/115/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-184-kefa-and-park",
+     "title": "Kefa and Park",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/580/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-185-cyclic-components",
+     "title": "Cyclic Components",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/977/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-186-graph-without-long-directed-paths",
+     "title": "Graph Without Long Directed Paths",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1144/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-187-fox-and-names",
+     "title": "Fox And Names",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/510/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-188-dijkstra",
+     "title": "Dijkstra?",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/20/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-189-strongly-connected-city",
+     "title": "Strongly Connected City",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/475/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-190-fair",
+     "title": "Fair",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/986/problem/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-191-king-s-path",
+     "title": "King's Path",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/242/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-192-monopole-magnets",
+     "title": "Monopole Magnets",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1345/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-193-planets",
+     "title": "Planets",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/229/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-194-directing-edges",
+     "title": "Directing Edges",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1385/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-195-greg-and-graph",
+     "title": "Greg and Graph",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/295/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-196-unstable-string-sort",
+     "title": "Unstable String Sort",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1213/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-197-weights-distributing",
+     "title": "Weights Distributing",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1343/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-198-string-coloring-easy-version",
+     "title": "String Coloring (easy version)",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1296/problem/E1",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-199-book",
+     "title": "Book",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1573/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-200-how-many-paths",
+     "title": "How Many Paths?",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1547/problem/G",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-201-dima-and-bacteria",
+     "title": "Dima and Bacteria",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/400/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-202-greedy-merchants",
+     "title": "Greedy Merchants",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/178/problem/B3",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-matrix-exponentiation-11",
+   "title": "Matrix Exponentiation",
+   "items": [
+    {
+     "slug": "cp-203-plant",
+     "title": "Plant",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/185/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-204-magic-gems",
+     "title": "Magic Gems",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1117/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-205-once-again",
+     "title": "Once Again",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/582/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-206-decoding-genome",
+     "title": "Decoding Genome",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/222/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-207-wet-shark-and-blocks",
+     "title": "Wet Shark and Blocks",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/621/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-208-product-oriented-recurrence",
+     "title": "Product Oriented Recurrence",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1182/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-trie-12",
+   "title": "Trie",
+   "items": [
+    {
+     "slug": "cp-209-vasiliy-s-multiset",
+     "title": "Vasiliy's Multiset",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/706/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-210-perfect-security",
+     "title": "Perfect Security",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/948/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-211-beautiful-subarrays",
+     "title": "Beautiful Subarrays",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/665/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-212-dr-evil-underscores",
+     "title": "Dr. Evil Underscores",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1285/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-213-polycarp-s-phone-book",
+     "title": "Polycarp's phone book",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/858/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-214-a-lot-of-games",
+     "title": "A Lot of Games",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/455/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-215-petr",
+     "title": "Petr#",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/113/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-216-sausage-maximization",
+     "title": "Sausage Maximization",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/282/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-dynamic-programming-13",
+   "title": "Dynamic Programming",
+   "items": [
+    {
+     "slug": "cp-217-classy-numbers",
+     "title": "Classy Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1036/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-218-qaq",
+     "title": "QAQ",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/894/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-219-napoleon-cake",
+     "title": "Napoleon Cake",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1501/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-220-red-and-blue",
+     "title": "Red and Blue",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1469/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-221-fence",
+     "title": "Fence",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/363/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-222-ilya-and-queries",
+     "title": "Ilya and Queries",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/313/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-223-flipping-game",
+     "title": "Flipping Game",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/327/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-224-lecture-sleep",
+     "title": "Lecture Sleep",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/961/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-225-reposts",
+     "title": "Reposts",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/522/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-226-vitamins",
+     "title": "Vitamins",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1042/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-227-cut-ribbon",
+     "title": "Cut Ribbon",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/189/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-228-pok-mon-army-easy-version",
+     "title": "Pokémon Army (easy version)",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1420/C1",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-229-mashmokh-and-acm",
+     "title": "Mashmokh and ACM",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/414/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-230-basketball-exercise",
+     "title": "Basketball Exercise",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1195/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-231-orac-and-models",
+     "title": "Orac and Models",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1350/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-232-mr-kitayuta-the-treasure-hunter",
+     "title": "Mr. Kitayuta, the Treasure Hunter",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/505/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-233-modulo-sum",
+     "title": "Modulo Sum",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/577/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-234-little-elephant-and-interval",
+     "title": "Little Elephant and Interval",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/204/problem/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-235-painting-fence",
+     "title": "Painting Fence",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/448/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-236-riding-in-a-lift",
+     "title": "Riding in a Lift",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/479/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-237-roman-and-numbers",
+     "title": "Roman and Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/401/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-238-hanoi-factory",
+     "title": "Hanoi Factory",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/777/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-239-choosing-capital-for-treeland",
+     "title": "Choosing Capital for Treeland",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/219/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-240-book-of-evil",
+     "title": "Book of Evil",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/337/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-241-compatible-numbers",
+     "title": "Compatible Numbers",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/165/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-242-the-values-you-can-make",
+     "title": "The Values You Can Make",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/687/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-243-clear-the-string",
+     "title": "Clear the String",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1132/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-244-antenna-coverage",
+     "title": "Antenna Coverage",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1253/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-245-wi-fi",
+     "title": "Wi-Fi",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1216/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-246-appleman-and-tree",
+     "title": "Appleman and Tree",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/461/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-247-kalila-and-dimna-in-the-logging-industry",
+     "title": "Kalila and Dimna in the Logging Industry",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/319/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-248-the-fair-nut-and-rectangles",
+     "title": "The Fair Nut and Rectangles",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1083/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-249-the-maths-lecture",
+     "title": "The Maths Lecture",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/507/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-250-bad-luck-island",
+     "title": "Bad Luck Island",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/540/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-disjoint-set-14",
+   "title": "Disjoint Set",
+   "items": [
+    {
+     "slug": "cp-251-little-alawn-s-puzzle",
+     "title": "Little Alawn's Puzzle",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1534/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-252-ice-skating",
+     "title": "Ice Skating",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/217/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-253-learning-languages",
+     "title": "Learning Languages",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/277/problem/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-254-bertown-subway",
+     "title": "Bertown Subway",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/884/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-255-k-complete-word",
+     "title": "K-Complete Word",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1332/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-256-civilization",
+     "title": "Civilization",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/455/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-257-0-1-tree",
+     "title": "0-1-Tree",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1156/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-258-path-queries",
+     "title": "Path Queries",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1213/problem/G",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-259-dogeforces",
+     "title": "Dogeforces",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/problemset/problem/1494/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-sqrt-decomposition-mo-s-algo-15",
+   "title": "Sqrt Decomposition/ MO’s algo",
+   "items": [
+    {
+     "slug": "cp-260-powerful-array",
+     "title": "Powerful array",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/86/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-261-xor-and-favorite-number",
+     "title": "XOR and Favorite Number",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/617/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-262-little-elephant-and-array",
+     "title": "Little Elephant and Array",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/220/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-263-cut-and-stick",
+     "title": "Cut and Stick",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1514/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-264-tree-and-queries",
+     "title": "Tree and Queries",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/375/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-265-xor-on-segment",
+     "title": "XOR on Segment",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/242/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-fenwick-tree-16",
+   "title": "Fenwick Tree",
+   "items": [
+    {
+     "slug": "cp-266-enemy-is-weak",
+     "title": "Enemy is weak",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/61/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-267-moving-points",
+     "title": "Moving Points",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1311/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-268-cows-and-sequence",
+     "title": "Cows and Sequence",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/283/problem/A",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-269-pashmak-and-parmida-s-problem",
+     "title": "Pashmak and Parmida's problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/459/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-270-bubble-sort-graph",
+     "title": "Bubble Sort Graph",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/340/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-271-vasya-and-a-tree",
+     "title": "Vasya and a Tree",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1076/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-272-multiset",
+     "title": "Multiset",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1354/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-273-fixed-point-removal",
+     "title": "Fixed Point Removal",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1405/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-274-propagating-tree",
+     "title": "Propagating tree",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/383/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-275-kill-anton",
+     "title": "Kill Anton",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1526/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-276-little-girl-and-problem-on-trees",
+     "title": "Little Girl and Problem on Trees",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/276/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-277-tree-and-queries",
+     "title": "Tree and Queries",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/375/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-segment-tree-lazy-also-included-17",
+   "title": "Segment Tree(lazy also included)",
+   "items": [
+    {
+     "slug": "cp-278-xenia-and-bit-operations",
+     "title": "Xenia and Bit Operations",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/339/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-279-bash-and-a-tough-math-puzzle",
+     "title": "Bash and a Tough Math Puzzle",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/914/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-280-pashmak-and-parmida-s-problem",
+     "title": "Pashmak and Parmida's problem",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/459/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-281-sereja-and-brackets",
+     "title": "Sereja and Brackets",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/380/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-282-ant-colony",
+     "title": "Ant colony",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/474/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-283-balanced-playlist",
+     "title": "Balanced Playlist",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1237/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-284-copying-data",
+     "title": "Copying Data",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/292/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-285-interesting-array",
+     "title": "Interesting Array",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/482/problem/B",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-286-subarray-sorting",
+     "title": "Subarray Sorting",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1187/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-287-sum-and-replace",
+     "title": "SUM and REPLACE",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/920/problem/F",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-288-playoff-tournament",
+     "title": "Playoff Tournament",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1535/problem/D?locale=en",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-289-the-child-and-sequence",
+     "title": "The Child and Sequence",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/438/problem/D?locale=en",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-290-equilibrium",
+     "title": "Equilibrium",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1556/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-291-non-decreasing-dilemma",
+     "title": "Non-Decreasing Dilemma",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1567/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  },
+  {
+   "slug": "cp-lazy-propagation-18",
+   "title": "Lazy propagation",
+   "items": [
+    {
+     "slug": "cp-292-circular-rmq",
+     "title": "Circular RMQ",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/52/problem/C",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-293-array-restoration",
+     "title": "Array Restoration",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1023/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-294-xor-on-segment",
+     "title": "XOR on Segment",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/242/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-295-ezzat-and-grid",
+     "title": "Ezzat and Grid",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/1557/problem/D",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-296-lucky-queries",
+     "title": "Lucky Queries",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/145/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    },
+    {
+     "slug": "cp-297-hanoi-factory",
+     "title": "Hanoi Factory",
+     "difficulty": "medium",
+     "url": "https://codeforces.com/contest/777/problem/E",
+     "platform": "Codeforces",
+     "resourceUrl": "",
+     "tags": "cp"
+    }
+   ]
+  }
+ ]
+}

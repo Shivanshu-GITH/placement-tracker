@@ -1,0 +1,786 @@
+{
+ "slug": "striver-sde79",
+ "title": "Striver SDE Sheet (79)",
+ "category": "dsa",
+ "description": "A leaner, modern 79-problem revision sheet grouped by pattern.",
+ "source": "takeuforward.org",
+ "topics": [
+  {
+   "slug": "striver-sde79-arrays-and-hashing-0",
+   "title": "Arrays and Hashing",
+   "items": [
+    {
+     "slug": "striver-sde79-0-next-permutation",
+     "title": "Next Permutation",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/next-permutation/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/next_permutation-find-next-lexicographically-greater-permutation/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-1-3-sum-problem",
+     "title": "3-Sum Problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/3sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/3-sum-find-triplets-that-add-up-to-a-zero/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-2-kadane-s-algorithm",
+     "title": "Kadane's Algorithm",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-3-majority-element-n-3-times",
+     "title": "Majority Element (n/3 times)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/majority-element-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/majority-elementsn-3-times-find-the-elements-that-appears-more-than-n-3-times-in-the-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-4-count-number-of-subarrays-with-given-xor-k",
+     "title": "Count number of subarrays with given xor K",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-5-find-the-repeating-and-missing-number",
+     "title": "Find the repeating and missing number",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-6-count-inversions",
+     "title": "Count Inversions",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/count-inversions-in-an-array/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/count-inversions-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-7-maximum-product-subarray",
+     "title": "Maximum Product Subarray",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/maximum-product-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-product-subarray-in-an-array/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-binary-search-1",
+   "title": "Binary Search",
+   "items": [
+    {
+     "slug": "striver-sde79-8-search-in-rotated-sorted-array-ii",
+     "title": "Search in Rotated Sorted Array II",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/search-element-in-rotated-sorted-array-ii/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-9-find-minimum-in-rotated-sorted-array",
+     "title": "Find minimum in Rotated Sorted Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-in-rotated-sorted-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-10-find-peak-element",
+     "title": "Find peak element",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/find-peak-element/#:~:text=Find%20Peak%20Element%20%2D%20LeetCode&text=A%20peak%20element%20is%20an,to%20any%20of%20the%20peaks.",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/peak-element-in-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-11-koko-eating-bananas",
+     "title": "Koko Eating Bananas",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/koko-eating-bananas/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/binary-search/koko-eating-bananas/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-12-aggressive-cows",
+     "title": "Aggressive Cows",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-13-book-allocation-problem",
+     "title": "Book Allocation Problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-14-median-of-2-sorted-arrays",
+     "title": "Median of 2 sorted arrays",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/median-of-two-sorted-arrays-of-different-sizes/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-15-minimize-max-distance-to-gas-station",
+     "title": "Minimize Max Distance to Gas Station",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/minimize-max-distance-to-gas-station/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/arrays/minimise-maximum-distance-between-gas-stations/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-linked-list-2",
+   "title": "Linked List",
+   "items": [
+    {
+     "slug": "striver-sde79-16-middle-of-a-linkedlist-tortoisehare-method",
+     "title": "Middle of a LinkedList [TortoiseHare Method]",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-middle-element-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-17-detect-a-loop-in-ll",
+     "title": "Detect a loop in LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/linked-list-cycle/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-18-remove-nth-node-from-the-back-of-the-ll",
+     "title": "Remove Nth node from the back of the LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/remove-n-th-node-from-the-end-of-a-linked-list/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-19-find-the-intersection-point-of-y-ll",
+     "title": "Find the intersection point of Y LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/find-intersection-of-two-linked-lists/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-20-sort-ll",
+     "title": "Sort LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/sort-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/linked-list/sort-a-linked-list",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-21-segrregate-odd-and-even-nodes-in-ll",
+     "title": "Segrregate odd and even nodes in LL",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/odd-even-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/segregate-even-and-odd-nodes-in-linkedlist",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-recursion-and-backtracking-3",
+   "title": "Recursion and Backtracking",
+   "items": [
+    {
+     "slug": "striver-sde79-22-print-all-subsequences-power-set",
+     "title": "Print all subsequences/Power Set",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subsets/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-23-combination-sum",
+     "title": "Combination Sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combination-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/combination-sum-1/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-24-n-queen",
+     "title": "N Queen",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/n-queens/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/n-queen-problem-return-all-distinct-solutions-to-the-n-queens-puzzle/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-25-sudoko-solver",
+     "title": "Sudoko Solver",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sudoku-solver/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/sudoku-solver/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-26-m-coloring-problem",
+     "title": "M Coloring Problem",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/m-coloring-problem/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/m-coloring-problem/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-27-word-search",
+     "title": "Word Search",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-search/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/word-search-leetcode/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-stacks-queues-4",
+   "title": "Stacks/Queues",
+   "items": [
+    {
+     "slug": "striver-sde79-28-next-greater-element",
+     "title": "Next Greater Element",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/next-greater-element-i/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/next-greater-element-using-stack/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-29-trapping-rainwater",
+     "title": "Trapping Rainwater",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/trapping-rain-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/trapping-rainwater/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-30-largest-rectangle-in-a-histogram",
+     "title": "Largest rectangle in a histogram",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/area-of-largest-rectangle-in-histogram/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-31-asteroid-collision",
+     "title": "Asteroid Collision",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/asteroid-collision/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/interview-sheets/strivers-79-last-moment-dsa-sheet-ace-interviews",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-32-sliding-window-maximum",
+     "title": "Sliding Window maximum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/sliding-window-maximum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/sliding-window-maximum/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-33-lru-cache-important",
+     "title": "LRU cache (IMPORTANT)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/lru-cache/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-lru-cache/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-heaps-5",
+   "title": "Heaps",
+   "items": [
+    {
+     "slug": "striver-sde79-34-kth-largest-element-in-an-array-use-priority-queue",
+     "title": "Kth largest element in an array [use priority queue]",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-35-task-scheduler",
+     "title": "Task Scheduler",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/task-scheduler/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-36-min-heap-and-max-heap-implementation",
+     "title": "Min Heap and Max Heap Implementation",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/plus/dsa/problems/implement-min-heap",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-trees-bt-bst-6",
+   "title": "Trees (BT + BST)",
+   "items": [
+    {
+     "slug": "striver-sde79-37-diameter-of-binary-tree",
+     "title": "Diameter of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/calculate-the-diameter-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-38-maximum-path-sum",
+     "title": "Maximum path sum",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-sum-path-in-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-39-bottom-view-of-binary-tree",
+     "title": "Bottom View of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-40-lca-in-binary-tree",
+     "title": "LCA in Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-41-minimum-time-taken-to-burn-the-binary-tree-from-a-node",
+     "title": "Minimum time taken to BURN the Binary Tree from a Node",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/minimum-time-taken-to-burn-the-bt-from-a-given-node",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-42-construct-binary-tree-from-inorder-and-preorder",
+     "title": "Construct Binary Tree from inorder and preorder",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/construct-a-binary-tree-from-inorder-and-preorder-traversal/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-43-morris-preorder-traversal-of-a-binary-tree",
+     "title": "Morris Preorder Traversal of a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/morris-preorder-traversal-of-a-binary-tree/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-44-delete-a-node-in-binary-search-tree",
+     "title": "Delete a Node in Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-node-in-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-45-lca-in-binary-search-tree",
+     "title": "LCA in Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-46-two-sum-in-bst-check-if-there-exists-a-pair-with-sum-k",
+     "title": "Two Sum In BST | Check if there exists a pair with Sum K",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-47-largest-bst-in-binary-tree",
+     "title": "Largest BST in Binary Tree",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/plus/dsa/problems/largest-bst-in-binary-tree",
+     "platform": "takeUforward",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-graphs-7",
+   "title": "Graphs",
+   "items": [
+    {
+     "slug": "striver-sde79-48-rotten-oranges",
+     "title": "Rotten Oranges",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotting-oranges/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/rotten-oranges-min-time-to-rot-all-oranges-bfs/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-49-word-ladder-1",
+     "title": "Word ladder - 1",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/word-ladder/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/word-ladder-i-g-29/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-50-number-of-distinct-islands-dfs-multisource",
+     "title": "Number of Distinct Islands [dfs multisource]",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/number-of-distinct-islands-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-islands/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-51-course-schedule-ii",
+     "title": "Course Schedule - II",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/course-schedule-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-52-alien-dictionary",
+     "title": "Alien dictionary",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/alien-dictionary/solution/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/alien-dictionary-topological-sort-g-26/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-53-djisktra-s-algorithm",
+     "title": "Djisktra's Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-54-cheapest-flights-within-k-stops",
+     "title": "Cheapest flights within k stops",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/g-38-cheapest-flights-within-k-stops/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-55-bellman-ford-algorithm",
+     "title": "Bellman Ford Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/bellman-ford-algorithm-g-41/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/bellman-ford-algorithm-g-41/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-56-floyd-warshal-algorithm",
+     "title": "Floyd Warshal Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-57-kruskal-s-algorithm",
+     "title": "Kruskal's Algorithm",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-58-accounts-merge",
+     "title": "Accounts merge",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/accounts-merge/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/accounts-merge-dsu-g-50/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-59-bridges-in-graph",
+     "title": "Bridges in Graph",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/critical-connections-in-a-network/discuss/382385/find-bridges-in-a-graph",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/graph/bridges-in-graph-using-tarjans-algorithm-of-time-in-and-low-time-g-55/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-dynamic-programming-8",
+   "title": "Dynamic Programming",
+   "items": [
+    {
+     "slug": "striver-sde79-60-maximum-sum-of-non-adjacent-elements-dp-5",
+     "title": "Maximum sum of non-adjacent elements (DP 5)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/house-robber/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/maximum-sum-of-non-adjacent-elements-dp-5/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-61-ninja-s-training-dp-7",
+     "title": "Ninja's Training (DP 7)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/dynamic-programming-ninjas-training-dp-7/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/dynamic-programming-ninjas-training-dp-7/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-62-minimum-path-sum-in-grid-dp-10",
+     "title": "Minimum path sum in Grid (DP 10)",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/minimum-path-sum-in-a-grid-dp-10/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-63-subset-sum-equal-to-target-dp-14",
+     "title": "Subset sum equal to target (DP- 14)",
+     "difficulty": "medium",
+     "url": "https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-64-assign-cookies",
+     "title": "Assign Cookies",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/assign-cookies/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/interview-sheets/strivers-79-last-moment-dsa-sheet-ace-interviews",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-65-rod-cutting-problem-dp-24",
+     "title": "Rod Cutting Problem | (DP - 24)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/rod-cutting-problem-dp-24/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/rod-cutting-problem-dp-24/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-66-longest-common-subsequence",
+     "title": "Longest Common Subsequence",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-common-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-67-longest-palindromic-subsequence-dp-28",
+     "title": "Longest Palindromic Subsequence | (DP-28)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/longest-palindromic-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-palindromic-subsequence-dp-28/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-68-edit-distance-dp-33",
+     "title": "Edit Distance | (DP-33)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/edit-distance/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/edit-distance-dp-33/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-69-buy-and-stock-sell-iv-dp-38",
+     "title": "Buy and Stock Sell IV |(DP-38)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/buy-and-sell-stock-iv-dp-38/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-70-longest-increasing-subsequence",
+     "title": "Longest Increasing Subsequence",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/longest-increasing-subsequence-dp-41/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-71-burst-balloons-dp-51",
+     "title": "Burst Balloons|(DP-51)",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/burst-balloons/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/data-structure/burst-balloons-partition-dp-dp-51/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-tries-9",
+   "title": "Tries",
+   "items": [
+    {
+     "slug": "striver-sde79-72-implement-trie-2-prefix-tree",
+     "title": "Implement Trie - 2 (Prefix Tree)",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/implement-trie-ii/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/implement-trie-ii/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-73-maximum-xor-with-an-element-from-array",
+     "title": "Maximum XOR With an Element From Array",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "https://takeuforward.org/trie/maximum-xor-queries-trie/",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-74-number-of-distinct-substrings-in-a-string",
+     "title": "Number of Distinct Substrings in a String",
+     "difficulty": "hard",
+     "url": "https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/",
+     "platform": "takeUforward",
+     "resourceUrl": "https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "striver-sde79-string-10",
+   "title": "String",
+   "items": [
+    {
+     "slug": "striver-sde79-75-minimum-number-of-bracket-reversals-needed-to-make-an-expres",
+     "title": "Minimum number of bracket reversals needed to make an expression balanced",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-76-rabin-karp",
+     "title": "Rabin Karp",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/repeated-string-match/discuss/416144/Rabin-Karp-algorithm-C%2B%2B-implementation",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-77-z-function",
+     "title": "Z-Function",
+     "difficulty": "easy",
+     "url": "https://leetcode.com/problems/implement-strstr/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "striver-sde79-78-kmp-algo-lps-pi-array",
+     "title": "KMP algo / LPS(pi) array",
+     "difficulty": "hard",
+     "url": "https://leetcode.com/problems/implement-strstr/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  }
+ ]
+}

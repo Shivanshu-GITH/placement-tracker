@@ -1,0 +1,595 @@
+{
+ "slug": "core-oop",
+ "title": "OOP + Low Level Design",
+ "category": "core",
+ "description": "Complete OOP + Low Level Design for interviews & campus exams — every topic broken into its sub-concepts.",
+ "source": "Curated (UNNATI granular syllabus)",
+ "tree": [
+  {
+   "slug": "core-oop-n0",
+   "title": "Core pillars",
+   "children": [
+    {
+     "slug": "core-oop-n1",
+     "title": "Encapsulation — with code, not a definition",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Encapsulation%20%E2%80%94%20with%20code%2C%20not%20a%20definition%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-0-encapsulation-with-code-not-a-definition",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n2",
+     "title": "Abstraction",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Abstraction%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-1-abstraction",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n3",
+     "title": "Inheritance and its types",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Inheritance%20and%20its%20types%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-2-inheritance-and-its-types",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n4",
+     "title": "Polymorphism: compile-time vs runtime",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Polymorphism%3A%20compile-time%20vs%20runtime%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-3-polymorphism-compile-time-vs-runtime",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n5",
+     "title": "Abstract class vs interface: when each",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Abstract%20class%20vs%20interface%3A%20when%20each%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-4-abstract-class-vs-interface-when-each",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-oop-n6",
+   "title": "C++ specifics",
+   "children": [
+    {
+     "slug": "core-oop-n7",
+     "title": "Constructors: default, parameterised, copy",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Constructors%3A%20default%2C%20parameterised%2C%20copy%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-5-constructors-default-parameterised-copy",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n8",
+     "title": "Copy constructor vs assignment operator",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Copy%20constructor%20vs%20assignment%20operator%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-6-copy-constructor-vs-assignment-operator",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n9",
+     "title": "Destructor and virtual destructor",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Destructor%20and%20virtual%20destructor%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-7-destructor-and-virtual-destructor",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n10",
+     "title": "Rule of three / five",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Rule%20of%20three%20/%20five%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-8-rule-of-three-five",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n11",
+     "title": "Shallow vs deep copy",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Shallow%20vs%20deep%20copy%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-9-shallow-vs-deep-copy",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n12",
+     "title": "static members",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=static%20members%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-10-static-members",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n13",
+     "title": "const correctness",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=const%20correctness%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-11-const-correctness",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n14",
+     "title": "friend functions",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=friend%20functions%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-12-friend-functions",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n15",
+     "title": "this pointer",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=this%20pointer%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-13-this-pointer",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n16",
+     "title": "Operator overloading",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Operator%20overloading%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-14-operator-overloading",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n17",
+     "title": "Templates and generic programming",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Templates%20and%20generic%20programming%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-15-templates-and-generic-programming",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n18",
+     "title": "Virtual functions and the vtable",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Virtual%20functions%20and%20the%20vtable%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-16-virtual-functions-and-the-vtable",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n19",
+     "title": "Diamond problem and virtual inheritance",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Diamond%20problem%20and%20virtual%20inheritance%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-17-diamond-problem-and-virtual-inheritance",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n20",
+     "title": "RAII and smart pointers",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=RAII%20and%20smart%20pointers%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-18-raii-and-smart-pointers",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n21",
+     "title": "Exception handling",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Exception%20handling%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-19-exception-handling",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-oop-n22",
+   "title": "SOLID",
+   "children": [
+    {
+     "slug": "core-oop-n23",
+     "title": "Single Responsibility — violation and fix",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Single%20Responsibility%20%E2%80%94%20violation%20and%20fix%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-20-single-responsibility-violation-and-fix",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n24",
+     "title": "Open/Closed — violation and fix",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Open/Closed%20%E2%80%94%20violation%20and%20fix%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-21-open-closed-violation-and-fix",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n25",
+     "title": "Liskov Substitution — violation and fix",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Liskov%20Substitution%20%E2%80%94%20violation%20and%20fix%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-22-liskov-substitution-violation-and-fix",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n26",
+     "title": "Interface Segregation — violation and fix",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Interface%20Segregation%20%E2%80%94%20violation%20and%20fix%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-23-interface-segregation-violation-and-fix",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n27",
+     "title": "Dependency Inversion — violation and fix",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Dependency%20Inversion%20%E2%80%94%20violation%20and%20fix%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-24-dependency-inversion-violation-and-fix",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-oop-n28",
+   "title": "Design patterns",
+   "children": [
+    {
+     "slug": "core-oop-n29",
+     "title": "Singleton (and why it is often a smell)",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Singleton%20%28and%20why%20it%20is%20often%20a%20smell%29%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-25-singleton-and-why-it-is-often-a-smell",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n30",
+     "title": "Factory and Abstract Factory",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Factory%20and%20Abstract%20Factory%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-26-factory-and-abstract-factory",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n31",
+     "title": "Builder",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Builder%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-27-builder",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n32",
+     "title": "Adapter",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Adapter%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-28-adapter",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n33",
+     "title": "Decorator",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Decorator%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-29-decorator",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n34",
+     "title": "Observer",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Observer%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-30-observer",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n35",
+     "title": "Strategy",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Strategy%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-31-strategy",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n36",
+     "title": "Command",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Command%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-32-command",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n37",
+     "title": "Composition over inheritance",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Composition%20over%20inheritance%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-33-composition-over-inheritance",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-oop-n38",
+   "title": "LLD practice",
+   "children": [
+    {
+     "slug": "core-oop-n39",
+     "title": "Parking Lot",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Parking%20Lot%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-34-parking-lot",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n40",
+     "title": "URL Shortener",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=URL%20Shortener%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-35-url-shortener",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n41",
+     "title": "Splitwise",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Splitwise%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-36-splitwise",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n42",
+     "title": "Elevator system",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Elevator%20system%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-37-elevator-system",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n43",
+     "title": "Rate limiter",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Rate%20limiter%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-38-rate-limiter",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n44",
+     "title": "Design an LRU cache class",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Design%20an%20LRU%20cache%20class%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-39-design-an-lru-cache-class",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n45",
+     "title": "Tic-tac-toe / Snake and Ladder",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Tic-tac-toe%20/%20Snake%20and%20Ladder%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-40-tic-tac-toe-snake-and-ladder",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n46",
+     "title": "BookMyShow seat booking",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=BookMyShow%20seat%20booking%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-41-bookmyshow-seat-booking",
+     "tags": "core"
+    }
+   ]
+  },
+  {
+   "slug": "core-oop-n47",
+   "title": "HLD basics",
+   "children": [
+    {
+     "slug": "core-oop-n48",
+     "title": "Load balancing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Load%20balancing%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-42-load-balancing",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n49",
+     "title": "Caching layers and invalidation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Caching%20layers%20and%20invalidation%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-43-caching-layers-and-invalidation",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n50",
+     "title": "Horizontal vs vertical scaling",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Horizontal%20vs%20vertical%20scaling%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-44-horizontal-vs-vertical-scaling",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n51",
+     "title": "Database replication and sharding",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Database%20replication%20and%20sharding%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-45-database-replication-and-sharding",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n52",
+     "title": "Message queues",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Message%20queues%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-46-message-queues",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n53",
+     "title": "CDN",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=CDN%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-47-cdn",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n54",
+     "title": "Consistent hashing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Consistent%20hashing%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-48-consistent-hashing",
+     "tags": "core"
+    },
+    {
+     "slug": "core-oop-n55",
+     "title": "Designing a URL shortener end to end",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Designing%20a%20URL%20shortener%20end%20to%20end%20cs%20interview",
+     "platform": "Learn",
+     "canon": "u:core-oop-49-designing-a-url-shortener-end-to-end",
+     "tags": "core"
+    }
+   ]
+  }
+ ]
+}

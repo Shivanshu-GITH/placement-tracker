@@ -1,0 +1,645 @@
+{
+ "slug": "aptitude",
+ "title": "Aptitude & Reasoning",
+ "category": "aptitude",
+ "description": "Full quantitative, logical, verbal and DI coverage for placement & mass-recruiter tests.",
+ "source": "Curated syllabus",
+ "topics": [
+  {
+   "slug": "apt-quantitative-aptitude",
+   "title": "Quantitative Aptitude",
+   "items": [
+    {
+     "slug": "apt-0-number-system",
+     "title": "Number System",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Number%20System%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-1-hcf-lcm",
+     "title": "HCF & LCM",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=HCF%20%26%20LCM%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-2-simplification-bodmas",
+     "title": "Simplification & BODMAS",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Simplification%20%26%20BODMAS%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-3-surds-indices",
+     "title": "Surds & Indices",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Surds%20%26%20Indices%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-4-percentages",
+     "title": "Percentages",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Percentages%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-5-profit-loss-discount",
+     "title": "Profit, Loss & Discount",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Profit%2C%20Loss%20%26%20Discount%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-6-simple-interest",
+     "title": "Simple Interest",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Simple%20Interest%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-7-compound-interest",
+     "title": "Compound Interest",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Compound%20Interest%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-8-ratio-proportion",
+     "title": "Ratio & Proportion",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Ratio%20%26%20Proportion%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-9-partnership",
+     "title": "Partnership",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Partnership%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-10-mixtures-alligations",
+     "title": "Mixtures & Alligations",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mixtures%20%26%20Alligations%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-11-averages",
+     "title": "Averages",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Averages%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-12-problems-on-ages",
+     "title": "Problems on Ages",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Problems%20on%20Ages%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-13-time-work",
+     "title": "Time & Work",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Time%20%26%20Work%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-14-pipes-cisterns",
+     "title": "Pipes & Cisterns",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Pipes%20%26%20Cisterns%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-15-time-speed-distance",
+     "title": "Time, Speed & Distance",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Time%2C%20Speed%20%26%20Distance%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-16-problems-on-trains",
+     "title": "Problems on Trains",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Problems%20on%20Trains%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-17-boats-streams",
+     "title": "Boats & Streams",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Boats%20%26%20Streams%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-18-permutations-combinations",
+     "title": "Permutations & Combinations",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Permutations%20%26%20Combinations%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-19-probability",
+     "title": "Probability",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Probability%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-20-mensuration-2d-3d",
+     "title": "Mensuration (2D & 3D)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mensuration%20%282D%20%26%203D%29%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-21-geometry",
+     "title": "Geometry",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Geometry%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-22-progressions-ap-gp",
+     "title": "Progressions (AP & GP)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Progressions%20%28AP%20%26%20GP%29%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-23-logarithms",
+     "title": "Logarithms",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Logarithms%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-24-problems-on-clocks",
+     "title": "Problems on Clocks",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Problems%20on%20Clocks%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-25-calendars",
+     "title": "Calendars",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Calendars%20aptitude%20indiabix",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    }
+   ]
+  },
+  {
+   "slug": "apt-logical-reasoning",
+   "title": "Logical Reasoning",
+   "items": [
+    {
+     "slug": "apt-26-number-letter-series",
+     "title": "Number & Letter Series",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Number%20%26%20Letter%20Series%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-27-analogy",
+     "title": "Analogy",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Analogy%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-28-classification-odd-one-out",
+     "title": "Classification (Odd One Out)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Classification%20%28Odd%20One%20Out%29%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-29-coding-decoding",
+     "title": "Coding-Decoding",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Coding-Decoding%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-30-blood-relations",
+     "title": "Blood Relations",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Blood%20Relations%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-31-direction-sense",
+     "title": "Direction Sense",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Direction%20Sense%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-32-linear-seating-arrangement",
+     "title": "Linear Seating Arrangement",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Linear%20Seating%20Arrangement%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-33-circular-seating-arrangement",
+     "title": "Circular Seating Arrangement",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Circular%20Seating%20Arrangement%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-34-puzzles",
+     "title": "Puzzles",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Puzzles%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-35-syllogism",
+     "title": "Syllogism",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Syllogism%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-36-statements-conclusions",
+     "title": "Statements & Conclusions",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Statements%20%26%20Conclusions%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-37-statements-assumptions",
+     "title": "Statements & Assumptions",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Statements%20%26%20Assumptions%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-38-data-sufficiency",
+     "title": "Data Sufficiency",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Data%20Sufficiency%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-39-cubes-dice",
+     "title": "Cubes & Dice",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cubes%20%26%20Dice%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-40-venn-diagrams",
+     "title": "Venn Diagrams",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Venn%20Diagrams%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-41-ranking-ordering",
+     "title": "Ranking & Ordering",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Ranking%20%26%20Ordering%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-42-mathematical-operations",
+     "title": "Mathematical Operations",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mathematical%20Operations%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-43-input-output",
+     "title": "Input-Output",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Input-Output%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-44-clocks-calendars-reasoning",
+     "title": "Clocks & Calendars (Reasoning)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Clocks%20%26%20Calendars%20%28Reasoning%29%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-45-decision-making",
+     "title": "Decision Making",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Decision%20Making%20logical%20reasoning%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    }
+   ]
+  },
+  {
+   "slug": "apt-verbal-ability",
+   "title": "Verbal Ability",
+   "items": [
+    {
+     "slug": "apt-46-reading-comprehension",
+     "title": "Reading Comprehension",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Reading%20Comprehension%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-47-synonyms",
+     "title": "Synonyms",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Synonyms%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-48-antonyms",
+     "title": "Antonyms",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Antonyms%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-49-spotting-errors",
+     "title": "Spotting Errors",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Spotting%20Errors%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-50-sentence-correction",
+     "title": "Sentence Correction",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sentence%20Correction%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-51-sentence-completion-fill-in-the-blanks",
+     "title": "Sentence Completion (Fill in the Blanks)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sentence%20Completion%20%28Fill%20in%20the%20Blanks%29%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-52-para-jumbles",
+     "title": "Para Jumbles",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Para%20Jumbles%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-53-idioms-phrases",
+     "title": "Idioms & Phrases",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Idioms%20%26%20Phrases%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-54-one-word-substitution",
+     "title": "One-Word Substitution",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=One-Word%20Substitution%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-55-cloze-test",
+     "title": "Cloze Test",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cloze%20Test%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-56-sentence-improvement",
+     "title": "Sentence Improvement",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Sentence%20Improvement%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-57-active-passive-voice",
+     "title": "Active & Passive Voice",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Active%20%26%20Passive%20Voice%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-58-direct-indirect-speech",
+     "title": "Direct & Indirect Speech",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Direct%20%26%20Indirect%20Speech%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-59-prepositions",
+     "title": "Prepositions",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Prepositions%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-60-articles",
+     "title": "Articles",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Articles%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-61-subject-verb-agreement",
+     "title": "Subject-Verb Agreement",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Subject-Verb%20Agreement%20verbal%20ability%20english%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    }
+   ]
+  },
+  {
+   "slug": "apt-data-interpretation",
+   "title": "Data Interpretation",
+   "items": [
+    {
+     "slug": "apt-62-tables",
+     "title": "Tables",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Tables%20data%20interpretation%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-63-bar-graphs",
+     "title": "Bar Graphs",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Bar%20Graphs%20data%20interpretation%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-64-line-graphs",
+     "title": "Line Graphs",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Line%20Graphs%20data%20interpretation%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-65-pie-charts",
+     "title": "Pie Charts",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Pie%20Charts%20data%20interpretation%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-66-caselets",
+     "title": "Caselets",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Caselets%20data%20interpretation%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    },
+    {
+     "slug": "apt-67-data-sufficiency-di",
+     "title": "Data Sufficiency (DI)",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Data%20Sufficiency%20%28DI%29%20data%20interpretation%20aptitude",
+     "platform": "Practice",
+     "resourceUrl": "",
+     "tags": "aptitude"
+    }
+   ]
+  }
+ ]
+}

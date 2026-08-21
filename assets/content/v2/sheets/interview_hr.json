@@ -1,0 +1,804 @@
+{
+ "slug": "interview-hr",
+ "title": "HR, Behavioural & Interview",
+ "category": "interview",
+ "description": "HR, behavioural (STAR), resume, and interview logistics — structured so you can rehearse each.",
+ "source": "Curated (UNNATI)",
+ "tree": [
+  {
+   "slug": "interview-hr-n0",
+   "title": "STAR Stories",
+   "children": [
+    {
+     "slug": "interview-hr-n1",
+     "title": "A conflict with a teammate and how it resolved",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=A%20conflict%20with%20a%20teammate%20and%20how%20it%20resolved%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-0-a-conflict-with-a-teammate-and-how-it-resolved",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n2",
+     "title": "A failure, and what you changed afterwards",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=A%20failure%2C%20and%20what%20you%20changed%20afterwards%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-1-a-failure-and-what-you-changed-afterwards",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n3",
+     "title": "A tight deadline you actually hit",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=A%20tight%20deadline%20you%20actually%20hit%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-2-a-tight-deadline-you-actually-hit",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n4",
+     "title": "Something you taught yourself from scratch",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Something%20you%20taught%20yourself%20from%20scratch%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-3-something-you-taught-yourself-from-scratch",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n5",
+     "title": "A time you led without being in charge",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=A%20time%20you%20led%20without%20being%20in%20charge%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-4-a-time-you-led-without-being-in-charge",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n6",
+     "title": "Something you shipped end to end",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Something%20you%20shipped%20end%20to%20end%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-5-something-you-shipped-end-to-end",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n7",
+     "title": "A disagreement with someone more senior",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=A%20disagreement%20with%20someone%20more%20senior%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-6-a-disagreement-with-someone-more-senior",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n8",
+     "title": "Your proudest build and why",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Your%20proudest%20build%20and%20why%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-7-your-proudest-build-and-why",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n9",
+     "title": "Hard feedback you received and acted on",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Hard%20feedback%20you%20received%20and%20acted%20on%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-8-hard-feedback-you-received-and-acted-on",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n10",
+     "title": "A time you helped someone else succeed",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=A%20time%20you%20helped%20someone%20else%20succeed%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-9-a-time-you-helped-someone-else-succeed",
+     "tags": "iv"
+    }
+   ]
+  },
+  {
+   "slug": "interview-hr-n11",
+   "title": "HR & Behavioural",
+   "children": [
+    {
+     "slug": "interview-hr-n12",
+     "title": "Tell me about yourself — 90 seconds",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Tell%20me%20about%20yourself%20%E2%80%94%2090%20seconds%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-10-tell-me-about-yourself-90-seconds",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n13",
+     "title": "Why this company",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Why%20this%20company%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-11-why-this-company",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n14",
+     "title": "Why should we hire you",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Why%20should%20we%20hire%20you%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-12-why-should-we-hire-you",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n15",
+     "title": "Strengths and weaknesses (without clichés)",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Strengths%20and%20weaknesses%20%28without%20clich%C3%A9s%29%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-13-strengths-and-weaknesses-without-clich-s",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n16",
+     "title": "Where do you see yourself in five years",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Where%20do%20you%20see%20yourself%20in%20five%20years%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-14-where-do-you-see-yourself-in-five-years",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n17",
+     "title": "Why not higher studies",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Why%20not%20higher%20studies%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-15-why-not-higher-studies",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n18",
+     "title": "Willingness to relocate",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Willingness%20to%20relocate%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-16-willingness-to-relocate",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n19",
+     "title": "Salary expectations",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Salary%20expectations%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-17-salary-expectations",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n20",
+     "title": "Do you have questions for us — have three ready",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Do%20you%20have%20questions%20for%20us%20%E2%80%94%20have%20three%20ready%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-18-do-you-have-questions-for-us-have-three-ready",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n21",
+     "title": "How do you handle failure",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=How%20do%20you%20handle%20failure%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-19-how-do-you-handle-failure",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n22",
+     "title": "Team player vs independent worker",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Team%20player%20vs%20independent%20worker%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-20-team-player-vs-independent-worker",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n23",
+     "title": "Your biggest achievement so far",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Your%20biggest%20achievement%20so%20far%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-21-your-biggest-achievement-so-far",
+     "tags": "iv"
+    }
+   ]
+  },
+  {
+   "slug": "interview-hr-n24",
+   "title": "Resume & Profile",
+   "children": [
+    {
+     "slug": "interview-hr-n25",
+     "title": "One page, ATS-safe formatting",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=One%20page%2C%20ATS-safe%20formatting%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-22-one-page-ats-safe-formatting",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n26",
+     "title": "Bullets quantified — impact, not duties",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Bullets%20quantified%20%E2%80%94%20impact%2C%20not%20duties%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-23-bullets-quantified-impact-not-duties",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n27",
+     "title": "Projects section with live links",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Projects%20section%20with%20live%20links%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-24-projects-section-with-live-links",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n28",
+     "title": "Skills section honest to what you can defend",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Skills%20section%20honest%20to%20what%20you%20can%20defend%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-25-skills-section-honest-to-what-you-can-defend",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n29",
+     "title": "LinkedIn headline and About rewritten",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=LinkedIn%20headline%20and%20About%20rewritten%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-26-linkedin-headline-and-about-rewritten",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n30",
+     "title": "GitHub pinned repos with real READMEs",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=GitHub%20pinned%20repos%20with%20real%20READMEs%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-27-github-pinned-repos-with-real-readmes",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n31",
+     "title": "LeetCode / GFG profile made public",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=LeetCode%20/%20GFG%20profile%20made%20public%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-28-leetcode-gfg-profile-made-public",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n32",
+     "title": "Portfolio site live",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Portfolio%20site%20live%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-29-portfolio-site-live",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n33",
+     "title": "Reviewed by two other people",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Reviewed%20by%20two%20other%20people%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-30-reviewed-by-two-other-people",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n34",
+     "title": "Separate variant for product vs service roles",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Separate%20variant%20for%20product%20vs%20service%20roles%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-31-separate-variant-for-product-vs-service-roles",
+     "tags": "iv"
+    }
+   ]
+  },
+  {
+   "slug": "interview-hr-n35",
+   "title": "Company Patterns",
+   "children": [
+    {
+     "slug": "interview-hr-n36",
+     "title": "TCS NQT — sections, timing, cutoffs",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCS%20NQT%20%E2%80%94%20sections%2C%20timing%2C%20cutoffs%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-32-tcs-nqt-sections-timing-cutoffs",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n37",
+     "title": "TCS Digital — advanced pattern",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=TCS%20Digital%20%E2%80%94%20advanced%20pattern%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-33-tcs-digital-advanced-pattern",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n38",
+     "title": "Infosys — SP/DSE pattern",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Infosys%20%E2%80%94%20SP/DSE%20pattern%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-34-infosys-sp-dse-pattern",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n39",
+     "title": "Wipro Elite / Turbo",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Wipro%20Elite%20/%20Turbo%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-35-wipro-elite-turbo",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n40",
+     "title": "Accenture",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Accenture%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-36-accenture",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n41",
+     "title": "Cognizant GenC",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Cognizant%20GenC%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-37-cognizant-genc",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n42",
+     "title": "Capgemini",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Capgemini%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-38-capgemini",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n43",
+     "title": "Deloitte",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Deloitte%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-39-deloitte",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n44",
+     "title": "Amazon OA — 2 problems + workstyles",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Amazon%20OA%20%E2%80%94%202%20problems%20%2B%20workstyles%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-40-amazon-oa-2-problems-workstyles",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n45",
+     "title": "Microsoft",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Microsoft%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-41-microsoft",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n46",
+     "title": "Google",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Google%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-42-google",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n47",
+     "title": "Adobe",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Adobe%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-43-adobe",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n48",
+     "title": "Goldman Sachs / JPMorgan",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Goldman%20Sachs%20/%20JPMorgan%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-44-goldman-sachs-jpmorgan",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n49",
+     "title": "Walmart / GCC pattern",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Walmart%20/%20GCC%20pattern%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-45-walmart-gcc-pattern",
+     "tags": "iv"
+    }
+   ]
+  },
+  {
+   "slug": "interview-hr-n50",
+   "title": "Classic Puzzles",
+   "children": [
+    {
+     "slug": "interview-hr-n51",
+     "title": "100 doors",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=100%20doors%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-46-100-doors",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n52",
+     "title": "25 horses, 5 tracks",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=25%20horses%2C%205%20tracks%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-47-25-horses-5-tracks",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n53",
+     "title": "3 bulbs, 3 switches",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=3%20bulbs%2C%203%20switches%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-48-3-bulbs-3-switches",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n54",
+     "title": "Two ropes, one hour",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Two%20ropes%2C%20one%20hour%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-49-two-ropes-one-hour",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n55",
+     "title": "Poisoned wine bottles",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Poisoned%20wine%20bottles%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-50-poisoned-wine-bottles",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n56",
+     "title": "2 eggs, 100 floors",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=2%20eggs%2C%20100%20floors%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-51-2-eggs-100-floors",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n57",
+     "title": "Bridge crossing in the dark",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Bridge%20crossing%20in%20the%20dark%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-52-bridge-crossing-in-the-dark",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n58",
+     "title": "8 balls, one heavier",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=8%20balls%2C%20one%20heavier%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-53-8-balls-one-heavier",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n59",
+     "title": "Blue-eyed islanders",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Blue-eyed%20islanders%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-54-blue-eyed-islanders",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n60",
+     "title": "Monty Hall",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Monty%20Hall%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-55-monty-hall",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n61",
+     "title": "River crossing",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=River%20crossing%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-56-river-crossing",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n62",
+     "title": "Angle between clock hands",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Angle%20between%20clock%20hands%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-57-angle-between-clock-hands",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n63",
+     "title": "Ants on a triangle",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Ants%20on%20a%20triangle%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-58-ants-on-a-triangle",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n64",
+     "title": "Coin on a round table",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Coin%20on%20a%20round%20table%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-59-coin-on-a-round-table",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n65",
+     "title": "Prisoners and hats",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Prisoners%20and%20hats%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-60-prisoners-and-hats",
+     "tags": "iv"
+    }
+   ]
+  },
+  {
+   "slug": "interview-hr-n66",
+   "title": "Mock Interviews",
+   "children": [
+    {
+     "slug": "interview-hr-n67",
+     "title": "Mock 1 — DSA only",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%201%20%E2%80%94%20DSA%20only%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-61-mock-1-dsa-only",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n68",
+     "title": "Mock 2 — DSA + CS fundamentals",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%202%20%E2%80%94%20DSA%20%2B%20CS%20fundamentals%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-62-mock-2-dsa-cs-fundamentals",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n69",
+     "title": "Mock 3 — full technical round",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%203%20%E2%80%94%20full%20technical%20round%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-63-mock-3-full-technical-round",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n70",
+     "title": "Mock 4 — project deep dive",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%204%20%E2%80%94%20project%20deep%20dive%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-64-mock-4-project-deep-dive",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n71",
+     "title": "Mock 5 — HR + behavioural",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%205%20%E2%80%94%20HR%20%2B%20behavioural%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-65-mock-5-hr-behavioural",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n72",
+     "title": "Mock 6 — full loop simulation",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%206%20%E2%80%94%20full%20loop%20simulation%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-66-mock-6-full-loop-simulation",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n73",
+     "title": "Mock 7 — company-specific pattern",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%207%20%E2%80%94%20company-specific%20pattern%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-67-mock-7-company-specific-pattern",
+     "tags": "iv"
+    },
+    {
+     "slug": "interview-hr-n74",
+     "title": "Mock 8 — final dress rehearsal",
+     "leaf": true,
+     "leafType": "concept",
+     "difficulty": "medium",
+     "url": "https://www.google.com/search?q=Mock%208%20%E2%80%94%20final%20dress%20rehearsal%20interview%20answer%20tips",
+     "platform": "Learn",
+     "canon": "u:iv-68-mock-8-final-dress-rehearsal",
+     "tags": "iv"
+    }
+   ]
+  }
+ ]
+}

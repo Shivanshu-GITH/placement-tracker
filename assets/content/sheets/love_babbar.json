@@ -1,0 +1,3987 @@
+{
+ "slug": "love-babbar",
+ "title": "Love Babbar 450 DSA Sheet",
+ "category": "dsa",
+ "description": "The comprehensive 450 across every topic, each linked to its practice page.",
+ "source": "Love Babbar (DSA Cracker)",
+ "topics": [
+  {
+   "slug": "lb-array",
+   "title": "Array",
+   "items": [
+    {
+     "slug": "lb-0-reverse-the-array",
+     "title": "Reverse the array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-1-find-the-maximum-and-minimum-element-in-an-array",
+     "title": "Find the maximum and minimum element in an array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-2-find-the-kth-max-and-min-element-of-an-array",
+     "title": "Find the \"Kth\" max and min element of an array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kth-smallest-element/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-3-given-an-array-which-consists-of-only-0-1-and-2-sort-the-arr",
+     "title": "Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-4-move-all-the-negative-elements-to-one-side-of-the-array",
+     "title": "Move all the negative elements to one side of the array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-5-find-the-union-and-intersection-of-the-two-sorted-arrays",
+     "title": "Find the Union and Intersection of the two sorted arrays.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/union-of-two-arrays/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-6-write-a-program-to-cyclically-rotate-an-array-by-one",
+     "title": "Write a program to cyclically rotate an array by one.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-7-find-largest-sum-contiguous-subarray-v-imp",
+     "title": "find Largest sum contiguous Subarray [V. IMP]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kadanes-algorithm/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-8-minimise-the-maximum-difference-between-heights-v-imp",
+     "title": "Minimise the maximum difference between heights [V.IMP]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-9-minimum-no-of-jumps-to-reach-end-of-an-array",
+     "title": "Minimum no. of Jumps to reach end of an array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-10-find-duplicate-in-an-array-of-n-1-integers",
+     "title": "find duplicate in an array of N+1 Integers",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-the-duplicate-number/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-11-merge-2-sorted-arrays-without-using-extra-space",
+     "title": "Merge 2 sorted arrays without using Extra space.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-12-kadane-s-algo-v-v-v-v-v-imp",
+     "title": "Kadane's Algo [V.V.V.V.V IMP]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kadanes-algorithm/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-13-merge-intervals",
+     "title": "Merge Intervals",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-intervals/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-14-next-permutation",
+     "title": "Next Permutation",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/next-permutation/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-15-count-inversion",
+     "title": "Count Inversion",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/inversion-of-array/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-16-best-time-to-buy-and-sell-stock",
+     "title": "Best time to buy and Sell stock",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-17-find-all-pairs-on-integer-array-whose-sum-is-equal-to-given-",
+     "title": "find all pairs on integer array whose sum is equal to given number",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-18-find-common-elements-in-3-sorted-arrays",
+     "title": "find common elements In 3 sorted arrays",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/common-elements1132/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-19-rearrange-the-array-in-alternating-positive-and-negative-ite",
+     "title": "Rearrange the array in alternating positive and negative items with O(1) extra space",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items-o1-extra-space/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-20-find-if-there-is-any-subarray-with-sum-equal-to-0",
+     "title": "Find if there is any subarray with sum equal to 0",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subarray-with-0-sum/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-21-find-factorial-of-a-large-number",
+     "title": "Find factorial of a large number",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/factorials-of-large-numbers/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-22-find-maximum-product-subarray",
+     "title": "find maximum product subarray",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-product-subarray3604/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-23-find-longest-coinsecutive-subsequence",
+     "title": "Find longest coinsecutive subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-consecutive-subsequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-24-given-an-array-of-size-n-and-a-number-k-fin-all-elements-tha",
+     "title": "Given an array of size n and a number k, fin all elements that appear more than \" n/k \" times.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-25-maximum-profit-by-buying-and-selling-a-share-atmost-twice",
+     "title": "Maximum profit by buying and selling a share atmost twice",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-26-find-whether-an-array-is-a-subset-of-another-array",
+     "title": "Find whether an array is a subset of another array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/array-subset-of-another-array/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-27-find-the-triplet-that-sum-to-a-given-value",
+     "title": "Find the triplet that sum to a given value",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/triplet-sum-in-array/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-28-trapping-rain-water-problem",
+     "title": "Trapping Rain water problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/trapping-rain-water/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-29-chocolate-distribution-problem",
+     "title": "Chocolate Distribution problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/chocolate-distribution-problem/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-30-smallest-subarray-with-sum-greater-than-a-given-value",
+     "title": "Smallest Subarray with sum greater than a given value",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-31-three-way-partitioning-of-an-array-around-a-given-value",
+     "title": "Three way partitioning of an array around a given value",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/three-way-partitioning/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-32-minimum-swaps-required-bring-elements-less-equal-k-together",
+     "title": "Minimum swaps required bring elements less equal K together",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-swaps-required-to-bring-all-elements-less-than-or-equal-to-k-together/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-33-minimum-no-of-operations-required-to-make-an-array-palindrom",
+     "title": "Minimum no. of operations required to make an array palindrome",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/palindromic-array/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-34-median-of-2-sorted-arrays-of-equal-size",
+     "title": "Median of 2 sorted arrays of equal size",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-the-median0527/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-35-median-of-2-sorted-arrays-of-different-size",
+     "title": "Median of 2 sorted arrays of different size",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-sizes/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-matrix",
+   "title": "Matrix",
+   "items": [
+    {
+     "slug": "lb-36-spiral-traversal-on-a-matrix",
+     "title": "Spiral traversal on a Matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-37-search-an-element-in-a-matriix",
+     "title": "Search an element in a matriix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-a-2d-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-38-find-median-in-a-row-wise-sorted-matrix",
+     "title": "Find median in a row wise sorted matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/median-in-a-row-wise-sorted-matrix1527/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-39-find-row-with-maximum-no-of-1-s",
+     "title": "Find row with maximum no. of 1's",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/row-with-max-1s0023/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-40-print-elements-in-sorted-order-using-row-column-wise-sorted-",
+     "title": "Print elements in sorted order using row-column wise sorted matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/sorted-matrix/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-41-maximum-size-rectangle",
+     "title": "Maximum size rectangle",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/max-rectangle/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-42-find-a-specific-pair-in-matrix",
+     "title": "Find a specific pair in matrix",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-a-specific-pair-in-matrix/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-43-rotate-matrix-by-90-degrees",
+     "title": "Rotate matrix by 90 degrees",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rotate-a-matrix-by-90-degree-in-clockwise-direction-without-using-any-extra-space/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-44-kth-smallest-element-in-a-row-cpumn-wise-sorted-matrix",
+     "title": "Kth smallest element in a row-cpumn wise sorted matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kth-element-in-matrix/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-45-common-elements-in-all-rows-of-a-given-matrix",
+     "title": "Common elements in all rows of a given matrix",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/common-elements-in-all-rows-of-a-given-matrix/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-string",
+   "title": "String",
+   "items": [
+    {
+     "slug": "lb-46-reverse-a-string",
+     "title": "Reverse a String",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reverse-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-47-check-whether-a-string-is-palindrome-or-not",
+     "title": "Check whether a String is Palindrome or not",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/palindrome-string0817/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-48-find-duplicate-characters-in-a-string",
+     "title": "Find Duplicate characters in a string",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-49-write-a-code-to-check-whether-one-string-is-a-rotation-of-an",
+     "title": "Write a Code to check whether one string is a rotation of another",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/a-program-to-check-if-strings-are-rotations-of-each-other/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-50-count-and-say-problem",
+     "title": "Count and Say problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-and-say/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-51-write-a-program-to-find-the-longest-palindrome-in-a-string-l",
+     "title": "Write a program to find the longest Palindrome in a string.[ Longest palindromic Substring]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-52-find-longest-recurring-subsequence-in-string",
+     "title": "Find Longest Recurring Subsequence in String",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-53-print-all-subsequences-of-a-string",
+     "title": "Print all Subsequences of a string.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-subsequences-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-54-print-all-the-permutations-of-the-given-string",
+     "title": "Print all the permutations of the given string",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/permutations-of-a-given-string/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-55-split-the-binary-string-into-two-substring-with-equal-0-s-an",
+     "title": "Split the Binary string into two substring with equal 0’s and 1’s",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/split-the-binary-string-into-substrings-with-equal-number-of-0s-and-1s/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-56-word-wrap-problem-very-imp",
+     "title": "Word Wrap Problem [VERY IMP].",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-wrap/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-57-edit-distance-very-imp",
+     "title": "EDIT Distance [Very Imp]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/edit-distance3702/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-58-find-next-greater-number-with-same-set-of-digits-very-very-i",
+     "title": "Find next greater number with same set of digits. [Very Very IMP]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/next-permutation/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-59-balanced-parenthesis-problem-imp",
+     "title": "Balanced Parenthesis problem.[Imp]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/parenthesis-checker/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-60-word-break-problem-very-imp",
+     "title": "Word break Problem[ Very Imp]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-break/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-61-rabin-karp-algo",
+     "title": "Rabin Karp Algo",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-62-kmp-algo",
+     "title": "KMP Algo",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-prefix-suffix2527/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-63-convert-a-sentence-into-its-equivalent-mobile-numeric-keypad",
+     "title": "Convert a Sentence into its equivalent mobile numeric keypad sequence.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/convert-sentence-equivalent-mobile-numeric-keypad-sequence/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-64-minimum-number-of-bracket-reversals-needed-to-make-an-expres",
+     "title": "Minimum number of bracket reversals needed to make an expression balanced.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-the-reversals/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-65-count-all-palindromic-subsequence-in-a-given-string",
+     "title": "Count All Palindromic Subsequence in a given String.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-palindromic-subsequences/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-66-count-of-number-of-given-string-in-2d-character-array",
+     "title": "Count of number of given string in 2D character array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-count-number-given-string-present-2d-character-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-67-search-a-word-in-a-2d-grid-of-characters",
+     "title": "Search a Word in a 2D Grid of characters.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-the-string-in-grid/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-68-boyer-moore-algorithm-for-pattern-searching",
+     "title": "Boyer Moore Algorithm for Pattern Searching.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-69-converting-roman-numerals-to-decimal",
+     "title": "Converting Roman Numerals to Decimal",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/roman-number-to-integer/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-70-longest-common-prefix",
+     "title": "Longest Common Prefix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-common-prefix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-71-number-of-flips-to-make-binary-string-alternate",
+     "title": "Number of flips to make binary string alternate",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/min-number-of-flips/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-72-find-the-first-repeated-word-in-string",
+     "title": "Find the first repeated word in string.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/second-most-repeated-string-in-a-sequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-73-minimum-number-of-swaps-for-bracket-balancing",
+     "title": "Minimum number of swaps for bracket balancing.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-swaps-for-bracket-balancing/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-74-find-the-longest-common-subsequence-between-two-strings",
+     "title": "Find the longest common subsequence between two strings.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-common-subsequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-75-program-to-generate-all-possible-valid-ip-addresses-from-giv",
+     "title": "Program to generate all possible valid IP addresses from given  string.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/program-generate-possible-valid-ip-addresses-given-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-76-write-a-program-tofind-the-smallest-window-that-contains-all",
+     "title": "Write a program tofind the smallest window that contains all characters of string itself.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-distant-window/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-77-rearrange-characters-in-a-string-such-that-no-two-adjacent-a",
+     "title": "Rearrange characters in a string such that no two adjacent are same",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rearrange-characters/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-78-minimum-characters-to-be-added-at-front-to-make-string-palin",
+     "title": "Minimum characters to be added at front to make string palindrome",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-characters-added-front-make-string-palindrome/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-79-given-a-sequence-of-words-print-all-anagrams-together",
+     "title": "Given a sequence of words, print all anagrams together",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/k-anagrams-1/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-80-find-the-smallest-window-in-a-string-containing-all-characte",
+     "title": "Find the smallest window in a string containing all characters of another string",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-window-in-a-string-containing-all-the-characters-of-another-string/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-81-recursively-remove-all-adjacent-duplicates",
+     "title": "Recursively remove all adjacent duplicates",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/consecutive-elements/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-82-string-matching-where-one-string-contains-wildcard-character",
+     "title": "String matching where one string contains wildcard characters",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/wildcard-string-matching/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-83-function-to-find-number-of-customers-who-could-not-get-a-com",
+     "title": "Function to find Number of customers who could not get a computer",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/function-to-find-number-of-customers-who-could-not-get-a-computer/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-84-transform-one-string-to-another-using-minimum-number-of-give",
+     "title": "Transform One String to Another using Minimum Number of Given Operation",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/transform-one-string-to-another-using-minimum-number-of-given-operation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-85-check-if-two-given-strings-are-isomorphic-to-each-other",
+     "title": "Check if two given strings are isomorphic to each other",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/isomorphic-strings/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-86-recursively-print-all-sentences-that-can-be-formed-from-list",
+     "title": "Recursively print all sentences that can be formed from list of word lists",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/recursively-print-all-sentences-that-can-be-formed-from-list-of-word-lists/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-searching-sorting",
+   "title": "Searching & Sorting",
+   "items": [
+    {
+     "slug": "lb-87-find-first-and-last-positions-of-an-element-in-a-sorted-arra",
+     "title": "Find first and last positions of an element in a sorted array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/first-and-last-occurrences-of-x/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-88-find-a-fixed-point-value-equal-to-index-in-a-given-array",
+     "title": "Find a Fixed Point (Value equal to index) in a given array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/value-equal-to-index-value1330/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-89-search-in-a-rotated-sorted-array",
+     "title": "Search in a rotated sorted array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-90-square-root-of-an-integer",
+     "title": "square root of an integer",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-squares3649/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-91-maximum-and-minimum-of-an-array-using-minimum-number-of-comp",
+     "title": "Maximum and minimum of an array using minimum number of comparisons",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/middle-of-three2926/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-92-optimum-location-of-point-to-minimize-total-distance",
+     "title": "Optimum location of point to minimize total distance",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/optimum-location-point-minimize-total-distance/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-93-find-the-repeating-and-the-missing",
+     "title": "Find the repeating and the missing",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-94-find-majority-element",
+     "title": "find majority element",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/majority-element/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-95-searching-in-an-array-where-adjacent-differ-by-at-most-k",
+     "title": "Searching in an array where adjacent differ by at most k",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/searching-array-adjacent-differ-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-96-find-a-pair-with-a-given-difference",
+     "title": "find a pair with a given difference",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-pair-given-difference/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-97-find-four-elements-that-sum-to-a-given-value",
+     "title": "find four elements that sum to a given value",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-all-four-sum-numbers/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-98-maximum-sum-such-that-no-2-elements-are-adjacent",
+     "title": "maximum sum such that no 2 elements are adjacent",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/stickler-theif/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-99-count-triplet-with-sum-smaller-than-a-given-value",
+     "title": "Count triplet with sum smaller than a given value",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-triplets-with-sum-smaller-than-x5549/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-100-merge-2-sorted-arrays",
+     "title": "merge 2 sorted arrays",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-101-print-all-subarrays-with-0-sum",
+     "title": "print all subarrays with 0 sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/zero-sum-subarrays/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-102-product-array-puzzle",
+     "title": "Product array Puzzle",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/product-array-puzzle/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-103-sort-array-according-to-count-of-set-bits",
+     "title": "Sort array according to count of set bits",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/sort-by-set-bit-count/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-104-minimum-no-of-swaps-required-to-sort-the-array",
+     "title": "minimum no. of swaps required to sort the array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-swaps/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-105-k-th-element-of-two-sorted-arrays",
+     "title": "K-th Element of Two Sorted Arrays",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/k-th-element-of-two-sorted-array/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-106-aggressive-cows",
+     "title": "Aggressive cows",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/AGGRCOW/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-107-book-allocation-problem",
+     "title": "Book Allocation Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/allocate-minimum-number-of-pages/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-108-ekospoj",
+     "title": "EKOSPOJ:",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/EKO/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-109-job-scheduling-algo",
+     "title": "Job Scheduling Algo",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/weighted-job-scheduling-log-n-time/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-110-missing-number-in-ap",
+     "title": "Missing Number in AP",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/arithmetic-number/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-111-smallest-number-with-atleastn-trailing-zeroes-infactorial",
+     "title": "Smallest number with atleastn trailing zeroes infactorial",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-factorial-number5929/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-112-painters-partition-problem",
+     "title": "Painters Partition Problem:",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/allocate-minimum-number-of-pages/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-113-roti-prata-spoj",
+     "title": "ROTI-Prata SPOJ",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/PRATA/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-114-doublehelix-spoj",
+     "title": "DoubleHelix SPOJ",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/ANARC05B/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-115-subset-sums",
+     "title": "Subset Sums",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/SUBSUMS/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-116-findthe-inversion-count",
+     "title": "Findthe inversion count",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/inversion-of-array/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-117-implement-merge-sort-in-place",
+     "title": "Implement Merge-sort in-place",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/in-place-merge-sort/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-linkedlist",
+   "title": "LinkedList",
+   "items": [
+    {
+     "slug": "lb-118-write-a-program-to-reverse-the-linked-list-both-iterative-an",
+     "title": "Write a Program to reverse the Linked List. (Both Iterative and recursive)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/reverse-a-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-119-reverse-a-linked-list-in-group-of-given-size-very-imp",
+     "title": "Reverse a Linked List in group of Given Size. [Very Imp]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-120-write-a-program-to-detect-loop-in-a-linked-list",
+     "title": "Write a program to Detect loop in a linked list.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-121-write-a-program-to-delete-loop-in-a-linked-list",
+     "title": "Write a program to Delete loop in a linked list.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/remove-loop-in-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-122-find-the-starting-point-of-the-loop",
+     "title": "Find the starting point of the loop.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-first-node-of-loop-in-a-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-123-remove-duplicates-in-a-sorted-linked-list",
+     "title": "Remove Duplicates in a sorted Linked List.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-124-remove-duplicates-in-a-un-sorted-linked-list",
+     "title": "Remove Duplicates in a Un-sorted Linked List.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/remove-duplicates-from-an-unsorted-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-125-write-a-program-to-move-the-last-element-to-front-in-a-linke",
+     "title": "Write a Program to Move the last element to Front in a Linked List.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/move-last-element-to-front-of-a-given-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-126-add-1-to-a-number-represented-as-a-linked-list",
+     "title": "Add “1” to a number represented as a Linked List.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-127-add-two-numbers-represented-by-linked-lists",
+     "title": "Add two numbers represented by linked lists.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/add-two-numbers-represented-by-linked-lists/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-128-intersection-of-two-sorted-linked-list",
+     "title": "Intersection of two Sorted Linked List.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/intersection-of-two-sorted-linked-lists/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-129-intersection-point-of-two-linked-lists",
+     "title": "Intersection Point of two Linked Lists.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/intersection-point-in-y-shapped-linked-lists/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-130-merge-sort-for-linked-lists-very-important",
+     "title": "Merge Sort For Linked lists.[Very Important]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/sort-a-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-131-quicksort-for-linked-lists-very-important",
+     "title": "Quicksort for Linked Lists.[Very Important]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/quick-sort-on-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-132-find-the-middle-element-of-a-linked-list",
+     "title": "Find the middle Element of a linked list.",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-133-check-if-a-linked-list-is-a-circular-linked-list",
+     "title": "Check if a linked list is a circular linked list.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/circular-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-134-split-a-circular-linked-list-into-two-halves",
+     "title": "Split a Circular linked list into two halves.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/split-a-circular-linked-list-into-two-halves/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-135-write-a-program-to-check-whether-the-singly-linked-list-is-a",
+     "title": "Write a Program to check whether the Singly Linked list is a palindrome or not.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-if-linked-list-is-pallindrome/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-136-deletion-from-a-circular-linked-list",
+     "title": "Deletion from a Circular Linked List.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/deletion-circular-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-137-reverse-a-doubly-linked-list",
+     "title": "Reverse a Doubly Linked list.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-a-doubly-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-138-find-pairs-with-a-given-sum-in-a-dll",
+     "title": "Find pairs with a given sum in a DLL.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-pairs-given-sum-doubly-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-139-count-triplets-in-a-sorted-dll-whose-sum-is-equal-to-given-v",
+     "title": "Count triplets in a sorted DLL whose sum is equal to given value “X”.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-triplets-sorted-doubly-linked-list-whose-sum-equal-given-value-x/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-140-sort-a-k-sorted-doubly-linked-list-very-imp",
+     "title": "Sort a “k”sorted Doubly Linked list.[Very IMP]",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sort-k-sorted-doubly-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-141-rotate-doublylinked-list-by-n-nodes",
+     "title": "Rotate DoublyLinked list by N nodes.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rotate-doubly-linked-list-n-nodes/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-142-rotate-a-doubly-linked-list-in-group-of-given-size-very-imp",
+     "title": "Rotate a Doubly Linked list in group of Given Size.[Very IMP]",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/reverse-doubly-linked-list-groups-given-size/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-143-flatten-a-linked-list",
+     "title": "Flatten a Linked List",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-144-sort-a-ll-of-0-s-1-s-and-2-s",
+     "title": "Sort a LL of 0's, 1's and 2's",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-145-clone-a-linked-list-with-next-and-random-pointer",
+     "title": "Clone a linked list with next and random pointer",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/clone-a-linked-list-with-next-and-random-pointer/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-146-merge-k-sorted-linked-list",
+     "title": "Merge K sorted Linked list",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/merge-k-sorted-linked-lists/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-147-multiply-2-no-represented-by-ll",
+     "title": "Multiply 2 no. represented by LL",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/multiply-two-linked-lists/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-148-delete-nodes-which-have-a-greater-value-on-right-side",
+     "title": "Delete nodes which have a greater value on right side",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/delete-nodes-having-greater-value-on-right/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-149-segregate-even-and-odd-nodes-in-a-linked-list",
+     "title": "Segregate even and odd nodes in a Linked List",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/segregate-even-and-odd-nodes-in-a-linked-list/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-150-program-for-n-th-node-from-the-end-of-a-linked-list",
+     "title": "Program for n’th node from the end of a Linked List",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-151-find-the-first-non-repeating-character-from-a-stream-of-char",
+     "title": "Find the first non-repeating character from a stream of characters",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/first-non-repeating-character-in-a-stream/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-binary-trees",
+   "title": "Binary Trees",
+   "items": [
+    {
+     "slug": "lb-152-level-order-traversal",
+     "title": "level order traversal",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/level-order-traversal/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-153-reverse-level-order-traversal",
+     "title": "Reverse Level Order traversal",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-154-height-of-a-tree",
+     "title": "Height of a tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-155-diameter-of-a-tree",
+     "title": "Diameter of a tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-156-mirror-of-a-tree",
+     "title": "Mirror of a tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/create-a-mirror-tree-from-the-given-binary-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-157-left-view-of-a-tree",
+     "title": "Left View of a tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-158-right-view-of-tree",
+     "title": "Right View of Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/right-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-159-top-view-of-a-tree",
+     "title": "Top View of a tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-160-bottom-view-of-a-tree",
+     "title": "Bottom View of a tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-161-zig-zag-traversal-of-a-binary-tree",
+     "title": "Zig-Zag traversal of a binary tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-162-check-if-a-tree-is-balanced-or-not",
+     "title": "Check if a tree is balanced or not",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-163-diagnol-traversal-of-a-binary-tree",
+     "title": "Diagnol Traversal of a Binary tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-164-boundary-traversal-of-a-binary-tree",
+     "title": "Boundary traversal of a Binary tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-165-construct-binary-tree-from-string-with-bracket-representatio",
+     "title": "Construct Binary Tree from String with Bracket Representation",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-166-convert-binary-tree-into-doubly-linked-list",
+     "title": "Convert Binary tree into Doubly Linked List",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/binary-tree-to-dll/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-167-convert-binary-tree-into-sum-tree",
+     "title": "Convert Binary tree into Sum tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-168-construct-binary-tree-from-inorder-and-preorder-traversal",
+     "title": "Construct Binary tree from Inorder and preorder traversal",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/construct-tree-1/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-169-find-minimum-swaps-required-to-convert-a-binary-tree-into-bs",
+     "title": "Find minimum swaps required to convert a Binary tree into BST",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-swap-required-convert-binary-tree-binary-search-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-170-check-if-binary-tree-is-sum-tree-or-not",
+     "title": "Check if Binary tree is Sum tree or not",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/sum-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-171-check-if-all-leaf-nodes-are-at-same-level-or-not",
+     "title": "Check if all leaf nodes are at same level or not",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/leaf-at-same-level/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-172-check-if-a-binary-tree-contains-duplicate-subtrees-of-size-2",
+     "title": "Check if a Binary Tree contains duplicate subtrees of size 2 or more [ IMP ]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/duplicate-subtree-in-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-173-check-if-2-trees-are-mirror-or-not",
+     "title": "Check if 2 trees are mirror or not",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-mirror-in-n-ary-tree/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-174-sum-of-nodes-on-the-longest-path-from-root-to-leaf-node",
+     "title": "Sum of Nodes on the Longest path from root to leaf node",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/sum-of-the-longest-bloodline-of-a-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-175-check-if-given-graph-is-tree-or-not-imp",
+     "title": "Check if given graph is tree or not.  [ IMP ]",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/check-given-graph-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-176-find-largest-subtree-sum-in-a-tree",
+     "title": "Find Largest subtree sum in a tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-largest-subtree-sum-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-177-maximum-sum-of-nodes-in-binary-tree-such-that-no-two-are-adj",
+     "title": "Maximum Sum of nodes in Binary tree such that no two are adjacent",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-sum-nodes-binary-tree-no-two-adjacent/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-178-print-all-k-sum-paths-in-a-binary-tree",
+     "title": "Print all \"K\" Sum paths in a Binary tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-k-sum-paths-binary-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-179-find-lca-in-a-binary-tree",
+     "title": "Find LCA in a Binary tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-180-find-distance-between-2-nodes-in-a-binary-tree",
+     "title": "Find distance between 2 nodes in a Binary tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/min-distance-between-two-given-nodes-of-a-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-181-kth-ancestor-of-node-in-a-binary-tree",
+     "title": "Kth Ancestor of node in a Binary tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/kth-ancestor-node-binary-tree-set-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-182-find-all-duplicate-subtrees-in-a-binary-tree-imp",
+     "title": "Find all Duplicate subtrees in a Binary tree [ IMP ]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/duplicate-subtrees/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-183-tree-isomorphism-problem",
+     "title": "Tree Isomorphism Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-if-tree-is-isomorphic/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-binary-search-trees",
+   "title": "Binary Search Trees",
+   "items": [
+    {
+     "slug": "lb-184-fina-a-value-in-a-bst",
+     "title": "Fina a value in a BST",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-185-deletion-of-a-node-in-a-bst",
+     "title": "Deletion of a node in a BST",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-node-in-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-186-find-min-and-max-value-in-a-bst",
+     "title": "Find min and max value in a BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-element-in-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-187-find-inorder-successor-and-inorder-predecessor-in-a-bst",
+     "title": "Find inorder successor and inorder predecessor in a BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-188-check-if-a-tree-is-a-bst-or-not",
+     "title": "Check if a tree is a BST or not",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-for-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-189-populate-inorder-successor-of-all-nodes",
+     "title": "Populate Inorder successor of all nodes",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/populate-inorder-successor-for-all-nodes/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-190-find-lca-of-2-nodes-in-a-bst",
+     "title": "Find LCA  of 2 nodes in a BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-191-construct-bst-from-preorder-traversal",
+     "title": "Construct BST from preorder traversal",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-192-convert-binary-tree-into-bst",
+     "title": "Convert Binary tree into BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/binary-tree-to-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-193-convert-a-normal-bst-into-a-balanced-bst",
+     "title": "Convert a normal BST into a Balanced BST",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-194-merge-two-bst-v-v-v-imp",
+     "title": "Merge two BST [ V.V.V>IMP ]",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/merge-two-balanced-binary-search-trees/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-195-find-kth-largest-element-in-a-bst",
+     "title": "Find Kth largest element in a BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kth-largest-element-in-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-196-find-kth-smallest-element-in-a-bst",
+     "title": "Find Kth smallest element in a BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-k-th-smallest-element-in-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-197-count-pairs-from-2-bst-whose-sum-is-equal-to-given-value-x",
+     "title": "Count pairs from 2 BST whose sum is equal to given value \"X\"",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/brothers-from-different-root/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-198-find-the-median-of-bst-in-o-n-time-and-o-1-space",
+     "title": "Find the median of BST in O(n) time and O(1) space",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-median-bst-time-o1-space/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-199-count-bst-ndoes-that-lie-in-a-given-range",
+     "title": "Count BST ndoes that lie in a given range",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-bst-nodes-that-lie-in-a-given-range/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-200-replace-every-element-with-the-least-greater-element-on-its-",
+     "title": "Replace every element with the least greater element on its right",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/replace-every-element-with-the-least-greater-element-on-its-right/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-201-given-n-appointments-find-the-conflicting-appointments",
+     "title": "Given \"n\" appointments, find the conflicting appointments",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-202-check-preorder-is-valid-or-not",
+     "title": "Check preorder is valid or not",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/preorder-to-postorder/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-203-check-whether-bst-contains-dead-end",
+     "title": "Check whether BST contains Dead end",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-whether-bst-contains-dead-end/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-204-largest-bst-in-a-binary-tree-v-v-v-v-v-imp",
+     "title": "Largest BST in a Binary Tree [ V.V.V.V.V IMP ]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/largest-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-205-flatten-bst-to-sorted-list",
+     "title": "Flatten BST to sorted list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/flatten-bst-to-sorted-list-increasing-order/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-greedy",
+   "title": "Greedy",
+   "items": [
+    {
+     "slug": "lb-206-activity-selection-problem",
+     "title": "Activity Selection Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-207-job-sequencingproblem",
+     "title": "Job SequencingProblem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/job-sequencing-problem/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-208-huffman-coding",
+     "title": "Huffman Coding",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/huffman-encoding/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-209-water-connection-problem",
+     "title": "Water Connection Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/water-connection-problem/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-210-fractional-knapsack-problem",
+     "title": "Fractional Knapsack Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/fractional-knapsack/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-211-greedy-algorithm-to-find-minimum-number-of-coins",
+     "title": "Greedy Algorithm to find Minimum number of Coins",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/coin-piles/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-212-maximum-trains-for-which-stoppage-can-be-provided",
+     "title": "Maximum trains for which stoppage can be provided",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-trains-stoppage-can-provided/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-213-minimum-platforms-problem",
+     "title": "Minimum Platforms Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-platforms/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-214-buy-maximum-stocks-if-i-stocks-can-be-bought-on-i-th-day",
+     "title": "Buy Maximum Stocks if i stocks can be bought on i-th day",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/buy-maximum-stocks-stocks-can-bought-th-day/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-215-find-the-minimum-and-maximum-amount-to-buy-all-n-candies",
+     "title": "Find the minimum and maximum amount to buy all N candies",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/shop-in-candy-store/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-216-minimize-cash-flow-among-a-given-set-of-friends-who-have-bor",
+     "title": "Minimize Cash Flow among a given set of friends who have borrowed money from each other",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-217-minimum-cost-to-cut-a-board-into-squares",
+     "title": "Minimum Cost to cut a board into squares",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-cost-cut-board-squares/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-218-check-if-it-is-possible-to-survive-on-island",
+     "title": "Check if it is possible to survive on Island",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/survival/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-219-find-maximum-meetings-in-one-room",
+     "title": "Find maximum meetings in one room",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-maximum-meetings-in-one-room/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-220-maximum-product-subset-of-an-array",
+     "title": "Maximum product subset of an array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-product-subset-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-221-maximize-array-sum-after-k-negations",
+     "title": "Maximize array sum after K negations",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximize-sum-after-k-negations/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-222-maximize-the-sum-of-arr-i-i",
+     "title": "Maximize the sum of arr[i]*i",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximize-arrii-of-an-array/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-223-maximum-sum-of-absolute-difference-of-an-array",
+     "title": "Maximum sum of absolute difference of an array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-sum-absolute-difference-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-224-maximize-sum-of-consecutive-differences-in-a-circular-array",
+     "title": "Maximize sum of consecutive differences in a circular array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/swap-and-maximize/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-225-minimum-sum-of-absolute-difference-of-pairs-of-two-arrays",
+     "title": "Minimum sum of absolute difference of pairs of two arrays",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-sum-absolute-difference-pairs-two-arrays/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-226-program-for-shortest-job-first-or-sjf-cpu-scheduling",
+     "title": "Program for Shortest Job First (or SJF) CPU Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/program-for-shortest-job-first-or-sjf-cpu-scheduling-set-1-non-preemptive/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-227-program-for-least-recently-used-lru-page-replacement-algorit",
+     "title": "Program for Least Recently Used (LRU) Page Replacement algorithm",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/page-faults-in-lru/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-228-smallest-subset-with-sum-greater-than-all-other-elements",
+     "title": "Smallest subset with sum greater than all other elements",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/smallest-subset-sum-greater-elements/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-229-chocolate-distribution-problem",
+     "title": "Chocolate Distribution Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/chocolate-distribution-problem/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-230-defkin-defense-of-a-kingdom",
+     "title": "DEFKIN -Defense of a Kingdom",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/DEFKIN/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-231-diehard-die-hard",
+     "title": "DIEHARD -DIE HARD",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/DIEHARD/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-232-gergovia-wine-trading-in-gergovia",
+     "title": "GERGOVIA -Wine trading in Gergovia",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/GERGOVIA/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-233-picking-up-chicks",
+     "title": "Picking Up Chicks",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/GCJ101BB/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-234-chocola-chocolate",
+     "title": "CHOCOLA –Chocolate",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/CHOCOLA/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-235-arrange-arranging-amplifiers",
+     "title": "ARRANGE -Arranging Amplifiers",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/ARRANGE/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-236-k-centers-problem",
+     "title": "K Centers Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/k-centers-problem-set-1-greedy-approximate-algorithm/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-237-minimum-cost-of-ropes",
+     "title": "Minimum Cost of ropes",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-cost-of-ropes/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-238-find-smallest-number-with-given-number-of-digits-and-sum-of-",
+     "title": "Find smallest number with given number of digits and sum of digits",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-number5829/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-239-rearrange-characters-in-a-string-such-that-no-two-adjacent-a",
+     "title": "Rearrange characters in a string such that no two adjacent are same",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rearrange-characters/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-240-find-maximum-sum-possible-equal-sum-of-three-stacks",
+     "title": "Find maximum sum possible equal sum of three stacks",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-maximum-sum-possible-equal-sum-three-stacks/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-backtracking",
+   "title": "BackTracking",
+   "items": [
+    {
+     "slug": "lb-241-rat-in-a-maze-problem",
+     "title": "Rat in a maze Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-242-printing-all-solutions-in-n-queen-problem",
+     "title": "Printing all solutions in N-Queen Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/printing-solutions-n-queen-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-243-word-break-problem-using-backtracking",
+     "title": "Word Break Problem using Backtracking",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-break-part-2/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-244-remove-invalid-parentheses",
+     "title": "Remove Invalid Parentheses",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-invalid-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-245-sudoku-solver",
+     "title": "Sudoku Solver",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/solve-the-sudoku/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-246-m-coloring-problem",
+     "title": "m Coloring Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/m-coloring-problem/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-247-print-all-palindromic-partitions-of-a-string",
+     "title": "Print all palindromic partitions of a string",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-a-string-print-all-possible-palindromic-partition/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-248-subset-sum-problem",
+     "title": "Subset Sum Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-249-the-knight-s-tour-problem",
+     "title": "The Knight’s tour problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-250-tug-of-war",
+     "title": "Tug of War",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/tug-of-war/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-251-find-shortest-safe-route-in-a-path-with-landmines",
+     "title": "Find shortest safe route in a path with landmines",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-shortest-safe-route-in-a-path-with-landmines/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-252-combinational-sum",
+     "title": "Combinational Sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/combination-sum/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-253-find-maximum-number-possible-by-doing-at-most-k-swaps",
+     "title": "Find Maximum number possible by doing at-most K swaps",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/largest-number-in-k-swaps/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-254-print-all-permutations-of-a-string",
+     "title": "Print all permutations of a string",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/permutations-of-a-given-string/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-255-find-if-there-is-a-path-of-more-than-k-length-from-a-source",
+     "title": "Find if there is a path of more than k length from a source",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-if-there-is-a-path-of-more-than-k-length-from-a-source/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-256-longest-possible-route-in-a-matrix-with-hurdles",
+     "title": "Longest Possible Route in a Matrix with Hurdles",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/longest-possible-route-in-a-matrix-with-hurdles/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-257-print-all-possible-paths-from-top-left-to-bottom-right-of-a-",
+     "title": "Print all possible paths from top left to bottom right of a mXn matrix",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-all-possible-paths-from-top-left-to-bottom-right-of-a-mxn-matrix/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-258-partition-of-a-set-intok-subsets-with-equal-sum",
+     "title": "Partition of a set intoK subsets with equal sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/partition-array-to-k-subsets/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-259-find-the-k-th-permutation-sequence-of-first-n-natural-number",
+     "title": "Find the K-th Permutation Sequence of first N natural numbers",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-the-k-th-permutation-sequence-of-first-n-natural-numbers/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-stacks-queues",
+   "title": "Stacks & Queues",
+   "items": [
+    {
+     "slug": "lb-260-implement-queue-from-scratch",
+     "title": "Implement Queue from Scratch",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-261-implement-2-stack-in-an-array",
+     "title": "Implement 2 stack in an array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/implement-two-stacks-in-an-array/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-262-find-the-middle-element-of-a-stack",
+     "title": "find the middle element of a stack",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/design-a-stack-with-find-middle-operation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-263-implement-n-stacks-in-an-array",
+     "title": "Implement \"N\" stacks in an Array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-264-check-the-expression-has-valid-or-balanced-parenthesis-or-no",
+     "title": "Check the expression has valid or Balanced parenthesis or not.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/parenthesis-checker/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-265-reverse-a-string-using-stack",
+     "title": "Reverse a String using Stack",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-a-string-using-stack/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-266-design-a-stack-that-supports-getmin-in-o-1-time-and-o-1-extr",
+     "title": "Design a Stack that supports getMin() in O(1) time and O(1) extra space.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/special-stack/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-267-find-the-next-greater-element",
+     "title": "Find the next Greater element",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/next-larger-element/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-268-the-celebrity-problem",
+     "title": "The celebrity Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-269-arithmetic-expression-evaluation",
+     "title": "Arithmetic Expression evaluation",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/arithmetic-expression-evalution/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-270-evaluation-of-postfix-expression",
+     "title": "Evaluation of Postfix expression",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/evaluation-of-postfix-expression/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-271-reverse-a-stack-using-recursion",
+     "title": "Reverse a stack using recursion",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-272-sort-a-stack-using-recursion",
+     "title": "Sort a Stack using recursion",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/sort-a-stack/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-273-merge-overlapping-intervals",
+     "title": "Merge Overlapping Intervals",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/overlapping-intervals/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-274-largest-rectangular-area-in-histogram",
+     "title": "Largest rectangular Area in Histogram",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-rectangular-area-in-a-histogram/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-275-length-of-the-longest-valid-substring",
+     "title": "Length of the Longest Valid Substring",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/valid-substring0624/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-276-expression-contains-redundant-bracket-or-not",
+     "title": "Expression contains redundant bracket or not",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/expression-contains-redundant-bracket-not/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-277-implement-stack-using-queue",
+     "title": "Implement Stack using Queue",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/stack-using-two-queues/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-278-implement-stack-using-deque",
+     "title": "Implement Stack using Deque",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/implement-stack-queue-using-deque/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-279-stack-permutations-check-if-an-array-is-stack-permutation-of",
+     "title": "Stack Permutations (Check if an array is stack permutation of other)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/stack-permutations-check-if-an-array-is-stack-permutation-of-other/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-280-implement-queue-using-stack",
+     "title": "Implement Queue using Stack",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/queue-using-two-stacks/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-281-implement-n-queue-in-an-array",
+     "title": "Implement \"n\" queue in an array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/efficiently-implement-k-queues-single-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-282-implement-a-circular-queue",
+     "title": "Implement a Circular queue",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/circular-queue-set-1-introduction-array-implementation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-283-lru-cache-implementationa",
+     "title": "LRU Cache Implementationa",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/lru-cache/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-284-reverse-a-queue-using-recursion",
+     "title": "Reverse a Queue using recursion",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/queue-reversal/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-285-reverse-the-first-k-elements-of-a-queue",
+     "title": "Reverse the first “K” elements of a queue",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-first-k-elements-of-queue/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-286-interleave-the-first-half-of-the-queue-with-second-half",
+     "title": "Interleave the first half of the queue with second half",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/interleave-first-half-queue-second-half/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-287-find-the-first-circular-tour-that-visits-all-petrol-pumps",
+     "title": "Find the first circular tour that visits all Petrol Pumps",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/circular-tour/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-288-minimum-time-required-to-rot-all-oranges",
+     "title": "Minimum time required to rot all oranges",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rotten-oranges/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-289-distance-of-nearest-cell-having-1-in-a-binary-matrix",
+     "title": "Distance of nearest cell having 1 in a binary matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-290-first-negative-integer-in-every-window-of-size-k",
+     "title": "First negative integer in every window of size “k”",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-291-check-if-all-levels-of-two-trees-are-anagrams-or-not",
+     "title": "Check if all levels of two trees are anagrams or not.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/check-if-all-levels-of-two-trees-are-anagrams-or-not/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-292-sum-of-minimum-and-maximum-elements-of-all-subarrays-of-size",
+     "title": "Sum of minimum and maximum elements of all subarrays of size “k”.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sum-minimum-maximum-elements-subarrays-size-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-293-minimum-sum-of-squares-of-character-counts-in-a-given-string",
+     "title": "Minimum sum of squares of character counts in a given string after removing “k” characters.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/game-with-string/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-294-queue-based-approach-or-first-non-repeating-character-in-a-s",
+     "title": "Queue based approach or first non-repeating character in a stream.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/first-non-repeating-character-in-a-stream/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-295-next-smaller-element",
+     "title": "Next Smaller Element",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/next-smaller-element/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-heap",
+   "title": "Heap",
+   "items": [
+    {
+     "slug": "lb-296-implement-a-maxheap-minheap-using-arrays-and-recursion",
+     "title": "Implement a Maxheap/MinHeap using arrays and recursion.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/building-heap-from-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-297-sort-an-array-using-heap-heapsort",
+     "title": "Sort an Array using heap. (HeapSort)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/heap-sort/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-298-maximum-of-all-subarrays-of-size-k",
+     "title": "Maximum of all subarrays of size k.",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-299-k-largest-element-in-an-array",
+     "title": "“k” largest element in an array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/k-largest-elements4206/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-300-kth-smallest-and-largest-element-in-an-unsorted-array",
+     "title": "Kth smallest and largest element in an unsorted array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-301-merge-k-sorted-arrays-imp",
+     "title": "Merge “K” sorted arrays. [ IMP ]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/merge-k-sorted-arrays/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-302-merge-2-binary-max-heaps",
+     "title": "Merge 2 Binary Max Heaps",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/merge-two-binary-max-heap/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-303-kth-largest-sum-continuous-subarrays",
+     "title": "Kth largest sum continuous subarrays",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/k-th-largest-sum-contiguous-subarray/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-304-leetcode-reorganize-strings",
+     "title": "Leetcode- reorganize strings",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reorganize-string/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-305-merge-k-sorted-linked-lists-v-imp",
+     "title": "Merge “K” Sorted Linked Lists [V.IMP]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/merge-k-sorted-linked-lists/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-306-smallest-range-in-k-lists",
+     "title": "Smallest range in “K” Lists",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-smallest-range-containing-elements-from-k-lists/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-307-median-in-a-stream-of-integers",
+     "title": "Median in a stream of Integers",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-median-in-a-stream/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-308-check-if-a-binary-tree-is-heap",
+     "title": "Check if a Binary Tree is Heap",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/is-binary-tree-heap/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-309-connect-n-ropes-with-minimum-cost",
+     "title": "Connect “n” ropes with minimum cost",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-cost-of-ropes/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-310-convert-bst-to-min-heap",
+     "title": "Convert BST to Min Heap",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/convert-bst-min-heap/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-311-convert-min-heap-to-max-heap",
+     "title": "Convert min heap to max heap",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/convert-min-heap-to-max-heap/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-312-rearrange-characters-in-a-string-such-that-no-two-adjacent-a",
+     "title": "Rearrange characters in a string such that no two adjacent are same.",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rearrange-characters/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-313-minimum-sum-of-two-numbers-formed-from-digits-of-an-array",
+     "title": "Minimum sum of two numbers formed from digits of an array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-sum4058/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-graph",
+   "title": "Graph",
+   "items": [
+    {
+     "slug": "lb-314-implement-bfs-algorithm",
+     "title": "Implement BFS algorithm",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-315-implement-dfs-algo",
+     "title": "Implement DFS Algo",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-316-detect-cycle-in-directed-graph-using-bfs-dfs-algo",
+     "title": "Detect Cycle in Directed Graph using BFS/DFS Algo",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-317-detect-cycle-in-undirected-graph-using-bfs-dfs-algo",
+     "title": "Detect Cycle in UnDirected Graph using BFS/DFS Algo",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-318-search-in-a-maze",
+     "title": "Search in a Maze",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-319-minimum-step-by-knight",
+     "title": "Minimum Step by Knight",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/steps-by-knight/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-320-flood-fill-algo",
+     "title": "flood fill algo",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/flood-fill/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-321-clone-a-graph",
+     "title": "Clone a graph",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/clone-graph/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-322-making-wired-connections",
+     "title": "Making wired Connections",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/number-of-operations-to-make-network-connected/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-323-word-ladder",
+     "title": "word Ladder",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-ladder/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-324-dijkstra-algo",
+     "title": "Dijkstra algo",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-325-implement-topological-sort",
+     "title": "Implement Topological Sort",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/topological-sort/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-326-minimum-time-taken-by-each-job-to-be-completed-given-by-a-di",
+     "title": "Minimum time taken by each job to be completed given by a Directed Acyclic Graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-time-taken-by-each-job-to-be-completed-given-by-a-directed-acyclic-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-327-find-whether-it-is-possible-to-finish-all-tasks-or-not-from-",
+     "title": "Find whether it is possible to finish all tasks or not from given dependencies",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-whether-it-is-possible-to-finish-all-tasks-or-not-from-given-dependencies/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-328-find-the-no-of-isalnds",
+     "title": "Find the no. of Isalnds",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-329-given-a-sorted-dictionary-of-an-alien-language-find-order-of",
+     "title": "Given a sorted Dictionary of an Alien Language, find order of characters",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/alien-dictionary/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-330-implement-kruksal-salgorithm",
+     "title": "Implement Kruksal’sAlgorithm",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-331-implement-prim-s-algorithm",
+     "title": "Implement Prim’s Algorithm",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-332-total-no-of-spanning-tree-in-a-graph",
+     "title": "Total no. of Spanning tree in a graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/total-number-spanning-trees-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-333-implement-bellman-ford-algorithm",
+     "title": "Implement Bellman Ford Algorithm",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/negative-weight-cycle/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-334-implement-floyd-warshallalgorithm",
+     "title": "Implement Floyd warshallAlgorithm",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/implementing-floyd-warshall/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-335-travelling-salesman-problem",
+     "title": "Travelling Salesman Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-336-graph-colouringproblem",
+     "title": "Graph ColouringProblem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/graph-coloring-applications/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-337-snake-and-ladders-problem",
+     "title": "Snake and Ladders Problem",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/snakes-and-ladders/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-338-find-bridge-in-a-graph",
+     "title": "Find bridge in a graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/bridge-in-a-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-339-count-strongly-connected-components-kosaraju-algo",
+     "title": "Count Strongly connected Components(Kosaraju Algo)",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-340-check-whether-a-graph-is-bipartite-or-not",
+     "title": "Check whether a graph is Bipartite or Not",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/bipartite-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-341-detect-negative-cycle-in-a-graph",
+     "title": "Detect Negative cycle in a graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/detect-negative-cycle-graph-bellman-ford/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-342-longest-path-in-a-directed-acyclic-graph",
+     "title": "Longest path in a Directed Acyclic Graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-longest-path-directed-acyclic-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-343-journey-to-the-moon",
+     "title": "Journey to the Moon",
+     "difficulty": "medium",
+     "url": "https://www.hackerrank.com/challenges/journey-to-the-moon/problem",
+     "platform": "HackerRank",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-344-cheapest-flights-within-k-stops",
+     "title": "Cheapest Flights Within K Stops",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/description/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-345-water-jug-problem-using-bfs",
+     "title": "Water Jug problem using BFS",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-346-water-jug-problem-using-bfs",
+     "title": "Water Jug problem using BFS",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-347-find-if-there-is-a-path-of-more-thank-length-from-a-source",
+     "title": "Find if there is a path of more thank length from a source",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-if-there-is-a-path-of-more-than-k-length-from-a-source/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-348-m-colouringproblem",
+     "title": "M-ColouringProblem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/m-coloring-problem/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-349-minimum-edges-to-reverse-o-make-path-from-source-to-destinat",
+     "title": "Minimum edges to reverse o make path from source to destination",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-edges-reverse-make-path-source-destination/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-350-paths-to-travel-each-nodes-using-each-edge-seven-bridges",
+     "title": "Paths to travel each nodes using each edge(Seven Bridges)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/paths-travel-nodes-using-edgeseven-bridges-konigsberg/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-351-vertex-cover-problem",
+     "title": "Vertex Cover Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/vertex-cover-problem-set-1-introduction-approximate-algorithm-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-352-chinese-postman-or-route-inspection",
+     "title": "Chinese Postman or Route Inspection",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/chinese-postman-route-inspection-set-1-introduction/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-353-number-of-triangles-in-a-directed-and-undirected-graph",
+     "title": "Number of Triangles in a Directed and Undirected Graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/number-of-triangles-in-directed-and-undirected-graphs/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-354-minimise-the-cashflow-among-a-given-set-of-friends-who-have-",
+     "title": "Minimise the cashflow among a given set of friends who have borrowed money from each other",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-355-two-clique-problem",
+     "title": "Two Clique Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/two-clique-problem-check-graph-can-divided-two-cliques/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-trie",
+   "title": "Trie",
+   "items": [
+    {
+     "slug": "lb-356-construct-a-trie-from-scratch",
+     "title": "Construct a trie from scratch",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-357-find-shortest-unique-prefix-for-every-word-in-a-given-list",
+     "title": "Find shortest unique prefix for every word in a given list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-all-shortest-unique-prefixes-to-represent-each-word-in-a-given-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-358-word-break-problem-trie-solution",
+     "title": "Word Break Problem | (Trie solution)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/word-break-problem-trie-solution/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-359-given-a-sequence-of-words-print-all-anagrams-together",
+     "title": "Given a sequence of words, print all anagrams together",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/k-anagrams-1/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-360-implement-a-phone-directory",
+     "title": "Implement a Phone Directory",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/phone-directory/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-361-print-unique-rows-in-a-given-boolean-matrix",
+     "title": "Print unique rows in a given boolean matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/unique-rows-in-boolean-matrix/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-dynamic-programming",
+   "title": "Dynamic Programming",
+   "items": [
+    {
+     "slug": "lb-362-coin-changeproblem",
+     "title": "Coin ChangeProblem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/coin-change2448/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-363-knapsack-problem",
+     "title": "Knapsack Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-364-binomial-coefficientproblem",
+     "title": "Binomial CoefficientProblem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/ncr1019/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-365-permutation-coefficientproblem",
+     "title": "Permutation CoefficientProblem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/permutation-coefficient/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-366-program-for-nth-catalan-number",
+     "title": "Program for nth Catalan Number",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/program-nth-catalan-number/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-367-matrix-chain-multiplication",
+     "title": "Matrix Chain Multiplication",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-368-edit-distance",
+     "title": "Edit Distance",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/edit-distance3702/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-369-subset-sum-problem",
+     "title": "Subset Sum Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-370-friends-pairing-problem",
+     "title": "Friends Pairing Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/friends-pairing-problem5425/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-371-gold-mine-problem",
+     "title": "Gold Mine Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/gold-mine-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-372-assembly-line-schedulingproblem",
+     "title": "Assembly Line SchedulingProblem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/assembly-line-scheduling-dp-34/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-373-painting-the-fenceproblem",
+     "title": "Painting the Fenceproblem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/painting-the-fence3727/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-374-maximize-the-cut-segments",
+     "title": "Maximize The Cut Segments",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/cutted-segments/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-375-longest-common-subsequence",
+     "title": "Longest Common Subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-common-subsequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-376-longest-repeated-subsequence",
+     "title": "Longest Repeated Subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-377-longest-increasing-subsequence",
+     "title": "Longest Increasing Subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-378-space-optimized-solution-of-lcs",
+     "title": "Space Optimized Solution of LCS",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/space-optimized-solution-lcs/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-379-lcs-longest-common-subsequence-of-three-strings",
+     "title": "LCS (Longest Common Subsequence) of three strings",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/lcs-of-three-strings/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-380-maximum-sum-increasing-subsequence",
+     "title": "Maximum Sum Increasing Subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-sum-increasing-subsequence4749/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-381-count-all-subsequences-having-product-less-than-k",
+     "title": "Count all subsequences having product less than K",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-subsequences-product-less-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-382-longest-subsequence-such-that-difference-between-adjacent-is",
+     "title": "Longest subsequence such that difference between adjacent is one",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-subsequence-such-that-difference-between-adjacents-is-one4724/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-383-maximum-subsequence-sum-such-that-no-three-are-consecutive",
+     "title": "Maximum subsequence sum such that no three are consecutive",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-subsequence-sum-such-that-no-three-are-consecutive/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-384-egg-dropping-problem",
+     "title": "Egg Dropping Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/egg-dropping-puzzle/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-385-maximum-length-chain-of-pairs",
+     "title": "Maximum Length Chain of Pairs",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/max-length-chain/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-386-maximum-size-square-sub-matrix-with-all-1s",
+     "title": "Maximum size square sub-matrix with all 1s",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/largest-square-formed-in-a-matrix/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-387-maximum-sum-of-pairs-with-specific-difference",
+     "title": "Maximum sum of pairs with specific difference",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/pairs-with-specific-difference/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-388-min-cost-pathproblem",
+     "title": "Min Cost PathProblem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/path-in-matrix3805/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-389-maximum-difference-of-zeros-and-ones-in-binary-string",
+     "title": "Maximum difference of zeros and ones in binary string",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-difference-of-zeros-and-ones-in-binary-string4111/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-390-minimum-number-of-jumps-to-reach-end",
+     "title": "Minimum number of jumps to reach end",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-391-minimum-cost-to-fill-given-weight-in-a-bag",
+     "title": "Minimum cost to fill given weight in a bag",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-cost-to-fill-given-weight-in-a-bag1956/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-392-minimum-removals-from-array-to-make-max-min-k",
+     "title": "Minimum removals from array to make max –min <= K",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-removals-array-make-max-min-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-393-longest-common-substring",
+     "title": "Longest Common Substring",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-common-substring/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-394-count-number-of-ways-to-reacha-given-score-in-a-game",
+     "title": "Count number of ways to reacha given score in a game",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reach-a-given-score/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-395-count-balanced-binary-trees-of-height-h",
+     "title": "Count Balanced Binary Trees of Height h",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bbt-counter/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-396-largestsum-contiguous-subarray-v-v-v-v-imp",
+     "title": "LargestSum Contiguous Subarray [V>V>V>V IMP ]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kadanes-algorithm/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-397-smallest-sum-contiguous-subarray",
+     "title": "Smallest sum contiguous subarray",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/smallest-sum-contiguous-subarray/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-398-unbounded-knapsack-repetition-of-items-allowed",
+     "title": "Unbounded Knapsack (Repetition of items allowed)",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-399-word-break-problem",
+     "title": "Word Break Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-break/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-400-largest-independent-set-problem",
+     "title": "Largest Independent Set Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/largest-independent-set-problem-dp-26/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-401-partition-problem",
+     "title": "Partition problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-402-longest-palindromic-subsequence",
+     "title": "Longest Palindromic Subsequence",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-403-count-all-palindromic-subsequence-in-a-given-string",
+     "title": "Count All Palindromic Subsequence in a given String",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-palindromic-subsequences/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-404-longest-palindromic-substring",
+     "title": "Longest Palindromic Substring",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-405-longest-alternating-subsequence",
+     "title": "Longest alternating subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-alternating-subsequence/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-406-weighted-job-scheduling",
+     "title": "Weighted Job Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/weighted-job-scheduling/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-407-coin-game-winner-where-every-player-has-three-choices",
+     "title": "Coin game winner where every player has three choices",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/coin-game-winner-every-player-three-choices/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-408-count-derangements-permutation-such-that-no-element-appears-",
+     "title": "Count Derangements (Permutation such that no element appears in its original position) [ IMPORTANT ]",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-derangements-permutation-such-that-no-element-appears-in-its-original-position/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-409-maximum-profit-by-buying-and-selling-a-share-at-most-twice-i",
+     "title": "Maximum profit by buying and selling a share at most twice [ IMP ]",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-410-optimal-strategy-for-a-game",
+     "title": "Optimal Strategy for a Game",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/optimal-strategy-for-a-game/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-411-optimal-binary-search-tree",
+     "title": "Optimal Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/optimal-binary-search-tree-dp-24/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-412-palindrome-partitioningproblem",
+     "title": "Palindrome PartitioningProblem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/palindromic-patitioning4845/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-413-word-wrap-problem",
+     "title": "Word Wrap Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-wrap/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-414-mobile-numeric-keypad-problem-imp",
+     "title": "Mobile Numeric Keypad Problem [ IMP ]",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/mobile-numeric-keypad5456/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-415-boolean-parenthesization-problem",
+     "title": "Boolean Parenthesization Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/boolean-parenthesization/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-416-largest-rectangular-sub-matrix-whose-sum-is-0",
+     "title": "Largest rectangular sub-matrix whose sum is 0",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/largest-rectangular-sub-matrix-whose-sum-0/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-417-largest-area-rectangular-sub-matrix-with-equal-number-of-1-s",
+     "title": "Largest area rectangular sub-matrix with equal number of 1’s and 0’s [ IMP ]",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/largest-area-rectangular-sub-matrix-equal-number-1s-0s/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-418-maximum-sum-rectangle-in-a-2d-matrix",
+     "title": "Maximum sum rectangle in a 2D matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-sum-rectangle/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-419-maximum-profit-by-buying-and-selling-a-share-at-most-k-times",
+     "title": "Maximum profit by buying and selling a share at most k times",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-profit4657/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-420-find-if-a-string-is-interleaved-of-two-other-strings",
+     "title": "Find if a string is interleaved of two other strings",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/interleaved-strings/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-421-maximum-length-of-pair-chain",
+     "title": "Maximum Length of Pair Chain",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-length-of-pair-chain/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  },
+  {
+   "slug": "lb-bit-manipulation",
+   "title": "Bit Manipulation",
+   "items": [
+    {
+     "slug": "lb-422-count-set-bits-in-an-integer",
+     "title": "Count set bits in an integer",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/set-bits0143/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-423-find-the-two-non-repeating-elements-in-an-array-of-repeating",
+     "title": "Find the two non-repeating elements in an array of repeating elements",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/finding-the-numbers0215/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-424-count-number-of-bits-to-be-flipped-to-convert-a-to-b",
+     "title": "Count number of bits to be flipped to convert A to B",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bit-difference/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-425-count-total-set-bits-in-all-numbers-from-1-to-n",
+     "title": "Count total set bits in all numbers from 1 to n",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-total-set-bits/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-426-program-to-find-whether-a-no-is-power-of-two",
+     "title": "Program to find whether a no is power of two",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/power-of-2/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-427-find-position-of-the-only-set-bit",
+     "title": "Find position of the only set bit",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-position-of-set-bit3706/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-428-copy-set-bits-in-a-range",
+     "title": "Copy set bits in a range",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/copy-set-bits-in-a-range/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-429-divide-two-integers-without-using-multiplication-division-an",
+     "title": "Divide two integers without using multiplication, division and mod operator",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/divide-two-integers-without-using-multiplication-division-mod-operator/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-430-calculate-square-of-a-number-without-using-and-pow",
+     "title": "Calculate square of a number without using *, / and pow()",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/calculate-square-of-a-number-without-using-and-pow/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    },
+    {
+     "slug": "lb-431-power-set",
+     "title": "Power Set",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/power-set4302/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa"
+    }
+   ]
+  }
+ ]
+}

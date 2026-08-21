@@ -1,0 +1,3835 @@
+{
+ "slug": "apna-college",
+ "title": "Apna College DSA Sheet",
+ "category": "dsa",
+ "description": "The beginner-friendly 375 by Apna College, each linked to its practice page.",
+ "source": "Apna College (Shradha & Aman)",
+ "topics": [
+  {
+   "slug": "apna-arrays",
+   "title": "Arrays",
+   "items": [
+    {
+     "slug": "apna-0-maximum-and-minimum-element-in-an-array",
+     "title": "Maximum and Minimum Element in an Array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "abco,accolite,adobe,amazon,cisco,google,hike,microsoft,snapdeal,vmware"
+    },
+    {
+     "slug": "apna-1-reverse-the-array",
+     "title": "Reverse the Array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "infosys,labs,moonfrog"
+    },
+    {
+     "slug": "apna-2-maximum-subarray",
+     "title": "Maximum-Subarray",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook,interview,microsoft,qs"
+    },
+    {
+     "slug": "apna-3-contains-duplicate",
+     "title": "Contains Duplicate",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/contains-duplicate/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,interview,qs"
+    },
+    {
+     "slug": "apna-4-chocolate-distribution-problem",
+     "title": "Chocolate Distribution Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/chocolate-distribution-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,interview,qs"
+    },
+    {
+     "slug": "apna-5-search-in-rotated-sorted-array",
+     "title": "Search in Rotated Sorted Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,d-e-shaw,flipkart,google,hike,intuit,makemytrip,microsoft,paytm"
+    },
+    {
+     "slug": "apna-6-next-permutation",
+     "title": "Next Permutation",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/next-permutation/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman,interview,qs,sachs,uber"
+    },
+    {
+     "slug": "apna-7-best-time-to-buy-and-sell-stock",
+     "title": "Best time to Buy and Sell Stock",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cabs,d-e-shaw,directi,flipkart,goldman,google,intuit,makemytrip,media.net,microsoft,ola,oracle,paytm,pubmatic,quikr,sachs,salesforce,sapient,swiggy,walmart"
+    },
+    {
+     "slug": "apna-8-repeat-and-missing-number-array",
+     "title": "Repeat and Missing Number Array",
+     "difficulty": "medium",
+     "url": "https://www.interviewbit.com/problems/repeat-and-missing-number-array/",
+     "platform": "InterviewBit",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,interview,qs"
+    },
+    {
+     "slug": "apna-9-kth-largest-element-in-an-array",
+     "title": "Kth-Largest Element in an Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,microsoft,walmart"
+    },
+    {
+     "slug": "apna-10-trapping-rain-water",
+     "title": "Trapping Rain Water",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/trapping-rain-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "interview,qs,samsung"
+    },
+    {
+     "slug": "apna-11-product-of-array-except-self",
+     "title": "Product of Array Except Self",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/product-of-array-except-self/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook,interview,microsoft,qs"
+    },
+    {
+     "slug": "apna-12-maximum-product-subarray",
+     "title": "Maximum Product Subarray",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-product-subarray/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,d-e-shaw,google,microsoft,morgan,oyo,rooms,stanley"
+    },
+    {
+     "slug": "apna-13-find-minimum-in-rotated-sorted-array",
+     "title": "Find Minimum in Rotated Sorted Array",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,internet,microsoft,morgan,samsung,snapdeal,stanley,times"
+    },
+    {
+     "slug": "apna-14-find-pair-with-sum-in-sorted-rotated-array",
+     "title": "Find Pair with Sum in Sorted & Rotated Array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-a-sorted-and-rotated-array-find-if-there-is-a-pair-with-a-given-sum/?ref=lbp",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "apple,google,interview,microsoft,qs"
+    },
+    {
+     "slug": "apna-15-3sum",
+     "title": "3Sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/3sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,internet,microsoft,morgan,samsung,snapdeal,stanley,times"
+    },
+    {
+     "slug": "apna-16-container-with-most-water",
+     "title": "Container With Most Water",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/container-with-most-water/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "dunzo,flipkart,interview,qs"
+    },
+    {
+     "slug": "apna-17-given-sum-pair",
+     "title": "Given Sum Pair",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-a-sorted-and-rotated-array-find-if-there-is-a-pair-with-a-given-sum/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,flipkart,infosys,interview,qs"
+    },
+    {
+     "slug": "apna-18-kth-smallest-element",
+     "title": "Kth - Smallest Element",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "abco,accolite,adobe,amazon,cisco,google,hike,microsoft,snapdeal,vmware"
+    },
+    {
+     "slug": "apna-19-merge-overlapping-intervals",
+     "title": "Merge Overlapping Intervals",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/merging-intervals/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,interview,qs"
+    },
+    {
+     "slug": "apna-20-find-minimum-number-of-merge-operations-to-make-an-array-pal",
+     "title": "Find Minimum Number of Merge Operations to Make an Array Palindrome",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-minimum-number-of-merge-operations-to-make-an-array-palindrome/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-21-given-an-array-of-numbers-arrange-the-numbers-to-form-the-bi",
+     "title": "Given an Array of Numbers Arrange the Numbers to Form the Biggest Number",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "barclays,interview,qs"
+    },
+    {
+     "slug": "apna-22-space-optimization-using-bit-manipulations",
+     "title": "Space Optimization Using Bit Manipulations",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/space-optimization-using-bit-manipulations/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-23-subarray-sum-divisible-k",
+     "title": "Subarray Sum Divisible K",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/longest-subarray-sum-divisible-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft,snapdeal"
+    },
+    {
+     "slug": "apna-24-print-all-possible-combinations-of-r-elements-in-a-given-arr",
+     "title": "Print all Possible Combinations of r Elements in a Given Array of Size n",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-25-mo-s-algorithm",
+     "title": "Mo's Algorithm",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/mos-algorithm-query-square-root-decomposition-set-1-introduction/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    }
+   ]
+  },
+  {
+   "slug": "apna-strings",
+   "title": "Strings",
+   "items": [
+    {
+     "slug": "apna-26-valid-palindrome",
+     "title": "Valid Palindrome",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-palindrome/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cisco,d-e-shaw,facebook,factset,morgan,paytm,stanley,zoho"
+    },
+    {
+     "slug": "apna-27-valid-anagram",
+     "title": "Valid Anagram",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-anagram/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,directi,flipkart,google,media.net,nagarro"
+    },
+    {
+     "slug": "apna-28-valid-parentheses",
+     "title": "Valid parentheses",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/valid-parentheses/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,interview,qs"
+    },
+    {
+     "slug": "apna-29-remove-consecutive-characters",
+     "title": "Remove Consecutive Characters",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/consecutive-elements2306/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,samsung"
+    },
+    {
+     "slug": "apna-30-longest-common-prefix",
+     "title": "Longest Common Prefix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-common-prefix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,dunzo,grofers,interview,qs"
+    },
+    {
+     "slug": "apna-31-convert-a-sentence-into-its-equivalent-mobile-numeric-keypad",
+     "title": "Convert a Sentence into its Equivalent Mobile Numeric Keypad Sequence",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/convert-sentence-equivalent-mobile-numeric-keypad-sequence/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "apna-32-print-all-the-duplicates-in-the-input-string",
+     "title": "Print all the Duplicates in the Input String",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amdocs,iq,ola"
+    },
+    {
+     "slug": "apna-33-longest-substring-without-repeating-characters",
+     "title": "Longest Substring without Repeating Characters",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,iq,morgan,stanley"
+    },
+    {
+     "slug": "apna-34-longest-repeating-character-replacement",
+     "title": "Longest Repeating Character Replacement",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google"
+    },
+    {
+     "slug": "apna-35-group-anagrams",
+     "title": "Group Anagrams",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/group-anagrams/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,interview,qs,samsung"
+    },
+    {
+     "slug": "apna-36-longest-palindromic-substring",
+     "title": "Longest Palindromic Substring",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,iq,microsoft,samsung,visa"
+    },
+    {
+     "slug": "apna-37-palindromic-substrings",
+     "title": "Palindromic Substrings",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/palindromic-substrings/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "iq,microsoft"
+    },
+    {
+     "slug": "apna-38-next-permutation",
+     "title": "Next Permutation",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/next-permutation5226/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,goldman,sachs,uber"
+    },
+    {
+     "slug": "apna-39-count-palindromic-subsequences",
+     "title": "Count Palindromic Subsequences",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-palindromic-subsequences/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "interview,myntra,qs"
+    },
+    {
+     "slug": "apna-40-smallest-window-in-a-string-containing-all-the-characters-of",
+     "title": "Smallest Window in a String Containing all the Characters of Another String",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/smallest-window-in-a-string-containing-all-the-characters-of-another-string-1587115621/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,iq,microsoft"
+    },
+    {
+     "slug": "apna-41-wildcard-string-matching",
+     "title": "Wildcard String Matching",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/wildcard-string-matching1126/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,iq,microsoft,ola"
+    },
+    {
+     "slug": "apna-42-longest-prefix-suffix",
+     "title": "Longest Prefix Suffix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-prefix-suffix2527/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,iq,swiggy"
+    },
+    {
+     "slug": "apna-43-rabin-karp-algorithm-for-pattern-searching",
+     "title": "Rabin-Karp Algorithm for Pattern Searching",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-44-transform-one-string-to-another-using-minimum-number-of-give",
+     "title": "Transform One String to Another using Minimum Number of Given Operation",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/transform-one-string-to-another-using-minimum-number-of-given-operation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "directi"
+    },
+    {
+     "slug": "apna-45-minimum-window-substring",
+     "title": "Minimum Window Substring",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/minimum-window-substring/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,atlassian,flipkart,google,makemytrip,media.net,microsoft,streamoid,technologies"
+    },
+    {
+     "slug": "apna-46-boyer-moore-algorithm-for-pattern-searching",
+     "title": "Boyer Moore Algorithm for Pattern Searching",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amdocs"
+    },
+    {
+     "slug": "apna-47-word-wrap",
+     "title": "Word Wrap",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-wrap1646/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    }
+   ]
+  },
+  {
+   "slug": "apna-2d-arrays",
+   "title": "2D Arrays",
+   "items": [
+    {
+     "slug": "apna-48-zigzag-or-diagonal-traversal-of-matrix",
+     "title": "Zigzag (or diagonal) Traversal of Matrix",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/zigzag-or-diagonal-traversal-of-matrix/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-49-set-matrix-zeroes",
+     "title": "Set Matrix Zeroes",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/set-matrix-zeroes/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-50-spiral-matrix",
+     "title": "Spiral Matrix",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/spiral-matrix/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "apple,flipkart,generale,iq,societe"
+    },
+    {
+     "slug": "apna-51-rotate-image",
+     "title": "Rotate Image",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/rotate-image/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,microsoft,paytm,samsung"
+    },
+    {
+     "slug": "apna-52-word-search",
+     "title": "Word Search",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-search/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman,google,iq,ola,sachs"
+    },
+    {
+     "slug": "apna-53-find-the-number-of-islands-set-1-using-dfs",
+     "title": "Find the Number of Islands | Set 1 (Using DFS)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-number-of-islands/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,apple,iq,microsoft,uber"
+    },
+    {
+     "slug": "apna-54-given-a-matrix-of-o-and-x-replace-o-with-x-if-surrounded-by-",
+     "title": "Given a Matrix of ‘O’ and ‘X’, Replace ‘O’ with ‘X’ if Surrounded by ‘X’",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-matrix-o-x-replace-o-x-surrounded-x/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-55-find-a-common-element-in-all-rows-of-a-given-row-wise-sorted",
+     "title": "Find a Common Element in all Rows of a Given Row-Wise Sorted Matrix",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-common-element-rows-row-wise-sorted-matrix/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maq,microsoft,software,vmware"
+    },
+    {
+     "slug": "apna-56-create-a-matrix-with-alternating-rectangles-of-o-and-x",
+     "title": "Create a Matrix with Alternating Rectangles of O and X",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/create-a-matrix-with-alternating-rectangles-of-0-and-x/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maq,vmware"
+    },
+    {
+     "slug": "apna-57-maximum-size-rectangle-of-all-1s",
+     "title": "Maximum Size Rectangle of all 1s",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    }
+   ]
+  },
+  {
+   "slug": "apna-searching-sorting",
+   "title": "Searching & Sorting",
+   "items": [
+    {
+     "slug": "apna-58-permute-two-arrays-such-that-sum-of-every-pair-is-greater-or",
+     "title": "Permute Two Arrays such that Sum of Every Pair is Greater or Equal to K",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/permute-two-arrays-sum-every-pair-greater-equal-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-59-counting-sort",
+     "title": "counting sort",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/counting-sort/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "epam,morgan,samsung+,snapdeal,stanley+,systems"
+    },
+    {
+     "slug": "apna-60-find-common-elements-three-sorted-arrays",
+     "title": "find common elements three sorted arrays",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-common-elements-three-sorted-arrays/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maq,microsoft,software,vmware"
+    },
+    {
+     "slug": "apna-61-searching-in-an-array-where-adjacent-differ-by-at-most-k",
+     "title": "Searching in an array where adjacent differ by at most k",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/searching-array-adjacent-differ-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,tcs"
+    },
+    {
+     "slug": "apna-62-ceiling-in-a-sorted-array",
+     "title": "ceiling in a sorted array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/ceiling-in-a-sorted-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "tcs"
+    },
+    {
+     "slug": "apna-63-piar-with-given-difference",
+     "title": "Piar with given difference",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,visa"
+    },
+    {
+     "slug": "apna-64-majority-element",
+     "title": "majority element",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/majority-element/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon+,google"
+    },
+    {
+     "slug": "apna-65-count-triplets-with-sum-smaller-that-a-given-value",
+     "title": "count triplets with sum smaller that a given value",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-triplets-with-sum-smaller-that-a-given-value/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,labs,sap"
+    },
+    {
+     "slug": "apna-66-maximum-sum-subsequence-with-no-adjacent-elements",
+     "title": "Maximum Sum Subsequence with no adjacent elements",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,factset,flipkart,oxigen,oyo,paytm,rooms,wallet,walmart,yahoo"
+    },
+    {
+     "slug": "apna-67-merge-sorted-arrays-using-o-1-space",
+     "title": "Merge Sorted Arrays using O(1) Space",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amdocs,brocade,goldman,juniper,linkedin,microsoft,networks,quikr,sachs,snapdeal,synopsys,zoho"
+    },
+    {
+     "slug": "apna-68-inversion-of-array",
+     "title": "Inversion of Array",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,bankbazaar,flipkart,makemytrip,microsoft,myntra"
+    },
+    {
+     "slug": "apna-69-find-duplicates-in-o-n-time-and-o-1-extra-space",
+     "title": "Find Duplicates in O(n) Time and O(1) Extra Space",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-duplicates-in-on-time-and-constant-extra-space/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,d-e-shaw,flipkart,paytm,qualcomm,zoho"
+    },
+    {
+     "slug": "apna-70-radix-sort",
+     "title": "Radix Sort",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/radix-sort/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon+,microsoft"
+    },
+    {
+     "slug": "apna-71-product-of-array-except-itself",
+     "title": "Product of Array except itself",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/a-product-array-puzzle/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,d-e-shaw,flipkart,intuit,microsoft,morgan,opera,stanley"
+    },
+    {
+     "slug": "apna-72-make-all-array-elements-equal",
+     "title": "Make all Array Elements Equal",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/make-array-elements-equal-minimum-cost/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-73-check-if-reversing-a-sub-array-make-the-array-sorted",
+     "title": "Check if Reversing a Sub Array Make the Array Sorted",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/check-reversing-sub-array-make-array-sorted/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-74-find-four-elements-that-sum-to-a-given-value",
+     "title": "Find Four Elements that Sum to a Given Value",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-four-elements-that-sum-to-a-given-value-set-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,google,microsoft,oyo,rooms"
+    },
+    {
+     "slug": "apna-75-median-of-two-sorted-array-with-different-size",
+     "title": "Median of Two Sorted Array with Different Size",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-sizes/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google,microsoft,samsung"
+    },
+    {
+     "slug": "apna-76-median-of-stream-of-integers-running-integers",
+     "title": "Median of Stream of Integers Running Integers",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google"
+    },
+    {
+     "slug": "apna-77-print-subarrays-with-0-sum",
+     "title": "Print Subarrays with 0 Sum",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,paytm"
+    },
+    {
+     "slug": "apna-78-aggressive-cows",
+     "title": "Aggressive Cows",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/AGGRCOW/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "apna-79-allocate-minimum-number-of-pages",
+     "title": "Allocate Minimum number of Pages",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/allocate-minimum-number-of-pages0937/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,codenation,google,infosys,microsoft"
+    },
+    {
+     "slug": "apna-80-minimum-swaps-to-sort",
+     "title": "Minimum Swaps to Sort",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google"
+    }
+   ]
+  },
+  {
+   "slug": "apna-backtracking",
+   "title": "Backtracking",
+   "items": [
+    {
+     "slug": "apna-81-backtracking-set-2-rat-in-a-maze",
+     "title": "Backtracking Set 2 Rat in a Maze",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/backttracking-set-2-rat-in-a-maze/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-82-combinational-sum",
+     "title": "Combinational Sum",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/combinational-sum/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,microsoft"
+    },
+    {
+     "slug": "apna-83-crossword-puzzle",
+     "title": "Crossword-Puzzle",
+     "difficulty": "medium",
+     "url": "https://www.hackerrank.com/challenges/crossword-puzzle/problem",
+     "platform": "HackerRank",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-84-longest-possible-route-in-a-matrix-with-hurdles",
+     "title": "Longest Possible Route in a Matrix with Hurdles",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/longest-possible-route-in-a-matrix-with-hurdles/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-85-printing-all-solutions-in-n-queen-problem",
+     "title": "Printing all solutions in N-Queen Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/printing-solutions-n-queen-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,amdocs,d-e-shaw,maq,microsoft,software,twitter,visa"
+    },
+    {
+     "slug": "apna-86-solve-the-sudoku",
+     "title": "Solve the Sudoku",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/solve-the-sudoku-1587115621/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cabs,directi,flipkart,makemytrip,maq,microsoft,ola,oracle,paypal,software,zoho"
+    },
+    {
+     "slug": "apna-87-partition-equal-subset-sum",
+     "title": "Partition Equal Subset Sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,traveloka"
+    },
+    {
+     "slug": "apna-88-m-coloring-problem",
+     "title": "M Coloring Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-89-knight-tour",
+     "title": "Knight Tour",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/backtracking-set-1-the-knights-tour-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ibm"
+    },
+    {
+     "slug": "apna-90-soduko",
+     "title": "Soduko",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/backtracking-set-7-suduku/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,traveloka"
+    },
+    {
+     "slug": "apna-91-remove-invalid-parentheses",
+     "title": "Remove Invalid Parentheses",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/remove-invalid-parentheses/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "uber"
+    },
+    {
+     "slug": "apna-92-word-break-problem-using-backtracking",
+     "title": "Word Break Problem using Backtracking",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/word-break-problem-using-backtracking/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-93-print-all-palindromic-partitions-of-a-string",
+     "title": "Print all Palindromic Partitions of a String",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-palindromic-partitions-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,facebook,microsoft"
+    },
+    {
+     "slug": "apna-94-find-shortest-safe-route-in-a-path-with-landmines",
+     "title": "Find Shortest Safe Route in a Path with Landmines",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-shortest-safe-route-in-a-path-with-landmines/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,facebook,microsoft"
+    },
+    {
+     "slug": "apna-95-partition-of-set-into-k-subsets-with-equal-sum",
+     "title": "Partition of Set into K Subsets with Equal Sum",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/partition-set-k-subsets-equal-sum/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-96-backtracking-set-7-hamiltonian-cycle",
+     "title": "Backtracking set-7 hamiltonian cycle",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/backtracking-set-7-hamiltonian-cycle/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-97-tug-of-war",
+     "title": "tug-of-war",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/tug-of-war/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-98-maximum-possible-number-by-doing-at-most-k-swaps",
+     "title": "Maximum Possible Number by doing at most K swaps",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-maximum-number-possible-by-doing-at-most-k-swaps/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,traveloka"
+    },
+    {
+     "slug": "apna-99-backtracking-set-8-solving-cryptarithmetic-puzzles",
+     "title": "Backtracking set-8 solving cryptarithmetic puzzles",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/backtracking-set-8-solving-cryptarithmetic-puzzles/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman,sachs"
+    },
+    {
+     "slug": "apna-100-find-paths-from-corner-cell-to-middle-cell-in-maze",
+     "title": "Find paths from corner cell to middle cell in maze",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-paths-from-corner-cell-to-middle-cell-in-maze/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "meta"
+    },
+    {
+     "slug": "apna-101-arithmetic-expressions",
+     "title": "Arithmetic Expressions",
+     "difficulty": "medium",
+     "url": "https://www.hackerrank.com/challenges/arithmetic-expressions/problem",
+     "platform": "HackerRank",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart"
+    }
+   ]
+  },
+  {
+   "slug": "apna-linked-list",
+   "title": "Linked List",
+   "items": [
+    {
+     "slug": "apna-102-reverse-linked-list",
+     "title": "Reverse Linked List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reverse-linked-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "sprinklr"
+    },
+    {
+     "slug": "apna-103-linked-list-cycle",
+     "title": "Linked List Cycle",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/linked-list-cycle/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,comviva,d-e-shaw,hike,labs,lybrate,mahindra,makemytrip,maq,oyo,paytm,qualcomm,rooms,samsung,sap,snapdeal,software,veritas,vmware,walmart"
+    },
+    {
+     "slug": "apna-104-merge-two-sorted-lists",
+     "title": "Merge Two Sorted Lists",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,belzabar,brocade,factset,flipkart,makemytrip,microsoft,oats,oracle,samsung,synopsys,systems,zoho"
+    },
+    {
+     "slug": "apna-105-delete-without-head-node",
+     "title": "Delete without Head node",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman,kritikal,microsoft,sachs,samsung,solutions,visa"
+    },
+    {
+     "slug": "apna-106-remove-duplicates-from-an-unsorted-linked-list",
+     "title": "Remove duplicates from an unsorted linked list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon intuit"
+    },
+    {
+     "slug": "apna-107-sort-a-linked-list-of-0s-1s-or-2s",
+     "title": "Sort a linked list of 0s-1s-or-2s",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sort-a-linked-list-of-0s-1s-or-2s/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,makemytrip,microsoft"
+    },
+    {
+     "slug": "apna-108-multiply-two-numbers-represented-linked-lists",
+     "title": "Multiply two numbers represented linked lists",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/multiply-two-numbers-represented-linked-lists/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-109-remove-nth-node-from-end-of-list",
+     "title": "Remove nth node from end of list",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,citicorp,epic,factset,flipkart,hike,maq,monotype,morgan,oyo,qualcomm,rooms,samsung,snapdeal,software,solutions,stanley,systems"
+    },
+    {
+     "slug": "apna-110-reorder-list",
+     "title": "Reorder List",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/reorder-list/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,intuit,microsoft,oyo,rooms"
+    },
+    {
+     "slug": "apna-111-detect-and-remove-loop-in-a-linked-list",
+     "title": "Detect and remove loop in a linked list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,comviva,d-e-shaw,hike,labs,lybrate,mahindra,makemytrip,maq,oyo,paytm,qualcomm,rooms,samsung,sap,snapdeal,software,veritas,vmware,walmart"
+    },
+    {
+     "slug": "apna-112-write-a-function-to-get-the-intersection-point-of-two-linked",
+     "title": "Write a Function to get the Intersection Point of two Linked Lists",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-113-flatten-a-linked-list-with-next-and-child-pointers",
+     "title": "Flatten a linked list with next and child pointers",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-114-linked-list-in-zig-zag-fashion",
+     "title": "Linked list in zig-zag fashion",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/linked-list-in-zig-zag-fashion/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "micorsoft"
+    },
+    {
+     "slug": "apna-115-reverse-a-doubly-linked-list",
+     "title": "Reverse a doubly linked list",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-a-doubly-linked-list/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "walmart"
+    },
+    {
+     "slug": "apna-116-delete-nodes-which-have-a-greater-value-on-right-side",
+     "title": "Delete nodes which have a greater value on right side",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/delete-nodes-which-have-a-greater-value-on-right-side/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-117-segregate-even-and-odd-elements-in-a-linked-list",
+     "title": "Segregate even and odd Elements in a Linked List",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "walmart"
+    },
+    {
+     "slug": "apna-118-point-to-next-higher-value-node-in-a-linked-list-with-an-arb",
+     "title": "Point to next higher value node in a linked list with an Arbitrary Pointer",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/point-to-next-higher-value-node-in-a-linked-list-with-an-arbitrary-pointer/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "geekyants"
+    },
+    {
+     "slug": "apna-119-rearrange-a-given-linked-list-in-place",
+     "title": "Rearrange a given linked list in place",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ola,uber"
+    },
+    {
+     "slug": "apna-120-sort-biotonic-doubly-linked-lists",
+     "title": "Sort Biotonic Doubly Linked Lists",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sort-biotonic-doubly-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "morgan,stanley"
+    },
+    {
+     "slug": "apna-121-merge-k-sorted-lists",
+     "title": "Merge K Sorted Lists",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ebay,microsoft+,ola+"
+    },
+    {
+     "slug": "apna-122-merge-sort-for-linked-list",
+     "title": "Merge sort for linked list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/merge-sort-for-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,maq,microsoft,paytm,software,veritas"
+    },
+    {
+     "slug": "apna-123-quicksort-on-singly-linked-list",
+     "title": "Quicksort on singly-linked list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/quicksort-on-singly-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "paytm"
+    },
+    {
+     "slug": "apna-124-sum-of-two-linked-lists",
+     "title": "Sum of two linked lists",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sum-of-two-linked-lists/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,flipkart,makemytrip,microsoft,morgan,qualcomm,snapdeal,stanley"
+    },
+    {
+     "slug": "apna-125-flattening-a-linked-list",
+     "title": "Flattening a linked list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/flattening-a-linked-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "24*7,innovation,labs amazon drishti-soft flipkart goldman,sachs microsoft paytm payu qualcomm snapdeal visa"
+    },
+    {
+     "slug": "apna-126-clone-a-linked-list-with-next-and-random-pointer",
+     "title": "Clone a linked list with next and random Pointer",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "triology"
+    },
+    {
+     "slug": "apna-127-subtract-two-numbers-represented-as-linked-lists",
+     "title": "Subtract two numbers represented as linked lists",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/subtract-two-numbers-represented-as-linked-lists/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman,sachs"
+    }
+   ]
+  },
+  {
+   "slug": "apna-stacks-queues",
+   "title": "Stacks & Queues",
+   "items": [
+    {
+     "slug": "apna-128-implement-two-stacks-in-an-array",
+     "title": "Implement two stacks in an Array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "24*7,innovation,labs,microsoft,samsung,snapdeal"
+    },
+    {
+     "slug": "apna-129-evaluation-of-postfix-expression",
+     "title": "Evaluation of Postfix Expression",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,facebook,google"
+    },
+    {
+     "slug": "apna-130-implement-stack-using-queues",
+     "title": "Implement Stack using Queues",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/implement-stack-using-queues/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook"
+    },
+    {
+     "slug": "apna-131-queue-reversal",
+     "title": "Queue Reversal",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/queue-reversal/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,morgain,stanley"
+    },
+    {
+     "slug": "apna-132-implement-stack-queue-using-deque",
+     "title": "Implement Stack Queue using Deque",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/implement-stack-queue-using-deque/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "+atlassian,microsoft"
+    },
+    {
+     "slug": "apna-133-reverse-first-k-elements-of-queue",
+     "title": "Reverse first k elements of queue",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-first-k-elements-of-queue/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amdocs,microsoft"
+    },
+    {
+     "slug": "apna-134-design-stack-with-middle-operation",
+     "title": "Design Stack with Middle Operation",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/design-a-stack-with-find-middle-operation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maq,software"
+    },
+    {
+     "slug": "apna-135-infix-to-postfix",
+     "title": "Infix to Postfix",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,inc,paytm,samsung,vmware"
+    },
+    {
+     "slug": "apna-136-design-and-implement-special-stack",
+     "title": "Design and Implement Special stack",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman,google,microsoft,sachs,visa"
+    },
+    {
+     "slug": "apna-137-longest-valid-string",
+     "title": "Longest Valid String",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/length-of-the-longest-valid-substring/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,microsoft"
+    },
+    {
+     "slug": "apna-138-find-if-an-expression-has-duplicate-parenthesis-or-not",
+     "title": "Find if an expression has duplicate parenthesis or not",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-expression-duplicate-parenthesis-not/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,google,microsoft,oracle,oyo,rooms,snapdeal,walmart,yatra.com"
+    },
+    {
+     "slug": "apna-139-stack-permutations-check-if-an-array-is-stack-permutation-of",
+     "title": "Stack permutations check if an array is stack permutation of other",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/stack-permutations-check-if-an-array-is-stack-permutation-of-other/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "visa"
+    },
+    {
+     "slug": "apna-140-count-natural-numbers-whose-permutation-greater-number",
+     "title": "Count natural numbers whose permutation greater number",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-natural-numbers-whose-permutation-greater-number/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-141-sort-a-stack-using-recursion",
+     "title": "Sort a stack using Recursion",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sort-a-stack-using-recursion/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,goldman,ibm,intuit,kuliza,microsoft,sachs,yahoo"
+    },
+    {
+     "slug": "apna-142-queue-based-approach-for-first-non-repeating-character-in-a-",
+     "title": "Queue based approach for first non repeating character in a stream",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/queue-based-approach-for-first-non-repeating-character-in-a-stream/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,microsoft"
+    },
+    {
+     "slug": "apna-143-the-celebrity-problem",
+     "title": "The Celebrity Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "apple,google,visa"
+    },
+    {
+     "slug": "apna-144-next-larger-element",
+     "title": "Next larger Element",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "visa"
+    },
+    {
+     "slug": "apna-145-distance-of-nearest-cell",
+     "title": "Distance of nearest cell",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook,flipkar"
+    },
+    {
+     "slug": "apna-146-rotten-oranges",
+     "title": "Rotten-oranges",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook"
+    },
+    {
+     "slug": "apna-147-next-smaller-element",
+     "title": "Next smaller element",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/next-smaller-element/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "codenation"
+    },
+    {
+     "slug": "apna-148-circular-tour",
+     "title": "Circular-tour",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/circular-tour/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "codenation,flipkart"
+    },
+    {
+     "slug": "apna-149-efficiently-implement-k-stacks-single-array",
+     "title": "Efficiently implement k-stacks single array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart"
+    },
+    {
+     "slug": "apna-150-the-celebrity-problem",
+     "title": "The celebrity problem",
+     "difficulty": "medium",
+     "url": "http://geeksforgeeks.org/the-celebrity-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "apple,google,visa"
+    },
+    {
+     "slug": "apna-151-iterative-tower-of-hanoi",
+     "title": "Iterative tower of hanoi",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/iterative-tower-of-hanoi/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,microsoft"
+    },
+    {
+     "slug": "apna-152-find-the-maximum-of-minimums-for-every-window-size-in-a-give",
+     "title": "Find the maximum of minimums for every window size in a given array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,flipkart,microsoft"
+    },
+    {
+     "slug": "apna-153-lru-cache-implementation",
+     "title": "lru cache implementation",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/lru-cache-implementation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "alibaba,microsoft,uber"
+    },
+    {
+     "slug": "apna-154-find-a-tour-that-visits-all-stations",
+     "title": "Find a tour that visits all stations",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "uber"
+    }
+   ]
+  },
+  {
+   "slug": "apna-greedy",
+   "title": "Greedy",
+   "items": [
+    {
+     "slug": "apna-155-activity-selection-problem-greedy-algo",
+     "title": "Activity selection problem greedy algo",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook,flipkart,morgan,stanley"
+    },
+    {
+     "slug": "apna-156-greedy-algorithm-to-find-minimum-number-of-coins",
+     "title": "Greedy algorithm to find minimum number of coins",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/greedy-algorithm-to-find-minimum-number-of-coins/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,google,microsoft,morgan,oracle,paytm,samsung,snapdeal,stanley,synopsys,visa"
+    },
+    {
+     "slug": "apna-157-minimum-sum-two-numbers-formed-digits-array-2",
+     "title": "Minimum sum two numbers formed digits array-2",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-sum-two-numbers-formed-digits-array-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-158-minimum-sum-absolute-difference-pairs-two-arrays",
+     "title": "Minimum sum absolute difference pairs two arrays",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-sum-absolute-difference-pairs-two-arrays/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-159-find-maximum-height-pyramid-from-the-given-array-of-objects",
+     "title": "Find maximum height pyramid from the given array of objects",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-maximum-height-pyramid-from-the-given-array-of-objects/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,flipkart"
+    },
+    {
+     "slug": "apna-160-minimum-cost-for-acquiring-all-coins-with-k-extra-coins-allo",
+     "title": "Minimum cost for acquiring all coins with k extra coins allowed with every coin",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-cost-for-acquiring-all-coins-with-k-extra-coins-allowed-with-every-coin/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-161-find-maximum-equal-sum-of-every-three-stacks",
+     "title": "Find maximum equal sum of every three stacks",
+     "difficulty": "medium",
+     "url": "http://geeksforgeeks.org/find-maximum-sum-possible-equal-sum-three-stacks/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,flipkart,microsoft"
+    },
+    {
+     "slug": "apna-162-job-sequencing-problem",
+     "title": "Job sequencing problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/job-sequencing-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "acolite,microsoft"
+    },
+    {
+     "slug": "apna-163-greedy-algorithm-egyptian-fraction",
+     "title": "Greedy algorithm egyptian fraction",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/greedy-algorithm-egyptian-fraction/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-164-fractional-knapsack-problem",
+     "title": "Fractional knapsack problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/fractional-knapsack-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-165-maximum-length-chain-of-pairs",
+     "title": "Maximum length chain of pairs",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-length-chain-of-pairs-dp-20/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-166-find-smallest-number-with-given-number-of-digits-and-digit-s",
+     "title": "Find smallest number with given number of digits and digit sum",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-smallest-number-with-given-number-of-digits-and-digit-sum/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maq,oyo,rooms,software"
+    },
+    {
+     "slug": "apna-167-maximize-sum-of-consecutive-differences-circular-array",
+     "title": "Maximize sum of consecutive differences circular-array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximize-sum-consecutive-differences-circular-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maccafe"
+    },
+    {
+     "slug": "apna-168-paper-cut-minimum-number-squares",
+     "title": "paper-cut minimum number squares",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/paper-cut-minimum-number-squares/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-169-lexicographically-smallest-array-k-consecutive-swaps",
+     "title": "Lexicographically smallest array-k consecutive swaps",
+     "difficulty": "medium",
+     "url": "http://geeksforgeeks.org/lexicographically-smallest-array-k-consecutive-swaps/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-170-problems-chocola",
+     "title": "Problems-CHOCOLA",
+     "difficulty": "medium",
+     "url": "https://www.spoj.com/problems/CHOCOLA/",
+     "platform": "SPOJ",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart"
+    },
+    {
+     "slug": "apna-171-find-minimum-time-to-finish-all-jobs-with-given-constraints",
+     "title": "Find minimum time to finish all jobs with given constraints",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-minimum-time-to-finish-all-jobs-with-given-constraints/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-172-job-sequencing-using-disjoint-set-union",
+     "title": "Job sequencing using disjoint set union",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/job-sequencing-using-disjoint-set-union/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-173-rearrange-characters-string-such-that-no-two-adjacent-are-sa",
+     "title": "Rearrange characters string such that no two adjacent are same",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-174-minimum-edges-to-reverse-to-make-path-from-a-source-to-a-des",
+     "title": "Minimum edges to reverse to make path from a source to a destination",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-edges-reverse-make-path-source-destination/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-175-minimize-cash-flow-among-a-given-set-of-friends-who-have-bor",
+     "title": "Minimize Cash Flow among a given set of friends who have borrowed money from each other",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-176-minimum-cost-to-cut-a-board-into-squares",
+     "title": "Minimum Cost to cut a board into squares",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-cost-cut-board-squares/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maccafe"
+    }
+   ]
+  },
+  {
+   "slug": "apna-binary-trees",
+   "title": "Binary Trees",
+   "items": [
+    {
+     "slug": "apna-177-maximum-depth-of-binary-tree",
+     "title": "Maximum Depth of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cadence,coupondunia,d-e-shaw,factset,freecharge,india,makemytrip"
+    },
+    {
+     "slug": "apna-178-reverse-level-order-traversal",
+     "title": "Reverse Level Order Traversal",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,flipkart,microsoft"
+    },
+    {
+     "slug": "apna-179-subtree-of-another-tree",
+     "title": "Subtree of Another Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/subtree-of-another-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,facebook,microsoft"
+    },
+    {
+     "slug": "apna-180-invert-binary-tree",
+     "title": "Invert Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/invert-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,hike"
+    },
+    {
+     "slug": "apna-181-binary-tree-level-order-traversal",
+     "title": "Binary Tree Level Order Traversal",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,cisco,d-e-shaw,flipkart"
+    },
+    {
+     "slug": "apna-182-left-view-of-binary-tree",
+     "title": "Left View of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "academy,adobe,cisco,microsoft,networking"
+    },
+    {
+     "slug": "apna-183-right-view-of-binary-tree",
+     "title": "Right View of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/right-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amdocs"
+    },
+    {
+     "slug": "apna-184-zigzag-tree-traversal",
+     "title": "ZigZag Tree Traversal",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cisco,factset,flipkart,hike,microsoft,snapdeal,walmart"
+    },
+    {
+     "slug": "apna-185-create-a-mirror-tree-from-the-given-binary-tree",
+     "title": "Create a mirror tree from the given binary tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/create-a-mirror-tree-from-the-given-binary-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,belzabar,cabs,ebay,goldman,microsoft,morgan,myntra,ola,paytm,sachs,stanley"
+    },
+    {
+     "slug": "apna-186-leaf-at-same-level",
+     "title": "Leaf at same level",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/leaf-at-same-level/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-187-check-for-balanced-tree",
+     "title": "Check for Balanced Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft,walmart"
+    },
+    {
+     "slug": "apna-188-transform-to-sum-tree",
+     "title": "Transform to Sum Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,factset,microsoft,samsung,walmart"
+    },
+    {
+     "slug": "apna-189-check-if-tree-is-isomorphic",
+     "title": "Check if Tree is Isomorphic",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-if-tree-is-isomorphic/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-190-same-tree",
+     "title": "Same Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/same-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,flipkart,microsoft"
+    },
+    {
+     "slug": "apna-191-construct-binary-tree-from-preorder-and-inorder-traversal",
+     "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,microsoft"
+    },
+    {
+     "slug": "apna-192-height-of-binary-tree",
+     "title": "Height of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cadence,coupondunia,d-e-shaw,factset,freecharge,india,makemytrip"
+    },
+    {
+     "slug": "apna-193-diameter-of-a-binary-tree",
+     "title": "Diameter of a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft,oyo,rooms"
+    },
+    {
+     "slug": "apna-194-top-view-of-binary-tree",
+     "title": "Top View of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,expedia,group,microsoft"
+    },
+    {
+     "slug": "apna-195-bottom-view-of-binary-tree",
+     "title": "Bottom View of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "de,india,shaw"
+    },
+    {
+     "slug": "apna-196-diagonal-traversal-of-binary-tree",
+     "title": "Diagonal Traversal of Binary Tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-197-boundary-traversal-of-binary-tree",
+     "title": "Boundary Traversal of binary tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,factset,hike,kritikal,solutions"
+    },
+    {
+     "slug": "apna-198-construct-binary-tree-from-string-with-brackets",
+     "title": "Construct Binary Tree from String with Brackets",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,microsoft,morgan,oyo,payu,rooms,samsung,snapdeal,stanley"
+    },
+    {
+     "slug": "apna-199-minimum-swap-required-to-convert-binary-tree-to-binary-searc",
+     "title": "Minimum swap required to convert binary tree to binary search tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-swap-required-convert-binary-tree-binary-search-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon"
+    },
+    {
+     "slug": "apna-200-duplicate-subtree-in-binary-tree",
+     "title": "Duplicate subtree in Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/duplicate-subtree-in-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-201-check-if-a-given-graph-is-tree-or-not",
+     "title": "Check if a given graph is tree or not",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/check-given-graph-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-202-lowest-common-ancestor-in-a-binary-tree",
+     "title": "Lowest Common Ancestor in a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,american,cisco,expedia,express,flipkart,makemytrip,microsoft,oyo,room"
+    },
+    {
+     "slug": "apna-203-min-distance-between-two-given-nodes-of-a-binary-tree",
+     "title": "Min distance between two given nodes of a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/min-distance-between-two-given-nodes-of-a-binary-tree/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cabs,linkedin,makemytrip,ola,qualcomm,samsung"
+    },
+    {
+     "slug": "apna-204-duplicate-subtrees",
+     "title": "Duplicate Subtrees",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/duplicate-subtrees/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ola"
+    },
+    {
+     "slug": "apna-205-kth-ancestor-of-a-node-in-binary-tree",
+     "title": "Kth ancestor of a node in binary tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/kth-ancestor-node-binary-tree-set-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "group,josh,technology"
+    },
+    {
+     "slug": "apna-206-binary-tree-maximum-path-sum",
+     "title": "Binary Tree Maximum Path Sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook,samsung"
+    },
+    {
+     "slug": "apna-207-serialize-and-deserialize-binary-tree",
+     "title": "Serialize and Deserialize Binary Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,inmobi,linkedin,maq,microsoft,paytm,quikr,software,yahoo"
+    },
+    {
+     "slug": "apna-208-binary-tree-to-dll",
+     "title": "Binary Tree to DLL",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/binary-tree-to-dll/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,goldman,microsoft,morgan,sachs,salesforce,snapdeal,stanley"
+    },
+    {
+     "slug": "apna-209-print-all-k-sum-paths-in-a-binary-tree",
+     "title": "Print all k-sum paths in a binary tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/print-k-sum-paths-binary-tree/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,goldman,sachs"
+    }
+   ]
+  },
+  {
+   "slug": "apna-binary-search-trees",
+   "title": "Binary Search Trees",
+   "items": [
+    {
+     "slug": "apna-210-lowest-common-ancestor-of-a-binary-search-tree",
+     "title": "Lowest Common Ancestor of a Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,flipkart,maq,microsoft,samsung,software,synopsys"
+    },
+    {
+     "slug": "apna-211-binary-search-tree-set-1-search-and-insertion",
+     "title": "Binary Search Tree | Set 1 (Search and Insertion)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,microsoft,paytm,samsung"
+    },
+    {
+     "slug": "apna-212-minimum-element-in-bst",
+     "title": "Minimum element in BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-element-in-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-213-predecessor-and-successor",
+     "title": "Predecessor and Successor",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,direct,goladman,google,sachs"
+    },
+    {
+     "slug": "apna-214-check-whether-bst-contains-dead-end",
+     "title": "Check whether BST contains Dead End",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/check-whether-bst-contains-dead-end/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "walmart"
+    },
+    {
+     "slug": "apna-215-binary-tree-to-bst",
+     "title": "Binary Tree to BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/binary-tree-to-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "hsbc"
+    },
+    {
+     "slug": "apna-216-kth-largest-element-in-bst",
+     "title": "Kth largest element in BST",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/kth-largest-element-in-bst/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,labs,microsoft,samsung,sap"
+    },
+    {
+     "slug": "apna-217-validate-binary-search-tree",
+     "title": "Validate Binary Search Tree",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,facebook,oyo,qualcomm,rooms,samsung,snapdeal,vmware,walmart,wooker"
+    },
+    {
+     "slug": "apna-218-kth-smallest-element-in-a-bst",
+     "title": "Kth Smallest Element in a BST",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,google"
+    },
+    {
+     "slug": "apna-219-delete-node-in-a-bst",
+     "title": "Delete Node in a BST",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/delete-node-in-a-bst/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,barclays"
+    },
+    {
+     "slug": "apna-220-flatten-bst-to-sorted-list",
+     "title": "Flatten BST to sorted list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/flatten-bst-to-sorted-list-increasing-order/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-221-preorder-to-postorder",
+     "title": "Preorder to Postorder",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/preorder-to-postorder4423/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,flipkart,linkedin"
+    },
+    {
+     "slug": "apna-222-count-bst-nodes-that-lie-in-a-given-range",
+     "title": "Count BST nodes that lie in a given range",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-bst-nodes-that-lie-in-a-given-range/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "d-e-shaw,google"
+    },
+    {
+     "slug": "apna-223-populate-inorder-successor-for-all-nodes",
+     "title": "Populate Inorder Successor for all Nodes",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/populate-inorder-successor-for-all-nodes/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "labs,sap"
+    },
+    {
+     "slug": "apna-224-convert-normal-bst-to-balanced-bst",
+     "title": "Convert Normal BST to Balanced BST",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "paytm"
+    },
+    {
+     "slug": "apna-225-merge-two-bsts",
+     "title": "Merge two BSTs",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/merge-two-balanced-binary-search-trees/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "de,india,shaw"
+    },
+    {
+     "slug": "apna-226-given-n-appointments-find-all-conflicting-appointments",
+     "title": "Given n appointments, find all conflicting appointments",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-227-replace-every-element",
+     "title": "Replace every element",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/replace-every-element-with-the-least-greater-element-on-its-right/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-228-construct-bst-from-given-preorder-traversal",
+     "title": "Construct BST from given preorder traversal",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,microsoft,morgan,stanley"
+    },
+    {
+     "slug": "apna-229-find-median-of-bst-in-o-n-time-and-o-1-space",
+     "title": "Find median of BST in O(n) time and O(1) space",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-median-bst-time-o1-space/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-230-largest-bst-in-a-binary-tree",
+     "title": "Largest BST in a Binary Tree",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/largest-bst-binary-tree-set-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,d-e-shaw,flipkart,microsoft,samsung"
+    }
+   ]
+  },
+  {
+   "slug": "apna-heaps-hashing",
+   "title": "Heaps & Hashing",
+   "items": [
+    {
+     "slug": "apna-231-choose-k-array-elements-such-that-difference-of-maximum-and-",
+     "title": "Choose k array elements such that difference of maximum and minimum is minimized",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/k-numbers-difference-maximum-minimum-k-number-minimized/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-232-heap-sort",
+     "title": "Heap Sort",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/heap-sort/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "apna-233-top-k-frequent-elements",
+     "title": "Top K Frequent Elements",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-234-k-largest-elements-in-an-array",
+     "title": "k largest elements in an array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,microsoft,walmart"
+    },
+    {
+     "slug": "apna-235-next-greater-element",
+     "title": "Next Greater Element",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/next-greater-element/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,flipkart,microsoft"
+    },
+    {
+     "slug": "apna-236-k-th-smallest-largest-element-in-unsorted-array",
+     "title": "K’th Smallest/Largest Element in Unsorted Array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "abco,accolite,adobe,amazon,cisco,google,hike,microsoft,snapdeal,vmware"
+    },
+    {
+     "slug": "apna-237-find-the-maximum-repeating-number-in-o-n-time-and-o-1-extra-",
+     "title": "Find the maximum repeating number in O(n) time and O(1) extra space",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-the-maximum-repeating-number-in-ok-time/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon"
+    },
+    {
+     "slug": "apna-238-k-th-smallest-element-after-removing-some-integers-from-natu",
+     "title": "K-th smallest element after removing some integers from natural numbers",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/k-th-smallest-element-removing-integers-natural-numbers/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "abco,accolite,adobe,amazon,cisco,google,hike,microsoft,snapdeal,vmware"
+    },
+    {
+     "slug": "apna-239-find-k-closest-elements-to-a-given-value",
+     "title": "Find k closest elements to a given value",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-k-closest-elements-given-value/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,oyo,rooms"
+    },
+    {
+     "slug": "apna-240-k-th-largest-element-in-a-stream",
+     "title": "K’th largest element in a stream",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/kth-largest-element-in-a-stream/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon cisco hike oyo,rooms walmart microsoft flipkart"
+    },
+    {
+     "slug": "apna-241-connect-ropes",
+     "title": "Connect Ropes",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/connect-n-ropes-minimum-cost/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazoon,goldman,oyo,sachs"
+    },
+    {
+     "slug": "apna-242-cuckoo-hashing",
+     "title": "Cuckoo Hashing",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/cuckoo-hashing/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amaxon"
+    },
+    {
+     "slug": "apna-243-itinerary-from-a-list-of-tickets",
+     "title": "Itinerary from a List of Tickets",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-itinerary-from-a-given-list-of-tickets/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ebay,microsoft,ola"
+    },
+    {
+     "slug": "apna-244-largest-subarray-with-0-sum",
+     "title": "Largest Subarray with 0 Sum",
+     "difficulty": "medium",
+     "url": "http://geeksforgeeks.org/find-the-largest-subarray-with-0-sum/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,makemytrip,microsoft"
+    },
+    {
+     "slug": "apna-245-count-distinct-elements-in-every-window-of-size-k",
+     "title": "Count distinct elements in every window of size  k",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-distinct-elements-in-every-window-of-size-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,microsoft"
+    },
+    {
+     "slug": "apna-246-group-shifted-strings",
+     "title": "Group Shifted Strings",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/group-shifted-string/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "oracle"
+    },
+    {
+     "slug": "apna-247-merge-k-sorted-lists",
+     "title": "Merge K Sorted lists",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ebay,microsoft,ola"
+    },
+    {
+     "slug": "apna-248-find-median-from-data-stream",
+     "title": "Find Median from Data Stream",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,apple,belzabar,cabs,d-e-shaw,facebook,flipkart,google,intuit,labs,microsoft,morgan,ola,oracle,samsung,sap,stanley,yahoo"
+    },
+    {
+     "slug": "apna-249-sliding-window-maximum",
+     "title": "Sliding Window Maximum",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,directi,flipkart,google,microsoft"
+    },
+    {
+     "slug": "apna-250-find-the-smallest-positive-number",
+     "title": "Find the smallest positive number",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,samsung,snapdeal"
+    },
+    {
+     "slug": "apna-251-find-surpasser-count-of-each-element-in-array",
+     "title": "Find Surpasser Count of each element in array",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-surpasser-count-of-each-element-in-array/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cabs,labs,morgan,ola,sap,stanley"
+    },
+    {
+     "slug": "apna-252-tournament-tree-and-binary-heap",
+     "title": "Tournament Tree and Binary Heap",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/tournament-tree-and-binary-heap/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cabs,microsoft,ola,samsung,synopsys,walmart"
+    },
+    {
+     "slug": "apna-253-check-for-palindrome",
+     "title": "Check for palindrome",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/online-algorithm-for-checking-palindrome-in-a-stream/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cisco,d-e-shaw,facebook,factset,morgan,paytm,stanley,zoho"
+    },
+    {
+     "slug": "apna-254-length-of-the-largest-subarray-with-contiguous-elements",
+     "title": "Length of the largest subarray with contiguous elements",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/length-largest-subarray-contiguous-elements-set-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,intuit,microsoft"
+    },
+    {
+     "slug": "apna-255-palindrome-substring-queries",
+     "title": "Palindrome Substring Queries",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/palindrome-substring-queries/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cabs,labs,morgan,ola,sap,stanley"
+    },
+    {
+     "slug": "apna-256-subarray-distinct-elements",
+     "title": "Subarray distinct elements",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/subarrays-distinct-elements/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ebay,microsoft,ola"
+    },
+    {
+     "slug": "apna-257-find-the-recurring-function",
+     "title": "Find the recurring function",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-recurring-sequence-fraction/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maq,software"
+    },
+    {
+     "slug": "apna-258-k-maximum-sum-combinations-from-two-arrays",
+     "title": "K maximum sum combinations from two arrays",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/k-maximum-sum-combinations-two-arrays/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    }
+   ]
+  },
+  {
+   "slug": "apna-graphs",
+   "title": "Graphs",
+   "items": [
+    {
+     "slug": "apna-259-bfs",
+     "title": "BFS",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "delhivery,labs,samsung,sap"
+    },
+    {
+     "slug": "apna-260-dfs",
+     "title": "DFS",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman,intuit,sachs,samsung"
+    },
+    {
+     "slug": "apna-261-flood-fill-algorithm",
+     "title": "Flood Fill Algorithm",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/flood-fill/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,apple,google"
+    },
+    {
+     "slug": "apna-262-number-of-triangles",
+     "title": "Number of Triangles",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/number-of-triangles-in-directed-and-undirected-graphs/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ibm"
+    },
+    {
+     "slug": "apna-263-detect-cycle-in-a-graph",
+     "title": "Detect cycle in a graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "lenksart"
+    },
+    {
+     "slug": "apna-264-detect-cycle-in-an-undirected-graph",
+     "title": "Detect cycle in an undirected graph",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-265-rat-in-a-maze-problem",
+     "title": "Rat in a Maze Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "directi,sharechat"
+    },
+    {
+     "slug": "apna-266-steps-by-knight",
+     "title": "Steps by Knight",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/steps-by-knight5927/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-267-clone-graph",
+     "title": "Clone graph",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/clone-graph/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "apple,facebook,google,maq,software"
+    },
+    {
+     "slug": "apna-268-number-of-operations-to-make-network-connected",
+     "title": "Number of Operations to Make Network Connected",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/number-of-operations-to-make-network-connected/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-269-dijkstra-s-shortest-path-algorithm",
+     "title": "Dijkstra’s shortest path algorithm",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-270-topological-sort",
+     "title": "Topological Sort",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/topological-sort/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,fipkart,flipkart,google,oyo,samsung"
+    },
+    {
+     "slug": "apna-271-minimum-time-taken-by-each-job-to-be-completed-given-by-a-di",
+     "title": "Minimum time taken by each job to be completed given by a Directed Acyclic Graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimum-time-taken-by-each-job-to-be-completed-given-by-a-directed-acyclic-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-272-find-whether-it-is-possible-to-finish-all-tasks-or-not-from-",
+     "title": "Find whether it is possible to finish all tasks or not from given dependencies",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-whether-it-is-possible-to-finish-all-tasks-or-not-from-given-dependencies/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "directi,sharechat"
+    },
+    {
+     "slug": "apna-273-find-the-number-of-islands",
+     "title": "Find the number of islands",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "razorpay"
+    },
+    {
+     "slug": "apna-274-prim-s-algo",
+     "title": "Prim's Algo",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "visa"
+    },
+    {
+     "slug": "apna-275-negative-weighted-cycle",
+     "title": "Negative Weighted Cycle",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/negative-weight-cycle3504/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-276-floyd-warshall",
+     "title": "Floyd Warshall",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,uber"
+    },
+    {
+     "slug": "apna-277-graph-coloring",
+     "title": "Graph Coloring",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/graph-coloring-applications/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "morgan,stanley"
+    },
+    {
+     "slug": "apna-278-snakes-and-ladders",
+     "title": "Snakes and Ladders",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/snakes-and-ladders/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "+makemytrip,goldman,sachs"
+    },
+    {
+     "slug": "apna-279-kosaraju-s-theorem",
+     "title": "Kosaraju's Theorem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "paytm"
+    },
+    {
+     "slug": "apna-280-journey-to-moon",
+     "title": "Journey to moon",
+     "difficulty": "medium",
+     "url": "https://www.hackerrank.com/challenges/journey-to-the-moon/problem",
+     "platform": "HackerRank",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "lenksart,payload"
+    },
+    {
+     "slug": "apna-281-vertex-cover",
+     "title": "Vertex Cover",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/vertex-cover-problem-set-1-introduction-approximate-algorithm-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "apna-282-m-coloring-problem",
+     "title": "M Coloring Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "uber"
+    },
+    {
+     "slug": "apna-283-cheapest-flights-within-k-stops",
+     "title": "Cheapest Flights Within K Stops",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/description/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "paypal,uber"
+    },
+    {
+     "slug": "apna-284-find-if-there-is-a-path-of-more-than-k-length-from-a-source",
+     "title": "Find if there is a path of more than k length from a source",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-if-there-is-a-path-of-more-than-k-length-from-a-source/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "cisco,intuit"
+    },
+    {
+     "slug": "apna-285-bellman-ford",
+     "title": "Bellman Ford",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/detect-negative-cycle-graph-bellman-ford/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "directi,sharechat"
+    },
+    {
+     "slug": "apna-286-bipartitie-graph",
+     "title": "Bipartitie Graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/bipartite-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,microsoft"
+    },
+    {
+     "slug": "apna-287-word-ladder",
+     "title": "Word-Ladder",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-ladder/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-288-allen-dictionary",
+     "title": "Allen Dictionary",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/alien-dictionary/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-289-kruskals-mst",
+     "title": "Kruskals MST",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cisco,samsung"
+    },
+    {
+     "slug": "apna-290-total-number-spanning-trees-graph",
+     "title": "Total number spanning trees graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/total-number-spanning-trees-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,cisco,flipkart,microsoft,samsung"
+    },
+    {
+     "slug": "apna-291-travelling-salesman",
+     "title": "Travelling Salesman",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,microsoft,opera"
+    },
+    {
+     "slug": "apna-292-find-longest-path-directed-acyclic-graph",
+     "title": "Find longest path directed acyclic graph",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-longest-path-directed-acyclic-graph/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-293-two-clique-problem",
+     "title": "Two Clique Problem",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/two-clique-problem-check-graph-can-divided-two-cliques/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-294-minimise-the-cash-flow",
+     "title": "Minimise the cash flow",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,uber"
+    },
+    {
+     "slug": "apna-295-chinese-postman",
+     "title": "Chinese postman",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/chinese-postman-route-inspection-set-1-introduction/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "apna-296-water-jug",
+     "title": "Water Jug",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit,uber"
+    },
+    {
+     "slug": "apna-297-water-jug-2",
+     "title": "Water Jug 2",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "makemytrip,maq,software"
+    }
+   ]
+  },
+  {
+   "slug": "apna-tries",
+   "title": "Tries",
+   "items": [
+    {
+     "slug": "apna-298-construct-a-trie-from-scratch",
+     "title": "Construct a trie from scratch",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite amazon d-e-shaw factset microsoft"
+    },
+    {
+     "slug": "apna-299-print-unique-rows-in-a-given-boolean-matrix",
+     "title": "Print unique rows in a given boolean matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/unique-rows-in-boolean-matrix/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,zoho"
+    },
+    {
+     "slug": "apna-300-word-break-problem-trie-solution",
+     "title": "Word Break Problem | (Trie solution)",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/word-break-problem-trie-solution/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google,hike,ibm,maq,microsoft,software,walmart,zoho"
+    },
+    {
+     "slug": "apna-301-given-a-sequence-of-words-print-all-anagrams-together",
+     "title": "Given a sequence of words, print all anagrams together",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/k-anagrams-1/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,d-e-shaw,goldman,microsoft,morgan,sachs,snapdeal,stanley"
+    },
+    {
+     "slug": "apna-302-find-shortest-unique-prefix-for-every-word-in-a-given-list",
+     "title": "Find shortest unique prefix for every word in a given list",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/find-all-shortest-unique-prefixes-to-represent-each-word-in-a-given-list/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,microsoft"
+    },
+    {
+     "slug": "apna-303-implement-a-phone-directory",
+     "title": "Implement a Phone Directory",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/phone-directory/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft,snapdeal"
+    }
+   ]
+  },
+  {
+   "slug": "apna-dp",
+   "title": "DP",
+   "items": [
+    {
+     "slug": "apna-304-knapsack-with-duplicate-items",
+     "title": "Knapsack with Duplicate Items",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-305-bbt-counter",
+     "title": "BBT counter",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bbt-counter4914/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-306-reach-a-given-score",
+     "title": "Reach a given score",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/reach-a-given-score-1587115621/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-307-maximum-difference-of-zeros-and-ones-in-binary-string",
+     "title": "Maximum difference of zeros and ones in binary string",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-difference-of-zeros-and-ones-in-binary-string4111/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ola"
+    },
+    {
+     "slug": "apna-308-climbing-stairs",
+     "title": "Climbing Stairs",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/climbing-stairs/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "apna-309-permutation-coefficient",
+     "title": "Permutation Coefficient",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/permutation-coefficient/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-310-longest-repeating-subsequence",
+     "title": "Longest Repeating Subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence2004/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google"
+    },
+    {
+     "slug": "apna-311-pairs-with-specific-difference",
+     "title": "Pairs with specific difference",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/pairs-with-specific-difference1533/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ola"
+    },
+    {
+     "slug": "apna-312-longest-subsequence-1",
+     "title": "Longest subsequence-1",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-subsequence-such-that-difference-between-adjacents-is-one4724/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-313-coin-change",
+     "title": "Coin Change",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/coin-change/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,apple,barclays,microsoft+,samsung"
+    },
+    {
+     "slug": "apna-314-lis",
+     "title": "LIS",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,facebook,fidelity,google,international"
+    },
+    {
+     "slug": "apna-315-longest-common-subsequence",
+     "title": "Longest Common Subsequence",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-common-subsequence/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google,siemens"
+    },
+    {
+     "slug": "apna-316-word-break",
+     "title": "Word Break",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/word-break/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,apple,google,ibm,microsoft,walmart"
+    },
+    {
+     "slug": "apna-317-combination-sum-iv",
+     "title": "Combination Sum IV",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/combination-sum-iv/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,microsoft"
+    },
+    {
+     "slug": "apna-318-house-robber",
+     "title": "House Robber",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/house-robber/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "apple,uber"
+    },
+    {
+     "slug": "apna-319-houe-robber-2",
+     "title": "Houe Robber 2",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/house-robber-ii/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "arrays,dynamic,programming"
+    },
+    {
+     "slug": "apna-320-decode-ways",
+     "title": "Decode Ways",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/decode-ways/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,uber"
+    },
+    {
+     "slug": "apna-321-unique-paths",
+     "title": "Unique Paths",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/unique-paths/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,microsoft"
+    },
+    {
+     "slug": "apna-322-jumps-game",
+     "title": "Jumps Game",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/jump-game/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,facebook,google,microsoft"
+    },
+    {
+     "slug": "apna-323-knapsack-problem",
+     "title": "Knapsack Problem",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,directi,flipkart,greyorange,microsoft,mobicip,morgan,oracle,payu,snapdeal,stanley,visa"
+    },
+    {
+     "slug": "apna-324-ncr",
+     "title": "nCr",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/ncr1019/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-325-catalan-number",
+     "title": "Catalan Number",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/program-nth-catalan-number/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google"
+    },
+    {
+     "slug": "apna-326-edit-distance",
+     "title": "Edit Distance",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/edit-distance3702/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "citrix,goldman,google,sachs"
+    },
+    {
+     "slug": "apna-327-subset-sum",
+     "title": "Subset Sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google"
+    },
+    {
+     "slug": "apna-328-gold-mine",
+     "title": "Gold mine",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/gold-mine-problem/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "samsung"
+    },
+    {
+     "slug": "apna-329-assembly-line-scheduling",
+     "title": "Assembly Line Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/assembly-line-scheduling-dp-34/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman,sachs"
+    },
+    {
+     "slug": "apna-330-maximize-the-cut-segments",
+     "title": "Maximize The Cut Segments",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/cutted-segments1642/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft,oyo,rooms"
+    },
+    {
+     "slug": "apna-331-maximum-sum-increasing-subsequence",
+     "title": "Maximum sum increasing subsequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/maximum-sum-increasing-subsequence4749/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft,morgan,stanley"
+    },
+    {
+     "slug": "apna-332-count-all-subsequences-having-product-less-than-k",
+     "title": "Count all subsequences having product less than K",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-subsequences-product-less-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "goldman,sachs"
+    },
+    {
+     "slug": "apna-333-maximum-sum-increasing-subsequence",
+     "title": "Maximum sum increasing subsequence",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-subsequence-sum-such-that-no-three-are-consecutive/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft,morgan,stanley"
+    },
+    {
+     "slug": "apna-334-egg-dropping-puzzle",
+     "title": "Egg dropping puzzle",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/egg-dropping-puzzle-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,d-e-shaw,goldman,google,hike,makemytrip,maq,microsoft,myntra,nearbuy,now,opera,oracle,philips,sachs,samsung,service,software,unisys,vmware"
+    },
+    {
+     "slug": "apna-335-max-length-chain",
+     "title": "Max length chain",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/max-length-chain/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-336-largest-square-in-matrix",
+     "title": "Largest Square in Matrix",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/largest-square-formed-in-a-matrix0806/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,samsung"
+    },
+    {
+     "slug": "apna-337-maximum-path-sum",
+     "title": "Maximum Path Sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/path-in-matrix3805/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,directi,microsoft,oyo"
+    },
+    {
+     "slug": "apna-338-minimum-number-of-jumps",
+     "title": "Minimum Number of Jumps",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,amazon,flipkart,google,housing.com,labs,microsoft,moonfrog,walmart"
+    },
+    {
+     "slug": "apna-339-minimum-removals-from-array-to-make-max-min-k",
+     "title": "Minimum removals from array to make max – min <= K",
+     "difficulty": "medium",
+     "url": "http://geeksforgeeks.org/minimum-removals-array-make-max-min-k/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-340-longest-common-substring",
+     "title": "Longest Common Substring",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-common-substring1452/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "club,webarch"
+    },
+    {
+     "slug": "apna-341-partition-equal-subset-sum",
+     "title": "Partition Equal Subset Sum",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,adobe,amazon,traveloca"
+    },
+    {
+     "slug": "apna-342-longest-palindromic-subsequnce",
+     "title": "Longest Palindromic Subsequnce",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,google"
+    },
+    {
+     "slug": "apna-343-count-palindromic-subsequences",
+     "title": "Count Palindromic Subsequences",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-palindromic-subsequences/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "myntra"
+    },
+    {
+     "slug": "apna-344-longest-palindromic-substring",
+     "title": "Longest Palindromic Substring",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft,samsung,visa"
+    },
+    {
+     "slug": "apna-345-longest-alternating-sequence",
+     "title": "Longest Alternating Sequence",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/longest-alternating-subsequence5951/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ola"
+    },
+    {
+     "slug": "apna-346-weighted-job-scheduling",
+     "title": "Weighted Job Scheduling",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/weighted-job-scheduling/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "intuit"
+    },
+    {
+     "slug": "apna-347-coin-game",
+     "title": "Coin Game",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/coin-game-winner-every-player-three-choices/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "salesforce"
+    },
+    {
+     "slug": "apna-348-coin-game-winner",
+     "title": "Coin Game Winner",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/count-derangements-permutation-such-that-no-element-appears-in-its-original-position/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "ola"
+    },
+    {
+     "slug": "apna-349-optimal-strategy-for-a-game",
+     "title": "Optimal Strategy for a game",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/optimal-strategy-for-a-game-1587115620/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google,ibm"
+    },
+    {
+     "slug": "apna-350-word-wrap",
+     "title": "Word Wrap",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/word-wrap1646/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-351-mobile-numeric-keypad",
+     "title": "Mobile numeric keypad",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/mobile-numeric-keypad5456/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-352-maximum-length-of-pair-chain",
+     "title": "Maximum Length of Pair Chain",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/maximum-length-of-pair-chain/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,microsoft"
+    },
+    {
+     "slug": "apna-353-matrix-chain-multiplication",
+     "title": "Matrix Chain Multiplication",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "flipkart,walmart"
+    },
+    {
+     "slug": "apna-354-maximum-profit-by-buying-and-selling-a-share-at-most-twice",
+     "title": "Maximum profit by buying and selling a share at most twice",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,microsoft"
+    },
+    {
+     "slug": "apna-355-optimal-bst",
+     "title": "Optimal BST",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/optimal-binary-search-tree-dp-24/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "google"
+    },
+    {
+     "slug": "apna-356-largest-submatrix-with-sum-0",
+     "title": "Largest Submatrix with sum 0",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/largest-rectangular-sub-matrix-whose-sum-0/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,makemytrip,microsoft"
+    },
+    {
+     "slug": "apna-357-largest-area-rectangular-sub-matrix-with-equal-number-of-1-s",
+     "title": "Largest area rectangular sub-matrix with equal number of 1’s and 0’s",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/largest-area-rectangular-sub-matrix-equal-number-1s-0s/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon,directi,flipkart,google,intuit,makemytrip,microsoft,samsung"
+    }
+   ]
+  },
+  {
+   "slug": "apna-bit-manipulation",
+   "title": "Bit Manipulation",
+   "items": [
+    {
+     "slug": "apna-358-count-set-bits-in-an-integer",
+     "title": "Count set bits in an integer",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/set-bits0143/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,apple"
+    },
+    {
+     "slug": "apna-359-find-the-two-non-repeating-elements-in-an-array-of-repeating",
+     "title": "Find the two non-repeating elements in an array of repeating elements",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/finding-the-numbers0215/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,amazon,factset,google,makemytrip,microsoft,qualcomm,samsung"
+    },
+    {
+     "slug": "apna-360-program-to-find-whether-a-no-is-power-of-two",
+     "title": "Program to find whether a no is power of two",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/power-of-2/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe"
+    },
+    {
+     "slug": "apna-361-find-position-of-the-only-set-bit",
+     "title": "Find position of the only set bit",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/find-position-of-set-bit3706/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-362-count-number-of-bits-to-be-flipped-to-convert-a-to-b",
+     "title": "Count number of bits to be flipped to convert A to B",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/bit-difference/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "maq,software"
+    },
+    {
+     "slug": "apna-363-count-total-set-bits-in-all-numbers-from-1-to-n",
+     "title": "Count total set bits in all numbers from 1 to n",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/count-total-set-bits/0",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-364-copy-set-bits-in-a-range",
+     "title": "Copy set bits in a range",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/copy-set-bits-in-a-range/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "facebook"
+    },
+    {
+     "slug": "apna-365-calculate-square-of-a-number-without-using-and-pow",
+     "title": "Calculate square of a number without using *, / and pow()",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/calculate-square-of-a-number-without-using-and-pow/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "amazon"
+    },
+    {
+     "slug": "apna-366-divide-two-integers-without-using-multiplication-division-an",
+     "title": "Divide two integers without using multiplication, division and mod operator",
+     "difficulty": "medium",
+     "url": "https://www.geeksforgeeks.org/divide-two-integers-without-using-multiplication-division-mod-operator/",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "microsoft"
+    },
+    {
+     "slug": "apna-367-power-set",
+     "title": "Power Set",
+     "difficulty": "medium",
+     "url": "https://practice.geeksforgeeks.org/problems/power-set4302/1",
+     "platform": "GeeksforGeeks",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "adobe,google,paytm"
+    }
+   ]
+  },
+  {
+   "slug": "apna-segment-trees",
+   "title": "Segment Trees",
+   "items": [
+    {
+     "slug": "apna-368-range-sum-query-immutable",
+     "title": "Range Sum Query - Immutable",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/range-sum-query-immutable/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": ""
+    },
+    {
+     "slug": "apna-369-range-sum-query-mutable",
+     "title": "Range Sum Query - Mutable",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/range-sum-query-mutable/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "alibaba"
+    },
+    {
+     "slug": "apna-370-create-sorted-array-through-instructions",
+     "title": "Create Sorted Array through Instructions",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/create-sorted-array-through-instructions/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "accolite,samsung"
+    },
+    {
+     "slug": "apna-371-count-of-range-sum",
+     "title": "Count of Range Sum",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-of-range-sum/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "walmart"
+    },
+    {
+     "slug": "apna-372-count-of-smaller-numbers-after-self",
+     "title": "Count of Smaller Numbers After Self",
+     "difficulty": "medium",
+     "url": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/",
+     "platform": "LeetCode",
+     "resourceUrl": "",
+     "tags": "dsa",
+     "companies": "codenation,google"
+    }
+   ]
+  }
+ ]
+}
