@@ -18,21 +18,38 @@ part 'database.g.dart';
     LeafProgress,
     StudySessions,
     ActivityDays,
-    RoadmapPhases,
-    RoadmapTasks,
-    DailyPlanItems,
     Resources,
     Achievements,
   ],
 )
 class AppDatabase extends _$AppDatabase {
-  AppDatabase() : super(_openConnection());
+  /// Each identity (a Google account, or the guest session) gets its own
+  /// database file so switching accounts never mixes progress or plans.
+  AppDatabase({String dbKey = 'guest'}) : super(_openConnection(dbKey));
 
   /// For tests: inject an in-memory executor.
   AppDatabase.forTesting(super.executor);
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 5;
+
+  /// Deletes every row from every table (content + all user progress) on the
+  /// live connection. Used by the account/data-deletion flow so the user's data
+  /// is gone immediately, even on platforms where the still-open file can't be
+  /// removed. Children are deleted before parents to respect foreign keys.
+  Future<void> wipeAllData() async {
+    await transaction(() async {
+      await delete(leafProgress).go();
+      await delete(studySessions).go();
+      await delete(activityDays).go();
+      await delete(achievements).go();
+      await delete(resources).go();
+      await delete(userSheets).go();
+      await delete(nodes).go();
+      await delete(sheets).go();
+      await delete(userProfiles).go();
+    });
+  }
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -50,6 +67,16 @@ class AppDatabase extends _$AppDatabase {
           } else {
             // v2 -> v3 only ADDS the resources table; keep existing data.
             if (from < 3) await m.createTable(resources);
+            // (v3 -> v4 added daily_plan_items.canon, a table that v5 drops —
+            // no need to add the column just to remove the table below.)
+            if (from < 5) {
+              // v4 -> v5 retires the old phase-roadmap + daily-plan tables.
+              // Drop the FK child before its parent. Raw SQL because the table
+              // classes no longer exist in the schema.
+              await customStatement('DROP TABLE IF EXISTS roadmap_tasks');
+              await customStatement('DROP TABLE IF EXISTS roadmap_phases');
+              await customStatement('DROP TABLE IF EXISTS daily_plan_items');
+            }
           }
         },
         beforeOpen: (details) async {
@@ -58,10 +85,33 @@ class AppDatabase extends _$AppDatabase {
       );
 }
 
-LazyDatabase _openConnection() {
+String _safeKey(String dbKey) => dbKey.replaceAll(RegExp(r'[^A-Za-z0-9_-]'), '_');
+
+LazyDatabase _openConnection(String dbKey) {
   return LazyDatabase(() async {
     final dir = await getApplicationDocumentsDirectory();
-    final file = File(p.join(dir.path, 'preppilot.sqlite'));
+    // Sanitise the key so it is always a safe file-name fragment.
+    final file = File(p.join(dir.path, 'preppilot_${_safeKey(dbKey)}.sqlite'));
     return NativeDatabase.createInBackground(file);
   });
+}
+
+/// Best-effort removal of a bucket's on-disk SQLite file (plus its WAL/SHM
+/// sidecars). Call AFTER the connection for [dbKey] has been closed. Safe to
+/// call when the files don't exist or can't be removed (e.g. still locked) —
+/// the account/data-deletion flow already wipes the rows first, so a lingering
+/// file holds no user data.
+Future<void> deleteDatabaseFileForKey(String dbKey) async {
+  try {
+    final dir = await getApplicationDocumentsDirectory();
+    final base = p.join(dir.path, 'preppilot_${_safeKey(dbKey)}.sqlite');
+    for (final path in [base, '$base-wal', '$base-shm']) {
+      final f = File(path);
+      if (await f.exists()) {
+        try {
+          await f.delete();
+        } catch (_) {/* still locked — rows were already wiped */}
+      }
+    }
+  } catch (_) {/* documents dir unavailable — nothing to remove */}
 }

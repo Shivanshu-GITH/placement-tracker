@@ -1,0 +1,1361 @@
+{
+  "subject": "interview-hr",
+  "title": "HR, Behavioural & Interview",
+  "topics": {
+    "u:iv-46-100-doors": {
+      "title": "100 doors",
+      "summary": "Only perfect-square doors stay open — because they have an odd number of divisors.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: 100 doors, all closed. In pass i (i = 1..100), you toggle every i-th door. Which doors are open at the end?"},
+        {"t": "p", "text": "A door n is toggled once for each **divisor** of n. It ends **open** if toggled an **odd** number of times — i.e. if n has an odd number of divisors."},
+        {"t": "callout", "style": "key", "text": "Divisors come in pairs (d and n/d), so most numbers have an even count — EXCEPT **perfect squares**, where one divisor (the square root) pairs with itself, giving an odd count. So the open doors are the perfect squares: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100 — exactly **10** doors."},
+        {"t": "callout", "style": "tip", "text": "The general answer for N doors: floor(sqrt(N)) doors remain open."}
+      ],
+      "mcqs": [
+        {"q": "After all 100 passes, which doors are open?", "options": ["All even-numbered", "The perfect squares (1,4,9,...,100)", "The prime-numbered", "None"], "answer": 1, "explain": "A door ends open iff it has an odd number of divisors, which only perfect squares do."},
+        {"q": "How many doors remain open out of 100?", "options": ["50", "10", "25", "100"], "answer": 1, "explain": "There are 10 perfect squares from 1 to 100."},
+        {"q": "Perfect squares have an odd number of divisors because:", "options": ["They are even", "The square root divisor pairs with itself, not another divisor", "They are prime", "They have no divisors"], "answer": 1, "explain": "Divisors pair as (d, n/d); for a perfect square the root pairs with itself, making the count odd."}
+      ]
+    },
+    "u:iv-47-25-horses-5-tracks": {
+      "title": "25 horses, 5 tracks",
+      "summary": "Find the top 3 fastest of 25 horses in a minimum of 7 races (5 at a time, no timer).",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: 25 horses, a track that races 5 at a time, no stopwatch (only relative order). Minimum races to find the top 3?"},
+        {"t": "steps", "items": [
+          "**5 races** — split into 5 groups of 5; race each. (5 races so far.)",
+          "**Race 6** — race the 5 group-winners. This ranks the winners; the overall 1st is the fastest horse.",
+          "**Eliminate**: only horses that could be top-3 remain — from the winners' race, the 4th and 5th groups are out entirely, and within groups only certain horses can still place.",
+          "**Race 7** — race the ~5 remaining candidates for 2nd and 3rd (1st is already known). Total: **7 races**."
+        ]},
+        {"t": "callout", "style": "key", "text": "The answer is **7**. The trick: after ranking group winners (race 6), you can eliminate horses that are provably not top-3 (they lost to at least 3 faster horses), leaving exactly enough candidates for one final race to decide 2nd and 3rd."}
+      ],
+      "mcqs": [
+        {"q": "The minimum number of races to find the top 3 of 25 horses (5 at a time, no timer) is:", "options": ["5", "6", "7", "10"], "answer": 2, "explain": "5 group races + 1 race of winners + 1 final race of remaining candidates = 7."},
+        {"q": "After racing the 5 group winners, the overall fastest horse is:", "options": ["Unknown", "The winner of the winners' race", "Always in group 5", "Undeterminable"], "answer": 1, "explain": "The winner of the winners' race beat all other group winners, so it's the fastest of all 25."},
+        {"q": "The elimination step works because a horse can't be top-3 if it:", "options": ["Won its group", "Lost to at least 3 horses known to be faster", "Raced first", "Is in group 1"], "answer": 1, "explain": "Any horse behind 3 provably-faster horses cannot be in the top 3, so it's eliminated."}
+      ]
+    },
+    "u:iv-48-3-bulbs-3-switches": {
+      "title": "3 bulbs, 3 switches",
+      "summary": "Identify which switch controls which bulb in one visit — use heat.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: 3 switches outside a room, 3 bulbs inside. You can flip switches freely but may enter the room **only once**. Which switch controls which bulb?"},
+        {"t": "steps", "items": [
+          "Turn on **switch 1**, wait a few minutes, then turn it **off**.",
+          "Turn on **switch 2** and leave it on.",
+          "Enter the room once."
+        ]},
+        {"t": "callout", "style": "key", "text": "Inside: the bulb that is **ON** is switch 2. The bulb that is **OFF but WARM** is switch 1 (it was on long enough to heat up). The bulb that is **OFF and COLD** is switch 3. The insight is using **heat** as a second state beyond on/off."}
+      ],
+      "mcqs": [
+        {"q": "The key insight in the 3-bulbs-3-switches puzzle is to use:", "options": ["Colour", "Heat (a warm bulb) as an extra state", "Sound", "Weight"], "answer": 1, "explain": "Beyond on/off, a bulb's warmth reveals it was recently on, giving a third distinguishable state."},
+        {"q": "The bulb that is off but warm corresponds to the switch that was:", "options": ["Never touched", "Turned on for a while then off", "Left on", "Broken"], "answer": 1, "explain": "It was heated by being on, then switched off before you entered."},
+        {"q": "The bulb that is off and cold is controlled by the switch that was:", "options": ["Left on", "Turned on then off", "Never turned on", "Flickered"], "answer": 2, "explain": "An off, cold bulb was never energised — the untouched switch."}
+      ]
+    },
+    "u:iv-49-two-ropes-one-hour": {
+      "title": "Two ropes, one hour",
+      "summary": "Measure 45 minutes with two ropes that each burn unevenly in 60 minutes.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: Each rope takes exactly 60 minutes to burn but burns **unevenly** (you can't assume half-rope = 30 min). Measure **45 minutes**."},
+        {"t": "steps", "items": [
+          "Light **rope A at both ends** and **rope B at one end** simultaneously.",
+          "Rope A (burning from both ends) finishes in **30 minutes** — regardless of unevenness, two fronts consume the whole rope in half the time.",
+          "At that 30-minute mark, rope B has **30 minutes** of burn left. **Light rope B's other end** now.",
+          "Rope B's remaining 30 minutes, burning from both ends, finishes in **15 minutes**. Total: 30 + 15 = **45 minutes**."
+        ]},
+        {"t": "callout", "style": "key", "text": "The trick: **burning from both ends halves the remaining time**, regardless of uneven burn rate. Both-ends of A = 30 min; then both-ends of B's remaining half = 15 min; total 45."}
+      ],
+      "mcqs": [
+        {"q": "Burning a 60-minute rope from BOTH ends takes:", "options": ["60 minutes", "30 minutes", "45 minutes", "Unpredictable"], "answer": 1, "explain": "Two burning fronts consume the whole rope in half the time, regardless of uneven burning."},
+        {"q": "To measure 45 minutes, after rope A (both ends) finishes at 30 min you:", "options": ["Do nothing", "Light rope B's second end (its remaining 30 min burns in 15)", "Relight rope A", "Wait 45 more minutes"], "answer": 1, "explain": "Rope B has 30 min left; lighting its other end finishes it in 15 min, giving 30+15=45."},
+        {"q": "The core principle used is that lighting both ends:", "options": ["Doubles the time", "Halves the remaining burn time", "Has no effect", "Depends on colour"], "answer": 1, "explain": "Regardless of burn unevenness, two fronts halve the time to consume the remaining rope."}
+      ]
+    },
+    "u:iv-50-poisoned-wine-bottles": {
+      "title": "Poisoned wine bottles",
+      "summary": "Find 1 poisoned bottle among 1000 using only 10 test subjects - binary encoding.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: 1000 wine bottles, exactly one poisoned (poison kills in 24 hours). With one test window, how many **prisoners/testers** are needed to find the poisoned bottle?"},
+        {"t": "p", "text": "Answer: **10**. Number the bottles 0-999 in **binary** (10 bits, since 2^10 = 1024 > 1000). Assign one prisoner per bit. Prisoner i drinks from every bottle whose i-th bit is 1."},
+        {"t": "callout", "style": "key", "text": "After 24 hours, the set of prisoners who die spells out the poisoned bottle's number in **binary** (a dead prisoner = 1, alive = 0). Since 2^10 = 1024 ≥ 1000, **10 prisoners** uniquely identify any of the 1000 bottles. This is binary encoding: n prisoners test up to 2^n bottles."},
+        {"t": "callout", "style": "tip", "text": "General rule: k testers can distinguish up to 2^k bottles in one round."}
+      ],
+      "mcqs": [
+        {"q": "The minimum number of testers to find 1 poisoned bottle among 1000 (one test round) is:", "options": ["500", "100", "10", "1000"], "answer": 2, "explain": "Binary encoding: 2^10 = 1024 ≥ 1000, so 10 testers uniquely identify the bottle."},
+        {"q": "The technique used is:", "options": ["Random sampling", "Binary encoding (each tester = one bit)", "Sorting", "Elimination one by one"], "answer": 1, "explain": "Each bottle's binary index maps to which testers drink it; the pattern of deaths reveals the number."},
+        {"q": "With k testers, the maximum number of bottles distinguishable in one round is:", "options": ["k", "2k", "2^k", "k^2"], "answer": 2, "explain": "Each tester is a bit, so k bits encode 2^k distinct bottle indices."}
+      ]
+    },
+    "u:iv-51-2-eggs-100-floors": {
+      "title": "2 eggs, 100 floors",
+      "summary": "Find the highest safe floor with 2 eggs in the fewest worst-case drops - answer 14.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: A building has 100 floors. An egg breaks if dropped from floor ≥ the (unknown) critical floor. With **2 eggs**, minimise the **worst-case** number of drops to find that floor."},
+        {"t": "p", "text": "Answer: **14 drops**. The trick is to balance the cost so every path has the same worst case. Drop the first egg at floors that **decrease the interval by 1 each time**: floor 14, then 14+13=27, then 27+12=39, ... (steps 14,13,12,...)."},
+        {"t": "callout", "style": "key", "text": "Find the smallest n with n(n+1)/2 ≥ 100. That's **n = 14** (14×15/2 = 105 ≥ 100). Drop egg 1 at floor 14; if it breaks, use egg 2 to check floors 1-13 one by one (13 more drops = 14 total). If it survives, next drop at 14+13=27, etc. Every branch costs at most 14."},
+        {"t": "callout", "style": "tip", "text": "General formula: for F floors and 2 eggs, minimise n where n(n+1)/2 ≥ F."}
+      ],
+      "mcqs": [
+        {"q": "The minimum worst-case number of drops for 2 eggs and 100 floors is:", "options": ["10", "14", "50", "100"], "answer": 1, "explain": "The smallest n with n(n+1)/2 ≥ 100 is 14, giving a balanced worst case of 14 drops."},
+        {"q": "The first egg is dropped with intervals that:", "options": ["Stay constant at 10", "Decrease by 1 each time (14, 13, 12, ...)", "Double each time", "Are random"], "answer": 1, "explain": "Decreasing steps keep the worst-case total drops constant across all branches."},
+        {"q": "If the first egg breaks at the first drop (floor 14), you then:", "options": ["Give up", "Use the second egg to check floors 1-13 linearly", "Drop from floor 27", "Jump to floor 100"], "answer": 1, "explain": "With one egg left you must go linearly upward from the last safe floor to avoid risk."}
+      ]
+    },
+    "u:iv-52-bridge-crossing-in-the-dark": {
+      "title": "Bridge crossing in the dark",
+      "summary": "Four people, one torch, cross in minimum 17 minutes - send the two fastest back strategically.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: Four people cross a bridge at night with **one torch**. At most 2 cross at once, and a pair moves at the **slower** person's speed. Times: 1, 2, 5, 10 minutes. Minimum total time?"},
+        {"t": "steps", "items": [
+          "1 & 2 cross → **2 min**. 1 returns with torch → **1 min**. (3 total)",
+          "5 & 10 cross → **10 min**. 2 returns with torch → **2 min**. (15 total)",
+          "1 & 2 cross → **2 min**. **Total = 17 minutes**."
+        ]},
+        {"t": "callout", "style": "key", "text": "Answer: **17**. The insight: send the **two slowest together** (so their times overlap, not add separately), and use the two **fastest** as torch-bearers to ferry it back. The naive 'fastest escorts everyone' gives 19; pairing the slow ones saves 2."},
+        {"t": "callout", "style": "warn", "text": "The tempting wrong answer is 19 (1 escorts each). Pairing 5 and 10 together is the key optimisation."}
+      ],
+      "mcqs": [
+        {"q": "The minimum time for the 4 people (1,2,5,10) to cross is:", "options": ["19", "17", "21", "15"], "answer": 1, "explain": "Sending the two slowest (5 and 10) together, ferried by the two fastest, yields 17 minutes."},
+        {"q": "The key optimisation is to:", "options": ["Have the fastest escort each person", "Send the two slowest across together", "Cross one at a time", "Never return the torch"], "answer": 1, "explain": "Pairing the two slowest overlaps their times instead of paying each separately."},
+        {"q": "A pair crossing the bridge moves at the:", "options": ["Faster person's speed", "Slower person's speed", "Average speed", "Sum of speeds"], "answer": 1, "explain": "They must stay together, so the pair is limited by the slower person."}
+      ]
+    },
+    "u:iv-53-8-balls-one-heavier": {
+      "title": "8 balls, one heavier",
+      "summary": "Find the one heavier ball among 8 in just 2 weighings on a balance scale.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: 8 identical-looking balls; one is slightly **heavier**. Using a balance scale, find it in the minimum number of weighings."},
+        {"t": "steps", "items": [
+          "**Weighing 1**: put **3 vs 3** (set 2 aside). If they balance, the heavy ball is one of the 2 set aside → weigh those 1 vs 1 to find it (weighing 2).",
+          "If one side of 3 is heavier, the heavy ball is among those 3. **Weighing 2**: from those 3, weigh **1 vs 1**. If they balance, it's the third; else the heavier pan holds it."
+        ]},
+        {"t": "callout", "style": "key", "text": "Answer: **2 weighings**. The trick is splitting into **three groups** (3, 3, 2), not halves — each weighing has three outcomes (left heavy, right heavy, balanced), so it narrows a group of 3 in one step. That's why the answer is 2, not 3."},
+        {"t": "callout", "style": "tip", "text": "General: with a balance, n weighings distinguish among up to 3^n items (here 3^2 = 9 ≥ 8)."}
+      ],
+      "mcqs": [
+        {"q": "The minimum number of weighings to find the heavier ball among 8 is:", "options": ["3", "2", "4", "1"], "answer": 1, "explain": "Splitting into groups of 3-3-2 and using the three-outcome balance finds it in 2 weighings."},
+        {"q": "The key idea is to divide the balls into:", "options": ["Two equal halves", "Three groups (each weighing has 3 outcomes)", "Eight singles", "Groups of 4"], "answer": 1, "explain": "A balance gives three results, so dividing into thirds narrows the search fastest."},
+        {"q": "With a balance scale, n weighings can distinguish up to:", "options": ["2^n items", "3^n items", "n items", "n^2 items"], "answer": 1, "explain": "Each weighing has three outcomes, so n weighings distinguish 3^n possibilities."}
+      ]
+    },
+    "u:iv-54-blue-eyed-islanders": {
+      "title": "Blue-eyed islanders",
+      "summary": "A famous induction puzzle: after N days, all N blue-eyed islanders leave.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: On an island, everyone can see others' eye colours but not their own, and no one may discuss it. The rule: anyone who deduces they have blue eyes must leave that night. A visitor announces 'at least one of you has blue eyes.' If there are **N** blue-eyed people, what happens?"},
+        {"t": "p", "text": "Answer: all **N blue-eyed islanders leave on night N**, by **induction**."},
+        {"t": "points", "items": [
+          "**N=1**: the lone blue-eyed person sees no other blue eyes, so the announcement means it's them → leaves night 1.",
+          "**N=2**: each sees 1 blue-eyed person; if that person doesn't leave night 1, each realises there must be 2 → both leave night 2.",
+          "**General**: each blue-eyed person waits N-1 nights; when the others haven't left, they deduce they too are blue-eyed → all N leave on night N."
+        ]},
+        {"t": "callout", "style": "key", "text": "The puzzle's magic is that a seemingly-known fact ('someone has blue eyes') creates **common knowledge**, enabling an inductive chain. Each blue-eyed islander counts the others and leaves on night N when expected departures don't happen."}
+      ],
+      "mcqs": [
+        {"q": "With N blue-eyed islanders, they all leave on:", "options": ["Night 1", "Night N", "Never", "Night 2N"], "answer": 1, "explain": "By induction, each waits N-1 nights and all N deduce their eye colour on night N."},
+        {"q": "The proof technique for this puzzle is:", "options": ["Contradiction only", "Mathematical induction on the number of blue-eyed people", "Random guessing", "Brute force"], "answer": 1, "explain": "The base case (N=1) extends inductively: if N-1 would leave on night N-1, N leave on night N."},
+        {"q": "The announcement matters because it creates:", "options": ["Nothing new", "Common knowledge that enables the inductive deduction", "A distraction", "A time limit only"], "answer": 1, "explain": "Making the fact common knowledge lets everyone reason about what everyone else knows, triggering the chain."}
+      ]
+    },
+    "u:iv-55-monty-hall": {
+      "title": "Monty Hall",
+      "summary": "Switching doors doubles your winning odds from 1/3 to 2/3 - a probability classic.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: 3 doors; a car behind one, goats behind the others. You pick a door. The host (who knows) opens a **different** door revealing a goat, then offers to let you **switch**. Should you?"},
+        {"t": "p", "text": "Answer: **Yes, switch** — it wins **2/3** of the time vs 1/3 for staying."},
+        {"t": "points", "items": [
+          "Your first pick is right with probability **1/3**, wrong with **2/3**.",
+          "The host's reveal gives information: he always opens a goat door from the two you didn't pick.",
+          "If your original pick was wrong (2/3 of the time), switching lands on the car. So **switching wins with probability 2/3**."
+        ]},
+        {"t": "callout", "style": "key", "text": "The counter-intuitive key: the host's choice is **not random** — he knowingly avoids the car. That concentrates the remaining 2/3 probability onto the other unopened door. Switching turns your likely-wrong first guess into a likely-right one."},
+        {"t": "callout", "style": "tip", "text": "Intuition check: imagine 100 doors — you pick 1 (1% chance), the host opens 98 goats, and the other door now holds the car 99% of the time."}
+      ],
+      "mcqs": [
+        {"q": "In the Monty Hall problem, switching doors wins with probability:", "options": ["1/2", "1/3", "2/3", "1"], "answer": 2, "explain": "Your first pick is right 1/3 of the time, so switching wins the other 2/3."},
+        {"q": "Switching works because the host's door reveal is:", "options": ["Random", "Deliberate (he always reveals a goat), concentrating probability on the other door", "Irrelevant", "Also the car"], "answer": 1, "explain": "The host knowingly avoids the car, shifting the 2/3 probability onto the remaining unopened door."},
+        {"q": "The best strategy is to:", "options": ["Always stay", "Always switch", "Flip a coin", "It never matters"], "answer": 1, "explain": "Switching doubles your winning chance from 1/3 to 2/3."}
+      ]
+    },
+    "u:iv-56-river-crossing": {
+      "title": "River crossing",
+      "summary": "The wolf, goat, cabbage puzzle - ferry items so nothing forbidden is left alone.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: A farmer must ferry a **wolf, goat, and cabbage** across a river in a boat that holds only him + one item. Left alone, the wolf eats the goat, and the goat eats the cabbage. How?"},
+        {"t": "steps", "items": [
+          "Take the **goat** across, return alone.",
+          "Take the **wolf** across, bring the **goat** back.",
+          "Take the **cabbage** across, return alone.",
+          "Take the **goat** across. Done — nothing forbidden was ever left alone."
+        ]},
+        {"t": "callout", "style": "key", "text": "The key insight: the **goat is the conflict** (it's in both forbidden pairs), so it can never be left with either. The trick is being willing to **bring the goat back** — the move people miss. You ferry the goat back and forth to keep the wolf and cabbage safely apart."}
+      ],
+      "mcqs": [
+        {"q": "The first item the farmer should take across is the:", "options": ["Wolf", "Goat", "Cabbage", "Boat only"], "answer": 1, "explain": "The goat is involved in both conflicts, so it must be moved first (and managed carefully)."},
+        {"q": "The clever, easily-missed move in the solution is to:", "options": ["Never return", "Bring the goat back across after dropping the wolf", "Take two items at once", "Leave the wolf with the goat"], "answer": 1, "explain": "Temporarily returning the goat keeps the wolf and cabbage from being left with it."},
+        {"q": "The goat is central to the puzzle because it:", "options": ["Is the heaviest", "Conflicts with both the wolf and the cabbage", "Can swim", "Rows the boat"], "answer": 1, "explain": "The goat appears in both forbidden pairs, so it can never be left with either alone."}
+      ]
+    },
+    "u:iv-57-angle-between-clock-hands": {
+      "title": "Angle between clock hands",
+      "summary": "Use the formula |30H - 5.5M| to find the angle between the hour and minute hands.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle/formula**: Find the angle between the hour and minute hands at time H:M."},
+        {"t": "points", "items": [
+          "The **minute hand** moves 360/60 = **6 degrees per minute**.",
+          "The **hour hand** moves 360/12 = 30 degrees per hour = **0.5 degrees per minute**. So at H:M it's at 30H + 0.5M degrees.",
+          "**Angle = |30H − 5.5M|** degrees (take H mod 12). If the result exceeds 180, subtract from 360 for the smaller angle."
+        ]},
+        {"t": "callout", "style": "key", "text": "Memorise **|30H − 5.5M|**. Example at 3:15: |30·3 − 5.5·15| = |90 − 82.5| = **7.5 degrees** (not 0 — the hour hand has moved past 3). Forgetting the hour hand's drift is the classic mistake."},
+        {"t": "callout", "style": "tip", "text": "Take the smaller angle: if |30H − 5.5M| > 180, the answer is 360 minus that value."}
+      ],
+      "mcqs": [
+        {"q": "The angle between clock hands at H:M is given by:", "options": ["|30H - 6M|", "|30H - 5.5M|", "|6H - 30M|", "30H + 6M"], "answer": 1, "explain": "Hour hand moves 0.5 deg/min (30H+0.5M); minute hand 6M; the difference is |30H - 5.5M|."},
+        {"q": "The angle between the hands at 3:15 is:", "options": ["0 degrees", "7.5 degrees", "90 degrees", "45 degrees"], "answer": 1, "explain": "|30*3 - 5.5*15| = |90 - 82.5| = 7.5 degrees; the hour hand has drifted past 3."},
+        {"q": "If the formula gives more than 180 degrees, the actual (smaller) angle is:", "options": ["The same value", "360 minus that value", "Half of it", "Zero"], "answer": 1, "explain": "Clock-hand angle is the smaller of the two, so subtract from 360 when it exceeds 180."}
+      ]
+    },
+    "u:iv-58-ants-on-a-triangle": {
+      "title": "Ants on a triangle",
+      "summary": "Three ants on a triangle avoid collision with probability 1/4.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: Three ants sit on the corners of a triangle. Each independently picks a direction (clockwise or counter-clockwise) and walks along an edge. What's the probability that **none collide**?"},
+        {"t": "p", "text": "Answer: **1/4**. Each ant has 2 choices → 2^3 = 8 equally likely outcomes. Ants avoid collision only if **all go the same way** — all clockwise or all counter-clockwise."},
+        {"t": "callout", "style": "key", "text": "Only **2** of the 8 outcomes are collision-free (all-CW or all-CCW). So P(no collision) = 2/8 = **1/4**. Any mix of directions forces at least two ants onto the same edge toward each other. (Generalises to 2/2^n for n ants on an n-gon.)"}
+      ],
+      "mcqs": [
+        {"q": "The probability that 3 ants on a triangle don't collide is:", "options": ["1/2", "1/4", "1/8", "1/3"], "answer": 1, "explain": "Only the 2 all-same-direction outcomes (of 8) avoid collision: 2/8 = 1/4."},
+        {"q": "The ants avoid collision only when:", "options": ["They pick randomly", "All choose the same direction (all CW or all CCW)", "Two go one way", "They stop"], "answer": 1, "explain": "Any mixed choice puts two ants on the same edge heading toward each other."},
+        {"q": "How many of the 8 possible direction-combinations are collision-free?", "options": ["1", "2", "4", "6"], "answer": 1, "explain": "Exactly 2: all clockwise and all counter-clockwise."}
+      ]
+    },
+    "u:iv-59-coin-on-a-round-table": {
+      "title": "Coin on a round table",
+      "summary": "A symmetry-strategy game: the first player wins by placing a coin in the centre.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: Two players take turns placing identical coins on a round table (no overlaps, coins must stay on the table). The player who can't place a coin loses. Who wins, and how?"},
+        {"t": "p", "text": "Answer: the **first player wins** with a symmetry strategy."},
+        {"t": "steps", "items": [
+          "Player 1 places the **first coin exactly at the centre**.",
+          "Thereafter, Player 1 **mirrors** every move Player 2 makes — placing a coin at the point **diametrically opposite** Player 2's last coin.",
+          "By symmetry, if Player 2 has a legal spot, its mirror is also free, so Player 1 always has a move. Player 2 eventually runs out first."
+        ]},
+        {"t": "callout", "style": "key", "text": "The winning idea is **symmetry**: taking the centre first breaks the symmetry in your favour, then mirroring guarantees you always have a reply. This 'strategy-stealing by symmetry' pattern recurs in many combinatorial games."}
+      ],
+      "mcqs": [
+        {"q": "In the coin-on-a-round-table game, the winner is the:", "options": ["Second player", "First player", "Neither (draw)", "Depends on table size"], "answer": 1, "explain": "The first player wins by taking the centre and then mirroring — a symmetry strategy."},
+        {"q": "The first player's winning first move is to place a coin:", "options": ["At the edge", "Exactly at the centre", "Randomly", "Off the table"], "answer": 1, "explain": "The centre is the unique point with no distinct mirror, breaking symmetry in the first player's favour."},
+        {"q": "After the first move, the first player wins by:", "options": ["Playing randomly", "Mirroring the opponent's moves (diametrically opposite)", "Passing", "Removing coins"], "answer": 1, "explain": "Mirroring guarantees a legal reply exists whenever the opponent has one."}
+      ]
+    },
+    "u:iv-60-prisoners-and-hats": {
+      "title": "Prisoners and hats",
+      "summary": "Prisoners in a line use parity to save all but (at most) one - the classic hat puzzle.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Puzzle**: N prisoners stand in a line, each wearing a red or black hat, each seeing only the hats **in front** of them. Starting from the back, each must guess their own hat colour (heard by all). How many can be saved with an agreed strategy?"},
+        {"t": "p", "text": "Answer: at least **N−1** are guaranteed saved; the last one has a 50% chance."},
+        {"t": "steps", "items": [
+          "The **back prisoner** (sees everyone) announces the **parity** of red hats they see — e.g. says 'red' if the count of red hats ahead is odd, 'black' if even. This sacrifices them (50% chance of being right).",
+          "Each subsequent prisoner counts red hats **in front** of them and tracks colours **called out behind** them, then deduces their own hat from the parity."
+        ]},
+        {"t": "callout", "style": "key", "text": "The trick is **encoding parity**: the first guess broadcasts the parity of red hats, and everyone else uses that plus what they see and hear to deduce their own colour with certainty. Only the first prisoner is at risk — so **N−1 guaranteed** saved."}
+      ],
+      "mcqs": [
+        {"q": "In the prisoners-and-hats line puzzle, how many can be guaranteed saved?", "options": ["N/2", "N-1", "1", "None"], "answer": 1, "explain": "Everyone except the first prisoner can deduce their hat with certainty using parity."},
+        {"q": "The strategy relies on the first prisoner announcing the:", "options": ["Colour of the front hat", "Parity (odd/even count) of red hats they see", "Their own guess randomly", "Nothing"], "answer": 1, "explain": "Broadcasting the parity of red hats lets everyone else deduce their own colour."},
+        {"q": "The first (back) prisoner's own chance of surviving is:", "options": ["100%", "50%", "0%", "N-1 out of N"], "answer": 1, "explain": "They sacrifice certainty to encode parity, so their own guess is a coin flip."}
+      ]
+    },
+    "u:iv-61-mock-1-dsa-only": {
+      "title": "Mock 1 - DSA only",
+      "summary": "Simulate a coding round: solve out loud, under time, with someone watching.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The first mock focuses purely on **DSA problem-solving under interview conditions** — because solving while watched and talking is a different skill from solving alone."},
+        {"t": "points", "items": [
+          "Have a peer/mentor give you **1-2 unseen medium problems**; solve them **out loud** within a time limit.",
+          "Practise the flow: **clarify → examples/edge cases → approach + complexity → code → test/dry-run**.",
+          "Get feedback on communication, not just correctness — did you explain your thinking?",
+          "Use a shared editor / whiteboard like the real thing."
+        ]},
+        {"t": "callout", "style": "key", "text": "The point of a DSA mock is to rehearse **thinking aloud under time and observation**. Even strong solvers freeze when watched — practising the clarify→approach→code→test flow out loud builds the muscle that matters in real coding rounds."}
+      ],
+      "mcqs": [
+        {"q": "The main skill a DSA-only mock builds is:", "options": ["Typing speed", "Solving out loud under time and observation", "Memorising solutions", "Reading the resume"], "answer": 1, "explain": "Verbalising your approach while watched is a distinct skill from solving alone that mocks develop."},
+        {"q": "A good problem-solving flow to rehearse is:", "options": ["Code immediately, no talking", "Clarify → examples/edge cases → approach + complexity → code → test", "Guess the answer", "Wait silently"], "answer": 1, "explain": "This structured, communicative flow is what interviewers evaluate."},
+        {"q": "Feedback in a DSA mock should cover:", "options": ["Only whether the code compiled", "Communication and thought process, not just correctness", "Nothing", "Only speed"], "answer": 1, "explain": "How clearly you reasoned and communicated matters as much as the final answer."}
+      ]
+    },
+    "u:iv-62-mock-2-dsa-cs-fundamentals": {
+      "title": "Mock 2 - DSA + CS fundamentals",
+      "summary": "Combine a coding problem with rapid-fire core CS questions (OS/DBMS/CN/OOP).",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The second mock adds **core CS fundamentals** to DSA, mirroring rounds (common at product and service firms) that mix a coding problem with theory questions."},
+        {"t": "points", "items": [
+          "One DSA problem, then **rapid-fire fundamentals**: OS (deadlock, scheduling), DBMS (normalization, ACID, indexing), CN (TCP/IP, DNS), OOP (SOLID, polymorphism).",
+          "Practise **concise, confident** answers — 30-60 seconds each, with an example.",
+          "Identify weak subjects and drill them.",
+          "This tests **breadth** under mild pressure."
+        ]},
+        {"t": "callout", "style": "key", "text": "This mock reveals whether you can switch between deep problem-solving and crisp fundamentals recall. Aim for concise, example-backed answers to theory questions — rambling or blanking on basics costs offers even when your DSA is strong."}
+      ],
+      "mcqs": [
+        {"q": "This mock combines DSA with:", "options": ["Only HR questions", "Core CS fundamentals (OS, DBMS, CN, OOP)", "System design only", "Nothing"], "answer": 1, "explain": "It mirrors rounds mixing a coding problem with rapid-fire theory questions."},
+        {"q": "Fundamentals answers should be:", "options": ["Long and rambling", "Concise and confident, ideally with an example", "Skipped", "Read from notes"], "answer": 1, "explain": "Crisp, example-backed answers demonstrate real understanding under pressure."},
+        {"q": "A benefit of this mock is that it:", "options": ["Ignores weak areas", "Surfaces weak subjects to drill", "Tests only speed", "Avoids theory"], "answer": 1, "explain": "Rapid-fire questions expose gaps in fundamentals so you can target them."}
+      ]
+    },
+    "u:iv-63-mock-3-full-technical-round": {
+      "title": "Mock 3 - full technical round",
+      "summary": "A complete technical interview: intro, DSA, fundamentals, and follow-ups end to end.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This mock simulates a **complete technical round** end to end — the way a real interviewer would run it — to build stamina and flow across question types."},
+        {"t": "points", "items": [
+          "Full arc: brief intro → 1-2 DSA problems with **follow-ups/optimisations** → CS fundamentals → maybe a small design/OOP question.",
+          "Practise **handling follow-ups** (‘can you optimise?’, ‘what if input is huge?’) and staying composed when pushed.",
+          "Simulate real length (45-60 min) to build endurance.",
+          "Debrief on both content and demeanor (nervousness, clarity, recovery from a stumble)."
+        ]},
+        {"t": "callout", "style": "key", "text": "A full-round mock builds **stamina and composure across a real interview arc**, especially handling follow-up pressure ('optimise it', 'what about edge cases'). The goal is to make the real thing feel familiar, not novel."}
+      ],
+      "mcqs": [
+        {"q": "The purpose of a full technical-round mock is to:", "options": ["Test one problem only", "Simulate the complete round to build stamina and flow", "Skip fundamentals", "Practice HR answers"], "answer": 1, "explain": "It rehearses the entire arc end to end so the real interview feels familiar."},
+        {"q": "A key skill to practise here is:", "options": ["Ignoring the interviewer", "Handling follow-up questions and pressure to optimise", "Answering fastest", "Memorising one solution"], "answer": 1, "explain": "Interviewers push with follow-ups; staying composed and improving your solution is vital."},
+        {"q": "The debrief should cover:", "options": ["Only correctness", "Both content and demeanor (clarity, composure, recovery)", "Nothing", "Only speed"], "answer": 1, "explain": "How you carry yourself and recover from stumbles matters alongside the technical content."}
+      ]
+    },
+    "u:iv-64-mock-4-project-deep-dive": {
+      "title": "Mock 4 - project deep dive",
+      "summary": "Defend a project end to end: architecture, decisions, trade-offs, and what you'd change.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This mock drills **defending your projects** — interviewers probe your resume projects deeply, and vague answers here sink otherwise-strong candidates."},
+        {"t": "points", "items": [
+          "Have someone grill you on a project: **architecture, why this stack, the hardest bug, trade-offs, what you'd change, how it scales**.",
+          "Practise **drawing the architecture from memory** and explaining each component.",
+          "Prepare a crisp **90-second pitch** plus depth on demand.",
+          "Only claim what you genuinely did; be honest about team contributions."
+        ]},
+        {"t": "callout", "style": "key", "text": "Projects are where interviewers verify you can actually build — so rehearse explaining architecture, justifying decisions, and answering 'what would you change?'. Being able to draw and defend your project from memory separates real builders from resume-padders."}
+      ],
+      "mcqs": [
+        {"q": "In a project deep-dive, you should be ready to explain:", "options": ["Only the project name", "Architecture, decisions, trade-offs, and what you'd change", "Nothing technical", "Only the UI colours"], "answer": 1, "explain": "Interviewers probe design decisions and trade-offs to verify genuine understanding."},
+        {"q": "A strong preparation is to:", "options": ["Forget the details", "Practise drawing the architecture from memory and defending each part", "Claim work you didn't do", "Read the README aloud"], "answer": 1, "explain": "Being able to diagram and justify the design from memory demonstrates real ownership."},
+        {"q": "You should claim on your resume only projects you:", "options": ["Vaguely recall", "Genuinely contributed to and can defend in depth", "Copied", "Never touched"], "answer": 1, "explain": "Deep probing exposes exaggeration, so only claim work you truly did and understand."}
+      ]
+    },
+    "u:iv-65-mock-5-hr-behavioural": {
+      "title": "Mock 5 - HR + behavioural",
+      "summary": "Rehearse behavioural answers aloud and timed - written prep doesn't transfer to speech.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This mock rehearses **HR and behavioural** questions **out loud**, because written answers don't transfer to natural speech — you need to have said them before."},
+        {"t": "points", "items": [
+          "Have someone ask the standard set: tell me about yourself, why us, strengths/weaknesses, conflict/failure STAR stories.",
+          "Deliver each **aloud and timed** — aim for natural, not memorised-robotic.",
+          "Get feedback on **body language, filler words, and confidence**, not just content.",
+          "Refine your **STAR stories** so they're concise and land the point."
+        ]},
+        {"t": "callout", "style": "key", "text": "Behavioural answers must be **spoken, not just written** — saying your STAR stories aloud beforehand is what makes them fluent and confident in the real interview. Practise for natural delivery (no rambling, no robotic recitation)."}
+      ],
+      "mcqs": [
+        {"q": "The most important reason to mock HR questions out loud is that:", "options": ["Writing is enough", "Spoken delivery differs from written prep and needs rehearsal", "HR doesn't matter", "It saves time"], "answer": 1, "explain": "Answers you've only written often come out awkwardly; speaking them builds fluency and confidence."},
+        {"q": "Feedback in an HR mock should include:", "options": ["Only content", "Delivery: body language, filler words, and confidence too", "Nothing", "Only grammar"], "answer": 1, "explain": "How you come across matters in behavioural rounds, not just what you say."},
+        {"q": "Your STAR stories should be:", "options": ["Long and vague", "Concise and rehearsed to land the point", "Improvised on the spot", "Skipped"], "answer": 1, "explain": "Tight, practised STAR stories deliver clear impact under pressure."}
+      ]
+    },
+    "u:iv-66-mock-6-full-loop-simulation": {
+      "title": "Mock 6 - full loop simulation",
+      "summary": "Back-to-back rounds in one sitting to build the endurance a real interview day needs.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This mock simulates a **full interview loop** — several rounds back to back in one day — to build the **endurance and consistency** real on-site/virtual loops demand."},
+        {"t": "points", "items": [
+          "Run **3-4 rounds in a row**: e.g. DSA, DSA + design, fundamentals, and HR — with short breaks like a real day.",
+          "Goal: stay **sharp and consistent** across rounds; fatigue and one bad round often sink candidates.",
+          "Practise **resetting** after a rough round so it doesn't cascade.",
+          "Debrief on stamina, consistency, and energy management."
+        ]},
+        {"t": "callout", "style": "key", "text": "Real loops are a marathon: a full-loop mock trains **endurance and the ability to reset after a weak round**. Many capable candidates fail not on any single question but on fading or spiralling across a long day — practise the whole sequence."}
+      ],
+      "mcqs": [
+        {"q": "A full-loop simulation primarily builds:", "options": ["A single skill", "Endurance and consistency across multiple back-to-back rounds", "Typing speed", "Resume writing"], "answer": 1, "explain": "It rehearses staying sharp across a long, multi-round interview day."},
+        {"q": "A key skill to practise between rounds is:", "options": ["Giving up after a bad round", "Resetting so one weak round doesn't cascade", "Skipping rounds", "Panicking"], "answer": 1, "explain": "Recovering mentally after a rough round prevents a downward spiral across the loop."},
+        {"q": "Many strong candidates fail a loop due to:", "options": ["One perfect round", "Fatigue or spiralling across the day, not a single question", "Too much preparation", "Good time management"], "answer": 1, "explain": "Endurance and emotional consistency across rounds often decide outcomes."}
+      ]
+    },
+    "u:iv-67-mock-7-company-specific-pattern": {
+      "title": "Mock 7 - company-specific pattern",
+      "summary": "Tailor a mock to your target company's known format and question style.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This mock is **tailored to a specific target company's pattern** — since Amazon (LP-based), Google (hard DSA), service firms (aptitude + basics), etc. differ significantly."},
+        {"t": "points", "items": [
+          "**Research** the company's process (rounds, difficulty, focus) and replicate it.",
+          "For Amazon: **Leadership-Principle behavioural** + DSA; for Google: **optimal DSA** with heavy communication; for service firms: **aptitude + fundamentals + basic coding**.",
+          "Use company-tagged problems and past-experience reports.",
+          "Practise the **specific format** you'll actually face."
+        ]},
+        {"t": "callout", "style": "key", "text": "Generic prep isn't enough for your top choice — replicate that company's actual pattern (question style, difficulty, behavioural framework). A mock matching the real format removes surprises and lets you rehearse exactly what's coming."}
+      ],
+      "mcqs": [
+        {"q": "A company-specific mock should replicate the target's:", "options": ["Random format", "Actual round structure, difficulty, and focus", "A generic test", "Only HR"], "answer": 1, "explain": "Matching the real pattern removes surprises and rehearses exactly what you'll face."},
+        {"q": "For an Amazon-specific mock, you'd emphasise:", "options": ["Only aptitude", "Leadership-Principle behavioural questions plus DSA", "System design only", "Typing"], "answer": 1, "explain": "Amazon's process is LP-driven behavioural plus coding, so a mock should reflect that."},
+        {"q": "For a service-based company mock, focus on:", "options": ["Hard graph algorithms", "Aptitude, fundamentals, and basic coding", "Distributed systems", "Advanced DP"], "answer": 1, "explain": "Service firms emphasise aptitude and fundamentals with basic coding, not advanced DSA."}
+      ]
+    },
+    "u:iv-68-mock-8-final-dress-rehearsal": {
+      "title": "Mock 8 - final dress rehearsal",
+      "summary": "A full realistic run-through right before the real thing - polish, don't cram.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The final mock is a **dress rehearsal** close to the real interview: full setup, professional demeanor, realistic conditions — to arrive confident, not cramming."},
+        {"t": "points", "items": [
+          "Do a **complete, realistic run** (video on, professional attire if virtual, quiet setup, real timing).",
+          "Focus on **polish and confidence**, not learning new material — last-minute cramming raises anxiety.",
+          "Check logistics: **tech setup, quiet environment, water, resume/portfolio links ready**.",
+          "End on a **confidence-building** note; trust your preparation."
+        ]},
+        {"t": "callout", "style": "key", "text": "The dress rehearsal is about **polish and mindset**, not new content. Simulate the real conditions (setup, attire, timing) so nothing on the day is unfamiliar, and go in calm and confident. Cramming now hurts more than it helps."}
+      ],
+      "mcqs": [
+        {"q": "The final dress-rehearsal mock should focus on:", "options": ["Learning brand-new topics", "Polish, confidence, and realistic conditions", "Cramming all night", "Skipping practice"], "answer": 1, "explain": "Right before the interview, refine delivery and mindset rather than absorbing new material."},
+        {"q": "Part of a dress rehearsal is checking:", "options": ["Nothing", "Logistics: tech setup, environment, and having resume/links ready", "Only the alarm", "The weather"], "answer": 1, "explain": "Verifying the real-day setup prevents technical or environmental surprises."},
+        {"q": "Last-minute cramming before an interview tends to:", "options": ["Always help", "Raise anxiety and hurt more than help", "Add key skills", "Replace preparation"], "answer": 1, "explain": "By this point, calm confidence beats frantic cramming, which increases stress."}
+      ]
+    },
+    "u:iv-22-one-page-ats-safe-formatting": {
+      "title": "One page, ATS-safe formatting",
+      "summary": "A clean, single-page, parseable resume that survives automated screening.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Most large companies run resumes through an **ATS (Applicant Tracking System)** before a human sees them. A poorly formatted resume can be auto-rejected regardless of your skills."},
+        {"t": "points", "items": [
+          "**One page** for students/freshers — recruiters skim for seconds.",
+          "**Simple, single-column layout**, standard fonts, no images/graphics/tables/columns that ATS can't parse.",
+          "**Standard section headings** (Experience, Education, Projects, Skills) so the ATS maps them correctly.",
+          "Include **keywords from the job description** naturally, since ATS filters on them. Export as **PDF** (unless they ask for .docx)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Keep it one page, single-column, plain fonts, standard headings, and keyword-aligned to the job — so both the ATS and a skimming recruiter can parse it in seconds. Fancy templates with graphics often break ATS parsing."}
+      ],
+      "mcqs": [
+        {"q": "Why should a fresher's resume avoid images, tables, and multi-column layouts?", "options": ["They look bad", "ATS software often can't parse them, risking auto-rejection", "They use more paper", "Recruiters dislike colour"], "answer": 1, "explain": "Applicant Tracking Systems parse text; complex layouts can garble or drop content, causing rejection."},
+        {"q": "The ideal resume length for a student/fresher is:", "options": ["Half a page", "One page", "Three pages", "As long as needed"], "answer": 1, "explain": "One page is standard for early-career candidates; recruiters skim briefly."},
+        {"q": "To pass ATS keyword filters, you should:", "options": ["Stuff random keywords", "Naturally include relevant keywords from the job description", "Avoid all keywords", "Use only images"], "answer": 1, "explain": "ATS matches on role-relevant keywords, so mirror the job description's language honestly."}
+      ]
+    },
+    "u:iv-23-bullets-quantified-impact-not-duties": {
+      "title": "Bullets quantified - impact, not duties",
+      "summary": "Write achievement bullets with action verbs and numbers, not job-description duties.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Weak resumes list **responsibilities** ('was responsible for the backend'); strong resumes show **impact** ('built an API that cut response time 40%'). Quantify wherever possible."},
+        {"t": "h", "text": "The formula"},
+        {"t": "p", "text": "**Action verb + what you did + quantified result.** e.g. 'Optimised DB queries, reducing page load from 3s to 0.8s' or 'Led a 4-person team to ship X, used by 500+ students.'"},
+        {"t": "points", "items": [
+          "Start each bullet with a strong **action verb** (Built, Designed, Reduced, Automated, Led).",
+          "Add **numbers**: %, time saved, users, scale — even estimates.",
+          "Focus on **outcomes** you drove, not the task description."
+        ]},
+        {"t": "callout", "style": "key", "text": "Impact + numbers beats duties every time. 'Action verb → what → quantified result' turns a vague task into evidence of value. Recruiters remember 'cut load time 40%', not 'worked on performance'."}
+      ],
+      "mcqs": [
+        {"q": "The strongest resume bullet format is:", "options": ["'Responsible for the database'", "Action verb + what you did + quantified result", "A list of technologies", "A full paragraph"], "answer": 1, "explain": "Quantified, action-led bullets show impact, which is far more compelling than listing duties."},
+        {"q": "Which bullet is best?", "options": ["'Worked on the website'", "'Rebuilt the checkout flow, reducing cart abandonment by 25%'", "'Was part of the frontend team'", "'Helped with performance'"], "answer": 1, "explain": "It uses an action verb and a quantified outcome, demonstrating real impact."},
+        {"q": "Quantifying bullets matters because numbers:", "options": ["Fill space", "Make impact concrete and memorable", "Confuse recruiters", "Are optional fluff"], "answer": 1, "explain": "Metrics turn claims into evidence and stick in a recruiter's memory."}
+      ]
+    },
+    "u:iv-24-projects-section-with-live-links": {
+      "title": "Projects section with live links",
+      "summary": "Showcase real, working projects with links so reviewers can verify your work.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "For freshers, the **projects section is often the most important** — it's your proof of ability when you lack work experience. Make it verifiable."},
+        {"t": "points", "items": [
+          "Include a **live demo link** and/or **GitHub repo** for each project — reviewers value proof they can click.",
+          "For each: a one-line description, the **tech stack**, and your **specific contribution** (especially in team projects).",
+          "Pick projects that show **breadth and depth** relevant to the role; quality over quantity (2-3 strong beats 6 weak).",
+          "Ensure links actually work and repos are public with real code."
+        ]},
+        {"t": "callout", "style": "key", "text": "Working links (demo + GitHub) turn claims into verifiable proof. For freshers, well-chosen, functioning projects with clear tech stacks and your role stated are often the deciding factor — more than coursework."},
+        {"t": "callout", "style": "warn", "text": "A dead demo link or an empty/broken repo is worse than no link — always test them before applying."}
+      ],
+      "mcqs": [
+        {"q": "For freshers, the projects section is important because it:", "options": ["Fills space", "Provides verifiable proof of ability when work experience is limited", "Is optional", "Impresses without needing to work"], "answer": 1, "explain": "Projects demonstrate real skills, standing in for professional experience."},
+        {"q": "Each project should ideally include:", "options": ["Only a title", "A live/repo link, tech stack, and your specific contribution", "Just the year", "A long essay"], "answer": 1, "explain": "Links and clear details let reviewers verify the work and understand your role."},
+        {"q": "A broken demo link or empty repo is:", "options": ["Fine", "Worse than no link — always verify links work", "Preferred", "Impressive"], "answer": 1, "explain": "A dead link undermines credibility; test everything before submitting."}
+      ]
+    },
+    "u:iv-25-skills-section-honest-to-what-you-can-defend": {
+      "title": "Skills section honest to what you can defend",
+      "summary": "List only skills you can be interviewed on — every item is fair game.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Interviewers probe anything on your resume. Listing a skill you can't back up is a **fast way to lose credibility** mid-interview."},
+        {"t": "points", "items": [
+          "Only list skills you can **discuss and be tested on** — if you put 'React', expect React questions.",
+          "Consider grouping by proficiency or category (Languages, Frameworks, Tools) rather than one long unranked list.",
+          "Avoid buzzword-stuffing ('expert in 20 technologies') — it invites tough questions and reads as inflated.",
+          "It's fine to list a skill you're learning if you're honest about your level when asked."
+        ]},
+        {"t": "callout", "style": "key", "text": "Everything on your resume is interview fair game. List only what you can defend — one skill you know well beats five you half-know, because a single failed probe on an inflated claim damages trust in the whole resume."}
+      ],
+      "mcqs": [
+        {"q": "You should list a skill on your resume only if you:", "options": ["Heard of it", "Can discuss and be interviewed on it", "Want to look impressive", "Saw it in the job description"], "answer": 1, "explain": "Interviewers test listed skills; unable-to-defend claims quickly destroy credibility."},
+        {"q": "Buzzword-stuffing the skills section:", "options": ["Is recommended", "Invites tough questions and reads as inflated/dishonest", "Guarantees interviews", "Is required by ATS"], "answer": 1, "explain": "Overclaiming skills backfires when probed and undermines trust in your whole resume."},
+        {"q": "The consequence of listing an unfamiliar skill is:", "options": ["Nothing", "A failed probe that damages trust in the entire resume", "An automatic offer", "A higher salary"], "answer": 1, "explain": "One caught exaggeration makes interviewers doubt everything else you claimed."}
+      ]
+    },
+    "u:iv-26-linkedin-headline-and-about-rewritten": {
+      "title": "LinkedIn headline and About rewritten",
+      "summary": "A specific headline and a real About section make recruiters reach out.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Recruiters search LinkedIn heavily. A strong **headline** and **About** section improve discoverability and first impression."},
+        {"t": "points", "items": [
+          "**Headline**: more than 'Student at X' — say what you do and target, e.g. 'CS Undergrad | Backend & DSA | Java, Node' (keywords help search).",
+          "**About**: a short first-person summary of who you are, your focus/strengths, and what you're seeking — not a wall of buzzwords.",
+          "Fill out experience, projects, and skills; keep it consistent with your resume.",
+          "A professional photo and complete profile raise credibility and search ranking."
+        ]},
+        {"t": "callout", "style": "key", "text": "Optimise the headline with role-relevant keywords (recruiters search them) and write a genuine, concise About that states your focus and what you want. A complete, keyword-rich profile gets you found and messaged."}
+      ],
+      "mcqs": [
+        {"q": "A strong LinkedIn headline is:", "options": ["'Student'", "Specific and keyword-rich, e.g. 'CS Undergrad | Backend | Java, Node'", "Empty", "Your full name only"], "answer": 1, "explain": "Specific keywords improve recruiter search discoverability and convey your focus."},
+        {"q": "The About section should be:", "options": ["A wall of buzzwords", "A concise, genuine summary of your focus, strengths, and goals", "Left blank", "A copy of your entire resume"], "answer": 1, "explain": "A readable, authentic summary makes a good first impression and aids search."},
+        {"q": "Recruiters find candidates on LinkedIn primarily by:", "options": ["Random browsing", "Searching keywords in headlines/skills", "Photos only", "Connection count"], "answer": 1, "explain": "Keyword search is central, so a keyword-optimised, complete profile ranks higher and gets contacted."}
+      ]
+    },
+    "u:iv-27-github-pinned-repos-with-real-readmes": {
+      "title": "GitHub pinned repos with real READMEs",
+      "summary": "Curate pinned repos and write READMEs that explain and demo each project.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Interviewers and recruiters look at your GitHub. **Pinned repos with good READMEs** turn it into a portfolio; an empty or messy profile undersells you."},
+        {"t": "points", "items": [
+          "**Pin your best 3-6 repos** so they appear first — quality curation, not every experiment.",
+          "Each repo needs a **README**: what it does, how to run it, tech stack, a screenshot/demo GIF or link.",
+          "Clean commit history and clear structure signal professionalism.",
+          "Remove or hide half-finished, embarrassing repos from the pinned view."
+        ]},
+        {"t": "callout", "style": "key", "text": "A good README is what makes a repo valuable to a reviewer — it explains and demonstrates the project so they don't have to read all the code. Pin your strongest work and let the READMEs sell it."}
+      ],
+      "mcqs": [
+        {"q": "Pinned GitHub repos should be:", "options": ["Every repo you have", "Your best 3-6, curated to appear first", "Empty", "Only forks"], "answer": 1, "explain": "Curating your strongest work up front makes the best impression."},
+        {"q": "A good repo README includes:", "options": ["Nothing", "What it does, how to run it, tech stack, and a demo/screenshot", "Only the license", "Just the title"], "answer": 1, "explain": "A clear README lets reviewers understand and try the project without reading all the code."},
+        {"q": "A GitHub profile matters because interviewers:", "options": ["Never look at it", "Often review it as a portfolio of your real work", "Only check star counts", "Ignore READMEs"], "answer": 1, "explain": "Recruiters and interviewers inspect GitHub as evidence of your actual coding."}
+      ]
+    },
+    "u:iv-28-leetcode-gfg-profile-made-public": {
+      "title": "LeetCode / GFG profile made public",
+      "summary": "A visible problem-solving profile signals consistent DSA practice.",
+      "minutes": 2,
+      "blocks": [
+        {"t": "p", "text": "A public **LeetCode / GeeksforGeeks / Codeforces** profile is tangible proof of your **DSA practice and consistency** — valued for product-based roles."},
+        {"t": "points", "items": [
+          "Make the profile **public** and link it on your resume/LinkedIn if the numbers are respectable.",
+          "It shows **volume, difficulty spread, and consistency** (streaks, contest ratings) — proof you practice, not just claim.",
+          "Only showcase it if it's reasonably strong; a sparse profile is better left unlinked."
+        ]},
+        {"t": "callout", "style": "key", "text": "A visible competitive-programming/DSA profile is credible evidence of consistent practice — a plus for product-company applications. Link it when the record supports you; skip it if it's thin."}
+      ],
+      "mcqs": [
+        {"q": "A public LeetCode/GFG profile primarily signals:", "options": ["Design skills", "Consistent DSA/problem-solving practice", "Communication skills", "Salary history"], "answer": 1, "explain": "It provides visible proof of coding-problem practice, valued for product roles."},
+        {"q": "You should link your competitive-programming profile when it is:", "options": ["Empty", "Reasonably strong (good volume/consistency)", "Private", "Irrelevant to any role"], "answer": 1, "explain": "Showcase it only if the record helps you; a sparse profile can hurt more than help."},
+        {"q": "Such profiles are most valued by:", "options": ["Only service companies", "Product-based companies emphasising DSA", "No companies", "Only startups"], "answer": 1, "explain": "Product companies weigh DSA heavily, so a strong problem-solving profile is a plus there."}
+      ]
+    },
+    "u:iv-29-portfolio-site-live": {
+      "title": "Portfolio site live",
+      "summary": "A simple personal site aggregates your work and doubles as a project itself.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **live portfolio website** presents your projects, skills, and contact in one place — and building/deploying it is itself a small project that demonstrates full-stack ability."},
+        {"t": "points", "items": [
+          "Keep it **simple and fast**: about, projects (with links), skills, resume download, contact.",
+          "**Deploy it** (Netlify/Vercel/GitHub Pages) with a clean custom domain if possible.",
+          "It shows initiative and that you can ship and deploy something real.",
+          "Link it from your resume and LinkedIn."
+        ]},
+        {"t": "callout", "style": "key", "text": "A live, deployed portfolio is a two-for-one: it aggregates your work in one clickable place AND proves you can build and ship. Keep it clean and functional — a broken or over-designed site backfires."}
+      ],
+      "mcqs": [
+        {"q": "A portfolio site provides a double benefit because it:", "options": ["Is required by law", "Aggregates your work AND demonstrates you can build/deploy something", "Replaces a resume entirely", "Guarantees offers"], "answer": 1, "explain": "It both showcases projects and serves as evidence of shipping a real, deployed product."},
+        {"q": "A portfolio site should be:", "options": ["Over-designed and slow", "Simple, fast, and actually deployed/live", "Never deployed", "Password-protected"], "answer": 1, "explain": "A clean, functional, live site makes the best impression; a broken one hurts."},
+        {"q": "Where should you link your portfolio?", "options": ["Nowhere", "On your resume and LinkedIn", "Only privately", "In a hidden file"], "answer": 1, "explain": "Linking it from your resume and LinkedIn maximises visibility to recruiters."}
+      ]
+    },
+    "u:iv-30-reviewed-by-two-other-people": {
+      "title": "Reviewed by two other people",
+      "summary": "Fresh eyes catch typos, weak bullets, and unclear points you've gone blind to.",
+      "minutes": 2,
+      "blocks": [
+        {"t": "p", "text": "After many edits you stop seeing your own resume's flaws. Having **2+ people review** it catches errors and improves clarity before recruiters see it."},
+        {"t": "points", "items": [
+          "Ask a **peer/senior** (ideally in tech) and someone detail-oriented to review.",
+          "They catch **typos, grammar, unclear bullets, and formatting issues** you've become blind to.",
+          "A senior can flag if your bullets convey impact and if the level/keywords fit your target roles.",
+          "One typo can cost an interview at competitive companies — reviews are cheap insurance."
+        ]},
+        {"t": "callout", "style": "key", "text": "Never send a resume only you have read. Two reviewers — one for detail (typos/clarity) and one senior (impact/fit) — catch what you can't see anymore. It's the cheapest quality boost available."}
+      ],
+      "mcqs": [
+        {"q": "Getting your resume reviewed by others helps because:", "options": ["It wastes time", "Fresh eyes catch errors and unclear points you've gone blind to", "Reviewers write it for you", "It's legally required"], "answer": 1, "explain": "After many edits you miss your own flaws; others spot typos, weak bullets, and clarity issues."},
+        {"q": "Ideal reviewers include:", "options": ["No one", "A detail-oriented person and a tech senior", "Only yourself", "A random stranger only"], "answer": 1, "explain": "Detail review catches errors; a senior assesses impact and role fit."},
+        {"q": "A single typo on a resume can:", "options": ["Never matter", "Cost an interview at competitive companies", "Guarantee an offer", "Improve ATS ranking"], "answer": 1, "explain": "Small errors signal carelessness and can eliminate you when competition is high."}
+      ]
+    },
+    "u:iv-31-separate-variant-for-product-vs-service-roles": {
+      "title": "Separate variant for product vs service roles",
+      "summary": "Tailor two resume versions — DSA/projects for product, breadth/aptitude for service.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Product-based (FAANG-style) and service-based (TCS/Infosys-style) companies value different things. A **tailored variant** for each converts better than one generic resume."},
+        {"t": "table", "headers": ["", "Product variant", "Service variant"], "rows": [
+          ["Emphasise", "DSA, strong projects, system/design exposure, CP profile", "Breadth, adaptability, communication, core CS, willingness to learn"],
+          ["Skills", "Depth in a stack + algorithms", "Range of technologies, quick learning"],
+          ["Signal", "Deep technical ability", "Reliable generalist, good fit for training"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Tailoring beats generic: for product roles lead with DSA depth and impactful projects; for service roles emphasise breadth, adaptability, and communication. Keep the same true content — just reorder/emphasise to match what each values."},
+        {"t": "callout", "style": "tip", "text": "This is reprioritising, not fabricating — every version must be honest. You're highlighting the parts most relevant to each employer type."}
+      ],
+      "mcqs": [
+        {"q": "Product-based companies' resumes should emphasise:", "options": ["Only communication", "DSA, strong projects, and technical depth", "Typing speed", "Number of pages"], "answer": 1, "explain": "Product companies weigh algorithmic depth and impactful projects heavily."},
+        {"q": "Service-based company resumes benefit from emphasising:", "options": ["Only competitive programming", "Breadth, adaptability, communication, and core fundamentals", "Nothing", "Salary history"], "answer": 1, "explain": "Service companies value versatile, trainable generalists with good communication."},
+        {"q": "Tailoring resume variants means:", "options": ["Fabricating experience per role", "Honestly reordering/emphasising relevant content for each employer type", "Using one generic resume", "Lying about skills"], "answer": 1, "explain": "You highlight the most relevant true content for each audience, never fabricate."}
+      ]
+    },
+    "u:iv-32-tcs-nqt-sections-timing-cutoffs": {
+      "title": "TCS NQT - sections, timing, cutoffs",
+      "summary": "A structured aptitude + coding test; know the sections and manage time per section.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The **TCS National Qualifier Test (NQT)** is a common gateway for TCS (and shared with other firms). It's a structured, sectional, often time-bound-per-section online test."},
+        {"t": "points", "items": [
+          "Typical sections: **Numerical Ability (quant)**, **Verbal Ability**, **Reasoning Ability**, and a **Programming/Coding** section (a couple of coding problems).",
+          "Sections are usually **individually timed** — you can't borrow time across them, so pace each.",
+          "There may be **sectional cutoffs** (clear each section) plus an overall cutoff.",
+          "Preparation focus: aptitude practice + basic coding (arrays, strings, simple logic). Speed and accuracy both matter."
+        ]},
+        {"t": "callout", "style": "key", "text": "The structure to internalise: sectional timing (pace each section, don't overspend on one) and possible sectional cutoffs (you must clear each, not just the total). Balanced prep across aptitude + basic coding is key."}
+      ],
+      "mcqs": [
+        {"q": "The TCS NQT typically has:", "options": ["Only a coding round", "Multiple sections (numerical, verbal, reasoning, programming), often individually timed", "Just an interview", "No time limit"], "answer": 1, "explain": "It's a sectional aptitude + coding test, usually with per-section timing."},
+        {"q": "Sections being individually timed means you should:", "options": ["Save all time for coding", "Pace each section since time can't be borrowed across them", "Skip verbal", "Do them in any order without limits"], "answer": 1, "explain": "Per-section timers require managing time within each section separately."},
+        {"q": "Sectional cutoffs require you to:", "options": ["Only beat the overall total", "Clear each individual section's cutoff", "Skip a section", "Score full marks"], "answer": 1, "explain": "You must clear each section's threshold, not just the aggregate."}
+      ]
+    },
+    "u:iv-33-tcs-digital-advanced-pattern": {
+      "title": "TCS Digital - advanced pattern",
+      "summary": "A higher-package track with tougher coding and a more technical interview.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**TCS Digital** is a higher-compensation offer track (above the base Ninja/entry role), reached via a higher NQT score and/or a tougher test, with more technical interviews."},
+        {"t": "points", "items": [
+          "Requires clearing a **higher cutoff** and typically harder **coding** than the base track.",
+          "Interviews are more **technical**: deeper DSA, projects, and CS fundamentals (OOP, DBMS, OS, CN).",
+          "Sometimes an **Advanced Coding** section separates Digital candidates from the base pool.",
+          "Prep like a mid-tier product role: solid DSA + strong core CS + defensible projects."
+        ]},
+        {"t": "callout", "style": "key", "text": "TCS Digital = the higher-package variant: reached by a higher score/harder coding, with more technical interviews. Treat it as a step up from Ninja — stronger DSA and core CS depth are what separate Digital candidates."}
+      ],
+      "mcqs": [
+        {"q": "TCS Digital differs from the base TCS track by:", "options": ["Being easier", "Offering a higher package with a tougher test and more technical interviews", "Having no coding", "Requiring no cutoff"], "answer": 1, "explain": "Digital is the higher-compensation track reached via higher performance and harder rounds."},
+        {"q": "To reach TCS Digital you typically need:", "options": ["A lower score", "A higher NQT score / advanced coding performance", "No preparation", "Only good communication"], "answer": 1, "explain": "A higher cutoff and stronger coding separate Digital candidates from the base pool."},
+        {"q": "Digital interviews emphasise:", "options": ["Only HR questions", "Deeper DSA, projects, and core CS fundamentals", "Nothing technical", "Typing speed"], "answer": 1, "explain": "The technical bar is higher — solid DSA and core CS depth are expected."}
+      ]
+    },
+    "u:iv-34-infosys-sp-dse-pattern": {
+      "title": "Infosys - SP/DSE pattern",
+      "summary": "Higher-package Infosys tracks (System/Specialist Programmer, DSE) with harder coding.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Infosys hires across tiers: the base **Systems Engineer (SE)**, and higher tracks like **Specialist/System Programmer (SP)** and **Digital Specialist Engineer (DSE)** with better packages and harder tests."},
+        {"t": "points", "items": [
+          "Base SE: aptitude + basic technical; higher tracks (SP/DSE) require stronger **coding/DSA** and a more technical interview.",
+          "SP/DSE cutoffs and coding difficulty are notably higher than the base role.",
+          "Prep: aptitude + pseudocode/coding basics for SE; solid DSA + core CS for SP/DSE."
+        ]},
+        {"t": "callout", "style": "key", "text": "Infosys has tiers: base SE (aptitude + basics) up to SP/DSE (harder coding, better pay, more technical interview). Target the higher tracks with real DSA and core CS depth, not just aptitude."}
+      ],
+      "mcqs": [
+        {"q": "Infosys's higher tracks (SP/DSE) compared to the base SE role require:", "options": ["Less preparation", "Stronger coding/DSA and a more technical interview for a better package", "Only aptitude", "No coding"], "answer": 1, "explain": "SP/DSE are higher-compensation tracks with harder coding and technical bars than base SE."},
+        {"q": "For the base Infosys Systems Engineer role, prep focuses on:", "options": ["Only system design", "Aptitude plus coding/pseudocode basics", "Advanced algorithms only", "Nothing"], "answer": 1, "explain": "The base track emphasises aptitude and fundamental coding, with higher tracks adding DSA depth."},
+        {"q": "DSE (Digital Specialist Engineer) is:", "options": ["The lowest tier", "A higher-package specialist track with a tougher process", "An HR-only role", "Unpaid"], "answer": 1, "explain": "DSE is among the higher Infosys tracks, requiring stronger technical performance."}
+      ]
+    },
+    "u:iv-35-wipro-elite-turbo": {
+      "title": "Wipro Elite / Turbo",
+      "summary": "Wipro's standard (Elite NTH) and higher-package (Turbo) hiring tracks.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Wipro Elite (NTH - National Talent Hunt)** is the standard entry hiring; **Wipro Turbo** is a higher-package track for stronger candidates, typically with tougher assessment."},
+        {"t": "points", "items": [
+          "**Elite**: an online test (aptitude, verbal, logical, basic coding) + essay/written English + interviews.",
+          "**Turbo**: higher cutoff and more challenging coding/technical rounds for a better package.",
+          "Wipro often includes a **written communication (essay)** section — don't neglect it.",
+          "Prep: aptitude + basic coding for Elite; add DSA depth for Turbo."
+        ]},
+        {"t": "callout", "style": "key", "text": "Wipro Elite (standard) vs Turbo (higher package, harder test) — the same tier pattern as TCS/Infosys. Note Wipro's essay/written-English component, which some candidates overlook."}
+      ],
+      "mcqs": [
+        {"q": "Wipro Turbo differs from Elite by:", "options": ["Being for interns only", "Offering a higher package via a tougher assessment", "Having no test", "Being easier"], "answer": 1, "explain": "Turbo is the higher-compensation track requiring stronger performance than standard Elite."},
+        {"q": "A component of Wipro's hiring some candidates overlook is:", "options": ["Coding", "A written communication (essay) section", "Aptitude", "The interview"], "answer": 1, "explain": "Wipro often assesses written English via an essay, which shouldn't be neglected."},
+        {"q": "The Elite (NTH) test covers:", "options": ["Only system design", "Aptitude, verbal, logical, and basic coding", "Only HR", "Nothing"], "answer": 1, "explain": "The standard test spans aptitude, verbal/logical reasoning, and basic coding."}
+      ]
+    },
+    "u:iv-36-accenture": {
+      "title": "Accenture",
+      "summary": "A mass-recruiter process: cognitive + technical assessment, coding, and communication.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Accenture** is a large mass recruiter with a multi-stage assessment emphasising aptitude, basic technical knowledge, coding, and communication."},
+        {"t": "points", "items": [
+          "Typical stages: **Cognitive assessment** (aptitude, verbal, reasoning), **Technical assessment** (fundamentals: networking, cloud, common apps, pseudocode), a **coding round** (2 problems), and a **communication assessment**.",
+          "A distinctive **Communication Assessment** (spoken English) is part of the process — practise it.",
+          "Prep: aptitude + basic tech fundamentals + simple coding; polish spoken English."
+        ]},
+        {"t": "callout", "style": "key", "text": "Accenture's process is aptitude-heavy with basic technical + coding and a notable spoken-communication assessment. Prepare broadly (aptitude, fundamentals, simple coding) and practise speaking clearly for the communication round."}
+      ],
+      "mcqs": [
+        {"q": "A distinctive stage in Accenture's process is the:", "options": ["System design round", "Communication (spoken English) assessment", "Research paper review", "Portfolio review"], "answer": 1, "explain": "Accenture includes a spoken communication assessment alongside cognitive/technical stages."},
+        {"q": "Accenture's assessment is best described as:", "options": ["Purely advanced DSA", "Aptitude-heavy with basic technical fundamentals and simple coding", "Only design", "Interview only"], "answer": 1, "explain": "It emphasises aptitude and fundamentals with a basic coding round, not advanced algorithms."},
+        {"q": "As a mass recruiter, Accenture prioritises candidates who are:", "options": ["Only competitive programmers", "Well-rounded (aptitude, fundamentals, communication)", "Design specialists", "Non-technical"], "answer": 1, "explain": "Broad competence and communication fit its large-scale, generalist hiring."}
+      ]
+    },
+    "u:iv-37-cognizant-genc": {
+      "title": "Cognizant GenC",
+      "summary": "Cognizant's tiered GenC / GenC Next / GenC Elevate tracks with rising difficulty.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Cognizant** hires through **GenC** and higher tiers like **GenC Next** and **GenC Elevate**, with increasing package and difficulty."},
+        {"t": "points", "items": [
+          "**GenC**: aptitude + basic coding + technical + communication — the standard track.",
+          "**GenC Next / Elevate**: higher packages requiring stronger **DSA/coding** and more technical interviews.",
+          "Assessment spans aptitude, reasoning, and coding; higher tiers weight coding more.",
+          "Prep: aptitude + basic coding for GenC; solid DSA + core CS for the elevated tiers."
+        ]},
+        {"t": "callout", "style": "key", "text": "Same tier pattern again: GenC (standard) → GenC Next/Elevate (higher pay, harder coding). Aim higher by building real DSA and core CS strength beyond aptitude."}
+      ],
+      "mcqs": [
+        {"q": "Cognizant's higher tiers (GenC Next/Elevate) compared to base GenC require:", "options": ["Less coding", "Stronger DSA/coding for a higher package", "No assessment", "Only communication"], "answer": 1, "explain": "The elevated tracks demand more technical/coding strength for better compensation."},
+        {"q": "The base GenC assessment includes:", "options": ["Only system design", "Aptitude, coding, technical, and communication", "Only HR", "A research task"], "answer": 1, "explain": "GenC spans aptitude and basic coding with technical and communication components."},
+        {"q": "To target the elevated Cognizant tiers, focus on:", "options": ["Only aptitude", "Solid DSA and core CS fundamentals", "Typing", "Nothing"], "answer": 1, "explain": "Stronger DSA and core CS separate candidates for the higher-package tracks."}
+      ]
+    },
+    "u:iv-38-capgemini": {
+      "title": "Capgemini",
+      "summary": "A process notable for pseudocode, a game-based aptitude round, and English.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Capgemini's** assessment is distinctive for its **pseudocode** section and (often) a **game-based aptitude** round, plus English and behavioural components."},
+        {"t": "points", "items": [
+          "**Pseudocode round** — questions on code logic/output (know common languages' basics and logic), a defining feature.",
+          "**Game-based / adaptive aptitude** — non-standard reasoning tasks in some cycles.",
+          "**English communication** and behavioural/HR components.",
+          "Prep: pseudocode/logic practice + aptitude + English."
+        ]},
+        {"t": "callout", "style": "key", "text": "Capgemini's hallmark is the **pseudocode** section — practise reading code and predicting output/logic. Combined with game-based aptitude and English, it rewards logical reasoning over heavy DSA."}
+      ],
+      "mcqs": [
+        {"q": "A defining section of Capgemini's assessment is:", "options": ["System design", "Pseudocode (code logic/output questions)", "A research paper", "Portfolio review"], "answer": 1, "explain": "Capgemini is known for its pseudocode round testing code logic and output prediction."},
+        {"q": "Some Capgemini cycles include a distinctive:", "options": ["Advanced DSA contest", "Game-based / adaptive aptitude round", "Design interview", "Group debate only"], "answer": 1, "explain": "Game-based reasoning tasks appear in Capgemini's aptitude in some cycles."},
+        {"q": "Preparation for Capgemini should emphasise:", "options": ["Only advanced algorithms", "Pseudocode/logic, aptitude, and English", "System design", "Nothing"], "answer": 1, "explain": "Its process rewards logical reasoning, pseudocode, and communication over heavy DSA."}
+      ]
+    },
+    "u:iv-39-deloitte": {
+      "title": "Deloitte",
+      "summary": "A consulting-firm process weighing communication, assessments, and fit alongside tech.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Deloitte** (a consulting/services firm) hiring often includes online assessments, versant/communication tests, and interviews that weigh **communication, aptitude, and behavioural fit** alongside technical basics."},
+        {"t": "points", "items": [
+          "Online assessment (aptitude, verbal, sometimes technical MCQs) and a **communication/versant** test.",
+          "Interviews probe **projects, basics, and behavioural fit** — consulting values client-facing communication.",
+          "For tech roles, know your projects and core fundamentals; for all roles, strong communication matters.",
+          "Prep: aptitude + communication + solid grounding in your resume."
+        ]},
+        {"t": "callout", "style": "key", "text": "As a consulting firm, Deloitte weighs communication and behavioural fit heavily, alongside aptitude and technical basics. Polished communication and knowing your own projects/resume cold are as important as coding here."}
+      ],
+      "mcqs": [
+        {"q": "As a consulting firm, Deloitte places extra weight on:", "options": ["Only competitive programming", "Communication and behavioural fit", "System design contests", "Typing speed"], "answer": 1, "explain": "Client-facing consulting roles value strong communication and fit alongside technical basics."},
+        {"q": "Deloitte's assessment often includes a:", "options": ["Kaggle competition", "Communication/versant test plus aptitude", "Hardware exam", "Design portfolio"], "answer": 1, "explain": "A communication assessment and aptitude are common, reflecting the consulting emphasis."},
+        {"q": "For Deloitte interviews you should especially be ready to discuss:", "options": ["Nothing", "Your projects, fundamentals, and behavioural fit", "Only salary", "Only algorithms"], "answer": 1, "explain": "Expect project deep-dives, fundamentals, and behavioural questions given the consulting context."}
+      ]
+    },
+    "u:iv-40-amazon-oa-2-problems-workstyles": {
+      "title": "Amazon OA - 2 problems + workstyles",
+      "summary": "Amazon's online assessment: two DSA problems plus a Leadership Principles work-style survey.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Amazon's Online Assessment (OA)** typically has **two coding (DSA) problems** plus a **Work Styles Assessment** based on Amazon's **Leadership Principles**, and sometimes a work-simulation."},
+        {"t": "points", "items": [
+          "**Two DSA problems** — usually medium difficulty (arrays, strings, graphs, DP, etc.); correctness + passing test cases matters.",
+          "**Work Styles Assessment** — behavioural survey mapping you to the **14 Leadership Principles** (e.g. Customer Obsession, Ownership, Bias for Action).",
+          "Interviews later are heavily **behavioural (LP-based)** plus DSA — prepare STAR stories mapped to the principles.",
+          "Prep: solid DSA + know and internalise the Leadership Principles."
+        ]},
+        {"t": "callout", "style": "key", "text": "Amazon is uniquely **Leadership-Principles-driven**: the OA has 2 DSA problems AND a work-styles survey, and interviews mix DSA with LP-based behavioural questions. Prepare STAR stories tagged to specific principles (Ownership, Customer Obsession, etc.)."}
+      ],
+      "mcqs": [
+        {"q": "Amazon's online assessment typically includes:", "options": ["Only one essay", "Two DSA coding problems plus a work-styles (Leadership Principles) assessment", "Only aptitude", "A design interview"], "answer": 1, "explain": "The OA pairs two coding problems with a behavioural work-styles survey based on the Leadership Principles."},
+        {"q": "Amazon's behavioural interviews are structured around its:", "options": ["Aptitude rules", "14 Leadership Principles", "Coding style guide", "Dress code"], "answer": 1, "explain": "Behavioural questions map to the Leadership Principles, so prepare STAR stories tagged to them."},
+        {"q": "The best behavioural prep for Amazon is to:", "options": ["Memorise algorithms only", "Prepare STAR stories mapped to specific Leadership Principles", "Skip behavioural prep", "Focus only on salary"], "answer": 1, "explain": "LP-tagged STAR stories directly answer Amazon's principle-based behavioural questions."}
+      ]
+    },
+    "u:iv-41-microsoft": {
+      "title": "Microsoft",
+      "summary": "A product-company loop: multiple DSA rounds plus design and a culture-fit round.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Microsoft** runs a product-company interview loop: an online coding assessment (for campus), then multiple **DSA-focused interviews**, some design, and a final culture/fit round (often 'AA' - As Appropriate)."},
+        {"t": "points", "items": [
+          "**Strong DSA** across rounds: trees, graphs, DP, strings — with clean code and clear communication of your approach.",
+          "Some rounds include **design/OOP** or problem-solving discussion; senior interviewers probe depth.",
+          "**Culture fit / behavioural** matters (growth mindset is a Microsoft value).",
+          "Prep: DSA depth + articulate problem-solving + core CS + a couple of behavioural stories."
+        ]},
+        {"t": "callout", "style": "key", "text": "Microsoft is DSA-heavy across several rounds with clear communication expected, plus design/OOP and a culture-fit round. Practise solving out loud with clean code — how you reason matters as much as the answer."}
+      ],
+      "mcqs": [
+        {"q": "Microsoft's interview loop is primarily:", "options": ["Aptitude-only", "Multiple DSA-focused rounds plus design and culture fit", "Communication-only", "A single MCQ test"], "answer": 1, "explain": "It's a product-company loop emphasising DSA, with design and a culture/fit round."},
+        {"q": "Beyond correctness, Microsoft interviewers value:", "options": ["Silence", "Clear communication of your approach and clean code", "Fastest typing", "Memorised trivia"], "answer": 1, "explain": "Articulating your reasoning and writing clean code weighs heavily in the evaluation."},
+        {"q": "A Microsoft cultural value to reflect is:", "options": ["Fixed mindset", "Growth mindset", "Working alone always", "Avoiding feedback"], "answer": 1, "explain": "Microsoft emphasises a growth mindset, worth demonstrating in behavioural answers."}
+      ]
+    },
+    "u:iv-42-google": {
+      "title": "Google",
+      "summary": "Multiple deep DSA rounds emphasising optimal solutions, edge cases, and clarity.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Google's** process is famously **DSA-heavy**: several coding rounds demanding **optimal solutions**, strong analysis, and clean communication, plus 'Googleyness'/behavioural."},
+        {"t": "points", "items": [
+          "Expect **hard problem-solving**: graphs, DP, trees, complex data structures — with attention to **time/space complexity** and **edge cases**.",
+          "Interviewers value your **thought process**: clarify the problem, discuss approaches/trade-offs, then code cleanly and test.",
+          "**Googleyness & Leadership** round assesses collaboration, humility, and culture.",
+          "Prep: deep DSA (LeetCode medium/hard), complexity analysis, and clear out-loud problem solving."
+        ]},
+        {"t": "callout", "style": "key", "text": "Google demands optimal solutions and rigorous reasoning, not just a working answer: clarify, discuss trade-offs, analyse complexity, handle edge cases, and communicate throughout. Depth of problem-solving and clarity are the bar."}
+      ],
+      "mcqs": [
+        {"q": "Google's coding rounds especially emphasise:", "options": ["Any working solution", "Optimal solutions with complexity analysis and edge cases", "Only communication", "Aptitude"], "answer": 1, "explain": "Google expects optimal, well-analysed solutions and rigorous handling of edge cases."},
+        {"q": "During a Google interview you should:", "options": ["Code silently and fast", "Clarify the problem, discuss approaches/trade-offs, then code cleanly and test", "Skip analysis", "Guess"], "answer": 1, "explain": "Communicating your reasoning and trade-offs is central to the evaluation."},
+        {"q": "The 'Googleyness & Leadership' round assesses:", "options": ["Only algorithms", "Collaboration, humility, and cultural fit", "Typing speed", "Salary flexibility"], "answer": 1, "explain": "It evaluates behavioural traits and culture fit alongside the technical rounds."}
+      ]
+    },
+    "u:iv-43-adobe": {
+      "title": "Adobe",
+      "summary": "DSA plus a strong emphasis on core CS (OS/DBMS/OOP) and project depth.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Adobe's** process combines **DSA** with a notable emphasis on **core CS fundamentals** (OS, DBMS, OOP, sometimes CN) and deep discussion of your **projects**."},
+        {"t": "points", "items": [
+          "An online round (DSA + sometimes aptitude/CS MCQs), then technical interviews.",
+          "Interviews probe **DSA + core CS** more than some product firms — be solid on OOP, DBMS, OS.",
+          "Expect **project deep-dives**: design decisions, trade-offs, and what you'd improve.",
+          "Prep: DSA + strong core CS + defensible projects."
+        ]},
+        {"t": "callout", "style": "key", "text": "Adobe balances DSA with strong **core CS** (OS/DBMS/OOP) and project depth — don't neglect fundamentals for pure algorithms. Know your projects cold and be ready to justify design decisions."}
+      ],
+      "mcqs": [
+        {"q": "Compared to some product firms, Adobe places notable emphasis on:", "options": ["Only aptitude", "Core CS fundamentals (OS, DBMS, OOP) alongside DSA", "Only communication", "No fundamentals"], "answer": 1, "explain": "Adobe weighs core CS subjects and project depth significantly, not just algorithms."},
+        {"q": "In Adobe interviews, be prepared for:", "options": ["No project questions", "Project deep-dives on design decisions and trade-offs", "Only HR", "Only puzzles"], "answer": 1, "explain": "Expect detailed discussion of your projects and the reasoning behind them."},
+        {"q": "A balanced Adobe prep includes:", "options": ["Only LeetCode", "DSA plus strong core CS and defensible projects", "Only aptitude", "Nothing technical"], "answer": 1, "explain": "Adobe rewards breadth: DSA, core CS fundamentals, and project mastery."}
+      ]
+    },
+    "u:iv-44-goldman-sachs-jpmorgan": {
+      "title": "Goldman Sachs / JPMorgan",
+      "summary": "Finance-tech firms: DSA plus aptitude/quant, CS fundamentals, and domain awareness.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Goldman Sachs** and **JPMorgan** (finance/tech) combine **DSA** with **aptitude/quantitative** ability, **core CS**, and sometimes light **finance/domain** awareness. GS is known for its multi-section online assessment."},
+        {"t": "points", "items": [
+          "Online assessment often includes **coding + aptitude/analytical/quant** sections (GS has a well-known multi-part HackerRank test).",
+          "Interviews cover **DSA, core CS (OOP, DBMS, OS), and problem-solving**; occasionally basic finance/logic.",
+          "**Communication and attention to detail** matter in finance-tech.",
+          "Prep: DSA + quant/aptitude + core CS; be articulate."
+        ]},
+        {"t": "callout", "style": "key", "text": "Finance-tech firms like GS/JPMorgan blend DSA with **quantitative/analytical aptitude** and core CS — so don't drop aptitude for pure coding. GS's multi-section online test is notable; balanced prep across coding + quant + fundamentals wins."}
+      ],
+      "mcqs": [
+        {"q": "Finance-tech firms like Goldman Sachs emphasise, alongside DSA:", "options": ["Only design", "Quantitative/analytical aptitude and core CS", "Only communication", "No fundamentals"], "answer": 1, "explain": "They blend coding with quant/analytical ability and core CS, sometimes light finance awareness."},
+        {"q": "Goldman Sachs is known for a:", "options": ["Single easy MCQ", "Multi-section online assessment (coding + aptitude/analytical)", "No online test", "Design-only round"], "answer": 1, "explain": "GS's online assessment famously spans multiple sections including coding and aptitude."},
+        {"q": "For these firms you should NOT neglect:", "options": ["Aptitude/quant preparation", "Sleeping", "Your name", "The dress code only"], "answer": 0, "explain": "Quantitative/analytical aptitude is a real component, so balance it with coding prep."}
+      ]
+    },
+    "u:iv-45-walmart-gcc-pattern": {
+      "title": "Walmart / GCC pattern",
+      "summary": "Global Capability Centre product roles: solid DSA plus core CS and system-design basics.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Walmart Global Tech** and other **GCCs (Global Capability Centres)** — the India product/engineering arms of global firms — run product-style loops: **DSA**, **core CS**, and (for some roles) **low-level/system design** basics."},
+        {"t": "points", "items": [
+          "Online coding assessment (DSA), then technical interviews on **DSA + core CS**.",
+          "Higher/experienced roles add **LLD/HLD** discussion; freshers focus on DSA + fundamentals.",
+          "GCCs generally pay well and expect product-grade problem solving.",
+          "Prep: strong DSA + core CS; add design basics for senior roles."
+        ]},
+        {"t": "callout", "style": "key", "text": "GCCs (Walmart Global Tech, etc.) are product-style employers: expect solid DSA plus core CS, with design rounds for higher roles. Prepare like a product company — algorithms depth and fundamentals — rather than a services aptitude test."}
+      ],
+      "mcqs": [
+        {"q": "GCCs (Global Capability Centres) like Walmart Global Tech typically expect:", "options": ["Only aptitude", "Product-style DSA plus core CS (and design for senior roles)", "No coding", "Only communication"], "answer": 1, "explain": "GCCs run product-grade loops emphasising DSA and fundamentals, with design for higher roles."},
+        {"q": "For a fresher GCC role, the focus should be:", "options": ["Only system design", "Strong DSA and core CS fundamentals", "Only aptitude", "Nothing technical"], "answer": 1, "explain": "Freshers are assessed mainly on DSA and core CS; design rounds come at higher levels."},
+        {"q": "Preparing for a GCC is most like preparing for a:", "options": ["Services aptitude test", "Product-based company loop", "Non-technical role", "Sales interview"], "answer": 1, "explain": "GCCs mirror product-company hiring, so prepare with algorithms depth and fundamentals."}
+      ]
+    },
+    "u:iv-0-a-conflict-with-a-teammate-and-how-it-resolved": {
+      "title": "A conflict with a teammate and how it resolved",
+      "summary": "Show maturity: focus on the issue, not the person, and on the resolution.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Interviewers ask this to gauge your **emotional maturity, communication, and collaboration** under friction — not whether you avoid conflict."},
+        {"t": "points", "items": [
+          "**Situation/Task** — briefly set up the disagreement (e.g. a technical approach or workload split).",
+          "**Action** — what YOU did: listened to their view, separated the person from the problem, found common ground or data to decide.",
+          "**Result** — the resolution and what improved (relationship, outcome, a process change)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Pick a real, low-drama conflict with a genuine resolution. Blame no one, show you sought to understand their side, and end on a positive outcome and lesson. Never say 'I've never had a conflict' — it reads as inexperienced or evasive."},
+        {"t": "callout", "style": "warn", "text": "Avoid stories where you 'won' by overpowering someone or where the conflict is really about someone else's incompetence. Keep it about resolution, not victory."}
+      ],
+      "mcqs": [
+        {"q": "The best focus for a 'conflict with a teammate' answer is:", "options": ["Proving the other person was wrong", "The issue and how you constructively resolved it", "Avoiding all conflict", "How you escalated to a manager immediately"], "answer": 1, "explain": "Interviewers assess maturity and collaboration — keep it about the problem and the resolution, not blame."},
+        {"q": "Saying 'I've never had a conflict at work' typically:", "options": ["Impresses interviewers", "Reads as inexperienced or evasive", "Is the ideal answer", "Shows leadership"], "answer": 1, "explain": "Everyone encounters friction; denying it suggests limited experience or avoidance."},
+        {"q": "A strong resolution ends with:", "options": ["A grudge", "A positive outcome and something you learned", "The other person being fired", "No change"], "answer": 1, "explain": "Close on the constructive result and lesson to show growth."}
+      ]
+    },
+    "u:iv-1-a-failure-and-what-you-changed-afterwards": {
+      "title": "A failure, and what you changed afterwards",
+      "summary": "Own a real failure, then emphasise the concrete change and growth it produced.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This tests **accountability and growth mindset**. The failure itself matters less than what you learned and changed."},
+        {"t": "points", "items": [
+          "Choose a **real, meaningful** failure you genuinely own (not a humblebrag like 'I work too hard').",
+          "Take **responsibility** without excuses; briefly explain what went wrong and why.",
+          "Spend most of the answer on **what you changed** — a habit, process, or approach — and evidence it worked next time."
+        ]},
+        {"t": "callout", "style": "key", "text": "The formula: own it → what you learned → the concrete change → proof it stuck. A genuine, well-processed failure shows self-awareness and resilience — far stronger than a fake weakness."},
+        {"t": "callout", "style": "warn", "text": "Avoid disguised strengths ('my failure is being a perfectionist') and failures that reveal a red-flag trait (dishonesty, giving up). Pick something you truly grew from."}
+      ],
+      "mcqs": [
+        {"q": "The most important part of a 'describe a failure' answer is:", "options": ["The severity of the failure", "What you learned and concretely changed afterwards", "Blaming circumstances", "Choosing a fake weakness"], "answer": 1, "explain": "Interviewers look for accountability and growth — the lesson and change matter most."},
+        {"q": "A weak approach to this question is:", "options": ["Owning a real mistake", "Giving a disguised strength like 'I'm too much of a perfectionist'", "Explaining what you changed", "Showing self-awareness"], "answer": 1, "explain": "Humblebrag 'failures' read as evasive; a genuine, processed failure is stronger."},
+        {"q": "You should take responsibility for the failure:", "options": ["Only partially, blaming others", "Fully, without excuses, then focus on growth", "Not at all", "By minimising it"], "answer": 1, "explain": "Owning it without excuses demonstrates accountability, which the question is really testing."}
+      ]
+    },
+    "u:iv-2-a-tight-deadline-you-actually-hit": {
+      "title": "A tight deadline you actually hit",
+      "summary": "Demonstrate prioritisation, focus, and delivery under pressure with a concrete result.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This probes **prioritisation, time management, and grace under pressure**. Use a specific, true example where you delivered."},
+        {"t": "points", "items": [
+          "**Situation** — the deadline and why it was tight (scope, unexpected change).",
+          "**Action** — how you handled it: broke work down, prioritised the critical path, cut non-essentials, communicated early, asked for help if needed.",
+          "**Result** — you hit the deadline; quantify the outcome if possible."
+        ]},
+        {"t": "callout", "style": "key", "text": "Emphasise HOW you managed it — prioritising ruthlessly, communicating status, and focusing on the critical path — not just that you 'worked hard'. Showing you can descope and communicate under pressure is what impresses."},
+        {"t": "callout", "style": "tip", "text": "If the deadline required cutting scope, say so — deciding what NOT to do is a sign of good judgment, not weakness."}
+      ],
+      "mcqs": [
+        {"q": "This question primarily assesses your:", "options": ["Typing speed", "Prioritisation and delivery under pressure", "Salary expectations", "Technical stack knowledge"], "answer": 1, "explain": "It's about managing time, prioritising the critical path, and delivering under a tight timeline."},
+        {"q": "A strong answer emphasises:", "options": ["Just 'I worked really hard'", "How you prioritised, descoped, and communicated to hit the deadline", "That deadlines are unfair", "Missing the deadline"], "answer": 1, "explain": "The method (prioritisation, communication, focus) is what demonstrates competence."},
+        {"q": "Cutting non-essential scope to hit a deadline is:", "options": ["A sign of weakness", "Good judgment worth mentioning", "Always wrong", "Dishonest"], "answer": 1, "explain": "Deciding what to drop shows prioritisation skill, a positive to highlight."}
+      ]
+    },
+    "u:iv-3-something-you-taught-yourself-from-scratch": {
+      "title": "Something you taught yourself from scratch",
+      "summary": "Show curiosity, self-direction, and the ability to learn quickly — vital for engineers.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This reveals your **self-learning ability and initiative** — hugely valued because technology changes constantly and no one can teach you everything."},
+        {"t": "points", "items": [
+          "Pick something concrete you learned independently (a framework, a tool, a concept) and **why** you needed it.",
+          "Describe your **learning process** — resources, practice, how you overcame being stuck.",
+          "Show the **outcome** — what you built or achieved with it, proving you actually applied it."
+        ]},
+        {"t": "callout", "style": "key", "text": "Emphasise the process and the application, not just the topic. 'I taught myself X, and here's what I built with it' proves genuine self-directed learning — the trait that lets you grow into any role."},
+        {"t": "callout", "style": "tip", "text": "Bonus: mention how you now approach learning new things, showing it's a repeatable skill, not a one-off."}
+      ],
+      "mcqs": [
+        {"q": "This question is mainly assessing:", "options": ["Your GPA", "Self-directed learning ability and initiative", "Salary expectations", "Company knowledge"], "answer": 1, "explain": "It gauges whether you can independently learn what a role requires as tech evolves."},
+        {"q": "A strong answer includes:", "options": ["Only the topic name", "Your learning process and what you built/applied with it", "That you found it too hard", "A list of certificates only"], "answer": 1, "explain": "Showing how you learned and applied it proves real, transferable self-learning."},
+        {"q": "The trait this question values is important because:", "options": ["Learning never matters", "Technology changes constantly, so self-learning drives long-term growth", "Companies teach everything", "It reduces salary"], "answer": 1, "explain": "Self-learners adapt to new tools and grow, which employers prize in a fast-moving field."}
+      ]
+    },
+    "u:iv-4-a-time-you-led-without-being-in-charge": {
+      "title": "A time you led without being in charge",
+      "summary": "Demonstrate initiative and influence without formal authority — real leadership.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This tests **leadership and influence** independent of a title. Leading without authority — rallying peers, taking initiative — is often more telling than a formal role."},
+        {"t": "points", "items": [
+          "Pick a moment you stepped up: noticed a gap, proposed a direction, coordinated peers, or unblocked the team.",
+          "Emphasise **influence through persuasion and example**, not command — you had no authority to give orders.",
+          "Show the **team outcome** you enabled, and that you brought people along rather than steamrolling them."
+        ]},
+        {"t": "callout", "style": "key", "text": "The key is influence without authority: you led by initiative, persuasion, and example — getting others to follow because they wanted to, not because they had to. Highlight the collective result, not personal glory."}
+      ],
+      "mcqs": [
+        {"q": "'Leading without being in charge' specifically demonstrates:", "options": ["Formal management skills", "Influence and initiative without formal authority", "Following orders", "Technical depth only"], "answer": 1, "explain": "It shows you can rally and guide peers through influence rather than a title."},
+        {"q": "In this story you should emphasise:", "options": ["Ordering people around", "Persuasion, initiative, and example that brought the team along", "That you had authority", "Individual glory"], "answer": 1, "explain": "Without authority, leadership comes from influence and setting an example, ending in a team win."},
+        {"q": "A good outcome to highlight is:", "options": ["Personal recognition only", "The collective/team result you enabled", "That others resented you", "Nothing changed"], "answer": 1, "explain": "Emphasising the team outcome shows genuine, service-oriented leadership."}
+      ]
+    },
+    "u:iv-5-something-you-shipped-end-to-end": {
+      "title": "Something you shipped end to end",
+      "summary": "Prove ownership and delivery across the full lifecycle, not just a piece.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This assesses **ownership and the ability to deliver** something complete — from idea to a working, used result — which is what companies ultimately pay for."},
+        {"t": "points", "items": [
+          "Pick a project you drove across the full lifecycle: **design → build → test → deploy → real users**.",
+          "Cover the key **decisions and trade-offs** you made and challenges you overcame.",
+          "Emphasise the **impact**: who used it, what it achieved (users, metrics, feedback)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Show you can take something from nothing to done and in-use — including the unglamorous parts (testing, deployment, iteration). End-to-end ownership signals you'll deliver, not just contribute fragments."},
+        {"t": "callout", "style": "tip", "text": "Be ready for deep follow-ups: the hardest bug, what you'd change, why you chose that stack. Only claim work you can defend in detail."}
+      ],
+      "mcqs": [
+        {"q": "'Shipped end to end' means you owned:", "options": ["Only the coding", "The full lifecycle from design through deployment and real use", "Just the idea", "Only testing"], "answer": 1, "explain": "It demonstrates delivering a complete, working, used product — not an isolated piece."},
+        {"q": "The most compelling part to emphasise is:", "options": ["The programming language version", "The impact — who used it and what it achieved", "The number of files", "The IDE you used"], "answer": 1, "explain": "Real usage and outcomes prove you delivered something valuable end to end."},
+        {"q": "You should only pick a project you can:", "options": ["Barely remember", "Defend in detail under deep follow-up questions", "Claim without contributing", "Describe vaguely"], "answer": 1, "explain": "Interviewers probe deeply; claim only work whose decisions and bugs you can explain."}
+      ]
+    },
+    "u:iv-6-a-disagreement-with-someone-more-senior": {
+      "title": "A disagreement with someone more senior",
+      "summary": "Show you can push back respectfully with data, then commit to the decision.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This checks whether you can **voice a well-reasoned dissent respectfully** and then align — 'disagree and commit'. It tests both backbone and humility."},
+        {"t": "points", "items": [
+          "Set up a case where you had a genuine, data-backed reason to disagree with a senior person.",
+          "Show you raised it **respectfully and privately**, with evidence, framed around the goal — not ego.",
+          "Show the outcome: either they reconsidered, or you **committed fully** to their call once decided. Both are good endings."
+        ]},
+        {"t": "callout", "style": "key", "text": "The winning theme is 'disagree and commit': push back with data and respect, but once a decision is made, support it wholeheartedly. This shows you have judgment AND aren't difficult to work with."},
+        {"t": "callout", "style": "warn", "text": "Don't make it a story of you being right and the senior being foolish. Emphasise the process (how you raised it) over the verdict."}
+      ],
+      "mcqs": [
+        {"q": "The ideal theme for disagreeing with a senior person is:", "options": ["Always defer silently", "Disagree respectfully with data, then commit to the final decision", "Prove them wrong publicly", "Escalate immediately"], "answer": 1, "explain": "'Disagree and commit' shows judgment and backbone without being difficult to work with."},
+        {"q": "You should raise your disagreement:", "options": ["Publicly to embarrass them", "Respectfully and privately, backed by evidence", "Anonymously", "By complaining to HR"], "answer": 1, "explain": "Respectful, evidence-based, goal-focused pushback demonstrates maturity."},
+        {"q": "A good ending is:", "options": ["You won and they looked foolish", "Either they reconsidered, or you committed fully to their decision", "You quit", "You held a grudge"], "answer": 1, "explain": "Both reconsideration and committing after being overruled are positive, mature outcomes."}
+      ]
+    },
+    "u:iv-7-your-proudest-build-and-why": {
+      "title": "Your proudest build and why",
+      "summary": "Convey genuine passion and technical depth on something you truly own.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This lets you show **passion, technical depth, and what you value**. Pick something you're genuinely proud of — enthusiasm is contagious and hard to fake."},
+        {"t": "points", "items": [
+          "Explain **what** it does and **why it matters** to you (the problem it solved, the challenge it posed).",
+          "Go into the **technical depth** you're proud of — a hard decision, a clever solution, a scaling challenge.",
+          "Be ready to defend every part; interviewers dig into your proudest work hardest."
+        ]},
+        {"t": "callout", "style": "key", "text": "Choose the project you can talk about with real enthusiasm AND deep technical detail. What you're proud of signals your values (craftsmanship? impact? learning?). Genuine passion + defensible depth is the winning combination."}
+      ],
+      "mcqs": [
+        {"q": "The best project to choose is one you:", "options": ["Barely worked on", "Are genuinely passionate about and can explain in technical depth", "Copied entirely", "Don't remember"], "answer": 1, "explain": "Authentic passion plus deep, defensible detail makes the strongest impression."},
+        {"q": "This question reveals your:", "options": ["Salary expectations", "Values, passion, and technical depth", "Typing speed", "Availability"], "answer": 1, "explain": "What you're proud of and how deeply you know it signals what you care about and your skill."},
+        {"q": "Interviewers tend to probe your proudest project:", "options": ["Not at all", "The hardest, so pick something you can fully defend", "Only the name", "Randomly"], "answer": 1, "explain": "Expect deep follow-ups, so choose work whose every decision you can justify."}
+      ]
+    },
+    "u:iv-8-hard-feedback-you-received-and-acted-on": {
+      "title": "Hard feedback you received and acted on",
+      "summary": "Show coachability: receive criticism gracefully and change because of it.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This assesses **coachability and self-awareness** — arguably the most valued junior trait. Can you take criticism without defensiveness and actually improve?"},
+        {"t": "points", "items": [
+          "Pick real, useful **critical** feedback (not trivial praise). Own that it was hard to hear.",
+          "Show you **received it non-defensively**, reflected, and understood its validity.",
+          "Detail the **specific change** you made and evidence it improved things."
+        ]},
+        {"t": "callout", "style": "key", "text": "Coachability is what interviewers most want in juniors: prove you can hear tough feedback without ego and turn it into concrete improvement. The change you made is the proof."},
+        {"t": "callout", "style": "warn", "text": "Don't pick feedback you secretly disagree with and dismissed — that reveals the opposite of coachability. Choose feedback you genuinely acted on."}
+      ],
+      "mcqs": [
+        {"q": "This question most directly measures:", "options": ["Technical skill", "Coachability and self-awareness", "Salary flexibility", "Speed"], "answer": 1, "explain": "It reveals whether you take criticism well and improve — key for a junior engineer."},
+        {"q": "The proof that you handled feedback well is:", "options": ["That you disagreed with it", "The specific change you made afterward", "That you forgot it", "That you argued back"], "answer": 1, "explain": "Acting on feedback with a concrete change demonstrates genuine coachability."},
+        {"q": "You should receive hard feedback:", "options": ["Defensively", "Non-defensively, reflecting on its validity", "By ignoring it", "By blaming the giver"], "answer": 1, "explain": "Openness to criticism without defensiveness is exactly what's being assessed."}
+      ]
+    },
+    "u:iv-9-a-time-you-helped-someone-else-succeed": {
+      "title": "A time you helped someone else succeed",
+      "summary": "Show generosity and teamwork — that you lift others, not just yourself.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This reveals **teamwork, empathy, and generosity** — whether you make those around you better, which strong teams need."},
+        {"t": "points", "items": [
+          "Pick a time you mentored, unblocked, or supported a teammate/peer to a real win.",
+          "Emphasise **their** success and your supporting role, not credit-grabbing.",
+          "Show the ripple effect: a better team, a stronger relationship, or their growth."
+        ]},
+        {"t": "callout", "style": "key", "text": "The theme is selflessness: you helped someone else win and are proud of THEIR success. This signals you'll be a multiplier on a team, not just an individual contributor chasing personal credit."}
+      ],
+      "mcqs": [
+        {"q": "This question assesses whether you:", "options": ["Only care about personal success", "Lift and support others (teamwork/generosity)", "Work fastest", "Know the most tools"], "answer": 1, "explain": "It reveals whether you make teammates better — a multiplier trait teams value."},
+        {"q": "The emphasis should be on:", "options": ["Your own credit", "The other person's success and your supporting role", "How you outshone them", "Technical trivia"], "answer": 1, "explain": "Centring their win shows genuine generosity rather than credit-seeking."},
+        {"q": "A good example is:", "options": ["Taking credit for a teammate's work", "Mentoring or unblocking a peer to a real achievement", "Competing against a peer", "Working alone"], "answer": 1, "explain": "Helping a peer succeed through mentoring/support demonstrates the teamwork being tested."}
+      ]
+    },
+    "u:iv-10-tell-me-about-yourself-90-seconds": {
+      "title": "Tell me about yourself (90 seconds)",
+      "summary": "A crisp present-past-future pitch tailored to the role — your opening impression.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The most common opener. It sets the tone and lets you steer. Deliver a tight, **90-second** professional narrative — not your life story."},
+        {"t": "h", "text": "The present-past-future structure"},
+        {"t": "points", "items": [
+          "**Present** — who you are now (year, focus, key strength): 'I'm a final-year CS student focused on backend development.'",
+          "**Past** — a highlight or two that built relevant skills (a project, internship, achievement).",
+          "**Future** — why you're excited about THIS role/company, connecting your path to it."
+        ]},
+        {"t": "callout", "style": "key", "text": "Use **present → past → future**, keep it to ~90 seconds, and tailor it to the role. It's a professional pitch, not personal history — end by pointing toward why you want this job, which invites the next question."},
+        {"t": "callout", "style": "warn", "text": "Don't recite your resume line by line or start with 'I was born in...'. Rehearse it aloud until it's natural but not robotic."}
+      ],
+      "mcqs": [
+        {"q": "A strong 'tell me about yourself' follows which structure?", "options": ["Chronological life story", "Present → Past → Future, tailored to the role", "Random facts", "Just the resume read aloud"], "answer": 1, "explain": "Present (who you are) → Past (relevant highlights) → Future (why this role) is a crisp, purposeful pitch."},
+        {"q": "The ideal length is about:", "options": ["10 seconds", "90 seconds", "10 minutes", "As long as possible"], "answer": 1, "explain": "Around 90 seconds is tight enough to hold attention while covering the essentials."},
+        {"q": "You should end this answer by:", "options": ["Listing hobbies", "Connecting your path to why you want this role", "Asking for the salary", "Repeating your name"], "answer": 1, "explain": "Pointing to why you want the job steers the conversation and shows genuine interest."}
+      ]
+    },
+    "u:iv-11-why-this-company": {
+      "title": "Why this company",
+      "summary": "Prove you researched them specifically — genuine, tailored reasons beat generic flattery.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This tests whether you're **genuinely interested in THEM** or applying everywhere. Specific, researched reasons show real intent."},
+        {"t": "points", "items": [
+          "Reference **specifics**: their product, mission, tech stack, culture, recent news, or a value that resonates with you.",
+          "Connect their specifics to **your goals/strengths** — a two-way fit, not one-way flattery.",
+          "Avoid generic lines ('you're a great company', 'good work-life balance') that fit any employer."
+        ]},
+        {"t": "callout", "style": "key", "text": "Do your homework and cite something specific to THIS company, then link it to what you want to do and offer. Genuine, tailored reasons distinguish you from candidates who spray applications everywhere."},
+        {"t": "callout", "style": "warn", "text": "Never say 'because it's a big brand' or 'for the money' as the primary reason — it signals you'd leave for the next offer."}
+      ],
+      "mcqs": [
+        {"q": "A strong 'why this company' answer is:", "options": ["Generic praise that fits any company", "Specific, researched reasons linked to your goals", "About the salary", "That you applied everywhere"], "answer": 1, "explain": "Specificity proves genuine interest and that you did your research on them."},
+        {"q": "Which is a weak reason to give?", "options": ["Their specific product or mission resonates with you", "'You're a big well-known brand'", "A value of theirs that matches yours", "Their tech stack fits your skills"], "answer": 1, "explain": "Brand-size/generic reasons apply to any employer and suggest shallow interest."},
+        {"q": "The best answer frames the fit as:", "options": ["One-way flattery", "Two-way: what draws you to them AND what you'd contribute", "Only about perks", "Only about you"], "answer": 1, "explain": "Showing mutual fit — their specifics plus your contribution — is most convincing."}
+      ]
+    },
+    "u:iv-12-why-should-we-hire-you": {
+      "title": "Why should we hire you",
+      "summary": "Match your top strengths to their specific needs, with evidence.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Your chance to make a **targeted sales pitch**: connect your strengths directly to the role's requirements, backed by proof."},
+        {"t": "points", "items": [
+          "Pick 2-3 of **their key requirements** (from the job description) you strongly meet.",
+          "Give **evidence** for each — a project, result, or experience, not just adjectives.",
+          "Add what's **distinctive** about you (a combination of skills, attitude, or fit) that others may lack."
+        ]},
+        {"t": "callout", "style": "key", "text": "Map YOUR strengths to THEIR needs with concrete evidence: 'You need X; I did Y which shows X.' Confidence backed by proof — plus one distinctive angle — beats generic self-praise."},
+        {"t": "callout", "style": "tip", "text": "Keep it focused (2-3 points). Rambling dilutes the pitch; a tight, evidenced match is memorable."}
+      ],
+      "mcqs": [
+        {"q": "The best structure for 'why should we hire you' is:", "options": ["List every skill you have", "Match 2-3 of your strengths to their specific needs, with evidence", "Say you'll work for less", "Repeat your resume"], "answer": 1, "explain": "Targeting their requirements with proof makes a compelling, relevant case."},
+        {"q": "Each claimed strength should be backed by:", "options": ["Just adjectives", "Concrete evidence (a project, result, or experience)", "Nothing", "A certificate list"], "answer": 1, "explain": "Evidence turns a claim into a credible, memorable proof point."},
+        {"q": "You should also convey:", "options": ["Every weakness", "Something distinctive about you that others may lack", "That you're desperate", "Salary demands"], "answer": 1, "explain": "A distinctive angle (unique skill combo or fit) helps you stand out from similar candidates."}
+      ]
+    },
+    "u:iv-13-strengths-and-weaknesses-without-clich-s": {
+      "title": "Strengths and weaknesses (without cliches)",
+      "summary": "Give a real, relevant strength with proof, and a genuine weakness you're improving.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This tests **self-awareness and honesty**. Cliches ('I'm a perfectionist', 'I work too hard') signal evasion and are instantly recognised."},
+        {"t": "points", "items": [
+          "**Strength** — pick one relevant to the role and back it with a concrete example, not a bare adjective.",
+          "**Weakness** — a REAL, non-fatal one, plus the **specific steps** you're taking to improve. This shows growth, not a flaw.",
+          "Avoid disguised strengths ('my weakness is caring too much') — interviewers see through them."
+        ]},
+        {"t": "callout", "style": "key", "text": "For the weakness, honesty + a plan is the winning move: name a genuine, non-critical weakness and describe how you're actively addressing it. That demonstrates self-awareness and a growth mindset — the real point of the question."},
+        {"t": "callout", "style": "warn", "text": "Don't name a weakness that's core to the job (e.g. 'I'm bad at coding' for a dev role). Pick something real but not disqualifying."}
+      ],
+      "mcqs": [
+        {"q": "The best way to answer the 'weakness' part is to:", "options": ["Give a disguised strength ('too much of a perfectionist')", "Name a genuine, non-fatal weakness plus how you're improving it", "Say you have none", "Name a job-critical weakness"], "answer": 1, "explain": "Honesty about a real weakness plus a concrete improvement plan shows self-awareness and growth."},
+        {"q": "Cliche answers to this question:", "options": ["Impress interviewers", "Are instantly recognised as evasive", "Are recommended", "Show honesty"], "answer": 1, "explain": "Overused lines like 'I work too hard' read as dodging the question."},
+        {"q": "The strength you give should be:", "options": ["Irrelevant to the role", "Relevant and backed by a concrete example", "A vague adjective only", "Exaggerated"], "answer": 1, "explain": "A role-relevant strength with evidence is credible and useful."}
+      ]
+    },
+    "u:iv-14-where-do-you-see-yourself-in-five-years": {
+      "title": "Where do you see yourself in five years",
+      "summary": "Show ambition and direction that align with a realistic path at the company.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This checks your **ambition, direction, and whether your goals fit the company** — and whether you're likely to stay and grow."},
+        {"t": "points", "items": [
+          "Show a **realistic growth path**: developing expertise, taking on more responsibility/ownership, perhaps mentoring or a specialisation.",
+          "Align it with a trajectory **possible at this company** — signalling you plan to grow WITH them.",
+          "Balance ambition with humility: eager to grow, but focused on excelling in the role first."
+        ]},
+        {"t": "callout", "style": "key", "text": "Convey direction and ambition that fit a plausible path at this company — growth in skill and responsibility. Avoid answers that imply you'll leave (starting your own company, an unrelated field) or that you have no plan."},
+        {"t": "callout", "style": "warn", "text": "'I want your job' or 'I'll be a CEO' can read as arrogant; 'I don't know' reads as directionless. Aim for grounded ambition."}
+      ],
+      "mcqs": [
+        {"q": "A good five-year answer conveys:", "options": ["No plan at all", "Realistic growth in skill and responsibility aligned with the company", "Plans to leave and start a rival", "Wanting the interviewer's exact job"], "answer": 1, "explain": "Ambition with a plausible path at the company shows direction and likely retention."},
+        {"q": "An answer implying you'll leave soon (e.g. start your own company) is:", "options": ["Ideal", "A red flag suggesting low retention", "Neutral", "Required"], "answer": 1, "explain": "Employers want candidates likely to grow with them, not leave quickly."},
+        {"q": "The tone should balance:", "options": ["Arrogance and vagueness", "Ambition with humility (excel in the role first)", "Only humility", "Indifference"], "answer": 1, "explain": "Grounded ambition — eager to grow while excelling now — lands best."}
+      ]
+    },
+    "u:iv-15-why-not-higher-studies": {
+      "title": "Why not higher studies",
+      "summary": "Give a positive, industry-focused reason — not that you couldn't or didn't want to study.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Common in India/campus contexts. It probes your **commitment to working now** and that you've thought it through — not defaulting to a job."},
+        {"t": "points", "items": [
+          "Frame it **positively**: you're excited to apply your skills to real problems and learn fastest by building in industry.",
+          "Show you **considered** higher studies and made a deliberate choice — not that you couldn't get in.",
+          "Optionally leave the door open ('I may pursue further study later if it serves a specific goal') to show thoughtfulness."
+        ]},
+        {"t": "callout", "style": "key", "text": "Give a forward-looking, positive reason: you want to build real things and grow through hands-on industry experience now. Frame it as a deliberate choice, never as inability or a fallback."},
+        {"t": "callout", "style": "warn", "text": "Avoid negatives ('I'm tired of studying', 'couldn't afford it', 'grades weren't good enough') — they undercut you."}
+      ],
+      "mcqs": [
+        {"q": "The best framing for 'why not higher studies' is:", "options": ["'I couldn't get admission'", "A positive, deliberate choice to gain hands-on industry experience now", "'I'm tired of studying'", "'It was too expensive'"], "answer": 1, "explain": "A forward-looking, chosen reason shows commitment; negatives undercut you."},
+        {"q": "You should present the decision as:", "options": ["A fallback because nothing else worked", "A thoughtful, deliberate choice", "An accident", "Something you regret"], "answer": 1, "explain": "Showing you weighed the options and chose industry demonstrates maturity."},
+        {"q": "Which is a weak thing to say?", "options": ["'I learn fastest by building real products'", "'My grades weren't good enough for grad school'", "'I want to apply my skills now'", "'I may study later for a specific goal'"], "answer": 1, "explain": "Framing it as inability rather than choice weakens your position."}
+      ]
+    },
+    "u:iv-16-willingness-to-relocate": {
+      "title": "Willingness to relocate",
+      "summary": "Be honest but flexible; show openness where you genuinely have it.",
+      "minutes": 2,
+      "blocks": [
+        {"t": "p", "text": "A practical logistics question. Companies want to know you'll be **available where the work is** without future friction."},
+        {"t": "points", "items": [
+          "If you're **open**, say so clearly and positively — flexibility is a plus for campus hires.",
+          "If you have **genuine constraints**, be honest but frame it constructively (e.g. open to specific locations, or after a period).",
+          "Don't overpromise then back out later — that damages trust and offers."
+        ]},
+        {"t": "callout", "style": "key", "text": "Answer honestly. Flexibility helps, so express openness where you have it — but never commit to something you'll later refuse. A clear, truthful stance beats a reluctant yes you can't honour."}
+      ],
+      "mcqs": [
+        {"q": "The best approach to the relocation question is to:", "options": ["Lie that you'll go anywhere then refuse later", "Be honest, showing genuine flexibility where you have it", "Refuse to answer", "Demand your preferred city only"], "answer": 1, "explain": "Honesty plus real flexibility builds trust; overpromising then backing out harms you."},
+        {"q": "Expressing openness to relocate is generally:", "options": ["A disadvantage", "A plus for campus/early-career hires", "Irrelevant", "A red flag"], "answer": 1, "explain": "Flexibility makes you easier to place, which employers value."},
+        {"q": "If you have genuine location constraints, you should:", "options": ["Hide them and agree to anything", "State them honestly but constructively", "Refuse the interview", "Get angry"], "answer": 1, "explain": "Honest, constructive framing avoids future friction and preserves trust."}
+      ]
+    },
+    "u:iv-17-salary-expectations": {
+      "title": "Salary expectations",
+      "summary": "Research the range; give a researched band and defer specifics when appropriate.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A negotiation touchpoint. For campus roles the package is often fixed, but for off-campus/experienced roles, handle it thoughtfully."},
+        {"t": "points", "items": [
+          "**Research** the market range for the role/location/level beforehand (Glassdoor, levels.fyi, peers).",
+          "Give a **range** (not a single number), grounded in research, and show flexibility for the right total package.",
+          "If it's too early, it's fine to say you're **open and would like to understand the full role/package first** — deferring can preserve leverage.",
+          "Never lowball yourself out of desperation, or throw out a wild number with no basis."
+        ]},
+        {"t": "callout", "style": "key", "text": "Anchor on research, give a reasonable range, and stay flexible on the total package. When appropriate, deferring ('I'd like to learn more about the role first') is a legitimate way to keep negotiating leverage."}
+      ],
+      "mcqs": [
+        {"q": "Before stating salary expectations you should:", "options": ["Guess randomly", "Research the market range for the role, level, and location", "Ask for the maximum", "Refuse to prepare"], "answer": 1, "explain": "A researched, defensible range shows professionalism and avoids under/over-shooting."},
+        {"q": "A good way to state expectations is:", "options": ["A single exact number", "A researched range with flexibility on the total package", "The highest number possible", "Whatever they offer"], "answer": 1, "explain": "A grounded range plus flexibility on total comp keeps the conversation constructive."},
+        {"q": "Deferring ('I'd like to understand the role/package first') is:", "options": ["Always a mistake", "A legitimate tactic to preserve negotiating leverage", "Rude", "Never allowed"], "answer": 1, "explain": "When it's early, deferring can keep your options open and avoid anchoring too low."}
+      ]
+    },
+    "u:iv-18-do-you-have-questions-for-us-have-three-ready": {
+      "title": "Do you have questions for us (have three ready)",
+      "summary": "Always ask thoughtful questions — it signals engagement and helps you evaluate them.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Never say 'no'. Asking good questions shows **genuine interest and critical thinking**, and helps you assess whether the role fits YOU. Prepare at least three."},
+        {"t": "points", "items": [
+          "**About the role/team** — 'What does success look like in the first 6 months?', 'What does a typical project look like?'",
+          "**About growth** — 'How do junior engineers grow here?', 'What learning support exists?'",
+          "**About the interviewer** — 'What do you enjoy most about working here?' (personal + genuine)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Have three thoughtful, non-Googleable questions ready. Good ones show engagement and let you evaluate the company. Avoid asking only about salary/leave, or questions whose answers are on their homepage."},
+        {"t": "callout", "style": "warn", "text": "Saying 'no, I'm good' is a missed opportunity that can read as disinterest. Always have questions."}
+      ],
+      "mcqs": [
+        {"q": "When asked 'do you have any questions', you should:", "options": ["Say no to be efficient", "Ask at least a few thoughtful, prepared questions", "Ask only about salary", "Ask something on their homepage"], "answer": 1, "explain": "Good questions signal interest and help you evaluate the role; 'no' reads as disinterest."},
+        {"q": "A strong question to ask is:", "options": ["'What does the company do?' (on their site)", "'What does success look like in the first six months?'", "'How much leave do I get?' only", "Nothing"], "answer": 1, "explain": "Role/success questions show engagement and critical thinking, unlike easily-Googled ones."},
+        {"q": "Asking questions also benefits you by:", "options": ["Wasting time", "Helping you assess whether the company/role fits you", "Annoying the interviewer", "Nothing"], "answer": 1, "explain": "The interview is two-way; your questions help you evaluate them too."}
+      ]
+    },
+    "u:iv-19-how-do-you-handle-failure": {
+      "title": "How do you handle failure",
+      "summary": "Show resilience and a constructive, learning-oriented response to setbacks.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "This assesses **resilience and mindset** — whether setbacks stop you or teach you. Describe a healthy, repeatable process."},
+        {"t": "points", "items": [
+          "Describe your process: **acknowledge it, analyse the cause, learn, adjust, and move forward** without dwelling.",
+          "Frame failure as **feedback/data**, not a verdict on your worth.",
+          "Optionally anchor with a brief real example of bouncing back."
+        ]},
+        {"t": "callout", "style": "key", "text": "Show a constructive loop: own it → learn the lesson → adjust → keep going. Treating failure as information rather than a catastrophe signals the resilience employers want, especially in fast-moving teams."}
+      ],
+      "mcqs": [
+        {"q": "The healthiest framing of failure to convey is:", "options": ["A verdict on your worth", "Feedback/data to learn from and adjust", "Something to hide", "Always someone else's fault"], "answer": 1, "explain": "Treating failure as information shows resilience and a growth mindset."},
+        {"q": "A good process for handling failure is:", "options": ["Dwell on it indefinitely", "Acknowledge, analyse the cause, learn, adjust, move on", "Ignore it entirely", "Blame others"], "answer": 1, "explain": "A constructive, forward-moving loop demonstrates maturity under setbacks."},
+        {"q": "This question mainly assesses your:", "options": ["Technical skills", "Resilience and mindset toward setbacks", "Salary needs", "Availability"], "answer": 1, "explain": "It reveals whether setbacks derail you or become learning opportunities."}
+      ]
+    },
+    "u:iv-20-team-player-vs-independent-worker": {
+      "title": "Team player vs independent worker",
+      "summary": "Show you're both — collaborative when needed, self-sufficient when needed.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A trap framed as either/or. The best answer shows you're **adaptable** — strong at both, depending on the task."},
+        {"t": "points", "items": [
+          "Affirm you value **collaboration** (sharing ideas, helping teammates, aligning) — teams ship products.",
+          "Also affirm you can **work independently** (self-manage, unblock yourself, take ownership) when needed.",
+          "Give a brief example of switching between the two appropriately."
+        ]},
+        {"t": "callout", "style": "key", "text": "Don't pick a side — show adaptability: 'I collaborate closely when the work benefits from it, and I'm fully self-sufficient when I need to drive something alone.' Real work needs both, and versatility is the strongest answer."}
+      ],
+      "mcqs": [
+        {"q": "The best answer to 'team player or independent worker' is:", "options": ["Strictly a team player", "Strictly independent", "Adaptable — strong at both depending on the task", "Neither"], "answer": 2, "explain": "Real work needs both; showing versatility beats picking one side."},
+        {"q": "You should support the answer with:", "options": ["Only a claim", "A brief example of switching between collaboration and independent work", "Salary talk", "A weakness"], "answer": 1, "explain": "A concrete example makes the adaptability credible."},
+        {"q": "Affirming collaboration matters because:", "options": ["Teams don't ship products", "Products are built by teams, so collaboration is essential", "It's irrelevant", "Independence is always better"], "answer": 1, "explain": "Software is a team effort, so collaboration is valued alongside self-sufficiency."}
+      ]
+    },
+    "u:iv-21-your-biggest-achievement-so-far": {
+      "title": "Your biggest achievement so far",
+      "summary": "Pick a relevant, impactful achievement and quantify your specific contribution.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A chance to showcase impact and what you value. Choose something **relevant** to the role and genuinely meaningful."},
+        {"t": "points", "items": [
+          "Use a mini-STAR: the challenge, **what you specifically did**, and the **quantified result**.",
+          "Emphasise **your** contribution (especially in a team effort) without dismissing others.",
+          "Pick achievements that signal traits the role wants (technical skill, leadership, perseverance)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Choose a relevant achievement, make YOUR contribution clear, and quantify the impact ('reduced load time 40%', 'led a team of 4 to win X'). Numbers and clear ownership turn a story into evidence."},
+        {"t": "callout", "style": "tip", "text": "It needn't be huge — a well-explained, genuinely-owned achievement beats an impressive-sounding one you can't detail."}
+      ],
+      "mcqs": [
+        {"q": "A strong 'biggest achievement' answer:", "options": ["Is vague about your role", "Clarifies your specific contribution and quantifies the impact", "Only names the project", "Dismisses teammates"], "answer": 1, "explain": "Clear ownership plus measurable impact makes the achievement credible and compelling."},
+        {"q": "The achievement you choose should be:", "options": ["Irrelevant to the role", "Relevant and signalling traits the role values", "Impossible to explain", "Someone else's work"], "answer": 1, "explain": "Relevance and demonstrable traits make it useful evidence for this role."},
+        {"q": "Quantifying the result (e.g. '40% faster') helps because it:", "options": ["Sounds arrogant", "Turns a story into concrete, memorable evidence", "Is discouraged", "Hides your role"], "answer": 1, "explain": "Numbers make impact tangible and the achievement more persuasive."}
+      ]
+    }
+  }
+}

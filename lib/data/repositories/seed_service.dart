@@ -14,8 +14,8 @@ class SeedService {
 
   /// Sheets active by default for a brand-new user (editable in Profile).
   static const _defaultActive = {
-    'striver-a2z', 'core-os', 'core-dbms', 'core-cn', 'core-oop',
-    'aptitude', 'system-design', 'interview-hr',
+    'striver-a2z', 'dsa-patterns', 'core-os', 'core-dbms', 'core-cn',
+    'core-oop', 'aptitude', 'system-design', 'interview-hr', 'web-dev',
   };
   static const _defaultPrimary = 'striver-a2z';
 
@@ -42,31 +42,34 @@ class SeedService {
   }
 
   Future<void> _ensureResources() async {
-    final count = await _db.resources.count().getSingle();
-    if (count > 0) return;
     final raw = await rootBundle.loadString('assets/content/resources.json');
     final list =
         (json.decode(raw) as Map<String, dynamic>)['resources'] as List;
-    await _db.batch((b) {
-      for (var i = 0; i < list.length; i++) {
-        final r = list[i] as Map<String, dynamic>;
-        b.insert(
-          _db.resources,
-          ResourcesCompanion.insert(
-            slug: r['slug'] as String,
-            title: r['title'] as String,
-            provider: Value((r['provider'] ?? '') as String),
-            description: Value((r['description'] ?? '') as String),
-            url: Value((r['url'] ?? '') as String),
-            affiliateUrl: Value((r['affiliateUrl'] ?? '') as String),
-            type: Value((r['type'] ?? 'link') as String),
-            category: Value((r['category'] ?? 'general') as String),
-            tier: Value((r['tier'] ?? 'free') as String),
-            orderIndex: Value(i),
-          ),
-        );
-      }
-    });
+    // Idempotent: insert only resources whose slug isn't already present, so
+    // resources added in an app update reach existing users too.
+    final existing =
+        (await _db.select(_db.resources).get()).map((r) => r.slug).toSet();
+    final toAdd = <ResourcesCompanion>[];
+    for (var i = 0; i < list.length; i++) {
+      final r = list[i] as Map<String, dynamic>;
+      final slug = r['slug'] as String;
+      if (existing.contains(slug)) continue;
+      toAdd.add(ResourcesCompanion.insert(
+        slug: slug,
+        title: r['title'] as String,
+        provider: Value((r['provider'] ?? '') as String),
+        description: Value((r['description'] ?? '') as String),
+        url: Value((r['url'] ?? '') as String),
+        affiliateUrl: Value((r['affiliateUrl'] ?? '') as String),
+        type: Value((r['type'] ?? 'link') as String),
+        category: Value((r['category'] ?? 'general') as String),
+        tier: Value((r['tier'] ?? 'free') as String),
+        orderIndex: Value(i),
+      ));
+    }
+    if (toAdd.isNotEmpty) {
+      await _db.batch((b) => b.insertAll(_db.resources, toAdd));
+    }
   }
 
   Future<void> _seedSheet(Map<String, dynamic> sheet, int order) async {

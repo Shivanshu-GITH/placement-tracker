@@ -238,6 +238,18 @@ class _WeeklyBars extends StatelessWidget {
   }
 }
 
+/// Short radar-axis labels so long category names (e.g. "Competitive Prog")
+/// don't get clipped at the chart's edges.
+String _radarShort(PrepCategory c) => switch (c) {
+      PrepCategory.dsa => 'DSA',
+      PrepCategory.core => 'Core',
+      PrepCategory.aptitude => 'Apti',
+      PrepCategory.system => 'Sys Des',
+      PrepCategory.webdev => 'Web',
+      PrepCategory.cp => 'CP',
+      PrepCategory.interview => 'HR',
+    };
+
 class _CategoryRadar extends StatelessWidget {
   const _CategoryRadar({required this.byCategory});
   final List<CategoryProgress> byCategory;
@@ -277,9 +289,9 @@ class _CategoryRadar extends StatelessWidget {
             BorderSide(color: theme.colorScheme.outlineVariant, width: 1),
         ticksTextStyle: const TextStyle(color: Colors.transparent, fontSize: 1),
         tickCount: 4,
-        titlePositionPercentageOffset: 0.16,
+        titlePositionPercentageOffset: 0.2,
         getTitle: (index, angle) => RadarChartTitle(
-          text: byCategory[index % byCategory.length].category.label,
+          text: _radarShort(byCategory[index % byCategory.length].category),
         ),
         titleTextStyle: theme.textTheme.labelSmall,
       ),

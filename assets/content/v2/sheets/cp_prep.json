@@ -1,0 +1,433 @@
+{
+  "slug": "cp-prep",
+  "title": "Competitive Programming",
+  "category": "cp",
+  "description": "Contest strategy, math, core techniques, data structures, graphs & DP — the toolkit for rated contests.",
+  "source": "Curated (Unnati CP structure)",
+  "tree": [
+    {
+      "slug": "cp-strategy",
+      "title": "Contest Strategy",
+      "children": [
+        {
+          "slug": "cp-strategy-0-read-the-whole-set-first",
+          "title": "Read the whole set first",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-strategy-0-read-the-whole-set-first",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-strategy-1-time-management-and-problem-order",
+          "title": "Time management & problem order",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-strategy-1-time-management-and-problem-order",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-strategy-2-reading-constraints-to-pick-complexity",
+          "title": "Reading constraints to pick complexity",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-strategy-2-reading-constraints-to-pick-complexity",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-strategy-3-penalty-and-scoring-systems",
+          "title": "Penalty & scoring systems",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-strategy-3-penalty-and-scoring-systems",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-strategy-4-when-to-skip-or-switch",
+          "title": "When to skip or switch",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-strategy-4-when-to-skip-or-switch",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-strategy-5-upsolving-after-the-contest",
+          "title": "Upsolving after the contest",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-strategy-5-upsolving-after-the-contest",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "cp-complexity",
+      "title": "Complexity for Contests",
+      "children": [
+        {
+          "slug": "cp-complexity-0-big-o-refresher",
+          "title": "Big-O refresher",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-complexity-0-big-o-refresher",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-complexity-1-operations-budget-10-8-sec",
+          "title": "Operations budget (~10^8/sec)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-complexity-1-operations-budget-10-8-sec",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-complexity-2-constraints-to-complexity-table",
+          "title": "Constraints to complexity table",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-complexity-2-constraints-to-complexity-table",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-complexity-3-constant-factors-and-i-o-speed",
+          "title": "Constant factors & I/O speed",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-complexity-3-constant-factors-and-i-o-speed",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "cp-math",
+      "title": "Math & Number Theory",
+      "children": [
+        {
+          "slug": "cp-math-0-modular-arithmetic",
+          "title": "Modular arithmetic",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-0-modular-arithmetic",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-math-1-modular-exponentiation-fast-power",
+          "title": "Modular exponentiation (fast power)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-1-modular-exponentiation-fast-power",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-math-2-modular-inverse",
+          "title": "Modular inverse",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-2-modular-inverse",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-math-3-gcd-lcm-and-euclid",
+          "title": "GCD/LCM & Euclid",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-3-gcd-lcm-and-euclid",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-math-4-sieve-of-eratosthenes",
+          "title": "Sieve of Eratosthenes",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-4-sieve-of-eratosthenes",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-math-5-prime-factorization",
+          "title": "Prime factorization",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-5-prime-factorization",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-math-6-combinatorics-ncr-with-mod",
+          "title": "Combinatorics (nCr) with mod",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-6-combinatorics-ncr-with-mod",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-math-7-overflow-and-big-numbers",
+          "title": "Overflow & big numbers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-math-7-overflow-and-big-numbers",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "cp-techniques",
+      "title": "Core Techniques",
+      "children": [
+        {
+          "slug": "cp-techniques-0-greedy-method",
+          "title": "Greedy method",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-0-greedy-method",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-1-sorting-based-greedy",
+          "title": "Sorting-based greedy",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-1-sorting-based-greedy",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-2-two-pointers",
+          "title": "Two pointers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-2-two-pointers",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-3-sliding-window",
+          "title": "Sliding window",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-3-sliding-window",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-4-prefix-sums",
+          "title": "Prefix sums",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-4-prefix-sums",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-5-difference-arrays",
+          "title": "Difference arrays",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-5-difference-arrays",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-6-binary-search-on-answer",
+          "title": "Binary search on answer",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-6-binary-search-on-answer",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-7-bit-manipulation-tricks",
+          "title": "Bit manipulation tricks",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-7-bit-manipulation-tricks",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-8-recursion-and-backtracking",
+          "title": "Recursion & backtracking",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-8-recursion-and-backtracking",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-techniques-9-meet-in-the-middle",
+          "title": "Meet in the middle",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-techniques-9-meet-in-the-middle",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "cp-ds",
+      "title": "Data Structures for CP",
+      "children": [
+        {
+          "slug": "cp-ds-0-stack-queue-deque-uses",
+          "title": "Stack, queue, deque uses",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-ds-0-stack-queue-deque-uses",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-ds-1-hash-maps-and-frequency",
+          "title": "Hash maps & frequency",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-ds-1-hash-maps-and-frequency",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-ds-2-priority-queue-heap",
+          "title": "Priority queue / heap",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-ds-2-priority-queue-heap",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-ds-3-union-find-dsu",
+          "title": "Union-Find (DSU)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-ds-3-union-find-dsu",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-ds-4-segment-tree-intro",
+          "title": "Segment tree (intro)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-ds-4-segment-tree-intro",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-ds-5-fenwick-bit-intro",
+          "title": "Fenwick / BIT (intro)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-ds-5-fenwick-bit-intro",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "cp-graphs",
+      "title": "Graphs",
+      "children": [
+        {
+          "slug": "cp-graphs-0-graph-representation",
+          "title": "Graph representation",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-graphs-0-graph-representation",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-graphs-1-bfs-and-shortest-path-unweighted",
+          "title": "BFS & shortest path (unweighted)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-graphs-1-bfs-and-shortest-path-unweighted",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-graphs-2-dfs-and-connected-components",
+          "title": "DFS & connected components",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-graphs-2-dfs-and-connected-components",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-graphs-3-dijkstra-weighted-shortest-path",
+          "title": "Dijkstra (weighted shortest path)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-graphs-3-dijkstra-weighted-shortest-path",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-graphs-4-topological-sort",
+          "title": "Topological sort",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-graphs-4-topological-sort",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "cp-dp",
+      "title": "Dynamic Programming",
+      "children": [
+        {
+          "slug": "cp-dp-0-dp-fundamentals-states-and-transitions",
+          "title": "DP fundamentals (states & transitions)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-dp-0-dp-fundamentals-states-and-transitions",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-dp-1-0-1-knapsack",
+          "title": "0/1 Knapsack",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-dp-1-0-1-knapsack",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-dp-2-longest-increasing-subsequence",
+          "title": "Longest Increasing Subsequence",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-dp-2-longest-increasing-subsequence",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-dp-3-grid-path-dp",
+          "title": "Grid / path DP",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-dp-3-grid-path-dp",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-dp-4-interval-dp",
+          "title": "Interval DP",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-dp-4-interval-dp",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "cp-practical",
+      "title": "Practical Skills",
+      "children": [
+        {
+          "slug": "cp-practical-0-fast-i-o",
+          "title": "Fast I/O",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-practical-0-fast-i-o",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-practical-1-common-pitfalls-and-debugging",
+          "title": "Common pitfalls & debugging",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-practical-1-common-pitfalls-and-debugging",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cp-practical-2-stress-testing",
+          "title": "Stress testing",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:cp-practical-2-stress-testing",
+          "difficulty": "medium"
+        }
+      ]
+    }
+  ]
+}

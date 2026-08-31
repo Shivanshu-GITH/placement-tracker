@@ -7,12 +7,15 @@
   "v2/sheets/apna_college.json",
   "v2/sheets/arsh_goyal.json",
   "v2/sheets/striver_cp.json",
+  "v2/sheets/dsa_patterns.json",
   "v2/sheets/core_os.json",
   "v2/sheets/core_dbms.json",
   "v2/sheets/core_cn.json",
   "v2/sheets/core_oop.json",
   "v2/sheets/aptitude.json",
   "v2/sheets/system_design.json",
-  "v2/sheets/interview_hr.json"
+  "v2/sheets/interview_hr.json",
+  "v2/sheets/web_dev.json",
+  "v2/sheets/cp_prep.json"
  ]
 }

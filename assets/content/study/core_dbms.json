@@ -1,0 +1,1601 @@
+{
+  "subject": "core-dbms",
+  "title": "DBMS + SQL",
+  "topics": {
+    "u:core-dbms-61-log-based-recovery": {
+      "title": "Log-based recovery",
+      "summary": "Write intentions to a log before changing data, so a crash can be undone or redone.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Log-based recovery** uses a **write-ahead log (WAL)** — a sequential record of every change — to restore a consistent state after a crash. The **WAL rule**: a change's log record must reach stable storage **before** the change itself is written to the database."},
+        {"t": "points", "items": [
+          "Each log record holds: transaction id, data item, **old value** (for undo), **new value** (for redo).",
+          "**Undo** rolls back uncommitted transactions (using old values); **redo** re-applies committed ones (using new values).",
+          "Recovery scans the log to decide, per transaction, whether to undo or redo."
+        ]},
+        {"t": "callout", "style": "key", "text": "The WAL rule is what makes atomicity + durability possible: because the log records the intent before the data changes, a crash at any point can be recovered — undo the unfinished, redo the committed."},
+        {"t": "callout", "style": "tip", "text": "Deferred update writes changes only at commit (redo only); immediate update writes as it goes (needs undo and redo)."}
+      ],
+      "mcqs": [
+        {"q": "The write-ahead logging (WAL) rule requires that:", "options": ["Data is written before the log", "The log record is written to stable storage before the corresponding data change", "No log is kept", "Only committed data is logged"], "answer": 1, "explain": "Logging the intent first ensures recovery can undo/redo after any crash."},
+        {"q": "During recovery, committed transactions are:", "options": ["Undone", "Redone (re-applied using new values)", "Ignored", "Deleted"], "answer": 1, "explain": "Committed changes must be redone to ensure durability; uncommitted ones are undone."},
+        {"q": "A log record typically stores, for undo/redo:", "options": ["Only the transaction id", "The old value and the new value of the data item", "The query plan", "The index"], "answer": 1, "explain": "Old value enables undo; new value enables redo."}
+      ]
+    },
+    "u:core-dbms-62-undo-and-redo": {
+      "title": "Undo and redo",
+      "summary": "Two log operations: reverse the unfinished, replay the finished.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Recovery applies two operations based on the log."},
+        {"t": "table", "headers": ["Operation", "Applied to", "Uses"], "rows": [
+          ["UNDO", "Uncommitted transactions at crash time", "Old (before) values"],
+          ["REDO", "Committed transactions whose changes may not have reached disk", "New (after) values"]
+        ]},
+        {"t": "p", "text": "A transaction is **redone** if the log has both its start and its **commit** record; it's **undone** if it started but has no commit. To be safe, recovery typically **redoes then undoes** (or vice versa depending on the algorithm), and operations must be **idempotent** so re-running recovery is safe."},
+        {"t": "callout", "style": "key", "text": "The rule: has a commit record → REDO (restore durability); no commit record → UNDO (restore atomicity). Idempotency means applying redo/undo twice has the same effect as once — vital if recovery itself is interrupted."}
+      ],
+      "mcqs": [
+        {"q": "A transaction with a start but NO commit record in the log is:", "options": ["Redone", "Undone", "Ignored", "Committed"], "answer": 1, "explain": "No commit means it was in-flight at the crash, so it must be undone to preserve atomicity."},
+        {"q": "REDO uses which values to reapply changes?", "options": ["Old (before) values", "New (after) values", "Random values", "NULL"], "answer": 1, "explain": "Redo re-applies the committed new values to ensure durability."},
+        {"q": "Undo/redo operations must be idempotent so that:", "options": ["They run faster", "Re-running recovery (e.g. after a second crash) is safe", "They need no log", "They skip commits"], "answer": 1, "explain": "Idempotency lets recovery be safely repeated if it is itself interrupted."}
+      ]
+    },
+    "u:core-dbms-63-checkpoints": {
+      "title": "Checkpoints",
+      "summary": "Periodic sync points that bound how much of the log recovery must scan.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Without help, recovery would have to scan the **entire** log from the beginning. A **checkpoint** is a point at which the DBMS flushes in-memory changes to disk and writes a checkpoint record, so recovery only needs to consider work **after** the last checkpoint."},
+        {"t": "points", "items": [
+          "At a checkpoint: flush the log and modified buffers to disk, and record the list of active transactions.",
+          "Recovery starts from the last checkpoint, not the log's start — bounding recovery time.",
+          "Transactions that committed before the checkpoint need no redo."
+        ]},
+        {"t": "callout", "style": "key", "text": "Checkpoints bound recovery work: after a crash, only transactions active at or after the last checkpoint matter. This trades a small runtime cost (periodic flushing) for a much shorter, predictable recovery."}
+      ],
+      "mcqs": [
+        {"q": "The purpose of a checkpoint is to:", "options": ["Delete the log", "Limit how far back recovery must scan the log", "Speed up queries", "Enforce constraints"], "answer": 1, "explain": "Checkpoints let recovery start from a recent point instead of the log's beginning, bounding recovery time."},
+        {"q": "At a checkpoint, the DBMS:", "options": ["Deletes all transactions", "Flushes in-memory changes/log to disk and records active transactions", "Stops accepting writes forever", "Rebuilds indexes"], "answer": 1, "explain": "It persists buffers and the log and notes which transactions are active, creating a known-good reference point."},
+        {"q": "A transaction that committed BEFORE the last checkpoint:", "options": ["Must be redone", "Needs no redo during recovery", "Must be undone", "Is unknown"], "answer": 1, "explain": "Its changes were flushed at the checkpoint, so redo isn't needed."}
+      ]
+    },
+    "u:core-dbms-64-shadow-paging": {
+      "title": "Shadow paging",
+      "summary": "A log-free recovery scheme using a shadow copy of the page table.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Shadow paging** is an alternative to logging. It keeps two page tables: the **current** (shadow) page table and a working copy. Modified pages are written to **new** pages (copy-on-write), not overwritten. On **commit**, the page table is atomically switched to point at the new pages; to **abort**, just discard the new pages and keep the shadow."},
+        {"t": "points", "items": [
+          "**No undo/redo log** needed — the old version survives untouched until commit.",
+          "Commit = atomically switch the page-table pointer.",
+          "Downsides: **fragmentation** and **garbage collection** of old pages; hard to support **concurrent** transactions; extra copying."
+        ]},
+        {"t": "callout", "style": "key", "text": "Shadow paging trades the log for copy-on-write: recovery is trivial (revert to the shadow), but it fragments storage, needs garbage collection, and doesn't handle concurrency well — which is why WAL/logging dominates in practice."}
+      ],
+      "mcqs": [
+        {"q": "Shadow paging avoids the need for a(n):", "options": ["Page table", "Undo/redo log", "Buffer pool", "Index"], "answer": 1, "explain": "By keeping an untouched shadow copy, recovery reverts to it without a log."},
+        {"q": "In shadow paging, committing a transaction means:", "options": ["Overwriting old pages", "Atomically switching the page table to the new pages", "Flushing the log", "Undoing changes"], "answer": 1, "explain": "The page-table pointer switch atomically makes the new pages current; abort discards them."},
+        {"q": "A major drawback of shadow paging is:", "options": ["It needs a large log", "Fragmentation, garbage collection, and poor concurrency support", "It cannot recover", "It overwrites data in place"], "answer": 1, "explain": "Copy-on-write scatters pages and complicates GC and concurrency, so logging is usually preferred."}
+      ]
+    },
+    "u:core-dbms-65-aries-at-a-high-level": {
+      "title": "ARIES at a high level",
+      "summary": "The industry-standard recovery algorithm: analysis, redo everything, then undo the losers.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**ARIES** is the widely-used recovery algorithm (in DB2, SQL Server, etc.). It's built on **WAL** and a key principle: **redo history** (repeat all logged actions), then undo the uncommitted. It uses a **Log Sequence Number (LSN)** on every log record and page."},
+        {"t": "h", "text": "Three phases"},
+        {"t": "steps", "items": [
+          "**Analysis** — scan forward from the last checkpoint to find dirty pages and transactions active at the crash.",
+          "**Redo** — replay ALL changes since the relevant point (even uncommitted ones) to restore the exact pre-crash page state ('repeating history').",
+          "**Undo** — roll back the transactions that were uncommitted at the crash, writing **compensation log records (CLRs)** so undo itself is recoverable."
+        ]},
+        {"t": "callout", "style": "key", "text": "ARIES's signature ideas: WAL + LSNs to track what's on each page, 'repeat history' in redo (reconstruct exact state), and CLRs so that a crash during recovery doesn't undo work twice."}
+      ],
+      "mcqs": [
+        {"q": "The three phases of ARIES recovery, in order, are:", "options": ["Undo, redo, analysis", "Analysis, redo, undo", "Redo, undo, checkpoint", "Analysis, undo, redo"], "answer": 1, "explain": "ARIES runs Analysis (find state), then Redo (repeat history), then Undo (roll back losers)."},
+        {"q": "ARIES's 'repeat history' principle means the redo phase:", "options": ["Only redoes committed transactions", "Replays all logged changes to restore the exact pre-crash state", "Skips redo entirely", "Undoes everything"], "answer": 1, "explain": "Redo reconstructs the precise state at crash time (including uncommitted changes), which undo then cleans up."},
+        {"q": "Compensation Log Records (CLRs) in ARIES ensure that:", "options": ["Redo is skipped", "Undo actions are logged so recovery is idempotent even if it crashes again", "No log is needed", "Transactions never abort"], "answer": 1, "explain": "CLRs record undo work so a crash during undo doesn't cause it to be repeated incorrectly."}
+      ]
+    },
+    "u:core-dbms-66-dense-vs-sparse-index": {
+      "title": "Dense vs sparse index",
+      "summary": "An index entry for every record, or one per block — space vs lookup trade-off.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "An **index** maps search-key values to record locations for fast lookup. Two structures differ in how many entries they keep."},
+        {"t": "table", "headers": ["", "Dense index", "Sparse index"], "rows": [
+          ["Entries", "One per record (search-key value)", "One per block (usually the first key)"],
+          ["Size", "Larger", "Smaller"],
+          ["Lookup", "Direct — key found in the index", "Find the block, then scan within it"],
+          ["Requires sorted data", "No", "Yes (data ordered by the key)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Dense = an entry per record (bigger index, direct lookup); sparse = an entry per block (smaller index, but the data must be sorted and you scan within the block). Sparse indexes save space, which is why they're used at upper levels of multilevel indexes."},
+        {"t": "callout", "style": "tip", "text": "A primary (clustering) index on sorted data can be sparse; a secondary index on unsorted data must be dense."}
+      ],
+      "mcqs": [
+        {"q": "A dense index has:", "options": ["One entry per block", "One index entry for every record (search-key value)", "No entries", "One entry total"], "answer": 1, "explain": "Dense indexes store an entry per record, enabling direct key lookup at the cost of size."},
+        {"q": "A sparse index requires that the data file is:", "options": ["Unsorted", "Sorted (ordered) on the search key", "Hashed", "Empty"], "answer": 1, "explain": "Because it stores one entry per block, the records must be ordered so a block scan finds the key."},
+        {"q": "A secondary index on an unsorted attribute must be:", "options": ["Sparse", "Dense", "Empty", "Clustered"], "answer": 1, "explain": "Without ordering on that key, you can't rely on block scanning, so every record needs an entry (dense)."}
+      ]
+    },
+    "u:core-dbms-67-primary-clustered-secondary-index": {
+      "title": "Primary, clustered, secondary index",
+      "summary": "Indexes classified by whether they dictate physical row order.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Indexes are classified by their relationship to the physical storage order."},
+        {"t": "points", "items": [
+          "**Clustered index** — the table's rows are physically stored in the index's order. There can be **only one** per table (data can be sorted one way). Range scans are very fast.",
+          "**Primary index** — a clustered index on the ordering key (often the primary key).",
+          "**Secondary (non-clustered) index** — a separate structure pointing to rows; the table order is unaffected. A table can have **many**. Lookups need an extra step to fetch the row."
+        ]},
+        {"t": "callout", "style": "key", "text": "Clustered = data IS the index (one per table, fast ranges). Non-clustered/secondary = a pointer structure (many per table, extra hop to the row). Choosing the clustered key wisely (often the most range-queried column) matters a lot for performance."},
+        {"t": "callout", "style": "tip", "text": "In many DBs the primary key becomes the clustered index by default; a non-clustered index lookup does a 'key lookup' back into the clustered index to get remaining columns."}
+      ],
+      "mcqs": [
+        {"q": "How many clustered indexes can a table have?", "options": ["Many", "Exactly one", "Zero always", "One per column"], "answer": 1, "explain": "A clustered index defines the physical row order, and data can only be ordered one way — so at most one per table."},
+        {"q": "A secondary (non-clustered) index:", "options": ["Reorders the table physically", "Is a separate structure pointing to rows; a table can have many", "Must be the primary key", "Prevents range scans"], "answer": 1, "explain": "Non-clustered indexes don't affect table order and there can be several, each pointing to the underlying rows."},
+        {"q": "Clustered indexes make which operation especially fast?", "options": ["Random single-row inserts", "Range scans (rows stored contiguously in key order)", "Full-text search", "Joins on unindexed columns"], "answer": 1, "explain": "Because rows are physically ordered by the key, range queries read contiguous data efficiently."}
+      ]
+    },
+    "u:core-dbms-68-b-tree": {
+      "title": "B-tree",
+      "summary": "A balanced multi-way search tree that keeps disk lookups shallow and logarithmic.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **B-tree** is a self-balancing search tree where each node holds **many keys** and has **many children** (high fanout), so the tree stays **shallow**. This minimises disk I/O: each node is a disk block, and a shallow tree means few block reads per lookup."},
+        {"t": "points", "items": [
+          "All leaves are at the **same depth** (balanced), so every lookup is O(log n) with a small base (high fanout).",
+          "Keys (and their data pointers) can live in **internal nodes** as well as leaves.",
+          "Supports search, sequential access, insert, and delete in logarithmic time; nodes split/merge to stay balanced."
+        ]},
+        {"t": "callout", "style": "key", "text": "The reason databases use B-trees over binary trees: high fanout keeps the tree shallow, so a lookup touches only a handful of disk blocks. Disk I/O, not comparisons, is the cost that matters."}
+      ],
+      "mcqs": [
+        {"q": "Databases favour B-trees over binary search trees because B-trees:", "options": ["Use less memory per node", "Have high fanout, keeping the tree shallow and minimising disk I/O", "Are unbalanced", "Store no keys"], "answer": 1, "explain": "Many keys per node means fewer levels, so far fewer disk block reads per lookup."},
+        {"q": "In a B-tree, all leaf nodes are:", "options": ["At different depths", "At the same depth (balanced)", "Empty", "In internal nodes"], "answer": 1, "explain": "B-trees are height-balanced, so every root-to-leaf path has the same length."},
+        {"q": "In a B-tree (not B+), data pointers can be stored:", "options": ["Only in leaves", "In both internal nodes and leaves", "Nowhere", "Only in the root"], "answer": 1, "explain": "A B-tree stores keys and pointers throughout, unlike a B+ tree which keeps data only in leaves."}
+      ]
+    },
+    "u:core-dbms-69-b-tree-and-why-dbs-prefer-it": {
+      "title": "B+ tree and why DBs prefer it",
+      "summary": "Data only in leaves, with linked leaves — the near-universal database index structure.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **B+ tree** is a B-tree variant where **all data pointers live in the leaf nodes** and internal nodes hold only keys for routing. The leaves are also **linked** in a sequential chain."},
+        {"t": "h", "text": "Why databases prefer B+ trees"},
+        {"t": "points", "items": [
+          "Internal nodes store **only keys** (no data), so each holds **more keys** → **higher fanout** → an even **shallower** tree → fewer disk reads.",
+          "**Linked leaves** make **range queries** and ordered scans very efficient — find the start, then walk the leaf chain.",
+          "Predictable performance: every lookup goes all the way to a leaf (uniform path length)."
+        ]},
+        {"t": "callout", "style": "key", "text": "B+ tree wins on two fronts: keys-only internal nodes give higher fanout (shallower tree, less I/O), and the linked leaf level makes range scans a simple sequential walk. That's why it's the default index in virtually every RDBMS."}
+      ],
+      "mcqs": [
+        {"q": "In a B+ tree, data record pointers are stored:", "options": ["In internal nodes", "Only in the leaf nodes", "In the root only", "Nowhere"], "answer": 1, "explain": "B+ trees keep data only in leaves; internal nodes hold keys purely for navigation."},
+        {"q": "B+ trees make range queries efficient because:", "options": ["Leaves are linked in a sequential chain to scan in order", "Internal nodes store data", "They are unbalanced", "They avoid the disk"], "answer": 0, "explain": "The linked leaf level lets a range scan find the start and walk sequentially through the leaves."},
+        {"q": "Keeping data out of internal nodes gives a B+ tree:", "options": ["Lower fanout", "Higher fanout and a shallower tree (fewer disk reads)", "More levels", "No leaves"], "answer": 1, "explain": "Keys-only internal nodes pack more keys per node, raising fanout and reducing tree height."}
+      ]
+    },
+    "u:core-dbms-70-hash-indexing-static-dynamic-extendible": {
+      "title": "Hash indexing: static, dynamic, extendible",
+      "summary": "Constant-time equality lookups via hashing — and how to grow buckets without full rehash.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Hash indexing** maps a search key through a hash function to a **bucket**, giving **O(1)** average lookup for **equality** searches (but no range support)."},
+        {"t": "table", "headers": ["Type", "Behaviour"], "rows": [
+          ["Static hashing", "Fixed number of buckets; overflow chains when full → degrades"],
+          ["Dynamic hashing", "Buckets grow/shrink as data changes"],
+          ["Extendible hashing", "A directory doubles; only the overflowing bucket splits (no full rehash)"],
+          ["Linear hashing", "Buckets split one at a time in a fixed order as the file grows"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Hash indexes give O(1) equality lookups but **can't do range queries** (hashing scatters order) — that's the key trade-off vs B+ trees. Extendible/linear hashing avoid the static-hashing problem of rehashing everything when buckets overflow."},
+        {"t": "callout", "style": "warn", "text": "Because hashing destroys ordering, use B+ trees for range/sort queries and hash indexes only for exact-match lookups."}
+      ],
+      "mcqs": [
+        {"q": "A hash index is unsuitable for:", "options": ["Equality lookups", "Range queries (e.g. WHERE x BETWEEN a AND b)", "Exact-match search", "Primary keys"], "answer": 1, "explain": "Hashing scatters keys, destroying order, so range scans aren't supported — unlike B+ trees."},
+        {"q": "Extendible hashing avoids rehashing all data by:", "options": ["Never splitting buckets", "Using a directory that doubles and splitting only the overflowing bucket", "Chaining forever", "Sorting the data"], "answer": 1, "explain": "It grows the directory and splits just the full bucket, avoiding a full-file rehash."},
+        {"q": "The average lookup time for an equality search in a good hash index is:", "options": ["O(n)", "O(log n)", "O(1)", "O(n log n)"], "answer": 2, "explain": "Hashing gives constant average-time equality lookups."}
+      ]
+    },
+    "u:core-dbms-71-covering-index": {
+      "title": "Covering index",
+      "summary": "An index that contains every column a query needs, so the table itself is never touched.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **covering index** includes all the columns a query references (in the key or as **included** columns), so the query can be answered **entirely from the index** — no lookup back to the table (an 'index-only scan')."},
+        {"t": "points", "items": [
+          "Normally a non-clustered index lookup fetches matching keys, then does a **key/bookmark lookup** into the table for other columns — an extra I/O per row.",
+          "If the index already contains those columns, that second step is eliminated — a big speedup for hot queries.",
+          "Built by adding columns to the index (as key or INCLUDE columns)."
+        ]},
+        {"t": "callout", "style": "key", "text": "A covering index 'covers' a query: SELECT, WHERE, and JOIN columns are all in the index, so the engine never reads the base table. It trades extra index size/write cost for faster reads."}
+      ],
+      "mcqs": [
+        {"q": "A covering index speeds up a query by:", "options": ["Sorting the table", "Containing all needed columns so the table isn't accessed (index-only scan)", "Removing the index", "Reducing columns to zero"], "answer": 1, "explain": "If the index has every column the query needs, the engine answers it from the index alone, skipping table lookups."},
+        {"q": "Without a covering index, a non-clustered index lookup often requires:", "options": ["No further work", "A key/bookmark lookup into the base table for remaining columns", "A full table rebuild", "Dropping the index"], "answer": 1, "explain": "The index gives the location; extra columns require an additional fetch from the table."},
+        {"q": "The cost of a covering index is:", "options": ["Slower reads", "Larger index size and higher write/update overhead", "Loss of the primary key", "No range scans"], "answer": 1, "explain": "Including more columns enlarges the index and adds maintenance cost on writes."}
+      ]
+    },
+    "u:core-dbms-72-when-an-index-hurts": {
+      "title": "When an index hurts",
+      "summary": "Indexes aren't free — they slow writes and can be ignored or counterproductive.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Indexes speed reads but have costs. Knowing when NOT to index shows real understanding."},
+        {"t": "points", "items": [
+          "**Write overhead** — every INSERT/UPDATE/DELETE must also update every index on the table. Many indexes = slow writes.",
+          "**Low selectivity** — an index on a column with few distinct values (e.g. a boolean/gender) is often useless; the optimiser prefers a full scan.",
+          "**Small tables** — scanning is cheaper than an index lookup.",
+          "**Storage** — indexes consume disk and memory.",
+          "**Functions on the column** — `WHERE UPPER(name) = ...` can't use a plain index on name (unless a functional index exists)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Index for read patterns, not reflexively. On write-heavy tables, low-selectivity columns, or small tables, an index can cost more than it saves. Wrapping an indexed column in a function also disables the index."}
+      ],
+      "mcqs": [
+        {"q": "An index generally hurts performance when the table is:", "options": ["Read-only", "Write-heavy (each write must update the index too)", "Very large", "Rarely changed"], "answer": 1, "explain": "Every write maintains every index, so many indexes slow inserts/updates/deletes."},
+        {"q": "An index on a low-selectivity column (few distinct values) is often:", "options": ["The most useful", "Ignored by the optimiser in favour of a full scan", "Required", "A covering index"], "answer": 1, "explain": "When most rows share a value, a scan is cheaper than using the index."},
+        {"q": "`WHERE UPPER(name) = 'X'` typically:", "options": ["Uses a plain index on name", "Cannot use a plain index on name (function applied to the column)", "Is always fastest", "Requires no index"], "answer": 1, "explain": "Applying a function to the column prevents use of a normal index unless a matching functional index exists."}
+      ]
+    },
+    "u:core-dbms-73-query-plans-and-explain": {
+      "title": "Query plans and EXPLAIN",
+      "summary": "See how the database will run a query, and spot the slow parts.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **query optimiser** turns your SQL into an **execution plan** — the concrete steps (which indexes, join methods, order). `EXPLAIN` (or `EXPLAIN ANALYZE`) shows this plan so you can diagnose performance."},
+        {"t": "points", "items": [
+          "**Access methods**: full **table scan** (read everything) vs **index scan/seek** (use an index).",
+          "**Join methods**: nested loop (good for small/indexed), hash join (large unsorted sets), merge join (both sorted).",
+          "Watch for a full scan on a large table, a huge estimated **row count** mismatch (stale statistics), or a missing index.",
+          "`EXPLAIN ANALYZE` runs the query and shows actual timings/rows vs estimates."
+        ]},
+        {"t": "callout", "style": "key", "text": "EXPLAIN reveals whether the DB uses your index, how it joins, and where the cost is. The most common finding is a full table scan where an index would help, or bad estimates from stale statistics."}
+      ],
+      "mcqs": [
+        {"q": "EXPLAIN is used to:", "options": ["Change the data", "Show the query's execution plan without (or with) running it", "Create an index", "Delete rows"], "answer": 1, "explain": "EXPLAIN reveals the optimiser's chosen plan so you can analyse performance."},
+        {"q": "A common performance red flag in a plan is:", "options": ["An index seek", "A full table scan on a large table where an index would help", "A small result set", "A primary key lookup"], "answer": 1, "explain": "Scanning a big table instead of using an index usually signals a missing/unused index."},
+        {"q": "A hash join is typically chosen for:", "options": ["Two small indexed tables", "Joining large, unsorted data sets", "Range scans", "Single-row lookups"], "answer": 1, "explain": "Hash joins suit large unsorted inputs; nested loops fit small/indexed inputs and merge joins fit sorted inputs."}
+      ]
+    },
+    "u:core-dbms-74-sql-vs-nosql-trade-offs": {
+      "title": "SQL vs NoSQL trade-offs",
+      "summary": "Structured, consistent, relational vs flexible, scalable, denormalized — choose by need.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "SQL (relational) and NoSQL databases make different trade-offs; the right choice depends on the workload."},
+        {"t": "table", "headers": ["", "SQL (relational)", "NoSQL"], "rows": [
+          ["Schema", "Fixed, structured", "Flexible / schema-less"],
+          ["Consistency", "Strong (ACID)", "Often eventual (BASE), tunable"],
+          ["Scaling", "Vertical (harder to shard)", "Horizontal (built for it)"],
+          ["Joins/relations", "First-class", "Limited; denormalize instead"],
+          ["Best for", "Complex queries, transactions, structured data", "High scale, flexible/varied data, simple access patterns"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Pick SQL for structured data needing strong consistency, complex queries, and transactions (finance, orders). Pick NoSQL for massive scale, flexible/evolving schemas, or specific access patterns (feeds, catalogs, sessions). It's about fit, not one being 'better'."},
+        {"t": "callout", "style": "tip", "text": "Modern systems are often polyglot: relational for core transactional data, NoSQL for caching, search, feeds, or analytics."}
+      ],
+      "mcqs": [
+        {"q": "A key strength of relational (SQL) databases is:", "options": ["Schema-less flexibility", "Strong consistency (ACID) and complex query/join support", "Automatic horizontal scaling", "No constraints"], "answer": 1, "explain": "SQL databases excel at structured data, transactions, and complex queries with joins."},
+        {"q": "NoSQL databases are typically chosen for:", "options": ["Complex multi-table joins", "Horizontal scalability and flexible/evolving schemas", "Strict ACID transactions above all", "Small structured datasets only"], "answer": 1, "explain": "NoSQL targets scale and schema flexibility, often trading some consistency and join capability."},
+        {"q": "The choice between SQL and NoSQL should be based on:", "options": ["Always pick NoSQL for modernity", "The workload's needs (consistency, scale, query complexity, schema)", "Whichever is newer", "The programming language"], "answer": 1, "explain": "It's a fit-for-purpose decision driven by data structure, consistency, scale, and query needs."}
+      ]
+    },
+    "u:core-dbms-75-document-key-value-column-graph-stores": {
+      "title": "Document, key-value, column, graph stores",
+      "summary": "The four main NoSQL families, each tuned to a data shape and access pattern.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "NoSQL isn't one thing — it's four families, each optimised for a different data model."},
+        {"t": "table", "headers": ["Type", "Model", "Good for", "Example"], "rows": [
+          ["Key-value", "Key -> opaque value", "Caching, sessions (fast simple lookups)", "Redis, DynamoDB"],
+          ["Document", "Key -> JSON/BSON document", "Flexible records, content, catalogs", "MongoDB, Couchbase"],
+          ["Wide-column", "Rows with dynamic column families", "Huge write/read scale, time series", "Cassandra, HBase"],
+          ["Graph", "Nodes + edges", "Highly connected data (social, recommendations)", "Neo4j"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Match the store to the shape: key-value for simple fast lookups, document for flexible self-contained records, wide-column for massive scale, graph for relationship-heavy queries (friends-of-friends, paths)."}
+      ],
+      "mcqs": [
+        {"q": "Which NoSQL type is best for highly connected data like social networks?", "options": ["Key-value", "Document", "Wide-column", "Graph"], "answer": 3, "explain": "Graph databases model nodes and edges directly, making relationship traversals (e.g. friends-of-friends) efficient."},
+        {"q": "A key-value store like Redis is ideal for:", "options": ["Complex relationship queries", "Fast simple lookups such as caching and sessions", "Multi-table joins", "Graph traversals"], "answer": 1, "explain": "Key-value stores give very fast get/set on a key, suiting caches and session storage."},
+        {"q": "A document store (e.g. MongoDB) organises data as:", "options": ["Rows and columns with fixed schema", "Flexible JSON/BSON documents keyed by id", "Nodes and edges", "Opaque byte values only"], "answer": 1, "explain": "Document databases store semi-structured documents, allowing flexible, self-contained records."}
+      ]
+    },
+    "u:core-dbms-76-cap-theorem": {
+      "title": "CAP theorem",
+      "summary": "In a network partition, a distributed store can guarantee consistency or availability, not both.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **CAP theorem** states a distributed data store can provide at most **two** of: **Consistency** (every read sees the latest write), **Availability** (every request gets a non-error response), **Partition tolerance** (the system keeps working despite network splits)."},
+        {"t": "p", "text": "Since network **partitions are unavoidable** in real distributed systems, P is mandatory. So the real choice during a partition is **C vs A**:"},
+        {"t": "table", "headers": ["Choice", "Behaviour during a partition", "Example"], "rows": [
+          ["CP", "Stay consistent, reject/block some requests", "HBase, etcd, MongoDB (default)"],
+          ["AP", "Stay available, may return stale data", "Cassandra, DynamoDB"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The real meaning: because partitions happen, you must choose — during a partition, be **consistent** (CP: refuse to serve possibly-stale data) or **available** (AP: serve, accepting staleness). 'Pick 2 of 3' is really 'pick C or A when P occurs'."},
+        {"t": "callout", "style": "tip", "text": "PACELC refines CAP: else (when no partition), you still trade Latency vs Consistency. See the PACELC note in the System Design pack."}
+      ],
+      "mcqs": [
+        {"q": "The CAP theorem says a distributed store, during a network partition, must choose between:", "options": ["Consistency and Availability", "Speed and storage", "SQL and NoSQL", "Read and write"], "answer": 0, "explain": "Partition tolerance is required, so the trade-off during a partition is consistency vs availability."},
+        {"q": "A CP system during a partition will:", "options": ["Serve possibly-stale data", "Sacrifice availability to remain consistent (reject/block some requests)", "Ignore the partition", "Lose durability"], "answer": 1, "explain": "CP systems prioritise consistency, refusing to serve data they can't guarantee is current."},
+        {"q": "An AP system like Cassandra during a partition:", "options": ["Stops responding", "Stays available but may return stale (eventually consistent) data", "Guarantees latest writes", "Becomes CP"], "answer": 1, "explain": "AP systems keep answering requests, accepting temporary inconsistency (eventual consistency)."}
+      ]
+    },
+    "u:core-dbms-77-sharding-and-replication": {
+      "title": "Sharding and replication",
+      "summary": "Split data across nodes for write scale; copy data across nodes for reads and resilience.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Two orthogonal techniques for scaling a distributed database — often confused, usually combined."},
+        {"t": "points", "items": [
+          "**Sharding (partitioning)** — split data into subsets, each on a different node, by a **shard key** (range or hash). Scales **writes** and **storage**; each node handles part of the load.",
+          "**Replication** — keep **copies** of the same data on multiple nodes. Scales **reads** and provides **availability/failover**; replicas can lag (eventual consistency)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Sharding = different data on different nodes (write/storage scale); replication = same data copied (read scale + fault tolerance). Large systems shard AND replicate each shard. Choosing a good shard key (to avoid hotspots) is the hard part."},
+        {"t": "callout", "style": "warn", "text": "Cross-shard queries and transactions are expensive and complex — a major reason to choose the shard key so that most queries hit a single shard."}
+      ],
+      "mcqs": [
+        {"q": "Sharding primarily scales:", "options": ["Reads only", "Writes and storage, by splitting data across nodes", "Availability only", "Nothing"], "answer": 1, "explain": "Each shard holds a subset of the data, distributing write and storage load."},
+        {"q": "Replication primarily provides:", "options": ["Write scaling by splitting data", "Read scaling and availability via copies of the same data", "A shard key", "Cross-shard joins"], "answer": 1, "explain": "Copies let reads spread across replicas and provide failover if a node dies."},
+        {"q": "A poorly chosen shard key leads to:", "options": ["Perfect balance", "Hotspots (one shard overloaded) and costly cross-shard queries", "No storage use", "Automatic replication"], "answer": 1, "explain": "A bad key concentrates load on one shard and forces expensive cross-shard operations."}
+      ]
+    },
+    "u:core-dbms-78-normalisation-vs-denormalisation-in-practice": {
+      "title": "Normalisation vs denormalisation in practice",
+      "summary": "The real-world balance: normalize for integrity, denormalize selectively for read speed.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "In practice you don't pick one dogmatically — you normalize as the default and denormalize deliberately where measured performance demands it."},
+        {"t": "table", "headers": ["", "Normalisation", "Denormalisation"], "rows": [
+          ["Goal", "Remove redundancy, ensure integrity", "Speed up reads"],
+          ["Writes", "Simple, consistent", "Must keep duplicates in sync"],
+          ["Reads", "May need many joins", "Fewer joins, faster"],
+          ["Fits", "OLTP (transactional systems)", "OLAP / read-heavy / analytics"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Rule of thumb: normalize for **OLTP** (transactional integrity, many writes), denormalize for **OLAP/reporting** (read-heavy analytics, star schemas). Denormalize only after measuring that joins are the bottleneck — and then manage the consistency cost."},
+        {"t": "callout", "style": "tip", "text": "Common hybrid: keep a normalized source of truth, and maintain denormalized read models / materialized views / caches for hot read paths."}
+      ],
+      "mcqs": [
+        {"q": "Transactional (OLTP) systems generally favour:", "options": ["Heavy denormalisation", "Normalisation for integrity and consistent writes", "No schema", "Only NoSQL"], "answer": 1, "explain": "OLTP prioritises write consistency and integrity, which normalisation provides."},
+        {"q": "Denormalisation is most appropriate for:", "options": ["Write-heavy transactional workloads", "Read-heavy analytical/reporting workloads (OLAP)", "Enforcing constraints", "Reducing storage"], "answer": 1, "explain": "Analytics/reporting benefit from precomputed, join-free data at the cost of write complexity."},
+        {"q": "A common practical hybrid is to:", "options": ["Never normalize", "Keep a normalized source of truth plus denormalized read models/materialized views for hot reads", "Denormalize everything upfront", "Avoid indexes"], "answer": 1, "explain": "A normalized core with maintained denormalized read paths balances integrity and read speed."}
+      ]
+    },
+    "u:core-dbms-48-acid-properties": {
+      "title": "ACID properties",
+      "summary": "The four guarantees that make a transaction reliable: Atomicity, Consistency, Isolation, Durability.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **transaction** is a unit of work that must execute completely or not at all. **ACID** is the set of guarantees that make transactions reliable."},
+        {"t": "table", "headers": ["Property", "Guarantee"], "rows": [
+          ["Atomicity", "All operations happen, or none do (all-or-nothing; rollback on failure)"],
+          ["Consistency", "A transaction moves the DB from one valid state to another (constraints hold)"],
+          ["Isolation", "Concurrent transactions don't interfere; result as if run serially"],
+          ["Durability", "Once committed, changes survive crashes (persisted to disk/log)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Classic example: a bank transfer. Atomicity ensures the debit and credit both happen or neither; Consistency keeps total money constant; Isolation stops another transaction seeing a half-done transfer; Durability keeps it after a crash."},
+        {"t": "callout", "style": "tip", "text": "Atomicity is enabled by the log (undo); Durability by the log (redo) + write-ahead logging; Isolation by concurrency control (locks/MVCC)."}
+      ],
+      "mcqs": [
+        {"q": "Atomicity guarantees that a transaction:", "options": ["Runs in isolation", "Executes fully or not at all (all-or-nothing)", "Survives crashes", "Keeps constraints valid"], "answer": 1, "explain": "Atomicity means all operations commit together or none do — partial effects are rolled back."},
+        {"q": "Durability ensures that once a transaction commits:", "options": ["It can be rolled back", "Its changes persist even after a system crash", "It runs faster", "It is isolated"], "answer": 1, "explain": "Committed changes are made permanent (via logging), surviving failures."},
+        {"q": "The property preventing concurrent transactions from seeing each other's uncommitted changes is:", "options": ["Atomicity", "Isolation", "Consistency", "Durability"], "answer": 1, "explain": "Isolation makes concurrent transactions behave as if serialized, hiding intermediate states."}
+      ]
+    },
+    "u:core-dbms-49-transaction-states": {
+      "title": "Transaction states",
+      "summary": "The lifecycle of a transaction from active through committed or aborted.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A transaction moves through a defined set of **states**."},
+        {"t": "points", "items": [
+          "**Active** — executing its operations.",
+          "**Partially committed** — after the final operation, before changes are made permanent.",
+          "**Committed** — changes durably saved; the transaction succeeded.",
+          "**Failed** — an error occurred; normal execution can't continue.",
+          "**Aborted** — rolled back to the state before it started (may be restarted)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The two terminal outcomes are **committed** (permanent) and **aborted** (rolled back). 'Partially committed' is the risky window before durability is guaranteed — a crash here triggers recovery."}
+      ],
+      "mcqs": [
+        {"q": "After executing its last statement but before changes are made permanent, a transaction is:", "options": ["Committed", "Partially committed", "Aborted", "Active"], "answer": 1, "explain": "Partially committed is the state between the final operation and durable commit."},
+        {"q": "A transaction that fails and is rolled back to its start reaches the state:", "options": ["Committed", "Aborted", "Active", "Partially committed"], "answer": 1, "explain": "After a failure, the transaction is aborted (undone) and may be restarted."},
+        {"q": "The two terminal states of a transaction are:", "options": ["Active and failed", "Committed and aborted", "Partially committed and active", "Failed and active"], "answer": 1, "explain": "A transaction ends either committed (success) or aborted (rolled back)."}
+      ]
+    },
+    "u:core-dbms-50-schedules-serial-non-serial": {
+      "title": "Schedules: serial, non-serial",
+      "summary": "The order in which concurrent transactions' operations interleave.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **schedule** is the chronological order of operations from multiple transactions."},
+        {"t": "points", "items": [
+          "**Serial schedule** — transactions run one completely before the next; always correct, but no concurrency (slow).",
+          "**Non-serial (concurrent) schedule** — operations interleave for performance, but may be incorrect if not equivalent to some serial order.",
+          "The goal of concurrency control: allow non-serial schedules that are **serializable** (equivalent to a serial one)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Serial schedules are always correct but slow; non-serial schedules are fast but must be **serializable** to be correct. Serializability is the correctness criterion that lets us have concurrency safely."}
+      ],
+      "mcqs": [
+        {"q": "A serial schedule executes transactions:", "options": ["With interleaved operations", "One entirely before the next begins", "In random order", "Never"], "answer": 1, "explain": "Serial means no interleaving — each transaction finishes before the next starts, guaranteeing correctness."},
+        {"q": "Non-serial schedules are used because they:", "options": ["Are always correct", "Allow concurrency and better performance (if serializable)", "Avoid all conflicts", "Need no control"], "answer": 1, "explain": "Interleaving boosts throughput, but only serializable non-serial schedules are correct."},
+        {"q": "The correctness goal for a concurrent schedule is that it is:", "options": ["Serial", "Serializable (equivalent to some serial schedule)", "Recoverable only", "Fast only"], "answer": 1, "explain": "Serializability ensures a concurrent schedule yields the same result as some serial order."}
+      ]
+    },
+    "u:core-dbms-51-conflict-serializability-and-precedence-graph": {
+      "title": "Conflict serializability and precedence graph",
+      "summary": "Test whether a schedule is equivalent to a serial one by checking its precedence graph for cycles.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Two operations **conflict** if they belong to different transactions, access the **same data item**, and at least one is a **write**. A schedule is **conflict serializable** if it can be transformed into a serial schedule by swapping only non-conflicting operations."},
+        {"t": "h", "text": "The precedence graph test"},
+        {"t": "steps", "items": [
+          "Make a node per transaction.",
+          "Add an edge Ti to Tj whenever an operation of Ti conflicts with and precedes an operation of Tj on the same item.",
+          "The schedule is conflict serializable if and only if the graph has no cycle. A topological sort of an acyclic graph gives an equivalent serial order."
+        ]},
+        {"t": "callout", "style": "key", "text": "The whole test reduces to cycle detection: no cycle in the precedence (serializability) graph implies conflict serializable implies correct. A cycle means no equivalent serial order exists."},
+        {"t": "callout", "style": "tip", "text": "Conflict serializability is a sufficient (stricter) condition for correctness; view serializability is more permissive but harder (NP) to test."}
+      ],
+      "mcqs": [
+        {"q": "Two operations conflict when they are from different transactions, hit the same item, and:", "options": ["Both are reads", "At least one is a write", "Both are commits", "Neither writes"], "answer": 1, "explain": "Read-write or write-write on the same item conflict; two reads do not."},
+        {"q": "A schedule is conflict serializable if and only if its precedence graph:", "options": ["Has a cycle", "Is acyclic (no cycle)", "Has one node", "Is complete"], "answer": 1, "explain": "No cycle means the operations can be topologically ordered into an equivalent serial schedule."},
+        {"q": "An edge from Ti to Tj in the precedence graph means:", "options": ["Ti and Tj never conflict", "An operation of Ti conflicts with and precedes one of Tj", "Tj committed first", "They read the same item only"], "answer": 1, "explain": "The edge records that Ti must come before Tj in any equivalent serial order due to a conflict."}
+      ]
+    },
+    "u:core-dbms-52-view-serializability": {
+      "title": "View serializability",
+      "summary": "A broader correctness notion than conflict serializability, based on what each read sees.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**View serializability** is a weaker (more permissive) correctness criterion than conflict serializability. Two schedules are **view equivalent** if, for every data item, they agree on: initial reads, which write each read sees, and the final write."},
+        {"t": "points", "items": [
+          "Every conflict-serializable schedule is view serializable, but **not** vice versa.",
+          "View serializability additionally admits some schedules with **blind writes** (writing without reading first).",
+          "Testing view serializability is **NP-complete**, so practical systems enforce the cheaper conflict serializability."
+        ]},
+        {"t": "callout", "style": "key", "text": "Relationship: conflict serializable is a subset of view serializable. View serializability captures more valid schedules (those with blind writes) but is impractical to test (NP-complete), so real DBMSs use conflict serializability."}
+      ],
+      "mcqs": [
+        {"q": "Every conflict-serializable schedule is:", "options": ["Not view serializable", "Also view serializable", "Serial", "Non-serializable"], "answer": 1, "explain": "Conflict serializability is stricter, so it implies view serializability (but not conversely)."},
+        {"q": "View serializability admits some schedules that conflict serializability rejects, involving:", "options": ["Only reads", "Blind writes (writing without a prior read)", "No writes", "Serial order"], "answer": 1, "explain": "Blind writes let certain view-serializable schedules exist that aren't conflict serializable."},
+        {"q": "Practical systems use conflict serializability instead of view serializability because:", "options": ["It is less correct", "Testing view serializability is NP-complete (too expensive)", "It allows more schedules", "It needs no locks"], "answer": 1, "explain": "View serializability is hard (NP-complete) to check, so the efficiently-testable conflict serializability is enforced."}
+      ]
+    },
+    "u:core-dbms-53-recoverable-and-cascadeless-schedules": {
+      "title": "Recoverable and cascadeless schedules",
+      "summary": "Rules on commit order and dirty reads so aborts don't corrupt other transactions.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Serializability isn't enough — schedules must also behave correctly when a transaction **aborts**."},
+        {"t": "points", "items": [
+          "**Recoverable** — a transaction commits only **after** every transaction whose data it read has committed. Otherwise, if the earlier one aborts, you've committed based on data that never existed.",
+          "**Cascadeless (avoids cascading rollback)** — a transaction reads only data written by **already-committed** transactions, so one abort never forces others to roll back.",
+          "**Strict** — even stronger: no transaction reads OR overwrites uncommitted data. Strict schedules simplify recovery."
+        ]},
+        {"t": "callout", "style": "key", "text": "The hierarchy: strict is a subset of cascadeless is a subset of recoverable. A **dirty read** (reading uncommitted data) is what makes a schedule non-cascadeless and risks cascading aborts. Strict 2PL produces strict schedules — no cascades."}
+      ],
+      "mcqs": [
+        {"q": "A recoverable schedule requires that a transaction commits only after:", "options": ["It starts", "Every transaction it read data from has committed", "All locks are released", "The system restarts"], "answer": 1, "explain": "Committing after your data sources commit prevents relying on data that might be rolled back."},
+        {"q": "A cascadeless schedule avoids cascading rollback by ensuring transactions read only:", "options": ["Uncommitted data", "Data written by already-committed transactions", "Their own data", "Indexed data"], "answer": 1, "explain": "Reading only committed data means one abort can't force others to roll back."},
+        {"q": "A dirty read is:", "options": ["Reading committed data", "Reading data written by an uncommitted transaction", "A write conflict", "A durable read"], "answer": 1, "explain": "A dirty read sees uncommitted changes, which can vanish if that transaction aborts."}
+      ]
+    },
+    "u:core-dbms-54-lock-based-protocols": {
+      "title": "Lock-based protocols",
+      "summary": "Shared and exclusive locks control concurrent access to data items.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Locking** is the most common concurrency-control mechanism. A transaction locks a data item before accessing it."},
+        {"t": "table", "headers": ["Lock", "Allows", "Compatible with"], "rows": [
+          ["Shared (S) — read", "Reading", "Other S locks"],
+          ["Exclusive (X) — write", "Reading + writing", "Nothing (must be sole holder)"]
+        ]},
+        {"t": "points", "items": [
+          "Many transactions can hold **S** locks on the same item simultaneously (concurrent reads are safe).",
+          "An **X** lock is exclusive — no other lock (S or X) can coexist.",
+          "The compatibility matrix: S-S compatible; S-X and X-X incompatible."
+        ]},
+        {"t": "callout", "style": "key", "text": "Shared locks allow concurrent reads; an exclusive lock is needed for writes and blocks everyone else. Locking alone doesn't guarantee serializability — you also need a protocol like 2PL governing when locks are acquired/released."}
+      ],
+      "mcqs": [
+        {"q": "Multiple transactions can simultaneously hold a shared (S) lock on the same item because:", "options": ["Reads conflict", "Concurrent reads don't conflict", "S locks are exclusive", "Writes are allowed"], "answer": 1, "explain": "Shared locks permit concurrent reading, which is safe; only writes need exclusivity."},
+        {"q": "An exclusive (X) lock is compatible with:", "options": ["Shared locks", "Other exclusive locks", "No other lock", "Both S and X"], "answer": 2, "explain": "An X lock must be held alone — it's incompatible with any other S or X lock."},
+        {"q": "Locking by itself guarantees serializability:", "options": ["Always", "No — it also needs a protocol like two-phase locking", "Only with S locks", "Never with X locks"], "answer": 1, "explain": "Ad-hoc locking can still allow non-serializable schedules; a protocol like 2PL is required."}
+      ]
+    },
+    "u:core-dbms-55-two-phase-locking-and-strict-2pl": {
+      "title": "Two-phase locking and strict 2PL",
+      "summary": "Acquire all locks before releasing any — the protocol that guarantees serializability.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Two-Phase Locking (2PL)** guarantees conflict-serializable schedules by splitting a transaction's locking into two phases:"},
+        {"t": "points", "items": [
+          "**Growing phase** — the transaction acquires locks; it may not release any.",
+          "**Shrinking phase** — once it releases its first lock, it may not acquire any more.",
+          "This 'all locks before any release' rule enforces serializability."
+        ]},
+        {"t": "h", "text": "Variants"},
+        {"t": "table", "headers": ["Variant", "Rule", "Benefit"], "rows": [
+          ["Basic 2PL", "Two phases", "Serializable, but risks cascading aborts"],
+          ["Strict 2PL", "Hold all X locks until commit/abort", "No dirty reads / no cascading aborts"],
+          ["Rigorous 2PL", "Hold ALL locks (S and X) until commit", "Simplest recovery"]
+        ]},
+        {"t": "callout", "style": "warn", "text": "2PL guarantees serializability but can cause **deadlock** (two transactions each waiting for the other's lock). Strict 2PL, the most common in practice, holds exclusive locks until commit, avoiding cascading rollbacks."}
+      ],
+      "mcqs": [
+        {"q": "The two-phase locking rule is:", "options": ["Release all locks before acquiring any", "No lock is acquired after the first lock is released (growing then shrinking)", "Locks are never released", "Only read locks are used"], "answer": 1, "explain": "2PL has a growing phase (acquire) then a shrinking phase (release); no acquisition after the first release."},
+        {"q": "Strict 2PL additionally requires that exclusive locks are held:", "options": ["Only briefly", "Until the transaction commits or aborts", "Never", "Only during reads"], "answer": 1, "explain": "Holding X locks to commit prevents dirty reads and cascading rollbacks."},
+        {"q": "A drawback of two-phase locking is that it can cause:", "options": ["Dirty reads", "Deadlock", "Loss of durability", "Non-serializability"], "answer": 1, "explain": "Transactions holding locks and waiting for each other's can deadlock; 2PL guarantees serializability but not deadlock-freedom."}
+      ]
+    },
+    "u:core-dbms-56-isolation-levels": {
+      "title": "Isolation levels",
+      "summary": "Trade consistency for concurrency via four SQL levels, each permitting more anomalies.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Isolation levels** let you relax full isolation for more concurrency, each allowing more read anomalies. The SQL standard defines four."},
+        {"t": "table", "headers": ["Level", "Dirty read", "Non-repeatable read", "Phantom read"], "rows": [
+          ["Read Uncommitted", "Possible", "Possible", "Possible"],
+          ["Read Committed", "No", "Possible", "Possible"],
+          ["Repeatable Read", "No", "No", "Possible"],
+          ["Serializable", "No", "No", "No"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Higher isolation = fewer anomalies but less concurrency. Read Committed (the default in many DBs) prevents dirty reads; Serializable prevents everything but costs the most. Pick the lowest level that's still correct for your workload."},
+        {"t": "callout", "style": "tip", "text": "Many databases implement these with MVCC (snapshot isolation) rather than pure locking; snapshot isolation is close to but not exactly Serializable."}
+      ],
+      "mcqs": [
+        {"q": "Which isolation level allows dirty reads?", "options": ["Serializable", "Repeatable Read", "Read Committed", "Read Uncommitted"], "answer": 3, "explain": "Only Read Uncommitted permits reading uncommitted (dirty) data; the others forbid it."},
+        {"q": "Repeatable Read prevents dirty and non-repeatable reads but may still allow:", "options": ["Dirty reads", "Phantom reads", "Lost durability", "Nothing"], "answer": 1, "explain": "Repeatable Read fixes existing rows but new rows matching a query (phantoms) can still appear."},
+        {"q": "The trade-off of higher isolation levels is:", "options": ["More anomalies", "Lower concurrency/performance for stronger consistency", "Less durability", "No isolation"], "answer": 1, "explain": "Stronger isolation reduces anomalies but limits concurrent execution, costing throughput."}
+      ]
+    },
+    "u:core-dbms-57-dirty-read-non-repeatable-read-phantom-read": {
+      "title": "Dirty read, non-repeatable read, phantom read",
+      "summary": "The three concurrency anomalies isolation levels are designed to prevent.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "These three read anomalies define what each isolation level allows."},
+        {"t": "points", "items": [
+          "**Dirty read** — reading data written by a transaction that hasn't committed (and might roll back). You read a value that never officially existed.",
+          "**Non-repeatable read** — reading the same **row** twice in one transaction and getting different values, because another transaction updated and committed it in between.",
+          "**Phantom read** — re-running the same **range query** returns a different set of rows, because another transaction inserted/deleted rows matching the condition."
+        ]},
+        {"t": "callout", "style": "key", "text": "The distinction: non-repeatable read is about a changed ROW value; phantom read is about the SET of rows changing (new/removed rows). Dirty read is about uncommitted data. Each is blocked by a progressively higher isolation level."}
+      ],
+      "mcqs": [
+        {"q": "Reading a value that a not-yet-committed transaction wrote is a:", "options": ["Phantom read", "Dirty read", "Non-repeatable read", "Lost update"], "answer": 1, "explain": "A dirty read sees uncommitted data that may later be rolled back."},
+        {"q": "Getting different values when reading the SAME row twice in a transaction is a:", "options": ["Dirty read", "Non-repeatable read", "Phantom read", "Deadlock"], "answer": 1, "explain": "A committed update by another transaction between the two reads causes a non-repeatable read."},
+        {"q": "A phantom read specifically involves:", "options": ["One row changing value", "The set of rows matching a query changing (rows inserted/deleted)", "Uncommitted data", "A lock timeout"], "answer": 1, "explain": "Phantoms are new/removed rows appearing/disappearing in a repeated range query."}
+      ]
+    },
+    "u:core-dbms-58-timestamp-ordering": {
+      "title": "Timestamp ordering",
+      "summary": "Order transactions by timestamp instead of locks, aborting those that violate the order.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Timestamp ordering (TO)** is a lock-free concurrency-control protocol. Each transaction gets a unique **timestamp** at start; the schedule must be equivalent to running transactions in timestamp order."},
+        {"t": "points", "items": [
+          "Each data item tracks the max **read-timestamp** and **write-timestamp** of transactions that accessed it.",
+          "If a transaction tries an operation that would violate timestamp order (e.g. an older transaction writing an item a newer one already read), it's **aborted and restarted** with a new timestamp.",
+          "No locks, so **no deadlock** — but there can be **starvation** from repeated aborts (and cascading rollbacks unless made strict)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Timestamp ordering trades locking for aborts: it can't deadlock (no waiting), but transactions get aborted/restarted when they'd break the serial timestamp order. Contrast with 2PL, which waits (and can deadlock) rather than aborting."}
+      ],
+      "mcqs": [
+        {"q": "Timestamp ordering ensures serializability equivalent to running transactions in:", "options": ["Random order", "Timestamp (start-time) order", "Commit order only", "Reverse order"], "answer": 1, "explain": "The protocol enforces a schedule equivalent to the serial order given by transaction timestamps."},
+        {"q": "A key advantage of timestamp ordering over locking is:", "options": ["It never aborts", "It is deadlock-free (no waiting/locks)", "It has no starvation", "It needs no timestamps"], "answer": 1, "explain": "Without locks/waiting, deadlock cannot occur — though repeated aborts can cause starvation."},
+        {"q": "When an operation would violate timestamp order, the protocol:", "options": ["Waits for a lock", "Aborts and restarts the violating transaction", "Ignores it", "Commits early"], "answer": 1, "explain": "Rather than blocking, it rolls back the out-of-order transaction and restarts it with a new timestamp."}
+      ]
+    },
+    "u:core-dbms-59-optimistic-concurrency": {
+      "title": "Optimistic concurrency",
+      "summary": "Run without locking, then validate before commit — great when conflicts are rare.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Optimistic Concurrency Control (OCC)** assumes conflicts are rare, so transactions run **without locks** and are only checked at the end. It has three phases:"},
+        {"t": "points", "items": [
+          "**Read phase** — the transaction reads and makes changes to a private, local workspace.",
+          "**Validation phase** — before commit, it checks whether its reads/writes conflict with other transactions that committed meanwhile.",
+          "**Write phase** — if validation passes, changes are applied; otherwise the transaction is **aborted and restarted**."
+        ]},
+        {"t": "callout", "style": "key", "text": "OCC shines under **low contention**: no locking overhead on the happy path. Under **high contention** it degrades — many transactions fail validation and restart, wasting the work done. Locking (pessimistic) is better when conflicts are common."},
+        {"t": "callout", "style": "tip", "text": "OCC is common in web apps via a version column: read a row's version, and on update check the version hasn't changed (WHERE version = old_version), retrying if it has."}
+      ],
+      "mcqs": [
+        {"q": "Optimistic concurrency control performs conflict checking:", "options": ["Before every read", "During a validation phase before commit", "Never", "By acquiring locks upfront"], "answer": 1, "explain": "OCC runs lock-free and validates for conflicts only at commit time."},
+        {"q": "OCC performs best when:", "options": ["Conflicts are frequent", "Conflicts are rare (low contention)", "Every transaction conflicts", "Locks are unavailable and contention is high"], "answer": 1, "explain": "With few conflicts, most validations pass and the lock-free path is fast; high contention causes many restarts."},
+        {"q": "If OCC validation fails, the transaction is:", "options": ["Committed anyway", "Aborted and restarted", "Put to sleep", "Given a lock"], "answer": 1, "explain": "A failed validation means a conflict occurred, so the transaction rolls back and retries."}
+      ]
+    },
+    "u:core-dbms-60-deadlock-in-dbms-wait-die-wound-wait": {
+      "title": "Deadlock in DBMS: wait-die, wound-wait",
+      "summary": "Timestamp-based deadlock-prevention schemes that decide whether to wait or abort.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Locking can deadlock. Beyond detection (wait-for graph) and timeouts, two **timestamp-based prevention** schemes decide, when a transaction needs a lock held by another, whether it waits or aborts — based on which is **older**."},
+        {"t": "table", "headers": ["Scheme", "If requester is OLDER", "If requester is YOUNGER"], "rows": [
+          ["Wait-Die (non-preemptive)", "Waits", "Dies (aborts, retries)"],
+          ["Wound-Wait (preemptive)", "Wounds (aborts the younger holder)", "Waits"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Both use timestamps so a consistent age ordering prevents cycles: **Wait-Die** — old waits, young dies (non-preemptive); **Wound-Wait** — old preempts (wounds) young, young waits (preemptive). Older transactions are never aborted by younger ones in either scheme, avoiding starvation."},
+        {"t": "callout", "style": "tip", "text": "Mnemonic: in both, the older transaction is favoured. Wait-Die: only younger transactions die. Wound-Wait: only younger transactions get wounded."}
+      ],
+      "mcqs": [
+        {"q": "In the Wait-Die scheme, when an older transaction requests a lock held by a younger one, it:", "options": ["Aborts", "Waits", "Wounds the younger one", "Restarts"], "answer": 1, "explain": "Wait-Die: an older requester waits; only a younger requester dies (aborts)."},
+        {"q": "Wound-Wait is a preemptive scheme where an older transaction:", "options": ["Waits for the younger", "Wounds (aborts) the younger lock holder and takes the lock", "Always dies", "Never gets the lock"], "answer": 1, "explain": "In Wound-Wait, the older transaction preempts (wounds) the younger holder; a younger requester waits."},
+        {"q": "Both wait-die and wound-wait prevent deadlock by:", "options": ["Using no timestamps", "Enforcing a consistent age-based ordering so wait cycles can't form", "Ignoring conflicts", "Allowing all transactions to wait"], "answer": 1, "explain": "A consistent ordering by timestamp (age) breaks the possibility of a circular wait."}
+      ]
+    },
+    "u:core-dbms-31-aggregate-functions": {
+      "title": "Aggregate functions",
+      "summary": "COUNT, SUM, AVG, MIN, MAX — collapse many rows into one summary value.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Aggregate functions** compute a single value over a set of rows: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`. They're used alone (whole table) or with `GROUP BY` (per group)."},
+        {"t": "points", "items": [
+          "All aggregates **except COUNT(*)** ignore NULLs. `COUNT(col)` counts non-null values; `COUNT(*)` counts all rows.",
+          "`AVG(col)` = SUM(col)/COUNT(col), skipping NULLs — which can surprise you.",
+          "`COUNT(DISTINCT col)` counts unique non-null values."
+        ]},
+        {"t": "callout", "style": "key", "text": "The NULL behaviour is the tested point: aggregates skip NULLs, so AVG ignores missing values (not treating them as 0), and only COUNT(*) counts every row regardless of NULLs."}
+      ],
+      "mcqs": [
+        {"q": "Which counts every row, including those with NULLs in a column?", "options": ["COUNT(col)", "COUNT(*)", "COUNT(DISTINCT col)", "SUM(col)"], "answer": 1, "explain": "COUNT(*) counts all rows; COUNT(col) ignores NULLs in that column."},
+        {"q": "AVG(col) computes the average over:", "options": ["All rows, treating NULL as 0", "Only non-NULL values of col", "The row count", "Distinct values only"], "answer": 1, "explain": "AVG ignores NULLs, dividing the sum of non-null values by their count — NULLs aren't treated as zero."},
+        {"q": "To count unique non-null values you use:", "options": ["COUNT(*)", "COUNT(DISTINCT col)", "SUM(col)", "MAX(col)"], "answer": 1, "explain": "COUNT(DISTINCT col) returns the number of distinct non-null values."}
+      ]
+    },
+    "u:core-dbms-32-window-functions-row-number-rank-dense-rank": {
+      "title": "Window functions: ROW_NUMBER, RANK, DENSE_RANK",
+      "summary": "Compute per-row values over a related set of rows without collapsing them.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Window functions** compute a value over a 'window' of rows related to the current row, but **without collapsing** them like GROUP BY does — every row is kept, with an extra computed column."},
+        {"t": "table", "headers": ["Function", "Behaviour on ties"], "rows": [
+          ["ROW_NUMBER()", "Unique sequential number; ties get different numbers arbitrarily"],
+          ["RANK()", "Ties share a rank; the next rank SKIPS (1,1,3)"],
+          ["DENSE_RANK()", "Ties share a rank; no gap (1,1,2)"]
+        ]},
+        {"t": "code", "lang": "sql", "text": "SELECT name, dept, salary,\n  RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS r\nFROM employees;"},
+        {"t": "callout", "style": "key", "text": "The tie behaviour is the exam point: RANK leaves gaps after ties (1,1,3), DENSE_RANK doesn't (1,1,2), and ROW_NUMBER always gives distinct numbers. `PARTITION BY` restarts the numbering per group."},
+        {"t": "callout", "style": "tip", "text": "Window functions are the clean way to solve 'top N per group' and 'Nth highest' — filter on the window's rank in an outer query."}
+      ],
+      "mcqs": [
+        {"q": "For salaries 100,100,90, RANK() assigns:", "options": ["1,1,2", "1,1,3", "1,2,3", "1,2,2"], "answer": 1, "explain": "RANK gives ties the same rank and skips the next (1,1,3); DENSE_RANK would give 1,1,2."},
+        {"q": "Unlike GROUP BY, a window function:", "options": ["Removes all rows", "Keeps every row and adds a computed column over the window", "Only works on one column", "Cannot use ORDER BY"], "answer": 1, "explain": "Window functions don't collapse rows; they annotate each row with a value computed over its window."},
+        {"q": "PARTITION BY in a window function:", "options": ["Sorts the whole table", "Restarts the window computation for each group", "Removes duplicates", "Filters rows"], "answer": 1, "explain": "It divides rows into partitions so the function computes independently within each."}
+      ]
+    },
+    "u:core-dbms-33-partition-by-and-frames": {
+      "title": "PARTITION BY and frames",
+      "summary": "Scope a window to groups and define the exact rows it spans for running calculations.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Two clauses shape a window function's window."},
+        {"t": "points", "items": [
+          "**PARTITION BY** — splits rows into groups; the function restarts per group (like GROUP BY, but rows are kept).",
+          "**Frame** (`ROWS BETWEEN ...`) — within an ordered partition, defines which rows the function sees relative to the current row: e.g. `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW` for a **running total**."
+        ]},
+        {"t": "code", "lang": "sql", "text": "SELECT day, amount,\n  SUM(amount) OVER (\n    ORDER BY day\n    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n  ) AS running_total\nFROM sales;"},
+        {"t": "callout", "style": "key", "text": "PARTITION BY sets the group; the frame sets the sliding range within it. Running totals, moving averages, and cumulative counts all come from choosing the right frame."}
+      ],
+      "mcqs": [
+        {"q": "A running total is produced by a window frame of:", "options": ["CURRENT ROW only", "UNBOUNDED PRECEDING to CURRENT ROW", "The whole table unordered", "One following row"], "answer": 1, "explain": "Summing from the partition start up to the current row yields a cumulative/running total."},
+        {"q": "PARTITION BY in a window definition:", "options": ["Orders the rows", "Divides rows into groups the function computes over independently", "Removes rows", "Defines the frame"], "answer": 1, "explain": "It groups rows so each partition gets its own window computation."},
+        {"q": "A moving average over the last 3 rows uses a frame like:", "options": ["UNBOUNDED PRECEDING AND CURRENT ROW", "ROWS BETWEEN 2 PRECEDING AND CURRENT ROW", "No frame", "CURRENT ROW ONLY"], "answer": 1, "explain": "A sliding frame of the current row plus the two before it averages a 3-row window."}
+      ]
+    },
+    "u:core-dbms-34-ctes-and-recursive-ctes": {
+      "title": "CTEs and recursive CTEs",
+      "summary": "Named temporary result sets that make queries readable — and can recurse over hierarchies.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **Common Table Expression (CTE)** is a named temporary result defined with `WITH`, usable in the main query. It improves readability and lets you reference the same subquery by name."},
+        {"t": "code", "lang": "sql", "text": "WITH top_depts AS (\n  SELECT dept FROM employees GROUP BY dept HAVING COUNT(*) > 10\n)\nSELECT * FROM employees WHERE dept IN (SELECT dept FROM top_depts);"},
+        {"t": "h", "text": "Recursive CTEs"},
+        {"t": "p", "text": "A **recursive CTE** references itself, ideal for hierarchies (org charts, category trees, bill of materials). It has an **anchor** member (base rows) UNION ALL a **recursive** member that repeatedly joins back to the CTE until no new rows appear."},
+        {"t": "callout", "style": "key", "text": "CTEs make complex queries readable by naming intermediate steps. Recursive CTEs are the standard SQL way to traverse arbitrary-depth hierarchies — something a single self join can't do."}
+      ],
+      "mcqs": [
+        {"q": "A CTE is defined using which keyword?", "options": ["HAVING", "WITH", "OVER", "USING"], "answer": 1, "explain": "The WITH clause defines a named temporary result set (CTE)."},
+        {"q": "Recursive CTEs are especially useful for:", "options": ["Sorting", "Traversing hierarchical/tree data of arbitrary depth", "Removing duplicates", "Indexing"], "answer": 1, "explain": "Their self-reference lets them walk parent-child hierarchies to any depth."},
+        {"q": "A recursive CTE consists of:", "options": ["A single SELECT", "An anchor member and a recursive member combined with UNION ALL", "Only a GROUP BY", "Two unrelated queries"], "answer": 1, "explain": "The anchor provides base rows; the recursive member repeatedly extends the result until it stops producing new rows."}
+      ]
+    },
+    "u:core-dbms-35-views-and-materialised-views": {
+      "title": "Views and materialised views",
+      "summary": "A saved query you use like a table — computed on the fly, or stored and refreshed.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **view** is a named, stored query that behaves like a virtual table. Two kinds differ in whether results are stored."},
+        {"t": "table", "headers": ["", "View", "Materialised view"], "rows": [
+          ["Data", "Computed on every query (virtual)", "Precomputed and stored"],
+          ["Freshness", "Always current", "Stale until refreshed"],
+          ["Read speed", "Depends on the underlying query", "Fast (already computed)"],
+          ["Storage", "None (just the definition)", "Uses disk"]
+        ]},
+        {"t": "points", "items": [
+          "Views simplify complex queries, provide a stable interface, and restrict access (a security layer showing only some columns/rows).",
+          "Materialised views trade freshness for speed — great for expensive aggregations refreshed periodically."
+        ]},
+        {"t": "callout", "style": "key", "text": "Plain view = query re-run each time (always fresh, no storage). Materialised view = stored snapshot (fast reads, must be refreshed, can be stale). Choose based on freshness vs read-cost."}
+      ],
+      "mcqs": [
+        {"q": "A regular (non-materialised) view stores:", "options": ["The query results on disk", "Only the query definition; results are computed each time", "Nothing at all", "A cached copy that never updates"], "answer": 1, "explain": "A view is virtual — its query runs on access, so it always reflects current data."},
+        {"q": "A materialised view improves read speed by:", "options": ["Recomputing every time", "Storing precomputed results (which can become stale until refreshed)", "Removing indexes", "Disabling constraints"], "answer": 1, "explain": "It caches the query output on disk, so reads are fast but data can be stale between refreshes."},
+        {"q": "A common non-performance use of views is:", "options": ["Deleting data", "Providing a security layer that exposes only certain columns/rows", "Creating indexes", "Sharding"], "answer": 1, "explain": "Views can restrict what users see, acting as an access-control abstraction."}
+      ]
+    },
+    "u:core-dbms-36-stored-procedures-and-functions": {
+      "title": "Stored procedures and functions",
+      "summary": "Precompiled routines stored in the database for reusable server-side logic.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **stored procedure** is a named set of SQL statements stored in the DB and executed on demand. A **function** is similar but **returns a value** and can be used inside queries."},
+        {"t": "table", "headers": ["", "Stored procedure", "Function"], "rows": [
+          ["Returns", "Optional (via OUT params); may return none", "Must return a value"],
+          ["Called from a query", "No", "Yes (in SELECT/WHERE)"],
+          ["Side effects (DML)", "Allowed", "Usually restricted"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Both encapsulate reusable server-side logic, reduce round-trips, and can improve security. The key difference: a function returns a value and is callable within a query; a procedure is invoked as a standalone command."},
+        {"t": "callout", "style": "warn", "text": "Heavy business logic in stored procedures can be hard to version-control and test; balance against keeping logic in the application."}
+      ],
+      "mcqs": [
+        {"q": "A key difference between a function and a stored procedure is that a function:", "options": ["Cannot take parameters", "Returns a value and can be used inside a query", "Cannot be stored", "Is always faster"], "answer": 1, "explain": "Functions return a value and are usable in SELECT/WHERE; procedures are invoked as commands."},
+        {"q": "A benefit of stored procedures is:", "options": ["More network round-trips", "Encapsulating reusable server-side logic and reducing round-trips", "Removing all indexes", "Disabling transactions"], "answer": 1, "explain": "They run logic on the server in one call, cutting round-trips and centralising logic."},
+        {"q": "Stored procedures and functions are:", "options": ["Interpreted line by line each call with no reuse", "Stored in the database and reusable", "Client-side scripts", "Views"], "answer": 1, "explain": "They live in the database as reusable, callable routines."}
+      ]
+    },
+    "u:core-dbms-37-triggers": {
+      "title": "Triggers",
+      "summary": "Procedural code that fires automatically in response to data-change events.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **trigger** is code that runs **automatically** when a specified event (`INSERT`, `UPDATE`, `DELETE`) occurs on a table. It fires **BEFORE** or **AFTER** the event, for each row or per statement."},
+        {"t": "points", "items": [
+          "Uses: auditing (log every change), enforcing complex rules, maintaining derived data, cascading custom actions.",
+          "`BEFORE` triggers can modify the row being written; `AFTER` triggers react to the completed change.",
+          "Access to `OLD` and `NEW` row values."
+        ]},
+        {"t": "callout", "style": "warn", "text": "Triggers run hidden 'magic' — they make behaviour implicit, can hurt performance, and can cause hard-to-debug cascades (one trigger firing another). Use sparingly and document them."},
+        {"t": "callout", "style": "key", "text": "A trigger = event + timing (BEFORE/AFTER) + action. It's the tool for automatic auditing and enforcing rules that constraints can't express."}
+      ],
+      "mcqs": [
+        {"q": "A trigger executes:", "options": ["Only when manually called", "Automatically in response to INSERT/UPDATE/DELETE events", "Once at database startup", "Only in SELECT queries"], "answer": 1, "explain": "Triggers fire automatically on the data-modification events they're bound to."},
+        {"q": "A common legitimate use of triggers is:", "options": ["Sorting query results", "Auditing/logging every change to a table", "Creating indexes", "Running SELECTs faster"], "answer": 1, "explain": "Auditing changes automatically is a canonical trigger use case."},
+        {"q": "A caution about triggers is that they:", "options": ["Cannot access changed data", "Make behaviour implicit and can cause hard-to-debug cascades", "Never affect performance", "Only work on views"], "answer": 1, "explain": "Because they run automatically and can chain, triggers can be surprising and hard to trace."}
+      ]
+    },
+    "u:core-dbms-38-nth-highest-salary-know-3-ways": {
+      "title": "Nth highest salary (know 3 ways)",
+      "summary": "A staple SQL interview question with subquery, LIMIT/OFFSET, and window-function solutions.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Finding the Nth highest salary is a classic interview task. Know multiple approaches and their trade-offs."},
+        {"t": "h", "text": "1) Correlated subquery"},
+        {"t": "code", "lang": "sql", "text": "SELECT DISTINCT salary FROM emp e1\nWHERE N-1 = (\n  SELECT COUNT(DISTINCT salary) FROM emp e2\n  WHERE e2.salary > e1.salary\n);"},
+        {"t": "h", "text": "2) LIMIT / OFFSET"},
+        {"t": "code", "lang": "sql", "text": "SELECT DISTINCT salary FROM emp\nORDER BY salary DESC\nLIMIT 1 OFFSET N-1;"},
+        {"t": "h", "text": "3) Window function (cleanest)"},
+        {"t": "code", "lang": "sql", "text": "SELECT salary FROM (\n  SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS r\n  FROM emp\n) t WHERE r = N;"},
+        {"t": "callout", "style": "key", "text": "Use DENSE_RANK for the Nth *distinct* salary (ties share a rank, no gaps). LIMIT/OFFSET is simplest but skips exactly N-1 rows (careful with duplicate salaries — add DISTINCT). The correlated subquery is portable but O(n^2)."}
+      ],
+      "mcqs": [
+        {"q": "To get the Nth highest DISTINCT salary via a window function, use:", "options": ["ROW_NUMBER() = N", "DENSE_RANK() OVER (ORDER BY salary DESC) = N", "COUNT(*)", "RANK() with gaps"], "answer": 1, "explain": "DENSE_RANK gives tied salaries the same rank with no gaps, so rank = N is the Nth distinct salary."},
+        {"q": "The LIMIT 1 OFFSET N-1 approach requires care because:", "options": ["It cannot sort", "Duplicate salaries can shift the offset; add DISTINCT to count distinct salaries", "OFFSET is illegal", "It always errors"], "answer": 1, "explain": "Without DISTINCT, duplicate salaries occupy separate rows, so the offset may not land on the Nth distinct value."},
+        {"q": "The correlated-subquery approach's downside is:", "options": ["It cannot return salaries", "It can be O(n^2), scanning per row", "It needs window functions", "It ignores ties"], "answer": 1, "explain": "Counting greater salaries per row makes it quadratic on large tables, unlike the window-function version."}
+      ]
+    },
+    "u:core-dbms-39-functional-dependencies": {
+      "title": "Functional dependencies",
+      "summary": "X → Y means X's value determines Y's value — the basis of all normalization.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **functional dependency (FD)** `X → Y` means: if two tuples agree on X, they must agree on Y. X **functionally determines** Y. FDs capture the real-world rules a schema must respect and drive normalization."},
+        {"t": "points", "items": [
+          "Example: `roll_no → name` (a roll number determines exactly one name).",
+          "**Trivial** FD: Y is a subset of X (always holds, e.g. {A,B} → A).",
+          "**Armstrong's axioms** (reflexivity, augmentation, transitivity) derive all implied FDs."
+        ]},
+        {"t": "callout", "style": "key", "text": "FDs are constraints on values, not on a particular table instance. X → Y is what lets us reason about keys and decide whether a table is well-designed (normalized) or needs decomposing."},
+        {"t": "callout", "style": "tip", "text": "A superkey is exactly a set of attributes that functionally determines every other attribute — FDs and keys are two sides of the same idea."}
+      ],
+      "mcqs": [
+        {"q": "The functional dependency X → Y means:", "options": ["X and Y are unrelated", "Any two tuples agreeing on X must agree on Y", "Y is the primary key", "X can be NULL"], "answer": 1, "explain": "X determines Y: equal X values force equal Y values."},
+        {"q": "A trivial functional dependency is one where:", "options": ["X is empty", "Y is a subset of X (it always holds)", "X → nothing", "Y determines X"], "answer": 1, "explain": "If Y ⊆ X, then X → Y holds automatically — a trivial dependency."},
+        {"q": "A superkey can be characterised by FDs as a set of attributes that:", "options": ["Determines no attributes", "Functionally determines all attributes of the relation", "Is always a single column", "Contains NULLs"], "answer": 1, "explain": "A superkey determines every attribute, which is the FD-based definition of a key."}
+      ]
+    },
+    "u:core-dbms-40-attribute-closure": {
+      "title": "Attribute closure",
+      "summary": "Everything a set of attributes determines — the tool for finding keys.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **closure** of an attribute set X (written **X+**) is the set of all attributes functionally determined by X, given the FDs. It's the workhorse for finding keys and testing FDs."},
+        {"t": "h", "text": "Algorithm"},
+        {"t": "steps", "items": [
+          "Start with X+ = X.",
+          "Repeat: if there's an FD A → B where A ⊆ X+, add B to X+.",
+          "Stop when X+ stops growing."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two uses of closure: (1) X is a **superkey** iff X+ = all attributes; (2) an FD X → Y holds iff Y ⊆ X+. Computing closures is how you mechanically find candidate keys."},
+        {"t": "callout", "style": "tip", "text": "To find candidate keys: start from attributes that appear only on the LEFT of FDs (they must be in every key), compute their closure, and extend minimally until it covers all attributes."}
+      ],
+      "mcqs": [
+        {"q": "The attribute closure X+ is:", "options": ["The primary key", "The set of all attributes functionally determined by X", "The number of tuples", "The set of trivial FDs"], "answer": 1, "explain": "X+ collects every attribute reachable from X via the FDs."},
+        {"q": "X is a superkey if and only if:", "options": ["X+ contains X only", "X+ equals all attributes of the relation", "X is a single column", "X has no FDs"], "answer": 1, "explain": "If X determines every attribute (X+ = R), then X is a superkey."},
+        {"q": "An FD X → Y holds (is implied by the given FDs) iff:", "options": ["X = Y", "Y is a subset of X+", "Y+ contains X", "X is a key"], "answer": 1, "explain": "X → Y is derivable exactly when Y is in the closure of X."}
+      ]
+    },
+    "u:core-dbms-41-finding-candidate-keys": {
+      "title": "Finding candidate keys",
+      "summary": "Use closures and the left/right-side classification of attributes to enumerate minimal keys.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **candidate key** is a minimal attribute set whose closure is all attributes. Finding them systematically avoids guesswork."},
+        {"t": "steps", "items": [
+          "Classify attributes by where they appear in the FDs: **left-only** (must be in every key), **right-only** (never in a key), **both / neither**.",
+          "Attributes appearing ONLY on the left of FDs, plus any that appear in no FD, are in every candidate key — start with them.",
+          "Compute their closure. If it's already all attributes → that's the key.",
+          "Otherwise, add 'both-side' attributes one at a time (minimally) and recompute closure until it covers everything."
+        ]},
+        {"t": "callout", "style": "key", "text": "The shortcut: attributes that never appear on any right-hand side must be part of every key (nothing determines them). Start there, take the closure, and extend minimally."},
+        {"t": "callout", "style": "warn", "text": "A relation can have multiple candidate keys. 'Minimal' matters — a superkey with an extra attribute is not a candidate key."}
+      ],
+      "mcqs": [
+        {"q": "An attribute that appears only on the LEFT side of all FDs is:", "options": ["Never in any key", "Necessarily part of every candidate key", "Always the whole key", "A trivial dependency"], "answer": 1, "explain": "Nothing determines it, so it must be included in every key to reach it in a closure."},
+        {"q": "A candidate key must be:", "options": ["Any superkey", "A minimal set of attributes whose closure is all attributes", "A single column", "The primary key only"], "answer": 1, "explain": "Candidate keys are minimal superkeys — remove any attribute and closure no longer covers everything."},
+        {"q": "An attribute appearing only on the RIGHT side of FDs is:", "options": ["In every key", "Not part of any candidate key", "The primary key", "Left-only"], "answer": 1, "explain": "Right-only attributes are determined by others, so they need not (and can't minimally) be in a key."}
+      ]
+    },
+    "u:core-dbms-42-1nf-2nf-3nf": {
+      "title": "1NF, 2NF, 3NF",
+      "summary": "The first three normal forms: atomic values, no partial dependency, no transitive dependency.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Normalization** removes redundancy and update anomalies by decomposing tables. The first three normal forms build on each other."},
+        {"t": "table", "headers": ["Form", "Requirement", "Removes"], "rows": [
+          ["1NF", "All values atomic (no repeating groups/multivalued cells)", "Non-atomic data"],
+          ["2NF", "1NF + no partial dependency (non-key attr on PART of a composite key)", "Partial dependency"],
+          ["3NF", "2NF + no transitive dependency (non-key → non-key)", "Transitive dependency"]
+        ]},
+        {"t": "points", "items": [
+          "**2NF** only matters when the primary key is **composite** — a non-key attribute must depend on the whole key, not part of it.",
+          "**3NF**: no non-key attribute depends on another non-key attribute (e.g. `zip → city` in an employee table means city transitively depends on the key)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Memorable version (Codd): every non-key attribute must depend on 'the key (1NF/relation), the whole key (2NF), and nothing but the key (3NF), so help me Codd.'"}
+      ],
+      "mcqs": [
+        {"q": "1NF requires that:", "options": ["No transitive dependencies", "All attribute values are atomic (no repeating groups)", "The key is composite", "There are no FDs"], "answer": 1, "explain": "First normal form demands atomic, single-valued columns — no lists or repeating groups."},
+        {"q": "2NF eliminates:", "options": ["Transitive dependency", "Partial dependency of a non-key attribute on part of a composite key", "Non-atomic values", "Foreign keys"], "answer": 1, "explain": "2NF (relevant only with composite keys) removes dependencies on a subset of the key."},
+        {"q": "3NF removes:", "options": ["Partial dependencies", "Transitive dependencies (non-key attribute determined by another non-key attribute)", "Atomic values", "All keys"], "answer": 1, "explain": "3NF forbids a non-key attribute depending on another non-key attribute."}
+      ]
+    },
+    "u:core-dbms-43-bcnf": {
+      "title": "BCNF",
+      "summary": "A stricter 3NF: every determinant must be a superkey.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Boyce-Codd Normal Form (BCNF)** is a stronger version of 3NF. A relation is in BCNF if for **every** non-trivial functional dependency `X → Y`, **X is a superkey**."},
+        {"t": "points", "items": [
+          "3NF allows an exception (a non-key attribute can determine a prime attribute); BCNF removes it — the determinant must always be a superkey.",
+          "Most 3NF relations are already BCNF; the difference shows up with **overlapping candidate keys**.",
+          "BCNF decomposition is always **lossless** but may **not preserve all dependencies** — a real trade-off."
+        ]},
+        {"t": "callout", "style": "key", "text": "BCNF rule in one line: every determinant is a superkey. It's stricter than 3NF but decomposing to BCNF can lose dependency preservation, which is why 3NF is sometimes chosen instead."}
+      ],
+      "mcqs": [
+        {"q": "A relation is in BCNF if, for every non-trivial FD X → Y:", "options": ["Y is a superkey", "X is a superkey", "X is a single attribute", "Y is prime"], "answer": 1, "explain": "BCNF requires the left side (determinant) of every non-trivial FD to be a superkey."},
+        {"q": "BCNF is stricter than 3NF; the difference appears mainly with:", "options": ["Single-column keys", "Overlapping candidate keys", "No dependencies", "Foreign keys"], "answer": 1, "explain": "3NF and BCNF differ when candidate keys overlap, allowing a 3NF relation that isn't BCNF."},
+        {"q": "A trade-off of decomposing to BCNF is that it:", "options": ["Is always lossy", "May not preserve all functional dependencies", "Increases redundancy", "Removes all keys"], "answer": 1, "explain": "BCNF decomposition is lossless but can fail to preserve every dependency, unlike 3NF which can always preserve them."}
+      ]
+    },
+    "u:core-dbms-44-4nf-and-multivalued-dependencies": {
+      "title": "4NF and multivalued dependencies",
+      "summary": "Beyond BCNF: remove independent multivalued facts stored in one table.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **multivalued dependency (MVD)** `X ->> Y` exists when, for each X, there's a set of Y values **independent** of the other attributes. Storing two independent multivalued facts together causes a combinatorial explosion of rows."},
+        {"t": "p", "text": "**4NF** requires BCNF plus no non-trivial multivalued dependencies (every MVD's determinant is a superkey). It's fixed by splitting the independent facts into separate tables."},
+        {"t": "callout", "style": "key", "text": "Example: a `Student(name, hobby, language)` where hobbies and languages are independent forces a row per (hobby × language) combination — redundant. 4NF splits it into Student-Hobby and Student-Language."},
+        {"t": "callout", "style": "tip", "text": "Every FD is a special case of an MVD, and 4NF implies BCNF. If a table has one multivalued attribute it may be fine; the problem is two independent ones in the same table."}
+      ],
+      "mcqs": [
+        {"q": "4NF deals with eliminating:", "options": ["Partial dependencies", "Non-trivial multivalued dependencies", "Atomic values", "Foreign keys"], "answer": 1, "explain": "4NF removes multivalued dependencies where independent multivalued facts are stored together."},
+        {"q": "A multivalued dependency causes redundancy when a table stores:", "options": ["One multivalued attribute", "Two independent multivalued facts together (their cross-product)", "A single value", "Only keys"], "answer": 1, "explain": "Two independent sets force a row per combination, exploding the row count redundantly."},
+        {"q": "The fix for a 4NF violation is to:", "options": ["Add a trigger", "Split the independent multivalued facts into separate tables", "Add an index", "Merge tables"], "answer": 1, "explain": "Decomposing the independent facts into their own relations removes the combinatorial redundancy."}
+      ]
+    },
+    "u:core-dbms-45-lossless-join-decomposition": {
+      "title": "Lossless join decomposition",
+      "summary": "Split a table so that joining the pieces back reconstructs exactly the original — no spurious rows.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "When we decompose a relation R into R1 and R2 for normalization, the decomposition must be **lossless**: rejoining R1 and R2 must give back **exactly** R — no lost rows and no extra (spurious) rows."},
+        {"t": "h", "text": "The test"},
+        {"t": "p", "text": "A binary decomposition of R into R1, R2 is lossless if their **common attributes form a superkey of at least one** of them: `(R1 ∩ R2) → R1` **or** `(R1 ∩ R2) → R2`."},
+        {"t": "callout", "style": "key", "text": "The shared column between the two tables must be a key of one of them. If it is, the join reconstructs R perfectly; if not, the join can generate spurious tuples — a lossy decomposition, which is unacceptable."},
+        {"t": "callout", "style": "warn", "text": "A lossy decomposition silently invents rows on rejoin, corrupting data. Every normalization decomposition must be checked for the lossless-join property."}
+      ],
+      "mcqs": [
+        {"q": "A decomposition of R into R1 and R2 is lossless if the common attributes:", "options": ["Are empty", "Form a superkey of R1 or of R2", "Are all NULL", "Are foreign keys only"], "answer": 1, "explain": "If R1 ∩ R2 is a superkey of at least one piece, the natural join reconstructs R exactly."},
+        {"q": "A lossy decomposition is problematic because rejoining the pieces:", "options": ["Loses all data", "Produces spurious (extra) tuples not in the original", "Is faster", "Removes duplicates"], "answer": 1, "explain": "Lossy joins fabricate rows that weren't in R, corrupting the data."},
+        {"q": "Ensuring lossless join is required because normalization:", "options": ["Adds redundancy", "Splits tables and must be able to reconstruct the original exactly", "Removes keys", "Merges relations"], "answer": 1, "explain": "Decomposition is only valid if the original relation can be recovered without loss or invention."}
+      ]
+    },
+    "u:core-dbms-46-dependency-preservation": {
+      "title": "Dependency preservation",
+      "summary": "Keep all functional dependencies checkable within individual tables after decomposition.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A decomposition is **dependency-preserving** if every original functional dependency can still be **enforced by checking a single decomposed table** — without having to join tables back together to validate a constraint."},
+        {"t": "points", "items": [
+          "If an FD spans two tables after decomposition, enforcing it needs a join on every update — expensive and awkward.",
+          "3NF decomposition can always be both **lossless AND dependency-preserving**.",
+          "BCNF decomposition is always lossless but **may sacrifice dependency preservation** — the key trade-off between 3NF and BCNF."
+        ]},
+        {"t": "callout", "style": "key", "text": "The 3NF vs BCNF decision comes down to this: 3NF guarantees lossless + dependency-preserving; BCNF guarantees lossless + fully non-redundant but might lose a dependency. Choose 3NF when preserving a dependency matters more than removing the last redundancy."}
+      ],
+      "mcqs": [
+        {"q": "A dependency-preserving decomposition allows every FD to be enforced by:", "options": ["Joining all tables", "Checking a single decomposed table (no join needed)", "A trigger only", "Ignoring the FD"], "answer": 1, "explain": "Preservation means each FD lives within one table, so it can be validated without joins."},
+        {"q": "Which normal form guarantees BOTH lossless join and dependency preservation?", "options": ["BCNF", "3NF", "Neither", "4NF"], "answer": 1, "explain": "A 3NF decomposition can always be made lossless and dependency-preserving; BCNF may lose dependency preservation."},
+        {"q": "BCNF is sometimes avoided in favour of 3NF because BCNF:", "options": ["Is lossy", "May not preserve all functional dependencies", "Adds redundancy", "Removes keys"], "answer": 1, "explain": "Achieving BCNF can require a decomposition that no longer preserves some dependency."}
+      ]
+    },
+    "u:core-dbms-47-when-to-denormalise": {
+      "title": "When to denormalise",
+      "summary": "Deliberately reintroduce redundancy to speed reads — a conscious trade-off.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Denormalisation** intentionally adds redundancy (duplicating data or precomputing joins/aggregates) to a normalized schema to **improve read performance**, accepting more complex writes."},
+        {"t": "points", "items": [
+          "Reasons: expensive joins on hot read paths, heavy aggregation, read-heavy workloads (analytics, dashboards).",
+          "Cost: update anomalies return — duplicated data must be kept in sync (via application logic, triggers, or scheduled jobs).",
+          "Common in data warehouses (star schemas) and caching layers."
+        ]},
+        {"t": "callout", "style": "key", "text": "Normalize first, denormalise deliberately for measured performance needs. Denormalisation trades write complexity and consistency risk for faster reads — only worth it when reads dominate and the join cost is proven."},
+        {"t": "callout", "style": "warn", "text": "Premature denormalisation is a classic mistake: it adds bugs and redundancy before any performance problem exists. Measure first."}
+      ],
+      "mcqs": [
+        {"q": "Denormalisation is primarily done to:", "options": ["Remove redundancy", "Improve read performance by adding redundancy/precomputed data", "Enforce constraints", "Save disk space"], "answer": 1, "explain": "It trades extra redundancy for faster reads on read-heavy or join-heavy workloads."},
+        {"q": "The main cost of denormalisation is:", "options": ["Slower reads", "Reintroduced update anomalies — duplicated data must be kept consistent", "Loss of all indexes", "Fewer columns"], "answer": 1, "explain": "Duplicated/precomputed data can drift out of sync and must be maintained, complicating writes."},
+        {"q": "A sound approach is to:", "options": ["Always denormalise from the start", "Normalize first and denormalise deliberately for measured performance needs", "Never normalize", "Denormalise randomly"], "answer": 1, "explain": "Denormalise only when a real, measured read-performance need justifies the added complexity."}
+      ]
+    },
+    "u:core-dbms-16-ddl-create-alter-drop-truncate": {
+      "title": "DDL: create, alter, drop, truncate",
+      "summary": "Data Definition Language commands that shape the schema — and how DROP, DELETE, and TRUNCATE differ.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**DDL (Data Definition Language)** defines and modifies database structure: `CREATE`, `ALTER`, `DROP`, `TRUNCATE`. DDL statements are auto-committed (they can't easily be rolled back)."},
+        {"t": "table", "headers": ["Command", "Effect"], "rows": [
+          ["CREATE", "Make a new table/view/index"],
+          ["ALTER", "Change structure (add/drop/modify a column)"],
+          ["DROP", "Remove the entire table (structure + data)"],
+          ["TRUNCATE", "Remove all rows but keep the table structure"]
+        ]},
+        {"t": "h", "text": "DELETE vs TRUNCATE vs DROP"},
+        {"t": "table", "headers": ["", "DELETE", "TRUNCATE", "DROP"], "rows": [
+          ["Type", "DML", "DDL", "DDL"],
+          ["Removes", "Selected/all rows", "All rows", "Table entirely"],
+          ["WHERE", "Yes", "No", "No"],
+          ["Rollback", "Yes (transactional)", "Usually no", "No"],
+          ["Speed", "Slower (row by row, logged)", "Fast (deallocates pages)", "Fast"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The classic trap: DELETE is DML (row-by-row, WHERE-able, rollback-able); TRUNCATE is DDL (all rows, fast, resets, not easily rolled back); DROP removes the table itself."}
+      ],
+      "mcqs": [
+        {"q": "Which removes all rows but keeps the table structure and is typically not rolled back?", "options": ["DELETE", "TRUNCATE", "DROP", "ALTER"], "answer": 1, "explain": "TRUNCATE (DDL) quickly removes all rows and keeps the structure, but usually can't be rolled back like DELETE."},
+        {"q": "DELETE differs from TRUNCATE because DELETE:", "options": ["Cannot use WHERE", "Can filter rows with WHERE and is transactional (rollback-able)", "Removes the table", "Is faster"], "answer": 1, "explain": "DELETE is DML: it supports WHERE and participates in transactions, unlike TRUNCATE."},
+        {"q": "DROP TABLE removes:", "options": ["Only the rows", "The entire table including its structure", "Only indexes", "Only constraints"], "answer": 1, "explain": "DROP deletes the whole table object — data and schema."}
+      ]
+    },
+    "u:core-dbms-17-dml-insert-update-delete": {
+      "title": "DML: insert, update, delete",
+      "summary": "The commands that change table data, all transactional.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**DML (Data Manipulation Language)** changes the data inside tables: `INSERT`, `UPDATE`, `DELETE` (and `SELECT` for reading). DML runs within transactions, so changes can be committed or rolled back."},
+        {"t": "code", "lang": "sql", "text": "INSERT INTO users (id, name) VALUES (1, 'Asha');\nUPDATE users SET name = 'Asha K' WHERE id = 1;\nDELETE FROM users WHERE id = 1;"},
+        {"t": "callout", "style": "warn", "text": "Always use a WHERE clause with UPDATE and DELETE. `UPDATE users SET name='x';` without WHERE changes every row — a common and costly mistake."},
+        {"t": "callout", "style": "key", "text": "DML is transactional: until you COMMIT, changes can be rolled back. This is what makes multi-step data changes safe."}
+      ],
+      "mcqs": [
+        {"q": "Which set of commands is DML?", "options": ["CREATE, DROP, ALTER", "INSERT, UPDATE, DELETE", "GRANT, REVOKE", "COMMIT, ROLLBACK"], "answer": 1, "explain": "INSERT/UPDATE/DELETE (and SELECT) manipulate data — DML; CREATE/DROP/ALTER are DDL."},
+        {"q": "Running `UPDATE accounts SET balance = 0;` with no WHERE clause:", "options": ["Updates one row", "Updates every row in the table", "Fails to run", "Deletes the table"], "answer": 1, "explain": "Without WHERE, UPDATE affects all rows — a dangerous omission."},
+        {"q": "DML changes can be undone before commit because DML is:", "options": ["Auto-committed", "Transactional (supports rollback)", "DDL", "Read-only"], "answer": 1, "explain": "DML runs inside transactions, so ROLLBACK can undo uncommitted changes."}
+      ]
+    },
+    "u:core-dbms-18-constraints-not-null-unique-check-default": {
+      "title": "Constraints: not null, unique, check, default",
+      "summary": "Column-level rules the database enforces automatically on every write.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Constraints** are rules enforced by the DBMS to keep data valid, checked on every insert/update."},
+        {"t": "table", "headers": ["Constraint", "Enforces"], "rows": [
+          ["NOT NULL", "Column can't be empty"],
+          ["UNIQUE", "No duplicate values (allows one NULL, usually)"],
+          ["PRIMARY KEY", "UNIQUE + NOT NULL, the row identifier"],
+          ["FOREIGN KEY", "Value must exist in the referenced table"],
+          ["CHECK", "A boolean condition (e.g. age >= 18)"],
+          ["DEFAULT", "Value used when none is supplied"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Constraints push data-validity rules into the database itself, so no application bug can insert invalid data. UNIQUE differs from PRIMARY KEY by allowing a NULL and permitting multiple unique columns per table."}
+      ],
+      "mcqs": [
+        {"q": "The difference between UNIQUE and PRIMARY KEY is that UNIQUE:", "options": ["Cannot be indexed", "Allows a NULL and a table can have several UNIQUE columns", "Is not enforced", "Requires a foreign key"], "answer": 1, "explain": "A primary key is UNIQUE + NOT NULL and only one per table; UNIQUE permits a NULL and multiple columns."},
+        {"q": "A rule like 'salary >= 0' is enforced with a:", "options": ["DEFAULT", "CHECK constraint", "NOT NULL", "FOREIGN KEY"], "answer": 1, "explain": "CHECK enforces an arbitrary boolean condition on a column's values."},
+        {"q": "A DEFAULT constraint provides:", "options": ["Uniqueness", "A value used when the insert omits that column", "Referential integrity", "An index"], "answer": 1, "explain": "DEFAULT supplies a value automatically when none is given during insert."}
+      ]
+    },
+    "u:core-dbms-19-select-where-order-by-limit": {
+      "title": "SELECT, WHERE, ORDER BY, LIMIT",
+      "summary": "The core read query — filter rows, sort them, and cap the count.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The `SELECT` statement retrieves rows. Its clauses run in a logical order that isn't the written order."},
+        {"t": "code", "lang": "sql", "text": "SELECT name, marks\nFROM students\nWHERE marks >= 40\nORDER BY marks DESC\nLIMIT 10;"},
+        {"t": "h", "text": "Logical execution order"},
+        {"t": "p", "text": "**FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT**. This is why you can't reference a SELECT alias in WHERE (WHERE runs before SELECT) but can in ORDER BY."},
+        {"t": "callout", "style": "key", "text": "Written order (SELECT first) is not execution order (FROM/WHERE first). Understanding that WHERE runs before SELECT explains many 'unknown column' alias errors."},
+        {"t": "callout", "style": "tip", "text": "WHERE filters individual rows before grouping; HAVING filters groups after aggregation. LIMIT/OFFSET is used for pagination."}
+      ],
+      "mcqs": [
+        {"q": "What is the logical execution order of these clauses?", "options": ["SELECT → FROM → WHERE → ORDER BY", "FROM → WHERE → SELECT → ORDER BY", "WHERE → FROM → SELECT → LIMIT", "ORDER BY → SELECT → FROM → WHERE"], "answer": 1, "explain": "FROM and WHERE run before SELECT and ORDER BY, which is why SELECT aliases aren't visible in WHERE."},
+        {"q": "You cannot use a SELECT-list alias in the WHERE clause because:", "options": ["Aliases are illegal", "WHERE is evaluated before SELECT computes the alias", "WHERE cannot filter", "Aliases only work in FROM"], "answer": 1, "explain": "Since WHERE executes before SELECT, the alias doesn't exist yet at WHERE time."},
+        {"q": "ORDER BY DESC sorts results:", "options": ["Ascending", "Descending (highest first)", "Randomly", "By insertion order"], "answer": 1, "explain": "DESC orders from highest to lowest; ASC (default) is lowest to highest."}
+      ]
+    },
+    "u:core-dbms-20-group-by-and-having": {
+      "title": "GROUP BY and HAVING",
+      "summary": "Collapse rows into groups for aggregation, then filter the groups with HAVING.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "`GROUP BY` collapses rows sharing a value into a single group so aggregate functions (COUNT, SUM, AVG…) compute per group. `HAVING` then filters those groups."},
+        {"t": "code", "lang": "sql", "text": "SELECT dept, COUNT(*) AS n\nFROM employees\nGROUP BY dept\nHAVING COUNT(*) > 5;"},
+        {"t": "points", "items": [
+          "**WHERE** filters rows **before** grouping; **HAVING** filters groups **after** aggregation.",
+          "Any non-aggregated column in SELECT must appear in GROUP BY.",
+          "You can't use an aggregate in WHERE — that's what HAVING is for."
+        ]},
+        {"t": "callout", "style": "key", "text": "The distinction: WHERE (before grouping, per-row) vs HAVING (after grouping, per-group). 'HAVING COUNT(*) > 5' can't be done in WHERE because the count doesn't exist until groups form."}
+      ],
+      "mcqs": [
+        {"q": "HAVING differs from WHERE because HAVING:", "options": ["Filters individual rows before grouping", "Filters groups after aggregation", "Sorts results", "Selects columns"], "answer": 1, "explain": "WHERE filters pre-grouping rows; HAVING filters the aggregated groups."},
+        {"q": "To find departments with more than 5 employees you use:", "options": ["WHERE COUNT(*) > 5", "GROUP BY dept HAVING COUNT(*) > 5", "ORDER BY COUNT(*)", "DISTINCT dept"], "answer": 1, "explain": "Aggregates like COUNT can only be filtered with HAVING after GROUP BY, not in WHERE."},
+        {"q": "A non-aggregated column in the SELECT list of a grouped query must:", "options": ["Be ignored", "Appear in the GROUP BY clause", "Be aggregated only", "Be a primary key"], "answer": 1, "explain": "Every selected non-aggregate column must be part of GROUP BY (in standard SQL)."}
+      ]
+    },
+    "u:core-dbms-21-distinct-and-aliases": {
+      "title": "DISTINCT and aliases",
+      "summary": "Remove duplicate rows and give columns/tables readable temporary names.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**DISTINCT** removes duplicate rows from a result set. **Aliases** (`AS`) rename a column or table for readability or to reference derived values."},
+        {"t": "code", "lang": "sql", "text": "SELECT DISTINCT city FROM customers;\nSELECT o.id, c.name AS customer\nFROM orders o JOIN customers c ON o.cid = c.id;"},
+        {"t": "points", "items": [
+          "`DISTINCT` applies to the whole selected row (the combination of columns), not one column.",
+          "Table aliases (`orders o`) shorten queries and are required for self-joins.",
+          "Column aliases can be referenced in ORDER BY (but not WHERE)."
+        ]},
+        {"t": "callout", "style": "warn", "text": "DISTINCT can be expensive (it sorts/hashes to dedupe). If duplicates come from a join fan-out, fixing the join is better than masking it with DISTINCT."}
+      ],
+      "mcqs": [
+        {"q": "SELECT DISTINCT applied to multiple columns removes duplicates based on:", "options": ["The first column only", "The whole combination of selected columns", "The primary key", "Nothing"], "answer": 1, "explain": "DISTINCT dedupes on the entire selected row, i.e. the combination of all listed columns."},
+        {"q": "A table alias is required when:", "options": ["Selecting one column", "Performing a self-join (joining a table to itself)", "Using ORDER BY", "Using DISTINCT"], "answer": 1, "explain": "Self-joins need two aliases to distinguish the two references to the same table."},
+        {"q": "A column alias defined in SELECT can be referenced in:", "options": ["WHERE", "ORDER BY", "FROM", "GROUP BY only via position"], "answer": 1, "explain": "Because ORDER BY runs after SELECT, it can use the alias; WHERE (running earlier) cannot."}
+      ]
+    },
+    "u:core-dbms-22-null-semantics-and-three-valued-logic": {
+      "title": "NULL semantics and three-valued logic",
+      "summary": "NULL means 'unknown', so comparisons with it yield UNKNOWN, not true/false.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**NULL** represents a missing or unknown value — not zero, not empty string. This introduces **three-valued logic**: TRUE, FALSE, and **UNKNOWN**."},
+        {"t": "points", "items": [
+          "Any comparison with NULL yields **UNKNOWN**: `x = NULL` is never TRUE (even `NULL = NULL` is UNKNOWN). Use `IS NULL` / `IS NOT NULL`.",
+          "WHERE keeps only rows where the condition is **TRUE** — so UNKNOWN rows are excluded.",
+          "Aggregates (except COUNT(*)) **ignore** NULLs. COUNT(col) skips NULLs; COUNT(*) counts all rows.",
+          "NULLs affect uniqueness and joins (they don't match each other)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The rule to remember: comparisons with NULL are UNKNOWN, and WHERE requires TRUE. That's why `WHERE col = NULL` returns nothing and you must write `col IS NULL`."},
+        {"t": "callout", "style": "warn", "text": "`NOT IN (subquery)` breaks if the subquery returns any NULL — the whole predicate becomes UNKNOWN and no rows match. Prefer NOT EXISTS in that case."}
+      ],
+      "mcqs": [
+        {"q": "The expression `salary = NULL` evaluates to:", "options": ["TRUE", "FALSE", "UNKNOWN", "An error"], "answer": 2, "explain": "Comparisons with NULL yield UNKNOWN; you must use IS NULL to test for null."},
+        {"q": "Which counts rows including those with NULL in the column?", "options": ["COUNT(col)", "COUNT(*)", "SUM(col)", "AVG(col)"], "answer": 1, "explain": "COUNT(*) counts all rows; COUNT(col) and other aggregates ignore NULLs."},
+        {"q": "A WHERE clause returns a row only when its condition is:", "options": ["TRUE or UNKNOWN", "TRUE", "FALSE", "Not NULL"], "answer": 1, "explain": "Only TRUE rows are kept; UNKNOWN (from NULL comparisons) rows are excluded."}
+      ]
+    },
+    "u:core-dbms-23-inner-join": {
+      "title": "Inner join",
+      "summary": "Return only rows that have a match on both sides of the join condition.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "An **INNER JOIN** combines rows from two tables where the join condition matches, returning **only** the rows that have a counterpart in both tables. Unmatched rows are dropped."},
+        {"t": "code", "lang": "sql", "text": "SELECT o.id, c.name\nFROM orders o\nINNER JOIN customers c ON o.customer_id = c.id;"},
+        {"t": "points", "items": [
+          "Rows in either table with no match are excluded.",
+          "The join condition is usually FK = PK equality.",
+          "It's the most common join and the default when you write just `JOIN`."
+        ]},
+        {"t": "callout", "style": "key", "text": "Inner join = intersection of matches. If you need unmatched rows too (customers with no orders), you need an OUTER join instead."}
+      ],
+      "mcqs": [
+        {"q": "An INNER JOIN returns:", "options": ["All rows from both tables", "Only rows with a match in both tables", "All rows from the left table", "Only unmatched rows"], "answer": 1, "explain": "Inner join keeps only rows that satisfy the join condition on both sides."},
+        {"q": "A customer with no orders will appear in an INNER JOIN of customers and orders:", "options": ["Yes, with NULLs", "No, it is excluded", "Only if indexed", "Always"], "answer": 1, "explain": "With no matching order, the customer is dropped by the inner join (an outer join would keep it)."},
+        {"q": "Writing just `JOIN` in SQL defaults to:", "options": ["LEFT JOIN", "INNER JOIN", "FULL JOIN", "CROSS JOIN"], "answer": 1, "explain": "The bare keyword JOIN means INNER JOIN."}
+      ]
+    },
+    "u:core-dbms-24-left-right-full-outer-join": {
+      "title": "Left, right, full outer join",
+      "summary": "Keep unmatched rows from one or both sides, filling missing columns with NULL.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Outer joins** keep unmatched rows and pad the missing side with NULLs."},
+        {"t": "table", "headers": ["Join", "Keeps"], "rows": [
+          ["LEFT (OUTER)", "All left rows + matches from the right (NULLs where no match)"],
+          ["RIGHT (OUTER)", "All right rows + matches from the left"],
+          ["FULL (OUTER)", "All rows from both sides, matched where possible"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Use LEFT JOIN to answer 'all customers, with their orders if any' — customers with no orders still appear with NULL order columns. Filtering `WHERE right.id IS NULL` after a LEFT JOIN finds rows with NO match (an anti-join)."},
+        {"t": "callout", "style": "tip", "text": "A RIGHT JOIN is just a LEFT JOIN with the tables swapped; most people standardise on LEFT for readability."}
+      ],
+      "mcqs": [
+        {"q": "A LEFT OUTER JOIN returns:", "options": ["Only matched rows", "All rows from the left table, with NULLs where the right has no match", "Only unmatched rows", "All rows from the right table"], "answer": 1, "explain": "Left join keeps every left-table row and fills right-side columns with NULL when there's no match."},
+        {"q": "To find customers with NO orders, you can use a LEFT JOIN and then:", "options": ["ORDER BY orders", "WHERE orders.id IS NULL", "GROUP BY customer", "DISTINCT"], "answer": 1, "explain": "Unmatched customers have NULL order columns; filtering IS NULL isolates them (anti-join)."},
+        {"q": "A FULL OUTER JOIN returns:", "options": ["Only matched rows", "All rows from both tables, matched where possible", "Only left rows", "Nothing"], "answer": 1, "explain": "Full outer join keeps unmatched rows from both sides, padding with NULLs."}
+      ]
+    },
+    "u:core-dbms-25-self-join": {
+      "title": "Self join",
+      "summary": "Join a table to itself, using aliases, to relate rows within the same table.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **self join** joins a table to itself, treating it as two copies via **aliases**. It relates rows within the same table — e.g. employees to their managers, where both are in one `employees` table."},
+        {"t": "code", "lang": "sql", "text": "SELECT e.name AS employee, m.name AS manager\nFROM employees e\nJOIN employees m ON e.manager_id = m.id;"},
+        {"t": "callout", "style": "key", "text": "The self join needs two aliases (e, m) so the query can reference the same table as two logical roles. It's the standard way to handle hierarchical/recursive-ish relationships stored in one table."},
+        {"t": "callout", "style": "tip", "text": "For deep hierarchies (all ancestors), a self join only goes one level — use a recursive CTE for arbitrary depth."}
+      ],
+      "mcqs": [
+        {"q": "A self join is used to:", "options": ["Join two different tables", "Relate rows within the same table by joining it to itself", "Remove duplicates", "Aggregate data"], "answer": 1, "explain": "It joins a table to itself (via aliases) to relate its own rows, like employee↔manager."},
+        {"q": "A self join requires:", "options": ["No aliases", "Table aliases to distinguish the two copies", "A FULL OUTER JOIN", "A subquery"], "answer": 1, "explain": "Aliases give the two logical roles of the same table distinct names."},
+        {"q": "To find ALL ancestors up a hierarchy (arbitrary depth), better than a single self join is:", "options": ["A cross join", "A recursive CTE", "DISTINCT", "GROUP BY"], "answer": 1, "explain": "A single self join reaches one level; a recursive CTE walks the hierarchy to any depth."}
+      ]
+    },
+    "u:core-dbms-26-cross-join": {
+      "title": "Cross join",
+      "summary": "The Cartesian product — every row of A paired with every row of B.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **CROSS JOIN** produces the **Cartesian product**: every row of the first table combined with every row of the second. If A has m rows and B has n rows, the result has **m × n** rows and no join condition."},
+        {"t": "code", "lang": "sql", "text": "SELECT s.name, c.title\nFROM sizes s\nCROSS JOIN colours c;   -- all size/colour combinations"},
+        {"t": "callout", "style": "warn", "text": "An accidental cross join is a common bug: forgetting the ON condition (or a missing join key) makes a normal join explode into m×n rows — often the cause of a query returning far too many rows."},
+        {"t": "callout", "style": "tip", "text": "Legitimate uses: generating all combinations (sizes × colours), or pairing every row with a single-row table of constants."}
+      ],
+      "mcqs": [
+        {"q": "A CROSS JOIN of tables with m and n rows returns:", "options": ["m + n rows", "m × n rows", "max(m, n) rows", "The matched rows only"], "answer": 1, "explain": "The Cartesian product pairs every row of one with every row of the other: m × n rows."},
+        {"q": "A CROSS JOIN has:", "options": ["A mandatory ON condition", "No join condition", "A HAVING clause", "A foreign key requirement"], "answer": 1, "explain": "Cross join combines all rows unconditionally — there is no ON clause."},
+        {"q": "Forgetting the join condition in an inner join often produces:", "options": ["Fewer rows", "An accidental Cartesian product (too many rows)", "An error always", "Only matched rows"], "answer": 1, "explain": "Without a join predicate the join degenerates into a cross join, exploding the row count."}
+      ]
+    },
+    "u:core-dbms-27-natural-join-vs-explicit-on": {
+      "title": "Natural join vs explicit ON",
+      "summary": "Auto-matching same-named columns vs stating the join condition explicitly.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **NATURAL JOIN** automatically joins on **all columns with the same name** in both tables and merges those columns. An **explicit `JOIN ... ON`** states the condition yourself."},
+        {"t": "callout", "style": "warn", "text": "Natural join is dangerous: it silently joins on every same-named column, so an accidental shared column name (like `created_at` or `id`) changes results unexpectedly, and schema changes can break it. Prefer explicit ON."},
+        {"t": "callout", "style": "key", "text": "Explicit `ON` is clearer and safer — you control exactly which columns join. Natural join's convenience isn't worth its fragility in real schemas."}
+      ],
+      "mcqs": [
+        {"q": "A NATURAL JOIN joins on:", "options": ["The primary keys only", "All columns having the same name in both tables", "A stated ON condition", "Nothing"], "answer": 1, "explain": "It automatically matches every identically-named column, which can be surprising."},
+        {"q": "Why is explicit JOIN ... ON generally preferred over NATURAL JOIN?", "options": ["It is slower", "It makes the join condition explicit and avoids accidental matches on same-named columns", "It cannot use indexes", "It disallows outer joins"], "answer": 1, "explain": "Explicit ON is clear and robust to schema changes, unlike natural join's implicit matching."},
+        {"q": "Adding a new same-named column to both tables can break a NATURAL JOIN because:", "options": ["It has no effect", "The join now also matches on that new column, changing results", "Natural joins ignore new columns", "It converts to a cross join"], "answer": 1, "explain": "Natural join includes every shared column name, so new shared names silently alter the join."}
+      ]
+    },
+    "u:core-dbms-28-subqueries-and-correlated-subqueries": {
+      "title": "Subqueries and correlated subqueries",
+      "summary": "A query inside a query — and the correlated kind that re-runs per outer row.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **subquery** is a query nested inside another. A **non-correlated** subquery is independent (runs once). A **correlated** subquery references the outer query and is (conceptually) evaluated **once per outer row**."},
+        {"t": "code", "lang": "sql", "text": "-- correlated: references outer e\nSELECT e.name FROM employees e\nWHERE e.salary > (\n  SELECT AVG(salary) FROM employees\n  WHERE dept = e.dept        -- depends on e\n);"},
+        {"t": "points", "items": [
+          "Subqueries appear in WHERE, FROM (derived tables), or SELECT.",
+          "Non-correlated: evaluated once, result reused.",
+          "Correlated: depends on the current outer row, so re-evaluated per row — potentially slow."
+        ]},
+        {"t": "callout", "style": "key", "text": "The distinction: a correlated subquery references a column from the outer query, so it can't run standalone and logically runs per outer row. Non-correlated subqueries run once. Correlated ones can often be rewritten as joins for speed."}
+      ],
+      "mcqs": [
+        {"q": "A correlated subquery is one that:", "options": ["Runs once independently", "References a column from the outer query, evaluated per outer row", "Cannot be nested", "Is always faster"], "answer": 1, "explain": "It depends on the outer row's values, so conceptually it re-runs for each outer row."},
+        {"q": "A non-correlated subquery is executed:", "options": ["Once per outer row", "Once, independently, with its result reused", "Never", "Only in SELECT"], "answer": 1, "explain": "Being independent of the outer query, it evaluates a single time."},
+        {"q": "Correlated subqueries can often be optimised by rewriting them as:", "options": ["Cross joins", "Joins (or window functions)", "DISTINCT", "TRUNCATE"], "answer": 1, "explain": "Turning a per-row subquery into a set-based join often improves performance."}
+      ]
+    },
+    "u:core-dbms-29-exists-vs-in-vs-any-all": {
+      "title": "EXISTS vs IN vs ANY/ALL",
+      "summary": "Membership and quantified comparison operators — and the NULL trap with NOT IN.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "These operators test a value against a subquery's results."},
+        {"t": "points", "items": [
+          "**IN** — true if the value equals any value in the list/subquery.",
+          "**EXISTS** — true if the subquery returns **any** row (checks existence, not values); often correlated.",
+          "**ANY / SOME** — comparison true for at least one (`> ANY` = greater than the minimum).",
+          "**ALL** — comparison true for all (`> ALL` = greater than the maximum)."
+        ]},
+        {"t": "callout", "style": "warn", "text": "The classic bug: `NOT IN (subquery)` returns no rows if the subquery contains any NULL, because the comparison becomes UNKNOWN. Use **NOT EXISTS** instead, which is NULL-safe."},
+        {"t": "callout", "style": "tip", "text": "EXISTS can short-circuit (stops at the first matching row) and pairs naturally with correlated subqueries; IN materialises the list."}
+      ],
+      "mcqs": [
+        {"q": "`NOT IN` with a subquery that returns a NULL will:", "options": ["Work normally", "Return no rows because the comparison becomes UNKNOWN", "Throw an error", "Ignore the NULL"], "answer": 1, "explain": "A NULL in the NOT IN list makes the predicate UNKNOWN for all rows, returning nothing; NOT EXISTS avoids this."},
+        {"q": "EXISTS returns TRUE when the subquery:", "options": ["Returns a specific value", "Returns at least one row", "Returns exactly one row", "Returns NULL"], "answer": 1, "explain": "EXISTS checks for the presence of any row, regardless of its values."},
+        {"q": "`x > ALL (subquery)` is true when x is greater than:", "options": ["The minimum value", "The maximum value in the subquery", "Any value", "The count"], "answer": 1, "explain": "> ALL requires x to exceed every value, i.e. the maximum; > ANY needs only to exceed the minimum."}
+      ]
+    },
+    "u:core-dbms-30-union-vs-union-all-vs-intersect-vs-except": {
+      "title": "UNION vs UNION ALL vs INTERSECT vs EXCEPT",
+      "summary": "Set operators combining query results — and why UNION ALL is faster.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Set operators combine the results of two SELECTs that are **union-compatible** (same number of columns, compatible types)."},
+        {"t": "table", "headers": ["Operator", "Result"], "rows": [
+          ["UNION", "All rows from both, duplicates REMOVED"],
+          ["UNION ALL", "All rows from both, duplicates KEPT (faster)"],
+          ["INTERSECT", "Rows appearing in both"],
+          ["EXCEPT / MINUS", "Rows in the first but not the second"]
+        ]},
+        {"t": "callout", "style": "key", "text": "UNION removes duplicates (a costly sort/hash); UNION ALL keeps them and is faster. Use UNION ALL when you know there are no duplicates or don't care — it avoids the dedup work."},
+        {"t": "callout", "style": "tip", "text": "Set operators require the two SELECTs to have the same number of columns with compatible types, matched by position (not name)."}
+      ],
+      "mcqs": [
+        {"q": "UNION differs from UNION ALL because UNION:", "options": ["Keeps duplicates", "Removes duplicate rows (extra sort/hash cost)", "Is faster", "Returns fewer columns"], "answer": 1, "explain": "UNION dedupes the combined result; UNION ALL keeps duplicates and skips that work, so it's faster."},
+        {"q": "INTERSECT returns rows that:", "options": ["Appear in either query", "Appear in both queries", "Appear only in the first", "Are NULL"], "answer": 1, "explain": "INTERSECT is the set intersection — rows common to both result sets."},
+        {"q": "EXCEPT (MINUS) returns rows in:", "options": ["Both queries", "The first query but not the second", "The second query only", "Neither"], "answer": 1, "explain": "EXCEPT is set difference: rows of the first query not present in the second."}
+      ]
+    },
+    "u:core-dbms-0-dbms-vs-file-system": {
+      "title": "DBMS vs file system",
+      "summary": "Why databases replaced flat files: no redundancy, enforced integrity, concurrency, and querying.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **DBMS** is software that manages structured data with querying, integrity, concurrency, and recovery — solving the problems of storing data in plain files."},
+        {"t": "table", "headers": ["Problem with files", "How a DBMS fixes it"], "rows": [
+          ["Data redundancy & inconsistency", "Normalisation + single source of truth"],
+          ["No easy querying", "Declarative query language (SQL)"],
+          ["No integrity enforcement", "Constraints (keys, checks, foreign keys)"],
+          ["Concurrent-access corruption", "Transactions + locking (ACID)"],
+          ["No recovery from crashes", "Logging and recovery"],
+          ["Poor security/access control", "Users, roles, privileges"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The DBMS advantage in one line: it centralises data with guarantees — no redundancy, enforced integrity, safe concurrent access, crash recovery, and a query language — that ad-hoc file handling can't provide."}
+      ],
+      "mcqs": [
+        {"q": "Which is a core advantage of a DBMS over a flat-file system?", "options": ["Uses less disk always", "Controlled redundancy, enforced integrity, and concurrent access", "No need for backups", "Faster for every workload"], "answer": 1, "explain": "A DBMS reduces redundancy, enforces constraints, and safely handles concurrent access — things flat files don't."},
+        {"q": "Concurrent access without corruption is achieved in a DBMS via:", "options": ["Bigger files", "Transactions and locking (ACID)", "Read-only mode", "Manual coordination"], "answer": 1, "explain": "Transactions with concurrency control let many users modify data safely."},
+        {"q": "Enforcing that an order must reference a valid customer is an example of:", "options": ["Redundancy", "Integrity constraints (referential integrity)", "Indexing", "Caching"], "answer": 1, "explain": "Foreign-key/referential integrity constraints keep related data valid — a DBMS feature files lack."}
+      ]
+    },
+    "u:core-dbms-1-three-level-architecture": {
+      "title": "Three-level architecture",
+      "summary": "External, conceptual, and internal schemas — the ANSI-SPARC separation that enables data independence.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **ANSI-SPARC three-level architecture** separates a database into three schema levels so users are insulated from storage details."},
+        {"t": "table", "headers": ["Level", "What it describes", "Audience"], "rows": [
+          ["External (view)", "Per-user/app customised views of data", "End users / apps"],
+          ["Conceptual (logical)", "The whole DB's logical structure (tables, relationships, constraints)", "DBA / designers"],
+          ["Internal (physical)", "How data is physically stored (files, indexes)", "System / storage"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Separating these levels is what gives **data independence**: you can change storage (internal) without touching the logical design, and change the logical design without breaking each user's view. The mappings between levels absorb the change."},
+        {"t": "callout", "style": "tip", "text": "External = views tailored per user; Conceptual = the one true schema; Internal = bytes on disk. Two mappings connect them (external↔conceptual, conceptual↔internal)."}
+      ],
+      "mcqs": [
+        {"q": "The conceptual level of the three-level architecture describes:", "options": ["Physical storage on disk", "The overall logical structure of the whole database", "A single user's view", "Index files"], "answer": 1, "explain": "The conceptual (logical) schema is the community view of the entire database structure and constraints."},
+        {"q": "The three-level architecture's main benefit is:", "options": ["Faster queries", "Data independence — changing one level without disrupting others", "Smaller databases", "No need for a DBA"], "answer": 1, "explain": "Insulating levels via mappings lets storage or logical changes happen without breaking user views."},
+        {"q": "A per-user customised view of the data lives at the:", "options": ["Internal level", "External level", "Conceptual level", "Physical level"], "answer": 1, "explain": "The external (view) level presents tailored subsets of the data to different users/applications."}
+      ]
+    },
+    "u:core-dbms-2-logical-and-physical-data-independence": {
+      "title": "Logical and physical data independence",
+      "summary": "Change the schema or the storage without rewriting the layers above.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Data independence** is the ability to change a schema at one level without altering the level above it — the payoff of the three-level architecture."},
+        {"t": "points", "items": [
+          "**Physical data independence** — change how data is stored (add an index, reorganise files, switch storage engine) without changing the conceptual/logical schema. This is easier to achieve and common.",
+          "**Logical data independence** — change the logical schema (add a column, split a table) without changing external views/applications. This is harder because views depend on the logical structure."
+        ]},
+        {"t": "callout", "style": "key", "text": "Physical independence (storage vs logical) is easily achieved; logical independence (logical vs external views) is harder because applications are tied more directly to the logical schema."}
+      ],
+      "mcqs": [
+        {"q": "Adding an index to speed up queries without changing the logical schema is an example of:", "options": ["Logical data independence", "Physical data independence", "Referential integrity", "Normalization"], "answer": 1, "explain": "Changing physical storage (indexes) without affecting the conceptual schema is physical data independence."},
+        {"q": "Which type of data independence is generally harder to achieve?", "options": ["Physical", "Logical", "They are equal", "Neither is achievable"], "answer": 1, "explain": "Logical independence is harder because external views and applications depend closely on the logical schema."},
+        {"q": "Logical data independence means changing the logical schema without affecting:", "options": ["Physical storage", "External views and applications", "The DBA", "Indexes"], "answer": 1, "explain": "It insulates user-level external schemas/applications from logical-schema changes."}
+      ]
+    },
+    "u:core-dbms-3-dba-roles": {
+      "title": "DBA roles",
+      "summary": "The database administrator owns schema, security, performance, and recovery.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The **Database Administrator (DBA)** is responsible for the database's design, health, and safety."},
+        {"t": "points", "items": [
+          "**Schema definition** — designing tables, relationships, constraints.",
+          "**Access control & security** — creating users/roles, granting/revoking privileges.",
+          "**Performance tuning** — indexes, query optimisation, storage layout.",
+          "**Backup & recovery** — ensuring data can be restored after failure.",
+          "**Integrity & maintenance** — constraints, upgrades, monitoring."
+        ]},
+        {"t": "callout", "style": "key", "text": "Think of the DBA as owning the four pillars: structure (schema), security (access), speed (tuning), and safety (backup/recovery)."}
+      ],
+      "mcqs": [
+        {"q": "Granting and revoking user privileges is a DBA responsibility under:", "options": ["Performance tuning", "Access control and security", "Backup", "Schema design"], "answer": 1, "explain": "Managing users, roles, and privileges is the DBA's security/access-control duty."},
+        {"q": "Ensuring the database can be restored after a crash falls under:", "options": ["Indexing", "Backup and recovery", "Normalization", "View creation"], "answer": 1, "explain": "Backup and recovery planning is a key DBA responsibility for data safety."},
+        {"q": "Deciding which columns to index to speed queries is part of:", "options": ["Access control", "Performance tuning", "Schema security", "User management"], "answer": 1, "explain": "Index and query tuning is the DBA's performance responsibility."}
+      ]
+    },
+    "u:core-dbms-4-data-models-overview": {
+      "title": "Data models overview",
+      "summary": "Relational, hierarchical, network, object, and NoSQL models — how data is structured.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **data model** defines how data is logically structured and related. The dominant one is relational, but several exist."},
+        {"t": "table", "headers": ["Model", "Structure"], "rows": [
+          ["Relational", "Tables (relations) of rows and columns; links via keys"],
+          ["Hierarchical", "Tree — each child has one parent (IBM IMS)"],
+          ["Network", "Graph — children can have multiple parents"],
+          ["Object-oriented", "Objects with state + behaviour"],
+          ["Document / KV / column / graph (NoSQL)", "Flexible schemas for scale and specific access patterns"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The relational model won because of its simplicity (just tables), strong theory (relational algebra), and declarative querying (SQL). NoSQL models trade some of that for scale and schema flexibility."}
+      ],
+      "mcqs": [
+        {"q": "The relational model organises data as:", "options": ["Trees", "Tables (relations) of rows and columns", "Graphs of objects", "Key-value pairs only"], "answer": 1, "explain": "Relational databases store data in tables with rows (tuples) and columns (attributes)."},
+        {"q": "In the hierarchical model, each child record has:", "options": ["Multiple parents", "Exactly one parent (tree structure)", "No parent", "A foreign key"], "answer": 1, "explain": "Hierarchical models form a tree where each child links to a single parent."},
+        {"q": "A reason the relational model became dominant is:", "options": ["It has no theory", "Simplicity plus a strong theoretical basis and declarative SQL", "It cannot be queried", "It forbids constraints"], "answer": 1, "explain": "Simple tables, relational algebra, and SQL made it powerful and accessible."}
+      ]
+    },
+    "u:core-dbms-5-entities-attributes-relationships": {
+      "title": "Entities, attributes, relationships",
+      "summary": "The vocabulary of ER modelling: things, their properties, and how they connect.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**ER (Entity-Relationship) modelling** describes data before it becomes tables."},
+        {"t": "points", "items": [
+          "**Entity** — a real-world object/thing (Student, Course). An **entity set** is a collection of them.",
+          "**Attribute** — a property of an entity (name, roll_no). Types: simple vs composite, single vs **multivalued**, stored vs **derived**, and the **key attribute** that uniquely identifies.",
+          "**Relationship** — an association between entities (a Student *enrols in* a Course). Relationships can have their own attributes (e.g. enrolment date)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Entities become tables, attributes become columns, and relationships become foreign keys or link tables. Getting the ER model right is the foundation of a clean schema."},
+        {"t": "callout", "style": "tip", "text": "Attribute types to recognise: composite (address → street, city), multivalued (phone numbers), derived (age from DOB), and the key attribute (usually underlined in an ER diagram)."}
+      ],
+      "mcqs": [
+        {"q": "In ER modelling, a real-world object such as 'Student' is a(n):", "options": ["Attribute", "Entity", "Relationship", "Key"], "answer": 1, "explain": "An entity represents a distinguishable real-world thing; a collection of them is an entity set."},
+        {"q": "'Age' computed from date of birth is which kind of attribute?", "options": ["Multivalued", "Derived", "Composite", "Key"], "answer": 1, "explain": "A derived attribute is calculated from other stored data rather than stored directly."},
+        {"q": "An 'enrolment date' stored on the enrols-in association is:", "options": ["An entity", "An attribute of a relationship", "A foreign key", "A candidate key"], "answer": 1, "explain": "Relationships can carry their own attributes, such as when the association occurred."}
+      ]
+    },
+    "u:core-dbms-6-weak-entities": {
+      "title": "Weak entities",
+      "summary": "An entity that can't be identified on its own — it depends on an owner entity for identity.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **weak entity** has no key attribute of its own; it can only be uniquely identified in combination with an **owner (strong) entity** via an **identifying relationship**."},
+        {"t": "points", "items": [
+          "It has a **partial key** (discriminator) that is unique only within one owner.",
+          "Its full identity = owner's key + its partial key.",
+          "Example: a `Dependent` (of an employee) — two employees can both have a dependent named 'Alex'; the dependent is identified only together with its employee."
+        ]},
+        {"t": "callout", "style": "key", "text": "Weak entity = existence-dependent + no key of its own. When mapped to a table, its primary key includes the owner's primary key as a foreign key plus its partial key."},
+        {"t": "callout", "style": "tip", "text": "In ER diagrams, weak entities and their identifying relationships are drawn with double rectangles/diamonds; the partial key is dashed-underlined."}
+      ],
+      "mcqs": [
+        {"q": "A weak entity is one that:", "options": ["Has a primary key of its own", "Cannot be uniquely identified without an owner entity", "Has no attributes", "Is always a relationship"], "answer": 1, "explain": "A weak entity lacks its own key and depends on an owner (strong) entity for identification."},
+        {"q": "The primary key of a weak entity's table typically consists of:", "options": ["Only its partial key", "The owner's primary key plus its own partial key (discriminator)", "A random id", "No key at all"], "answer": 1, "explain": "Its full identity combines the owner's key (as a foreign key) with its partial discriminator."},
+        {"q": "The relationship connecting a weak entity to its owner is called:", "options": ["A recursive relationship", "An identifying relationship", "A total relationship", "A derived relationship"], "answer": 1, "explain": "The identifying relationship links the weak entity to the owner that provides its identity."}
+      ]
+    },
+    "u:core-dbms-7-cardinality-and-participation": {
+      "title": "Cardinality and participation",
+      "summary": "How many entities relate (1:1, 1:N, M:N) and whether every entity must participate.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Two constraints describe a relationship's shape."},
+        {"t": "points", "items": [
+          "**Cardinality ratio** — how many instances relate: **1:1**, **1:N** (one-to-many), or **M:N** (many-to-many).",
+          "**Participation** — **total** (every entity must participate, drawn as a double line) or **partial** (participation optional)."
+        ]},
+        {"t": "table", "headers": ["Ratio", "Example", "Mapping"], "rows": [
+          ["1:1", "Person ↔ Passport", "FK on either side (often with unique)"],
+          ["1:N", "Department → Employees", "FK on the many side"],
+          ["M:N", "Students ↔ Courses", "A separate junction/link table"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Cardinality decides how the relationship becomes foreign keys: 1:N puts the FK on the many side, while M:N always needs a separate junction table holding both keys. Total participation often becomes a NOT NULL foreign key."}
+      ],
+      "mcqs": [
+        {"q": "A many-to-many (M:N) relationship is mapped to tables using:", "options": ["A foreign key on one side", "A separate junction (link) table with both keys", "No key", "A derived column"], "answer": 1, "explain": "M:N can't be represented by a single FK; a junction table holding both primary keys resolves it."},
+        {"q": "Total participation of an entity in a relationship means:", "options": ["The entity may or may not participate", "Every instance of that entity must participate", "The relationship is 1:1", "The entity is weak"], "answer": 1, "explain": "Total participation requires every entity instance to be involved in the relationship (double line in ER)."},
+        {"q": "In a 1:N relationship, the foreign key is placed on:", "options": ["The 'one' side", "The 'many' side", "Both sides", "A junction table"], "answer": 1, "explain": "The many side stores the foreign key referencing the one side (e.g. each employee stores its department)."}
+      ]
+    },
+    "u:core-dbms-8-generalisation-specialisation-aggregation": {
+      "title": "Generalisation, specialisation, aggregation",
+      "summary": "The EER extensions: bottom-up grouping, top-down splitting, and treating a relationship as an entity.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Enhanced ER (EER) adds abstraction mechanisms similar to OOP inheritance."},
+        {"t": "points", "items": [
+          "**Generalisation** (bottom-up) — combine similar entities into a general superclass. Car and Truck → Vehicle.",
+          "**Specialisation** (top-down) — split an entity into subclasses with distinct attributes. Employee → Manager, Engineer.",
+          "**Aggregation** — treat a whole relationship (with its entities) as a single higher-level entity so another relationship can connect to it."
+        ]},
+        {"t": "callout", "style": "key", "text": "Generalisation and specialisation are two directions of the same is-a hierarchy (merge up vs split down). Aggregation is different: it lets a relationship participate in another relationship by abstracting it as an entity."},
+        {"t": "callout", "style": "tip", "text": "Aggregation example: a `works-on(Employee, Project)` relationship, aggregated, can then relate to a `Manager` who manages that whole works-on association."}
+      ],
+      "mcqs": [
+        {"q": "Combining Car and Truck into a common Vehicle superclass is:", "options": ["Specialisation", "Generalisation (bottom-up)", "Aggregation", "Normalization"], "answer": 1, "explain": "Generalisation groups similar entities upward into a general superclass."},
+        {"q": "Aggregation in EER is used to:", "options": ["Split an entity into subclasses", "Treat a relationship (with its entities) as a higher-level entity so another relationship can link to it", "Remove attributes", "Merge tables"], "answer": 1, "explain": "Aggregation abstracts a relationship as an entity so it can participate in further relationships."},
+        {"q": "Specialisation is:", "options": ["Bottom-up merging", "Top-down splitting of an entity into subclasses with distinct attributes", "A junction table", "A weak entity"], "answer": 1, "explain": "Specialisation refines a superclass into subclasses (e.g. Employee → Manager/Engineer)."}
+      ]
+    },
+    "u:core-dbms-9-er-to-relational-mapping": {
+      "title": "ER to relational mapping",
+      "summary": "Systematic rules to turn an ER diagram into tables.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Converting an ER model to relational tables follows fixed rules."},
+        {"t": "points", "items": [
+          "**Strong entity** → a table; its key attribute → primary key.",
+          "**Weak entity** → a table whose PK = owner's PK (as FK) + partial key.",
+          "**1:1** → put a foreign key on either side (usually the total-participation side).",
+          "**1:N** → put the foreign key on the **many** side.",
+          "**M:N** → create a **junction table** with both entities' primary keys as a composite key.",
+          "**Multivalued attribute** → its own table (entity key + the value).",
+          "**Composite attribute** → store the component parts as separate columns."
+        ]},
+        {"t": "callout", "style": "key", "text": "The two rules that matter most: 1:N → FK on the many side; M:N → a separate junction table. Multivalued attributes also become their own table."}
+      ],
+      "mcqs": [
+        {"q": "A multivalued attribute (e.g. multiple phone numbers) is mapped to:", "options": ["A single column", "A separate table keyed by the entity's PK plus the value", "The junction table", "A derived column"], "answer": 1, "explain": "Multivalued attributes need their own table so each value is a separate row."},
+        {"q": "An M:N relationship becomes:", "options": ["A foreign key on one side", "A junction table with both entities' primary keys", "A weak entity", "A check constraint"], "answer": 1, "explain": "Mapping M:N requires a link table holding the two primary keys as a composite key."},
+        {"q": "A weak entity's table primary key is:", "options": ["Only its partial key", "The owner's primary key plus the partial key", "Auto-generated only", "The relationship name"], "answer": 1, "explain": "The weak entity is identified by combining the owner's key with its own discriminator."}
+      ]
+    },
+    "u:core-dbms-10-relations-tuples-domains": {
+      "title": "Relations, tuples, domains",
+      "summary": "The precise vocabulary of the relational model: table, row, and the allowed set of values.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The relational model has exact terms behind the casual 'table/row/column'."},
+        {"t": "table", "headers": ["Formal term", "Informal term"], "rows": [
+          ["Relation", "Table"],
+          ["Tuple", "Row"],
+          ["Attribute", "Column"],
+          ["Domain", "The set of allowed values for an attribute"],
+          ["Degree", "Number of attributes (columns)"],
+          ["Cardinality", "Number of tuples (rows)"]
+        ]},
+        {"t": "points", "items": [
+          "A relation is a **set** of tuples — so (formally) no duplicate rows and no inherent order.",
+          "A **domain** constrains an attribute's values (e.g. age is a positive integer)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Because a relation is a set, it has no duplicate tuples and no ordering by definition. (Real SQL tables allow duplicates unless a key/constraint prevents them — a practical deviation from the pure model.)"}
+      ],
+      "mcqs": [
+        {"q": "In the relational model, a 'tuple' corresponds to a:", "options": ["Column", "Row", "Table", "Constraint"], "answer": 1, "explain": "A tuple is a row of a relation; an attribute is a column."},
+        {"q": "The 'domain' of an attribute is:", "options": ["The number of rows", "The set of permissible values for that attribute", "The primary key", "The table name"], "answer": 1, "explain": "A domain defines the allowed values (type/range) an attribute can take."},
+        {"q": "The 'degree' of a relation is the number of:", "options": ["Rows (tuples)", "Attributes (columns)", "Keys", "Domains"], "answer": 1, "explain": "Degree = number of attributes; cardinality = number of tuples."}
+      ]
+    },
+    "u:core-dbms-11-super-key-candidate-key-primary-key-alternate-key": {
+      "title": "Super key, candidate key, primary key, alternate key",
+      "summary": "The hierarchy of keys — from any unique set down to the chosen identifier.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Keys uniquely identify tuples; they form a hierarchy from broad to specific."},
+        {"t": "points", "items": [
+          "**Super key** — any set of attributes that uniquely identifies a tuple (may have extra, redundant attributes).",
+          "**Candidate key** — a **minimal** super key (no attribute can be removed while keeping uniqueness). A relation can have several.",
+          "**Primary key** — the candidate key chosen as the main identifier; it cannot be NULL.",
+          "**Alternate key** — a candidate key not chosen as primary.",
+          "**Composite key** — a key made of more than one attribute."
+        ]},
+        {"t": "callout", "style": "key", "text": "Chain of specificity: super key ⊇ candidate key (minimal super key) → one becomes the primary key, the rest are alternate keys. 'Minimal' is the word that separates candidate from super key."},
+        {"t": "callout", "style": "tip", "text": "Example: {roll_no}, {email} may each be candidate keys; pick {roll_no} as primary → {email} is an alternate key. {roll_no, name} is a super key but not candidate (name is redundant)."}
+      ],
+      "mcqs": [
+        {"q": "A candidate key differs from a super key in that a candidate key is:", "options": ["Larger", "Minimal — no attribute can be removed while preserving uniqueness", "Always composite", "Allowed to be NULL"], "answer": 1, "explain": "A candidate key is a super key with no redundant attributes (minimal)."},
+        {"q": "An alternate key is:", "options": ["A super key with extra attributes", "A candidate key not chosen as the primary key", "A foreign key", "The primary key"], "answer": 1, "explain": "Among several candidate keys, the ones not selected as primary are alternate keys."},
+        {"q": "A primary key, unlike other candidate keys, must:", "options": ["Be composite", "Not be NULL and is the chosen main identifier", "Contain email", "Be the largest key"], "answer": 1, "explain": "The primary key is the chosen candidate key and enforces non-null uniqueness."}
+      ]
+    },
+    "u:core-dbms-12-foreign-keys-and-referential-integrity": {
+      "title": "Foreign keys and referential integrity",
+      "summary": "A column that references another table's key, kept valid by referential integrity rules.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **foreign key (FK)** is an attribute in one table that references the **primary key** of another (or the same) table, modelling a relationship. **Referential integrity** requires that every FK value either matches an existing PK value or is NULL."},
+        {"t": "h", "text": "On delete/update actions"},
+        {"t": "table", "headers": ["Action", "Effect when the referenced row is deleted/updated"], "rows": [
+          ["CASCADE", "Delete/update the referencing rows too"],
+          ["SET NULL", "Set the FK to NULL"],
+          ["RESTRICT / NO ACTION", "Reject the operation if references exist"],
+          ["SET DEFAULT", "Set the FK to a default value"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Referential integrity prevents 'orphan' rows — an order referencing a customer that doesn't exist. The referential action (CASCADE, SET NULL, RESTRICT) defines what happens to children when the parent changes."}
+      ],
+      "mcqs": [
+        {"q": "Referential integrity guarantees that a foreign key value:", "options": ["Is always unique", "Matches an existing primary key value or is NULL", "Is auto-incremented", "Is indexed"], "answer": 1, "explain": "An FK must reference an existing PK (or be NULL), preventing orphan references."},
+        {"q": "ON DELETE CASCADE means when a referenced (parent) row is deleted:", "options": ["The delete is rejected", "The referencing (child) rows are deleted too", "The FK is set to a default", "Nothing happens"], "answer": 1, "explain": "CASCADE propagates the delete to the child rows that reference the parent."},
+        {"q": "A foreign key models:", "options": ["A unique constraint", "A relationship linking a row to another table's primary key", "An index", "A stored procedure"], "answer": 1, "explain": "The FK expresses a relationship by referencing another table's primary key."}
+      ]
+    },
+    "u:core-dbms-13-entity-and-referential-integrity-constraints": {
+      "title": "Entity and referential integrity constraints",
+      "summary": "Two fundamental relational rules: primary keys can't be NULL, and foreign keys must be valid.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The relational model enforces two built-in integrity constraints."},
+        {"t": "points", "items": [
+          "**Entity integrity** — no part of a primary key may be NULL (a row must be identifiable). Also implies PK uniqueness.",
+          "**Referential integrity** — a foreign key must reference an existing primary-key value or be entirely NULL (no dangling references)."
+        ]},
+        {"t": "p", "text": "Other constraints layered on top: **domain constraints** (values from the correct domain), **key constraints** (uniqueness), and user-defined **check** constraints."},
+        {"t": "callout", "style": "key", "text": "Entity integrity keeps every row identifiable (PK not null); referential integrity keeps relationships valid (FK points to something real). Together they are the backbone of relational correctness."}
+      ],
+      "mcqs": [
+        {"q": "Entity integrity requires that:", "options": ["Foreign keys be unique", "No attribute of a primary key is NULL", "All columns be indexed", "Tables have no rows"], "answer": 1, "explain": "Entity integrity forbids NULLs in any part of the primary key so each row is identifiable."},
+        {"q": "Referential integrity is violated when:", "options": ["A primary key is unique", "A foreign key references a non-existent primary-key value", "A column has a default", "A table has an index"], "answer": 1, "explain": "A dangling foreign key (pointing to a missing PK) breaks referential integrity."},
+        {"q": "A rule like 'salary > 0' is enforced by a:", "options": ["Primary key", "Check (domain/user-defined) constraint", "Foreign key", "Index"], "answer": 1, "explain": "Value-range rules are enforced by CHECK/domain constraints."}
+      ]
+    },
+    "u:core-dbms-14-relational-algebra-operators": {
+      "title": "Relational algebra operators",
+      "summary": "The procedural foundation of query languages: select, project, join, and set operations.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Relational algebra** is a procedural query language — a set of operators that take relations and produce a relation. SQL is built on these."},
+        {"t": "table", "headers": ["Operator", "Symbol", "Does"], "rows": [
+          ["Selection", "sigma (σ)", "Picks ROWS matching a condition (WHERE)"],
+          ["Projection", "pi (π)", "Picks COLUMNS (SELECT), removes duplicates"],
+          ["Union / Intersect / Difference", "∪ ∩ −", "Set operations on union-compatible relations"],
+          ["Cartesian product", "×", "Every row of A paired with every row of B"],
+          ["Join", "⋈", "Product + selection on matching attributes"],
+          ["Rename", "rho (ρ)", "Renames a relation/attributes"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Two to never mix up: **selection (σ)** filters ROWS; **projection (π)** filters COLUMNS. A join is a Cartesian product followed by a selection on the join condition."},
+        {"t": "callout", "style": "tip", "text": "Set operations (∪, ∩, −) require the relations to be union-compatible: same number of attributes with matching domains."}
+      ],
+      "mcqs": [
+        {"q": "The selection operator (σ) in relational algebra:", "options": ["Picks columns", "Picks rows satisfying a condition", "Joins tables", "Renames attributes"], "answer": 1, "explain": "Selection (σ) filters tuples by a predicate — the WHERE of relational algebra."},
+        {"q": "Projection (π) corresponds to which SQL clause?", "options": ["WHERE", "SELECT (choosing columns)", "ORDER BY", "GROUP BY"], "answer": 1, "explain": "Projection selects specific columns and removes duplicates, like SELECT of certain attributes."},
+        {"q": "A join can be expressed as:", "options": ["A projection", "A Cartesian product followed by a selection on the join condition", "A union", "A rename"], "answer": 1, "explain": "A theta/natural join is a Cartesian product filtered by the matching condition."}
+      ]
+    },
+    "u:core-dbms-15-tuple-and-domain-relational-calculus": {
+      "title": "Tuple and domain relational calculus",
+      "summary": "The declarative counterpart to relational algebra — describe what you want, not how.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Relational calculus** is a **non-procedural (declarative)** query language: you specify **what** the result should satisfy, not the steps to compute it (unlike procedural relational algebra)."},
+        {"t": "points", "items": [
+          "**Tuple relational calculus (TRC)** — variables range over **tuples**: `{ t | P(t) }` (all tuples t for which predicate P is true).",
+          "**Domain relational calculus (DRC)** — variables range over **attribute domains** (individual values).",
+          "Both use quantifiers ∀ (for all) and ∃ (there exists)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Algebra = how (procedural, operator steps); calculus = what (declarative, a logical condition). They are equivalent in expressive power for safe queries — the basis of SQL being declarative."},
+        {"t": "callout", "style": "warn", "text": "Calculus expressions must be 'safe' (produce a finite result); an unrestricted formula like {t | not R(t)} could be infinite."}
+      ],
+      "mcqs": [
+        {"q": "Relational calculus is characterised as:", "options": ["Procedural", "Non-procedural (declarative) — what, not how", "Physical", "Graph-based"], "answer": 1, "explain": "Calculus specifies the properties of the desired result rather than the steps to compute it."},
+        {"q": "In tuple relational calculus, variables range over:", "options": ["Individual attribute values", "Tuples (rows)", "Tables", "Domains"], "answer": 1, "explain": "TRC variables represent whole tuples; DRC variables represent domain values."},
+        {"q": "Relational algebra and (safe) relational calculus are:", "options": ["Completely different in power", "Equivalent in expressive power", "Both procedural", "Unrelated to SQL"], "answer": 1, "explain": "They have equivalent expressive power for safe queries, underpinning SQL."}
+      ]
+    }
+  }
+}

@@ -101,6 +101,14 @@ class AppTheme {
         thickness: 1,
         space: 1,
       ),
+      // NOTE: Size.fromHeight(h) is Size(double.infinity, h) — these buttons
+      // carry an *infinite* minimum width so they stretch to fill their parent.
+      // That requires a bounded width: fine in a Column, a stretch column, a
+      // sized box or a dialog's actions, but a plain Row/Flex gives non-flex
+      // children unbounded width and layout throws "BoxConstraints forces an
+      // infinite width" (the whole subtree then renders blank). Inside a Row,
+      // wrap in Expanded/Flexible or override minimumSize with a finite width,
+      // e.g. minimumSize: const Size(0, 40).
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: colorScheme.primary,

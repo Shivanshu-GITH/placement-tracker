@@ -1,0 +1,14 @@
+{
+  "packs": [
+    "core_os.json",
+    "core_oop.json",
+    "core_dbms.json",
+    "core_cn.json",
+    "system_design.json",
+    "interview_hr.json",
+    "aptitude.json",
+    "web_dev.json",
+    "cp_prep.json",
+    "dsa_patterns.json"
+  ]
+}

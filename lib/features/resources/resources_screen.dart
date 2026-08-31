@@ -9,6 +9,8 @@ import '../../core/widgets/app_card.dart';
 import '../../core/widgets/entrance.dart';
 import '../../data/database/database.dart';
 import '../../providers/providers.dart';
+import '../ads/ad_config.dart';
+import '../ads/native_ad_card.dart';
 
 const _disclosure =
     'Some links in Paid are affiliate links — if you buy through them we may earn a small commission at no extra cost to you. We only list resources we\'d genuinely recommend.';
@@ -114,18 +116,32 @@ class _ResourcesScreenState extends ConsumerState<ResourcesScreen> {
           Expanded(
             child: items.isEmpty
                 ? const Center(child: CircularProgressIndicator())
-                : ListView.separated(
-                    padding: const EdgeInsets.fromLTRB(AppSpacing.screenH,
-                        AppSpacing.md, AppSpacing.screenH, AppSpacing.huge),
-                    itemCount: items.length,
-                    separatorBuilder: (_, _) =>
-                        const SizedBox(height: AppSpacing.md),
-                    itemBuilder: (context, i) =>
-                        _ResourceCard(resource: items[i]).entrance(index: i),
-                  ),
+                : _buildList(items),
           ),
         ],
       ),
+    );
+  }
+
+  /// The resource list, with a native ad slotted in after every 5th item for
+  /// non-premium users (an unloaded ad collapses to nothing, so there's no gap).
+  Widget _buildList(List<Resource> items) {
+    final showAds = AdConfig.enabled && !ref.watch(premiumProvider);
+    final rows = <Widget>[];
+    for (var i = 0; i < items.length; i++) {
+      rows.add(Padding(
+        padding: const EdgeInsets.only(bottom: AppSpacing.md),
+        child: _ResourceCard(resource: items[i]).entrance(index: i),
+      ));
+      if (showAds && (i + 1) % 5 == 0 && i != items.length - 1) {
+        rows.add(const NativeAdCard());
+      }
+    }
+    return ListView.builder(
+      padding: const EdgeInsets.fromLTRB(
+          AppSpacing.screenH, AppSpacing.md, AppSpacing.screenH, AppSpacing.huge),
+      itemCount: rows.length,
+      itemBuilder: (context, i) => rows[i],
     );
   }
 
@@ -158,6 +174,7 @@ class _ResourcesScreenState extends ConsumerState<ResourcesScreen> {
         'core' => 'Core CS',
         'aptitude' => 'Aptitude',
         'system' => 'System Design',
+        'webdev' => 'Web Dev',
         'interview' => 'Interview',
         'cp' => 'CP',
         _ => 'General',

@@ -1,0 +1,2441 @@
+{
+  "subject": "cp_prep",
+  "title": "Competitive Programming",
+  "topics": {
+    "u:cp-strategy-0-read-the-whole-set-first": {
+      "title": "Read the whole set first",
+      "summary": "Skim every problem before coding; the easiest isn't always A.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "At the start, quickly read **all** problems and note which look easiest. Contest problems aren't strictly ordered by difficulty for everyone — a later problem may be your fastest solve."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Solve in order of *your* confidence and speed, not the label order."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Why skim all problems first?",
+          "options": [
+            "The easiest for you may not be problem A",
+            "To waste time",
+            "To copy solutions",
+            "It's required"
+          ],
+          "answer": 0,
+          "explain": "Difficulty is subjective; find your quick wins."
+        },
+        {
+          "q": "You should attempt problems in order of:",
+          "options": [
+            "Your confidence/speed",
+            "Alphabetical labels",
+            "Point value only",
+            "Random"
+          ],
+          "answer": 0,
+          "explain": "Prioritise what you can solve fastest."
+        },
+        {
+          "q": "Reading the full set costs a few minutes but:",
+          "options": [
+            "Avoids missing an easy solve",
+            "Lowers your rank",
+            "Is against the rules",
+            "Wastes the contest"
+          ],
+          "answer": 0,
+          "explain": "It surfaces the best-value problems early."
+        }
+      ]
+    },
+    "u:cp-strategy-1-time-management-and-problem-order": {
+      "title": "Time management & problem order",
+      "summary": "Budget time per problem; don't sink the whole contest into one.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Allocate time and **move on** when stuck. Sinking 45 minutes into one hard problem often costs two easier solves. Come back with fresh eyes if time remains."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "A rough rule: if you have no idea after ~10-15 min, switch problems."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "When you're badly stuck on a problem you should:",
+          "options": [
+            "Move to another and return later",
+            "Keep grinding it to the end",
+            "Give up the contest",
+            "Guess submissions"
+          ],
+          "answer": 0,
+          "explain": "Switching preserves time for solvable problems."
+        },
+        {
+          "q": "Over-investing in one hard problem risks:",
+          "options": [
+            "Missing easier solves",
+            "A higher rank",
+            "Fewer penalties",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "Time is the scarce resource."
+        },
+        {
+          "q": "Coming back to a problem later helps because:",
+          "options": [
+            "Fresh eyes spot the idea",
+            "The test cases change",
+            "It gets easier",
+            "Time resets"
+          ],
+          "answer": 0,
+          "explain": "A break often unblocks the insight."
+        }
+      ]
+    },
+    "u:cp-strategy-2-reading-constraints-to-pick-complexity": {
+      "title": "Reading constraints to pick complexity",
+      "summary": "Constraints tell you the target time complexity before you code.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "The **constraints** (e.g. n ≤ 10^5) hint at the intended complexity. Aim for roughly ≤ 10^8 operations per second."
+        },
+        {
+          "t": "table",
+          "headers": [
+            "n up to",
+            "Feasible complexity"
+          ],
+          "rows": [
+            [
+              "~10",
+              "O(n!) / O(2^n)"
+            ],
+            [
+              "~20",
+              "O(2^n)"
+            ],
+            [
+              "~500",
+              "O(n^3)"
+            ],
+            [
+              "~5000",
+              "O(n^2)"
+            ],
+            [
+              "~10^5-10^6",
+              "O(n log n) or O(n)"
+            ],
+            [
+              "~10^9",
+              "O(log n) or O(1)"
+            ]
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Read n first — it eliminates whole categories of approaches instantly."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "If n ≤ 10^5, an O(n^2) solution will likely:",
+          "options": [
+            "Time out",
+            "Pass easily",
+            "Use too little time",
+            "Be optimal"
+          ],
+          "answer": 0,
+          "explain": "10^10 ops is far beyond the ~10^8/sec budget."
+        },
+        {
+          "q": "n up to ~20 often hints at:",
+          "options": [
+            "O(2^n) / bitmask",
+            "O(n)",
+            "O(log n)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "Small n allows exponential methods."
+        },
+        {
+          "q": "Constraints are useful because they:",
+          "options": [
+            "Reveal the intended complexity",
+            "Give the answer",
+            "Are decorative",
+            "Set the language"
+          ],
+          "answer": 0,
+          "explain": "They bound the acceptable running time."
+        }
+      ]
+    },
+    "u:cp-strategy-3-penalty-and-scoring-systems": {
+      "title": "Penalty & scoring systems",
+      "summary": "ICPC-style penalises wrong submissions and time; know your contest's rules.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Formats differ. **ICPC-style** ranks by problems solved, breaking ties by total time + a penalty per wrong submission. **IOI/points-style** gives partial credit per subtask. Codeforces uses a decaying score with penalties for wrong attempts."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Under penalty systems, don't spam submissions — test locally first; each wrong try costs time/points."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "In ICPC-style scoring, wrong submissions add:",
+          "options": [
+            "Time penalty",
+            "Bonus points",
+            "Nothing",
+            "Extra problems"
+          ],
+          "answer": 0,
+          "explain": "Each wrong attempt adds penalty minutes."
+        },
+        {
+          "q": "Spamming submissions is bad because:",
+          "options": [
+            "Wrong tries cost time/points",
+            "It's faster",
+            "It helps rank",
+            "It's encouraged"
+          ],
+          "answer": 0,
+          "explain": "Test locally to avoid penalties."
+        },
+        {
+          "q": "Points/IOI-style contests reward:",
+          "options": [
+            "Partial credit per subtask",
+            "Only full solutions",
+            "Speed only",
+            "Fewest lines"
+          ],
+          "answer": 0,
+          "explain": "Subtasks give partial scores."
+        }
+      ]
+    },
+    "u:cp-strategy-4-when-to-skip-or-switch": {
+      "title": "When to skip or switch",
+      "summary": "Recognise sunk cost; a stuck problem now may be an easy solve later.",
+      "minutes": 2,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Guard against **sunk-cost** thinking. The time already spent doesn't justify more if you're not converging. Note your idea, switch, and return if time allows."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Write down where you're stuck before switching — restarting is faster later."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Sunk-cost thinking makes you:",
+          "options": [
+            "Overstay on a stuck problem",
+            "Switch too early",
+            "Read constraints",
+            "Test locally"
+          ],
+          "answer": 0,
+          "explain": "Past time shouldn't dictate future time."
+        },
+        {
+          "q": "Before switching problems, you should:",
+          "options": [
+            "Note where you're stuck",
+            "Delete your code",
+            "Submit blindly",
+            "Log out"
+          ],
+          "answer": 0,
+          "explain": "Notes speed up your return."
+        },
+        {
+          "q": "The decision to switch depends on:",
+          "options": [
+            "Whether you're converging on a solution",
+            "The problem letter",
+            "Your rating only",
+            "Luck"
+          ],
+          "answer": 0,
+          "explain": "Progress, not the label, guides switching."
+        }
+      ]
+    },
+    "u:cp-strategy-5-upsolving-after-the-contest": {
+      "title": "Upsolving after the contest",
+      "summary": "Solve the problems you couldn't during the contest — that's where growth happens.",
+      "minutes": 2,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Upsolving** — solving problems you missed after the contest ends — is the single biggest driver of improvement. Read the editorial only after a real attempt, then re-implement from scratch."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Rating comes from contests; skill comes from upsolving."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Upsolving means:",
+          "options": [
+            "Solving missed problems after the contest",
+            "Skipping practice",
+            "Only reading editorials",
+            "Retaking the contest"
+          ],
+          "answer": 0,
+          "explain": "You finish the problems you couldn't in time."
+        },
+        {
+          "q": "You should read the editorial:",
+          "options": [
+            "After a genuine attempt",
+            "Before trying",
+            "Never",
+            "Instead of coding"
+          ],
+          "answer": 0,
+          "explain": "Struggle first, then learn from the editorial."
+        },
+        {
+          "q": "Upsolving mainly builds:",
+          "options": [
+            "Skill",
+            "Rating directly",
+            "Penalty",
+            "Luck"
+          ],
+          "answer": 0,
+          "explain": "It's the core learning loop."
+        }
+      ]
+    },
+    "u:cp-complexity-0-big-o-refresher": {
+      "title": "Big-O refresher",
+      "summary": "Big-O describes how running time grows with input size.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Big-O** captures the dominant growth term as n grows, ignoring constants. Common orders (fastest to slowest): O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "You compare algorithms by their Big-O for large n; constants matter only when orders tie."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Which grows fastest?",
+          "options": [
+            "O(n!)",
+            "O(n^2)",
+            "O(n log n)",
+            "O(n)"
+          ],
+          "answer": 0,
+          "explain": "Factorial dominates all the others."
+        },
+        {
+          "q": "Big-O ignores:",
+          "options": [
+            "Constant factors",
+            "Input size",
+            "Growth rate",
+            "The dominant term"
+          ],
+          "answer": 0,
+          "explain": "It focuses on asymptotic growth."
+        },
+        {
+          "q": "Binary search is:",
+          "options": [
+            "O(log n)",
+            "O(n)",
+            "O(n^2)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "Halving the range each step is logarithmic."
+        }
+      ]
+    },
+    "u:cp-complexity-1-operations-budget-10-8-sec": {
+      "title": "Operations budget (~10^8/sec)",
+      "summary": "A rough rule: ~10^8 simple operations run in about a second.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A useful mental model: modern judges handle roughly **10^8 simple operations per second**. Estimate your solution's op count from its complexity and the max n to predict TLE before submitting."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "This is a rough guide — constant factors, I/O, and language (Python is slower) shift it a lot."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A rough per-second op budget is:",
+          "options": [
+            "~10^8",
+            "~10^3",
+            "~10^12",
+            "~10"
+          ],
+          "answer": 0,
+          "explain": "About 100 million simple ops per second."
+        },
+        {
+          "q": "For n=10^6, an O(n^2) solution does ~10^12 ops, which:",
+          "options": [
+            "Times out badly",
+            "Runs instantly",
+            "Is optimal",
+            "Uses no time"
+          ],
+          "answer": 0,
+          "explain": "10^12 far exceeds the ~10^8/sec budget."
+        },
+        {
+          "q": "The budget shifts based on:",
+          "options": [
+            "Constant factors and language",
+            "The problem name",
+            "The contest color",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "I/O, constants, and language all matter."
+        }
+      ]
+    },
+    "u:cp-complexity-2-constraints-to-complexity-table": {
+      "title": "Constraints to complexity table",
+      "summary": "Map the max n to the complexity you can afford.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Memorise the constraint→complexity mapping so you pick an approach instantly (see the strategy note). n ≤ 10^5 → O(n log n); n ≤ 5000 → O(n^2); n ≤ 20 → O(2^n)."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "If your first idea's complexity is too slow for the constraints, don't code it — find a better one first."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "n ≤ 5000 typically allows:",
+          "options": [
+            "O(n^2)",
+            "O(2^n)",
+            "O(n!)",
+            "O(n^3)"
+          ],
+          "answer": 0,
+          "explain": "~25M ops fits the budget."
+        },
+        {
+          "q": "n ≤ 10^6 needs about:",
+          "options": [
+            "O(n) or O(n log n)",
+            "O(n^2)",
+            "O(n^3)",
+            "O(2^n)"
+          ],
+          "answer": 0,
+          "explain": "Only near-linear passes at that size."
+        },
+        {
+          "q": "You should check complexity feasibility:",
+          "options": [
+            "Before coding",
+            "After TLE",
+            "Never",
+            "After the contest"
+          ],
+          "answer": 0,
+          "explain": "Match the approach to constraints up front."
+        }
+      ]
+    },
+    "u:cp-complexity-3-constant-factors-and-i-o-speed": {
+      "title": "Constant factors & I/O speed",
+      "summary": "Two same-Big-O solutions can differ 10x; slow I/O alone can TLE.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Big-O ties are broken by **constant factors**: cache-friendly arrays beat pointer-chasing; avoiding needless allocations helps. **Slow input reading** (e.g. unbuffered cin, Scanner, input()) can cause TLE by itself at 10^6 lines."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Use fast I/O for large inputs: sync_with_stdio(false) in C++, BufferedReader in Java, sys.stdin in Python."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Two O(n) solutions can still differ by:",
+          "options": [
+            "Large constant factors",
+            "Their Big-O",
+            "The input size",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "Constants and memory layout matter when orders tie."
+        },
+        {
+          "q": "Slow input reading can cause:",
+          "options": [
+            "TLE on its own",
+            "Wrong answer",
+            "Runtime error",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "Unbuffered I/O is a common hidden bottleneck."
+        },
+        {
+          "q": "Fast I/O in C++ uses:",
+          "options": [
+            "sync_with_stdio(false)",
+            "endl everywhere",
+            "cin without tie",
+            "printf only"
+          ],
+          "answer": 0,
+          "explain": "Untying and unsyncing streams speeds cin/cout."
+        }
+      ]
+    },
+    "u:cp-math-0-modular-arithmetic": {
+      "title": "Modular arithmetic",
+      "summary": "Take results mod a prime (often 10^9+7) to keep numbers in range.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Answers that grow huge are asked **modulo** a large prime (commonly 1e9+7). Addition and multiplication distribute over mod: (a+b)%m, (a*b)%m. Take mod after every operation to avoid overflow."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Subtraction can go negative: use ((a-b)%m + m) % m. Division needs a modular inverse, not plain /."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A common contest modulus is:",
+          "options": [
+            "1e9+7",
+            "1000",
+            "2^32",
+            "10"
+          ],
+          "answer": 0,
+          "explain": "10^9+7 is a standard large prime."
+        },
+        {
+          "q": "To keep (a*b) in range you:",
+          "options": [
+            "Take mod after multiplying",
+            "Ignore overflow",
+            "Use floats",
+            "Divide first"
+          ],
+          "answer": 0,
+          "explain": "Apply mod after each multiply."
+        },
+        {
+          "q": "Modular subtraction avoids negatives with:",
+          "options": [
+            "((a-b)%m + m)%m",
+            "a-b",
+            "(a-b)%m",
+            "abs(a-b)"
+          ],
+          "answer": 0,
+          "explain": "Add m before the final mod."
+        }
+      ]
+    },
+    "u:cp-math-1-modular-exponentiation-fast-power": {
+      "title": "Modular exponentiation (fast power)",
+      "summary": "Compute a^b mod m in O(log b) by squaring.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Fast exponentiation** computes a^b in O(log b) by repeatedly squaring the base and multiplying when the current bit of b is 1."
+        },
+        {
+          "t": "code",
+          "text": "long long power(long long a, long long b, long long m){\n  long long r=1; a%=m;\n  while(b>0){ if(b&1) r=r*a%m; a=a*a%m; b>>=1; }\n  return r;\n}"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Fast exponentiation runs in:",
+          "options": [
+            "O(log b)",
+            "O(b)",
+            "O(b^2)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "Each step halves the exponent."
+        },
+        {
+          "q": "It works by:",
+          "options": [
+            "Squaring the base and using b's bits",
+            "Adding a b times",
+            "Dividing repeatedly",
+            "Sorting"
+          ],
+          "answer": 0,
+          "explain": "Binary exponentiation squares and multiplies."
+        },
+        {
+          "q": "Fast power is needed for:",
+          "options": [
+            "Large exponents under mod",
+            "Sorting",
+            "Graph traversal",
+            "String matching"
+          ],
+          "answer": 0,
+          "explain": "Naive a^b would be far too slow/overflow."
+        }
+      ]
+    },
+    "u:cp-math-2-modular-inverse": {
+      "title": "Modular inverse",
+      "summary": "Divide under a prime mod via Fermat: a^(m-2) mod m.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Under a **prime** modulus m, division a/b becomes a * b^(m-2) mod m by **Fermat's little theorem** — b^(m-2) is the modular inverse of b. Compute it with fast power."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Modular inverse only works this way when m is prime and b is not a multiple of m."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Under prime m, the inverse of b is:",
+          "options": [
+            "b^(m-2) mod m",
+            "b^m",
+            "1/b",
+            "b^2"
+          ],
+          "answer": 0,
+          "explain": "Fermat's little theorem gives b^(m-2)."
+        },
+        {
+          "q": "You need a modular inverse to:",
+          "options": [
+            "Divide under a modulus",
+            "Add under a modulus",
+            "Sort",
+            "Read input"
+          ],
+          "answer": 0,
+          "explain": "Plain division doesn't work modulo m."
+        },
+        {
+          "q": "Fermat-based inverse requires:",
+          "options": [
+            "A prime modulus",
+            "An even modulus",
+            "b to be prime",
+            "a to be 1"
+          ],
+          "answer": 0,
+          "explain": "The theorem needs m prime."
+        }
+      ]
+    },
+    "u:cp-math-3-gcd-lcm-and-euclid": {
+      "title": "GCD/LCM & Euclid",
+      "summary": "Euclid's algorithm finds gcd fast; lcm = a/gcd*b.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Euclid's algorithm**: gcd(a,b) = gcd(b, a%b), terminating when b=0. **LCM** = a / gcd(a,b) * b (divide first to avoid overflow)."
+        },
+        {
+          "t": "code",
+          "text": "int gcd(int a,int b){ return b? gcd(b, a%b) : a; }"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Euclid's gcd uses the identity:",
+          "options": [
+            "gcd(a,b)=gcd(b,a%b)",
+            "gcd(a,b)=a+b",
+            "gcd(a,b)=a*b",
+            "gcd(a,b)=|a-b|"
+          ],
+          "answer": 0,
+          "explain": "Repeated remainder shrinks the pair fast."
+        },
+        {
+          "q": "LCM is computed as:",
+          "options": [
+            "a/gcd*b",
+            "a*b*gcd",
+            "a+b",
+            "gcd(a,b)"
+          ],
+          "answer": 0,
+          "explain": "Divide by gcd first to avoid overflow."
+        },
+        {
+          "q": "Euclid's algorithm runs in about:",
+          "options": [
+            "O(log(min(a,b)))",
+            "O(a+b)",
+            "O(a*b)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "It's logarithmic in the smaller value."
+        }
+      ]
+    },
+    "u:cp-math-4-sieve-of-eratosthenes": {
+      "title": "Sieve of Eratosthenes",
+      "summary": "Precompute all primes up to n in O(n log log n).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "The **sieve** marks multiples of each prime as composite, leaving primes up to n in about O(n log log n). Great when you need many primality checks or all primes in a range."
+        },
+        {
+          "t": "code",
+          "text": "vector<bool> p(n+1,true); p[0]=p[1]=false;\nfor(int i=2;i*i<=n;i++) if(p[i])\n  for(int j=i*i;j<=n;j+=i) p[j]=false;"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The sieve finds:",
+          "options": [
+            "All primes up to n",
+            "One prime",
+            "The gcd",
+            "Factorials"
+          ],
+          "answer": 0,
+          "explain": "It precomputes primality for 2..n."
+        },
+        {
+          "q": "Its time complexity is about:",
+          "options": [
+            "O(n log log n)",
+            "O(n^2)",
+            "O(n!)",
+            "O(log n)"
+          ],
+          "answer": 0,
+          "explain": "Near-linear for the whole range."
+        },
+        {
+          "q": "Inner marking starts at i*i because:",
+          "options": [
+            "Smaller multiples are already marked",
+            "It's faster to type",
+            "i*i is prime",
+            "Random"
+          ],
+          "answer": 0,
+          "explain": "Multiples below i*i were struck by smaller primes."
+        }
+      ]
+    },
+    "u:cp-math-5-prime-factorization": {
+      "title": "Prime factorization",
+      "summary": "Trial-divide up to sqrt(n); a sieve of smallest-prime-factors speeds many factorizations.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Factor n by dividing out primes up to **sqrt(n)**; any remainder > 1 is a prime factor. For many queries, precompute the **smallest prime factor** with a sieve to factor in O(log n)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Only test divisors up to sqrt(n) — a factor larger than sqrt(n) pairs with one smaller."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Trial-division factorization tests divisors up to:",
+          "options": [
+            "sqrt(n)",
+            "n",
+            "n/2",
+            "log n"
+          ],
+          "answer": 0,
+          "explain": "Beyond sqrt(n), factors pair with smaller ones."
+        },
+        {
+          "q": "For many factorizations, precompute:",
+          "options": [
+            "Smallest prime factors (sieve)",
+            "All factorials",
+            "The gcd",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "SPF gives O(log n) factorization per query."
+        },
+        {
+          "q": "After dividing out all primes ≤ sqrt(n), a remainder > 1 is:",
+          "options": [
+            "A prime factor",
+            "Always 1",
+            "Composite",
+            "Zero"
+          ],
+          "answer": 0,
+          "explain": "The leftover must itself be prime."
+        }
+      ]
+    },
+    "u:cp-math-6-combinatorics-ncr-with-mod": {
+      "title": "Combinatorics (nCr) with mod",
+      "summary": "Precompute factorials and inverse factorials for O(1) nCr mod p.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "To compute **nCr mod p** quickly, precompute factorials fact[] and inverse factorials. Then nCr = fact[n] * invfact[r] % p * invfact[n-r] % p."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Precompute inverse factorials from invfact[n] downward using invfact[i-1] = invfact[i]*i % p."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "nCr mod p is computed with:",
+          "options": [
+            "Factorials and inverse factorials",
+            "A sieve",
+            "Euclid's algorithm",
+            "BFS"
+          ],
+          "answer": 0,
+          "explain": "Precomputed factorials give O(1) queries."
+        },
+        {
+          "q": "The inverse factorial is needed because:",
+          "options": [
+            "Division under mod needs an inverse",
+            "Addition needs it",
+            "Sorting needs it",
+            "It's optional"
+          ],
+          "answer": 0,
+          "explain": "nCr divides by r! and (n-r)!."
+        },
+        {
+          "q": "After precomputation, each nCr query is:",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(n log n)",
+            "O(r)"
+          ],
+          "answer": 0,
+          "explain": "It's three array lookups and multiplies."
+        }
+      ]
+    },
+    "u:cp-math-7-overflow-and-big-numbers": {
+      "title": "Overflow & big numbers",
+      "summary": "int overflows near 2*10^9; use 64-bit and mod early.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A 32-bit int holds up to ~2.1×10^9. Multiplying two large ints overflows silently. Use **64-bit** (long long / long) and apply **mod** during multiplication to stay in range."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "a*b where a,b ~10^9 overflows 32-bit even if the modded answer is small — cast/mod before it overflows."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A 32-bit int overflows near:",
+          "options": [
+            "2.1×10^9",
+            "10^18",
+            "10^3",
+            "65535"
+          ],
+          "answer": 0,
+          "explain": "Signed 32-bit maxes around 2^31-1."
+        },
+        {
+          "q": "To multiply two ~10^9 numbers safely use:",
+          "options": [
+            "64-bit integers (and mod)",
+            "float",
+            "int",
+            "short"
+          ],
+          "answer": 0,
+          "explain": "Use long long and mod during the product."
+        },
+        {
+          "q": "Integer overflow in C++ is:",
+          "options": [
+            "Silent (undefined) — no error",
+            "A crash always",
+            "Caught at compile time",
+            "Impossible"
+          ],
+          "answer": 0,
+          "explain": "It wraps/UB without warning — a classic bug."
+        }
+      ]
+    },
+    "u:cp-techniques-0-greedy-method": {
+      "title": "Greedy method",
+      "summary": "Make the locally-best choice; prove it yields a global optimum.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **greedy** algorithm builds a solution by always taking the locally optimal choice. It's fast but only correct when the problem has the greedy-choice property — otherwise it fails on some case."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Always sanity-check greed with a counterexample or an exchange argument; many greedy 'solutions' are wrong."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Greedy algorithms take:",
+          "options": [
+            "The locally-best choice each step",
+            "All choices",
+            "Random choices",
+            "The worst choice"
+          ],
+          "answer": 0,
+          "explain": "Greedy commits to the local optimum."
+        },
+        {
+          "q": "Greedy is correct only when:",
+          "options": [
+            "The problem has the greedy-choice property",
+            "n is small",
+            "It's fast",
+            "Always"
+          ],
+          "answer": 0,
+          "explain": "It needs a proof/exchange argument."
+        },
+        {
+          "q": "A safe habit before trusting greedy is:",
+          "options": [
+            "Find a counterexample",
+            "Submit immediately",
+            "Increase n",
+            "Use recursion"
+          ],
+          "answer": 0,
+          "explain": "Test the greedy choice for validity."
+        }
+      ]
+    },
+    "u:cp-techniques-1-sorting-based-greedy": {
+      "title": "Sorting-based greedy",
+      "summary": "Sorting first often unlocks a simple greedy (intervals, deadlines).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Many greedy problems become clear after **sorting** — e.g. activity selection sorts by end time; job scheduling sorts by deadline/profit. The sort sets up the order in which greedy choices are safe."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "When a greedy idea feels close but flaky, try a different sort key."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Activity selection (max non-overlapping intervals) sorts by:",
+          "options": [
+            "End time",
+            "Start time",
+            "Length",
+            "Random"
+          ],
+          "answer": 0,
+          "explain": "Earliest finishing frees the most room."
+        },
+        {
+          "q": "Sorting before greedy:",
+          "options": [
+            "Establishes a safe choice order",
+            "Is unnecessary",
+            "Slows it to O(n^2)",
+            "Breaks it"
+          ],
+          "answer": 0,
+          "explain": "The right order makes the greedy valid."
+        },
+        {
+          "q": "If a greedy is flaky, a good tweak is:",
+          "options": [
+            "Try a different sort key",
+            "Add recursion",
+            "Use more memory",
+            "Give up"
+          ],
+          "answer": 0,
+          "explain": "The sort criterion is often the fix."
+        }
+      ]
+    },
+    "u:cp-techniques-2-two-pointers": {
+      "title": "Two pointers",
+      "summary": "Move two indices over sorted/linear data to hit O(n) instead of O(n^2).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "The **two-pointer** technique uses two indices moving over an array (often sorted) to replace nested loops. Classic uses: pair with target sum, merging, removing duplicates."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Each pointer moves monotonically, so total work is O(n) even though it looks like two loops."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Two pointers typically reduce O(n^2) to:",
+          "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(1)",
+            "O(2^n)"
+          ],
+          "answer": 0,
+          "explain": "Both pointers sweep once."
+        },
+        {
+          "q": "A classic two-pointer problem is:",
+          "options": [
+            "Pair summing to a target in a sorted array",
+            "Matrix inversion",
+            "DFS",
+            "Prime sieve"
+          ],
+          "answer": 0,
+          "explain": "Move pointers inward based on the sum."
+        },
+        {
+          "q": "Two pointers are efficient because each index:",
+          "options": [
+            "Moves monotonically",
+            "Resets each step",
+            "Random-walks",
+            "Doubles"
+          ],
+          "answer": 0,
+          "explain": "No backtracking keeps it linear."
+        }
+      ]
+    },
+    "u:cp-techniques-3-sliding-window": {
+      "title": "Sliding window",
+      "summary": "A moving window over a subarray computes range answers in O(n).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **sliding window** maintains a contiguous range [l, r], expanding r and shrinking l to satisfy a condition (max sum of size k, longest substring without repeats). Update the running answer incrementally instead of recomputing."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Fixed-size windows slide by adding the new element and removing the old; variable windows shrink l while a condition is violated."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A sliding window computes subarray answers in:",
+          "options": [
+            "O(n)",
+            "O(n^2)",
+            "O(n log n)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "Each element enters and leaves once."
+        },
+        {
+          "q": "A variable-size window shrinks l when:",
+          "options": [
+            "A condition is violated",
+            "r reaches the end",
+            "The sum is 0",
+            "Never"
+          ],
+          "answer": 0,
+          "explain": "Shrink until the window is valid again."
+        },
+        {
+          "q": "Sliding window avoids:",
+          "options": [
+            "Recomputing each subarray from scratch",
+            "Sorting",
+            "Recursion",
+            "I/O"
+          ],
+          "answer": 0,
+          "explain": "It updates the answer incrementally."
+        }
+      ]
+    },
+    "u:cp-techniques-4-prefix-sums": {
+      "title": "Prefix sums",
+      "summary": "Precompute cumulative sums for O(1) range-sum queries.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **prefix-sum** array pre[i] = a[0]+…+a[i-1] lets you answer any range sum a[l..r] as pre[r+1]-pre[l] in O(1) after O(n) preprocessing."
+        },
+        {
+          "t": "code",
+          "text": "pre[0]=0;\nfor(int i=0;i<n;i++) pre[i+1]=pre[i]+a[i];\n// sum of a[l..r] = pre[r+1]-pre[l]"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A range sum with prefix sums is:",
+          "options": [
+            "O(1) after O(n) prep",
+            "O(n) each query",
+            "O(n log n)",
+            "O(n^2)"
+          ],
+          "answer": 0,
+          "explain": "One subtraction per query."
+        },
+        {
+          "q": "sum(a[l..r]) equals:",
+          "options": [
+            "pre[r+1]-pre[l]",
+            "pre[r]-pre[l]",
+            "pre[r]+pre[l]",
+            "pre[l]-pre[r]"
+          ],
+          "answer": 0,
+          "explain": "Difference of prefix boundaries."
+        },
+        {
+          "q": "Prefix sums help most when there are:",
+          "options": [
+            "Many range-sum queries",
+            "One query",
+            "No queries",
+            "Only updates"
+          ],
+          "answer": 0,
+          "explain": "They amortise repeated range queries."
+        }
+      ]
+    },
+    "u:cp-techniques-5-difference-arrays": {
+      "title": "Difference arrays",
+      "summary": "Apply many range updates in O(1) each, then one pass to finalise.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **difference array** applies range updates cheaply: to add v to [l, r], do diff[l]+=v and diff[r+1]-=v. A single prefix-sum pass at the end reconstructs the final array — O(1) per update, O(n) to finalise."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "It's the inverse of prefix sums — great for 'add v to a range' done many times."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A difference array makes each range update:",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(r-l)"
+          ],
+          "answer": 0,
+          "explain": "Two edits per update, finalised later."
+        },
+        {
+          "q": "To add v to [l,r] you set:",
+          "options": [
+            "diff[l]+=v, diff[r+1]-=v",
+            "diff[l]+=v only",
+            "diff[r]+=v",
+            "each index +=v"
+          ],
+          "answer": 0,
+          "explain": "The two edits bound the range."
+        },
+        {
+          "q": "You reconstruct the array with:",
+          "options": [
+            "A prefix-sum pass",
+            "Sorting",
+            "Binary search",
+            "A sieve"
+          ],
+          "answer": 0,
+          "explain": "Prefix-summing the diff array finalises it."
+        }
+      ]
+    },
+    "u:cp-techniques-6-binary-search-on-answer": {
+      "title": "Binary search on answer",
+      "summary": "When feasibility is monotonic in x, binary search the smallest/largest valid x.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "If 'can we achieve x?' is **monotonic** (true beyond some threshold, false before), binary search the boundary. Common in min-max problems ('minimize the maximum…'). Each step checks feasibility in O(n)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Look for the phrase 'minimize the maximum' or 'maximum minimum' — a strong signal for binary search on the answer."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Binary search on the answer needs the check to be:",
+          "options": [
+            "Monotonic in x",
+            "Random",
+            "O(1)",
+            "Sorted input"
+          ],
+          "answer": 0,
+          "explain": "Feasibility must flip once as x grows."
+        },
+        {
+          "q": "A telltale phrase is:",
+          "options": [
+            "'minimize the maximum'",
+            "'sort the array'",
+            "'find the gcd'",
+            "'count primes'"
+          ],
+          "answer": 0,
+          "explain": "Min-max phrasing signals BS on the answer."
+        },
+        {
+          "q": "Total complexity is about:",
+          "options": [
+            "O(n log range)",
+            "O(n^2)",
+            "O(range)",
+            "O(log n)"
+          ],
+          "answer": 0,
+          "explain": "log(range) checks, each O(n)."
+        }
+      ]
+    },
+    "u:cp-techniques-7-bit-manipulation-tricks": {
+      "title": "Bit manipulation tricks",
+      "summary": "Bitwise ops enable subsets, parity, and fast set operations.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "points",
+          "items": [
+            "`x & (x-1)` clears the lowest set bit; `x & -x` isolates it.",
+            "`x & (1<<k)` tests bit k; `x | (1<<k)` sets it.",
+            "Iterate all subsets of an n-bit mask for bitmask DP.",
+            "`__builtin_popcount(x)` counts set bits (C++)."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Bitmasks represent small sets (n ≤ ~20) compactly — the basis of subset DP."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "`x & (x-1)` does what?",
+          "options": [
+            "Clears the lowest set bit",
+            "Sets all bits",
+            "Doubles x",
+            "Negates x"
+          ],
+          "answer": 0,
+          "explain": "It removes the least significant 1."
+        },
+        {
+          "q": "Bitmasks are practical for sets of size up to about:",
+          "options": [
+            "20",
+            "1000",
+            "10^6",
+            "unlimited"
+          ],
+          "answer": 0,
+          "explain": "2^20 ~ 10^6 subsets is the practical ceiling."
+        },
+        {
+          "q": "Testing whether bit k is set uses:",
+          "options": [
+            "x & (1<<k)",
+            "x | k",
+            "x ^ k",
+            "x << k"
+          ],
+          "answer": 0,
+          "explain": "AND with the k-th bit mask."
+        }
+      ]
+    },
+    "u:cp-techniques-8-recursion-and-backtracking": {
+      "title": "Recursion & backtracking",
+      "summary": "Explore choices recursively, undoing them to try alternatives.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Backtracking** builds candidates incrementally and abandons ('backtracks') a partial solution once it can't lead to a valid one (permutations, N-queens, subsets). Prune early to cut the search space."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The pattern: choose → recurse → undo. Pruning invalid branches is what makes it feasible."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Backtracking abandons a partial solution when:",
+          "options": [
+            "It can't lead to a valid one",
+            "It's the first choice",
+            "n is large",
+            "Always"
+          ],
+          "answer": 0,
+          "explain": "Prune dead branches early."
+        },
+        {
+          "q": "The backtracking pattern is:",
+          "options": [
+            "choose, recurse, undo",
+            "sort, scan",
+            "hash, lookup",
+            "square, multiply"
+          ],
+          "answer": 0,
+          "explain": "Make a choice, recurse, then revert it."
+        },
+        {
+          "q": "Pruning matters because it:",
+          "options": [
+            "Cuts the search space",
+            "Adds cases",
+            "Slows recursion",
+            "Is optional"
+          ],
+          "answer": 0,
+          "explain": "Early cutoffs make exponential search tractable."
+        }
+      ]
+    },
+    "u:cp-techniques-9-meet-in-the-middle": {
+      "title": "Meet in the middle",
+      "summary": "Split the search space in two halves to turn 2^n into ~2^(n/2).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Meet in the middle** splits a size-n exponential search into two halves, enumerates each (2^(n/2)), and combines them (often by sorting + binary search). It makes n up to ~40 feasible where full 2^n wouldn't be."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Use it for subset-sum-style problems with n around 30-40."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Meet in the middle reduces 2^n to about:",
+          "options": [
+            "2^(n/2)",
+            "2^n",
+            "n^2",
+            "n log n"
+          ],
+          "answer": 0,
+          "explain": "Two halves of 2^(n/2) combine."
+        },
+        {
+          "q": "It's useful for n around:",
+          "options": [
+            "30-40",
+            "10^5",
+            "10^6",
+            "5"
+          ],
+          "answer": 0,
+          "explain": "Full 2^n is too slow past ~25-30."
+        },
+        {
+          "q": "The two halves are combined by:",
+          "options": [
+            "Sorting + binary search",
+            "A sieve",
+            "BFS",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "Match sums across halves efficiently."
+        }
+      ]
+    },
+    "u:cp-ds-0-stack-queue-deque-uses": {
+      "title": "Stack, queue, deque uses",
+      "summary": "LIFO/FIFO/double-ended structures power many linear-time tricks.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **stack** (LIFO) underpins monotonic-stack tricks (next greater element, largest rectangle). A **queue** (FIFO) drives BFS. A **deque** supports both ends — used in sliding-window maximum."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "A monotonic stack/deque answers 'nearest greater/smaller' and window extremes in O(n)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "BFS uses a:",
+          "options": [
+            "Queue",
+            "Stack",
+            "Heap",
+            "Set"
+          ],
+          "answer": 0,
+          "explain": "FIFO order explores level by level."
+        },
+        {
+          "q": "Sliding-window maximum in O(n) uses a:",
+          "options": [
+            "Deque",
+            "Sorted array",
+            "Heap only",
+            "Stack of pairs"
+          ],
+          "answer": 0,
+          "explain": "A monotonic deque tracks candidates."
+        },
+        {
+          "q": "A monotonic stack answers:",
+          "options": [
+            "Nearest greater/smaller element",
+            "Shortest path",
+            "GCD",
+            "Prime tests"
+          ],
+          "answer": 0,
+          "explain": "It processes each element once in O(n)."
+        }
+      ]
+    },
+    "u:cp-ds-1-hash-maps-and-frequency": {
+      "title": "Hash maps & frequency",
+      "summary": "O(1) average lookup for counting, grouping, and seen-checks.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Hash maps** give average O(1) insert/lookup — ideal for frequency counts, grouping by key, and 'have I seen this?' checks. In C++ prefer unordered_map (watch anti-hash tests) or a sorted map for guarantees."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "unordered_map can be attacked to O(n) per op with crafted keys; add a random salt or use a tree map if TLE hits."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Hash-map average lookup is:",
+          "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Average constant time."
+        },
+        {
+          "q": "Hash maps suit:",
+          "options": [
+            "Frequency counts and seen-checks",
+            "Sorted iteration",
+            "Range sums",
+            "Prime sieves"
+          ],
+          "answer": 0,
+          "explain": "Counting/grouping is their sweet spot."
+        },
+        {
+          "q": "unordered_map risk on adversarial tests:",
+          "options": [
+            "Degrades to O(n) per op",
+            "Uses no memory",
+            "Sorts keys",
+            "Never collides"
+          ],
+          "answer": 0,
+          "explain": "Anti-hash inputs cause worst-case chains."
+        }
+      ]
+    },
+    "u:cp-ds-2-priority-queue-heap": {
+      "title": "Priority queue / heap",
+      "summary": "Always pop the min/max in O(log n) — powers Dijkstra and scheduling.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **heap / priority queue** gives the smallest (or largest) element in O(log n) per push/pop. It powers Dijkstra, k-largest problems, and event scheduling."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Building a heap from n items is O(n); each subsequent pop/push is O(log n)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A heap pop/push is:",
+          "options": [
+            "O(log n)",
+            "O(1)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Sift up/down is logarithmic."
+        },
+        {
+          "q": "Dijkstra uses a heap to:",
+          "options": [
+            "Pick the next closest node",
+            "Sort the whole graph",
+            "Detect cycles",
+            "Hash edges"
+          ],
+          "answer": 0,
+          "explain": "It repeatedly extracts the min-distance node."
+        },
+        {
+          "q": "Building a heap from n items is:",
+          "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(log n)"
+          ],
+          "answer": 0,
+          "explain": "Heapify is linear."
+        }
+      ]
+    },
+    "u:cp-ds-3-union-find-dsu": {
+      "title": "Union-Find (DSU)",
+      "summary": "Near-O(1) union/find with path compression + union by rank.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Disjoint Set Union** tracks connected components with `find` (which set?) and `union` (merge). With **path compression** and **union by rank/size** each op is near O(1) (inverse-Ackermann)."
+        },
+        {
+          "t": "code",
+          "text": "int find(int x){ return p[x]==x? x : p[x]=find(p[x]); }\nvoid uni(int a,int b){ p[find(a)]=find(b); }"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "DSU efficiently tracks:",
+          "options": [
+            "Connected components",
+            "Shortest paths",
+            "Primes",
+            "Substrings"
+          ],
+          "answer": 0,
+          "explain": "It answers connectivity/merge queries."
+        },
+        {
+          "q": "Path compression + union by rank make ops:",
+          "options": [
+            "Near O(1)",
+            "O(n)",
+            "O(log n) always",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Amortised inverse-Ackermann."
+        },
+        {
+          "q": "A classic DSU use is:",
+          "options": [
+            "Kruskal's MST / grouping",
+            "BFS layers",
+            "Prefix sums",
+            "Sieve"
+          ],
+          "answer": 0,
+          "explain": "It merges components while building an MST."
+        }
+      ]
+    },
+    "u:cp-ds-4-segment-tree-intro": {
+      "title": "Segment tree (intro)",
+      "summary": "Range queries + point/range updates in O(log n).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **segment tree** supports range queries (sum/min/max) and updates in O(log n) over an array. Each node covers a range; queries combine O(log n) node results. Lazy propagation adds efficient range updates."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Reach for it when you need both updates and range queries; prefix sums only handle static range queries."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Segment-tree query/update is:",
+          "options": [
+            "O(log n)",
+            "O(1)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Both are logarithmic."
+        },
+        {
+          "q": "Compared to prefix sums, a segment tree also supports:",
+          "options": [
+            "Updates",
+            "Only reads",
+            "Sorting",
+            "Hashing"
+          ],
+          "answer": 0,
+          "explain": "Prefix sums can't handle updates efficiently."
+        },
+        {
+          "q": "Efficient range updates use:",
+          "options": [
+            "Lazy propagation",
+            "Path compression",
+            "A heap",
+            "A sieve"
+          ],
+          "answer": 0,
+          "explain": "Lazy defers updates to children."
+        }
+      ]
+    },
+    "u:cp-ds-5-fenwick-bit-intro": {
+      "title": "Fenwick / BIT (intro)",
+      "summary": "A compact structure for prefix sums with point updates in O(log n).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **Fenwick tree (Binary Indexed Tree)** supports prefix sums and point updates in O(log n) with less code and memory than a segment tree — ideal when you only need sum/updates."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Use a BIT for order-statistics and inversion counting; use a segment tree when you need min/max or range updates."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A Fenwick tree gives prefix sums + point updates in:",
+          "options": [
+            "O(log n)",
+            "O(1)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Both operations are logarithmic."
+        },
+        {
+          "q": "Compared to a segment tree, a BIT is:",
+          "options": [
+            "More compact for sums",
+            "More general",
+            "Slower",
+            "For min/max only"
+          ],
+          "answer": 0,
+          "explain": "Less code/memory, but sum-focused."
+        },
+        {
+          "q": "A common BIT application is:",
+          "options": [
+            "Counting inversions",
+            "Shortest path",
+            "Prime sieve",
+            "String hashing"
+          ],
+          "answer": 0,
+          "explain": "Order statistics/inversions fit BITs well."
+        }
+      ]
+    },
+    "u:cp-graphs-0-graph-representation": {
+      "title": "Graph representation",
+      "summary": "Adjacency lists suit sparse graphs; matrices suit dense/small ones.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Store a graph as an **adjacency list** (array of neighbor lists) for sparse graphs — O(V+E) space. Use an **adjacency matrix** only for small/dense graphs (O(V^2))."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Most contest graphs are sparse — default to adjacency lists."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "For a sparse graph, prefer:",
+          "options": [
+            "Adjacency list",
+            "Adjacency matrix",
+            "A heap",
+            "A trie"
+          ],
+          "answer": 0,
+          "explain": "Lists use O(V+E) space."
+        },
+        {
+          "q": "An adjacency matrix costs:",
+          "options": [
+            "O(V^2) space",
+            "O(V+E)",
+            "O(E)",
+            "O(log V)"
+          ],
+          "answer": 0,
+          "explain": "It stores every possible edge slot."
+        },
+        {
+          "q": "Adjacency lists are traversed in:",
+          "options": [
+            "O(V+E)",
+            "O(V^2)",
+            "O(E^2)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "You visit each vertex and edge once."
+        }
+      ]
+    },
+    "u:cp-graphs-1-bfs-and-shortest-path-unweighted": {
+      "title": "BFS & shortest path (unweighted)",
+      "summary": "BFS finds shortest paths in unweighted graphs in O(V+E).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Breadth-first search** explores level by level using a queue, giving the **shortest path in an unweighted graph** (fewest edges) in O(V+E). Track visited to avoid re-processing."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "BFS = shortest path when every edge has equal weight. For weights, use Dijkstra."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "BFS gives shortest paths when edges are:",
+          "options": [
+            "Unweighted (equal weight)",
+            "Weighted",
+            "Negative",
+            "Directed only"
+          ],
+          "answer": 0,
+          "explain": "Level order = fewest edges."
+        },
+        {
+          "q": "BFS uses a:",
+          "options": [
+            "Queue",
+            "Stack",
+            "Heap",
+            "Set only"
+          ],
+          "answer": 0,
+          "explain": "FIFO gives level-by-level order."
+        },
+        {
+          "q": "BFS runs in:",
+          "options": [
+            "O(V+E)",
+            "O(V^2)",
+            "O(E log V)",
+            "O(V!)"
+          ],
+          "answer": 0,
+          "explain": "Each vertex/edge processed once."
+        }
+      ]
+    },
+    "u:cp-graphs-2-dfs-and-connected-components": {
+      "title": "DFS & connected components",
+      "summary": "DFS explores deeply; it finds components, cycles, and more.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Depth-first search** dives along each branch before backtracking (recursion or a stack). It counts **connected components**, detects cycles, and underlies topological sort and bridge/articulation algorithms."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Watch recursion depth on large graphs — deep DFS can stack-overflow; use an explicit stack if needed."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "DFS naturally finds:",
+          "options": [
+            "Connected components",
+            "Shortest weighted paths",
+            "Primes",
+            "Median"
+          ],
+          "answer": 0,
+          "explain": "Each DFS from an unvisited node = one component."
+        },
+        {
+          "q": "DFS is implemented with:",
+          "options": [
+            "Recursion or a stack",
+            "A queue",
+            "A heap",
+            "A BIT"
+          ],
+          "answer": 0,
+          "explain": "It goes deep before wide."
+        },
+        {
+          "q": "A risk of recursive DFS on big graphs is:",
+          "options": [
+            "Stack overflow",
+            "Wrong answer always",
+            "TLE always",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "Deep recursion can exhaust the stack."
+        }
+      ]
+    },
+    "u:cp-graphs-3-dijkstra-weighted-shortest-path": {
+      "title": "Dijkstra (weighted shortest path)",
+      "summary": "Shortest paths with non-negative weights in O(E log V) via a heap.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Dijkstra's algorithm** finds shortest paths from a source in a graph with **non-negative** edge weights, using a priority queue to always expand the closest unfinished node — O(E log V)."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Dijkstra fails with negative edges; use Bellman-Ford there."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Dijkstra requires edge weights to be:",
+          "options": [
+            "Non-negative",
+            "Negative",
+            "Equal",
+            "Integers only"
+          ],
+          "answer": 0,
+          "explain": "Negative edges break its greedy invariant."
+        },
+        {
+          "q": "With a heap, Dijkstra runs in:",
+          "options": [
+            "O(E log V)",
+            "O(V^2) always",
+            "O(VE)",
+            "O(V!)"
+          ],
+          "answer": 0,
+          "explain": "Each edge triggers a log-V heap op."
+        },
+        {
+          "q": "For graphs with negative edges use:",
+          "options": [
+            "Bellman-Ford",
+            "Dijkstra",
+            "BFS",
+            "DFS"
+          ],
+          "answer": 0,
+          "explain": "Bellman-Ford handles negatives (and detects negative cycles)."
+        }
+      ]
+    },
+    "u:cp-graphs-4-topological-sort": {
+      "title": "Topological sort",
+      "summary": "Order a DAG so every edge points forward; enables DAG DP.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **topological sort** linearly orders a **DAG** so every edge u→v has u before v. Compute it via Kahn's algorithm (repeatedly remove zero-indegree nodes) or DFS finish times. It's the basis for dependency resolution and DAG DP."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "A topological order exists iff the graph has no cycle — Kahn's also detects cycles."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Topological sort applies to:",
+          "options": [
+            "A DAG (no cycles)",
+            "Any graph",
+            "Weighted graphs only",
+            "Trees only"
+          ],
+          "answer": 0,
+          "explain": "It needs a directed acyclic graph."
+        },
+        {
+          "q": "Kahn's algorithm repeatedly removes nodes with:",
+          "options": [
+            "Zero indegree",
+            "Max degree",
+            "Odd degree",
+            "Self-loops"
+          ],
+          "answer": 0,
+          "explain": "Zero-indegree nodes have no unmet prerequisites."
+        },
+        {
+          "q": "A topological order fails to exist when the graph:",
+          "options": [
+            "Has a cycle",
+            "Is a tree",
+            "Is sparse",
+            "Is connected"
+          ],
+          "answer": 0,
+          "explain": "Cycles create circular dependencies."
+        }
+      ]
+    },
+    "u:cp-dp-0-dp-fundamentals-states-and-transitions": {
+      "title": "DP fundamentals (states & transitions)",
+      "summary": "Define a state, a transition, and base cases; memoize overlapping subproblems.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Dynamic programming** solves problems with **overlapping subproblems** and **optimal substructure** by defining a **state** (what uniquely describes a subproblem), a **transition** (how states combine), and **base cases**. Memoize (top-down) or tabulate (bottom-up)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Getting the state definition right is 90% of DP — it must capture everything the transition needs."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "DP applies when a problem has:",
+          "options": [
+            "Overlapping subproblems + optimal substructure",
+            "Random structure",
+            "No recursion",
+            "Only one case"
+          ],
+          "answer": 0,
+          "explain": "Those two properties enable reuse."
+        },
+        {
+          "q": "The hardest, most important DP step is:",
+          "options": [
+            "Defining the state",
+            "Printing output",
+            "Reading input",
+            "Sorting"
+          ],
+          "answer": 0,
+          "explain": "A correct state makes transitions follow."
+        },
+        {
+          "q": "Top-down DP uses:",
+          "options": [
+            "Recursion + memoization",
+            "A queue",
+            "A heap",
+            "A sieve"
+          ],
+          "answer": 0,
+          "explain": "It caches subproblem results."
+        }
+      ]
+    },
+    "u:cp-dp-1-0-1-knapsack": {
+      "title": "0/1 Knapsack",
+      "summary": "Maximize value within a weight limit; each item taken once.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**0/1 Knapsack**: given items with weights/values and a capacity W, maximize value taking each item at most once. State dp[i][w] = best value using the first i items with capacity w; transition = take or skip item i. O(nW)."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "dp is over capacity, so it's 'pseudo-polynomial' — feasible only when W is small enough."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "In 0/1 knapsack each item is:",
+          "options": [
+            "Taken at most once",
+            "Taken any number of times",
+            "Always taken",
+            "Split fractionally"
+          ],
+          "answer": 0,
+          "explain": "0/1 means take-or-leave, once."
+        },
+        {
+          "q": "Its complexity is:",
+          "options": [
+            "O(nW)",
+            "O(n^2)",
+            "O(2^n)",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "n items times W capacities."
+        },
+        {
+          "q": "Knapsack DP is called pseudo-polynomial because it depends on:",
+          "options": [
+            "The numeric value W",
+            "n only",
+            "log n",
+            "The alphabet"
+          ],
+          "answer": 0,
+          "explain": "Runtime scales with W's magnitude."
+        }
+      ]
+    },
+    "u:cp-dp-2-longest-increasing-subsequence": {
+      "title": "Longest Increasing Subsequence",
+      "summary": "LIS in O(n log n) with patience/binary search.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**LIS** finds the longest strictly increasing subsequence. The O(n^2) DP is simple; the O(n log n) method keeps an array of smallest tails and binary-searches each element's position."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The 'tails' array length at the end is the LIS length — but the array itself isn't a valid subsequence."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "LIS can be solved in:",
+          "options": [
+            "O(n log n)",
+            "O(n)",
+            "O(2^n)",
+            "O(n!)"
+          ],
+          "answer": 0,
+          "explain": "Patience sorting + binary search."
+        },
+        {
+          "q": "The O(n log n) method maintains:",
+          "options": [
+            "An array of smallest tails",
+            "A heap of all elements",
+            "A hash map",
+            "A segment tree only"
+          ],
+          "answer": 0,
+          "explain": "Binary search places each element into tails."
+        },
+        {
+          "q": "The tails array's final length equals:",
+          "options": [
+            "The LIS length",
+            "n",
+            "The array sum",
+            "Zero"
+          ],
+          "answer": 0,
+          "explain": "Its length is the answer (not the subsequence)."
+        }
+      ]
+    },
+    "u:cp-dp-3-grid-path-dp": {
+      "title": "Grid / path DP",
+      "summary": "Count or optimize paths through a grid with dp[i][j] from neighbors.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Grid DP** computes dp[i][j] from already-solved neighbors (usually top and left) — counting paths, min path sum, or reachability. O(rows×cols)."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Handle blocked cells by setting their dp to 0 (paths) or infinity (min-cost)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Grid path DP fills dp[i][j] from:",
+          "options": [
+            "Neighboring solved cells (e.g. top/left)",
+            "Random cells",
+            "The last row only",
+            "The diagonal only"
+          ],
+          "answer": 0,
+          "explain": "Transitions come from adjacent subproblems."
+        },
+        {
+          "q": "Its complexity is:",
+          "options": [
+            "O(rows*cols)",
+            "O((rows*cols)^2)",
+            "O(2^n)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "Each cell computed once."
+        },
+        {
+          "q": "A blocked cell in a path-count DP is set to:",
+          "options": [
+            "0",
+            "infinity",
+            "1",
+            "-1"
+          ],
+          "answer": 0,
+          "explain": "No paths pass through it."
+        }
+      ]
+    },
+    "u:cp-dp-4-interval-dp": {
+      "title": "Interval DP",
+      "summary": "Solve over subranges [l..r], combining across a split point k.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Interval DP** computes an answer for a range [l, r] by trying every split point k between them (matrix-chain multiplication, optimal BST, burst balloons). Typically O(n^3)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Process intervals by increasing length so smaller ranges are ready when you combine them."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Interval DP combines subranges across:",
+          "options": [
+            "A split point k in [l,r]",
+            "Only l",
+            "Only r",
+            "The whole array"
+          ],
+          "answer": 0,
+          "explain": "It tries each partition of the interval."
+        },
+        {
+          "q": "Interval DP is usually:",
+          "options": [
+            "O(n^3)",
+            "O(n)",
+            "O(n log n)",
+            "O(2^n)"
+          ],
+          "answer": 0,
+          "explain": "n^2 intervals times an n split loop."
+        },
+        {
+          "q": "You should iterate intervals by:",
+          "options": [
+            "Increasing length",
+            "Decreasing index",
+            "Random order",
+            "Right to left only"
+          ],
+          "answer": 0,
+          "explain": "Smaller intervals must be solved first."
+        }
+      ]
+    },
+    "u:cp-practical-0-fast-i-o": {
+      "title": "Fast I/O",
+      "summary": "Large inputs need buffered/fast reading to avoid TLE.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "For inputs with 10^5-10^6 lines, default I/O can TLE. Use **fast I/O**: C++ `ios::sync_with_stdio(false); cin.tie(nullptr);`, Java `BufferedReader`, Python `sys.stdin.readline`."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "In C++, mixing fast cin/cout with printf/scanf after unsyncing can misorder output — pick one."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Fast I/O matters when input has:",
+          "options": [
+            "Many lines (10^5-10^6)",
+            "One number",
+            "No input",
+            "Only output"
+          ],
+          "answer": 0,
+          "explain": "Large I/O dominates otherwise."
+        },
+        {
+          "q": "C++ fast I/O uses:",
+          "options": [
+            "sync_with_stdio(false); cin.tie(nullptr)",
+            "endl after each line",
+            "scanf only",
+            "cin.get()"
+          ],
+          "answer": 0,
+          "explain": "Untie/unsync speeds streams."
+        },
+        {
+          "q": "Python fast input uses:",
+          "options": [
+            "sys.stdin",
+            "input()",
+            "print()",
+            "eval()"
+          ],
+          "answer": 0,
+          "explain": "sys.stdin.readline is much faster than input()."
+        }
+      ]
+    },
+    "u:cp-practical-1-common-pitfalls-and-debugging": {
+      "title": "Common pitfalls & debugging",
+      "summary": "Overflow, off-by-one, uninitialized state, and edge cases cause most WAs.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "points",
+          "items": [
+            "**Integer overflow** — use 64-bit and mod early.",
+            "**Off-by-one** in loops/ranges and inclusive/exclusive bounds.",
+            "**Uninitialized / not reset** state between test cases.",
+            "**Edge cases**: n=0/1, empty input, all-equal, maximum values."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Between multi-testcase runs, reset all global arrays/counters — leftover state is a classic WA."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A very common source of wrong answers is:",
+          "options": [
+            "Integer overflow",
+            "Fast I/O",
+            "Sorting",
+            "Using functions"
+          ],
+          "answer": 0,
+          "explain": "Silent overflow corrupts results."
+        },
+        {
+          "q": "In multi-test problems you must:",
+          "options": [
+            "Reset state between cases",
+            "Skip resetting",
+            "Read input once",
+            "Print once"
+          ],
+          "answer": 0,
+          "explain": "Leftover globals cause WA."
+        },
+        {
+          "q": "Edge cases worth testing include:",
+          "options": [
+            "n=0/1 and maximum values",
+            "Only average inputs",
+            "None",
+            "The sample only"
+          ],
+          "answer": 0,
+          "explain": "Boundaries expose most bugs."
+        }
+      ]
+    },
+    "u:cp-practical-2-stress-testing": {
+      "title": "Stress testing",
+      "summary": "Generate random inputs and compare a brute force vs your solution to find the failing case.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Stress testing** finds elusive bugs: write a slow but obviously-correct **brute force**, a **random generator**, and a script that runs both until outputs differ — giving you a small failing case to debug."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "When you're sure the logic is right but it's WA, stress test — it beats staring at code."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Stress testing compares your solution against:",
+          "options": [
+            "A brute-force reference",
+            "The editorial",
+            "A friend",
+            "Nothing"
+          ],
+          "answer": 0,
+          "explain": "A trusted brute force reveals mismatches."
+        },
+        {
+          "q": "Its output is:",
+          "options": [
+            "A small failing test case",
+            "Your rank",
+            "The editorial",
+            "A proof"
+          ],
+          "answer": 0,
+          "explain": "You get a minimal counterexample to debug."
+        },
+        {
+          "q": "Stress testing is most useful when:",
+          "options": [
+            "Logic seems right but it's WA",
+            "You have no code",
+            "The answer is O(1)",
+            "Input is tiny"
+          ],
+          "answer": 0,
+          "explain": "It surfaces hidden edge-case bugs."
+        }
+      ]
+    }
+  }
+}

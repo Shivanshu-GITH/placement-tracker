@@ -1,0 +1,1303 @@
+{
+  "subject": "core-cn",
+  "title": "Computer Networks",
+  "topics": {
+    "u:core-cn-47-dns-recursive-vs-iterative-resolution-record-types-caching": {
+      "title": "DNS: recursive vs iterative resolution, records, caching",
+      "summary": "The distributed system that turns names into IPs — how a lookup walks the hierarchy.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**DNS (Domain Name System)** translates human names (example.com) into IP addresses via a distributed, hierarchical database."},
+        {"t": "h", "text": "How resolution works"},
+        {"t": "points", "items": [
+          "Your **resolver** (usually your ISP's) does **recursive** resolution on your behalf — it keeps asking until it has the answer.",
+          "It walks the hierarchy **iteratively**: **root** servers → **TLD** server (.com) → the domain's **authoritative** name server, which returns the IP.",
+          "**Caching** at every level (browser, OS, resolver) with a **TTL** avoids repeating this — most lookups are answered from cache."
+        ]},
+        {"t": "table", "headers": ["Record", "Maps"], "rows": [
+          ["A / AAAA", "Name → IPv4 / IPv6 address"],
+          ["CNAME", "Name → another name (alias)"],
+          ["MX", "Domain → mail server"],
+          ["NS", "Domain → its authoritative name servers"],
+          ["TXT", "Arbitrary text (SPF, verification)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Recursive vs iterative: your resolver does the recursion (returns a final answer); the name-server chain (root→TLD→authoritative) is queried iteratively (each returns a referral). Caching with TTLs is what keeps DNS fast and scalable."}
+      ],
+      "mcqs": [
+        {"q": "In a typical DNS lookup, the client's resolver performs which kind of resolution?", "options": ["Iterative", "Recursive (it returns the final answer)", "None", "Reverse only"], "answer": 1, "explain": "The resolver recursively pursues the answer, querying the server chain iteratively on the client's behalf."},
+        {"q": "Which DNS record maps a domain to its mail server?", "options": ["A", "CNAME", "MX", "NS"], "answer": 2, "explain": "MX (Mail eXchange) records point a domain to its mail servers."},
+        {"q": "DNS scales and stays fast largely because of:", "options": ["A single central server", "Caching with TTLs at multiple levels", "No hierarchy", "TCP only"], "answer": 1, "explain": "Widespread caching (browser, OS, resolver) with TTLs answers most queries without full resolution."}
+      ]
+    },
+    "u:core-cn-48-http-methods-status-codes-headers": {
+      "title": "HTTP methods, status codes, headers",
+      "summary": "The request/response semantics of the web — verbs, result codes, and metadata.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**HTTP** is the request-response protocol of the web. A request has a **method**, path, headers, and optional body; a response has a **status code**, headers, and body."},
+        {"t": "table", "headers": ["Method", "Meaning", "Safe/Idempotent"], "rows": [
+          ["GET", "Retrieve", "Safe + idempotent"],
+          ["POST", "Create / submit", "Neither"],
+          ["PUT", "Replace", "Idempotent"],
+          ["PATCH", "Partial update", "Not necessarily"],
+          ["DELETE", "Remove", "Idempotent"]
+        ]},
+        {"t": "table", "headers": ["Status class", "Meaning", "Example"], "rows": [
+          ["2xx", "Success", "200 OK, 201 Created"],
+          ["3xx", "Redirect", "301 permanent, 302 temporary, 304 not modified"],
+          ["4xx", "Client error", "400, 401, 403, 404, 429"],
+          ["5xx", "Server error", "500, 502, 503"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Know the idempotency of methods (GET/PUT/DELETE idempotent, POST not) and the status classes (2xx ok, 3xx redirect, 4xx your fault, 5xx server's fault). Idempotency matters for safe retries."}
+      ],
+      "mcqs": [
+        {"q": "Which HTTP method is NOT idempotent?", "options": ["GET", "PUT", "DELETE", "POST"], "answer": 3, "explain": "POST typically creates a new resource each call, so repeating it isn't idempotent; GET/PUT/DELETE are."},
+        {"q": "A 404 status code indicates:", "options": ["Server error", "The requested resource was not found (client error)", "Success", "Redirect"], "answer": 1, "explain": "4xx are client errors; 404 means the resource doesn't exist at that path."},
+        {"q": "A 5xx status code means:", "options": ["Client error", "The server failed to fulfil a valid request", "Redirect", "Success"], "answer": 1, "explain": "5xx codes (e.g. 500, 503) signal server-side failures."}
+      ]
+    },
+    "u:core-cn-49-http-1-1-vs-http-2-vs-http-3-quic": {
+      "title": "HTTP/1.1 vs HTTP/2 vs HTTP/3 (QUIC)",
+      "summary": "The evolution of HTTP: persistent connections, multiplexing, and moving to UDP.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["Version", "Key feature", "Transport"], "rows": [
+          ["HTTP/1.1", "Persistent (keep-alive) connections; one request at a time per connection", "TCP"],
+          ["HTTP/2", "Multiplexing many streams over one connection; header compression; server push", "TCP"],
+          ["HTTP/3", "Same multiplexing but no TCP-level HOL blocking; faster setup", "QUIC (over UDP)"]
+        ]},
+        {"t": "points", "items": [
+          "**HTTP/1.1** — a connection handles one outstanding request; browsers open several connections to parallelise (and suffer HOL blocking within each).",
+          "**HTTP/2** — multiplexes concurrent streams over ONE TCP connection, but a TCP packet loss still blocks all streams (TCP HOL blocking).",
+          "**HTTP/3** — runs over QUIC (UDP), giving independent streams (no TCP HOL blocking) and a faster (0/1-RTT) handshake."
+        ]},
+        {"t": "callout", "style": "key", "text": "The arc: HTTP/2 fixed application-level HOL blocking via multiplexing but reintroduced it at the TCP layer; HTTP/3 moved to QUIC/UDP to eliminate transport-level HOL blocking and cut connection setup latency."}
+      ],
+      "mcqs": [
+        {"q": "HTTP/2's main improvement over HTTP/1.1 is:", "options": ["Using UDP", "Multiplexing multiple streams over a single connection", "Removing headers", "No encryption"], "answer": 1, "explain": "HTTP/2 sends many concurrent streams over one TCP connection with header compression."},
+        {"q": "HTTP/3 runs over which transport?", "options": ["TCP", "QUIC (over UDP)", "ICMP", "Raw IP"], "answer": 1, "explain": "HTTP/3 uses QUIC on top of UDP, avoiding TCP's limitations."},
+        {"q": "HTTP/3 eliminates which problem that still affects HTTP/2?", "options": ["Header compression", "TCP-level head-of-line blocking", "Multiplexing", "Encryption"], "answer": 1, "explain": "QUIC's independent streams prevent one packet loss from stalling all streams, unlike HTTP/2 over TCP."}
+      ]
+    },
+    "u:core-cn-50-https-and-the-tls-handshake": {
+      "title": "HTTPS and the TLS handshake",
+      "summary": "How HTTPS secures a connection: negotiate, authenticate with a certificate, agree on keys.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**HTTPS** is HTTP over **TLS**, providing **confidentiality** (encryption), **integrity** (tamper detection), and **authentication** (you're really talking to the site). The **TLS handshake** sets up a secure session before any HTTP data flows."},
+        {"t": "steps", "items": [
+          "**ClientHello** — client sends supported cipher suites and a random value.",
+          "**ServerHello + Certificate** — server picks a cipher, sends its **certificate** (containing its public key, signed by a CA).",
+          "**Authenticate + key exchange** — client verifies the certificate against trusted CAs, then both derive a shared **session key** (modern TLS uses ephemeral Diffie-Hellman for forward secrecy).",
+          "**Finished** — both switch to symmetric encryption with the session key for the actual data."
+        ]},
+        {"t": "callout", "style": "key", "text": "The clever part: use slow **asymmetric** crypto only to authenticate and agree on a shared key, then use fast **symmetric** encryption for the bulk data. The certificate + CA chain provides authentication; ephemeral key exchange provides forward secrecy."},
+        {"t": "callout", "style": "tip", "text": "TLS 1.3 streamlined this to a 1-RTT handshake (0-RTT for resumption), faster than TLS 1.2's two round trips."}
+      ],
+      "mcqs": [
+        {"q": "HTTPS uses asymmetric encryption during the handshake mainly to:", "options": ["Encrypt all data", "Authenticate the server and securely establish a shared symmetric session key", "Compress data", "Route packets"], "answer": 1, "explain": "Asymmetric crypto authenticates and exchanges the key; the fast symmetric key then encrypts the bulk data."},
+        {"q": "A server's TLS certificate is trusted because it is:", "options": ["Self-generated", "Signed by a trusted Certificate Authority (CA)", "Encrypted", "A random number"], "answer": 1, "explain": "The CA's signature (validated up a trust chain) vouches that the public key belongs to that domain."},
+        {"q": "Forward secrecy in TLS is achieved by:", "options": ["Reusing the same key forever", "Using ephemeral Diffie-Hellman so past sessions stay safe even if the long-term key leaks", "Disabling encryption", "Using only symmetric keys"], "answer": 1, "explain": "Ephemeral key exchange generates a fresh session key each time, so a compromised long-term key can't decrypt past traffic."}
+      ]
+    },
+    "u:core-cn-51-symmetric-vs-asymmetric-encryption-certificates": {
+      "title": "Symmetric vs asymmetric encryption, certificates",
+      "summary": "One shared key (fast) vs a public/private key pair (solves key distribution) — used together.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["", "Symmetric", "Asymmetric"], "rows": [
+          ["Keys", "One shared secret key", "Public + private key pair"],
+          ["Speed", "Fast", "Slow"],
+          ["Problem it has/solves", "Key distribution is hard", "Solves key distribution; too slow for bulk data"],
+          ["Example", "AES", "RSA, ECC"]
+        ]},
+        {"t": "points", "items": [
+          "**Symmetric** (AES): same key encrypts and decrypts — fast, but both sides must securely share the key first.",
+          "**Asymmetric** (RSA): encrypt with the public key, decrypt with the private key (or sign with private, verify with public). Solves the key-sharing problem but is slow.",
+          "**Certificates** bind a public key to an identity, signed by a CA, so you can trust a server's public key."
+        ]},
+        {"t": "callout", "style": "key", "text": "Real systems combine them (hybrid): asymmetric crypto securely exchanges a symmetric session key, then symmetric encryption handles the fast bulk work — exactly what TLS does."}
+      ],
+      "mcqs": [
+        {"q": "Symmetric encryption's main practical challenge is:", "options": ["It is too slow", "Securely distributing the shared key to both parties", "It cannot encrypt", "It needs certificates"], "answer": 1, "explain": "Both sides need the same secret key, and sharing it securely is the hard part — which asymmetric crypto solves."},
+        {"q": "In asymmetric encryption, data encrypted with the public key can be decrypted with:", "options": ["The same public key", "The corresponding private key", "Any key", "A symmetric key"], "answer": 1, "explain": "The key pair is complementary: public encrypts, private decrypts (and vice versa for signing)."},
+        {"q": "Systems combine both because asymmetric is:", "options": ["Insecure", "Slow, so it's used only to exchange a fast symmetric key", "Unable to authenticate", "Only for small keys"], "answer": 1, "explain": "Hybrid encryption uses slow asymmetric crypto for key exchange and fast symmetric crypto for the data."}
+      ]
+    },
+    "u:core-cn-52-cookies-vs-sessions-vs-tokens": {
+      "title": "Cookies vs sessions vs tokens",
+      "summary": "Three ways to keep a user logged in over stateless HTTP.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "HTTP is **stateless**, so these mechanisms maintain identity across requests."},
+        {"t": "points", "items": [
+          "**Cookie** — a small piece of data the server sets in the browser, sent back on every request to the same domain. The transport mechanism.",
+          "**Session** — server-side state: the server stores session data and gives the browser a **session ID** (in a cookie). Stateful; the server must store/lookup sessions.",
+          "**Token (e.g. JWT)** — self-contained, signed credential the client stores and sends (often in an Authorization header). **Stateless** — the server verifies the signature without storing anything, which scales horizontally."
+        ]},
+        {"t": "callout", "style": "key", "text": "Sessions keep state on the server (simple to revoke, but needs shared storage across servers); tokens keep state on the client (stateless, scale-friendly, but harder to revoke before expiry). Cookies are just the delivery vehicle either can use."},
+        {"t": "callout", "style": "warn", "text": "Storage trade-off: cookies (with HttpOnly) resist XSS but are vulnerable to CSRF; localStorage tokens resist CSRF but are exposed to XSS. Choose deliberately."}
+      ],
+      "mcqs": [
+        {"q": "A key difference between server sessions and JWT tokens is that tokens are:", "options": ["Stored on the server", "Self-contained and stateless (server verifies a signature without storing state)", "Never signed", "Only cookies"], "answer": 1, "explain": "JWTs carry their own signed data, so the server needn't store session state — aiding horizontal scaling."},
+        {"q": "A cookie is fundamentally:", "options": ["Server-side storage", "A small piece of data stored by the browser and sent back to the server", "An encryption key", "A DNS record"], "answer": 1, "explain": "Cookies are the browser-side storage/transport mechanism for identity data like a session ID."},
+        {"q": "A drawback of stateless tokens (JWT) compared to server sessions is:", "options": ["They can't authenticate", "They are harder to revoke before they expire", "They need a database always", "They can't be signed"], "answer": 1, "explain": "Since the server holds no state, invalidating a token before expiry requires extra mechanisms (blacklists, short lifetimes)."}
+      ]
+    },
+    "u:core-cn-53-smtp-imap-pop3": {
+      "title": "SMTP, IMAP, POP3",
+      "summary": "Email protocols: SMTP sends, IMAP/POP3 retrieve.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "table", "headers": ["Protocol", "Role", "Port"], "rows": [
+          ["SMTP", "Sending mail (client→server, server→server)", "25 / 587"],
+          ["POP3", "Downloading mail (usually deletes from server)", "110 / 995"],
+          ["IMAP", "Syncing mail (keeps it on the server, multi-device)", "143 / 993"]
+        ]},
+        {"t": "points", "items": [
+          "**SMTP** pushes mail out and relays between servers.",
+          "**POP3** downloads to one device and typically **removes** it from the server — simple, single-device.",
+          "**IMAP** keeps mail on the server and **syncs** state (read/folders) across devices — the modern default."
+        ]},
+        {"t": "callout", "style": "key", "text": "SMTP = send; POP3/IMAP = receive. POP3 downloads-and-deletes (one device); IMAP keeps mail server-side and syncs across devices — which is why IMAP is standard for multi-device email."}
+      ],
+      "mcqs": [
+        {"q": "Which protocol is used to SEND email?", "options": ["POP3", "IMAP", "SMTP", "HTTP"], "answer": 2, "explain": "SMTP handles sending and relaying mail; POP3/IMAP retrieve it."},
+        {"q": "IMAP differs from POP3 by:", "options": ["Deleting mail after download", "Keeping mail on the server and syncing across multiple devices", "Only sending mail", "Using no server"], "answer": 1, "explain": "IMAP synchronises server-side mail across devices; POP3 typically downloads and removes it."},
+        {"q": "POP3 is best suited for:", "options": ["Multi-device access", "Simple single-device download of mail", "Sending mail", "Web browsing"], "answer": 1, "explain": "POP3 downloads to one device (often deleting from the server), fitting single-device use."}
+      ]
+    },
+    "u:core-cn-54-ftp": {
+      "title": "FTP",
+      "summary": "The file-transfer protocol with separate control and data connections.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**FTP (File Transfer Protocol)** transfers files between client and server. It uniquely uses **two connections**: a **control** connection (port 21) for commands, and a separate **data** connection for the actual file bytes."},
+        {"t": "points", "items": [
+          "**Active mode** — the server opens the data connection back to the client (problematic with client firewalls/NAT).",
+          "**Passive mode** — the client opens the data connection to the server (firewall-friendly; the common default).",
+          "Plain FTP is **unencrypted** (credentials in clear) — use **FTPS** (TLS) or **SFTP** (over SSH) instead."
+        ]},
+        {"t": "callout", "style": "key", "text": "FTP's distinctive design is the separate control (21) and data channels. Passive mode exists to work through client-side firewalls/NAT. For security, prefer SFTP/FTPS since plain FTP sends credentials in the clear."}
+      ],
+      "mcqs": [
+        {"q": "FTP is unusual in that it uses:", "options": ["One connection", "Separate control and data connections", "No connection", "UDP only"], "answer": 1, "explain": "A control connection (port 21) carries commands and a separate data connection carries file contents."},
+        {"q": "Passive FTP mode exists mainly to:", "options": ["Encrypt data", "Work through client-side firewalls/NAT (client opens the data connection)", "Speed up transfers", "Remove the control channel"], "answer": 1, "explain": "In passive mode the client initiates the data connection, which firewalls/NAT allow more readily."},
+        {"q": "For secure file transfer you should use:", "options": ["Plain FTP", "SFTP or FTPS", "Telnet", "HTTP"], "answer": 1, "explain": "Plain FTP is unencrypted; SFTP (over SSH) or FTPS (over TLS) protect credentials and data."}
+      ]
+    },
+    "u:core-cn-55-websockets-vs-polling-vs-sse": {
+      "title": "WebSockets vs polling vs SSE",
+      "summary": "Three ways to push server updates to a browser — from crude polling to full-duplex sockets.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "HTTP is request-driven, so getting real-time server updates to a browser needs one of these techniques."},
+        {"t": "table", "headers": ["Technique", "How", "Direction"], "rows": [
+          ["Polling", "Client repeatedly asks 'anything new?'", "Client-pull (wasteful)"],
+          ["Long polling", "Server holds the request open until it has data", "Client-pull (better)"],
+          ["SSE (Server-Sent Events)", "Server streams events over one long-lived HTTP response", "Server→client only"],
+          ["WebSocket", "Persistent full-duplex TCP connection (upgraded from HTTP)", "Both directions"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Pick by need: **polling** for simple/rare updates (but wasteful); **SSE** for one-way server→client streams (notifications, feeds) — simple, auto-reconnecting; **WebSockets** for true bidirectional real-time (chat, games, collaborative editing)."}
+      ],
+      "mcqs": [
+        {"q": "WebSockets provide:", "options": ["One-way server-to-client only", "A persistent, full-duplex (bidirectional) connection", "Only request-response", "No connection"], "answer": 1, "explain": "WebSockets keep a single connection open for two-way communication, ideal for chat/games."},
+        {"q": "Server-Sent Events (SSE) are best for:", "options": ["Bidirectional chat", "One-way server-to-client streaming like live feeds/notifications", "File uploads", "DNS lookups"], "answer": 1, "explain": "SSE streams events from server to client over one HTTP connection — one-directional and simple."},
+        {"q": "The main drawback of simple (short) polling is:", "options": ["It is bidirectional", "It wastes requests/bandwidth checking for updates that may not exist", "It cannot use HTTP", "It needs WebSockets"], "answer": 1, "explain": "Repeated requests consume resources even when there's nothing new, unlike push-based approaches."}
+      ]
+    },
+    "u:core-cn-56-public-key-infrastructure": {
+      "title": "Public key infrastructure",
+      "summary": "The system of CAs, certificates, and trust chains that makes public keys trustworthy.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**PKI (Public Key Infrastructure)** is the framework that lets you **trust a public key belongs to who it claims**. It's built on **Certificate Authorities (CAs)** that issue and sign **digital certificates**."},
+        {"t": "points", "items": [
+          "A **certificate** binds an identity (domain) to a public key, signed by a CA.",
+          "**Chain of trust**: your device trusts a set of **root CAs**; roots sign **intermediate** CAs; intermediates sign server certificates. Verifying walks the chain up to a trusted root.",
+          "**Revocation**: CRLs (revocation lists) or OCSP let a compromised certificate be invalidated before expiry."
+        ]},
+        {"t": "callout", "style": "key", "text": "PKI solves 'how do I know this public key is really the bank's?' via a chain of trust: a trusted root CA vouches (transitively) for the server's certificate. Without PKI, an attacker could just present their own key."}
+      ],
+      "mcqs": [
+        {"q": "The role of a Certificate Authority (CA) in PKI is to:", "options": ["Encrypt all traffic", "Issue and sign certificates that bind a public key to an identity", "Store passwords", "Route packets"], "answer": 1, "explain": "CAs vouch for the binding between a public key and its owner by signing certificates."},
+        {"q": "A browser trusts a server certificate by:", "options": ["Accepting any certificate", "Verifying the chain of trust up to a pre-installed trusted root CA", "Checking the IP address", "Ignoring the signature"], "answer": 1, "explain": "The certificate chain is validated up to a trusted root the device already trusts."},
+        {"q": "A compromised certificate can be invalidated before expiry via:", "options": ["DNS", "Certificate revocation (CRL / OCSP)", "A firewall", "NAT"], "answer": 1, "explain": "Revocation lists (CRL) or OCSP let clients learn a certificate is no longer valid."}
+      ]
+    },
+    "u:core-cn-57-digital-signatures": {
+      "title": "Digital signatures",
+      "summary": "Sign with your private key so anyone can verify authenticity and integrity with your public key.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **digital signature** proves a message's **authenticity** (who sent it) and **integrity** (it wasn't altered), and provides **non-repudiation** (the signer can't deny it)."},
+        {"t": "steps", "items": [
+          "The sender computes a **hash** of the message.",
+          "The sender **encrypts the hash with their PRIVATE key** — that's the signature.",
+          "The receiver **decrypts the signature with the sender's PUBLIC key** to recover the hash, and independently hashes the message.",
+          "If the two hashes match, the signature is valid: authentic and untampered."
+        ]},
+        {"t": "callout", "style": "key", "text": "Note the direction: signing uses the **private** key, verifying uses the **public** key (the reverse of encryption). Only the private-key holder could have produced a signature that verifies with their public key — that's what proves authenticity and gives non-repudiation."}
+      ],
+      "mcqs": [
+        {"q": "To create a digital signature, the sender encrypts the message hash with their:", "options": ["Public key", "Private key", "Symmetric key", "The receiver's key"], "answer": 1, "explain": "Signing uses the sender's private key; anyone can verify with the sender's public key."},
+        {"q": "Digital signatures provide non-repudiation because:", "options": ["Anyone could have signed", "Only the private-key holder could produce a signature that verifies with their public key", "They are encrypted symmetrically", "They hide the message"], "answer": 1, "explain": "Since only the owner holds the private key, a valid signature proves they signed it — they can't deny it."},
+        {"q": "A digital signature guarantees integrity by:", "options": ["Encrypting the whole message", "Signing a hash so any tampering changes the recomputed hash and fails verification", "Using a firewall", "Compressing data"], "answer": 1, "explain": "Verification recomputes the hash; if the message changed, the hashes won't match and the signature is invalid."}
+      ]
+    },
+    "u:core-cn-58-firewalls": {
+      "title": "Firewalls",
+      "summary": "Filter traffic by rules — from simple packet filters to stateful and application-aware.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **firewall** controls network traffic based on security rules, forming a barrier between trusted and untrusted networks."},
+        {"t": "table", "headers": ["Type", "Inspects", "Trait"], "rows": [
+          ["Packet filter (stateless)", "Individual packets (IP, port)", "Fast; no connection context"],
+          ["Stateful", "Connection state (tracks sessions)", "Knows if a packet belongs to an established connection"],
+          ["Application (proxy / L7)", "Application-layer content (HTTP, etc.)", "Deep inspection; can block by content/app"],
+          ["Next-gen (NGFW)", "L7 + IDS/IPS + more", "Comprehensive"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The key upgrade is **stateful** inspection: unlike a stateless packet filter that judges each packet alone, a stateful firewall tracks connections, so it can allow return traffic for connections you initiated while blocking unsolicited inbound. Application firewalls go further, inspecting L7 content."}
+      ],
+      "mcqs": [
+        {"q": "A stateful firewall differs from a stateless packet filter by:", "options": ["Being slower always", "Tracking connection state to know if a packet belongs to an established session", "Ignoring ports", "Only working on wireless"], "answer": 1, "explain": "Stateful firewalls track sessions, allowing legitimate return traffic while blocking unsolicited inbound packets."},
+        {"q": "An application-layer (L7) firewall can filter based on:", "options": ["Only IP and port", "Application content such as HTTP requests", "MAC addresses only", "TTL"], "answer": 1, "explain": "L7 firewalls inspect application data, enabling content- and app-aware filtering."},
+        {"q": "A firewall's fundamental purpose is to:", "options": ["Speed up the network", "Enforce security rules controlling which traffic is allowed between networks", "Assign IP addresses", "Resolve names"], "answer": 1, "explain": "Firewalls permit or deny traffic per policy, separating trusted and untrusted zones."}
+      ]
+    },
+    "u:core-cn-59-common-attacks-mitm-ddos-spoofing-xss-csrf-sql-injection": {
+      "title": "Common attacks: MITM, DDoS, spoofing, XSS, CSRF, SQL injection",
+      "summary": "The attacks every engineer should recognise, and their one-line defences.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "table", "headers": ["Attack", "What it does", "Defence"], "rows": [
+          ["MITM", "Intercepts/alters traffic between two parties", "TLS/encryption, certificate validation"],
+          ["DDoS", "Floods a service from many sources to exhaust it", "Rate limiting, CDN/scrubbing, over-provision"],
+          ["Spoofing", "Forges identity (IP/ARP/DNS/email)", "Authentication, filtering, DNSSEC"],
+          ["XSS", "Injects malicious script into a page other users load", "Output escaping, CSP, sanitisation"],
+          ["CSRF", "Tricks a logged-in user's browser into an unwanted request", "CSRF tokens, SameSite cookies"],
+          ["SQL injection", "Injects SQL via input to read/alter the database", "Parameterised queries / prepared statements"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Two 'injection' attacks to never confuse: **XSS** runs attacker script in a victim's browser (defend with output escaping + CSP); **SQL injection** runs attacker SQL on your database (defend with parameterised queries). **CSRF** abuses a user's existing session (defend with tokens + SameSite cookies)."}
+      ],
+      "mcqs": [
+        {"q": "The primary defence against SQL injection is:", "options": ["A firewall", "Parameterised queries / prepared statements", "HTTPS", "Rate limiting"], "answer": 1, "explain": "Parameterising input separates code from data so injected SQL can't execute."},
+        {"q": "XSS (cross-site scripting) involves:", "options": ["Injecting SQL into the database", "Injecting malicious script that runs in other users' browsers", "Flooding a server", "Forging an IP address"], "answer": 1, "explain": "XSS delivers attacker script through a page; defences include output escaping and a Content Security Policy."},
+        {"q": "CSRF is best mitigated with:", "options": ["Parameterised queries", "Anti-CSRF tokens and SameSite cookies", "A CDN", "DNSSEC"], "answer": 1, "explain": "CSRF tokens and SameSite cookies ensure requests genuinely originate from your site, not a malicious one."}
+      ]
+    },
+    "u:core-cn-60-vpn-basics": {
+      "title": "VPN basics",
+      "summary": "An encrypted tunnel over a public network, making remote traffic private and 'local'.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **VPN (Virtual Private Network)** creates an **encrypted tunnel** between your device and a VPN server over the public internet, so traffic is confidential and appears to originate from the VPN server."},
+        {"t": "points", "items": [
+          "**Encryption** protects data from eavesdroppers on the path (e.g. public Wi-Fi).",
+          "**Tunnelling** encapsulates your packets inside encrypted ones (protocols: IPsec, WireGuard, OpenVPN).",
+          "Uses: secure remote access to a corporate network, privacy on untrusted networks, bypassing geo-restrictions."
+        ]},
+        {"t": "callout", "style": "key", "text": "A VPN = encryption + tunnelling: it wraps your traffic in an encrypted tunnel to a server, hiding contents from the local network and making you appear to be at the server's location. It secures the transport, not necessarily the destination site."}
+      ],
+      "mcqs": [
+        {"q": "A VPN primarily provides:", "options": ["Faster internet always", "An encrypted tunnel over a public network for private communication", "A new IP protocol", "DNS resolution"], "answer": 1, "explain": "VPNs encrypt and tunnel traffic so it's private over untrusted networks."},
+        {"q": "VPN tunnelling works by:", "options": ["Deleting packets", "Encapsulating your packets inside encrypted ones sent to the VPN server", "Broadcasting to all", "Using no encryption"], "answer": 1, "explain": "The original packets are wrapped in encrypted packets (IPsec/WireGuard/OpenVPN) between client and server."},
+        {"q": "A common use of a VPN is:", "options": ["Speeding up a LAN", "Securely accessing a corporate network remotely over the internet", "Assigning MAC addresses", "Replacing TCP"], "answer": 1, "explain": "VPNs let remote workers securely reach internal resources as if on the local network."}
+      ]
+    },
+    "u:core-cn-61-what-happens-when-you-type-a-url-full-trace-no-gaps": {
+      "title": "What happens when you type a URL (full trace)",
+      "summary": "The end-to-end journey from keystroke to rendered page — the ultimate integrating question.",
+      "minutes": 6,
+      "blocks": [
+        {"t": "p", "text": "This question ties every networking layer together. Walk it top to bottom, naming each step."},
+        {"t": "steps", "items": [
+          "**URL parse** — the browser breaks the URL into scheme, host, path.",
+          "**DNS resolution** — resolve the hostname to an IP (browser/OS cache → resolver → root → TLD → authoritative).",
+          "**TCP connection** — three-way handshake (SYN, SYN-ACK, ACK) to the server's IP:443.",
+          "**TLS handshake** — negotiate cipher, validate the certificate, derive session keys (HTTPS).",
+          "**HTTP request** — send GET for the resource with headers (Host, cookies).",
+          "**Server processing** — the server (possibly via load balancer, app, database, cache) builds the response.",
+          "**HTTP response** — status code + headers + HTML body returns.",
+          "**Render** — the browser parses HTML, requests linked CSS/JS/images (more requests), builds the DOM/CSSOM, and paints the page."
+        ]},
+        {"t": "callout", "style": "key", "text": "The layered story: DNS (application) → TCP (transport) → IP routing/ARP (network/link) → TLS → HTTP → server → render. Naming each in order — especially DNS caching, the TCP handshake, and the TLS handshake — is what a strong answer covers with no gaps."}
+      ],
+      "mcqs": [
+        {"q": "After the browser parses the URL, the next network step is typically:", "options": ["TLS handshake", "DNS resolution of the hostname to an IP", "Rendering", "Sending the HTTP body"], "answer": 1, "explain": "The host name must be resolved to an IP (via DNS) before a connection can be made."},
+        {"q": "The correct order of connection setup for an HTTPS site is:", "options": ["HTTP request, then DNS, then TCP", "DNS, then TCP three-way handshake, then TLS handshake, then HTTP request", "TLS, then DNS, then TCP", "TCP, then HTTP, then DNS"], "answer": 1, "explain": "Resolve the name, establish TCP, secure it with TLS, then send the HTTP request."},
+        {"q": "After receiving the HTML, the browser typically:", "options": ["Stops", "Parses it and issues further requests for CSS/JS/images, then builds and paints the page", "Sends another SYN", "Re-resolves DNS for every byte"], "answer": 1, "explain": "Rendering fetches sub-resources, constructs the DOM/CSSOM, and paints the page."}
+      ]
+    },
+    "u:core-cn-62-trace-it-again-including-dns-cache-layers-tcp-tls-http-rende": {
+      "title": "Trace it again: DNS caches, TCP, TLS, HTTP, render",
+      "summary": "The deeper retelling — emphasising the cache layers and what each handshake actually negotiates.",
+      "minutes": 6,
+      "blocks": [
+        {"t": "p", "text": "A second, deeper pass at 'type a URL' focuses on the details interviewers probe: the DNS **cache hierarchy** and what each handshake negotiates."},
+        {"t": "h", "text": "DNS cache layers (checked in order)"},
+        {"t": "points", "items": [
+          "**Browser cache** → **OS cache** (hosts file / resolver cache) → **router cache** → **ISP resolver** → the authoritative hierarchy (root → TLD → authoritative).",
+          "Each layer honours the record's **TTL**; a hit short-circuits the rest."
+        ]},
+        {"t": "h", "text": "The handshakes"},
+        {"t": "points", "items": [
+          "**TCP** establishes a reliable connection (SYN/SYN-ACK/ACK) and sets initial sequence numbers.",
+          "**TLS** authenticates the server (certificate chain to a trusted root), negotiates the cipher, and derives symmetric session keys (with forward secrecy in TLS 1.3).",
+          "**HTTP** then rides the encrypted connection; the response drives DOM/CSSOM construction and painting, with sub-resource fetches often reusing the connection (HTTP/2 multiplexing)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The two details that separate a great answer: (1) DNS is a cache hierarchy (browser→OS→router→resolver→authoritative) governed by TTLs; (2) TCP gives reliability, TLS gives authentication + a session key, and HTTP carries the actual request — each doing a distinct job."}
+      ],
+      "mcqs": [
+        {"q": "DNS caches are checked in roughly which order?", "options": ["Authoritative → ISP → OS → browser", "Browser → OS → router → ISP resolver → authoritative hierarchy", "Router only", "There is no caching"], "answer": 1, "explain": "The lookup checks the nearest caches first and only escalates to the authoritative chain on a miss."},
+        {"q": "The TLS handshake's job (that TCP's does not do) is to:", "options": ["Order bytes", "Authenticate the server and establish encryption keys", "Assign IP addresses", "Resolve names"], "answer": 1, "explain": "TCP provides reliable transport; TLS adds authentication and derives session keys for encryption."},
+        {"q": "How long a cached DNS record is reused is governed by its:", "options": ["MAC address", "TTL (time to live)", "Port number", "Window size"], "answer": 1, "explain": "Each DNS record's TTL sets how long caches may serve it before re-resolving."}
+      ]
+    },
+    "u:core-cn-32-static-vs-dynamic-routing": {
+      "title": "Static vs dynamic routing",
+      "summary": "Manually configured routes vs protocols that discover and adapt automatically.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Routing** decides the path packets take between networks. Routes are set two ways."},
+        {"t": "table", "headers": ["", "Static routing", "Dynamic routing"], "rows": [
+          ["How", "Admin manually configures routes", "Routers exchange info via a protocol (RIP/OSPF/BGP)"],
+          ["Adapts to failures", "No (manual update needed)", "Yes (reroutes automatically)"],
+          ["Overhead", "None (no protocol traffic)", "CPU + bandwidth for updates"],
+          ["Best for", "Small/stable networks", "Large/changing networks"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Static routing is simple and overhead-free but doesn't adapt — a failed link stays broken until someone fixes it. Dynamic routing protocols discover topology and reroute automatically, essential at scale but costing some overhead."}
+      ],
+      "mcqs": [
+        {"q": "A key advantage of dynamic routing over static routing is that it:", "options": ["Uses no bandwidth", "Automatically adapts to link failures and topology changes", "Is always simpler", "Needs manual updates"], "answer": 1, "explain": "Routing protocols reconverge on new paths when links change, without manual reconfiguration."},
+        {"q": "Static routing is best suited to:", "options": ["Large changing networks", "Small, stable networks", "The internet backbone", "Wireless mesh"], "answer": 1, "explain": "With few, stable routes, manual configuration is simple and avoids protocol overhead."},
+        {"q": "A cost of dynamic routing is:", "options": ["No adaptability", "CPU and bandwidth overhead from exchanging routing updates", "Manual configuration", "No route discovery"], "answer": 1, "explain": "Routers periodically exchange routing information, consuming resources."}
+      ]
+    },
+    "u:core-cn-33-distance-vector-and-count-to-infinity": {
+      "title": "Distance vector and count-to-infinity",
+      "summary": "Share your whole routing table with neighbours — and the slow-convergence bug it causes.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Distance-vector** routing: each router tells its **neighbours** its distance (hop count) to every network, and updates its own table using the Bellman-Ford idea ('routing by rumour'). RIP is the classic example."},
+        {"t": "h", "text": "Count-to-infinity"},
+        {"t": "p", "text": "When a link fails, bad news spreads **slowly**. Routers can keep incrementing a route's cost via each other, counting **up to infinity** before realising the destination is unreachable — causing loops and slow convergence."},
+        {"t": "points", "items": [
+          "**Split horizon** — don't advertise a route back to the neighbour you learned it from.",
+          "**Poison reverse** — advertise it back with an infinite metric.",
+          "**Hold-down timers** — ignore updates about a route for a while after it goes down."
+        ]},
+        {"t": "callout", "style": "key", "text": "Distance vector is simple but suffers count-to-infinity (slow convergence, temporary loops) because routers only know neighbour rumours, not the full topology. Split horizon and poison reverse mitigate it; link-state routing avoids it by design."}
+      ],
+      "mcqs": [
+        {"q": "In distance-vector routing, each router shares its routing table with:", "options": ["All routers globally", "Only its directly connected neighbours", "No one", "The DNS server"], "answer": 1, "explain": "Distance-vector routers exchange distance information only with neighbours ('routing by rumour')."},
+        {"q": "The count-to-infinity problem causes:", "options": ["Instant convergence", "Slow convergence and temporary loops when a link fails", "Encryption", "No routing"], "answer": 1, "explain": "Routers incrementally increase a failed route's cost via each other, converging very slowly."},
+        {"q": "Which technique mitigates count-to-infinity?", "options": ["Larger packets", "Split horizon (don't advertise a route back to its source)", "Faster CPUs", "More bandwidth"], "answer": 1, "explain": "Split horizon (and poison reverse) prevent a router from re-advertising a route to the neighbour it came from."}
+      ]
+    },
+    "u:core-cn-34-link-state-and-dijkstra": {
+      "title": "Link state and Dijkstra",
+      "summary": "Every router learns the full topology, then computes shortest paths with Dijkstra.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Link-state** routing: each router **floods** the whole network with the state of its own links, so **every router builds a complete map** of the topology. Each then runs **Dijkstra's shortest-path algorithm** to compute best routes. OSPF is the classic example."},
+        {"t": "points", "items": [
+          "Each router advertises its links via **Link State Advertisements (LSAs)**, flooded to all routers.",
+          "With the full map, each router independently computes the shortest-path tree (Dijkstra).",
+          "**Fast convergence** and no count-to-infinity — but more CPU/memory and complexity than distance vector."
+        ]},
+        {"t": "callout", "style": "key", "text": "Distance vector = 'tell neighbours about the world' (rumours, slow); link state = 'tell the world about your neighbours' (full map, then Dijkstra). Link state converges fast and avoids loops at the cost of more resources."}
+      ],
+      "mcqs": [
+        {"q": "In link-state routing, each router:", "options": ["Knows only its neighbours' distances", "Builds a complete map of the network and runs Dijkstra", "Uses no algorithm", "Broadcasts data packets"], "answer": 1, "explain": "Flooded link-state info gives every router the full topology to compute shortest paths."},
+        {"q": "Link-state routing computes shortest paths using:", "options": ["Bellman-Ford", "Dijkstra's algorithm", "Round Robin", "Bubble sort"], "answer": 1, "explain": "Each router runs Dijkstra on its complete topology map."},
+        {"q": "Compared to distance vector, link state offers:", "options": ["Slower convergence", "Faster convergence and no count-to-infinity, at higher resource cost", "Less memory use", "Simpler routers"], "answer": 1, "explain": "Full topology knowledge yields fast, loop-free convergence but needs more CPU/memory."}
+      ]
+    },
+    "u:core-cn-35-rip": {
+      "title": "RIP",
+      "summary": "A simple distance-vector protocol using hop count, capped at 15 hops.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**RIP (Routing Information Protocol)** is a **distance-vector** interior gateway protocol that uses **hop count** as its metric. It's simple but limited."},
+        {"t": "points", "items": [
+          "**Metric = hop count**; **maximum 15 hops** (16 = unreachable/infinity). This caps network diameter and bounds count-to-infinity.",
+          "Sends its full routing table to neighbours every ~30 seconds.",
+          "Slow convergence; suitable only for small networks. Largely superseded by OSPF."
+        ]},
+        {"t": "callout", "style": "key", "text": "RIP's defining number: max 15 hops (16 = infinity), which limits it to small networks but keeps count-to-infinity bounded. It ignores bandwidth (a slow 1-hop link beats a fast 2-hop one), a key weakness vs OSPF."}
+      ],
+      "mcqs": [
+        {"q": "RIP uses which routing metric?", "options": ["Bandwidth", "Hop count", "Delay", "Link cost"], "answer": 1, "explain": "RIP counts hops; it ignores link bandwidth, so it may pick a slow shorter path."},
+        {"q": "The maximum hop count in RIP is:", "options": ["255", "15 (16 means unreachable)", "64", "1"], "answer": 1, "explain": "RIP treats 16 as infinity, capping usable paths at 15 hops."},
+        {"q": "A limitation of RIP compared to OSPF is:", "options": ["It converges instantly", "Slow convergence and ignoring link bandwidth", "It uses Dijkstra", "It scales to huge networks"], "answer": 1, "explain": "As a simple distance-vector protocol, RIP converges slowly and doesn't consider bandwidth."}
+      ]
+    },
+    "u:core-cn-36-ospf": {
+      "title": "OSPF",
+      "summary": "The dominant interior link-state protocol — fast, scalable, cost-based, and hierarchical.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**OSPF (Open Shortest Path First)** is the widely-used **link-state** interior gateway protocol. Routers flood LSAs, build a full topology, and run Dijkstra to find least-**cost** paths (cost usually based on bandwidth)."},
+        {"t": "points", "items": [
+          "**Cost metric** (bandwidth-based), not just hops — picks genuinely faster paths.",
+          "**Fast convergence** and loop-free.",
+          "**Areas** — OSPF divides large networks into areas (all connecting to a backbone, area 0) to scale by limiting flooding scope."
+        ]},
+        {"t": "callout", "style": "key", "text": "OSPF beats RIP on every axis for larger networks: bandwidth-based cost (not hop count), fast link-state convergence, and hierarchical areas for scalability. It's the default IGP in most enterprises."}
+      ],
+      "mcqs": [
+        {"q": "OSPF is which type of routing protocol?", "options": ["Distance vector", "Link state", "Path vector", "Static"], "answer": 1, "explain": "OSPF floods link-state info and runs Dijkstra — a link-state protocol."},
+        {"q": "OSPF's metric is based primarily on:", "options": ["Hop count", "Cost (typically derived from bandwidth)", "MAC address", "TTL"], "answer": 1, "explain": "OSPF uses a cost metric (often inversely related to bandwidth), unlike RIP's hop count."},
+        {"q": "OSPF scales to large networks using:", "options": ["A single flat domain", "Areas connected to a backbone (area 0) to limit flooding", "Broadcast only", "Static routes"], "answer": 1, "explain": "Dividing into areas confines LSA flooding, improving scalability."}
+      ]
+    },
+    "u:core-cn-37-bgp-and-why-the-internet-needs-it": {
+      "title": "BGP and why the internet needs it",
+      "summary": "The path-vector protocol that routes between autonomous systems — the glue of the internet.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**BGP (Border Gateway Protocol)** is the **exterior** routing protocol that connects **Autonomous Systems (AS)** — the large networks (ISPs, big orgs) that make up the internet. It's a **path-vector** protocol."},
+        {"t": "points", "items": [
+          "Routes between AS's, exchanging **AS-PATH** information (the list of AS's to reach a destination), which also prevents loops.",
+          "Chooses paths based on **policy** (business relationships, cost) — not just shortest path. An ISP may prefer a route for commercial reasons.",
+          "It's the protocol that makes the global internet's independent networks interoperate."
+        ]},
+        {"t": "callout", "style": "key", "text": "Interior protocols (OSPF/RIP) route WITHIN an AS; BGP routes BETWEEN AS's. BGP is policy-driven (business decisions) and path-vector (carries the full AS path). The internet needs it because no single organisation owns or knows the whole topology."},
+        {"t": "callout", "style": "warn", "text": "BGP trusts announcements, so a misconfigured or malicious AS can 'hijack' routes — a real cause of internet outages."}
+      ],
+      "mcqs": [
+        {"q": "BGP is used to route:", "options": ["Within a single network", "Between autonomous systems (across the internet)", "Between VLANs", "Within a LAN"], "answer": 1, "explain": "BGP is the exterior gateway protocol connecting different autonomous systems."},
+        {"q": "BGP path selection is driven largely by:", "options": ["Hop count only", "Policy (business relationships) and AS-PATH, not just shortest path", "Random choice", "MAC addresses"], "answer": 1, "explain": "BGP decisions reflect commercial policy and path attributes, not merely the shortest route."},
+        {"q": "The internet needs BGP because:", "options": ["All networks are owned by one company", "No single organisation knows the whole topology; independent AS's must interoperate", "OSPF scales globally", "There is only one AS"], "answer": 1, "explain": "The internet is a mesh of independently-run autonomous systems that BGP stitches together."}
+      ]
+    },
+    "u:core-cn-38-tcp-header-fields": {
+      "title": "TCP header fields",
+      "summary": "The fields that make TCP reliable and ordered: sequence/ack numbers, flags, and window.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **TCP header** carries the control information for reliable, ordered, connection-oriented delivery."},
+        {"t": "table", "headers": ["Field", "Purpose"], "rows": [
+          ["Source / Dest Port", "Identify the sending/receiving applications"],
+          ["Sequence number", "Byte offset of this segment's data (for ordering)"],
+          ["Acknowledgement number", "Next byte expected (confirms receipt)"],
+          ["Flags", "SYN, ACK, FIN, RST, PSH, URG — control the connection"],
+          ["Window size", "Flow control — how much the receiver can accept"],
+          ["Checksum", "Error detection"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The sequence and acknowledgement numbers are TCP's core: sequence numbers order the byte stream and enable retransmission; ack numbers confirm what's received. The flags (SYN/ACK/FIN/RST) drive connection setup and teardown."}
+      ],
+      "mcqs": [
+        {"q": "TCP's sequence number field is used to:", "options": ["Identify the application", "Order the bytes of the stream and enable retransmission", "Detect errors", "Set the window"], "answer": 1, "explain": "Sequence numbers give each byte a position, allowing reordering and detecting missing data."},
+        {"q": "The window size field supports:", "options": ["Routing", "Flow control (how much the receiver can buffer)", "Encryption", "Fragmentation"], "answer": 1, "explain": "The advertised window tells the sender how much unacknowledged data the receiver can accept."},
+        {"q": "Which TCP flag initiates a connection?", "options": ["FIN", "SYN", "RST", "PSH"], "answer": 1, "explain": "SYN starts the three-way handshake; FIN closes, RST aborts."}
+      ]
+    },
+    "u:core-cn-39-three-way-handshake": {
+      "title": "Three-way handshake",
+      "summary": "SYN, SYN-ACK, ACK — how TCP establishes a connection and syncs sequence numbers.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "TCP is connection-oriented; it establishes a connection with a **three-way handshake** that synchronises both sides' initial sequence numbers."},
+        {"t": "steps", "items": [
+          "**SYN** — client sends SYN with its initial sequence number (ISN).",
+          "**SYN-ACK** — server replies with its own SYN (its ISN) plus an ACK of the client's SYN.",
+          "**ACK** — client acknowledges the server's SYN. The connection is now established."
+        ]},
+        {"t": "callout", "style": "key", "text": "Three messages are needed because BOTH sides must send a SYN (to sync their sequence numbers) and BOTH must ACK it — the middle SYN-ACK combines the server's SYN and its ACK, saving a message. Two wouldn't sync both directions."},
+        {"t": "callout", "style": "warn", "text": "A **SYN flood** attack sends many SYNs without completing the handshake, exhausting the server's half-open connection table — mitigated by SYN cookies."}
+      ],
+      "mcqs": [
+        {"q": "The TCP three-way handshake sequence is:", "options": ["ACK, SYN, FIN", "SYN, SYN-ACK, ACK", "SYN, ACK, SYN", "FIN, ACK, FIN"], "answer": 1, "explain": "Client SYN → server SYN-ACK → client ACK establishes the connection."},
+        {"q": "Why does connection setup need three messages, not two?", "options": ["For encryption", "Both sides must send and acknowledge a SYN to sync sequence numbers", "To fragment data", "For routing"], "answer": 1, "explain": "Each direction's initial sequence number must be sent and acknowledged; the SYN-ACK combines two of these."},
+        {"q": "A SYN flood attack works by:", "options": ["Completing many handshakes", "Sending many SYNs without the final ACK, exhausting half-open connection state", "Sending FIN packets", "Overloading DNS"], "answer": 1, "explain": "Half-open connections pile up in the server's table; SYN cookies defend against this."}
+      ]
+    },
+    "u:core-cn-40-four-way-teardown-and-time-wait": {
+      "title": "Four-way teardown and TIME_WAIT",
+      "summary": "Closing a TCP connection independently in each direction, then waiting to be safe.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Closing TCP takes **four** steps because each direction is closed independently (a connection is full-duplex)."},
+        {"t": "steps", "items": [
+          "**FIN** — side A finishes sending, sends FIN.",
+          "**ACK** — side B acknowledges A's FIN (B may still send data).",
+          "**FIN** — when B finishes, it sends its own FIN.",
+          "**ACK** — A acknowledges B's FIN. A then enters **TIME_WAIT**."
+        ]},
+        {"t": "callout", "style": "key", "text": "Four steps (not three) because each side sends and acknowledges a FIN separately. The initiator then waits in **TIME_WAIT** (typically 2×MSL) to ensure the final ACK arrived and stray old segments have died before the port is reused."},
+        {"t": "callout", "style": "tip", "text": "TIME_WAIT guards against a delayed duplicate segment from this connection being misread by a new connection reusing the same port pair."}
+      ],
+      "mcqs": [
+        {"q": "TCP connection teardown takes four steps because:", "options": ["It is encrypted", "Each direction of the full-duplex connection is closed independently (FIN + ACK each way)", "Of routing", "There are four routers"], "answer": 1, "explain": "Both sides must send and acknowledge their own FIN, giving four messages."},
+        {"q": "The TIME_WAIT state exists to:", "options": ["Speed up closing", "Ensure the final ACK is received and old duplicate segments expire before port reuse", "Encrypt the connection", "Fragment data"], "answer": 1, "explain": "Waiting ~2×MSL lets stray segments die and confirms the last ACK, avoiding confusion with a reused port."},
+        {"q": "Which side typically enters TIME_WAIT?", "options": ["The one that receives the first FIN", "The one that initiated the close (sent the first FIN)", "Neither", "Both always"], "answer": 1, "explain": "The active closer waits in TIME_WAIT after acknowledging the peer's FIN."}
+      ]
+    },
+    "u:core-cn-41-tcp-flow-control-and-receive-window": {
+      "title": "TCP flow control and receive window",
+      "summary": "Stop a fast sender from overwhelming a slow receiver, using the advertised window.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Flow control** prevents a fast sender from overrunning a slow receiver's buffer. TCP does this with the **receive window (rwnd)**: the receiver advertises how much free buffer space it has in every ACK, and the sender never sends more unacknowledged data than that."},
+        {"t": "points", "items": [
+          "It's a **sliding window** driven by the receiver's advertised window.",
+          "If the receiver's buffer fills, it advertises **window = 0**, pausing the sender.",
+          "Flow control is about the **receiver's** capacity — distinct from **congestion control**, which is about the **network's** capacity."
+        ]},
+        {"t": "callout", "style": "key", "text": "Flow control (rwnd, receiver-driven) protects the receiver; congestion control (cwnd, network-driven) protects the network. The sender's actual window = min(rwnd, cwnd). Confusing the two is a classic mistake."}
+      ],
+      "mcqs": [
+        {"q": "TCP flow control protects against overwhelming:", "options": ["The network", "The receiver's buffer", "The router", "The sender"], "answer": 1, "explain": "Flow control matches the sender's rate to the receiver's available buffer via the advertised window."},
+        {"q": "How does a receiver tell the sender to pause?", "options": ["Send a RST", "Advertise a receive window of 0", "Close the connection", "Increase the MSS"], "answer": 1, "explain": "A zero-window advertisement tells the sender to stop until buffer space frees up."},
+        {"q": "The sender's effective window is:", "options": ["Just rwnd", "min(receive window rwnd, congestion window cwnd)", "Just cwnd", "Unlimited"], "answer": 1, "explain": "The sender is limited by both the receiver (flow control) and the network (congestion control)."}
+      ]
+    },
+    "u:core-cn-42-congestion-control-slow-start-aimd-fast-retransmit-fast-reco": {
+      "title": "Congestion control: slow start, AIMD, fast retransmit/recovery",
+      "summary": "How TCP probes for and reacts to network congestion via the congestion window.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Congestion control** keeps the sender from overwhelming the **network** (not just the receiver). TCP manages a **congestion window (cwnd)** that grows and shrinks based on perceived congestion (signalled by packet loss)."},
+        {"t": "h", "text": "The phases"},
+        {"t": "points", "items": [
+          "**Slow start** — cwnd starts small and **doubles each RTT** (exponential growth) until it hits a threshold (ssthresh).",
+          "**Congestion avoidance (AIMD)** — past the threshold, cwnd grows **linearly** (additive increase); on loss it **halves** (multiplicative decrease). This 'sawtooth' probes capacity gently.",
+          "**Fast retransmit** — 3 duplicate ACKs signal a lost segment; retransmit it immediately without waiting for a timeout.",
+          "**Fast recovery** — after fast retransmit, halve cwnd and continue in avoidance (rather than dropping to slow start)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The signature is **AIMD**: additive increase (probe up slowly), multiplicative decrease (back off hard on loss) — producing TCP's sawtooth and fairly sharing bandwidth. Slow start ramps up fast initially; fast retransmit/recovery react to isolated losses without a full timeout collapse."}
+      ],
+      "mcqs": [
+        {"q": "During TCP slow start, the congestion window:", "options": ["Grows linearly", "Doubles roughly every RTT (exponential growth)", "Stays constant", "Halves each RTT"], "answer": 1, "explain": "Slow start increases cwnd exponentially until it reaches ssthresh."},
+        {"q": "AIMD stands for the behaviour:", "options": ["Additive Increase, Multiplicative Decrease", "Average Increase, Minimum Delay", "Automatic Init, Manual Decrease", "All Increase, More Data"], "answer": 0, "explain": "Congestion avoidance grows cwnd additively and cuts it multiplicatively (halves) on loss."},
+        {"q": "Fast retransmit is triggered by:", "options": ["A single ACK", "Three duplicate ACKs (indicating a lost segment)", "A timeout only", "A window of zero"], "answer": 1, "explain": "Three dup ACKs let TCP resend the missing segment immediately, before the retransmission timer expires."}
+      ]
+    },
+    "u:core-cn-43-udp-header-and-use-cases": {
+      "title": "UDP header and use cases",
+      "summary": "A minimal, connectionless transport — fast and lightweight, but unreliable.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**UDP (User Datagram Protocol)** is a **connectionless**, best-effort transport with a tiny 8-byte header: source port, destination port, length, and checksum. No handshakes, no ordering, no retransmission."},
+        {"t": "points", "items": [
+          "**Fast and low-overhead** — no connection setup or state.",
+          "**Unreliable** — no delivery/order guarantees; the application handles any needed reliability.",
+          "Use cases: **DNS**, **VoIP/video**, **online gaming**, **streaming**, DHCP — where speed and low latency beat guaranteed delivery."
+        ]},
+        {"t": "callout", "style": "key", "text": "UDP trades TCP's reliability for speed and simplicity. It suits real-time and simple request/response traffic where retransmitting a late packet is useless (a late video frame is worse than a dropped one)."}
+      ],
+      "mcqs": [
+        {"q": "The UDP header size is:", "options": ["20 bytes", "8 bytes", "40 bytes", "4 bytes"], "answer": 1, "explain": "UDP's header is just 8 bytes (ports, length, checksum), vs TCP's 20+."},
+        {"q": "UDP is preferred over TCP for:", "options": ["File transfer", "Real-time media (VoIP, gaming, streaming) and DNS", "Email", "Web pages needing reliability"], "answer": 1, "explain": "Low-latency, loss-tolerant applications favour UDP's speed over TCP's guarantees."},
+        {"q": "UDP does NOT provide:", "options": ["Ports", "A checksum", "Reliable, ordered delivery", "A length field"], "answer": 2, "explain": "UDP is connectionless and best-effort; reliability/ordering are left to the application."}
+      ]
+    },
+    "u:core-cn-44-tcp-vs-udp-when-to-pick-which": {
+      "title": "TCP vs UDP: when to pick which",
+      "summary": "Reliability and order vs speed and low overhead — match the protocol to the need.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The decision comes down to whether the application needs guaranteed, ordered delivery or minimal latency."},
+        {"t": "table", "headers": ["", "TCP", "UDP"], "rows": [
+          ["Connection", "Connection-oriented (handshake)", "Connectionless"],
+          ["Reliability", "Guaranteed, ordered, retransmits", "Best-effort, no guarantees"],
+          ["Overhead/latency", "Higher (state, ACKs, 20B header)", "Lower (8B header, no state)"],
+          ["Flow/congestion control", "Yes", "No"],
+          ["Use", "Web, email, file transfer, APIs", "DNS, VoIP, gaming, streaming"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Pick TCP when every byte must arrive correctly and in order (web, files, transactions). Pick UDP when speed/latency matters more than perfect delivery, or you'll handle reliability yourself (real-time media, DNS). QUIC (HTTP/3) interestingly builds reliability on top of UDP."}
+      ],
+      "mcqs": [
+        {"q": "You are building a file-transfer feature where every byte must arrive intact. Use:", "options": ["UDP", "TCP", "ICMP", "ARP"], "answer": 1, "explain": "File transfer needs reliable, ordered delivery — TCP's guarantees."},
+        {"q": "A live multiplayer game favours UDP because:", "options": ["It guarantees order", "Low latency matters more than retransmitting stale data", "It encrypts by default", "It uses less code always"], "answer": 1, "explain": "For real-time games, an old retransmitted update is useless; UDP's speed wins."},
+        {"q": "HTTP/3 (QUIC) is notable because it:", "options": ["Uses raw TCP", "Builds reliability and multiplexing on top of UDP", "Avoids the transport layer", "Is connectionless with no reliability"], "answer": 1, "explain": "QUIC runs over UDP but adds its own reliability, ordering, and multiplexing to avoid TCP's limitations."}
+      ]
+    },
+    "u:core-cn-45-ports-and-sockets": {
+      "title": "Ports and sockets",
+      "summary": "Ports identify applications; a socket is the full endpoint that identifies a connection.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **port** is a 16-bit number identifying a specific application/service on a host (so one IP can run many services). A **socket** is the combination **(IP address + port)** — a communication endpoint."},
+        {"t": "points", "items": [
+          "**Well-known ports** (0-1023): HTTP 80, HTTPS 443, DNS 53, SSH 22, FTP 21.",
+          "A full TCP connection is identified by a **4-tuple**: (source IP, source port, dest IP, dest port).",
+          "The 4-tuple is why one server port (e.g. 443) can serve thousands of clients — each connection differs in the client's IP/port."
+        ]},
+        {"t": "callout", "style": "key", "text": "Port = which application; socket = (IP, port) endpoint; connection = the 4-tuple of both endpoints. The 4-tuple uniqueness is how a single listening port handles many simultaneous clients."}
+      ],
+      "mcqs": [
+        {"q": "A TCP connection is uniquely identified by:", "options": ["The destination port only", "The 4-tuple (source IP, source port, dest IP, dest port)", "The MAC address", "The IP address only"], "answer": 1, "explain": "The pair of (IP, port) endpoints — a 4-tuple — uniquely identifies each connection."},
+        {"q": "HTTPS uses which well-known port?", "options": ["80", "443", "22", "53"], "answer": 1, "explain": "HTTPS is port 443; HTTP is 80, SSH 22, DNS 53."},
+        {"q": "A socket is:", "options": ["Just a port number", "The combination of an IP address and a port", "A MAC address", "A routing table entry"], "answer": 1, "explain": "A socket is an endpoint defined by (IP, port)."}
+      ]
+    },
+    "u:core-cn-46-head-of-line-blocking": {
+      "title": "Head-of-line blocking",
+      "summary": "One stuck item at the front of a queue delays everything behind it — TCP's ordering cost.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Head-of-line (HOL) blocking** occurs when the first item in a queue is stuck, blocking all items behind it — even if they're ready to be processed."},
+        {"t": "points", "items": [
+          "**In TCP**: because TCP guarantees in-order delivery, a single lost segment holds up delivery of all later (already-received) segments until it's retransmitted.",
+          "**In HTTP/2**: multiple streams share one TCP connection, so a lost packet blocks ALL streams (TCP-level HOL blocking).",
+          "**HTTP/3 (QUIC over UDP)** fixes this: independent streams so a loss in one doesn't block the others."
+        ]},
+        {"t": "callout", "style": "key", "text": "HOL blocking is the price of strict ordering: one lost/slow item stalls everything behind it. HTTP/2 solved application-level HOL blocking but reintroduced it at the TCP layer; QUIC (HTTP/3) eliminates it with per-stream independence over UDP."}
+      ],
+      "mcqs": [
+        {"q": "In TCP, head-of-line blocking happens because:", "options": ["Packets are unordered", "In-order delivery means a lost segment delays all later received segments", "There is no retransmission", "UDP is used"], "answer": 1, "explain": "TCP won't deliver later data until the missing earlier segment arrives, stalling the queue."},
+        {"q": "HTTP/2 still suffers TCP-level HOL blocking because:", "options": ["It uses UDP", "All its streams share a single TCP connection, so one lost packet blocks every stream", "It has one stream", "It disables ordering"], "answer": 1, "explain": "Multiplexed streams over one TCP connection are all held up by a single TCP-level loss."},
+        {"q": "HTTP/3 (QUIC) reduces head-of-line blocking by:", "options": ["Using more TCP connections", "Providing independent streams over UDP so a loss in one doesn't block others", "Removing streams", "Ordering everything strictly"], "answer": 1, "explain": "QUIC's per-stream loss handling over UDP means one stream's loss doesn't stall the rest."}
+      ]
+    },
+    "u:core-cn-17-aloha-slotted-aloha": {
+      "title": "ALOHA, slotted ALOHA",
+      "summary": "The first random-access protocols — transmit and hope, then double throughput with time slots.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**ALOHA** is a random-access MAC protocol: a station transmits whenever it has data; if a **collision** occurs (two overlap), both back off a random time and retry."},
+        {"t": "table", "headers": ["", "Pure ALOHA", "Slotted ALOHA"], "rows": [
+          ["When you send", "Anytime", "Only at the start of a time slot"],
+          ["Vulnerable period", "2 frame times", "1 frame time"],
+          ["Max efficiency", "~18.4% (1/2e)", "~36.8% (1/e)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Slotting time halves the collision window (a frame can only collide within its own slot, not the slot before too), doubling maximum throughput from ~18% to ~37%. Still low — carrier sensing (CSMA) does much better."}
+      ],
+      "mcqs": [
+        {"q": "Slotted ALOHA doubles pure ALOHA's throughput because it:", "options": ["Uses carrier sensing", "Halves the vulnerable (collision) period by forcing sends to slot boundaries", "Prevents all collisions", "Adds acknowledgements"], "answer": 1, "explain": "Aligning transmissions to slots shrinks the collision window from 2 frame times to 1."},
+        {"q": "The maximum efficiency of pure ALOHA is approximately:", "options": ["36.8%", "18.4%", "50%", "100%"], "answer": 1, "explain": "Pure ALOHA peaks near 1/(2e) ≈ 18.4%; slotted ALOHA reaches 1/e ≈ 36.8%."},
+        {"q": "On a collision in ALOHA, stations:", "options": ["Give up permanently", "Wait a random time and retransmit", "Send twice as fast", "Switch to a wired link"], "answer": 1, "explain": "Random backoff before retry reduces the chance of repeated collision."}
+      ]
+    },
+    "u:core-cn-18-csma-csma-cd-csma-ca": {
+      "title": "CSMA, CSMA/CD, CSMA/CA",
+      "summary": "Listen before sending, and either detect collisions (wired) or avoid them (wireless).",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**CSMA (Carrier Sense Multiple Access)** improves on ALOHA: a station **listens** before transmitting (senses the carrier) to avoid interrupting an ongoing transmission."},
+        {"t": "table", "headers": ["Protocol", "Idea", "Used in"], "rows": [
+          ["CSMA/CD (Collision Detection)", "Sense; if a collision happens while sending, stop and back off", "Classic wired Ethernet"],
+          ["CSMA/CA (Collision Avoidance)", "Sense; avoid collisions via random backoff + RTS/CTS handshakes", "Wi-Fi (802.11)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "CSMA/CD detects collisions by listening while sending — impossible in wireless (a station can't hear others over its own transmission, the hidden-terminal problem). So Wi-Fi uses CSMA/CA: avoid collisions upfront with backoff and RTS/CTS."},
+        {"t": "callout", "style": "tip", "text": "Modern switched full-duplex Ethernet has no collisions at all, so CSMA/CD is legacy; CSMA/CA is still central to shared Wi-Fi."}
+      ],
+      "mcqs": [
+        {"q": "Wi-Fi uses CSMA/CA instead of CSMA/CD because wireless stations:", "options": ["Are always idle", "Cannot reliably detect collisions while transmitting (hidden terminals)", "Have no collisions", "Use fibre"], "answer": 1, "explain": "A wireless node can't hear others over its own signal, so it avoids (CA) rather than detects (CD) collisions."},
+        {"q": "The 'CD' in CSMA/CD stands for:", "options": ["Collision Deferral", "Collision Detection", "Carrier Delay", "Channel Division"], "answer": 1, "explain": "CSMA/CD detects a collision during transmission and aborts, then backs off."},
+        {"q": "The core idea common to all CSMA protocols is to:", "options": ["Transmit blindly", "Listen (sense the carrier) before transmitting", "Use fixed time slots", "Encrypt frames"], "answer": 1, "explain": "Carrier sensing means checking the medium is idle before sending, reducing collisions vs ALOHA."}
+      ]
+    },
+    "u:core-cn-19-ethernet-frame-format": {
+      "title": "Ethernet frame format",
+      "summary": "The fields of an Ethernet frame: addresses, type, payload, and the CRC check.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "An **Ethernet (802.3) frame** carries a payload between MAC addresses on a LAN."},
+        {"t": "table", "headers": ["Field", "Purpose"], "rows": [
+          ["Preamble + SFD", "Sync the receiver's clock; mark frame start"],
+          ["Destination MAC (6 bytes)", "Who the frame is for"],
+          ["Source MAC (6 bytes)", "Who sent it"],
+          ["Type/Length (2 bytes)", "Upper protocol (e.g. 0x0800 = IPv4) or length"],
+          ["Payload (46-1500 bytes)", "The data (min 46 for collision detection)"],
+          ["FCS (4 bytes)", "CRC error check"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Key numbers: MAC addresses are 48 bits (6 bytes); the payload (MTU) is 46-1500 bytes; the FCS is a 32-bit CRC. The 46-byte minimum ensures a frame is long enough for CSMA/CD collision detection."}
+      ],
+      "mcqs": [
+        {"q": "The standard maximum Ethernet payload (MTU) is:", "options": ["46 bytes", "1500 bytes", "65535 bytes", "9000 bytes"], "answer": 1, "explain": "Standard Ethernet MTU is 1500 bytes (jumbo frames are larger but non-standard)."},
+        {"q": "The FCS field in an Ethernet frame provides:", "options": ["Encryption", "A CRC for error detection", "Routing", "Flow control"], "answer": 1, "explain": "The Frame Check Sequence is a 32-bit CRC used to detect corruption."},
+        {"q": "An Ethernet MAC address is how many bytes?", "options": ["4", "6", "8", "16"], "answer": 1, "explain": "MAC addresses are 48 bits = 6 bytes."}
+      ]
+    },
+    "u:core-cn-20-hub-vs-switch-vs-bridge-vs-router": {
+      "title": "Hub vs switch vs bridge vs router",
+      "summary": "Networking devices classified by the OSI layer they operate at.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "These devices differ by which OSI layer they work at and how intelligently they forward."},
+        {"t": "table", "headers": ["Device", "Layer", "Forwarding"], "rows": [
+          ["Hub", "Physical (1)", "Dumb — repeats bits to ALL ports (one collision domain)"],
+          ["Switch", "Data Link (2)", "Learns MACs; forwards only to the right port (per-port collision domains)"],
+          ["Bridge", "Data Link (2)", "Connects two LAN segments (a 2-port switch, essentially)"],
+          ["Router", "Network (3)", "Forwards between networks using IP addresses + routing table"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The hierarchy: hub (L1, repeats everything, shared collision domain) → switch (L2, learns MACs, isolates collisions) → router (L3, connects different IP networks and separates broadcast domains). A switch separates collision domains; a router separates broadcast domains."}
+      ],
+      "mcqs": [
+        {"q": "A switch operates at which OSI layer?", "options": ["Physical (1)", "Data Link (2)", "Network (3)", "Transport (4)"], "answer": 1, "explain": "Switches forward frames using MAC addresses at the data link layer."},
+        {"q": "Unlike a switch, a hub:", "options": ["Learns MAC addresses", "Repeats incoming bits to all ports (one shared collision domain)", "Routes by IP", "Separates broadcast domains"], "answer": 1, "explain": "A hub is a dumb L1 repeater with a single collision domain; a switch forwards intelligently per port."},
+        {"q": "A router differs from a switch by forwarding based on:", "options": ["MAC addresses", "IP addresses, connecting different networks", "Port numbers", "Nothing"], "answer": 1, "explain": "Routers work at L3, using IP addresses and a routing table to move packets between networks."}
+      ]
+    },
+    "u:core-cn-21-vlans": {
+      "title": "VLANs",
+      "summary": "Logically segment one physical switch into isolated broadcast domains.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **VLAN (Virtual LAN)** logically divides a physical switch's ports into separate **broadcast domains**, so devices behave as if on different LANs even on the same hardware."},
+        {"t": "points", "items": [
+          "Improves **security** (isolate departments), reduces **broadcast traffic**, and adds flexibility (group by function, not location).",
+          "Traffic between VLANs must go through a **router** (or L3 switch) — 'inter-VLAN routing'.",
+          "**802.1Q** tagging adds a VLAN ID to frames on trunk links carrying multiple VLANs."
+        ]},
+        {"t": "callout", "style": "key", "text": "A VLAN = a broadcast domain defined in software. It isolates groups on shared hardware, containing broadcasts and improving security. Because each VLAN is a separate L2 network, moving between them needs L3 routing."}
+      ],
+      "mcqs": [
+        {"q": "A VLAN creates separate:", "options": ["Collision domains only", "Broadcast domains on a shared physical switch", "IP addresses", "Cables"], "answer": 1, "explain": "VLANs logically partition a switch into isolated broadcast domains."},
+        {"q": "Communication between two different VLANs requires:", "options": ["Nothing extra", "A router or Layer-3 switch (inter-VLAN routing)", "A hub", "A longer cable"], "answer": 1, "explain": "VLANs are separate L2 networks, so a L3 device must route traffic between them."},
+        {"q": "The 802.1Q standard is used to:", "options": ["Encrypt frames", "Tag frames with a VLAN ID on trunk links", "Assign IP addresses", "Detect collisions"], "answer": 1, "explain": "802.1Q inserts a VLAN tag so a trunk can carry multiple VLANs' traffic distinctly."}
+      ]
+    },
+    "u:core-cn-22-mac-addressing": {
+      "title": "MAC addressing",
+      "summary": "The 48-bit hardware address burned into a NIC, used for local delivery.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **MAC address** is a 48-bit (6-byte) hardware identifier assigned to a network interface card (NIC), used for **local (same-network) delivery** at the data link layer."},
+        {"t": "points", "items": [
+          "Written as 6 hex bytes (e.g. 00:1A:2B:3C:4D:5E). The first 3 bytes are the **OUI** (manufacturer); the last 3 are device-specific.",
+          "Globally unique and (traditionally) permanent — 'burned in' — though it can be spoofed.",
+          "Used within a LAN; routers use IP (L3) to move between networks, rewriting the MAC at each hop."
+        ]},
+        {"t": "callout", "style": "key", "text": "MAC (L2) = local hardware address for same-network delivery; IP (L3) = logical address for end-to-end routing. Across a route, the source/destination IP stays the same while the MAC changes at every hop."}
+      ],
+      "mcqs": [
+        {"q": "A MAC address is:", "options": ["A 32-bit logical address", "A 48-bit hardware address on the NIC", "A port number", "A domain name"], "answer": 1, "explain": "MAC addresses are 48-bit physical addresses used for local delivery at L2."},
+        {"q": "As a packet is routed across networks, the MAC address:", "options": ["Stays the same end to end", "Changes at each hop (while the IP stays the same)", "Is removed", "Equals the IP"], "answer": 1, "explain": "L2 MAC addresses are rewritten hop-by-hop; the L3 IP addresses remain constant end to end."},
+        {"q": "The first three bytes of a MAC address identify the:", "options": ["Device serial only", "Manufacturer (OUI)", "IP network", "Port"], "answer": 1, "explain": "The Organizationally Unique Identifier (OUI) denotes the NIC's manufacturer."}
+      ]
+    },
+    "u:core-cn-23-ipv4-addressing-and-classes": {
+      "title": "IPv4 addressing and classes",
+      "summary": "32-bit addresses split into network and host, historically grouped into classes A-E.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "An **IPv4 address** is 32 bits, written as four dotted decimal octets (e.g. 192.168.1.10). It splits into a **network** part and a **host** part."},
+        {"t": "table", "headers": ["Class", "First octet range", "Default mask", "Use"], "rows": [
+          ["A", "1-126", "/8", "Very large networks"],
+          ["B", "128-191", "/16", "Medium networks"],
+          ["C", "192-223", "/24", "Small networks"],
+          ["D", "224-239", "-", "Multicast"],
+          ["E", "240-255", "-", "Experimental"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Classful addressing was wasteful (a class B gave 65k hosts even if you needed 300), which is why CIDR replaced it. Know the private ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, and loopback 127.0.0.0/8."},
+        {"t": "callout", "style": "tip", "text": "127.x is loopback; 169.254.x.x is APIPA (link-local, when DHCP fails); the private ranges are not routed on the public internet (they need NAT)."}
+      ],
+      "mcqs": [
+        {"q": "An IPv4 address is how many bits?", "options": ["16", "32", "48", "128"], "answer": 1, "explain": "IPv4 addresses are 32 bits (four octets); IPv6 is 128 bits."},
+        {"q": "Which is a private IPv4 range?", "options": ["8.8.8.0/24", "192.168.0.0/16", "1.1.1.0/24", "224.0.0.0/4"], "answer": 1, "explain": "192.168.0.0/16 (with 10.0.0.0/8 and 172.16.0.0/12) is private and needs NAT to reach the internet."},
+        {"q": "Classful addressing was largely replaced by CIDR because it:", "options": ["Was too complex", "Wasted address space with rigid, oversized blocks", "Had no classes", "Used 128-bit addresses"], "answer": 1, "explain": "Fixed class sizes allocated far more addresses than needed; CIDR allows flexible prefix lengths."}
+      ]
+    },
+    "u:core-cn-24-subnetting-and-cidr-drill-numericals": {
+      "title": "Subnetting and CIDR (drill numericals)",
+      "summary": "Split a network into subnets with a variable-length prefix — the core numerical skill.",
+      "minutes": 6,
+      "blocks": [
+        {"t": "p", "text": "**CIDR** notation (e.g. 192.168.1.0/24) gives the number of **network bits** (the prefix). The rest are **host bits**. **Subnetting** borrows host bits to create multiple smaller networks."},
+        {"t": "h", "text": "The formulas"},
+        {"t": "points", "items": [
+          "Host bits = 32 − prefix. **Total addresses = 2^(host bits)**.",
+          "**Usable hosts = 2^(host bits) − 2** (subtract network address + broadcast).",
+          "Block size (increment) = 256 − (mask octet value). Subnets step by this in the interesting octet."
+        ]},
+        {"t": "h", "text": "Worked example"},
+        {"t": "p", "text": "For **/26** (255.255.255.192): host bits = 6 → 64 addresses per subnet, **62 usable**. Block size = 256 − 192 = 64, so subnets are .0, .64, .128, .192. In .0's subnet: network = .0, broadcast = .63, hosts .1-.62."},
+        {"t": "callout", "style": "key", "text": "The two formulas to burn in: usable hosts = 2^(32−prefix) − 2, and block size = 256 − mask-octet. From those you can find any subnet's network address, broadcast, and host range."}
+      ],
+      "mcqs": [
+        {"q": "How many usable host addresses are in a /26 subnet?", "options": ["64", "62", "30", "126"], "answer": 1, "explain": "Host bits = 32 - 26 = 6, so 2^6 - 2 = 62 usable hosts (minus network and broadcast)."},
+        {"q": "For a /28 network, the block size (increment) in the last octet is:", "options": ["8", "16", "32", "64"], "answer": 1, "explain": "/28 mask is 255.255.255.240; block size = 256 - 240 = 16."},
+        {"q": "The two addresses subtracted to get usable hosts are the:", "options": ["Gateway and DNS", "Network address and broadcast address", "First and last host", "Two DHCP addresses"], "answer": 1, "explain": "The all-zeros host (network) and all-ones host (broadcast) aren't assignable to devices."}
+      ]
+    },
+    "u:core-cn-25-supernetting": {
+      "title": "Supernetting",
+      "summary": "The reverse of subnetting — aggregate contiguous networks into one shorter prefix.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Supernetting (route aggregation)** combines several contiguous smaller networks into a single larger block with a **shorter prefix**, reducing the number of routing-table entries."},
+        {"t": "points", "items": [
+          "Example: 192.168.0.0/24 + 192.168.1.0/24 + .2.0/24 + .3.0/24 → **192.168.0.0/22** (one route covering all four).",
+          "The networks must be **contiguous** and align to a power-of-two boundary.",
+          "Used by ISPs / BGP to shrink global routing tables (CIDR aggregation)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Supernetting shortens the prefix to cover multiple networks with one route — the opposite of subnetting (which lengthens the prefix). It's how the internet keeps routing tables manageable through aggregation."}
+      ],
+      "mcqs": [
+        {"q": "Supernetting is used primarily to:", "options": ["Split a network into subnets", "Aggregate contiguous networks into one route, shrinking routing tables", "Assign IP addresses", "Encrypt traffic"], "answer": 1, "explain": "It combines adjacent blocks under a shorter prefix, reducing routing-table entries."},
+        {"q": "Aggregating four contiguous /24 networks yields a:", "options": ["/26", "/25", "/22", "/28"], "answer": 2, "explain": "Four /24s combine into a /22 (borrowing 2 bits: 2^2 = 4 networks)."},
+        {"q": "For networks to be supernetted, they must be:", "options": ["Randomly chosen", "Contiguous and aligned to a power-of-two boundary", "On different ISPs", "Private only"], "answer": 1, "explain": "Aggregation requires an adjacent, boundary-aligned range so one prefix covers exactly them."}
+      ]
+    },
+    "u:core-cn-26-ipv6-and-why": {
+      "title": "IPv6 and why",
+      "summary": "128-bit addresses to escape IPv4 exhaustion, plus simplification and built-in features.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**IPv6** uses **128-bit** addresses (vs IPv4's 32), written as eight groups of hex (e.g. 2001:0db8::1). It exists mainly because IPv4's ~4.3 billion addresses ran out."},
+        {"t": "points", "items": [
+          "**Vast address space** (2^128) — no practical exhaustion; every device can have a public address (less need for NAT).",
+          "**Simplified header** (fixed size), **no broadcast** (uses multicast/anycast), built-in **autoconfiguration (SLAAC)**.",
+          "**Shorthand**: leading zeros dropped; one run of all-zero groups replaced by `::` (once)."
+        ]},
+        {"t": "callout", "style": "key", "text": "IPv6's headline reason is address exhaustion (128 bits vs 32). It also simplifies the header, drops broadcast in favour of multicast, and supports stateless address autoconfiguration — reducing the need for NAT and DHCP."}
+      ],
+      "mcqs": [
+        {"q": "IPv6 addresses are how many bits?", "options": ["32", "64", "128", "256"], "answer": 2, "explain": "IPv6 uses 128-bit addresses, vastly larger than IPv4's 32 bits."},
+        {"q": "The primary motivation for IPv6 was:", "options": ["Faster routers", "IPv4 address exhaustion", "Encryption", "Smaller headers only"], "answer": 1, "explain": "The ~4.3 billion IPv4 addresses were insufficient; IPv6's huge space solves this."},
+        {"q": "IPv6 replaces broadcast with:", "options": ["Unicast only", "Multicast and anycast", "NAT", "ARP"], "answer": 1, "explain": "IPv6 has no broadcast; it uses multicast (and anycast) instead."}
+      ]
+    },
+    "u:core-cn-27-nat-and-pat": {
+      "title": "NAT and PAT",
+      "summary": "Let many private hosts share one public IP by rewriting addresses (and ports).",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**NAT (Network Address Translation)** lets devices with **private** IPs share a public IP by rewriting address fields as packets cross the router. It was key to slowing IPv4 exhaustion."},
+        {"t": "points", "items": [
+          "**Static NAT** — one private ↔ one public (1:1).",
+          "**PAT (Port Address Translation / NAT overload)** — **many** private hosts share **one** public IP, distinguished by **port number**. This is what home routers do.",
+          "The router keeps a **translation table** mapping (private IP:port) ↔ (public IP:port)."
+        ]},
+        {"t": "callout", "style": "key", "text": "PAT (NAT overload) is the everyday case: your whole home shares one public IP, and the router uses source ports to tell connections apart. NAT also adds a side benefit — internal hosts aren't directly reachable from outside."},
+        {"t": "callout", "style": "warn", "text": "NAT breaks true end-to-end connectivity and complicates peer-to-peer/incoming connections (needs port forwarding or hole punching)."}
+      ],
+      "mcqs": [
+        {"q": "PAT (NAT overload) lets many private hosts share one public IP by distinguishing connections using:", "options": ["MAC addresses", "Port numbers", "VLAN IDs", "TTL values"], "answer": 1, "explain": "PAT maps each connection to a unique source port on the shared public IP."},
+        {"q": "A primary reason NAT became widespread was to:", "options": ["Speed up routing", "Conserve scarce public IPv4 addresses", "Replace DNS", "Encrypt traffic"], "answer": 1, "explain": "NAT lets many devices share one public IP, easing IPv4 exhaustion."},
+        {"q": "A drawback of NAT is that it:", "options": ["Improves end-to-end connectivity", "Breaks direct end-to-end reachability, complicating incoming/P2P connections", "Requires IPv6", "Removes ports"], "answer": 1, "explain": "Internal hosts aren't directly addressable from outside, so incoming/P2P connections need workarounds."}
+      ]
+    },
+    "u:core-cn-28-ip-fragmentation": {
+      "title": "IP fragmentation",
+      "summary": "Split a packet too big for a link's MTU into fragments, reassembled at the destination.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "When an IP packet is larger than a link's **MTU (Maximum Transmission Unit)**, IPv4 routers **fragment** it into smaller pieces that are **reassembled at the final destination**."},
+        {"t": "points", "items": [
+          "Uses header fields: **Identification** (same for all fragments of a packet), **Fragment Offset** (position of this fragment), and the **More Fragments (MF)** flag.",
+          "**Don't Fragment (DF)** flag: if set and the packet is too big, the router drops it and sends ICMP 'fragmentation needed' — the basis of **Path MTU Discovery**.",
+          "In **IPv6**, routers do NOT fragment — only the source can, via Path MTU Discovery."
+        ]},
+        {"t": "callout", "style": "key", "text": "Fragmentation is inefficient (loss of one fragment means retransmitting the whole packet) and reassembly happens only at the destination. IPv6 pushes fragmentation to the source (routers won't do it), encouraging Path MTU Discovery instead."}
+      ],
+      "mcqs": [
+        {"q": "IPv4 fragments are reassembled at:", "options": ["Each router", "The final destination host", "The source", "The switch"], "answer": 1, "explain": "Only the destination reassembles fragments; intermediate routers may fragment but don't reassemble."},
+        {"q": "Fragmentation is triggered when a packet exceeds a link's:", "options": ["TTL", "MTU (Maximum Transmission Unit)", "Window size", "Port range"], "answer": 1, "explain": "A packet larger than the outgoing link's MTU must be fragmented (or dropped if DF is set)."},
+        {"q": "In IPv6, packet fragmentation is performed by:", "options": ["Every router", "Only the source host (routers don't fragment)", "The destination", "Switches"], "answer": 1, "explain": "IPv6 routers never fragment; the sending host handles it via Path MTU Discovery."}
+      ]
+    },
+    "u:core-cn-29-arp-and-rarp": {
+      "title": "ARP and RARP",
+      "summary": "Resolve an IP to a MAC (ARP) — the glue between the network and data-link layers.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**ARP (Address Resolution Protocol)** finds the **MAC address** for a known **IP address** on the local network — needed because L2 delivery uses MAC, but you address hosts by IP."},
+        {"t": "steps", "items": [
+          "Host wants to send to IP X on its LAN but doesn't know X's MAC.",
+          "It **broadcasts** an ARP request: 'who has IP X?'",
+          "The owner of X replies (unicast) with its MAC.",
+          "The mapping is cached in the **ARP table** (with a timeout) to avoid repeating."
+        ]},
+        {"t": "callout", "style": "key", "text": "ARP maps IP → MAC within a LAN (the reverse of what you'd guess). **RARP** did the opposite (MAC → IP) for diskless machines, now obsolete — replaced by DHCP/BOOTP."},
+        {"t": "callout", "style": "warn", "text": "ARP has no authentication, enabling **ARP spoofing/poisoning** (an attacker claims another host's IP) for man-in-the-middle attacks."}
+      ],
+      "mcqs": [
+        {"q": "ARP resolves:", "options": ["A MAC address to an IP", "An IP address to a MAC address on the local network", "A domain name to an IP", "A port to a process"], "answer": 1, "explain": "ARP finds the hardware (MAC) address for a known IP so L2 delivery can happen."},
+        {"q": "An ARP request is sent as a:", "options": ["Unicast", "Broadcast to the LAN", "Multicast to the internet", "TCP connection"], "answer": 1, "explain": "The requester broadcasts 'who has IP X?'; the owner replies by unicast."},
+        {"q": "ARP's lack of authentication enables which attack?", "options": ["SQL injection", "ARP spoofing/poisoning (MITM)", "DNS tunnelling", "Buffer overflow"], "answer": 1, "explain": "Since any host can reply, an attacker can forge ARP replies to intercept traffic."}
+      ]
+    },
+    "u:core-cn-30-icmp-and-how-ping-traceroute-work": {
+      "title": "ICMP and how ping/traceroute work",
+      "summary": "The network layer's messaging protocol for errors and diagnostics.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**ICMP (Internet Control Message Protocol)** carries error and diagnostic messages for IP (e.g. 'destination unreachable', 'time exceeded'). It runs at the network layer alongside IP."},
+        {"t": "points", "items": [
+          "**Ping** sends ICMP **Echo Request** messages and times the **Echo Reply** — measuring reachability and round-trip time.",
+          "**Traceroute** sends packets with increasing **TTL** (1, 2, 3…). Each router that decrements TTL to 0 returns an ICMP **Time Exceeded**, revealing the hop. This maps the path.",
+          "ICMP is also how Path MTU Discovery reports 'fragmentation needed'."
+        ]},
+        {"t": "callout", "style": "key", "text": "Traceroute's trick: TTL controls how far a packet gets before a router kills it and reports back via ICMP Time Exceeded — so increasing TTL reveals each hop in turn. Ping uses ICMP Echo for basic reachability + RTT."}
+      ],
+      "mcqs": [
+        {"q": "Ping measures reachability and round-trip time using ICMP:", "options": ["Time Exceeded", "Echo Request/Reply", "Destination Unreachable", "Redirect"], "answer": 1, "explain": "Ping sends Echo Requests and times the Echo Replies."},
+        {"q": "Traceroute discovers each hop by:", "options": ["Broadcasting", "Incrementing the TTL so successive routers return ICMP Time Exceeded", "Using DNS", "Sending TCP SYNs only"], "answer": 1, "explain": "Each router that hits TTL=0 replies with Time Exceeded, exposing its address hop by hop."},
+        {"q": "ICMP primarily carries:", "options": ["User data", "Error and diagnostic messages for IP", "Web pages", "Email"], "answer": 1, "explain": "ICMP is a control/diagnostic protocol, not a data-transport one."}
+      ]
+    },
+    "u:core-cn-31-dhcp": {
+      "title": "DHCP",
+      "summary": "Automatically assign IP configuration to hosts via the DORA handshake.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**DHCP (Dynamic Host Configuration Protocol)** automatically hands out IP addresses and network config (subnet mask, gateway, DNS) to hosts when they join a network — no manual setup."},
+        {"t": "h", "text": "The DORA handshake"},
+        {"t": "steps", "items": [
+          "**Discover** — the client broadcasts 'any DHCP servers?'",
+          "**Offer** — a server offers an available IP + config.",
+          "**Request** — the client requests that offered IP.",
+          "**Acknowledge** — the server confirms (ACK) and the lease begins."
+        ]},
+        {"t": "callout", "style": "key", "text": "Remember **DORA**: Discover, Offer, Request, Acknowledge. The address is leased for a limited time and renewed. If no DHCP server responds, a host may self-assign an APIPA (169.254.x.x) link-local address."},
+        {"t": "callout", "style": "tip", "text": "The client starts with no IP, so Discover and the initial exchange use broadcast; a DHCP relay forwards these across subnets to a central server."}
+      ],
+      "mcqs": [
+        {"q": "The four steps of DHCP are (in order):", "options": ["Request, Offer, Discover, Ack", "Discover, Offer, Request, Acknowledge (DORA)", "Offer, Ack, Request, Discover", "Discover, Request, Ack, Offer"], "answer": 1, "explain": "DHCP follows Discover → Offer → Request → Acknowledge (DORA)."},
+        {"q": "Besides an IP address, DHCP typically provides:", "options": ["Only the IP", "Subnet mask, default gateway, and DNS servers", "A MAC address", "A domain name"], "answer": 1, "explain": "DHCP delivers full network config: mask, gateway, DNS, lease time, etc."},
+        {"q": "If no DHCP server responds, a host may self-assign an address in the range:", "options": ["10.0.0.0/8", "169.254.0.0/16 (APIPA link-local)", "192.168.0.0/16", "127.0.0.0/8"], "answer": 1, "explain": "APIPA assigns a link-local 169.254.x.x address for local-only communication when DHCP fails."}
+      ]
+    },
+    "u:core-cn-0-lan-man-wan": {
+      "title": "LAN, MAN, WAN",
+      "summary": "Networks classified by geographic scale — from a room to a continent.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Networks are categorised by the **area** they cover."},
+        {"t": "table", "headers": ["Type", "Scale", "Example"], "rows": [
+          ["LAN (Local Area Network)", "A building/campus", "Office/home network, Ethernet, Wi-Fi"],
+          ["MAN (Metropolitan Area Network)", "A city", "Cable TV network, city-wide fibre"],
+          ["WAN (Wide Area Network)", "Country/global", "The Internet, corporate inter-office links"]
+        ]},
+        {"t": "callout", "style": "key", "text": "LANs are small, fast, and privately owned; WANs span large distances (often over leased lines / the public internet) with higher latency. A MAN sits in between at city scale. Scale drives the technology and latency."},
+        {"t": "callout", "style": "tip", "text": "Also know PAN (personal, e.g. Bluetooth) and the fact that the Internet is a WAN of interconnected networks (a 'network of networks')."}
+      ],
+      "mcqs": [
+        {"q": "A network spanning a single office building is a:", "options": ["WAN", "MAN", "LAN", "PAN"], "answer": 2, "explain": "A LAN covers a limited area like a building or campus and is typically privately owned."},
+        {"q": "The Internet is best classified as a:", "options": ["LAN", "WAN (network of networks)", "PAN", "MAN"], "answer": 1, "explain": "The Internet spans the globe, interconnecting many networks — a WAN."},
+        {"q": "Compared to a LAN, a WAN generally has:", "options": ["Lower latency", "Higher latency and covers larger distances", "Smaller scale", "No internet use"], "answer": 1, "explain": "Greater distances mean higher latency and reliance on leased/public links."}
+      ]
+    },
+    "u:core-cn-1-topologies": {
+      "title": "Topologies",
+      "summary": "How nodes are physically/logically arranged — bus, star, ring, mesh — and their trade-offs.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **topology** describes how devices are connected."},
+        {"t": "table", "headers": ["Topology", "Structure", "Trait"], "rows": [
+          ["Bus", "All nodes on one shared cable", "Cheap; one break kills all; collisions"],
+          ["Star", "All nodes to a central hub/switch", "Common today; hub failure kills all, node failure is isolated"],
+          ["Ring", "Each node to two neighbours in a loop", "Data circulates; one break can break the ring"],
+          ["Mesh", "Every node connected to many/all others", "Very reliable/redundant; expensive (n(n-1)/2 links for full mesh)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Star dominates modern LANs (switch in the middle): a single node's failure doesn't affect others, though the central switch is a single point of failure. Full mesh maximises reliability but its link count grows as n(n-1)/2 — costly."},
+        {"t": "callout", "style": "tip", "text": "A fully-connected mesh of n nodes needs n(n-1)/2 links — a classic numerical."}
+      ],
+      "mcqs": [
+        {"q": "In a star topology, the failure of one end node:", "options": ["Brings down the whole network", "Affects only that node (others keep working)", "Breaks the ring", "Causes collisions"], "answer": 1, "explain": "Each node connects independently to the central device, so one node's failure is isolated."},
+        {"q": "A full mesh network of n nodes requires how many links?", "options": ["n", "n-1", "n(n-1)/2", "2n"], "answer": 2, "explain": "Each pair of nodes has a direct link, giving n(n-1)/2 links."},
+        {"q": "A key weakness of the bus topology is:", "options": ["Too many cables", "A single cable break can bring down the entire network", "No collisions", "High cost"], "answer": 1, "explain": "All nodes share one backbone cable, so a break disrupts everyone."}
+      ]
+    },
+    "u:core-cn-2-circuit-vs-packet-switching": {
+      "title": "Circuit vs packet switching",
+      "summary": "A dedicated reserved path vs independently-routed packets sharing the network.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Two ways to move data across a network."},
+        {"t": "table", "headers": ["", "Circuit switching", "Packet switching"], "rows": [
+          ["Path", "A dedicated circuit reserved end-to-end for the whole session", "Packets routed independently, sharing links"],
+          ["Setup", "Connection established first", "None (per packet)"],
+          ["Efficiency", "Wastes capacity when idle", "High — links shared statistically"],
+          ["Order/delay", "Constant, ordered", "Variable delay, possible reordering"],
+          ["Example", "Traditional phone (PSTN)", "The Internet (IP)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Circuit switching guarantees a reserved path (good for constant streams like voice) but wastes bandwidth when idle. Packet switching shares links statistically (efficient, resilient — reroute around failures) at the cost of variable delay. The Internet is packet switched."}
+      ],
+      "mcqs": [
+        {"q": "The Internet primarily uses:", "options": ["Circuit switching", "Packet switching", "Message switching only", "No switching"], "answer": 1, "explain": "IP networks route packets independently, sharing links efficiently — packet switching."},
+        {"q": "An advantage of packet switching over circuit switching is:", "options": ["Guaranteed constant delay", "Efficient statistical sharing of links and resilience to failures", "A dedicated reserved path", "No reordering ever"], "answer": 1, "explain": "Packets share links and can be rerouted, using capacity efficiently and surviving link failures."},
+        {"q": "Circuit switching is well suited to:", "options": ["Bursty web traffic", "Constant-rate streams like traditional voice calls", "File transfer", "Email"], "answer": 1, "explain": "A reserved circuit gives constant delay ideal for steady voice, though it wastes idle capacity."}
+      ]
+    },
+    "u:core-cn-3-bandwidth-latency-throughput-jitter": {
+      "title": "Bandwidth, latency, throughput, jitter",
+      "summary": "Four performance metrics that are constantly confused — capacity, delay, achieved rate, and variation.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Precise definitions matter — these four measure different things."},
+        {"t": "table", "headers": ["Metric", "Meaning", "Unit"], "rows": [
+          ["Bandwidth", "Maximum capacity of a link", "bits/sec"],
+          ["Throughput", "Actual data rate achieved (<= bandwidth)", "bits/sec"],
+          ["Latency", "Time for one bit/packet to travel end-to-end", "ms"],
+          ["Jitter", "Variation in latency between packets", "ms"]
+        ]},
+        {"t": "points", "items": [
+          "**Bandwidth** is the pipe's width (theoretical max); **throughput** is what you actually get (after overhead/congestion).",
+          "**Latency** components: propagation (distance/speed) + transmission (size/bandwidth) + queuing + processing delay.",
+          "**Jitter** matters for real-time media (VoIP/video) — inconsistent arrival causes glitches; buffers smooth it."
+        ]},
+        {"t": "callout", "style": "key", "text": "Bandwidth is capacity; throughput is realised rate. High bandwidth doesn't mean low latency — a satellite link can have huge bandwidth but high latency. Jitter (latency variance) is the metric that ruins real-time audio/video."}
+      ],
+      "mcqs": [
+        {"q": "The maximum theoretical data-carrying capacity of a link is its:", "options": ["Throughput", "Latency", "Bandwidth", "Jitter"], "answer": 2, "explain": "Bandwidth is the capacity; throughput is the actual achieved rate (which is <= bandwidth)."},
+        {"q": "Jitter refers to:", "options": ["Total bandwidth", "The variation in packet delay (latency)", "Packet loss rate", "The propagation distance"], "answer": 1, "explain": "Jitter is the inconsistency in latency between packets — critical for real-time media."},
+        {"q": "A satellite link can have high bandwidth but poor interactivity because of:", "options": ["Low throughput always", "High latency (long propagation delay)", "No jitter", "Zero bandwidth"], "answer": 1, "explain": "Bandwidth and latency are independent; long distance gives high propagation latency despite high capacity."}
+      ]
+    },
+    "u:core-cn-4-osi-model-all-7-layers": {
+      "title": "OSI model, all 7 layers",
+      "summary": "The seven-layer reference model — know each layer's job, PDU, and example.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "The **OSI model** is a 7-layer conceptual framework for how data moves through a network. Each layer serves the one above and uses the one below."},
+        {"t": "table", "headers": ["# Layer", "Job", "PDU / example"], "rows": [
+          ["7 Application", "Network services to apps", "HTTP, DNS, SMTP"],
+          ["6 Presentation", "Translation, encryption, compression", "TLS, JPEG"],
+          ["5 Session", "Establish/manage sessions", "Sessions, RPC"],
+          ["4 Transport", "End-to-end delivery, reliability, ports", "TCP/UDP — Segment"],
+          ["3 Network", "Logical addressing + routing", "IP — Packet"],
+          ["2 Data Link", "Node-to-node framing, MAC, error detection", "Ethernet — Frame"],
+          ["1 Physical", "Bits over the medium", "Cables, signals — Bits"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Mnemonic (7→1): 'All People Seem To Need Data Processing'. Remember the PDUs: Segment (L4) → Packet (L3) → Frame (L2) → Bits (L1). Routers work at L3; switches at L2."},
+        {"t": "callout", "style": "tip", "text": "The layer/device map: Physical → hub/repeater; Data Link → switch/bridge (MAC); Network → router (IP); Transport → firewalls/ports."}
+      ],
+      "mcqs": [
+        {"q": "Which OSI layer handles logical addressing (IP) and routing?", "options": ["Data Link (2)", "Network (3)", "Transport (4)", "Session (5)"], "answer": 1, "explain": "The Network layer (L3) does logical addressing and routing; routers operate here."},
+        {"q": "The Protocol Data Unit at the Transport layer is a:", "options": ["Frame", "Packet", "Segment", "Bit"], "answer": 2, "explain": "L4 PDU is a segment (TCP) / datagram (UDP); L3 is a packet, L2 a frame, L1 bits."},
+        {"q": "Encryption and data-format translation are handled at the:", "options": ["Application layer", "Presentation layer (6)", "Network layer", "Physical layer"], "answer": 1, "explain": "The Presentation layer handles translation, encryption, and compression."}
+      ]
+    },
+    "u:core-cn-5-tcp-ip-model-and-how-it-maps-to-osi": {
+      "title": "TCP/IP model and how it maps to OSI",
+      "summary": "The practical 4-layer model the Internet actually runs on, and its correspondence to OSI.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **TCP/IP model** is the real-world protocol stack of the Internet — a more practical 4 (or 5) layer model than the 7-layer OSI reference."},
+        {"t": "table", "headers": ["TCP/IP layer", "Maps to OSI", "Protocols"], "rows": [
+          ["Application", "OSI 5-6-7", "HTTP, DNS, SMTP, FTP"],
+          ["Transport", "OSI 4", "TCP, UDP"],
+          ["Internet", "OSI 3", "IP, ICMP, ARP"],
+          ["Network Access (Link)", "OSI 1-2", "Ethernet, Wi-Fi"]
+        ]},
+        {"t": "callout", "style": "key", "text": "TCP/IP collapses OSI's top three layers into one Application layer and the bottom two into a Link layer. OSI is the teaching reference; TCP/IP is what the Internet actually implements."},
+        {"t": "callout", "style": "tip", "text": "Some texts split the Link layer into Physical + Data Link, giving a 5-layer model — functionally the same."}
+      ],
+      "mcqs": [
+        {"q": "The TCP/IP Application layer corresponds to which OSI layers?", "options": ["Only layer 7", "Layers 5, 6, and 7 combined", "Layers 1 and 2", "Layer 4"], "answer": 1, "explain": "TCP/IP merges OSI's Session, Presentation, and Application into one Application layer."},
+        {"q": "IP and ICMP operate at which TCP/IP layer?", "options": ["Application", "Transport", "Internet", "Link"], "answer": 2, "explain": "The Internet layer (OSI layer 3) hosts IP, ICMP, and ARP."},
+        {"q": "Compared to OSI, the TCP/IP model is:", "options": ["A 7-layer teaching reference", "The practical 4-layer stack the Internet actually uses", "Unrelated to real networks", "Only for LANs"], "answer": 1, "explain": "TCP/IP is the implemented Internet stack; OSI is the conceptual reference model."}
+      ]
+    },
+    "u:core-cn-6-transmission-media": {
+      "title": "Transmission media",
+      "summary": "Guided (cable) vs unguided (wireless) media and their characteristics.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Transmission media** carry the signal. They are **guided** (physical cable) or **unguided** (wireless)."},
+        {"t": "table", "headers": ["Medium", "Type", "Trait"], "rows": [
+          ["Twisted pair", "Guided", "Cheap, common (Ethernet); limited distance/speed"],
+          ["Coaxial", "Guided", "Better shielding; older cable TV/broadband"],
+          ["Fibre optic", "Guided", "Light; huge bandwidth, long distance, immune to EMI"],
+          ["Radio / microwave / infrared", "Unguided", "Wireless; convenient but interference/attenuation"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Fibre optic is the highest-performance medium — enormous bandwidth, very low loss over long distances, and immunity to electromagnetic interference — which is why backbones use it. Twisted pair is cheapest for short LAN runs."}
+      ],
+      "mcqs": [
+        {"q": "Which medium offers the highest bandwidth and immunity to electromagnetic interference?", "options": ["Twisted pair", "Coaxial", "Fibre optic", "Radio"], "answer": 2, "explain": "Fibre carries light, giving huge bandwidth, low attenuation, and EMI immunity."},
+        {"q": "Wi-Fi and cellular use which category of media?", "options": ["Guided", "Unguided (wireless)", "Fibre", "Coaxial"], "answer": 1, "explain": "Wireless technologies use unguided media (radio waves)."},
+        {"q": "The most common guided medium for short LAN connections is:", "options": ["Fibre optic", "Twisted pair", "Satellite", "Infrared"], "answer": 1, "explain": "Twisted-pair copper (e.g. Cat5e/6) is cheap and standard for Ethernet LAN runs."}
+      ]
+    },
+    "u:core-cn-7-analog-vs-digital-signalling": {
+      "title": "Analog vs digital signalling",
+      "summary": "Continuous waveforms vs discrete levels — and why digital regenerates cleanly.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Analog** signals vary continuously (a smooth wave); **digital** signals use discrete levels (e.g. 0 and 1). Data can be encoded either way."},
+        {"t": "points", "items": [
+          "Digital signals can be **regenerated** exactly at each hop (a repeater rebuilds clean 0s/1s), so noise doesn't accumulate — analog **amplification** boosts the noise too.",
+          "**Modulation** puts digital data on an analog carrier (for radio/phone lines); **encoding** represents bits as digital signal patterns.",
+          "Digital is dominant for computer networks due to noise immunity and easy processing."
+        ]},
+        {"t": "callout", "style": "key", "text": "The decisive advantage of digital: repeaters regenerate the exact bit pattern, so signal quality doesn't degrade over distance, whereas analog amplifiers boost accumulated noise. That's why long-haul networks are digital."}
+      ],
+      "mcqs": [
+        {"q": "A key advantage of digital signalling over analog is:", "options": ["Smoother waveforms", "Signals can be regenerated exactly, so noise does not accumulate", "It needs no encoding", "It uses less spectrum always"], "answer": 1, "explain": "Digital repeaters rebuild clean bits; analog amplifiers boost the noise along with the signal."},
+        {"q": "Placing digital data onto an analog carrier wave is called:", "options": ["Encoding", "Modulation", "Multiplexing", "Framing"], "answer": 1, "explain": "Modulation impresses data onto a carrier (e.g. for radio/telephone lines)."},
+        {"q": "Analog amplification differs from digital regeneration because amplification:", "options": ["Removes noise", "Also amplifies the accumulated noise", "Creates discrete levels", "Needs no power"], "answer": 1, "explain": "Amplifiers boost signal and noise together, so quality degrades over distance."}
+      ]
+    },
+    "u:core-cn-8-multiplexing-fdm-tdm-wdm": {
+      "title": "Multiplexing: FDM, TDM, WDM",
+      "summary": "Share one medium among many signals by frequency, time, or wavelength.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Multiplexing** combines multiple signals onto one shared medium to use capacity efficiently."},
+        {"t": "table", "headers": ["Technique", "Divides the medium by", "Used in"], "rows": [
+          ["FDM (Frequency Division)", "Frequency bands (each signal a band)", "Radio, cable TV"],
+          ["TDM (Time Division)", "Time slots (each signal a turn)", "Digital telephony, T1"],
+          ["WDM (Wavelength Division)", "Light wavelengths (colours)", "Fibre optics (essentially FDM for light)"],
+          ["Statistical TDM", "Time slots on demand (dynamic)", "Packet networks"]
+        ]},
+        {"t": "callout", "style": "key", "text": "FDM splits by frequency (signals run simultaneously in different bands); TDM splits by time (signals take turns in slots). WDM is FDM applied to light in fibre. Statistical TDM allocates slots dynamically for bursty traffic — more efficient than fixed TDM."}
+      ],
+      "mcqs": [
+        {"q": "Time Division Multiplexing (TDM) shares a medium by:", "options": ["Frequency bands", "Assigning each signal a time slot in turn", "Wavelengths", "Voltage levels"], "answer": 1, "explain": "TDM interleaves signals in time, each getting slots; FDM uses separate frequency bands."},
+        {"q": "WDM is essentially FDM applied to:", "options": ["Copper wires", "Light in fibre-optic cables (different wavelengths)", "Radio only", "Time slots"], "answer": 1, "explain": "Wavelength Division Multiplexing sends multiple light 'colours' down one fibre — frequency division for light."},
+        {"q": "Statistical TDM improves on fixed TDM by:", "options": ["Using fixed slots always", "Allocating time slots on demand for bursty traffic", "Removing multiplexing", "Using frequency bands"], "answer": 1, "explain": "Dynamic slot allocation avoids wasting slots on idle channels, better for bursty data."}
+      ]
+    },
+    "u:core-cn-9-nyquist-and-shannon-limits": {
+      "title": "Nyquist and Shannon limits",
+      "summary": "The formulas bounding data rate — noiseless (Nyquist) and noisy (Shannon) channels.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Two theorems bound the maximum data rate of a channel."},
+        {"t": "points", "items": [
+          "**Nyquist (noiseless channel)**: max rate = **2 × B × log2(L)** bits/sec, where B = bandwidth (Hz) and L = number of signal levels. More levels → more bits per symbol.",
+          "**Shannon (noisy channel)**: capacity = **B × log2(1 + S/N)** bits/sec, where S/N is the signal-to-noise ratio. This is the real-world ceiling regardless of levels."
+        ]},
+        {"t": "callout", "style": "key", "text": "Nyquist says you can gain rate by adding signal levels — but Shannon caps the true capacity based on noise. Beyond Shannon's limit, more levels just add errors, not throughput. The actual max rate is the lower of the two."},
+        {"t": "callout", "style": "tip", "text": "SNR is often given in decibels: SNR(dB) = 10·log10(S/N). Convert to the linear ratio before plugging into Shannon's formula."}
+      ],
+      "mcqs": [
+        {"q": "Shannon's channel capacity formula is:", "options": ["2 B log2(L)", "B log2(1 + S/N)", "B x L", "S/N x B"], "answer": 1, "explain": "Shannon's capacity for a noisy channel is B·log2(1 + S/N)."},
+        {"q": "In Nyquist's formula, increasing the number of signal levels L:", "options": ["Decreases the data rate", "Increases the achievable data rate (more bits per symbol)", "Has no effect", "Removes noise"], "answer": 1, "explain": "More levels encode more bits per symbol, raising the noiseless-channel rate — but Shannon still caps it."},
+        {"q": "The true maximum data rate of a real channel is bounded by:", "options": ["Nyquist only", "Shannon's noisy-channel capacity", "Neither", "The number of levels alone"], "answer": 1, "explain": "Noise limits real channels; beyond Shannon's capacity, adding levels just causes errors."}
+      ]
+    },
+    "u:core-cn-10-framing": {
+      "title": "Framing",
+      "summary": "The data link layer packages bits into frames with clear boundaries.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Framing** is how the data link layer marks where each **frame** starts and ends in the raw bit stream, so the receiver can extract discrete units."},
+        {"t": "points", "items": [
+          "**Byte/character stuffing** — a special flag byte marks frame boundaries; if that byte appears in data, an escape byte is 'stuffed' before it.",
+          "**Bit stuffing** — a flag bit pattern (e.g. 01111110) marks boundaries; a 0 is inserted after five 1s in the data so the flag never appears accidentally.",
+          "Frames also carry addressing (MAC) and error-detection fields."
+        ]},
+        {"t": "callout", "style": "key", "text": "Framing solves 'where does one frame end and the next begin?'. Bit/byte stuffing prevents the frame-delimiter pattern from appearing inside the payload and being mistaken for a boundary."}
+      ],
+      "mcqs": [
+        {"q": "Bit stuffing prevents:", "options": ["Slow transmission", "The frame delimiter (flag) pattern from appearing accidentally in the data", "Encryption", "Routing loops"], "answer": 1, "explain": "Inserting a 0 after five 1s ensures the flag pattern never occurs in the payload."},
+        {"q": "Framing is a function of which layer?", "options": ["Physical", "Data link", "Network", "Transport"], "answer": 1, "explain": "The data link layer organises bits into frames with delimiters and addressing."},
+        {"q": "Byte stuffing uses an escape byte to:", "options": ["Encrypt data", "Distinguish a flag byte that appears within the data from a real frame boundary", "Compress frames", "Route packets"], "answer": 1, "explain": "When the flag byte occurs in data, an escape byte marks it as data, not a boundary."}
+      ]
+    },
+    "u:core-cn-11-error-detection-parity-checksum-crc": {
+      "title": "Error detection: parity, checksum, CRC",
+      "summary": "Redundant bits that let the receiver detect corruption — from weak parity to strong CRC.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Error detection** adds redundant bits so the receiver can tell if data was corrupted in transit."},
+        {"t": "table", "headers": ["Method", "How", "Strength"], "rows": [
+          ["Parity bit", "One bit making the count of 1s even/odd", "Weak — misses even numbers of bit errors"],
+          ["Checksum", "Sum of data words, sent along; re-summed at receiver", "Moderate (used in IP/TCP/UDP)"],
+          ["CRC (Cyclic Redundancy Check)", "Polynomial division remainder appended", "Strong — catches burst errors; used in Ethernet"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Strength ordering: parity (weakest, misses even-count errors) < checksum < CRC (strongest, great at burst errors). Ethernet uses CRC (FCS field). These detect errors; they don't correct them (except Hamming/FEC)."}
+      ],
+      "mcqs": [
+        {"q": "A single parity bit fails to detect:", "options": ["Any error", "An even number of bit errors", "One-bit errors", "Burst errors only"], "answer": 1, "explain": "Parity flips only on an odd number of errors, so even-count errors go undetected."},
+        {"q": "Which error-detection method is strongest and used in Ethernet?", "options": ["Parity", "Checksum", "CRC (Cyclic Redundancy Check)", "None"], "answer": 2, "explain": "CRC via polynomial division is robust against burst errors and used as Ethernet's frame check sequence."},
+        {"q": "Error-detection codes like CRC allow the receiver to:", "options": ["Correct the error automatically", "Detect that corruption occurred (then request retransmission)", "Speed up the link", "Encrypt the frame"], "answer": 1, "explain": "Detection codes flag corruption; correction (e.g. via ARQ retransmission or FEC) is a separate step."}
+      ]
+    },
+    "u:core-cn-12-error-correction-hamming-code": {
+      "title": "Error correction: Hamming code",
+      "summary": "Add parity bits at power-of-two positions to locate and fix a single-bit error.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Forward error correction** lets the receiver **fix** errors without retransmission. The **Hamming code** can **correct a single-bit error** by adding parity bits at positions that are powers of two (1, 2, 4, 8…)."},
+        {"t": "points", "items": [
+          "Each parity bit covers a specific set of positions; together their results form a binary number pointing at the erroneous bit.",
+          "For k parity bits and m data bits, they must satisfy **2^k >= m + k + 1**.",
+          "Basic Hamming corrects 1-bit errors and detects 2-bit errors (with an extra overall parity, SECDED)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The clever part: the parity bits, read together, give the binary position of the flipped bit — so the receiver knows exactly which bit to invert. This is worthwhile where retransmission is costly (deep space, storage)."}
+      ],
+      "mcqs": [
+        {"q": "A basic Hamming code can:", "options": ["Detect but not correct errors", "Correct a single-bit error", "Correct any number of errors", "Only compress data"], "answer": 1, "explain": "Hamming(7,4)-style codes locate and correct one bit error (and detect two with SECDED)."},
+        {"q": "In a Hamming code, parity bits are placed at positions that are:", "options": ["Prime numbers", "Powers of two (1, 2, 4, 8, ...)", "Even numbers", "The last positions"], "answer": 1, "explain": "Power-of-two positions let the parity checks combine to indicate the error's binary position."},
+        {"q": "The relation between k parity bits and m data bits is:", "options": ["k = m", "2^k >= m + k + 1", "k = 2m", "m = 2^k"], "answer": 1, "explain": "The parity bits must be enough to identify every bit position plus the no-error case."}
+      ]
+    },
+    "u:core-cn-13-stop-and-wait-arq": {
+      "title": "Stop-and-wait ARQ",
+      "summary": "Send one frame, wait for its ACK, then send the next — simple but inefficient.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**ARQ (Automatic Repeat reQuest)** uses acknowledgements and timeouts for reliable delivery. **Stop-and-wait** is the simplest: the sender transmits one frame, then **waits for an ACK** before sending the next; on timeout it retransmits."},
+        {"t": "points", "items": [
+          "Uses a 1-bit sequence number to detect duplicate frames (from a lost ACK).",
+          "**Inefficient** on high-bandwidth or long-delay links: the sender sits idle during the round trip.",
+          "Efficiency = 1 / (1 + 2a), where a = propagation time / transmission time."
+        ]},
+        {"t": "callout", "style": "key", "text": "Stop-and-wait is correct but wastes the link: only one frame is in flight, so on a 'long fat' pipe (high bandwidth × delay) the sender is idle most of the time. Sliding-window protocols fix this by allowing multiple in-flight frames."}
+      ],
+      "mcqs": [
+        {"q": "In stop-and-wait ARQ, the sender transmits the next frame:", "options": ["Immediately", "Only after receiving the ACK for the previous frame (or a timeout)", "Never", "In parallel"], "answer": 1, "explain": "Only one frame is outstanding; the sender waits for its ACK before sending the next."},
+        {"q": "Stop-and-wait is inefficient mainly on:", "options": ["Short low-delay links", "Long-delay / high-bandwidth links where the sender idles during the round trip", "Wireless only", "LANs only"], "answer": 1, "explain": "With a large bandwidth-delay product, one-frame-at-a-time leaves the link mostly idle."},
+        {"q": "The sequence number in stop-and-wait needs how many bits?", "options": ["8", "1", "16", "0"], "answer": 1, "explain": "A single bit (alternating 0/1) suffices to distinguish a frame from its retransmission/duplicate."}
+      ]
+    },
+    "u:core-cn-14-go-back-n": {
+      "title": "Go-Back-N",
+      "summary": "A sliding-window protocol that retransmits everything from a lost frame onward.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Go-Back-N (GBN)** is a sliding-window ARQ: the sender can have up to **N** unacknowledged frames in flight. The receiver accepts frames **only in order** and discards anything out of order."},
+        {"t": "points", "items": [
+          "Uses **cumulative ACKs** (ACK n means all frames up to n received).",
+          "On a lost/errored frame, the sender must **go back and retransmit that frame and all subsequent ones** — even correctly-received ones are discarded by the receiver.",
+          "Receiver window size = 1 (in-order only). Sender window <= 2^k − 1 for a k-bit sequence number."
+        ]},
+        {"t": "callout", "style": "key", "text": "GBN keeps the receiver simple (in-order, no buffering) at the cost of bandwidth: one loss forces retransmission of a whole window. Efficient on low-error links, wasteful when errors are frequent."}
+      ],
+      "mcqs": [
+        {"q": "In Go-Back-N, when a frame is lost, the sender retransmits:", "options": ["Only that frame", "That frame and all frames sent after it", "Nothing", "The entire session"], "answer": 1, "explain": "The receiver discards out-of-order frames, so the sender resends from the lost frame onward."},
+        {"q": "The Go-Back-N receiver window size is:", "options": ["N", "1 (accepts in-order only)", "2^k", "Unlimited"], "answer": 1, "explain": "GBN receivers accept frames strictly in order, so the receive window is 1."},
+        {"q": "Go-Back-N uses which kind of acknowledgements?", "options": ["Selective ACKs", "Cumulative ACKs (up to frame n)", "No ACKs", "Negative ACKs only"], "answer": 1, "explain": "A cumulative ACK n confirms all frames through n have been received in order."}
+      ]
+    },
+    "u:core-cn-15-selective-repeat": {
+      "title": "Selective Repeat",
+      "summary": "Retransmit only the lost frames; the receiver buffers out-of-order ones.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Selective Repeat (SR)** improves on Go-Back-N by retransmitting **only the specific frames that were lost/errored**. The receiver **buffers out-of-order** frames and individually ACKs each correct one."},
+        {"t": "points", "items": [
+          "Both sender and receiver have windows of size N; the receiver buffers and reorders.",
+          "More efficient than GBN on error-prone links (no needless retransmission).",
+          "More complex (receiver buffering, per-frame ACKs). Requires **window size <= 2^(k-1)** for a k-bit sequence number to avoid ambiguity."
+        ]},
+        {"t": "callout", "style": "key", "text": "SR vs GBN: SR resends only what's lost (bandwidth-efficient) but needs a buffering receiver and per-frame ACKs (complex). The window constraint (<= half the sequence space) prevents old and new frames being confused."}
+      ],
+      "mcqs": [
+        {"q": "In Selective Repeat, on a single lost frame the sender retransmits:", "options": ["All subsequent frames", "Only the lost frame", "Nothing", "The whole window"], "answer": 1, "explain": "SR resends just the missing frame; the receiver has buffered the others."},
+        {"q": "Compared to Go-Back-N, Selective Repeat requires the receiver to:", "options": ["Discard out-of-order frames", "Buffer out-of-order frames and reorder them", "Use no window", "Send cumulative ACKs only"], "answer": 1, "explain": "SR receivers buffer out-of-order frames, which is more complex but avoids retransmitting good frames."},
+        {"q": "For a k-bit sequence number, the Selective Repeat window size must be at most:", "options": ["2^k - 1", "2^(k-1)", "2^k", "1"], "answer": 1, "explain": "SR needs window <= half the sequence-number space to avoid confusing new frames with retransmissions."}
+      ]
+    },
+    "u:core-cn-16-sliding-window-and-efficiency": {
+      "title": "Sliding window and efficiency",
+      "summary": "Keep multiple frames in flight to fill the pipe — efficiency depends on window vs bandwidth-delay.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **sliding window** protocol lets the sender transmit up to **W** frames before needing an ACK, keeping the link busy. As ACKs arrive, the window 'slides' forward."},
+        {"t": "h", "text": "Efficiency"},
+        {"t": "points", "items": [
+          "Let **a = propagation time / transmission time**. Stop-and-wait efficiency = 1/(1+2a).",
+          "Sliding-window efficiency = **W/(1+2a)** (capped at 1 when W >= 1+2a).",
+          "To fully use the link, the window must cover the **bandwidth-delay product** — enough frames to keep sending until the first ACK returns."
+        ]},
+        {"t": "callout", "style": "key", "text": "The goal: size the window so W >= 1 + 2a, i.e. enough in-flight data to cover a full round trip (the bandwidth-delay product). Then the sender never idles waiting for ACKs and reaches ~100% link utilisation."},
+        {"t": "callout", "style": "tip", "text": "Bandwidth-delay product = bandwidth × round-trip time = the amount of data 'in the pipe'. TCP's window must match it to fill a high-speed, high-latency link."}
+      ],
+      "mcqs": [
+        {"q": "To keep a link fully utilised, the sliding window size should cover:", "options": ["One frame", "The bandwidth-delay product (data in flight over a round trip)", "Zero frames", "Half the frames"], "answer": 1, "explain": "A window matching the bandwidth-delay product keeps the sender transmitting until the first ACK returns."},
+        {"q": "Sliding-window efficiency with window W and a = Tp/Tt is:", "options": ["1/(1+2a)", "W/(1+2a) (capped at 1)", "W x a", "2a/W"], "answer": 1, "explain": "Multiple in-flight frames multiply stop-and-wait efficiency by W, up to full utilisation."},
+        {"q": "The bandwidth-delay product represents:", "options": ["The number of hops", "The amount of data that can be 'in the pipe' at once", "The error rate", "The frame size"], "answer": 1, "explain": "It's bandwidth × RTT — how much data is in transit, which the window must cover for full use."}
+      ]
+    }
+  }
+}

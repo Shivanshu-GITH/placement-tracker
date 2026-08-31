@@ -6,6 +6,9 @@ import '../../../core/theme/app_dimens.dart';
 import '../../../core/widgets/pill.dart';
 import '../../../data/models/dtos.dart';
 import '../../../providers/providers.dart';
+import '../../study/study_actions.dart';
+import '../../study/study_links.dart';
+import '../../study/study_models.dart';
 
 Future<void> showLeafSheet(BuildContext context, WidgetRef ref, LeafRow row) {
   return showModalBottomSheet(
@@ -91,6 +94,7 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
             ],
           ),
           const SizedBox(height: AppSpacing.xl),
+          _StudySection(row: row),
           Text('Status', style: theme.textTheme.titleSmall),
           const SizedBox(height: AppSpacing.sm),
           Wrap(
@@ -142,6 +146,145 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
               ],
             ),
         ],
+      ),
+    );
+  }
+}
+
+/// The "Study" block inside the leaf detail sheet: ad-gated Notes + Quiz
+/// actions when authored content exists, plus always-available Google/ChatGPT
+/// study links.
+class _StudySection extends ConsumerWidget {
+  const _StudySection({required this.row});
+  final LeafRow row;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    final accent = row.category.color;
+    final StudyEntry? entry = ref.watch(studyByCanonProvider).entry(row.canon);
+    final result = ref.watch(quizResultsProvider)[row.canon];
+    final gate = ref.watch(adGateProvider);
+    final locked = entry != null &&
+        (!gate.isUnlocked('note:${row.canon}') ||
+            !gate.isUnlocked('quiz:${row.canon}'));
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Text('Study', style: theme.textTheme.titleSmall),
+            if (entry != null && locked) ...[
+              const SizedBox(width: AppSpacing.sm),
+              Icon(Icons.play_circle_outline_rounded,
+                  size: 14, color: theme.colorScheme.onSurfaceVariant),
+              const SizedBox(width: 3),
+              Text('unlock with a short ad',
+                  style: theme.textTheme.labelSmall
+                      ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
+            ],
+          ],
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        if (entry != null && (entry.hasNote || entry.hasQuiz)) ...[
+          Row(
+            children: [
+              if (entry.hasNote)
+                Expanded(
+                  child: FilledButton.icon(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: accent,
+                      padding:
+                          const EdgeInsets.symmetric(vertical: AppSpacing.md),
+                    ),
+                    onPressed: () =>
+                        openStudyNotes(context, ref, row, entry, accent),
+                    icon: const Icon(Icons.menu_book_rounded, size: 18),
+                    label: const Text('Read notes'),
+                  ),
+                ),
+              if (entry.hasNote && entry.hasQuiz)
+                const SizedBox(width: AppSpacing.md),
+              if (entry.hasQuiz)
+                Expanded(
+                  child: FilledButton.tonalIcon(
+                    style: FilledButton.styleFrom(
+                      padding:
+                          const EdgeInsets.symmetric(vertical: AppSpacing.md),
+                    ),
+                    onPressed: () =>
+                        openStudyQuiz(context, ref, row, entry, accent),
+                    icon: const Icon(Icons.quiz_rounded, size: 18),
+                    label: Text(result == null
+                        ? 'Quiz'
+                        : 'Quiz ${result.best}/${result.total}'),
+                  ),
+                ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.md),
+        ] else ...[
+          Text('In-app notes for this topic are coming soon.',
+              style: theme.textTheme.bodySmall
+                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
+          const SizedBox(height: AppSpacing.sm),
+        ],
+        Row(
+          children: [
+            _LinkChip(
+              icon: Icons.search_rounded,
+              label: 'Google',
+              onTap: () => StudyLinks.open(context,
+                  StudyLinks.google(row.node.title, subject: row.category.label)),
+            ),
+            const SizedBox(width: AppSpacing.sm),
+            _LinkChip(
+              icon: Icons.auto_awesome_rounded,
+              label: 'Ask ChatGPT',
+              onTap: () => StudyLinks.open(context,
+                  StudyLinks.chatgpt(row.node.title, subject: row.category.label)),
+            ),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.xl),
+      ],
+    );
+  }
+}
+
+class _LinkChip extends StatelessWidget {
+  const _LinkChip(
+      {required this.icon, required this.label, required this.onTap});
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Material(
+      color: scheme.surfaceContainerHighest,
+      borderRadius: BorderRadius.circular(AppRadius.pill),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.md, vertical: AppSpacing.sm),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, size: 15, color: scheme.onSurfaceVariant),
+              const SizedBox(width: 6),
+              Text(label,
+                  style: TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600,
+                      color: scheme.onSurface)),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -1,14 +1,25 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Local reminder notifications (no network, no third-party service). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Verified leaderboard sync + GitHub repo import (release builds need this
+         explicitly; debug builds get it injected automatically). -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- The Google Mobile Ads SDK merges in the advertising-ID permission. Ads
+         ship OFF, so we remove it to avoid a Play Data Safety declaration. When
+         you turn ads on, delete this line and declare AD_ID usage in Data Safety. -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove"/>
+    <!-- Local reminder notifications (no network, no third-party service).
+         Scheduling uses INEXACT alarms, so SCHEDULE_EXACT_ALARM is deliberately
+         NOT requested (it triggers Play Console policy review and isn't needed). -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:label="PrepPilot"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="false">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -30,12 +41,30 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <!-- Friend invite deep links: preppilot://follow/<uid> -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="preppilot"/>
+            </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- AdMob application id. This is Google's TEST app id — replace it with
+             your real AdMob app id (from the AdMob console) before releasing. -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+        <!-- Turn off the native-ad "validator" overlay that appears on TEST ads
+             (it never shows on live ads). Prevents the validator popups while
+             testing native ads. -->
+        <meta-data
+            android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
+            android:value="false" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

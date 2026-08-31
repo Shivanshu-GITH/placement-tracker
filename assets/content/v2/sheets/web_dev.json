@@ -1,0 +1,1081 @@
+{
+  "slug": "web-dev",
+  "title": "Web Development",
+  "category": "webdev",
+  "description": "Frontend, backend, APIs, auth, databases & deployment — each topic broken into interview-ready concepts.",
+  "source": "Curated (Unnati Web Dev structure)",
+  "tree": [
+    {
+      "slug": "webdev-web",
+      "title": "How the Web Works",
+      "children": [
+        {
+          "slug": "webdev-web-0-client-server-model",
+          "title": "Client–server model",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-0-client-server-model",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-1-dns-resolution",
+          "title": "DNS resolution",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-1-dns-resolution",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-2-http-request-response-lifecycle",
+          "title": "HTTP request/response lifecycle",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-2-http-request-response-lifecycle",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-3-status-codes-worth-knowing-cold",
+          "title": "Status codes worth knowing cold",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-3-status-codes-worth-knowing-cold",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-4-headers-content-type-cache-control-auth",
+          "title": "Headers: content-type, cache-control, auth",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-4-headers-content-type-cache-control-auth",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-5-cors-what-actually-triggers-preflight",
+          "title": "CORS — what actually triggers preflight",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-5-cors-what-actually-triggers-preflight",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-6-cookies-vs-localstorage-vs-sessionstorage",
+          "title": "Cookies vs localStorage vs sessionStorage",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-6-cookies-vs-localstorage-vs-sessionstorage",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-7-browser-rendering-parse-cssom-layout-paint",
+          "title": "Browser rendering: parse, CSSOM, layout, paint",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-7-browser-rendering-parse-cssom-layout-paint",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-web-8-critical-rendering-path",
+          "title": "Critical rendering path",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-web-8-critical-rendering-path",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-html",
+      "title": "HTML",
+      "children": [
+        {
+          "slug": "webdev-html-0-semantic-elements-and-why-they-matter",
+          "title": "Semantic elements and why they matter",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-html-0-semantic-elements-and-why-they-matter",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-html-1-forms-and-validation",
+          "title": "Forms and validation",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-html-1-forms-and-validation",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-html-2-accessibility-labels-roles-alt-focus-order",
+          "title": "Accessibility: labels, roles, alt, focus order",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-html-2-accessibility-labels-roles-alt-focus-order",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-html-3-meta-tags-and-seo-basics",
+          "title": "Meta tags and SEO basics",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-html-3-meta-tags-and-seo-basics",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-html-4-data-attributes",
+          "title": "data-* attributes",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-html-4-data-attributes",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-css",
+      "title": "CSS",
+      "children": [
+        {
+          "slug": "webdev-css-0-box-model-and-box-sizing",
+          "title": "Box model and box-sizing",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-0-box-model-and-box-sizing",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-1-specificity-and-the-cascade",
+          "title": "Specificity and the cascade",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-1-specificity-and-the-cascade",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-2-position-static-relative-absolute-fixed-sticky",
+          "title": "Position: static, relative, absolute, fixed, sticky",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-2-position-static-relative-absolute-fixed-sticky",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-3-flexbox",
+          "title": "Flexbox",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-3-flexbox",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-4-grid",
+          "title": "Grid",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-4-grid",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-5-responsive-design-and-media-queries",
+          "title": "Responsive design and media queries",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-5-responsive-design-and-media-queries",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-6-units-rem-em-vh-vw-ch",
+          "title": "Units: rem, em, vh, vw, %, ch",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-6-units-rem-em-vh-vw-ch",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-7-pseudo-classes-and-pseudo-elements",
+          "title": "Pseudo-classes and pseudo-elements",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-7-pseudo-classes-and-pseudo-elements",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-8-transitions-and-animations",
+          "title": "Transitions and animations",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-8-transitions-and-animations",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-css-9-z-index-and-stacking-contexts",
+          "title": "z-index and stacking contexts",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-css-9-z-index-and-stacking-contexts",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-js",
+      "title": "JavaScript — core",
+      "children": [
+        {
+          "slug": "webdev-js-0-var-let-const-and-tdz",
+          "title": "var, let, const and TDZ",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-0-var-let-const-and-tdz",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-1-hoisting",
+          "title": "Hoisting",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-1-hoisting",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-2-scope-and-lexical-scope",
+          "title": "Scope and lexical scope",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-2-scope-and-lexical-scope",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-3-closures-and-a-real-use-case",
+          "title": "Closures — and a real use case",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-3-closures-and-a-real-use-case",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-4-this-in-every-calling-context",
+          "title": "this in every calling context",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-4-this-in-every-calling-context",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-5-call-apply-bind",
+          "title": "call, apply, bind",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-5-call-apply-bind",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-6-arrow-functions-vs-regular-functions",
+          "title": "Arrow functions vs regular functions",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-6-arrow-functions-vs-regular-functions",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-7-prototypes-and-the-prototype-chain",
+          "title": "Prototypes and the prototype chain",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-7-prototypes-and-the-prototype-chain",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-8-classes-and-inheritance",
+          "title": "Classes and inheritance",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-8-classes-and-inheritance",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-9-vs-and-coercion-rules",
+          "title": "== vs === and coercion rules",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-9-vs-and-coercion-rules",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-10-shallow-vs-deep-copy",
+          "title": "Shallow vs deep copy",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-10-shallow-vs-deep-copy",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-11-pass-by-value-vs-reference",
+          "title": "Pass by value vs reference",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-11-pass-by-value-vs-reference",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-12-higher-order-functions-map-filter-reduce",
+          "title": "Higher-order functions: map, filter, reduce",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-12-higher-order-functions-map-filter-reduce",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-13-destructuring-spread-rest",
+          "title": "Destructuring, spread, rest",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-13-destructuring-spread-rest",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-js-14-optional-chaining-and-nullish-coalescing",
+          "title": "Optional chaining and nullish coalescing",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-js-14-optional-chaining-and-nullish-coalescing",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-jsasync",
+      "title": "JavaScript — async",
+      "children": [
+        {
+          "slug": "webdev-jsasync-0-call-stack",
+          "title": "Call stack",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-0-call-stack",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-1-event-loop",
+          "title": "Event loop",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-1-event-loop",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-2-microtask-vs-macrotask-queue",
+          "title": "Microtask vs macrotask queue",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-2-microtask-vs-macrotask-queue",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-3-settimeout-ordering-puzzles",
+          "title": "setTimeout ordering puzzles",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-3-settimeout-ordering-puzzles",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-4-callbacks-and-callback-hell",
+          "title": "Callbacks and callback hell",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-4-callbacks-and-callback-hell",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-5-promises-then-catch-finally",
+          "title": "Promises: then, catch, finally",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-5-promises-then-catch-finally",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-6-promise-all-vs-allsettled-vs-race-vs-any",
+          "title": "Promise.all vs allSettled vs race vs any",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-6-promise-all-vs-allsettled-vs-race-vs-any",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-7-async-await-and-error-handling",
+          "title": "async/await and error handling",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-7-async-await-and-error-handling",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-8-debounce-and-throttle-write-both-from-scratch",
+          "title": "Debounce and throttle — write both from scratch",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-8-debounce-and-throttle-write-both-from-scratch",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-jsasync-9-web-workers",
+          "title": "Web workers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-jsasync-9-web-workers",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-react",
+      "title": "React",
+      "children": [
+        {
+          "slug": "webdev-react-0-jsx-and-how-it-compiles",
+          "title": "JSX and how it compiles",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-0-jsx-and-how-it-compiles",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-1-components-props-vs-state",
+          "title": "Components, props vs state",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-1-components-props-vs-state",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-2-rendering-and-re-rendering-rules",
+          "title": "Rendering and re-rendering rules",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-2-rendering-and-re-rendering-rules",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-3-usestate-and-batching",
+          "title": "useState and batching",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-3-usestate-and-batching",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-4-useeffect-and-the-dependency-array",
+          "title": "useEffect and the dependency array",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-4-useeffect-and-the-dependency-array",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-5-cleanup-functions",
+          "title": "Cleanup functions",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-5-cleanup-functions",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-6-useref",
+          "title": "useRef",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-6-useref",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-7-usememo-vs-usecallback-and-when-not-to",
+          "title": "useMemo vs useCallback — and when not to",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-7-usememo-vs-usecallback-and-when-not-to",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-8-usereducer",
+          "title": "useReducer",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-8-usereducer",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-9-context-api-and-when-it-re-renders-too-much",
+          "title": "Context API and when it re-renders too much",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-9-context-api-and-when-it-re-renders-too-much",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-10-keys-and-reconciliation",
+          "title": "Keys and reconciliation",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-10-keys-and-reconciliation",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-11-lifting-state-up",
+          "title": "Lifting state up",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-11-lifting-state-up",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-12-controlled-vs-uncontrolled-inputs",
+          "title": "Controlled vs uncontrolled inputs",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-12-controlled-vs-uncontrolled-inputs",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-13-custom-hooks",
+          "title": "Custom hooks",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-13-custom-hooks",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-14-react-memo",
+          "title": "React.memo",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-14-react-memo",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-15-error-boundaries",
+          "title": "Error boundaries",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-15-error-boundaries",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-react-16-code-splitting-and-lazy-loading",
+          "title": "Code splitting and lazy loading",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-react-16-code-splitting-and-lazy-loading",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-node",
+      "title": "Node & Express",
+      "children": [
+        {
+          "slug": "webdev-node-0-node-event-loop-vs-browser-event-loop",
+          "title": "Node event loop vs browser event loop",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-0-node-event-loop-vs-browser-event-loop",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-1-modules-commonjs-vs-esm",
+          "title": "Modules: CommonJS vs ESM",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-1-modules-commonjs-vs-esm",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-2-streams-and-buffers",
+          "title": "Streams and buffers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-2-streams-and-buffers",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-3-express-routing",
+          "title": "Express routing",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-3-express-routing",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-4-middleware-and-next",
+          "title": "Middleware and next()",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-4-middleware-and-next",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-5-error-handling-middleware",
+          "title": "Error-handling middleware",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-5-error-handling-middleware",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-6-body-parsing-and-validation",
+          "title": "Body parsing and validation",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-6-body-parsing-and-validation",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-7-environment-variables-and-config",
+          "title": "Environment variables and config",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-7-environment-variables-and-config",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-node-8-async-error-handling-patterns",
+          "title": "Async error handling patterns",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-node-8-async-error-handling-patterns",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-api",
+      "title": "APIs & REST",
+      "children": [
+        {
+          "slug": "webdev-api-0-rest-principles",
+          "title": "REST principles",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-0-rest-principles",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-1-resource-naming-conventions",
+          "title": "Resource naming conventions",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-1-resource-naming-conventions",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-2-idempotency-which-methods-and-why",
+          "title": "Idempotency — which methods and why",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-2-idempotency-which-methods-and-why",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-3-status-code-selection",
+          "title": "Status code selection",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-3-status-code-selection",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-4-pagination-filtering-sorting",
+          "title": "Pagination, filtering, sorting",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-4-pagination-filtering-sorting",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-5-versioning-strategies",
+          "title": "Versioning strategies",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-5-versioning-strategies",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-6-rate-limiting",
+          "title": "Rate limiting",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-6-rate-limiting",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-7-rest-vs-graphql-vs-grpc",
+          "title": "REST vs GraphQL vs gRPC",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-7-rest-vs-graphql-vs-grpc",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-api-8-api-documentation",
+          "title": "API documentation",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-api-8-api-documentation",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-auth",
+      "title": "Auth & Security",
+      "children": [
+        {
+          "slug": "webdev-auth-0-session-based-auth",
+          "title": "Session-based auth",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-0-session-based-auth",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-1-jwt-structure-signing-expiry",
+          "title": "JWT: structure, signing, expiry",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-1-jwt-structure-signing-expiry",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-2-access-token-vs-refresh-token",
+          "title": "Access token vs refresh token",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-2-access-token-vs-refresh-token",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-3-where-to-store-tokens-and-the-xss-csrf-trade-off",
+          "title": "Where to store tokens (and the XSS/CSRF trade-off)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-3-where-to-store-tokens-and-the-xss-csrf-trade-off",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-4-oauth-2-0-flow",
+          "title": "OAuth 2.0 flow",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-4-oauth-2-0-flow",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-5-password-hashing-bcrypt-salting",
+          "title": "Password hashing: bcrypt, salting",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-5-password-hashing-bcrypt-salting",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-6-https-and-why",
+          "title": "HTTPS and why",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-6-https-and-why",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-7-xss",
+          "title": "XSS",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-7-xss",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-8-csrf",
+          "title": "CSRF",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-8-csrf",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-9-sql-injection",
+          "title": "SQL injection",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-9-sql-injection",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-auth-10-helmet-csp-security-headers",
+          "title": "Helmet, CSP, security headers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-auth-10-helmet-csp-security-headers",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-db",
+      "title": "Databases in practice",
+      "children": [
+        {
+          "slug": "webdev-db-0-sql-vs-nosql-choosing-for-a-real-feature",
+          "title": "SQL vs NoSQL: choosing for a real feature",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-0-sql-vs-nosql-choosing-for-a-real-feature",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-1-schema-design-for-your-project",
+          "title": "Schema design for your project",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-1-schema-design-for-your-project",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-2-mongodb-documents-and-embedding-vs-referencing",
+          "title": "MongoDB documents and embedding vs referencing",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-2-mongodb-documents-and-embedding-vs-referencing",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-3-mongoose-schemas-and-validation",
+          "title": "Mongoose schemas and validation",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-3-mongoose-schemas-and-validation",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-4-indexing-for-your-actual-queries",
+          "title": "Indexing for your actual queries",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-4-indexing-for-your-actual-queries",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-5-n-plus-1-query-problem",
+          "title": "N+1 query problem",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-5-n-plus-1-query-problem",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-6-transactions-in-application-code",
+          "title": "Transactions in application code",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-6-transactions-in-application-code",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-7-connection-pooling",
+          "title": "Connection pooling",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-7-connection-pooling",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-db-8-migrations",
+          "title": "Migrations",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-db-8-migrations",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-git",
+      "title": "Git & Deployment",
+      "children": [
+        {
+          "slug": "webdev-git-0-branching-strategies",
+          "title": "Branching strategies",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-0-branching-strategies",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-1-merge-vs-rebase",
+          "title": "Merge vs rebase",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-1-merge-vs-rebase",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-2-resolving-conflicts",
+          "title": "Resolving conflicts",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-2-resolving-conflicts",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-3-interactive-rebase-and-squashing",
+          "title": "Interactive rebase and squashing",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-3-interactive-rebase-and-squashing",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-4-gitignore-and-secrets-hygiene",
+          "title": ".gitignore and secrets hygiene",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-4-gitignore-and-secrets-hygiene",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-5-pull-request-workflow",
+          "title": "Pull request workflow",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-5-pull-request-workflow",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-6-ci-basics",
+          "title": "CI basics",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-6-ci-basics",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-7-environment-variables-in-production",
+          "title": "Environment variables in production",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-7-environment-variables-in-production",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-8-deploying-a-static-site",
+          "title": "Deploying a static site",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-8-deploying-a-static-site",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-9-deploying-a-node-service",
+          "title": "Deploying a Node service",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-9-deploying-a-node-service",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-git-10-docker-basics",
+          "title": "Docker basics",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-git-10-docker-basics",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "webdev-proj",
+      "title": "Your Projects",
+      "children": [
+        {
+          "slug": "webdev-proj-0-project-1-90-second-pitch",
+          "title": "Project 1 — 90-second pitch",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-0-project-1-90-second-pitch",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-1-project-1-architecture-diagram-from-memory",
+          "title": "Project 1 — architecture diagram from memory",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-1-project-1-architecture-diagram-from-memory",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-2-project-1-hardest-bug-and-how-you-found-it",
+          "title": "Project 1 — hardest bug and how you found it",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-2-project-1-hardest-bug-and-how-you-found-it",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-3-project-1-what-you-would-change",
+          "title": "Project 1 — what you would change",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-3-project-1-what-you-would-change",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-4-project-2-90-second-pitch",
+          "title": "Project 2 — 90-second pitch",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-4-project-2-90-second-pitch",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-5-project-2-architecture-diagram-from-memory",
+          "title": "Project 2 — architecture diagram from memory",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-5-project-2-architecture-diagram-from-memory",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-6-project-2-trade-offs-you-chose",
+          "title": "Project 2 — trade-offs you chose",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-6-project-2-trade-offs-you-chose",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-7-why-this-stack-over-alternatives",
+          "title": "Why this stack over alternatives",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-7-why-this-stack-over-alternatives",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-8-how-it-scales-to-10x-users",
+          "title": "How it scales to 10x users",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-8-how-it-scales-to-10x-users",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "webdev-proj-9-what-is-not-production-ready-and-why-you-know-it",
+          "title": "What is not production-ready and why you know it",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:webdev-proj-9-what-is-not-production-ready-and-why-you-know-it",
+          "difficulty": "medium"
+        }
+      ]
+    }
+  ]
+}

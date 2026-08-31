@@ -1,0 +1,3440 @@
+{
+  "subject": "dsa_patterns",
+  "title": "DSA Patterns",
+  "topics": {
+    "u:dsa-foundations-0-big-o-notation": {
+      "title": "Big-O notation",
+      "summary": "Big-O describes how an algorithm's cost grows with input size, ignoring constants.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Big-O** captures the dominant growth term as the input size n grows, dropping constant factors and lower-order terms. It answers 'how does the work scale?', not 'how many milliseconds?'."
+        },
+        {
+          "t": "table",
+          "headers": [
+            "Order",
+            "Name",
+            "Example"
+          ],
+          "rows": [
+            [
+              "O(1)",
+              "Constant",
+              "Array index, hash lookup"
+            ],
+            [
+              "O(log n)",
+              "Logarithmic",
+              "Binary search"
+            ],
+            [
+              "O(n)",
+              "Linear",
+              "Single pass over an array"
+            ],
+            [
+              "O(n log n)",
+              "Linearithmic",
+              "Efficient sorting (merge sort)"
+            ],
+            [
+              "O(n^2)",
+              "Quadratic",
+              "Nested loops over pairs"
+            ],
+            [
+              "O(2^n)",
+              "Exponential",
+              "Subsets / naive recursion"
+            ]
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Big-O is an upper bound on growth. Compare algorithms by their order first; constants only matter when the orders tie."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Which of these grows the fastest as n increases?",
+          "options": [
+            "O(2^n)",
+            "O(n^2)",
+            "O(n log n)",
+            "O(n)"
+          ],
+          "answer": 0,
+          "explain": "Exponential growth dominates every polynomial order."
+        },
+        {
+          "q": "Big-O deliberately ignores:",
+          "options": [
+            "The input size",
+            "The dominant term",
+            "The algorithm's logic",
+            "Constant factors and lower-order terms"
+          ],
+          "answer": 3,
+          "explain": "It describes asymptotic growth, not exact operation counts."
+        },
+        {
+          "q": "A single loop that scans an array of n items once is:",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n^2)"
+          ],
+          "answer": 1,
+          "explain": "The work grows in direct proportion to n."
+        }
+      ]
+    },
+    "u:dsa-foundations-1-time-vs-space-complexity": {
+      "title": "Time vs space complexity",
+      "summary": "Every algorithm trades running time against extra memory; interviews ask about both.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Time complexity** counts operations; **space complexity** counts the extra memory an algorithm allocates beyond its input. A hash map can turn an O(n^2) scan into O(n) time but costs O(n) space."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "State both when you analyse a solution. 'O(n) time, O(1) extra space' is a stronger answer than time alone."
+        },
+        {
+          "t": "p",
+          "text": "Recursion has a hidden space cost: the **call stack** uses O(depth) memory even if the code allocates nothing else."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Space complexity measures:",
+          "options": [
+            "Only the input size",
+            "The number of loops",
+            "Extra memory used beyond the input",
+            "The running time"
+          ],
+          "answer": 2,
+          "explain": "It counts auxiliary memory the algorithm allocates."
+        },
+        {
+          "q": "Using a hash set to detect duplicates in one pass trades:",
+          "options": [
+            "More time for less space",
+            "More space for less time",
+            "Nothing",
+            "Correctness for speed"
+          ],
+          "answer": 1,
+          "explain": "O(n) space buys an O(n) instead of O(n^2) scan."
+        },
+        {
+          "q": "A recursion 20 levels deep uses call-stack space of about:",
+          "options": [
+            "O(1)",
+            "O(n^2)",
+            "O(depth)",
+            "Zero"
+          ],
+          "answer": 2,
+          "explain": "Each pending call keeps a frame on the stack."
+        }
+      ]
+    },
+    "u:dsa-foundations-2-analysing-recursion": {
+      "title": "Analysing recursion",
+      "summary": "Model a recursive routine as a recurrence, then solve it for the overall cost.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A recursive algorithm's cost is a **recurrence**: work at this level plus the cost of the subcalls. Merge sort splits in two and does O(n) to merge, giving T(n) = 2T(n/2) + O(n) = O(n log n)."
+        },
+        {
+          "t": "points",
+          "items": [
+            "**Divide by a constant factor** each call (e.g. n/2) -> often O(log n) depth.",
+            "**Subtract one** each call (e.g. n-1) -> O(n) depth.",
+            "**Branching factor** multiplies work: two calls per level with no shrink -> O(2^n)."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Total cost = (number of nodes in the recursion tree) x (work per node). Draw the tree when unsure."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The recurrence T(n) = 2T(n/2) + O(n) solves to:",
+          "options": [
+            "O(n)",
+            "O(n^2)",
+            "O(log n)",
+            "O(n log n)"
+          ],
+          "answer": 3,
+          "explain": "Log n levels, each doing O(n) total work (merge sort)."
+        },
+        {
+          "q": "Naive Fibonacci recursion f(n)=f(n-1)+f(n-2) is:",
+          "options": [
+            "O(2^n)",
+            "O(n)",
+            "O(n log n)",
+            "O(log n)"
+          ],
+          "answer": 0,
+          "explain": "The branching tree roughly doubles each level."
+        },
+        {
+          "q": "Halving the input each recursive call typically gives a depth of:",
+          "options": [
+            "O(n)",
+            "O(log n)",
+            "O(n^2)",
+            "O(1)"
+          ],
+          "answer": 1,
+          "explain": "You can halve n only about log2(n) times."
+        }
+      ]
+    },
+    "u:dsa-foundations-3-amortized-analysis": {
+      "title": "Amortized analysis",
+      "summary": "Some operations are occasionally expensive but cheap on average across a sequence.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Amortized cost** averages an operation's cost over a long run. A dynamic array's push is usually O(1), but occasionally O(n) when it doubles capacity and copies. Averaged over many pushes, each is O(1) amortized."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "Amortized is not the same as average-case. It's a worst-case guarantee over a SEQUENCE of operations, with no probability assumptions."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Appending to a dynamic array (with doubling) is:",
+          "options": [
+            "O(1) amortized",
+            "O(n) every time",
+            "O(log n) amortized",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Rare O(n) resizes average out to O(1) per push."
+        },
+        {
+          "q": "Amortized analysis differs from average-case because it:",
+          "options": [
+            "Makes no probability assumptions",
+            "Ignores worst cases",
+            "Only applies to sorting",
+            "Is always O(1)"
+          ],
+          "answer": 0,
+          "explain": "It's a guaranteed average over a sequence, not an expectation."
+        },
+        {
+          "q": "A dynamic array resizes by:",
+          "options": [
+            "Adding one slot each time",
+            "Never resizing",
+            "Halving on each push",
+            "Doubling capacity and copying elements"
+          ],
+          "answer": 3,
+          "explain": "Geometric growth keeps amortized push at O(1)."
+        }
+      ]
+    },
+    "u:dsa-arrays-0-prefix-sums": {
+      "title": "Prefix sums",
+      "summary": "Precompute running totals so any range sum is answered in O(1).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **prefix-sum** array stores pre[i] = sum of the first i elements. The sum of range [l, r] is then pre[r+1] - pre[l], answered in O(1) after O(n) preprocessing."
+        },
+        {
+          "t": "code",
+          "text": "pre[0] = 0\nfor i in range(n):\n    pre[i+1] = pre[i] + a[i]\n# sum of a[l..r] inclusive:\nrange_sum = pre[r+1] - pre[l]"
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "The same idea extends to 2D (integral images) and to prefix XOR / prefix counts."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "After building a prefix-sum array, a range sum query costs:",
+          "options": [
+            "O(n)",
+            "O(log n)",
+            "O(n log n)",
+            "O(1)"
+          ],
+          "answer": 3,
+          "explain": "Each query is a single subtraction."
+        },
+        {
+          "q": "pre[i] is defined as the sum of:",
+          "options": [
+            "The first i elements",
+            "All elements",
+            "Elements after i",
+            "The i-th element only"
+          ],
+          "answer": 0,
+          "explain": "That definition makes range sums a clean subtraction."
+        },
+        {
+          "q": "Prefix sums are ideal when you have:",
+          "options": [
+            "Many range-sum queries on a fixed array",
+            "A single sum to compute",
+            "Frequent element updates",
+            "No queries"
+          ],
+          "answer": 0,
+          "explain": "Precomputation pays off across many queries."
+        }
+      ]
+    },
+    "u:dsa-arrays-1-two-pointers": {
+      "title": "Two pointers",
+      "summary": "Walk two indices toward each other (or together) to avoid a nested loop.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "The **two-pointer** pattern uses two indices that move based on a condition, turning many O(n^2) pair searches into O(n). Classic use: find a pair summing to a target in a **sorted** array by moving pointers inward."
+        },
+        {
+          "t": "code",
+          "text": "i, j = 0, n - 1\nwhile i < j:\n    s = a[i] + a[j]\n    if s == target: return (i, j)\n    if s < target: i += 1   # need a bigger sum\n    else: j -= 1            # need a smaller sum"
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The array being sorted is what makes the move decisions correct - each step provably discards no valid answer."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Two pointers reduce a sorted-pair search from O(n^2) to:",
+          "options": [
+            "O(n)",
+            "O(1)",
+            "O(log n)",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Each pointer advances at most n times total."
+        },
+        {
+          "q": "In the sorted two-sum, if the current sum is too small you:",
+          "options": [
+            "Move the right pointer left",
+            "Stop",
+            "Restart",
+            "Move the left pointer right"
+          ],
+          "answer": 3,
+          "explain": "A larger left value increases the sum."
+        },
+        {
+          "q": "The opposite-ends two-pointer trick usually requires the array to be:",
+          "options": [
+            "Unsorted",
+            "Sorted",
+            "All positive",
+            "A power of two in length"
+          ],
+          "answer": 1,
+          "explain": "Sorted order justifies which pointer to move."
+        }
+      ]
+    },
+    "u:dsa-arrays-2-sliding-window-fixed-size": {
+      "title": "Sliding window (fixed size)",
+      "summary": "Slide a window of constant width, updating the answer in O(1) per step.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "For a **fixed-size window** of width k, compute the first window, then slide: add the entering element and remove the leaving one. This gives O(n) instead of recomputing each window in O(k)."
+        },
+        {
+          "t": "code",
+          "text": "window = sum(a[:k])\nbest = window\nfor i in range(k, n):\n    window += a[i] - a[i-k]   # add new, drop old\n    best = max(best, window)"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Sliding a fixed window and updating incrementally makes the scan:",
+          "options": [
+            "O(nk)",
+            "O(n)",
+            "O(n^2)",
+            "O(k^2)"
+          ],
+          "answer": 1,
+          "explain": "Each element enters and leaves the window once."
+        },
+        {
+          "q": "When the window slides one step you:",
+          "options": [
+            "Add the entering element and subtract the leaving one",
+            "Recompute the whole window",
+            "Only add the new element",
+            "Sort the window"
+          ],
+          "answer": 0,
+          "explain": "Incremental update is the whole point of the pattern."
+        },
+        {
+          "q": "Fixed-size sliding window applies when the subarray length is:",
+          "options": [
+            "Variable",
+            "The whole array",
+            "Given and constant",
+            "Always one"
+          ],
+          "answer": 2,
+          "explain": "A fixed k is what makes the O(1) update possible."
+        }
+      ]
+    },
+    "u:dsa-arrays-3-sliding-window-variable-size": {
+      "title": "Sliding window (variable size)",
+      "summary": "Grow and shrink a window to satisfy a constraint, e.g. longest substring without repeats.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **variable window** expands its right edge to include more, and shrinks its left edge whenever a constraint breaks. Track the best valid window seen. It answers 'longest/shortest subarray with property X' in O(n)."
+        },
+        {
+          "t": "steps",
+          "items": [
+            "Expand `right`, updating counts/sums.",
+            "While the window is invalid, advance `left` to restore validity.",
+            "Record the best valid window at each step."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "A hash map of counts inside the window tells you when to shrink (e.g. a character repeated)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A variable-size window shrinks from the left when:",
+          "options": [
+            "It reaches size k",
+            "The array ends",
+            "The window violates its constraint",
+            "Right can't move"
+          ],
+          "answer": 2,
+          "explain": "Shrinking restores validity before recording the answer."
+        },
+        {
+          "q": "'Longest substring without repeating characters' is solved with:",
+          "options": [
+            "A variable sliding window",
+            "A fixed window",
+            "Binary search",
+            "A stack only"
+          ],
+          "answer": 0,
+          "explain": "The window grows/shrinks to stay repeat-free."
+        },
+        {
+          "q": "Both pointers only ever move forward, so the total work is:",
+          "options": [
+            "O(n^2)",
+            "O(n log n)",
+            "O(1)",
+            "O(n)"
+          ],
+          "answer": 3,
+          "explain": "Each index advances at most n times."
+        }
+      ]
+    },
+    "u:dsa-arrays-4-hashing-and-frequency-maps": {
+      "title": "Hashing & frequency maps",
+      "summary": "Hash maps give average O(1) lookup, powering counting and dedup patterns.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **hash map / set** stores keys with average O(1) insert and lookup. It converts 'have I seen this?' and 'how many of each?' questions from O(n^2) to O(n)."
+        },
+        {
+          "t": "points",
+          "items": [
+            "**Seen-set**: detect duplicates or complements in one pass.",
+            "**Frequency map**: count occurrences for anagrams, majority element, top-K.",
+            "**Index map**: remember where a value last appeared."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Hash operations are O(1) on average but O(n) worst case under many collisions; usually fine for interviews."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Average-case lookup in a hash map is:",
+          "options": [
+            "O(n)",
+            "O(1)",
+            "O(log n)",
+            "O(n log n)"
+          ],
+          "answer": 1,
+          "explain": "Hashing jumps to the bucket directly on average."
+        },
+        {
+          "q": "Counting character frequencies to compare anagrams runs in:",
+          "options": [
+            "O(n^2)",
+            "O(n log n)",
+            "O(1)",
+            "O(n)"
+          ],
+          "answer": 3,
+          "explain": "One pass fills the frequency map."
+        },
+        {
+          "q": "A hash set is the natural tool for:",
+          "options": [
+            "Keeping elements sorted",
+            "Range-sum queries",
+            "Binary searching",
+            "Detecting whether a value was already seen"
+          ],
+          "answer": 3,
+          "explain": "Membership tests are its core O(1) strength."
+        }
+      ]
+    },
+    "u:dsa-arrays-5-kadane-s-algorithm": {
+      "title": "Kadane's algorithm",
+      "summary": "Find the maximum-sum contiguous subarray in a single O(n) pass.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Kadane's algorithm** keeps a running best-ending-here sum: at each element, either extend the previous subarray or start fresh at the current element, whichever is larger. Track the global best."
+        },
+        {
+          "t": "code",
+          "text": "best = cur = a[0]\nfor x in a[1:]:\n    cur = max(x, cur + x)   # extend or restart\n    best = max(best, cur)"
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The decision `max(x, cur + x)` is the heart of it: a negative running sum is never worth carrying forward."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Kadane's algorithm finds the maximum-sum:",
+          "options": [
+            "Subsequence",
+            "Contiguous subarray",
+            "Sorted subset",
+            "Pair"
+          ],
+          "answer": 1,
+          "explain": "It requires the elements to be contiguous."
+        },
+        {
+          "q": "At each step Kadane's chooses between:",
+          "options": [
+            "Two pointers",
+            "Sorting or not",
+            "Extending the current subarray or starting a new one",
+            "Recursing or not"
+          ],
+          "answer": 2,
+          "explain": "max(x, cur+x) encodes exactly that choice."
+        },
+        {
+          "q": "Kadane's runs in:",
+          "options": [
+            "O(n^2) time",
+            "O(n) time and O(1) space",
+            "O(n log n) time",
+            "O(n) space"
+          ],
+          "answer": 1,
+          "explain": "A single pass with two running variables."
+        }
+      ]
+    },
+    "u:dsa-binary-search-0-binary-search-fundamentals": {
+      "title": "Binary search fundamentals",
+      "summary": "Halve a sorted search space each step to find a target in O(log n).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Binary search** works on a **sorted** (or monotonic) space. Compare the target to the middle; discard the half that cannot contain it. Each step halves the range, giving O(log n)."
+        },
+        {
+          "t": "code",
+          "text": "lo, hi = 0, n - 1\nwhile lo <= hi:\n    mid = lo + (hi - lo) // 2   # avoids overflow\n    if a[mid] == target: return mid\n    if a[mid] < target: lo = mid + 1\n    else: hi = mid - 1\nreturn -1"
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Compute mid as lo + (hi - lo)//2, not (lo+hi)//2, to avoid integer overflow in languages with fixed-width ints."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Binary search requires the data to be:",
+          "options": [
+            "Unsorted",
+            "All positive",
+            "Sorted (or monotonic)",
+            "A power of two long"
+          ],
+          "answer": 2,
+          "explain": "Ordering is what lets you discard half safely."
+        },
+        {
+          "q": "Each comparison in binary search:",
+          "options": [
+            "Removes one element",
+            "Halves the remaining search space",
+            "Doubles the range",
+            "Sorts the array"
+          ],
+          "answer": 1,
+          "explain": "That halving yields the O(log n) bound."
+        },
+        {
+          "q": "`mid = lo + (hi - lo)//2` is preferred because it:",
+          "options": [
+            "Is faster",
+            "Rounds up",
+            "Avoids integer overflow",
+            "Handles unsorted data"
+          ],
+          "answer": 2,
+          "explain": "lo+hi can overflow fixed-width integers."
+        }
+      ]
+    },
+    "u:dsa-binary-search-1-lower-and-upper-bound": {
+      "title": "Lower & upper bound",
+      "summary": "Find the first/last valid position, not just an exact match.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Lower bound** returns the first index whose value is >= target; **upper bound** returns the first index whose value is > target. These handle duplicates and 'insert position' questions that plain binary search can't."
+        },
+        {
+          "t": "p",
+          "text": "The count of a value equals upperBound(x) - lowerBound(x). Both are O(log n)."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Frame boundary searches as 'find the first index where a predicate becomes true' - a robust, bug-resistant template."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Lower bound returns the first element that is:",
+          "options": [
+            "> target",
+            "== target only",
+            ">= target",
+            "< target"
+          ],
+          "answer": 2,
+          "explain": "It's the first position not less than the target."
+        },
+        {
+          "q": "The number of occurrences of x in a sorted array is:",
+          "options": [
+            "upperBound(x) - lowerBound(x)",
+            "lowerBound(x) only",
+            "n - lowerBound(x)",
+            "upperBound(x)"
+          ],
+          "answer": 0,
+          "explain": "The gap between the two bounds counts the duplicates."
+        },
+        {
+          "q": "Boundary binary searches are best framed as finding:",
+          "options": [
+            "The first index where a predicate turns true",
+            "The array's middle",
+            "The maximum element",
+            "A random index"
+          ],
+          "answer": 0,
+          "explain": "Predicate framing avoids off-by-one bugs."
+        }
+      ]
+    },
+    "u:dsa-binary-search-2-binary-search-on-the-answer": {
+      "title": "Binary search on the answer",
+      "summary": "When the answer is monotonic, binary-search the value itself.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "If a candidate answer has a **monotonic** feasibility (once it works, all larger/smaller values also work), binary-search over the answer range and test feasibility with a helper. Classic: minimum ship capacity, Koko eating bananas, split array largest sum."
+        },
+        {
+          "t": "steps",
+          "items": [
+            "Identify the answer's numeric range [lo, hi].",
+            "Write feasible(x): can we achieve the goal with value x?",
+            "Binary-search for the smallest (or largest) feasible x."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The trigger phrase is 'minimize the maximum' or 'maximize the minimum' with a checkable condition."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Binary search on the answer needs the feasibility check to be:",
+          "options": [
+            "Random",
+            "Constant",
+            "Monotonic in the candidate value",
+            "Sorted input only"
+          ],
+          "answer": 2,
+          "explain": "Monotonicity lets you discard half the value range."
+        },
+        {
+          "q": "'Minimize the maximum load' style problems often use:",
+          "options": [
+            "Kadane's algorithm",
+            "Binary search on the answer",
+            "DFS only",
+            "A hash map"
+          ],
+          "answer": 1,
+          "explain": "You search the answer space and test feasibility."
+        },
+        {
+          "q": "The feasible(x) helper typically runs in:",
+          "options": [
+            "O(1)",
+            "O(n), giving O(n log range) overall",
+            "O(2^n)",
+            "O(n^2) always"
+          ],
+          "answer": 1,
+          "explain": "A linear check inside a log-range search."
+        }
+      ]
+    },
+    "u:dsa-binary-search-3-search-in-rotated-sorted-array": {
+      "title": "Search in rotated sorted array",
+      "summary": "A rotated sorted array is still searchable in O(log n) by finding the sorted half.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A sorted array rotated at an unknown pivot has one **sorted half** on either side of mid. At each step, determine which half is sorted, check whether the target lies within it, and recurse into the correct side - still O(log n)."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Compare a[lo] with a[mid] to decide which half is sorted, then test if the target is inside that sorted range."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "In a rotated sorted array, at any mid there is always:",
+          "options": [
+            "No sorted half",
+            "Two pivots",
+            "At least one sorted half",
+            "A cycle"
+          ],
+          "answer": 2,
+          "explain": "Rotation leaves one side fully ordered."
+        },
+        {
+          "q": "Searching a rotated sorted array can still be done in:",
+          "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(log n)",
+            "O(n^2)"
+          ],
+          "answer": 2,
+          "explain": "You keep halving by identifying the sorted side."
+        },
+        {
+          "q": "You decide which half is sorted by comparing:",
+          "options": [
+            "a[0] with a[n-1]",
+            "a[lo] with a[mid]",
+            "target with 0",
+            "lo with hi only"
+          ],
+          "answer": 1,
+          "explain": "That comparison reveals the ordered side."
+        }
+      ]
+    },
+    "u:dsa-sorting-0-sorting-algorithms-overview": {
+      "title": "Sorting algorithms overview",
+      "summary": "Know the trade-offs: comparison sorts are O(n log n); some sorts are stable, some in-place.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Comparison-based sorts can't beat **O(n log n)** in the worst case. The practical ones differ in stability and memory:"
+        },
+        {
+          "t": "table",
+          "headers": [
+            "Sort",
+            "Time (worst)",
+            "Space",
+            "Stable?"
+          ],
+          "rows": [
+            [
+              "Merge sort",
+              "O(n log n)",
+              "O(n)",
+              "Yes"
+            ],
+            [
+              "Quick sort",
+              "O(n^2)",
+              "O(log n)",
+              "No"
+            ],
+            [
+              "Heap sort",
+              "O(n log n)",
+              "O(1)",
+              "No"
+            ],
+            [
+              "Insertion sort",
+              "O(n^2)",
+              "O(1)",
+              "Yes"
+            ]
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "A **stable** sort preserves the relative order of equal keys - essential when sorting by multiple criteria."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The best worst-case time for a comparison sort is:",
+          "options": [
+            "O(n)",
+            "O(log n)",
+            "O(n log n)",
+            "O(n^2)"
+          ],
+          "answer": 2,
+          "explain": "Comparison sorting has an n log n lower bound."
+        },
+        {
+          "q": "A stable sort guarantees that equal elements:",
+          "options": [
+            "Are removed",
+            "Keep their original relative order",
+            "Are reversed",
+            "Are randomised"
+          ],
+          "answer": 1,
+          "explain": "Stability matters for multi-key sorting."
+        },
+        {
+          "q": "Which common sort has O(n^2) worst case despite being fast in practice?",
+          "options": [
+            "Merge sort",
+            "Heap sort",
+            "Counting sort",
+            "Quick sort"
+          ],
+          "answer": 3,
+          "explain": "Bad pivots degrade quicksort to quadratic."
+        }
+      ]
+    },
+    "u:dsa-sorting-1-merge-sort-and-divide-and-conquer": {
+      "title": "Merge sort & divide and conquer",
+      "summary": "Split, sort each half, and merge - the archetypal divide-and-conquer sort.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Merge sort** splits the array in half, recursively sorts each half, then **merges** the two sorted halves in O(n). Total: O(n log n) time, O(n) space, and it is stable."
+        },
+        {
+          "t": "p",
+          "text": "The **merge** step is reusable on its own - e.g. counting inversions, or merging k sorted lists."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Divide and conquer = split into subproblems, solve recursively, combine. Merge sort's 'combine' is the merge."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Merge sort's time complexity is:",
+          "options": [
+            "O(n log n) in all cases",
+            "O(n^2) worst case",
+            "O(n)",
+            "O(log n)"
+          ],
+          "answer": 0,
+          "explain": "It always splits evenly and merges in linear time."
+        },
+        {
+          "q": "Merge sort is:",
+          "options": [
+            "In-place but not stable",
+            "Neither",
+            "Stable but not in-place",
+            "Both"
+          ],
+          "answer": 2,
+          "explain": "It preserves equal-key order but needs O(n) extra space."
+        },
+        {
+          "q": "The merge step of two sorted halves runs in:",
+          "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "A single linear pass with two pointers."
+        }
+      ]
+    },
+    "u:dsa-sorting-2-quick-sort-and-quickselect": {
+      "title": "Quick sort & quickselect",
+      "summary": "Partition around a pivot; average O(n log n) sort, and O(n) selection.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Quick sort** picks a pivot, **partitions** elements into < pivot and > pivot, then recurses on each side. Average O(n log n); worst O(n^2) on bad pivots (mitigated by randomising the pivot)."
+        },
+        {
+          "t": "p",
+          "text": "**Quickselect** reuses partitioning to find the k-th smallest element in **average O(n)** by recursing into only the side that contains k."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Already-sorted input with a naive first-element pivot triggers quicksort's O(n^2) worst case - randomise or use median-of-three."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Quick sort's average time complexity is:",
+          "options": [
+            "O(n log n)",
+            "O(n)",
+            "O(n^2)",
+            "O(log n)"
+          ],
+          "answer": 0,
+          "explain": "Balanced partitions give log n depth of O(n) work."
+        },
+        {
+          "q": "Quickselect finds the k-th smallest element in average:",
+          "options": [
+            "O(n log n)",
+            "O(log n)",
+            "O(n^2)",
+            "O(n)"
+          ],
+          "answer": 3,
+          "explain": "It recurses into only one partition each step."
+        },
+        {
+          "q": "Quicksort's O(n^2) worst case is usually avoided by:",
+          "options": [
+            "Randomising the pivot",
+            "Sorting first",
+            "Using more memory",
+            "Adding a hash map"
+          ],
+          "answer": 0,
+          "explain": "Random pivots make bad splits vanishingly unlikely."
+        }
+      ]
+    },
+    "u:dsa-sorting-3-non-comparison-sorts": {
+      "title": "Non-comparison sorts",
+      "summary": "Counting and radix sort beat O(n log n) when keys are small integers.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Counting sort** tallies occurrences of each key and rebuilds the array in O(n + k) for keys in range [0, k]. **Radix sort** applies counting sort digit by digit for larger integers, O(d * (n + b))."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "These bypass the n log n bound because they don't compare elements - they use the keys as array indices. They only work for bounded integer (or fixed-length) keys."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Counting sort runs in:",
+          "options": [
+            "O(n log n)",
+            "O(n^2)",
+            "O(n + k) for keys in [0, k]",
+            "O(log n)"
+          ],
+          "answer": 2,
+          "explain": "It tallies counts and rebuilds linearly."
+        },
+        {
+          "q": "Non-comparison sorts can beat O(n log n) because they:",
+          "options": [
+            "Use recursion",
+            "Are randomised",
+            "Use keys as indices instead of comparing",
+            "Use less memory"
+          ],
+          "answer": 2,
+          "explain": "Avoiding comparisons sidesteps the lower bound."
+        },
+        {
+          "q": "Counting sort is only practical when the key range k is:",
+          "options": [
+            "Not much larger than n",
+            "Always huge",
+            "Negative",
+            "Irrelevant"
+          ],
+          "answer": 0,
+          "explain": "A giant k makes its O(n+k) memory/time blow up."
+        }
+      ]
+    },
+    "u:dsa-sorting-4-custom-comparators-and-stability": {
+      "title": "Custom comparators & stability",
+      "summary": "Sort by multiple keys with a comparator; rely on stability for tie-breaks.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **comparator** defines the order for complex objects: e.g. sort by score descending, then by name ascending. Return negative/zero/positive (or a tuple key) to encode the order."
+        },
+        {
+          "t": "code",
+          "text": "# Python: sort by score desc, then name asc\nitems.sort(key=lambda x: (-x.score, x.name))"
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Composite tuple keys are the cleanest way to express multi-level sorts and avoid comparator bugs."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A comparator that returns a negative value means the first item should come:",
+          "options": [
+            "Before the second",
+            "After the second",
+            "Be removed",
+            "Be equal"
+          ],
+          "answer": 0,
+          "explain": "Negative means 'first sorts earlier'."
+        },
+        {
+          "q": "To sort by score descending then name ascending, a clean key is:",
+          "options": [
+            "(-score, name)",
+            "(score, name)",
+            "(name, score)",
+            "(score,)"
+          ],
+          "answer": 0,
+          "explain": "Negating score flips only that field's order."
+        },
+        {
+          "q": "Stability lets you achieve a multi-key sort by:",
+          "options": [
+            "Sorting only once by the main key",
+            "Reversing the array",
+            "Using a hash map",
+            "Sorting by the least significant key first"
+          ],
+          "answer": 3,
+          "explain": "Stable passes from least to most significant preserve earlier order."
+        }
+      ]
+    },
+    "u:dsa-linked-lists-0-linked-list-fundamentals": {
+      "title": "Linked list fundamentals",
+      "summary": "Nodes linked by pointers give O(1) insert/delete but O(n) access.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **linked list** stores each element in a node holding a value and a pointer to the next node. Insertion/deletion at a known position is O(1) (just relink pointers), but random access is O(n) - you must walk from the head."
+        },
+        {
+          "t": "table",
+          "headers": [
+            "Operation",
+            "Array",
+            "Linked list"
+          ],
+          "rows": [
+            [
+              "Index access",
+              "O(1)",
+              "O(n)"
+            ],
+            [
+              "Insert at front",
+              "O(n)",
+              "O(1)"
+            ],
+            [
+              "Insert after node",
+              "O(n)",
+              "O(1)"
+            ]
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "A **doubly** linked list also stores a prev pointer, enabling O(1) deletion given only the node."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Accessing the i-th element of a singly linked list is:",
+          "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "answer": 2,
+          "explain": "You must traverse from the head."
+        },
+        {
+          "q": "Inserting a node after a known node is:",
+          "options": [
+            "O(n)",
+            "O(log n)",
+            "O(n^2)",
+            "O(1)"
+          ],
+          "answer": 3,
+          "explain": "It's just a couple of pointer reassignments."
+        },
+        {
+          "q": "A doubly linked list adds a pointer to enable:",
+          "options": [
+            "Faster indexing",
+            "Sorting",
+            "O(1) deletion given only the node",
+            "Range sums"
+          ],
+          "answer": 2,
+          "explain": "The prev pointer lets you relink without a scan."
+        }
+      ]
+    },
+    "u:dsa-linked-lists-1-reversing-a-linked-list": {
+      "title": "Reversing a linked list",
+      "summary": "Reverse pointers iteratively with three references, in O(n) time and O(1) space.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "To **reverse** a singly linked list, walk the list re-pointing each node's next to its predecessor, using three pointers: prev, cur, and a saved next."
+        },
+        {
+          "t": "code",
+          "text": "prev = None\ncur = head\nwhile cur:\n    nxt = cur.next   # save\n    cur.next = prev  # reverse the link\n    prev = cur       # advance\n    cur = nxt\nreturn prev  # new head"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Iterative reversal of a linked list uses extra space of:",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n^2)"
+          ],
+          "answer": 0,
+          "explain": "Only a few pointers, no extra data structure."
+        },
+        {
+          "q": "Before overwriting cur.next you must:",
+          "options": [
+            "Delete cur",
+            "Save the next node",
+            "Sort the list",
+            "Count nodes"
+          ],
+          "answer": 1,
+          "explain": "Otherwise you lose the rest of the list."
+        },
+        {
+          "q": "After the loop, the new head of the reversed list is:",
+          "options": [
+            "cur",
+            "prev",
+            "head",
+            "None"
+          ],
+          "answer": 1,
+          "explain": "cur has run off the end; prev is the last node visited."
+        }
+      ]
+    },
+    "u:dsa-linked-lists-2-fast-and-slow-pointers": {
+      "title": "Fast & slow pointers",
+      "summary": "Two pointers at different speeds detect cycles and find the middle in one pass.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Floyd's tortoise and hare**: advance one pointer by 1 and another by 2. If they meet, there's a **cycle**; if the fast one reaches the end, there isn't. The same pattern finds the **middle** node (slow lands at the middle when fast hits the end)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Cycle detection this way uses O(1) space - no visited set needed."
+        },
+        {
+          "t": "p",
+          "text": "To find the cycle's start, after they meet, reset one pointer to the head and advance both by 1; they meet at the cycle entry."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Floyd's cycle detection uses extra space of:",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n^2)"
+          ],
+          "answer": 0,
+          "explain": "Just two pointers, no visited set."
+        },
+        {
+          "q": "Moving one pointer at speed 2 and another at speed 1, in a cyclic list they will:",
+          "options": [
+            "Never meet",
+            "Eventually meet",
+            "Both stop",
+            "Reverse the list"
+          ],
+          "answer": 1,
+          "explain": "The faster pointer laps the slower inside the cycle."
+        },
+        {
+          "q": "When the fast pointer reaches the end, the slow pointer is at:",
+          "options": [
+            "The head",
+            "The tail",
+            "The middle node",
+            "A random node"
+          ],
+          "answer": 2,
+          "explain": "Half speed means half the distance covered."
+        }
+      ]
+    },
+    "u:dsa-linked-lists-3-merging-and-dummy-nodes": {
+      "title": "Merging & dummy nodes",
+      "summary": "A dummy head node removes edge cases when building or merging lists.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Merging two sorted lists is like the merge step of merge sort: repeatedly attach the smaller head. A **dummy** (sentinel) node before the real head avoids special-casing the empty result and simplifies the code."
+        },
+        {
+          "t": "code",
+          "text": "dummy = Node(0); tail = dummy\nwhile a and b:\n    if a.val <= b.val: tail.next, a = a, a.next\n    else: tail.next, b = b, b.next\n    tail = tail.next\ntail.next = a or b\nreturn dummy.next"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A dummy head node is used to:",
+          "options": [
+            "Store the answer count",
+            "Avoid special-casing the empty/first insertion",
+            "Sort the list",
+            "Save memory"
+          ],
+          "answer": 1,
+          "explain": "It gives tail.next a valid target from the start."
+        },
+        {
+          "q": "Merging two sorted linked lists runs in:",
+          "options": [
+            "O(n + m)",
+            "O(n*m)",
+            "O(n log n)",
+            "O(1)"
+          ],
+          "answer": 0,
+          "explain": "One linear pass over both lists."
+        },
+        {
+          "q": "After merging, the real head is:",
+          "options": [
+            "dummy.next",
+            "dummy",
+            "tail",
+            "None"
+          ],
+          "answer": 0,
+          "explain": "The dummy is discarded; its next is the merged head."
+        }
+      ]
+    },
+    "u:dsa-stacks-queues-0-stacks-lifo": {
+      "title": "Stacks (LIFO)",
+      "summary": "Last-in-first-out; the tool for matching, undo, and DFS.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **stack** supports push and pop at one end - **last in, first out**. It underlies balanced-parenthesis checks, expression evaluation, undo history, and iterative DFS."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Whenever a problem involves 'most recent unmatched' or nesting, reach for a stack first."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A stack follows which ordering?",
+          "options": [
+            "FIFO",
+            "Sorted",
+            "Random",
+            "LIFO (last in, first out)"
+          ],
+          "answer": 3,
+          "explain": "Push and pop happen at the same end."
+        },
+        {
+          "q": "Balanced-parentheses checking naturally uses a:",
+          "options": [
+            "Queue",
+            "Heap",
+            "Hash map only",
+            "Stack"
+          ],
+          "answer": 3,
+          "explain": "You pop the matching opener for each closer."
+        },
+        {
+          "q": "Push and pop on a stack are:",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n log n)"
+          ],
+          "answer": 0,
+          "explain": "Both operate at the top in constant time."
+        }
+      ]
+    },
+    "u:dsa-stacks-queues-1-queues-and-deques-fifo": {
+      "title": "Queues & deques (FIFO)",
+      "summary": "First-in-first-out; deques allow O(1) at both ends.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **queue** is first-in-first-out - the tool for BFS and scheduling. A **deque** (double-ended queue) allows O(1) push/pop at both ends and powers sliding-window-maximum and monotonic-queue patterns."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "Implement a queue with a linked list or a circular buffer; a plain array dequeue from the front is O(n)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A queue follows which ordering?",
+          "options": [
+            "LIFO",
+            "Sorted",
+            "Random",
+            "FIFO (first in, first out)"
+          ],
+          "answer": 3,
+          "explain": "You remove from the front, add at the back."
+        },
+        {
+          "q": "BFS relies on a:",
+          "options": [
+            "Queue",
+            "Stack",
+            "Heap",
+            "Trie"
+          ],
+          "answer": 0,
+          "explain": "FIFO order visits nodes in increasing distance."
+        },
+        {
+          "q": "A deque supports O(1) operations at:",
+          "options": [
+            "Both ends",
+            "The front only",
+            "The back only",
+            "The middle"
+          ],
+          "answer": 0,
+          "explain": "That's what 'double-ended' means."
+        }
+      ]
+    },
+    "u:dsa-stacks-queues-2-monotonic-stack": {
+      "title": "Monotonic stack",
+      "summary": "Keep a stack in increasing/decreasing order to answer 'next greater' style queries in O(n).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **monotonic stack** maintains elements in sorted (increasing or decreasing) order. As you scan, pop elements that violate the order - each pop resolves an answer. It solves next-greater-element, daily-temperatures, and largest-rectangle-in-histogram in O(n)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Each element is pushed and popped at most once, so despite the inner while-loop the total work is O(n)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A monotonic stack solves next-greater-element in:",
+          "options": [
+            "O(n^2)",
+            "O(n)",
+            "O(n log n)",
+            "O(log n)"
+          ],
+          "answer": 1,
+          "explain": "Amortized O(1) per element - each is pushed/popped once."
+        },
+        {
+          "q": "Elements are popped from a monotonic stack when they:",
+          "options": [
+            "Are duplicates",
+            "Violate the required order",
+            "Reach the top randomly",
+            "Are negative"
+          ],
+          "answer": 1,
+          "explain": "Each violating pop finalises that element's answer."
+        },
+        {
+          "q": "Largest rectangle in a histogram is efficiently solved with a:",
+          "options": [
+            "Binary search",
+            "Hash map",
+            "Monotonic stack",
+            "Two heaps"
+          ],
+          "answer": 2,
+          "explain": "The stack tracks bars in increasing height."
+        }
+      ]
+    },
+    "u:dsa-stacks-queues-3-next-greater-element": {
+      "title": "Next greater element",
+      "summary": "For each item, find the nearest larger item to its right using a monotonic stack.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Next greater element**: scan right to left, keeping a decreasing stack of candidates. Pop everything <= the current value; the stack top (if any) is the answer; then push the current value."
+        },
+        {
+          "t": "code",
+          "text": "res = [-1]*n\nst = []  # indices, decreasing values\nfor i in range(n-1, -1, -1):\n    while st and a[st[-1]] <= a[i]: st.pop()\n    if st: res[i] = a[st[-1]]\n    st.append(i)"
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Scanning right-to-left with a decreasing stack, the answer for i is:",
+          "options": [
+            "The stack top after popping smaller-or-equal values",
+            "The stack bottom",
+            "Always -1",
+            "The previous element"
+          ],
+          "answer": 0,
+          "explain": "Remaining top is the nearest greater to the right."
+        },
+        {
+          "q": "Values <= the current element are popped because they:",
+          "options": [
+            "Are duplicates",
+            "Save memory",
+            "Can never be a future element's next-greater over the current",
+            "Are sorted"
+          ],
+          "answer": 2,
+          "explain": "A larger, closer element dominates them."
+        },
+        {
+          "q": "The overall complexity is:",
+          "options": [
+            "O(n^2)",
+            "O(n log n)",
+            "O(n)",
+            "O(log n)"
+          ],
+          "answer": 2,
+          "explain": "Each index is pushed and popped once."
+        }
+      ]
+    },
+    "u:dsa-backtracking-0-backtracking-template": {
+      "title": "Backtracking template",
+      "summary": "Explore choices, recurse, then undo - a systematic search of all valid configurations.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Backtracking** builds a solution incrementally and abandons a path ('backtracks') as soon as it can't lead to a valid answer. The template: choose -> explore (recurse) -> un-choose."
+        },
+        {
+          "t": "code",
+          "text": "def solve(state):\n    if is_complete(state): record(state); return\n    for choice in choices(state):\n        if valid(choice):\n            apply(choice)      # choose\n            solve(state)       # explore\n            undo(choice)       # un-choose"
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Pruning invalid branches early is what makes backtracking tractable versus brute-forcing every combination."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The three-step backtracking pattern is:",
+          "options": [
+            "Sort, search, merge",
+            "Push, pop, peek",
+            "Split, solve, combine",
+            "Choose, explore, un-choose"
+          ],
+          "answer": 3,
+          "explain": "You undo the choice after exploring it."
+        },
+        {
+          "q": "Backtracking becomes efficient mainly through:",
+          "options": [
+            "Sorting the input",
+            "Using a hash map",
+            "Pruning branches that can't succeed",
+            "Randomisation"
+          ],
+          "answer": 2,
+          "explain": "Early pruning cuts the search tree dramatically."
+        },
+        {
+          "q": "Backtracking is a form of:",
+          "options": [
+            "Breadth-first search",
+            "Binary search",
+            "Depth-first search over the solution space",
+            "Greedy choice"
+          ],
+          "answer": 2,
+          "explain": "It dives down one path fully before trying others."
+        }
+      ]
+    },
+    "u:dsa-backtracking-1-subsets-and-combinations": {
+      "title": "Subsets & combinations",
+      "summary": "Generate all subsets (2^n) or fixed-size combinations by include/exclude decisions.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Every element is either **in or out** of a subset, giving 2^n subsets. Backtracking with an 'include this index or skip it' decision (or a start-index loop) enumerates them without duplicates."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "For combinations, pass a start index so you only ever move forward - this prevents generating the same set in a different order."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The number of subsets of an n-element set is:",
+          "options": [
+            "n!",
+            "2^n",
+            "n^2",
+            "2n"
+          ],
+          "answer": 1,
+          "explain": "Each element is independently in or out."
+        },
+        {
+          "q": "To avoid duplicate combinations, the recursion should:",
+          "options": [
+            "Sort after each call",
+            "Use a queue",
+            "Only consider indices from a moving start point",
+            "Randomise order"
+          ],
+          "answer": 2,
+          "explain": "A forward-only start index fixes an ordering."
+        },
+        {
+          "q": "Generating all subsets is inherently:",
+          "options": [
+            "Linear",
+            "Exponential, O(2^n)",
+            "O(n log n)",
+            "O(n^2)"
+          ],
+          "answer": 1,
+          "explain": "There are 2^n subsets to produce."
+        }
+      ]
+    },
+    "u:dsa-backtracking-2-permutations": {
+      "title": "Permutations",
+      "summary": "Arrange all n elements in every order (n!) by swapping or a used-set.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Permutations** are all orderings of the elements - n! of them. Backtracking picks an unused element for each position (tracked by a used[] array or by swapping in place), then recurses."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "With duplicate values, sort first and skip a value equal to its predecessor at the same level to avoid repeated permutations."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The number of permutations of n distinct elements is:",
+          "options": [
+            "2^n",
+            "n!",
+            "n^2",
+            "n log n"
+          ],
+          "answer": 1,
+          "explain": "n choices, then n-1, and so on."
+        },
+        {
+          "q": "To generate permutations, each position picks:",
+          "options": [
+            "Any element including used ones",
+            "The smallest remaining",
+            "An element not yet used",
+            "A random element"
+          ],
+          "answer": 2,
+          "explain": "A used-set (or swap) prevents reuse."
+        },
+        {
+          "q": "To de-duplicate permutations of a multiset you should:",
+          "options": [
+            "Use a stack",
+            "Reverse the array",
+            "Sort and skip equal siblings at the same level",
+            "Ignore duplicates"
+          ],
+          "answer": 2,
+          "explain": "Skipping equal choices per level removes repeats."
+        }
+      ]
+    },
+    "u:dsa-backtracking-3-constraint-backtracking-n-queens": {
+      "title": "Constraint backtracking (N-Queens)",
+      "summary": "Place items under constraints, pruning conflicts as you go.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Problems like **N-Queens** and **Sudoku** place items subject to constraints. Backtracking tries a placement, checks it against constraints (column, diagonals for queens), recurses if valid, and undoes on dead ends."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Track occupied columns and diagonals in sets for O(1) conflict checks instead of rescanning the board."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "N-Queens uses backtracking to:",
+          "options": [
+            "Sort the board",
+            "Binary-search rows",
+            "Place a queen per row, pruning column/diagonal conflicts",
+            "Count inversions"
+          ],
+          "answer": 2,
+          "explain": "Each row gets one queen; conflicts prune branches."
+        },
+        {
+          "q": "Fast conflict checks for queens are done by:",
+          "options": [
+            "Tracking used columns and diagonals in sets",
+            "Rescanning the whole board each time",
+            "Sorting",
+            "Hashing the board image"
+          ],
+          "answer": 0,
+          "explain": "Sets give O(1) membership tests."
+        },
+        {
+          "q": "When no valid placement exists in a row, the algorithm:",
+          "options": [
+            "Restarts from scratch",
+            "Returns success",
+            "Skips the row",
+            "Backtracks to the previous row"
+          ],
+          "answer": 3,
+          "explain": "It undoes the last choice and tries another."
+        }
+      ]
+    },
+    "u:dsa-trees-0-binary-tree-traversals-dfs": {
+      "title": "Binary tree traversals (DFS)",
+      "summary": "Preorder, inorder, and postorder visit nodes in different useful orders.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Depth-first traversals of a binary tree differ by WHEN the node is processed relative to its children:"
+        },
+        {
+          "t": "points",
+          "items": [
+            "**Preorder** (node, left, right): copy/serialize a tree.",
+            "**Inorder** (left, node, right): yields sorted order for a BST.",
+            "**Postorder** (left, right, node): delete/free a tree, or compute from children up."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Inorder traversal of a binary SEARCH tree visits keys in ascending order - a very common test."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Inorder traversal of a BST produces values in:",
+          "options": [
+            "Descending order",
+            "Level order",
+            "Ascending sorted order",
+            "Random order"
+          ],
+          "answer": 2,
+          "explain": "Left subtree < node < right subtree, recursively."
+        },
+        {
+          "q": "Which traversal processes the node before its children?",
+          "options": [
+            "Inorder",
+            "Postorder",
+            "Level order",
+            "Preorder"
+          ],
+          "answer": 3,
+          "explain": "Preorder is node, then left, then right."
+        },
+        {
+          "q": "To compute a value that depends on both children first, use:",
+          "options": [
+            "Postorder",
+            "Preorder",
+            "Inorder",
+            "BFS"
+          ],
+          "answer": 0,
+          "explain": "Postorder finishes children before the node."
+        }
+      ]
+    },
+    "u:dsa-trees-1-level-order-traversal-bfs": {
+      "title": "Level-order traversal (BFS)",
+      "summary": "Visit a tree level by level using a queue.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Level-order** (breadth-first) traversal uses a **queue**: dequeue a node, process it, enqueue its children. Processing the queue one 'level size' at a time groups nodes by depth."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Snapshot the current queue length at the start of each level to separate levels cleanly."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Level-order traversal is implemented with a:",
+          "options": [
+            "Queue",
+            "Stack",
+            "Heap",
+            "Two pointers"
+          ],
+          "answer": 0,
+          "explain": "FIFO order visits shallower nodes first."
+        },
+        {
+          "q": "To group nodes by level, you process:",
+          "options": [
+            "The whole queue at once",
+            "One queue-length batch at a time",
+            "One node total",
+            "Nodes in sorted order"
+          ],
+          "answer": 1,
+          "explain": "The batch size equals that level's node count."
+        },
+        {
+          "q": "BFS on a tree visits nodes in order of:",
+          "options": [
+            "Decreasing value",
+            "Insertion time",
+            "Random depth",
+            "Increasing depth"
+          ],
+          "answer": 3,
+          "explain": "Each level is fully visited before the next."
+        }
+      ]
+    },
+    "u:dsa-trees-2-binary-search-trees": {
+      "title": "Binary search trees",
+      "summary": "An ordered tree giving O(log n) search/insert when balanced.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "In a **binary search tree (BST)**, every node's left subtree holds smaller keys and its right subtree holds larger keys. Search, insert, and delete are O(h) where h is the height - O(log n) when balanced, but O(n) if it degenerates into a chain."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Inserting sorted data into a plain BST creates a linked-list-shaped tree with O(n) operations. Self-balancing trees (AVL, red-black) prevent this."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "BST operations cost O(log n) only when the tree is:",
+          "options": [
+            "Empty",
+            "Full of duplicates",
+            "Sorted into a chain",
+            "Balanced"
+          ],
+          "answer": 3,
+          "explain": "Height drives cost; balance keeps height ~log n."
+        },
+        {
+          "q": "In a BST, a node's left subtree contains keys that are:",
+          "options": [
+            "Larger than the node",
+            "Equal only",
+            "Unordered",
+            "Smaller than the node"
+          ],
+          "answer": 3,
+          "explain": "That ordering enables binary-search-like descent."
+        },
+        {
+          "q": "Inserting already-sorted keys into a naive BST yields:",
+          "options": [
+            "A perfectly balanced tree",
+            "A heap",
+            "A degenerate O(n) chain",
+            "A hash table"
+          ],
+          "answer": 2,
+          "explain": "Each key becomes the rightmost node."
+        }
+      ]
+    },
+    "u:dsa-trees-3-lowest-common-ancestor": {
+      "title": "Lowest common ancestor",
+      "summary": "The deepest node that has two given nodes as descendants.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "The **lowest common ancestor (LCA)** of two nodes is the deepest node that is an ancestor of both. In a BST, walk down: if both targets are smaller go left, if both larger go right, otherwise the current node is the LCA. In a general binary tree, recurse and return the node where the two targets split."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "General-tree LCA: a node is the LCA if one target is found in its left subtree and the other in its right."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "In a BST, you've found the LCA when the two targets:",
+          "options": [
+            "Lie on opposite sides of the current node",
+            "Are both smaller",
+            "Are both larger",
+            "Are equal"
+          ],
+          "answer": 0,
+          "explain": "The split point is the lowest common ancestor."
+        },
+        {
+          "q": "In a general binary tree, the LCA is the node where:",
+          "options": [
+            "The two targets are found in different subtrees",
+            "The tree is deepest",
+            "Values are equal",
+            "The root sits"
+          ],
+          "answer": 0,
+          "explain": "That is the deepest node containing both."
+        },
+        {
+          "q": "LCA in a balanced BST runs in:",
+          "options": [
+            "O(n log n)",
+            "O(n^2)",
+            "O(log n)",
+            "O(1)"
+          ],
+          "answer": 2,
+          "explain": "A single root-to-split descent."
+        }
+      ]
+    },
+    "u:dsa-trees-4-height-depth-and-diameter": {
+      "title": "Height, depth & diameter",
+      "summary": "Height and diameter are computed bottom-up with a single postorder pass.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A node's **height** is the longest downward path to a leaf; **depth** is the distance from the root. The tree's **diameter** is the longest path between any two nodes. Compute height with postorder recursion, and track diameter = max(leftHeight + rightHeight) along the way - all in O(n)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Diameter need not pass through the root; checking left+right height at every node handles that."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A tree's diameter is:",
+          "options": [
+            "The height of the root",
+            "The longest path between any two nodes",
+            "The number of leaves",
+            "The count of nodes"
+          ],
+          "answer": 1,
+          "explain": "It may not pass through the root."
+        },
+        {
+          "q": "Height and diameter are computed in one:",
+          "options": [
+            "Postorder O(n) pass",
+            "Preorder O(log n) pass",
+            "BFS O(n^2) pass",
+            "Binary search"
+          ],
+          "answer": 0,
+          "explain": "Children's heights combine into the node's answer."
+        },
+        {
+          "q": "At each node, a diameter candidate is:",
+          "options": [
+            "leftHeight * rightHeight",
+            "height of root",
+            "leftHeight + rightHeight",
+            "number of children"
+          ],
+          "answer": 2,
+          "explain": "That is the longest path bending at this node."
+        }
+      ]
+    },
+    "u:dsa-heaps-0-heap-fundamentals": {
+      "title": "Heap fundamentals",
+      "summary": "A binary heap gives O(log n) insert and O(1) peek of the min or max.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **binary heap** is a complete binary tree (stored in an array) where each parent is <= (min-heap) or >= (max-heap) its children. The extreme element sits at the root: **peek is O(1)**, while insert and extract are **O(log n)** via sift-up/sift-down."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "Building a heap from n elements is O(n) (heapify), better than n inserts at O(n log n)."
+        },
+        {
+          "t": "p",
+          "text": "A **priority queue** is the abstract 'always give me the most important item next' interface; a heap is its usual implementation."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Peeking the minimum of a min-heap is:",
+          "options": [
+            "O(log n)",
+            "O(1)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "answer": 1,
+          "explain": "The min is always at the root."
+        },
+        {
+          "q": "Insert and extract on a heap are:",
+          "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "answer": 1,
+          "explain": "Sifting travels at most the tree height."
+        },
+        {
+          "q": "Building a heap from n items via heapify is:",
+          "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(log n)"
+          ],
+          "answer": 0,
+          "explain": "Bottom-up heapify beats n separate inserts."
+        }
+      ]
+    },
+    "u:dsa-heaps-1-top-k-pattern": {
+      "title": "Top-K pattern",
+      "summary": "Maintain a heap of size K to find the K largest/smallest efficiently.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "To find the **K largest** elements, keep a **min-heap of size K**: push each element, and pop the smallest when the heap exceeds K. What remains are the K largest, in O(n log K) time - far better than sorting when K is small."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Use a MIN-heap for the K LARGEST (so the smallest of your winners is the one to evict), and a max-heap for the K smallest."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Finding the K largest elements with a size-K heap costs:",
+          "options": [
+            "O(n log K)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(K)"
+          ],
+          "answer": 0,
+          "explain": "Each of n elements does O(log K) heap work."
+        },
+        {
+          "q": "For the K largest elements you keep a:",
+          "options": [
+            "Max-heap of size K",
+            "Sorted array",
+            "Min-heap of size K",
+            "Queue"
+          ],
+          "answer": 2,
+          "explain": "The min at the root is the weakest survivor to evict."
+        },
+        {
+          "q": "The Top-K heap approach beats full sorting when:",
+          "options": [
+            "K is much smaller than n",
+            "K equals n",
+            "The array is sorted",
+            "K is negative"
+          ],
+          "answer": 0,
+          "explain": "Small K keeps the log K factor tiny."
+        }
+      ]
+    },
+    "u:dsa-heaps-2-two-heaps-running-median": {
+      "title": "Two heaps (running median)",
+      "summary": "A max-heap and a min-heap split the data to yield the median in O(1).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "To track the **median of a stream**, keep a **max-heap** of the lower half and a **min-heap** of the upper half, balanced in size. The median is the top of the larger heap (or the average of both tops). Insert is O(log n); median query is O(1)."
+        },
+        {
+          "t": "steps",
+          "items": [
+            "Push to the correct half based on value.",
+            "Rebalance so the sizes differ by at most one.",
+            "Read the median from the heap top(s)."
+          ]
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The two-heaps median trick uses:",
+          "options": [
+            "A max-heap for the low half and a min-heap for the high half",
+            "Two min-heaps",
+            "Two stacks",
+            "A single sorted list"
+          ],
+          "answer": 0,
+          "explain": "The two tops straddle the median."
+        },
+        {
+          "q": "Querying the current median is:",
+          "options": [
+            "O(log n)",
+            "O(n)",
+            "O(n log n)",
+            "O(1)"
+          ],
+          "answer": 3,
+          "explain": "It's just the heap top(s)."
+        },
+        {
+          "q": "After each insertion you must:",
+          "options": [
+            "Sort both heaps",
+            "Clear a heap",
+            "Rebalance the two heaps' sizes",
+            "Rebuild from scratch"
+          ],
+          "answer": 2,
+          "explain": "Sizes must stay within one of each other."
+        }
+      ]
+    },
+    "u:dsa-graphs-0-graph-representations": {
+      "title": "Graph representations",
+      "summary": "Adjacency list vs matrix: pick based on density and the operations you need.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "An **adjacency list** stores, per vertex, a list of its neighbours - O(V + E) space, ideal for sparse graphs. An **adjacency matrix** is a V x V grid - O(V^2) space, giving O(1) edge lookups, good for dense graphs."
+        },
+        {
+          "t": "table",
+          "headers": [
+            "",
+            "Adjacency list",
+            "Adjacency matrix"
+          ],
+          "rows": [
+            [
+              "Space",
+              "O(V + E)",
+              "O(V^2)"
+            ],
+            [
+              "Edge exists?",
+              "O(degree)",
+              "O(1)"
+            ],
+            [
+              "Iterate neighbours",
+              "O(degree)",
+              "O(V)"
+            ]
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Most interview graphs are sparse - default to an adjacency list."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "An adjacency list uses space:",
+          "options": [
+            "O(V^2)",
+            "O(V + E)",
+            "O(E^2)",
+            "O(1)"
+          ],
+          "answer": 1,
+          "explain": "It stores each edge once (or twice, undirected)."
+        },
+        {
+          "q": "An adjacency matrix answers 'is there an edge?' in:",
+          "options": [
+            "O(V)",
+            "O(E)",
+            "O(log V)",
+            "O(1)"
+          ],
+          "answer": 3,
+          "explain": "Direct grid indexing."
+        },
+        {
+          "q": "For a sparse graph you should prefer an:",
+          "options": [
+            "Adjacency list",
+            "Adjacency matrix",
+            "Sorted edge array only",
+            "Hash of all pairs"
+          ],
+          "answer": 0,
+          "explain": "It avoids the O(V^2) matrix cost."
+        }
+      ]
+    },
+    "u:dsa-graphs-1-breadth-first-search-bfs": {
+      "title": "Breadth-first search (BFS)",
+      "summary": "Explore level by level with a queue; finds shortest paths in unweighted graphs.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**BFS** explores a graph in expanding rings from the source using a queue and a visited set. In an **unweighted** graph it finds the **shortest path** (fewest edges) to every reachable node in O(V + E)."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Mark a node visited when you ENQUEUE it, not when you dequeue it, to avoid adding it multiple times."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "BFS in an unweighted graph finds:",
+          "options": [
+            "Longest paths",
+            "Shortest paths (fewest edges)",
+            "A minimum spanning tree",
+            "Cycles only"
+          ],
+          "answer": 1,
+          "explain": "Level-by-level expansion reaches nodes at increasing distance."
+        },
+        {
+          "q": "BFS runs in:",
+          "options": [
+            "O(V + E)",
+            "O(V^2)",
+            "O(E log V)",
+            "O(V!)"
+          ],
+          "answer": 0,
+          "explain": "Each vertex and edge is processed once."
+        },
+        {
+          "q": "To prevent revisiting, mark a node visited when you:",
+          "options": [
+            "Enqueue it",
+            "Dequeue it",
+            "Finish the graph",
+            "Reach the target"
+          ],
+          "answer": 0,
+          "explain": "Marking at enqueue avoids duplicate queue entries."
+        }
+      ]
+    },
+    "u:dsa-graphs-2-depth-first-search-dfs": {
+      "title": "Depth-first search (DFS)",
+      "summary": "Dive deep before backtracking; finds components, cycles, and paths.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**DFS** follows a path as far as possible before backtracking, via recursion or an explicit stack. It's the basis for counting **connected components**, detecting **cycles**, **topological sort**, and flood-fill. O(V + E)."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Deep recursion can overflow the call stack on large graphs; an explicit stack avoids that."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "DFS explores by:",
+          "options": [
+            "Going as deep as possible before backtracking",
+            "Level by level",
+            "Cheapest edge first",
+            "Random jumps"
+          ],
+          "answer": 0,
+          "explain": "It fully explores one branch before the next."
+        },
+        {
+          "q": "Counting connected components is naturally done with:",
+          "options": [
+            "Binary search",
+            "DFS or BFS from each unvisited node",
+            "A heap",
+            "Sorting"
+          ],
+          "answer": 1,
+          "explain": "Each traversal covers one whole component."
+        },
+        {
+          "q": "DFS on a graph runs in:",
+          "options": [
+            "O(V^2)",
+            "O(E^2)",
+            "O(V!)",
+            "O(V + E)"
+          ],
+          "answer": 3,
+          "explain": "Every vertex and edge is touched once."
+        }
+      ]
+    },
+    "u:dsa-graphs-3-topological-sort": {
+      "title": "Topological sort",
+      "summary": "Order a DAG so every edge points forward; the schedule for dependencies.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **topological sort** linearly orders the vertices of a **directed acyclic graph (DAG)** so that every edge u->v has u before v. It answers 'in what order can I do tasks with prerequisites?'. Two methods: **Kahn's** (repeatedly remove in-degree-0 nodes) or DFS postorder reversed."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "A topological order exists if and only if the graph has no cycle. Kahn's algorithm detects a cycle when it can't output all nodes."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Topological sort applies only to:",
+          "options": [
+            "Undirected graphs",
+            "Directed acyclic graphs",
+            "Trees only",
+            "Weighted graphs only"
+          ],
+          "answer": 1,
+          "explain": "A cycle makes a valid ordering impossible."
+        },
+        {
+          "q": "Kahn's algorithm repeatedly removes nodes with:",
+          "options": [
+            "The most edges",
+            "The smallest value",
+            "Out-degree zero",
+            "In-degree zero"
+          ],
+          "answer": 3,
+          "explain": "Zero remaining prerequisites can go next."
+        },
+        {
+          "q": "If a topological sort can't include all nodes, the graph has:",
+          "options": [
+            "Too many edges",
+            "A cycle",
+            "No edges",
+            "A single component"
+          ],
+          "answer": 1,
+          "explain": "Leftover nodes form a dependency cycle."
+        }
+      ]
+    },
+    "u:dsa-graphs-4-shortest-paths-dijkstra-and-friends": {
+      "title": "Shortest paths (Dijkstra & friends)",
+      "summary": "Dijkstra for non-negative weights; BFS for unweighted; Bellman-Ford for negatives.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "For **weighted** shortest paths with **non-negative** edges, **Dijkstra's algorithm** greedily expands the closest unsettled node using a min-heap: O((V + E) log V). For unweighted graphs, plain BFS suffices. For graphs with **negative** edges, use **Bellman-Ford** (O(VE)), which also detects negative cycles."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Dijkstra is WRONG with negative edge weights - a later cheaper path can undercut a node already settled."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Dijkstra's algorithm requires edge weights to be:",
+          "options": [
+            "All equal",
+            "Non-negative",
+            "Integers only",
+            "Negative"
+          ],
+          "answer": 1,
+          "explain": "Negatives break its greedy settling guarantee."
+        },
+        {
+          "q": "For shortest paths in an UNWEIGHTED graph, use:",
+          "options": [
+            "Dijkstra with a heap",
+            "Bellman-Ford",
+            "DFS",
+            "BFS"
+          ],
+          "answer": 3,
+          "explain": "Every edge has equal cost, so BFS is optimal and simpler."
+        },
+        {
+          "q": "To handle negative edge weights (and detect negative cycles), use:",
+          "options": [
+            "Dijkstra",
+            "BFS",
+            "Bellman-Ford",
+            "Topological sort"
+          ],
+          "answer": 2,
+          "explain": "Bellman-Ford relaxes edges V-1 times and checks for further improvement."
+        }
+      ]
+    },
+    "u:dsa-graphs-5-union-find-dsu": {
+      "title": "Union-Find (DSU)",
+      "summary": "Track connected sets with near-constant union and find operations.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Union-Find / Disjoint Set Union (DSU)** maintains a partition of elements into sets, supporting **find** (which set?) and **union** (merge two sets). With **path compression** and **union by rank/size**, both run in near-constant amortized time (inverse Ackermann)."
+        },
+        {
+          "t": "p",
+          "text": "It powers **Kruskal's MST**, cycle detection in undirected graphs, and connectivity queries."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Path compression flattens the tree during find; union by rank keeps trees shallow. Use both together."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Union-Find with path compression and union by rank is:",
+          "options": [
+            "O(n) per operation",
+            "O(log^2 n)",
+            "Near-constant amortized per operation",
+            "O(n log n)"
+          ],
+          "answer": 2,
+          "explain": "The amortized cost is inverse-Ackermann, effectively O(1)."
+        },
+        {
+          "q": "Union-Find is the natural tool for:",
+          "options": [
+            "Shortest paths",
+            "Sorting",
+            "Range sums",
+            "Dynamic connectivity / merging sets"
+          ],
+          "answer": 3,
+          "explain": "It answers 'are these in the same set?' fast."
+        },
+        {
+          "q": "Path compression works by:",
+          "options": [
+            "Sorting the sets",
+            "Deleting nodes",
+            "Pointing nodes directly at the root during find",
+            "Doubling the array"
+          ],
+          "answer": 2,
+          "explain": "Flattening keeps future finds fast."
+        }
+      ]
+    },
+    "u:dsa-graphs-6-minimum-spanning-tree": {
+      "title": "Minimum spanning tree",
+      "summary": "Connect all vertices with minimum total edge weight (Kruskal or Prim).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **minimum spanning tree (MST)** connects all vertices of a weighted, connected, undirected graph with the least total edge weight and no cycles. **Kruskal's** sorts edges and adds the cheapest that doesn't form a cycle (using DSU); **Prim's** grows the tree from a seed using a min-heap."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "Both are greedy and both give an optimal MST; Kruskal shines on sparse graphs, Prim on dense ones."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "An MST of a graph with V vertices has exactly:",
+          "options": [
+            "V edges",
+            "E edges",
+            "V - 1 edges",
+            "V^2 edges"
+          ],
+          "answer": 2,
+          "explain": "A spanning tree connecting V nodes needs V-1 edges."
+        },
+        {
+          "q": "Kruskal's algorithm uses which structure to avoid cycles?",
+          "options": [
+            "A heap only",
+            "Union-Find (DSU)",
+            "A queue",
+            "A hash map of paths"
+          ],
+          "answer": 1,
+          "explain": "DSU checks whether an edge joins two already-connected sets."
+        },
+        {
+          "q": "Both Kruskal's and Prim's algorithms are:",
+          "options": [
+            "Dynamic programming",
+            "Greedy",
+            "Backtracking",
+            "Divide and conquer"
+          ],
+          "answer": 1,
+          "explain": "Each repeatedly takes a locally cheapest safe edge."
+        }
+      ]
+    },
+    "u:dsa-dp-0-dp-fundamentals": {
+      "title": "DP fundamentals",
+      "summary": "Solve overlapping subproblems once and reuse the results - memoization or tabulation.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Dynamic programming** applies when a problem has **optimal substructure** (the optimum is built from optima of subproblems) and **overlapping subproblems** (the same subproblem recurs). You compute each subproblem once and cache it."
+        },
+        {
+          "t": "points",
+          "items": [
+            "**Memoization** (top-down): recursion + a cache. Natural, computes only needed states.",
+            "**Tabulation** (bottom-up): fill a table in dependency order. No recursion overhead."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The recurrence (state + transition) is the whole battle. Define what a state means and how states combine."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "DP requires the problem to have:",
+          "options": [
+            "Overlapping subproblems and optimal substructure",
+            "Sorted input",
+            "No recursion",
+            "A single answer only"
+          ],
+          "answer": 0,
+          "explain": "Those two properties are what make caching pay off."
+        },
+        {
+          "q": "Top-down DP is also called:",
+          "options": [
+            "Tabulation",
+            "Greedy",
+            "Backtracking",
+            "Memoization"
+          ],
+          "answer": 3,
+          "explain": "It's recursion plus a results cache."
+        },
+        {
+          "q": "The hardest and most important part of a DP is:",
+          "options": [
+            "Choosing a language",
+            "Sorting the input",
+            "Printing the table",
+            "Defining the state and transition (recurrence)"
+          ],
+          "answer": 3,
+          "explain": "Everything else follows from a correct recurrence."
+        }
+      ]
+    },
+    "u:dsa-dp-1-1d-dp-patterns": {
+      "title": "1D DP patterns",
+      "summary": "Problems where each state depends on a few previous states (stairs, house robber).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Many DP problems reduce to a **1D array** where dp[i] depends on a constant number of earlier entries. Climbing stairs: dp[i] = dp[i-1] + dp[i-2]. House robber: dp[i] = max(dp[i-1], dp[i-2] + value[i])."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "When dp[i] uses only dp[i-1] and dp[i-2], you can drop the array and keep two rolling variables - O(1) space."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Climbing stairs (1 or 2 steps) has the recurrence:",
+          "options": [
+            "dp[i] = dp[i-1] * 2",
+            "dp[i] = dp[i-1] + 1",
+            "dp[i] = dp[i-1] + dp[i-2]",
+            "dp[i] = i!"
+          ],
+          "answer": 2,
+          "explain": "Ways to reach i = ways to i-1 plus ways to i-2."
+        },
+        {
+          "q": "House robber's choice at house i is:",
+          "options": [
+            "Skip it (dp[i-1]) or take it plus dp[i-2]",
+            "Always take it",
+            "Always skip it",
+            "Take two in a row"
+          ],
+          "answer": 0,
+          "explain": "You can't rob adjacent houses."
+        },
+        {
+          "q": "When dp[i] depends only on dp[i-1] and dp[i-2], space can be:",
+          "options": [
+            "O(n) always",
+            "O(1) with rolling variables",
+            "O(n^2)",
+            "O(log n)"
+          ],
+          "answer": 1,
+          "explain": "Only the last two values are needed."
+        }
+      ]
+    },
+    "u:dsa-dp-2-0-1-knapsack": {
+      "title": "0/1 Knapsack",
+      "summary": "Choose items with weights and values to maximise value under a capacity limit.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**0/1 Knapsack**: given items with weight and value and a capacity W, maximise total value taking each item at most once. State dp[i][w] = best value using the first i items within capacity w; each item is either skipped or taken."
+        },
+        {
+          "t": "code",
+          "text": "for i in range(1, n+1):\n    for w in range(W+1):\n        dp[i][w] = dp[i-1][w]                       # skip item i\n        if wt[i-1] <= w:\n            dp[i][w] = max(dp[i][w],\n                           dp[i-1][w-wt[i-1]] + val[i-1])  # take it"
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "The inner loop can run over a 1D array from high to low capacity to use O(W) space."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "In 0/1 knapsack, each item can be taken:",
+          "options": [
+            "At most once",
+            "Any number of times",
+            "Exactly twice",
+            "Only if heaviest"
+          ],
+          "answer": 0,
+          "explain": "That's what '0/1' means - in or out."
+        },
+        {
+          "q": "The 0/1 knapsack DP state dp[i][w] represents:",
+          "options": [
+            "The lightest item",
+            "Total weight only",
+            "Best value using first i items within capacity w",
+            "Number of items"
+          ],
+          "answer": 2,
+          "explain": "It captures both item prefix and remaining capacity."
+        },
+        {
+          "q": "For each item the transition chooses between:",
+          "options": [
+            "Sorting or not",
+            "Skipping it or taking it",
+            "Two pointers",
+            "Doubling capacity"
+          ],
+          "answer": 1,
+          "explain": "Take vs skip is the 0/1 decision."
+        }
+      ]
+    },
+    "u:dsa-dp-3-unbounded-knapsack-and-coin-change": {
+      "title": "Unbounded knapsack & coin change",
+      "summary": "Items reusable any number of times, e.g. minimum coins for an amount.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Unbounded knapsack** allows each item unlimited times. **Coin change** is the classic: minimum coins to make an amount. dp[a] = 1 + min over coins c of dp[a - c]. Iterate amount outward; each coin can be reused."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The difference from 0/1: the transition looks at dp of the SAME item row (or the current dp array) because reuse is allowed."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Coin change (min coins) has the recurrence:",
+          "options": [
+            "dp[a] = dp[a-1] + 1",
+            "dp[a] = a / min(coins)",
+            "dp[a] = 2^a",
+            "dp[a] = 1 + min(dp[a - c]) over coins c"
+          ],
+          "answer": 3,
+          "explain": "You add one coin c to an optimal smaller amount."
+        },
+        {
+          "q": "Unbounded knapsack differs from 0/1 in that items:",
+          "options": [
+            "Can be used once",
+            "Must all be used",
+            "Can be used unlimited times",
+            "Are sorted"
+          ],
+          "answer": 2,
+          "explain": "Reuse changes which dp state the transition reads."
+        },
+        {
+          "q": "If no combination of coins makes the amount, the answer is:",
+          "options": [
+            "Zero",
+            "The amount",
+            "The largest coin",
+            "Infinity / impossible"
+          ],
+          "answer": 3,
+          "explain": "Unreachable states stay at the 'impossible' sentinel."
+        }
+      ]
+    },
+    "u:dsa-dp-4-longest-common-subsequence": {
+      "title": "Longest common subsequence",
+      "summary": "The longest sequence appearing in order (not necessarily contiguous) in both strings.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**LCS** finds the longest subsequence common to two strings. dp[i][j] = LCS of prefixes a[:i], b[:j]. If the last characters match, dp[i][j] = dp[i-1][j-1] + 1; else max(dp[i-1][j], dp[i][j-1]). O(n*m)."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "A subsequence keeps order but allows gaps; a substring must be contiguous. LCS is about subsequences."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A subsequence differs from a substring in that it:",
+          "options": [
+            "Must be contiguous",
+            "Must be sorted",
+            "Need not be contiguous",
+            "Reverses the string"
+          ],
+          "answer": 2,
+          "explain": "Subsequences may skip characters but keep order."
+        },
+        {
+          "q": "When the current characters match, LCS does:",
+          "options": [
+            "dp[i-1][j-1] + 1",
+            "dp[i-1][j-1]",
+            "0",
+            "max of neighbours"
+          ],
+          "answer": 0,
+          "explain": "A matched pair extends the diagonal subproblem."
+        },
+        {
+          "q": "LCS of two length-n and length-m strings costs:",
+          "options": [
+            "O(n + m)",
+            "O(n log m)",
+            "O(2^n)",
+            "O(n*m)"
+          ],
+          "answer": 3,
+          "explain": "The DP table has n*m cells, each O(1)."
+        }
+      ]
+    },
+    "u:dsa-dp-5-longest-increasing-subsequence": {
+      "title": "Longest increasing subsequence",
+      "summary": "The longest strictly increasing subsequence, in O(n^2) or O(n log n).",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**LIS**: the length of the longest strictly increasing subsequence. The O(n^2) DP sets dp[i] = 1 + max(dp[j]) for j < i with a[j] < a[i]. A smarter O(n log n) method keeps a 'tails' array and binary-searches the position to replace."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The tails[] array isn't the actual subsequence - it stores the smallest possible tail for each achievable length."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "The optimal LIS algorithm runs in:",
+          "options": [
+            "O(n)",
+            "O(n^2) only",
+            "O(n log n)",
+            "O(2^n)"
+          ],
+          "answer": 2,
+          "explain": "Patience/tails with binary search achieves n log n."
+        },
+        {
+          "q": "The O(n log n) LIS uses binary search to:",
+          "options": [
+            "Sort the input",
+            "Find where to place/replace in the tails array",
+            "Detect cycles",
+            "Merge two arrays"
+          ],
+          "answer": 1,
+          "explain": "Each element replaces the first tail >= it."
+        },
+        {
+          "q": "The O(n^2) LIS recurrence extends the best dp[j] where:",
+          "options": [
+            "j > i",
+            "a[j] > a[i]",
+            "j == i",
+            "j < i and a[j] < a[i]"
+          ],
+          "answer": 3,
+          "explain": "You extend increasing subsequences ending earlier."
+        }
+      ]
+    },
+    "u:dsa-dp-6-grid-dp": {
+      "title": "Grid DP",
+      "summary": "Count paths or find optimal cost across a grid, moving in limited directions.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**Grid DP** solves 'unique paths', 'minimum path sum', and similar: dp[r][c] combines the cells you can arrive from (usually top and left). dp[r][c] = grid[r][c] + min(dp[r-1][c], dp[r][c-1]) for minimum path sum."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Handle the first row and column as base cases (only one way in), then fill row by row. O(rows*cols)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Minimum path sum's transition is:",
+          "options": [
+            "grid[r][c] * 2",
+            "grid[r][c] + min(dp[r-1][c], dp[r][c-1])",
+            "dp[r-1][c-1]",
+            "max of all cells"
+          ],
+          "answer": 1,
+          "explain": "You come from the cheaper of top/left."
+        },
+        {
+          "q": "Grid DP over an R x C grid costs:",
+          "options": [
+            "O(R + C)",
+            "O(R*C)",
+            "O((R*C)^2)",
+            "O(2^(R*C))"
+          ],
+          "answer": 1,
+          "explain": "Each cell is computed once in O(1)."
+        },
+        {
+          "q": "The first row and column of a paths grid are:",
+          "options": [
+            "Ignored",
+            "Base cases with one way to reach each",
+            "Filled last",
+            "Always zero"
+          ],
+          "answer": 1,
+          "explain": "There's a single route along an edge."
+        }
+      ]
+    },
+    "u:dsa-greedy-0-greedy-fundamentals": {
+      "title": "Greedy fundamentals",
+      "summary": "Make the locally optimal choice at each step; correct only when it provably leads to a global optimum.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **greedy algorithm** builds a solution by taking the best-looking choice at each step and never reconsidering. It's fast and simple but only correct when the problem has the **greedy-choice property** and **optimal substructure** - otherwise DP or search is needed."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "Greedy is often WRONG. Coin change with arbitrary denominations can't be solved greedily (that's why it's a DP). Always justify why the greedy choice is safe."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "A greedy algorithm is guaranteed correct only when:",
+          "options": [
+            "The input is sorted",
+            "It runs fast",
+            "It uses recursion",
+            "The greedy-choice property holds"
+          ],
+          "answer": 3,
+          "explain": "A locally optimal choice must lead to a global optimum."
+        },
+        {
+          "q": "Coin change with arbitrary denominations is:",
+          "options": [
+            "Not always solvable greedily (needs DP)",
+            "Always greedy-optimal",
+            "Impossible",
+            "Solved by BFS only"
+          ],
+          "answer": 0,
+          "explain": "Greedy can overshoot; DP guarantees the minimum."
+        },
+        {
+          "q": "Compared with DP, greedy algorithms are usually:",
+          "options": [
+            "Faster but applicable to fewer problems",
+            "Slower",
+            "Always correct",
+            "Exponential"
+          ],
+          "answer": 0,
+          "explain": "They skip reconsidering choices, so they're limited."
+        }
+      ]
+    },
+    "u:dsa-greedy-1-interval-scheduling-and-merging": {
+      "title": "Interval scheduling & merging",
+      "summary": "Sort intervals, then sweep to select the most or merge overlaps.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "For **activity selection** (maximise non-overlapping intervals), sort by **end time** and greedily take each interval that starts after the last chosen one ends. For **merging intervals**, sort by **start time** and merge any that overlap the running interval."
+        },
+        {
+          "t": "steps",
+          "items": [
+            "Sort by end (selection) or start (merging).",
+            "Sweep left to right, keeping the last chosen/merged interval.",
+            "Take or merge based on overlap."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "Sorting by the RIGHT key is what makes the greedy choice provably optimal - end time for selection, start time for merging."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "To select the maximum number of non-overlapping intervals, sort by:",
+          "options": [
+            "Start time",
+            "Length",
+            "Value",
+            "End time"
+          ],
+          "answer": 3,
+          "explain": "Finishing earliest leaves the most room for others."
+        },
+        {
+          "q": "To merge overlapping intervals, sort by:",
+          "options": [
+            "Start time",
+            "End time descending",
+            "Length",
+            "Random"
+          ],
+          "answer": 0,
+          "explain": "Sorted starts let you merge in one sweep."
+        },
+        {
+          "q": "Interval greedy algorithms typically cost:",
+          "options": [
+            "O(n^2)",
+            "O(n)",
+            "O(n log n) (dominated by the sort)",
+            "O(2^n)"
+          ],
+          "answer": 2,
+          "explain": "The sweep is linear after sorting."
+        }
+      ]
+    },
+    "u:dsa-bits-0-bitwise-basics": {
+      "title": "Bitwise basics",
+      "summary": "AND, OR, XOR, NOT and shifts operate on individual bits in O(1).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Bitwise operators act on the binary representation: **AND** (&) keeps common 1s, **OR** (|) sets any 1, **XOR** (^) flips where bits differ, **NOT** (~) inverts, and **shifts** (<<, >>) multiply/divide by powers of two."
+        },
+        {
+          "t": "table",
+          "headers": [
+            "Trick",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Multiply by 2",
+              "x << 1"
+            ],
+            [
+              "Divide by 2",
+              "x >> 1"
+            ],
+            [
+              "Is bit i set?",
+              "(x >> i) & 1"
+            ],
+            [
+              "Set bit i",
+              "x | (1 << i)"
+            ],
+            [
+              "Clear bit i",
+              "x & ~(1 << i)"
+            ]
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "Bit operations are constant time and often replace arithmetic for speed or to encode small sets."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "x << 3 is equivalent to multiplying x by:",
+          "options": [
+            "3",
+            "8",
+            "6",
+            "16"
+          ],
+          "answer": 1,
+          "explain": "Shifting left by k multiplies by 2^k."
+        },
+        {
+          "q": "To test whether bit i of x is set, use:",
+          "options": [
+            "x | (1 << i)",
+            "x ^ i",
+            "x & i",
+            "(x >> i) & 1"
+          ],
+          "answer": 3,
+          "explain": "Shift the bit down and mask it."
+        },
+        {
+          "q": "XOR of two bits is 1 exactly when the bits:",
+          "options": [
+            "Are both 1",
+            "Are both 0",
+            "Are equal",
+            "Differ"
+          ],
+          "answer": 3,
+          "explain": "XOR means 'exclusive or' - different inputs."
+        }
+      ]
+    },
+    "u:dsa-bits-1-common-bit-tricks": {
+      "title": "Common bit tricks",
+      "summary": "Clear the lowest set bit, count bits, and detect powers of two in O(1).",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "Handy identities:"
+        },
+        {
+          "t": "points",
+          "items": [
+            "**x & (x-1)** clears the lowest set bit (used to count set bits fast).",
+            "**x & -x** isolates the lowest set bit.",
+            "**x & (x-1) == 0** tests whether x is a power of two (for x > 0)."
+          ]
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Repeatedly applying x &= (x-1) and counting iterations gives the popcount in O(number of set bits)."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "x & (x - 1) has the effect of:",
+          "options": [
+            "Setting the lowest bit",
+            "Flipping all bits",
+            "Clearing the lowest set bit",
+            "Doubling x"
+          ],
+          "answer": 2,
+          "explain": "It's the core of the fast bit-count loop."
+        },
+        {
+          "q": "For x > 0, x & (x - 1) == 0 tests whether x is:",
+          "options": [
+            "Even",
+            "Prime",
+            "Negative",
+            "A power of two"
+          ],
+          "answer": 3,
+          "explain": "Powers of two have exactly one set bit."
+        },
+        {
+          "q": "x & -x isolates:",
+          "options": [
+            "The lowest set bit",
+            "The highest set bit",
+            "All bits",
+            "The sign bit"
+          ],
+          "answer": 0,
+          "explain": "Two's complement makes -x flip bits above the lowest one."
+        }
+      ]
+    },
+    "u:dsa-bits-2-xor-patterns": {
+      "title": "XOR patterns",
+      "summary": "XOR's self-cancelling property finds unique elements without extra space.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "**XOR** has powerful properties: x ^ x = 0, x ^ 0 = x, and it's commutative/associative. XORing every element of an array where all but one appear twice leaves the **single unique** element - O(n) time, O(1) space."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "XOR is the go-to trick for 'find the number that appears once' and for swapping without a temp variable."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "XOR of a value with itself gives:",
+          "options": [
+            "1",
+            "0",
+            "The value",
+            "-1"
+          ],
+          "answer": 1,
+          "explain": "x ^ x cancels to zero."
+        },
+        {
+          "q": "XORing all elements where every number but one appears twice yields:",
+          "options": [
+            "The unique element",
+            "The sum",
+            "The maximum",
+            "Zero"
+          ],
+          "answer": 0,
+          "explain": "Pairs cancel, leaving the lone value."
+        },
+        {
+          "q": "The single-number XOR trick uses extra space of:",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n^2)"
+          ],
+          "answer": 0,
+          "explain": "Just one accumulator variable."
+        }
+      ]
+    },
+    "u:dsa-strings-0-string-fundamentals": {
+      "title": "String fundamentals",
+      "summary": "Strings are immutable in many languages; build them efficiently.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "In languages like Java and Python, strings are **immutable** - each concatenation creates a new string. Building a long result by repeated concatenation is O(n^2); use a **builder/list** and join once for O(n)."
+        },
+        {
+          "t": "callout",
+          "style": "warn",
+          "text": "A loop doing result += char on an immutable string is a classic hidden O(n^2). Collect parts and join at the end."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Repeated concatenation onto an immutable string in a loop is:",
+          "options": [
+            "O(n)",
+            "O(n^2)",
+            "O(log n)",
+            "O(1)"
+          ],
+          "answer": 1,
+          "explain": "Each += copies the whole growing string."
+        },
+        {
+          "q": "The efficient way to build a big string is to:",
+          "options": [
+            "Concatenate in a loop",
+            "Sort the characters",
+            "Collect parts and join once",
+            "Use recursion"
+          ],
+          "answer": 2,
+          "explain": "One join pass is O(n)."
+        },
+        {
+          "q": "Strings being immutable means:",
+          "options": [
+            "They can't be read",
+            "They are always sorted",
+            "Modifying one creates a new string",
+            "They use no memory"
+          ],
+          "answer": 2,
+          "explain": "In-place edits aren't allowed on immutables."
+        }
+      ]
+    },
+    "u:dsa-strings-1-palindromes-and-two-pointers": {
+      "title": "Palindromes & two pointers",
+      "summary": "Check or expand palindromes with pointers from the ends or the centre.",
+      "minutes": 3,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **palindrome** reads the same forwards and backwards. Verify with two pointers from both ends moving inward (O(n)). To find the **longest palindromic substring**, expand around each centre (2n-1 centres), O(n^2)."
+        },
+        {
+          "t": "callout",
+          "style": "tip",
+          "text": "Expand-around-centre must handle both odd-length (single centre) and even-length (two-character centre) palindromes."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Checking whether a string is a palindrome with two pointers is:",
+          "options": [
+            "O(n^2)",
+            "O(n log n)",
+            "O(1)",
+            "O(n)"
+          ],
+          "answer": 3,
+          "explain": "Pointers meet in the middle after n/2 comparisons."
+        },
+        {
+          "q": "Expand-around-centre for longest palindromic substring is:",
+          "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(2^n)"
+          ],
+          "answer": 2,
+          "explain": "n centres, each expanding up to O(n)."
+        },
+        {
+          "q": "Expand-around-centre must consider centres that are:",
+          "options": [
+            "Both single characters and character pairs",
+            "Only single characters",
+            "Only the middle",
+            "Only the ends"
+          ],
+          "answer": 0,
+          "explain": "Even-length palindromes have a two-char centre."
+        }
+      ]
+    },
+    "u:dsa-strings-2-pattern-matching-kmp": {
+      "title": "Pattern matching (KMP)",
+      "summary": "Find a pattern in text in O(n + m) by never re-examining matched characters.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "The **Knuth-Morris-Pratt (KMP)** algorithm searches for a pattern in text in **O(n + m)**. It precomputes a **prefix function (failure table)** telling how far to fall back on a mismatch, so the text pointer never moves backward."
+        },
+        {
+          "t": "callout",
+          "style": "key",
+          "text": "The failure table encodes the longest proper prefix of the pattern that is also a suffix - it's what avoids re-scanning the text."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "KMP pattern matching runs in:",
+          "options": [
+            "O(n*m)",
+            "O(n + m)",
+            "O(n log m)",
+            "O(2^m)"
+          ],
+          "answer": 1,
+          "explain": "Linear in text plus pattern length."
+        },
+        {
+          "q": "KMP avoids re-scanning text by precomputing:",
+          "options": [
+            "The prefix (failure) function of the pattern",
+            "A hash of the text",
+            "A suffix array of the text",
+            "A sorted pattern"
+          ],
+          "answer": 0,
+          "explain": "It tells where to resume after a mismatch."
+        },
+        {
+          "q": "In KMP, on a mismatch the TEXT pointer:",
+          "options": [
+            "Resets to the start",
+            "Moves back by one",
+            "Jumps randomly",
+            "Never moves backward"
+          ],
+          "answer": 3,
+          "explain": "Only the pattern index falls back via the table."
+        }
+      ]
+    },
+    "u:dsa-strings-3-tries-prefix-trees": {
+      "title": "Tries (prefix trees)",
+      "summary": "A tree keyed by characters gives fast prefix search and autocomplete.",
+      "minutes": 4,
+      "blocks": [
+        {
+          "t": "p",
+          "text": "A **trie** stores strings as paths of characters from the root; shared prefixes share nodes. Insert and lookup of a word of length L are **O(L)**, independent of how many words are stored - ideal for autocomplete, spell-check, and prefix queries."
+        },
+        {
+          "t": "callout",
+          "style": "info",
+          "text": "Mark end-of-word on nodes so you can distinguish a stored word from a mere prefix of a longer one."
+        }
+      ],
+      "mcqs": [
+        {
+          "q": "Looking up a word of length L in a trie is:",
+          "options": [
+            "O(number of words)",
+            "O(L log n)",
+            "O(L^2)",
+            "O(L)"
+          ],
+          "answer": 3,
+          "explain": "You walk one node per character."
+        },
+        {
+          "q": "A trie is especially good at:",
+          "options": [
+            "Range-sum queries",
+            "Prefix queries / autocomplete",
+            "Sorting numbers",
+            "Cycle detection"
+          ],
+          "answer": 1,
+          "explain": "Shared prefixes make prefix search natural."
+        },
+        {
+          "q": "To tell a full word from a prefix, a trie node stores:",
+          "options": [
+            "The word count of the whole trie",
+            "A parent pointer",
+            "An end-of-word marker",
+            "A hash"
+          ],
+          "answer": 2,
+          "explain": "The flag marks where a real word terminates."
+        }
+      ]
+    }
+  }
+}

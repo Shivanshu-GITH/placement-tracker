@@ -495,6 +495,171 @@
    "type": "course",
    "category": "general",
    "tier": "paid"
+  },
+  {
+   "slug": "res-webdev-free-mdn",
+   "title": "MDN Web Docs",
+   "provider": "Mozilla",
+   "description": "The definitive reference for HTML, CSS, JavaScript and web APIs.",
+   "url": "https://developer.mozilla.org/",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-fcc",
+   "title": "freeCodeCamp",
+   "provider": "freeCodeCamp",
+   "description": "Free full-stack curriculum with hands-on projects and certifications.",
+   "url": "https://www.freecodecamp.org/learn",
+   "affiliateUrl": "",
+   "type": "course",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-jsinfo",
+   "title": "The Modern JavaScript Tutorial",
+   "provider": "javascript.info",
+   "description": "A deep, well-structured JavaScript course from basics to advanced.",
+   "url": "https://javascript.info/",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-reactdocs",
+   "title": "React Official Docs",
+   "provider": "React",
+   "description": "Learn React the modern way, with interactive examples (react.dev).",
+   "url": "https://react.dev/learn",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-odin",
+   "title": "The Odin Project",
+   "provider": "The Odin Project",
+   "description": "A free, project-based full-stack (JS & Ruby) curriculum.",
+   "url": "https://www.theodinproject.com/",
+   "affiliateUrl": "",
+   "type": "course",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-roadmap",
+   "title": "Developer Roadmaps",
+   "provider": "roadmap.sh",
+   "description": "Visual frontend, backend and full-stack learning roadmaps.",
+   "url": "https://roadmap.sh/",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-fullstackopen",
+   "title": "Full Stack Open",
+   "provider": "University of Helsinki",
+   "description": "Modern web dev with React, Node, Express, GraphQL and testing.",
+   "url": "https://fullstackopen.com/en/",
+   "affiliateUrl": "",
+   "type": "course",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-webdev",
+   "title": "web.dev",
+   "provider": "Google",
+   "description": "Best practices for performance, accessibility and modern web features.",
+   "url": "https://web.dev/",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-nodedocs",
+   "title": "Node.js Docs & Guides",
+   "provider": "Node.js",
+   "description": "Official Node.js API reference and learning guides.",
+   "url": "https://nodejs.org/en/learn",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-webdev-free-csstricks",
+   "title": "CSS-Tricks",
+   "provider": "CSS-Tricks",
+   "description": "Practical guides to CSS layout, Flexbox, Grid and more.",
+   "url": "https://css-tricks.com/",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "webdev",
+   "tier": "free"
+  },
+  {
+   "slug": "res-cp-free-cpalgorithms",
+   "title": "CP-Algorithms",
+   "provider": "CP-Algorithms",
+   "description": "A reference for competitive-programming algorithms and data structures.",
+   "url": "https://cp-algorithms.com/",
+   "affiliateUrl": "",
+   "type": "notes",
+   "category": "cp",
+   "tier": "free"
+  },
+  {
+   "slug": "res-cp-free-usacoguide",
+   "title": "USACO Guide",
+   "provider": "USACO Guide",
+   "description": "A free, structured path from Bronze to Platinum with topic lists.",
+   "url": "https://usaco.guide/",
+   "affiliateUrl": "",
+   "type": "course",
+   "category": "cp",
+   "tier": "free"
+  },
+  {
+   "slug": "res-cp-free-cfedu",
+   "title": "Codeforces EDU",
+   "provider": "Codeforces",
+   "description": "Free interactive courses (ITMO Academy) on core CP topics.",
+   "url": "https://codeforces.com/edu/courses",
+   "affiliateUrl": "",
+   "type": "course",
+   "category": "cp",
+   "tier": "free"
+  },
+  {
+   "slug": "res-cp-free-cses",
+   "title": "CSES Problem Set",
+   "provider": "CSES",
+   "description": "A curated set of classic problems covering every core topic.",
+   "url": "https://cses.fi/problemset/",
+   "affiliateUrl": "",
+   "type": "practice",
+   "category": "cp",
+   "tier": "free"
+  },
+  {
+   "slug": "res-cp-free-atcoderdp",
+   "title": "AtCoder DP Contest",
+   "provider": "AtCoder",
+   "description": "26 classic dynamic-programming problems, from easy to hard.",
+   "url": "https://atcoder.jp/contests/dp",
+   "affiliateUrl": "",
+   "type": "practice",
+   "category": "cp",
+   "tier": "free"
   }
  ]
 }

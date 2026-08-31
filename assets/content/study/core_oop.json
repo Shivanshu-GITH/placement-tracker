@@ -1,0 +1,1018 @@
+{
+  "subject": "core-oop",
+  "title": "OOP + Low Level Design",
+  "topics": {
+    "u:core-oop-34-parking-lot": {
+      "title": "Parking Lot (LLD)",
+      "summary": "Model spots, vehicles, tickets and pricing — the classic object-modelling interview.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "A parking-lot design tests clean object modelling. Start from requirements: multiple levels, spot sizes (small/medium/large), vehicles, ticketing, and fee calculation."},
+        {"t": "h", "text": "Core classes"},
+        {"t": "points", "items": [
+          "**ParkingLot** → has many **ParkingFloor** → each has many **ParkingSpot** (with a size).",
+          "**Vehicle** (abstract) → **Car / Bike / Truck**, each mapping to compatible spot sizes.",
+          "**Ticket** — issued on entry (spot, entry time); **ParkingLot.park(vehicle)** finds a free compatible spot.",
+          "**FeeStrategy** (interface) — hourly/flat/day pricing, chosen via the **Strategy** pattern.",
+          "**EntryGate / ExitGate** issue and close tickets."
+        ]},
+        {"t": "callout", "style": "key", "text": "Design decisions to voice: use an interface for the pricing (Strategy) so rules can change; keep spot-finding behind the lot so allocation policy can evolve; make Vehicle abstract for polymorphic spot compatibility."},
+        {"t": "callout", "style": "tip", "text": "Concurrency matters at scale: two cars must not get the same spot. Mention a lock or atomic allocation on spot assignment."}
+      ],
+      "mcqs": [
+        {"q": "Which pattern best fits configurable parking fee rules?", "options": ["Singleton", "Strategy (interchangeable pricing algorithms)", "Adapter", "Observer"], "answer": 1, "explain": "Different pricing schemes are interchangeable algorithms — a natural Strategy, so rules can change without editing the lot."},
+        {"q": "Making Vehicle an abstract base with Car/Bike/Truck subclasses supports:", "options": ["Faster parsing", "Polymorphic spot-compatibility handling", "Removing tickets", "Global state"], "answer": 1, "explain": "Polymorphism lets spot allocation treat vehicles uniformly while respecting each type's size needs."},
+        {"q": "A concurrency concern in a parking lot is:", "options": ["Ticket colours", "Two vehicles being assigned the same spot without synchronization", "Floor names", "Fee currency"], "answer": 1, "explain": "Spot allocation is shared state; without locking/atomic assignment two vehicles could get one spot."}
+      ]
+    },
+    "u:core-oop-35-url-shortener": {
+      "title": "URL Shortener (LLD)",
+      "summary": "Map long URLs to short codes and back, with collision-free code generation.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "At the class level, a URL shortener needs to generate a unique short code, store the mapping, and resolve it back."},
+        {"t": "points", "items": [
+          "**UrlService** with `shorten(longUrl)` and `expand(code)`.",
+          "**Code generation**: base62 encode an auto-increment id (short, collision-free), or a hash + collision check.",
+          "**Repository** interface storing code → longUrl (in-memory map for LLD; a KV store at scale).",
+          "Optional: custom aliases, expiry, click counts."
+        ]},
+        {"t": "callout", "style": "key", "text": "The key LLD decision is code generation. Base62 of a unique counter guarantees uniqueness with no collision checks and yields short codes (62^7 ≈ 3.5 trillion). Random/hash needs collision handling."},
+        {"t": "callout", "style": "tip", "text": "Base62 uses [0-9a-zA-Z]; 7 characters give ~3.5 trillion combinations — plenty. This overlaps with the HLD version (see [[study-content-system]] SD pack) which adds scaling, caching, and DB choice."}
+      ],
+      "mcqs": [
+        {"q": "Base62-encoding a unique auto-increment id for the short code guarantees:", "options": ["Random codes", "Uniqueness with no collision checks needed", "Shorter storage", "Encryption"], "answer": 1, "explain": "A monotonically increasing id is unique, so its base62 encoding is unique without collision handling."},
+        {"q": "Compared with hashing the URL, using a counter avoids:", "options": ["Short codes", "Collision detection and retries", "Storing the mapping", "Base62"], "answer": 1, "explain": "Hash-based codes can collide and need checks/retries; a unique counter never collides."},
+        {"q": "The core operations of the service are:", "options": ["encrypt/decrypt", "shorten(longUrl) and expand(code)", "login/logout", "sort/search"], "answer": 1, "explain": "It maps a long URL to a code and resolves a code back to the long URL."}
+      ]
+    },
+    "u:core-oop-36-splitwise": {
+      "title": "Splitwise (LLD)",
+      "summary": "Track who owes whom across group expenses with multiple split types.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Splitwise records expenses and computes balances between users, supporting equal, exact, and percentage splits."},
+        {"t": "points", "items": [
+          "**User**, **Group**, **Expense** (payer, amount, participants, split).",
+          "**Split** (abstract) → **EqualSplit / ExactSplit / PercentSplit** — a **Strategy/polymorphic** hierarchy validating the split sums to the total.",
+          "**BalanceSheet** — a map of (userA → userB → amount owed); each expense updates balances.",
+          "**Simplify debts** — optionally net out cycles so fewer transactions settle the group."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two design points to raise: model split types polymorphically (validate each sums correctly), and keep balances as a net directed graph so 'who owes whom' is O(1) to read and can be simplified."},
+        {"t": "callout", "style": "tip", "text": "Debt simplification is a graph problem: minimise transactions by netting each person's total owed vs owing."}
+      ],
+      "mcqs": [
+        {"q": "Equal, exact, and percentage splits are best modelled as:", "options": ["Three unrelated methods", "A polymorphic Split hierarchy (Strategy)", "A single boolean", "Static fields"], "answer": 1, "explain": "Each split type is an interchangeable algorithm validating totals — a polymorphic Strategy design."},
+        {"q": "Balances between users are conveniently stored as:", "options": ["A single number", "A map of (userA, userB) → amount owed", "A stack", "A queue"], "answer": 1, "explain": "A directed balance map lets you read and update who owes whom efficiently."},
+        {"q": "Every split type must be validated so that:", "options": ["It has a name", "The parts sum to the total expense amount", "It uses percentages only", "It has two users"], "answer": 1, "explain": "Whatever the split type, the shares must add up to the full expense, or balances become inconsistent."}
+      ]
+    },
+    "u:core-oop-37-elevator-system": {
+      "title": "Elevator system (LLD)",
+      "summary": "Model cars, requests, and a dispatcher that decides which elevator serves which call.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "An elevator design tests state machines and request scheduling."},
+        {"t": "points", "items": [
+          "**Elevator** with state: current floor, **direction** (up/down/idle), a set of target floors, doors state.",
+          "**Request** — a hall call (floor + direction) or a car call (destination floor).",
+          "**Dispatcher / Controller** — assigns each hall call to the best elevator (nearest moving in the same direction).",
+          "The elevator serves floors in its current direction first (like the SCAN disk algorithm), then reverses."
+        ]},
+        {"t": "callout", "style": "key", "text": "The scheduling insight: an elevator behaves like the SCAN (elevator) algorithm — continue in one direction serving requests, then reverse. The dispatcher chooses the elevator that minimises wait, favouring same-direction proximity."},
+        {"t": "callout", "style": "tip", "text": "Model the elevator as a state machine (Idle → MovingUp/MovingDown → DoorsOpen). Use the State pattern if behaviour varies a lot per state."}
+      ],
+      "mcqs": [
+        {"q": "An elevator serving requests in its current direction before reversing mirrors which algorithm?", "options": ["FCFS", "The SCAN (elevator) disk-scheduling algorithm", "Round Robin", "Banker's"], "answer": 1, "explain": "Continuing one way then reversing is exactly the SCAN/elevator approach — minimising direction changes."},
+        {"q": "The dispatcher's job is to:", "options": ["Open doors", "Assign each hall call to the most suitable elevator", "Count floors", "Store requests forever"], "answer": 1, "explain": "It selects which elevator serves a call, typically the nearest one moving in the same direction."},
+        {"q": "An elevator's behaviour is well modelled as a:", "options": ["Single function", "State machine (idle, moving up/down, doors open)", "Static class", "Global variable"], "answer": 1, "explain": "Clear states and transitions make a state machine (optionally the State pattern) the natural model."}
+      ]
+    },
+    "u:core-oop-38-rate-limiter": {
+      "title": "Rate limiter (LLD)",
+      "summary": "Cap how many actions a client may perform per time window — token bucket and friends.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "A rate limiter decides whether to allow or reject a request based on a client's recent request rate. Several algorithms exist; know their trade-offs."},
+        {"t": "table", "headers": ["Algorithm", "Idea", "Trait"], "rows": [
+          ["Token bucket", "Tokens refill at a rate; each request spends one", "Allows bursts up to bucket size; most popular"],
+          ["Leaky bucket", "Requests drain at a fixed rate (a queue)", "Smooths output; no bursts"],
+          ["Fixed window", "Count per fixed time window", "Simple; boundary burst problem"],
+          ["Sliding window", "Rolling window count", "Accurate; more state"]
+        ]},
+        {"t": "points", "items": [
+          "**RateLimiter** interface with `allow(clientId)`; a **strategy** per algorithm.",
+          "Per-client state (tokens/counters) in a map (in-memory for LLD; Redis at scale)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Token bucket is the go-to answer: refill tokens at a steady rate, allow a request if a token is available. It permits controlled bursts (up to bucket capacity) while enforcing an average rate — flexible and simple."},
+        {"t": "callout", "style": "warn", "text": "Fixed window has a boundary problem: a burst at the end of one window and start of the next can allow 2× the limit briefly. Sliding window fixes this."}
+      ],
+      "mcqs": [
+        {"q": "The token bucket algorithm allows bursts because:", "options": ["It queues requests", "Accumulated tokens (up to capacity) can be spent quickly", "It has no limit", "It uses fixed windows"], "answer": 1, "explain": "Unused tokens accumulate up to the bucket size, so a burst can spend them, while refill enforces the average rate."},
+        {"q": "The fixed-window counter's weakness is:", "options": ["It is too accurate", "Bursts across the window boundary can allow up to 2x the limit", "It cannot count", "It needs no state"], "answer": 1, "explain": "Requests clustered at the end of one window and start of the next both count in separate windows, briefly doubling throughput."},
+        {"q": "Leaky bucket differs from token bucket by:", "options": ["Allowing large bursts", "Draining requests at a fixed rate, smoothing output (no bursts)", "Using no state", "Being random"], "answer": 1, "explain": "Leaky bucket processes at a constant rate like a queue draining, smoothing traffic rather than permitting bursts."}
+      ]
+    },
+    "u:core-oop-39-design-an-lru-cache-class": {
+      "title": "Design an LRU cache class",
+      "summary": "O(1) get/put with eviction of the least-recently-used entry — hashmap + doubly linked list.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "An **LRU (Least Recently Used) cache** evicts the entry unused for the longest time when it's full. The interview goal is **O(1)** for both `get` and `put`."},
+        {"t": "h", "text": "The data structures"},
+        {"t": "points", "items": [
+          "A **hash map**: key → node, for O(1) lookup.",
+          "A **doubly linked list** ordered by recency: most-recently-used at the front, least at the back.",
+          "**get(key)**: look up the node, move it to the front, return its value.",
+          "**put(key, val)**: insert/update at the front; if over capacity, remove the back node (LRU) and its map entry."
+        ]},
+        {"t": "callout", "style": "key", "text": "The combination is the whole trick: the hash map gives O(1) access; the doubly linked list gives O(1) reordering and eviction (removing a node needs both neighbours, hence *doubly* linked). Neither alone achieves O(1) for both operations."},
+        {"t": "callout", "style": "tip", "text": "In Java, `LinkedHashMap` with accessOrder=true implements LRU out of the box — mention it, then show you can build it from scratch."}
+      ],
+      "mcqs": [
+        {"q": "An O(1) LRU cache combines:", "options": ["An array and a stack", "A hash map and a doubly linked list", "Two queues", "A binary tree"], "answer": 1, "explain": "The map gives O(1) lookup; the doubly linked list gives O(1) recency reordering and eviction."},
+        {"q": "Why a DOUBLY linked list rather than singly?", "options": ["It uses less memory", "O(1) node removal needs access to the previous node too", "It is easier to code", "Singly linked can't store data"], "answer": 1, "explain": "Removing/moving a node in O(1) requires updating both neighbours, which needs prev pointers."},
+        {"q": "On a cache miss when full, put() evicts:", "options": ["A random entry", "The least-recently-used entry (the list's tail)", "The most-recently-used entry", "Nothing"], "answer": 1, "explain": "The tail of the recency list is the least-recently-used entry, which is evicted to make room."}
+      ]
+    },
+    "u:core-oop-40-tic-tac-toe-snake-and-ladder": {
+      "title": "Tic-tac-toe / Snake and Ladder (LLD)",
+      "summary": "Model a board game: board, players, turn loop, and win/end conditions.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Board-game designs test clean separation of board state, players, and game rules."},
+        {"t": "points", "items": [
+          "**Board** (grid or cells), **Player**, **Game** controller running the turn loop.",
+          "Tic-tac-toe: check win after each move (rows, columns, diagonals); detect draw when the board is full.",
+          "Snake & Ladder: a **Dice**, cells with snakes/ladders (a map position → jumpTo), a queue of players; move and apply jumps until someone reaches the last cell.",
+          "Keep rule-checking (win/jump) separate from board storage and I/O."
+        ]},
+        {"t": "callout", "style": "key", "text": "The reusable lesson: separate the game LOOP (whose turn, roll/move, check end) from the RULES (win condition, snakes/ladders) and the STATE (board). This makes new games or rule changes localised."},
+        {"t": "callout", "style": "tip", "text": "Snakes and ladders are just a `Map<int,int>` from a cell to its destination — model both uniformly rather than as separate classes."}
+      ],
+      "mcqs": [
+        {"q": "In Snake & Ladder, snakes and ladders are cleanly modelled as:", "options": ["Two separate deep class trees", "A map from a cell position to its destination cell", "Global booleans", "A stack"], "answer": 1, "explain": "Both simply move a player from one cell to another, so a position→destination map handles them uniformly."},
+        {"q": "Good board-game design separates:", "options": ["Nothing; one class does all", "The game loop, the rules, and the board state", "Only the UI", "Players from dice only"], "answer": 1, "explain": "Separating loop, rules, and state keeps each concern independently changeable and testable."},
+        {"q": "In tic-tac-toe, a win check is performed:", "options": ["Only at the start", "After each move, across rows, columns, and diagonals", "Never", "Only on a draw"], "answer": 1, "explain": "Each move can complete a line, so win conditions are evaluated after every move."}
+      ]
+    },
+    "u:core-oop-41-bookmyshow-seat-booking": {
+      "title": "BookMyShow seat booking (LLD)",
+      "summary": "Reserve seats for a show without double-booking under concurrency.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "The heart of a ticket-booking design is preventing two users from booking the same seat at once."},
+        {"t": "points", "items": [
+          "**Movie**, **Show** (movie + screen + time), **Screen** with **Seats**, **Booking**.",
+          "**Seat states**: available → **locked** (held during checkout) → booked. A lock has a short timeout.",
+          "**BookingService.book(show, seats, user)**: atomically lock the requested seats, take payment, then confirm; release the lock on timeout or failure.",
+          "Concurrency: use per-seat locks / a DB transaction / optimistic version so only one booking wins."
+        ]},
+        {"t": "callout", "style": "key", "text": "The critical design point is the seat's temporary LOCKED state plus an atomic lock acquisition. Without it, two concurrent users both see a seat 'available' and double-book. A timeout frees seats if the user abandons checkout."},
+        {"t": "callout", "style": "warn", "text": "Locking must be atomic across the whole selected set (all-or-nothing), or a user can partially book seats and block others."}
+      ],
+      "mcqs": [
+        {"q": "The key to preventing double-booking a seat is:", "options": ["A faster database", "An atomic transition to a temporary LOCKED state during checkout", "More screens", "Bigger seats"], "answer": 1, "explain": "Atomically locking a seat while a user checks out ensures only one booking can proceed for it."},
+        {"q": "A held (locked) seat should have:", "options": ["No timeout, held forever", "A timeout that releases it if checkout isn't completed", "Automatic booking", "A random owner"], "answer": 1, "explain": "A lock timeout frees abandoned seats so they don't stay unavailable indefinitely."},
+        {"q": "Locking a multi-seat selection should be:", "options": ["Partial (book what's free)", "Atomic / all-or-nothing for the whole set", "Ignored", "Done seat by seat with gaps"], "answer": 1, "explain": "All-or-nothing locking avoids partial bookings that strand seats and confuse other users."}
+      ]
+    },
+    "u:core-oop-42-load-balancing": {
+      "title": "Load balancing",
+      "summary": "Distribute traffic across servers for scale and availability, using an allocation algorithm.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **load balancer** spreads incoming requests across multiple backend servers so no single one is overwhelmed, improving **throughput** and **availability** (it routes around failed servers via health checks)."},
+        {"t": "table", "headers": ["Algorithm", "Idea"], "rows": [
+          ["Round robin", "Cycle through servers in order"],
+          ["Least connections", "Send to the server with fewest active connections"],
+          ["Weighted", "Bigger servers get proportionally more traffic"],
+          ["IP hash / consistent hash", "Same client → same server (sticky/affinity)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Load balancing gives horizontal scale + high availability. Layer 4 (transport) balances by IP/port; Layer 7 (application) can route by URL/headers. Health checks let it stop sending traffic to dead servers."},
+        {"t": "callout", "style": "tip", "text": "For session stickiness (a user must hit the same server), use IP hash or consistent hashing — but stateless servers avoid needing stickiness at all."}
+      ],
+      "mcqs": [
+        {"q": "A load balancer improves availability by:", "options": ["Storing data", "Routing traffic away from failed servers via health checks", "Encrypting requests", "Reducing servers"], "answer": 1, "explain": "Health checks let it stop routing to unhealthy servers, so failures don't take down the service."},
+        {"q": "The 'least connections' algorithm sends a request to the server with:", "options": ["The most connections", "The fewest active connections", "The lowest IP", "A random choice"], "answer": 1, "explain": "It balances by current load, favouring the least busy server."},
+        {"q": "Layer 7 load balancing can route based on:", "options": ["Only IP and port", "Application data like URL path and HTTP headers", "CPU temperature", "Disk size"], "answer": 1, "explain": "L7 (application layer) sees HTTP details, enabling content-based routing, unlike L4 which sees only transport info."}
+      ]
+    },
+    "u:core-oop-43-caching-layers-and-invalidation": {
+      "title": "Caching layers and invalidation",
+      "summary": "Store hot data closer/faster to cut latency and load — and the hard part is keeping it fresh.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Caching** keeps frequently accessed data in fast storage (memory, CDN) to reduce latency and backend load. Caches appear at many layers: browser, CDN, application (Redis/Memcached), and database."},
+        {"t": "h", "text": "Write strategies"},
+        {"t": "table", "headers": ["Strategy", "Behaviour"], "rows": [
+          ["Cache-aside", "App checks cache; on miss, loads from DB and populates cache"],
+          ["Write-through", "Writes go to cache and DB together (consistent, slower writes)"],
+          ["Write-back", "Writes go to cache, flushed to DB later (fast, risk of loss)"]
+        ]},
+        {"t": "callout", "style": "warn", "text": "The famous hard problem: **cache invalidation** — keeping cached data consistent with the source. Use TTL expiry, explicit invalidation on writes, or write-through. Stale cache is a top source of subtle bugs."},
+        {"t": "callout", "style": "tip", "text": "Guard against a 'thundering herd' / cache stampede: when a hot key expires, many requests hit the DB at once. Mitigate with locks, staggered TTLs, or serving stale-while-revalidate."}
+      ],
+      "mcqs": [
+        {"q": "In the cache-aside pattern, on a cache miss the application:", "options": ["Returns an error", "Loads from the database and populates the cache", "Writes to the cache only", "Ignores the request"], "answer": 1, "explain": "Cache-aside (lazy loading) fetches from the source on a miss and stores it for next time."},
+        {"q": "Write-through caching trades:", "options": ["Consistency for speed", "Slower writes for cache/DB consistency", "Nothing", "Reads for writes"], "answer": 1, "explain": "Writing to both cache and DB together keeps them consistent but makes writes slower."},
+        {"q": "Cache invalidation is hard because:", "options": ["Caches are small", "Keeping cached copies consistent with the changing source is tricky and causes stale-data bugs", "It is illegal", "Caches never change"], "answer": 1, "explain": "Deciding when/how to refresh or evict cached entries so they match the source is a notoriously subtle problem."}
+      ]
+    },
+    "u:core-oop-44-horizontal-vs-vertical-scaling": {
+      "title": "Horizontal vs vertical scaling",
+      "summary": "Add more machines, or make one machine bigger — different limits and failure modes.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Two ways to handle more load."},
+        {"t": "table", "headers": ["", "Vertical (scale up)", "Horizontal (scale out)"], "rows": [
+          ["Method", "Bigger CPU/RAM on one machine", "More machines"],
+          ["Limit", "Hardware ceiling", "Near-unlimited"],
+          ["Failure", "Single point of failure", "Redundant / fault-tolerant"],
+          ["Complexity", "Simple", "Needs load balancing, distribution, coordination"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Vertical scaling is simplest but hits a hardware ceiling and keeps a single point of failure. Horizontal scaling is how large systems grow — it's effectively unlimited and fault-tolerant, but requires load balancing and handling distributed state."},
+        {"t": "callout", "style": "tip", "text": "Horizontal scaling is far easier when servers are **stateless** (session/state kept in a shared store), so any server can handle any request."}
+      ],
+      "mcqs": [
+        {"q": "Horizontal scaling means:", "options": ["Adding CPU/RAM to one machine", "Adding more machines to share the load", "Deleting servers", "Using a faster disk"], "answer": 1, "explain": "Scaling out adds machines; scaling up (vertical) enlarges a single machine."},
+        {"q": "A drawback of vertical scaling is:", "options": ["Too many machines", "A hardware ceiling and a single point of failure", "It needs a load balancer", "It is fault-tolerant"], "answer": 1, "explain": "One machine can only get so big, and if it fails the whole service is down."},
+        {"q": "Horizontal scaling is easiest when servers are:", "options": ["Stateful", "Stateless (shared state in an external store)", "Vertical", "Single"], "answer": 1, "explain": "Stateless servers let any instance serve any request, so adding machines is straightforward."}
+      ]
+    },
+    "u:core-oop-45-database-replication-and-sharding": {
+      "title": "Database replication and sharding",
+      "summary": "Copy data for reads/availability vs split data for write scale — two different goals.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Two distinct techniques to scale a database, often confused."},
+        {"t": "points", "items": [
+          "**Replication** — keep **copies** of the same data on multiple nodes. A **primary** takes writes; **replicas** serve reads (read scaling) and provide **failover** (availability). Replicas can lag → eventual consistency on reads.",
+          "**Sharding (partitioning)** — **split** the data across nodes by a shard key (e.g. user_id range or hash), so each node holds a subset. This scales **writes** and storage since load is divided."
+        ]},
+        {"t": "callout", "style": "key", "text": "Replication = same data copied (scales reads + availability); sharding = different data split (scales writes + storage). Big systems use both: shard the data, and replicate each shard."},
+        {"t": "callout", "style": "warn", "text": "Choosing the shard key is critical — a bad key creates **hotspots** (one shard overloaded). Cross-shard queries and transactions are hard, which is a key trade-off to mention."}
+      ],
+      "mcqs": [
+        {"q": "Replication primarily scales:", "options": ["Writes", "Reads and improves availability (copies of the same data)", "Storage capacity", "Nothing"], "answer": 1, "explain": "Replicas serve reads and provide failover; writes still funnel to the primary."},
+        {"q": "Sharding primarily helps with:", "options": ["Read replicas", "Scaling writes and storage by splitting data across nodes", "Encryption", "Caching"], "answer": 1, "explain": "Each shard holds a subset of data, distributing write and storage load."},
+        {"q": "A poorly chosen shard key can cause:", "options": ["Better balance", "Hotspots where one shard is overloaded", "No effect", "Automatic replication"], "answer": 1, "explain": "If the key concentrates activity on one shard, that shard becomes a bottleneck (hotspot)."}
+      ]
+    },
+    "u:core-oop-46-message-queues": {
+      "title": "Message queues",
+      "summary": "Decouple producers from consumers with an async buffer for reliability and load smoothing.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **message queue** (Kafka, RabbitMQ, SQS) lets a **producer** send messages that a **consumer** processes later, asynchronously. It decouples the two so they can scale and fail independently."},
+        {"t": "points", "items": [
+          "**Decoupling** — the producer doesn't wait for or even know the consumer.",
+          "**Load smoothing / buffering** — a traffic spike queues up instead of overwhelming the consumer.",
+          "**Reliability** — messages persist until acknowledged, surviving consumer crashes.",
+          "**Async work** — offload slow tasks (emails, image processing) from the request path."
+        ]},
+        {"t": "callout", "style": "key", "text": "Queues turn synchronous coupling into asynchronous, resilient flow: producers and consumers scale separately, spikes are absorbed, and work isn't lost if a consumer restarts. This is the backbone of event-driven architectures."},
+        {"t": "callout", "style": "tip", "text": "Delivery guarantees: at-most-once, at-least-once (may duplicate — make consumers idempotent), exactly-once (hardest). Mention idempotency for at-least-once systems."}
+      ],
+      "mcqs": [
+        {"q": "A message queue primarily provides:", "options": ["Faster CPUs", "Asynchronous decoupling of producers and consumers with buffering and reliability", "Encryption", "A cache"], "answer": 1, "explain": "It lets producers and consumers work independently, smoothing load and persisting messages until processed."},
+        {"q": "During a traffic spike, a queue helps by:", "options": ["Dropping all requests", "Buffering messages so consumers process them at their own pace", "Doubling servers", "Blocking producers forever"], "answer": 1, "explain": "The queue absorbs the burst, letting consumers drain it steadily instead of being overwhelmed."},
+        {"q": "With at-least-once delivery, consumers should be:", "options": ["Stateful", "Idempotent, so duplicate messages don't cause harm", "Synchronous", "Single-threaded"], "answer": 1, "explain": "At-least-once can deliver duplicates, so processing must be idempotent to stay correct."}
+      ]
+    },
+    "u:core-oop-47-cdn": {
+      "title": "CDN",
+      "summary": "Serve static content from edge servers near users to cut latency and origin load.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **Content Delivery Network** is a globally distributed network of **edge servers** that cache static content (images, video, CSS/JS) close to users, so requests are served from a nearby location instead of the far-away origin."},
+        {"t": "points", "items": [
+          "**Lower latency** — content travels a shorter distance to the user.",
+          "**Less origin load** — the CDN absorbs most requests, protecting the origin.",
+          "**Availability & DDoS absorption** — the distributed edge soaks up traffic spikes.",
+          "Uses TTLs and cache invalidation; best for static/cacheable content."
+        ]},
+        {"t": "callout", "style": "key", "text": "A CDN is geographic caching: put content at the edge, near users. It's the standard answer for delivering static assets and video at scale with low latency and origin protection."},
+        {"t": "callout", "style": "tip", "text": "Dynamic, user-specific content is harder to cache at the edge; CDNs cache it via short TTLs or edge computing, but static assets are the primary win."}
+      ],
+      "mcqs": [
+        {"q": "A CDN reduces latency by:", "options": ["Compressing the database", "Serving cached content from edge servers geographically near the user", "Adding more origin servers", "Encrypting requests"], "answer": 1, "explain": "Edge caching shortens the distance data travels, cutting latency."},
+        {"q": "CDNs are most effective for:", "options": ["Per-user dynamic data", "Static, cacheable content like images, video, CSS/JS", "Database writes", "Real-time trading"], "answer": 1, "explain": "Static assets cache well at the edge; highly dynamic per-user data is harder to cache."},
+        {"q": "Besides latency, a CDN also:", "options": ["Increases origin load", "Reduces origin load and helps absorb traffic spikes/DDoS", "Slows delivery", "Removes caching"], "answer": 1, "explain": "By serving most requests from the edge, it offloads the origin and cushions spikes."}
+      ]
+    },
+    "u:core-oop-48-consistent-hashing": {
+      "title": "Consistent hashing",
+      "summary": "Distribute keys across nodes so adding/removing a node moves only a small fraction of keys.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "With plain `hash(key) % N` sharding, changing the number of nodes N remaps **almost every key** — catastrophic for a cache/DB. **Consistent hashing** solves this."},
+        {"t": "h", "text": "How it works"},
+        {"t": "points", "items": [
+          "Map both **nodes** and **keys** onto a circular hash ring (0 … 2^32-1).",
+          "A key belongs to the **first node clockwise** from its position.",
+          "Add/remove a node and only the keys between it and its predecessor move — about **1/N** of keys, not all.",
+          "**Virtual nodes** (each physical node placed at many ring points) even out the distribution and smooth load on failure."
+        ]},
+        {"t": "callout", "style": "key", "text": "The win: scaling the cluster remaps only ~K/N keys instead of nearly all. This is why distributed caches (Memcached clients), DynamoDB, and Cassandra use consistent hashing — nodes can join/leave with minimal reshuffling."},
+        {"t": "callout", "style": "tip", "text": "Virtual nodes fix uneven distribution and hotspots by giving each server many small arcs on the ring instead of one big one."}
+      ],
+      "mcqs": [
+        {"q": "The main advantage of consistent hashing over hash % N is that adding/removing a node:", "options": ["Remaps all keys", "Remaps only about 1/N of the keys", "Requires no hashing", "Doubles capacity"], "answer": 1, "explain": "Only keys near the changed node move, roughly K/N, versus remapping nearly everything with modulo hashing."},
+        {"q": "In consistent hashing, a key is assigned to:", "options": ["A random node", "The first node clockwise from the key's position on the ring", "The node with the lowest id", "All nodes"], "answer": 1, "explain": "Keys map to the next node clockwise on the hash ring."},
+        {"q": "Virtual nodes are used to:", "options": ["Reduce the number of servers", "Even out key distribution and avoid hotspots", "Encrypt keys", "Remove the ring"], "answer": 1, "explain": "Placing each physical node at many ring positions balances load and smooths redistribution when nodes change."}
+      ]
+    },
+    "u:core-oop-49-designing-a-url-shortener-end-to-end": {
+      "title": "Designing a URL shortener end to end",
+      "summary": "Put the pieces together: API, unique-id generation, storage, caching, and scale.",
+      "minutes": 6,
+      "blocks": [
+        {"t": "p", "text": "A full URL-shortener design combines the LLD (code generation) with HLD (scale). Walk it top-down."},
+        {"t": "h", "text": "Requirements & scale"},
+        {"t": "points", "items": [
+          "Functional: shorten a URL, redirect on the short code, optional custom alias/expiry/analytics.",
+          "Scale: read-heavy (redirects >> creates), so optimise reads. Estimate QPS and storage (back-of-envelope)."
+        ]},
+        {"t": "h", "text": "Design"},
+        {"t": "points", "items": [
+          "**API**: `POST /shorten`, `GET /{code}` (302 redirect).",
+          "**Unique code**: base62 of a globally unique id — from a distributed counter / **id generator** (e.g. a range-allocating service or Snowflake-style id), avoiding collision checks.",
+          "**Storage**: a KV store (code → longUrl), which shards cleanly by code.",
+          "**Cache**: hot codes in Redis in front of the store — redirects are read-heavy and highly cacheable.",
+          "**Scale-out**: stateless app servers behind a load balancer; shard the KV store; a CDN/edge can cache popular redirects."
+        ]},
+        {"t": "callout", "style": "key", "text": "The two decisions that carry the interview: (1) generate unique short codes without collisions (base62 of a unique id, not a hash), and (2) make reads fast and scalable (cache + KV store + statelessness), because redirects vastly outnumber creates."},
+        {"t": "callout", "style": "tip", "text": "Use a 302 (temporary) redirect if you want to count clicks (each hit reaches your server); a 301 (permanent) is cached by browsers and skips your analytics."}
+      ],
+      "mcqs": [
+        {"q": "A URL shortener's workload is characterised as:", "options": ["Write-heavy", "Read-heavy (redirects far outnumber creations)", "Balanced", "Compute-heavy"], "answer": 1, "explain": "Redirects (reads) vastly exceed shortening (writes), so the design optimises fast, cacheable reads."},
+        {"q": "To generate collision-free short codes at scale, use:", "options": ["A random 4-char string", "Base62 of a globally unique id (e.g. from a distributed id generator)", "The URL length", "The current time only"], "answer": 1, "explain": "Encoding a unique id guarantees no collisions without extra checks, unlike random/hash approaches."},
+        {"q": "Using a 302 (temporary) redirect instead of 301 (permanent) lets you:", "options": ["Cache forever in the browser", "Count each click, since requests still reach your server", "Skip the database", "Avoid HTTPS"], "answer": 1, "explain": "301s are cached by browsers and bypass your server on repeat hits; 302s reach your server so clicks can be tracked."}
+      ]
+    },
+    "u:core-oop-20-single-responsibility-violation-and-fix": {
+      "title": "Single Responsibility Principle",
+      "summary": "A class should have exactly one reason to change — one job.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **S** in SOLID: a class should have **one responsibility**, i.e. one reason to change. If a class does report generation *and* database access *and* email sending, three unrelated forces can force it to change."},
+        {"t": "h", "text": "Violation and fix"},
+        {"t": "p", "text": "A `Report` class that formats data, saves to a file, and emails it violates SRP. Split it: a `Report` (data), a `ReportFormatter`, a `ReportRepository` (persistence), and a `Mailer`. Each now changes for one reason only."},
+        {"t": "callout", "style": "key", "text": "SRP is about **reasons to change**, not 'do one thing'. Group code that changes together for the same reason; separate code that changes for different reasons. This limits the blast radius of edits."},
+        {"t": "callout", "style": "tip", "text": "A telltale sign of an SRP violation: the word 'and' when describing what a class does ('parses AND validates AND stores')."}
+      ],
+      "mcqs": [
+        {"q": "The Single Responsibility Principle states a class should have:", "options": ["One method", "One reason to change", "One field", "One subclass"], "answer": 1, "explain": "SRP is about a single reason to change — a single responsibility/axis of change."},
+        {"q": "A class that formats, persists, and emails a report violates SRP because:", "options": ["It is too short", "It has multiple unrelated reasons to change", "It uses inheritance", "It has private fields"], "answer": 1, "explain": "Formatting, persistence, and mailing are three independent concerns, each a separate reason to change."},
+        {"q": "Following SRP typically improves:", "options": ["Runtime speed only", "Maintainability by localising changes to one responsibility per class", "Memory usage", "Compilation errors"], "answer": 1, "explain": "Separating concerns limits how far a change ripples, making the code easier to maintain and test."}
+      ]
+    },
+    "u:core-oop-21-open-closed-violation-and-fix": {
+      "title": "Open/Closed Principle",
+      "summary": "Open for extension, closed for modification — add behaviour without editing tested code.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **O** in SOLID: software entities should be **open for extension but closed for modification**. You should be able to add new behaviour without changing existing, working code."},
+        {"t": "h", "text": "Violation and fix"},
+        {"t": "p", "text": "A `switch(shape.type)` computing area, with a new `case` added for every new shape, violates OCP — every new shape edits the same method. Fix: an abstract `Shape` with an `area()` method that each subclass implements. Adding a `Triangle` means adding a class, not editing the calculator."},
+        {"t": "callout", "style": "key", "text": "OCP is achieved through **abstraction and polymorphism**: depend on an interface, and add new implementations rather than editing a growing conditional. New requirements → new code, not modified code."},
+        {"t": "callout", "style": "warn", "text": "A long `if/else` or `switch` on a type code is the classic OCP smell — every new variant reopens that method and risks breaking the others."}
+      ],
+      "mcqs": [
+        {"q": "The Open/Closed Principle says software should be:", "options": ["Open for modification, closed for extension", "Open for extension, closed for modification", "Always modifiable", "Never extended"], "answer": 1, "explain": "You should add new behaviour by extension (new classes) without modifying existing tested code."},
+        {"q": "A growing switch statement on a type code violates OCP because:", "options": ["It is fast", "Each new type forces editing the same existing method", "It uses polymorphism", "It has no cases"], "answer": 1, "explain": "Adding a variant reopens and risks breaking the shared method — the opposite of closed-for-modification."},
+        {"q": "OCP is typically achieved via:", "options": ["Global variables", "Abstraction and polymorphism (interfaces + new implementations)", "Larger functions", "Copy-paste"], "answer": 1, "explain": "Depending on an abstraction lets you plug in new implementations without touching existing code."}
+      ]
+    },
+    "u:core-oop-22-liskov-substitution-violation-and-fix": {
+      "title": "Liskov Substitution Principle",
+      "summary": "A subclass must be usable anywhere its base is expected, without surprising behaviour.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **L** in SOLID: objects of a subclass should be **substitutable** for their base class without breaking correctness. A subtype must honour the base type's contract."},
+        {"t": "h", "text": "The classic violation"},
+        {"t": "p", "text": "`Square extends Rectangle` seems fine, but if `setWidth` also changes height (to stay square), code that expects `setWidth` to change only width breaks. `Square` isn't a behavioural subtype of `Rectangle`, so it violates LSP even though a square 'is a' rectangle mathematically."},
+        {"t": "callout", "style": "key", "text": "LSP is about **behavioural** substitutability, not just is-a. A subclass must not strengthen preconditions, weaken postconditions, or throw unexpected exceptions where the base wouldn't."},
+        {"t": "callout", "style": "tip", "text": "Another red flag: a subclass overriding a method to throw `UnsupportedOperationException` (e.g. an immutable list's `add`) — it breaks callers relying on the base contract."}
+      ],
+      "mcqs": [
+        {"q": "The Liskov Substitution Principle requires that:", "options": ["Subclasses have more methods", "Subtype objects can replace base-type objects without breaking correctness", "Base classes be final", "No inheritance is used"], "answer": 1, "explain": "Anywhere the base type is expected, a subtype must work correctly, honouring the base's contract."},
+        {"q": "Square extending Rectangle can violate LSP because:", "options": ["Squares don't exist", "Setting width also changing height breaks code expecting independent width/height", "Rectangles are abstract", "It uses composition"], "answer": 1, "explain": "The Square's coupled setters break the behavioural contract callers rely on for a Rectangle."},
+        {"q": "A subclass overriding a method to throw UnsupportedOperationException:", "options": ["Satisfies LSP", "Violates LSP by not honouring the base contract", "Is required by LSP", "Improves substitutability"], "answer": 1, "explain": "Callers expect the base behaviour; throwing where the base wouldn't breaks substitutability."}
+      ]
+    },
+    "u:core-oop-23-interface-segregation-violation-and-fix": {
+      "title": "Interface Segregation Principle",
+      "summary": "Prefer many small, focused interfaces over one fat interface clients are forced to implement.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **I** in SOLID: clients should not be forced to depend on methods they don't use. Split a large 'fat' interface into smaller, role-specific ones."},
+        {"t": "h", "text": "Violation and fix"},
+        {"t": "p", "text": "A `Machine` interface with `print()`, `scan()`, `fax()` forces a simple printer to implement `scan` and `fax` with empty or throwing bodies. Fix: separate `Printer`, `Scanner`, `Fax` interfaces; a multifunction device implements all three, a basic printer just `Printer`."},
+        {"t": "callout", "style": "key", "text": "ISP prevents 'interface pollution': no class should be forced to implement irrelevant methods. Small, cohesive interfaces keep implementations honest and reduce coupling."},
+        {"t": "callout", "style": "warn", "text": "Empty method bodies or ones that throw 'not supported' are the classic sign a fat interface needs segregating."}
+      ],
+      "mcqs": [
+        {"q": "The Interface Segregation Principle recommends:", "options": ["One large interface for everything", "Many small, client-specific interfaces instead of a fat one", "No interfaces", "Interfaces with only fields"], "answer": 1, "explain": "Clients should depend only on the methods they actually use, favouring small focused interfaces."},
+        {"q": "A printer forced to implement scan() and fax() with empty bodies indicates:", "options": ["Good design", "An ISP violation (fat interface)", "An LSP fix", "Encapsulation"], "answer": 1, "explain": "Being forced to implement unused methods signals the interface is too broad and should be split."},
+        {"q": "Segregating interfaces reduces:", "options": ["Cohesion", "Coupling and forced dependencies on unused methods", "Readability", "The number of classes to zero"], "answer": 1, "explain": "Focused interfaces mean classes depend only on what they use, lowering coupling."}
+      ]
+    },
+    "u:core-oop-24-dependency-inversion-violation-and-fix": {
+      "title": "Dependency Inversion Principle",
+      "summary": "Depend on abstractions, not concretions — high-level policy shouldn't hinge on low-level details.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **D** in SOLID: high-level modules should not depend on low-level modules; both should depend on **abstractions**. And abstractions shouldn't depend on details — details depend on abstractions."},
+        {"t": "h", "text": "Violation and fix"},
+        {"t": "p", "text": "An `OrderService` that directly creates a `MySQLDatabase` is welded to that concrete class. Fix: define a `Repository` interface; `OrderService` depends on `Repository`, and a `MySQLRepository` implements it — injected in via the constructor. Now you can swap the database or use a fake in tests."},
+        {"t": "callout", "style": "key", "text": "DIP + dependency injection decouple policy from implementation: the high-level class asks for an interface and is handed a concrete implementation from outside. This is the backbone of testable, flexible systems."},
+        {"t": "callout", "style": "tip", "text": "'Inversion' means the direction of dependency is flipped: instead of high-level code depending on low-level code, both depend on an abstraction owned by the high-level side."}
+      ],
+      "mcqs": [
+        {"q": "The Dependency Inversion Principle says modules should depend on:", "options": ["Concrete implementations", "Abstractions (interfaces), not concretions", "Global variables", "Static classes"], "answer": 1, "explain": "Both high- and low-level modules depend on abstractions, decoupling policy from implementation."},
+        {"q": "Injecting a Repository interface into OrderService instead of newing a MySQLDatabase:", "options": ["Violates DIP", "Follows DIP and enables swapping implementations and testing", "Increases coupling", "Removes abstraction"], "answer": 1, "explain": "Depending on the interface (and injecting the concrete) decouples the service from the database, aiding testing."},
+        {"q": "Dependency injection is commonly used to:", "options": ["Hide all methods", "Supply a class's dependencies from outside, supporting DIP", "Replace inheritance", "Avoid interfaces"], "answer": 1, "explain": "DI provides the concrete implementation of an abstraction externally, realising dependency inversion."}
+      ]
+    },
+    "u:core-oop-25-singleton-and-why-it-is-often-a-smell": {
+      "title": "Singleton (and why it is often a smell)",
+      "summary": "Guarantee a single shared instance — useful, but easy to abuse as hidden global state.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **Singleton** pattern ensures a class has only **one instance** and provides a global access point to it (e.g. a config manager, a logger)."},
+        {"t": "points", "items": [
+          "Private constructor + a static `getInstance()` that lazily creates and returns the sole instance.",
+          "In multithreaded code it must be made **thread-safe** (double-checked locking, or an eager static / enum in Java).",
+          "It's a **creational** pattern."
+        ]},
+        {"t": "callout", "style": "warn", "text": "Why it's often a smell: a Singleton is global mutable state in disguise. It hides dependencies (code can grab it anywhere), makes unit testing hard (can't easily substitute a fake), and can create hidden coupling. Prefer dependency injection of a single instance."},
+        {"t": "callout", "style": "tip", "text": "In Java the cleanest thread-safe singleton is a single-element enum; it also handles serialization correctly."}
+      ],
+      "mcqs": [
+        {"q": "The Singleton pattern guarantees:", "options": ["Many instances", "Exactly one instance with a global access point", "No instances", "One instance per thread"], "answer": 1, "explain": "Singleton restricts a class to a single instance accessible globally."},
+        {"q": "A common criticism of Singleton is that it:", "options": ["Is too fast", "Introduces hidden global mutable state, hurting testability", "Cannot be implemented", "Requires inheritance"], "answer": 1, "explain": "It acts as global state, hides dependencies, and makes substituting test doubles difficult."},
+        {"q": "Making a lazily-initialised Singleton safe under concurrency requires:", "options": ["Nothing special", "Thread-safety (e.g. double-checked locking or an eager/enum singleton)", "More instances", "Removing the static method"], "answer": 1, "explain": "Without synchronization, two threads could create two instances; thread-safe initialization is needed."}
+      ]
+    },
+    "u:core-oop-26-factory-and-abstract-factory": {
+      "title": "Factory and Abstract Factory",
+      "summary": "Centralise object creation behind a method or a family-producing interface.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Both are **creational** patterns that move object creation out of client code."},
+        {"t": "points", "items": [
+          "**Factory Method** — a method decides which concrete subclass to instantiate based on input, returning the base type. The client says `ShapeFactory.create(\"circle\")` and gets a `Shape`.",
+          "**Abstract Factory** — an interface that creates **families** of related objects. A `GUIFactory` produces a matching `Button` and `Checkbox`; a `WindowsFactory` and `MacFactory` each produce a consistent set."
+        ]},
+        {"t": "callout", "style": "key", "text": "Factory Method creates one product; Abstract Factory creates a family of related products that must be used together. Both let clients depend on abstractions and honour OCP — add a new type/family without editing client code."},
+        {"t": "callout", "style": "tip", "text": "Use a factory when object creation is complex, conditional, or should be decoupled from the client; use Abstract Factory when products come in interchangeable, consistent sets (e.g. per-OS widgets)."}
+      ],
+      "mcqs": [
+        {"q": "The Factory Method pattern primarily:", "options": ["Destroys objects", "Encapsulates which concrete class to instantiate, returning a base type", "Compares objects", "Copies objects"], "answer": 1, "explain": "It centralises creation, deciding the concrete subtype while the client works with the abstraction."},
+        {"q": "Abstract Factory differs from Factory Method by creating:", "options": ["A single object", "Families of related objects meant to be used together", "Only primitives", "No objects"], "answer": 1, "explain": "Abstract Factory produces a consistent set of related products (e.g. matching UI widgets per platform)."},
+        {"q": "Factories help satisfy which principle?", "options": ["None", "Open/Closed and Dependency Inversion (clients depend on abstractions)", "Single Responsibility only", "Interface Segregation only"], "answer": 1, "explain": "Clients depend on the product interface and factory abstraction, so new types can be added without editing clients."}
+      ]
+    },
+    "u:core-oop-27-builder": {
+      "title": "Builder",
+      "summary": "Construct a complex object step by step, avoiding telescoping constructors.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The **Builder** pattern (creational) constructs a complex object step by step, so you don't need a constructor with many (often optional) parameters — the 'telescoping constructor' problem."},
+        {"t": "code", "lang": "java", "text": "Pizza p = new Pizza.Builder()\n    .size(12)\n    .cheese(true)\n    .topping(\"olives\")\n    .build();"},
+        {"t": "points", "items": [
+          "Readable, fluent construction; each step is named, so no guessing which boolean is which.",
+          "Supports optional parameters cleanly and can enforce validity in `build()`.",
+          "Can produce immutable objects (fields set once at build)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Use Builder when a class has many parameters, several optional, or complex construction rules. It replaces confusing multi-argument constructors with readable, self-documenting chained calls."}
+      ],
+      "mcqs": [
+        {"q": "The Builder pattern solves the problem of:", "options": ["Too many subclasses", "Constructors with many (often optional) parameters — telescoping constructors", "Slow methods", "Global state"], "answer": 1, "explain": "Builder assembles an object via readable steps, avoiding unwieldy multi-argument constructors."},
+        {"q": "A benefit of Builder is:", "options": ["It removes all classes", "Readable, fluent, self-documenting construction and easy optional parameters", "It forces mutability", "It prevents validation"], "answer": 1, "explain": "Named chained steps make construction clear, handle optionals well, and can validate in build()."},
+        {"q": "Builder is categorised as a:", "options": ["Structural pattern", "Creational pattern", "Behavioural pattern", "Concurrency pattern"], "answer": 1, "explain": "Builder is a creational pattern focused on constructing objects."}
+      ]
+    },
+    "u:core-oop-28-adapter": {
+      "title": "Adapter",
+      "summary": "Wrap an incompatible interface so an existing class can be used where another interface is expected.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "The **Adapter** pattern (structural) converts one interface into another that a client expects, letting classes with incompatible interfaces work together — like a physical power-plug adapter."},
+        {"t": "points", "items": [
+          "A client expects interface `Target`; you have a class with a different interface `Adaptee`. The `Adapter` implements `Target` and internally calls `Adaptee`.",
+          "Common when integrating a third-party or legacy class you can't change."
+        ]},
+        {"t": "callout", "style": "key", "text": "Adapter reconciles interfaces. It doesn't add behaviour (that's Decorator) — it translates calls so an existing class fits where a different interface is required."},
+        {"t": "callout", "style": "tip", "text": "Distinguish: Adapter changes an interface; Decorator adds responsibilities keeping the same interface; Facade simplifies a whole subsystem behind one interface."}
+      ],
+      "mcqs": [
+        {"q": "The Adapter pattern is used to:", "options": ["Add new behaviour to an object", "Convert one interface into another a client expects", "Create families of objects", "Ensure a single instance"], "answer": 1, "explain": "Adapter translates an existing (incompatible) interface into the one the client needs."},
+        {"q": "Adapter differs from Decorator in that Adapter:", "options": ["Adds responsibilities", "Changes/translates the interface rather than adding behaviour", "Creates objects", "Enforces a singleton"], "answer": 1, "explain": "Adapter reconciles interfaces; Decorator adds responsibilities while preserving the interface."},
+        {"q": "A typical use of Adapter is:", "options": ["Making everything static", "Integrating a legacy or third-party class with an incompatible interface", "Removing methods", "Sorting a list"], "answer": 1, "explain": "It wraps a class you can't modify so it conforms to the required interface."}
+      ]
+    },
+    "u:core-oop-29-decorator": {
+      "title": "Decorator",
+      "summary": "Attach responsibilities to an object dynamically by wrapping it, keeping the same interface.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **Decorator** pattern (structural) adds behaviour to an object at runtime by **wrapping** it in another object with the **same interface**. Wrappers can be stacked."},
+        {"t": "code", "lang": "java", "text": "Coffee c = new Milk(new Sugar(new Espresso()));\nc.cost();   // espresso + sugar + milk"},
+        {"t": "points", "items": [
+          "Each decorator implements the component interface and holds a reference to a wrapped component, adding to its behaviour before/after delegating.",
+          "A flexible alternative to subclassing for every combination (Espresso+Milk, Espresso+Sugar, Espresso+Milk+Sugar…)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Decorator adds responsibilities dynamically and composably, avoiding a subclass explosion. The wrappers share the base interface, so a decorated object is still usable everywhere the plain one is (the java.io streams are the textbook example)."}
+      ],
+      "mcqs": [
+        {"q": "The Decorator pattern adds behaviour by:", "options": ["Editing the original class", "Wrapping an object in another with the same interface", "Creating a subclass for each feature", "Using a singleton"], "answer": 1, "explain": "Decorators wrap a component, sharing its interface and augmenting behaviour, and can be stacked."},
+        {"q": "Decorator is preferred over subclassing when:", "options": ["There is only one variant", "Many combinations of features would cause a subclass explosion", "You need a single instance", "You want to change the interface"], "answer": 1, "explain": "Composable wrappers handle feature combinations without a class per combination."},
+        {"q": "A decorated object can be used wherever the base component is because:", "options": ["It has a different interface", "It implements the same interface as the component", "It is static", "It is a singleton"], "answer": 1, "explain": "Sharing the component interface keeps decorated objects substitutable for undecorated ones."}
+      ]
+    },
+    "u:core-oop-30-observer": {
+      "title": "Observer",
+      "summary": "Notify a set of dependents automatically when a subject's state changes.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **Observer** pattern (behavioural) defines a one-to-many dependency: when a **subject** changes state, all registered **observers** are notified automatically. It's the basis of event systems and MVC."},
+        {"t": "points", "items": [
+          "Observers `subscribe`/`register` with the subject; the subject calls `notify()` on each when its state changes.",
+          "Decouples the subject from its observers — the subject knows only the observer interface, not concrete listeners.",
+          "Powers UI event listeners, pub-sub, reactive streams, and model→view updates."
+        ]},
+        {"t": "callout", "style": "key", "text": "Observer decouples 'something changed' from 'who reacts'. The subject broadcasts to an abstract observer interface, so listeners can be added/removed without the subject knowing their concrete types."},
+        {"t": "callout", "style": "warn", "text": "Watch for memory leaks: observers that forget to unsubscribe keep the subject referencing them. And beware notification storms / ordering assumptions."}
+      ],
+      "mcqs": [
+        {"q": "The Observer pattern establishes:", "options": ["A one-to-one copy", "A one-to-many notification from a subject to its observers", "A single instance", "An interface conversion"], "answer": 1, "explain": "When the subject's state changes, all subscribed observers are notified — a one-to-many dependency."},
+        {"q": "Observer decouples the subject from observers because the subject:", "options": ["Knows every concrete observer class", "Depends only on an observer interface, not concrete listeners", "Creates the observers", "Is a singleton"], "answer": 1, "explain": "The subject notifies through an abstract interface, so concrete observers can vary independently."},
+        {"q": "A common real-world use of Observer is:", "options": ["Memory allocation", "UI event listeners / pub-sub / model-view updates", "Sorting", "String parsing"], "answer": 1, "explain": "Event listeners and MVC view updates are canonical Observer applications."}
+      ]
+    },
+    "u:core-oop-31-strategy": {
+      "title": "Strategy",
+      "summary": "Encapsulate interchangeable algorithms behind a common interface and swap them at runtime.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **Strategy** pattern (behavioural) defines a family of algorithms, encapsulates each behind a common interface, and makes them interchangeable at runtime. The context delegates the varying behaviour to a strategy object."},
+        {"t": "code", "lang": "java", "text": "sorter.setStrategy(new QuickSort());\nsorter.sort(data);          // swap to new MergeSort() anytime"},
+        {"t": "points", "items": [
+          "Replaces a big conditional selecting behaviour with a set of strategy classes.",
+          "The context holds a reference to a `Strategy` interface and calls it, unaware of the concrete algorithm.",
+          "Favours **composition over inheritance** — behaviour is injected, not baked into a subclass."
+        ]},
+        {"t": "callout", "style": "key", "text": "Strategy makes an algorithm a plug-in: the context depends on the strategy interface, so you swap or add algorithms without touching the context. It's the OCP-friendly alternative to a behaviour-selecting switch."}
+      ],
+      "mcqs": [
+        {"q": "The Strategy pattern lets you:", "options": ["Ensure one instance", "Select and swap interchangeable algorithms at runtime behind a common interface", "Wrap an object", "Convert interfaces"], "answer": 1, "explain": "Encapsulated algorithms behind one interface can be chosen/replaced at runtime by the context."},
+        {"q": "Strategy typically replaces:", "options": ["Inheritance hierarchies", "A large conditional that selects behaviour, with pluggable strategy classes", "Constructors", "Interfaces"], "answer": 1, "explain": "Instead of branching to pick behaviour, each behaviour becomes a strategy the context delegates to."},
+        {"q": "Strategy embodies which design guidance?", "options": ["Inheritance over composition", "Composition over inheritance (inject behaviour)", "Global state", "Singletons"], "answer": 1, "explain": "Behaviour is composed in via a strategy object rather than fixed by subclassing."}
+      ]
+    },
+    "u:core-oop-32-command": {
+      "title": "Command",
+      "summary": "Wrap a request as an object, enabling queueing, logging, and undo.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **Command** pattern (behavioural) encapsulates a request as an object with an `execute()` method, decoupling the **invoker** (what triggers it) from the **receiver** (what performs it)."},
+        {"t": "points", "items": [
+          "Each command holds everything needed to perform an action; the invoker just calls `execute()`.",
+          "Because a request is now an object, you can **queue** commands, **log** them, and support **undo** (add `undo()`).",
+          "Used in menu/button actions, task queues, transactional systems, and macro recording."
+        ]},
+        {"t": "callout", "style": "key", "text": "Turning a request into an object is what unlocks undo/redo, queuing, and logging — you can store, pass, and reverse actions. The invoker is decoupled from how the action is carried out."},
+        {"t": "callout", "style": "tip", "text": "Undo is implemented by having each command remember enough state to reverse itself in undo(); a stack of executed commands gives multi-level undo."}
+      ],
+      "mcqs": [
+        {"q": "The Command pattern encapsulates:", "options": ["A class hierarchy", "A request as an object with an execute() method", "A single instance", "An interface adapter"], "answer": 1, "explain": "A request becomes an object, decoupling the invoker from the receiver that performs it."},
+        {"q": "Representing requests as command objects enables:", "options": ["Nothing new", "Queueing, logging, and undo/redo of actions", "Faster CPUs", "Static methods"], "answer": 1, "explain": "As first-class objects, commands can be stored, replayed, logged, and reversed."},
+        {"q": "Undo in the Command pattern is typically supported by:", "options": ["Deleting the command", "An undo() method that reverses the command's effect", "A singleton", "A destructor"], "answer": 1, "explain": "Each command remembers how to reverse itself via undo(), often tracked on a stack for multi-level undo."}
+      ]
+    },
+    "u:core-oop-33-composition-over-inheritance": {
+      "title": "Composition over inheritance",
+      "summary": "Prefer assembling behaviour from parts (has-a) over deep class hierarchies (is-a).",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Composition over inheritance** is the guideline to build behaviour by **composing** objects (has-a) rather than inheriting from a base class (is-a), unless there's a genuine is-a relationship."},
+        {"t": "points", "items": [
+          "Inheritance is **rigid**: it's fixed at compile time, exposes the base's internals to subclasses (fragile base class), and deep hierarchies are hard to change.",
+          "Composition is **flexible**: behaviour is assembled from parts and can be swapped at runtime (Strategy is composition in action).",
+          "A `Car` should **have** an `Engine` (composition), not **be** an `Engine`."
+        ]},
+        {"t": "callout", "style": "key", "text": "Use inheritance only for true is-a relationships that share behaviour and satisfy LSP. For reuse and flexibility, compose: delegate to member objects. This is the single most repeated piece of OOP design advice."},
+        {"t": "callout", "style": "warn", "text": "The 'fragile base class problem': changes to a base class can silently break subclasses that depend on its internals — a cost composition avoids."}
+      ],
+      "mcqs": [
+        {"q": "Composition over inheritance advises building behaviour primarily via:", "options": ["Deep inheritance chains", "Has-a relationships (composing objects) rather than is-a inheritance", "Global functions", "Static classes"], "answer": 1, "explain": "Assembling behaviour from member objects is more flexible than inheriting it."},
+        {"q": "A key drawback of inheritance that composition avoids is:", "options": ["It is too flexible", "Rigidity and the fragile base class problem (subclasses coupled to base internals)", "It cannot reuse code", "It is slower to run"], "answer": 1, "explain": "Inheritance couples subclasses to base internals and is fixed at compile time; composition is looser and swappable."},
+        {"q": "Inheritance is appropriate when:", "options": ["Any code reuse is needed", "There is a genuine is-a relationship that satisfies Liskov substitution", "You want runtime swapping", "Never"], "answer": 1, "explain": "Reserve inheritance for true is-a subtypes that honour the base contract; otherwise compose."}
+      ]
+    },
+    "u:core-oop-0-encapsulation-with-code-not-a-definition": {
+      "title": "Encapsulation",
+      "summary": "Bundle data with the methods that guard it, and expose only a controlled interface.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Encapsulation** means keeping an object's data (**fields**) private and exposing it only through methods that enforce the object's rules. The outside world can't put the object into an invalid state because it never touches the fields directly."},
+        {"t": "code", "lang": "java", "text": "class BankAccount {\n    private long balance;               // hidden state\n    public void deposit(long amt) {\n        if (amt <= 0) throw new IllegalArgumentException();\n        balance += amt;                 // invariant enforced here\n    }\n    public long getBalance() { return balance; }\n}"},
+        {"t": "points", "items": [
+          "The `private` field + validating methods mean `balance` can never go negative through a bad deposit.",
+          "It is NOT just 'making fields private' — the point is protecting **invariants** behind a controlled interface.",
+          "Enables changing the internal representation later without breaking callers (they only depend on the methods)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Encapsulation = data + behaviour bundled, with access controlled to protect invariants. Abstraction is about *what* is exposed; encapsulation is about *hiding the internals* that back it."}
+      ],
+      "mcqs": [
+        {"q": "The primary purpose of encapsulation is to:", "options": ["Make code run faster", "Protect an object's invariants by controlling access to its internal state", "Allow multiple inheritance", "Reduce memory usage"], "answer": 1, "explain": "By hiding fields and exposing validating methods, an object can't be pushed into an invalid state from outside."},
+        {"q": "Encapsulation makes future changes safer because:", "options": ["It prevents all bugs", "Callers depend only on the public interface, so internals can change without breaking them", "It removes the need for tests", "It makes fields public"], "answer": 1, "explain": "As long as the public methods keep their contract, the internal representation can be changed freely."},
+        {"q": "Which best distinguishes encapsulation from abstraction?", "options": ["They are identical", "Encapsulation hides internal state/implementation; abstraction exposes only the essential concept", "Abstraction hides data; encapsulation shows it", "Encapsulation is only for C++"], "answer": 1, "explain": "Abstraction is about the simplified external view; encapsulation is the mechanism of hiding internals behind it."}
+      ]
+    },
+    "u:core-oop-1-abstraction": {
+      "title": "Abstraction",
+      "summary": "Expose only the essential behaviour and hide the messy how — model the idea, not the details.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Abstraction** means representing a concept by its essential behaviour while hiding the implementation. A `List` interface says you can `add` and `get`; whether it's backed by an array or linked nodes is hidden."},
+        {"t": "points", "items": [
+          "Achieved with **abstract classes** and **interfaces**: they declare *what* an object does, not *how*.",
+          "Reduces complexity — callers reason about a small contract instead of internals.",
+          "Lets multiple implementations be swapped behind the same interface (polymorphism)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Abstraction manages complexity by hiding detail behind a simple contract; encapsulation is the enforcement mechanism that keeps that detail hidden. They work together."},
+        {"t": "callout", "style": "tip", "text": "Driving analogy: the steering wheel and pedals are the abstraction; you don't need to know the engine's internals to drive. That interface is stable even if the engine changes."}
+      ],
+      "mcqs": [
+        {"q": "Abstraction primarily helps by:", "options": ["Speeding up compilation", "Hiding implementation detail behind a simple, essential interface to manage complexity", "Duplicating code", "Removing all classes"], "answer": 1, "explain": "It exposes only what matters (the contract) and hides how it's done, reducing the complexity callers must handle."},
+        {"q": "In Java/C++, abstraction is commonly expressed with:", "options": ["Only private fields", "Abstract classes and interfaces", "Static variables", "Preprocessor macros"], "answer": 1, "explain": "Interfaces and abstract classes declare behaviour (the what) without dictating implementation (the how)."},
+        {"q": "A benefit of programming to an abstraction (interface) is:", "options": ["You must know every implementation detail", "Implementations can be swapped without changing calling code", "It prevents polymorphism", "It forces multiple inheritance"], "answer": 1, "explain": "Callers depend on the contract, so any conforming implementation can be substituted — the basis of polymorphism and testability."}
+      ]
+    },
+    "u:core-oop-2-inheritance-and-its-types": {
+      "title": "Inheritance and its types",
+      "summary": "Derive a class from another to reuse and specialise — single, multiple, multilevel, hierarchical, hybrid.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Inheritance** lets a class (child/derived) acquire the fields and methods of another (parent/base), modelling an **is-a** relationship (a `Dog` is-an `Animal`). It enables reuse and lets the child extend or override behaviour."},
+        {"t": "table", "headers": ["Type", "Shape"], "rows": [
+          ["Single", "B inherits A"],
+          ["Multilevel", "C inherits B inherits A"],
+          ["Hierarchical", "B and C both inherit A"],
+          ["Multiple", "C inherits A and B (C++ yes; Java only via interfaces)"],
+          ["Hybrid", "A mix, e.g. diamond shape"]
+        ]},
+        {"t": "callout", "style": "warn", "text": "Java forbids multiple inheritance of classes to avoid the **diamond problem** (ambiguity when two parents provide the same member); it allows multiple interface inheritance instead. C++ allows it but needs virtual inheritance to resolve the diamond."},
+        {"t": "callout", "style": "tip", "text": "Favour inheritance only for genuine is-a relationships. For 'has-a' or 'can-do', prefer composition — over-using inheritance creates fragile, tightly-coupled hierarchies."}
+      ],
+      "mcqs": [
+        {"q": "Inheritance models which relationship?", "options": ["has-a", "is-a", "uses-a", "part-of"], "answer": 1, "explain": "A derived class is-a specialised version of its base class (a Dog is-an Animal)."},
+        {"q": "Java disallows multiple inheritance of classes primarily to avoid:", "options": ["Slow performance", "The diamond problem's ambiguity", "Large binaries", "Encapsulation"], "answer": 1, "explain": "Two base classes providing the same member create ambiguity (the diamond problem); Java sidesteps it by allowing only interface multiple inheritance."},
+        {"q": "'C inherits B, which inherits A' is which type of inheritance?", "options": ["Hierarchical", "Multiple", "Multilevel", "Hybrid"], "answer": 2, "explain": "A chain of derivations (A→B→C) is multilevel inheritance."}
+      ]
+    },
+    "u:core-oop-3-polymorphism-compile-time-vs-runtime": {
+      "title": "Polymorphism: compile-time vs runtime",
+      "summary": "One interface, many forms — resolved either at compile time (overloading) or at runtime (overriding).",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Polymorphism** lets the same call behave differently depending on context. There are two kinds, distinguished by **when the actual method is chosen**."},
+        {"t": "table", "headers": ["", "Compile-time (static)", "Runtime (dynamic)"], "rows": [
+          ["Mechanism", "Overloading (same name, different params)", "Overriding (subclass redefines a virtual method)"],
+          ["Resolved", "At compile time by signature", "At runtime by the object's actual type"],
+          ["Enabled by", "Method signatures", "Virtual functions / dynamic dispatch"]
+        ]},
+        {"t": "code", "lang": "java", "text": "Animal a = new Dog();\na.speak();   // runtime: Dog.speak() runs, not Animal.speak()"},
+        {"t": "callout", "style": "key", "text": "Runtime polymorphism is the powerful one: a base-type reference invokes the derived object's overridden method via **dynamic dispatch** (the vtable in C++). This is what lets you write code against the base type and plug in any subclass."},
+        {"t": "callout", "style": "warn", "text": "Overloading (same method name, different parameter lists) is resolved at compile time and is NOT true runtime polymorphism — a common trick question."}
+      ],
+      "mcqs": [
+        {"q": "Method overriding provides which kind of polymorphism?", "options": ["Compile-time", "Runtime (dynamic dispatch)", "No polymorphism", "Static only"], "answer": 1, "explain": "Overriding is resolved at runtime based on the object's actual type — dynamic/runtime polymorphism."},
+        {"q": "Method overloading is resolved:", "options": ["At runtime by object type", "At compile time by the method signature", "By the vtable", "Never"], "answer": 1, "explain": "The compiler picks the overload from the argument types/signature — compile-time (static) polymorphism."},
+        {"q": "For `Animal a = new Dog(); a.speak();` to call Dog's speak(), speak() must be:", "options": ["private", "static", "virtual/overridable (non-final)", "final"], "answer": 2, "explain": "Dynamic dispatch requires the method be virtual/overridable so the runtime picks the subclass version."}
+      ]
+    },
+    "u:core-oop-4-abstract-class-vs-interface-when-each": {
+      "title": "Abstract class vs interface: when each",
+      "summary": "Share partial implementation and state, or define a pure capability contract.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Both let you program to an abstraction, but they serve different design intents."},
+        {"t": "table", "headers": ["", "Abstract class", "Interface"], "rows": [
+          ["Can hold state (fields)", "Yes", "No (only constants)"],
+          ["Method bodies", "Yes (some concrete)", "Traditionally none (Java 8+ allows default methods)"],
+          ["Multiple inheritance", "No (one base class)", "Yes (implement many)"],
+          ["Models", "is-a with shared code", "can-do capability"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Use an **abstract class** when subclasses share common state/behaviour (an is-a with reusable code). Use an **interface** to declare a capability many unrelated classes can implement (Comparable, Serializable). Prefer interfaces for flexibility."},
+        {"t": "callout", "style": "tip", "text": "A class can implement many interfaces but extend only one abstract class — so interfaces are the way to give a class multiple, orthogonal capabilities."}
+      ],
+      "mcqs": [
+        {"q": "Which can hold instance fields (state)?", "options": ["Interface only", "Abstract class", "Neither", "Both equally"], "answer": 1, "explain": "Abstract classes can have instance fields and constructors; interfaces hold only constants (plus default/static methods in modern Java)."},
+        {"q": "You want many unrelated classes to share a capability like 'Comparable'. Use:", "options": ["An abstract base class they all extend", "An interface they implement", "Multiple inheritance of classes", "A static utility only"], "answer": 1, "explain": "Unrelated classes can each implement the interface without forcing a common base class — that's the interface's role."},
+        {"q": "A key structural limit is that a class can:", "options": ["Extend many abstract classes", "Implement many interfaces but extend only one class", "Neither extend nor implement", "Implement only one interface"], "answer": 1, "explain": "Single class inheritance but multiple interface implementation is why interfaces model orthogonal capabilities."}
+      ]
+    },
+    "u:core-oop-5-constructors-default-parameterised-copy": {
+      "title": "Constructors: default, parameterised, copy",
+      "summary": "Special functions that initialise an object; the compiler supplies some for free.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **constructor** initialises a new object; it has the class's name and no return type. Three common forms:"},
+        {"t": "points", "items": [
+          "**Default** — no parameters; sets fields to defaults. The compiler generates one **only if you declare no constructors**.",
+          "**Parameterised** — takes arguments to initialise fields to given values.",
+          "**Copy** — creates a new object as a copy of an existing one (`Foo(const Foo& other)` in C++)."
+        ]},
+        {"t": "callout", "style": "warn", "text": "The moment you declare any constructor (e.g. a parameterised one), the compiler stops generating the default constructor. If you still need a no-arg one, you must declare it explicitly."},
+        {"t": "callout", "style": "tip", "text": "In C++ the compiler also auto-generates a copy constructor that does a member-wise (shallow) copy — which is a bug for classes owning raw pointers. See the copy-constructor and rule-of-three notes."}
+      ],
+      "mcqs": [
+        {"q": "When does the compiler NOT provide a default constructor?", "options": ["Always provides one", "When you have declared any other constructor", "Only for abstract classes", "When the class has no fields"], "answer": 1, "explain": "Declaring any constructor suppresses the implicit default; you must add a no-arg constructor yourself if needed."},
+        {"q": "A copy constructor is used to:", "options": ["Initialise an object from another object of the same type", "Free memory", "Convert types", "Override methods"], "answer": 0, "explain": "It constructs a new object as a copy of an existing instance."},
+        {"q": "A constructor is distinguished from a normal method because it:", "options": ["Has a void return type", "Has the class's name and no return type", "Must be static", "Cannot take parameters"], "answer": 1, "explain": "Constructors share the class name and declare no return type; they run on object creation."}
+      ]
+    },
+    "u:core-oop-6-copy-constructor-vs-assignment-operator": {
+      "title": "Copy constructor vs assignment operator",
+      "summary": "One builds a brand-new object from another; the other overwrites an already-built object.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "In C++ these are easily confused because both copy one object into another, but they run at different moments."},
+        {"t": "table", "headers": ["", "Copy constructor", "Copy assignment (operator=)"], "rows": [
+          ["When", "A new object is being created from another", "An existing object is assigned another"],
+          ["Example", "Foo b = a;   /  Foo b(a);", "b = a;   (b already exists)"],
+          ["Must handle", "Only construct fresh state", "Release old resources, then copy, guard self-assignment"]
+        ]},
+        {"t": "code", "lang": "cpp", "text": "Foo b = a;   // copy CONSTRUCTOR (b is new)\nFoo c;\nc = a;       // copy ASSIGNMENT (c already existed)"},
+        {"t": "callout", "style": "key", "text": "The distinction: the copy constructor builds a new object (no old state to clean up); operator= must first release the target's existing resources and guard against self-assignment (`if (this == &other) return *this;`)."},
+        {"t": "callout", "style": "warn", "text": "For a class owning a raw pointer, the compiler-generated versions do a shallow copy — two objects end up owning the same pointer, causing a double free. This is why the rule of three exists."}
+      ],
+      "mcqs": [
+        {"q": "In `Foo b = a;`, which is invoked?", "options": ["Assignment operator", "Copy constructor (b is being created)", "Default constructor", "Destructor"], "answer": 1, "explain": "b is a new object, so the copy constructor runs — even though the syntax uses '='."},
+        {"q": "What must the copy assignment operator do that the copy constructor need not?", "options": ["Allocate memory", "Release the target's existing resources and guard self-assignment", "Return void", "Call the destructor of the source"], "answer": 1, "explain": "The target already holds resources; operator= must free them and handle self-assignment, unlike a fresh construction."},
+        {"q": "The compiler-generated copy operations do a:", "options": ["Deep copy", "Member-wise shallow copy", "No copy", "Move only"], "answer": 1, "explain": "Default copies are member-wise (shallow), which is unsafe for classes managing raw pointers/resources."}
+      ]
+    },
+    "u:core-oop-7-destructor-and-virtual-destructor": {
+      "title": "Destructor and virtual destructor",
+      "summary": "Clean up an object's resources — and why the base destructor must be virtual for polymorphic deletion.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **destructor** (`~Foo()`) runs when an object is destroyed, releasing resources it owns (memory, files, locks). In C++ it's where you free what the constructor acquired."},
+        {"t": "h", "text": "Why virtual"},
+        {"t": "p", "text": "If you delete a derived object through a **base-class pointer** and the base destructor is **not virtual**, only the base destructor runs — the derived part leaks. Making the base destructor `virtual` ensures the full chain (derived then base) runs."},
+        {"t": "code", "lang": "cpp", "text": "Base* p = new Derived();\ndelete p;   // Only Base::~Base runs unless ~Base is virtual"},
+        {"t": "callout", "style": "key", "text": "Rule: any class intended to be used as a base class (deleted polymorphically) must have a **virtual destructor**, or you get resource leaks / undefined behaviour."},
+        {"t": "callout", "style": "tip", "text": "Destructors run in reverse order of construction: members and base parts are destroyed after the derived body, base last."}
+      ],
+      "mcqs": [
+        {"q": "Why should a base class have a virtual destructor?", "options": ["To run faster", "So deleting a derived object via a base pointer runs the full destructor chain", "To allow overloading", "It is never needed"], "answer": 1, "explain": "Without a virtual destructor, `delete basePtr` on a derived object skips the derived destructor, leaking its resources."},
+        {"q": "A destructor's job is to:", "options": ["Create the object", "Release resources the object owns before it is destroyed", "Copy the object", "Compare objects"], "answer": 1, "explain": "It performs cleanup (freeing memory, closing files) as the object's lifetime ends."},
+        {"q": "Destructors of members and base classes run:", "options": ["In construction order", "In reverse order of construction", "Randomly", "Only if virtual"], "answer": 1, "explain": "Destruction is the reverse of construction: derived body first, then members, then base."}
+      ]
+    },
+    "u:core-oop-8-rule-of-three-five": {
+      "title": "Rule of three / five",
+      "summary": "If you manage a resource, define the copy/move/destroy set together — or none of them.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **Rule of Three** (C++): if a class needs a custom **destructor**, **copy constructor**, or **copy assignment operator**, it almost certainly needs all three — because it manages a resource whose default shallow copy would be wrong."},
+        {"t": "p", "text": "The **Rule of Five** adds the two **move** operations (move constructor and move assignment) introduced in C++11, for efficient transfer of resources without copying."},
+        {"t": "points", "items": [
+          "Need a destructor to free a resource → the default copy would create two owners of it → you must define copy operations too.",
+          "Rule of Five: also define move constructor and move assignment to enable cheap moves.",
+          "The **Rule of Zero**: better still, use RAII types (smart pointers, std::string, std::vector) so you need to write none of them."
+        ]},
+        {"t": "callout", "style": "key", "text": "The unifying idea: resource ownership must be handled consistently across construction, copy, move, and destruction. Manage it in one place (a member RAII type) and the compiler defaults become correct — the Rule of Zero."}
+      ],
+      "mcqs": [
+        {"q": "The Rule of Three says if you define one of these, define all three:", "options": ["Constructor, getter, setter", "Destructor, copy constructor, copy assignment operator", "Move, swap, hash", "Public, private, protected"], "answer": 1, "explain": "Needing a custom destructor/copy-ctor/copy-assignment signals resource management, so all three must be handled together."},
+        {"q": "The Rule of Five adds which operations to the Rule of Three?", "options": ["Two getters", "Move constructor and move assignment", "Two destructors", "Copy and clone"], "answer": 1, "explain": "C++11 move semantics add the move constructor and move assignment for efficient resource transfer."},
+        {"q": "The Rule of Zero recommends:", "options": ["Writing all five operations always", "Using RAII members (e.g. smart pointers) so the compiler defaults are correct and you write none", "Never using destructors", "Making everything static"], "answer": 1, "explain": "Delegating ownership to RAII types makes the implicitly-generated operations correct, so you needn't write any."}
+      ]
+    },
+    "u:core-oop-9-shallow-vs-deep-copy": {
+      "title": "Shallow vs deep copy",
+      "summary": "Copy the pointer (shared target) or copy what it points to (independent target).",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "When an object holds a reference/pointer to other data, copying it has two meanings."},
+        {"t": "points", "items": [
+          "**Shallow copy** — copies the pointer value, so both objects share the same underlying data. Cheap, but changes via one affect the other, and destroying one frees data the other still uses (**double free / dangling**).",
+          "**Deep copy** — allocates new memory and copies the pointed-to contents, so the two objects are fully independent. Safe, but more expensive."
+        ]},
+        {"t": "callout", "style": "key", "text": "Default/compiler-generated copies are shallow. For a class that owns heap data or other resources, you need a deep copy (or a clear ownership model via smart pointers) to avoid shared-state bugs."},
+        {"t": "callout", "style": "tip", "text": "In Java, `Object.clone()` is shallow by default; nested mutable objects must be copied explicitly for a deep clone. Same principle in every language with references."}
+      ],
+      "mcqs": [
+        {"q": "A shallow copy of an object containing a pointer results in:", "options": ["Two independent copies of the pointed-to data", "Two objects sharing the same underlying data", "No copy at all", "A compile error"], "answer": 1, "explain": "Shallow copy duplicates the pointer, so both objects reference the same data — mutations and frees affect both."},
+        {"q": "Deep copy is preferred when:", "options": ["The object owns heap data that must be independent between copies", "You want maximum speed regardless of correctness", "The object has no references", "You never destroy objects"], "answer": 0, "explain": "Owning distinct resources requires deep copy so each object independently manages its own data."},
+        {"q": "The danger of an unintended shallow copy of an owning object is:", "options": ["Slower performance only", "Double free / dangling pointer when one copy is destroyed", "Larger memory use", "Nothing"], "answer": 1, "explain": "Both copies share and later free the same memory, causing a double free or use-after-free."}
+      ]
+    },
+    "u:core-oop-10-static-members": {
+      "title": "static members",
+      "summary": "Data and functions that belong to the class itself, not to any single instance.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **static member** belongs to the class, not to any object. A **static field** is shared by all instances (one copy total); a **static method** can be called without an instance and can access only static members."},
+        {"t": "points", "items": [
+          "Static field: a single shared value — e.g. an instance counter, or a configuration constant.",
+          "Static method: no `this`; can't access instance (non-static) members directly.",
+          "Useful for factory methods, utility functions, and shared caches/counters."
+        ]},
+        {"t": "callout", "style": "key", "text": "Static = one per class; instance = one per object. A static method has no `this`, which is exactly why it can't touch instance fields."},
+        {"t": "callout", "style": "warn", "text": "Overusing static (global mutable state) hurts testability and thread-safety. Shared static state needs synchronisation and makes code harder to reason about."}
+      ],
+      "mcqs": [
+        {"q": "A static field is:", "options": ["Unique per object", "Shared across all instances of the class (one copy)", "Never initialised", "Only accessible via an instance"], "answer": 1, "explain": "There is a single static field per class, shared by every instance."},
+        {"q": "A static method cannot:", "options": ["Be called without an instance", "Directly access non-static (instance) members", "Access static members", "Be public"], "answer": 1, "explain": "Having no `this`, a static method can't directly reach instance fields/methods."},
+        {"q": "A good use of a static field is:", "options": ["Per-object state", "A shared counter of how many instances were created", "A local loop variable", "Method parameters"], "answer": 1, "explain": "A shared counter is class-level state, ideal for a static field."}
+      ]
+    },
+    "u:core-oop-11-const-correctness": {
+      "title": "const correctness",
+      "summary": "Mark what must not change so the compiler enforces it and readers can trust it.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**const correctness** (C++) means using `const` wherever a value shouldn't change: parameters, return values, and member functions that don't modify the object."},
+        {"t": "points", "items": [
+          "A **const member function** (`int size() const`) promises not to modify the object; only const methods can be called on a const object.",
+          "`const T&` parameters avoid copying while promising not to modify the argument.",
+          "It documents intent and lets the compiler catch accidental mutation."
+        ]},
+        {"t": "code", "lang": "cpp", "text": "class Vec {\n    int n;\npublic:\n    int size() const { return n; }   // won't modify *this\n};"},
+        {"t": "callout", "style": "key", "text": "const correctness is compiler-enforced documentation: it guarantees a function won't mutate what it says it won't, enabling safe use with const objects and preventing whole classes of bugs."}
+      ],
+      "mcqs": [
+        {"q": "A const member function guarantees it will:", "options": ["Never be called", "Not modify the object's (non-mutable) state", "Return const", "Be static"], "answer": 1, "explain": "A const method promises not to change the object, so it's callable on const instances."},
+        {"q": "On a `const` object, you may call:", "options": ["Any method", "Only const member functions", "Only static methods", "No methods"], "answer": 1, "explain": "A const object permits only const member functions, which promise not to mutate it."},
+        {"q": "Passing a large object as `const T&` instead of `T`:", "options": ["Copies it and allows modification", "Avoids a copy while promising not to modify it", "Is slower", "Prevents reading it"], "answer": 1, "explain": "A const reference avoids the copy and guarantees the callee won't modify the argument."}
+      ]
+    },
+    "u:core-oop-12-friend-functions": {
+      "title": "friend functions",
+      "summary": "Grant a specific external function or class access to a class's private members.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **friend** function or class (C++) is granted access to another class's `private` and `protected` members, even though it isn't a member itself. The class explicitly names its friends."},
+        {"t": "points", "items": [
+          "Declared inside the class with the `friend` keyword; the friend is not a member and has no `this`.",
+          "Common use: overloading operators like `operator<<` (stream output) that must access internals but can't be members of the left operand (`std::ostream`).",
+          "Friendship is not inherited and not mutual unless declared both ways."
+        ]},
+        {"t": "callout", "style": "warn", "text": "Friendship deliberately breaks encapsulation, so use it sparingly and intentionally. It's a controlled exception (the class chooses its friends), not a backdoor for arbitrary code."}
+      ],
+      "mcqs": [
+        {"q": "A friend function can:", "options": ["Only access public members", "Access the private and protected members of the class that declares it a friend", "Never be called", "Be inherited automatically"], "answer": 1, "explain": "Friendship grants access to non-public members, though the friend is not a member of the class."},
+        {"q": "A classic use of a friend function is:", "options": ["A getter", "Overloading operator<< for output, which needs internals but can't be a member of ostream", "A constructor", "A destructor"], "answer": 1, "explain": "operator<< takes ostream as the left operand, so it's a non-member friend that accesses the class's internals."},
+        {"q": "Friendship in C++ is:", "options": ["Inherited by derived classes", "Not inherited and not automatically mutual", "Always mutual", "Granted to all classes"], "answer": 1, "explain": "Friendship is explicitly granted, not inherited, and not mutual unless each class declares the other."}
+      ]
+    },
+    "u:core-oop-13-this-pointer": {
+      "title": "this pointer",
+      "summary": "The implicit reference to the object a non-static method is operating on.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "`this` is an implicit pointer (C++) / reference (Java) available inside non-static methods, pointing to the object the method was called on."},
+        {"t": "points", "items": [
+          "Disambiguates a parameter from a field of the same name: `this.x = x;`.",
+          "Enables **method chaining** by returning `*this` (`return *this;`).",
+          "Used in the copy assignment operator to guard self-assignment: `if (this == &other) return *this;`.",
+          "Static methods have no `this` (they aren't tied to an instance)."
+        ]},
+        {"t": "callout", "style": "key", "text": "`this` identifies 'the current object'. Returning it (`return *this;`) is what lets you write `obj.setA(1).setB(2)` fluent chains."}
+      ],
+      "mcqs": [
+        {"q": "`this` refers to:", "options": ["The class itself", "The specific object on which the non-static method was invoked", "The base class", "A static field"], "answer": 1, "explain": "`this` points to the current instance the method is running on."},
+        {"q": "Which does NOT have access to `this`?", "options": ["An instance method", "A static method", "A constructor", "A destructor"], "answer": 1, "explain": "Static methods aren't associated with an instance, so there is no `this`."},
+        {"q": "Returning `*this` from a setter enables:", "options": ["Recursion", "Method chaining (fluent interface)", "Static access", "Inheritance"], "answer": 1, "explain": "Returning the current object allows calls to be chained: obj.a().b().c()."}
+      ]
+    },
+    "u:core-oop-14-operator-overloading": {
+      "title": "Operator overloading",
+      "summary": "Define what built-in operators mean for your own types, for natural syntax.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Operator overloading** (C++) lets you define operators like `+`, `==`, `[]`, `<<` for your own classes so they read naturally (`a + b` for two `Complex` numbers)."},
+        {"t": "points", "items": [
+          "Implemented as member functions or non-member (often friend) functions.",
+          "Should preserve the operator's intuitive meaning — `+` should combine, `==` should compare equality.",
+          "Some operators (like `<<` for streams) must be non-members because the left operand isn't your type."
+        ]},
+        {"t": "callout", "style": "warn", "text": "Overload for clarity, not cleverness. Making `+` do something surprising violates the principle of least astonishment and confuses readers. Java deliberately omits operator overloading (except built-in + for strings) for this reason."}
+      ],
+      "mcqs": [
+        {"q": "Operator overloading lets you:", "options": ["Add new operators to the language", "Define what existing operators mean for your own types", "Change operator precedence", "Remove operators"], "answer": 1, "explain": "You give existing operators meaning for user-defined types; you cannot invent new operators or change precedence."},
+        {"q": "operator<< for stream output is usually a:", "options": ["Member function of your class", "Non-member (often friend) function, since the left operand is ostream", "Static method", "Constructor"], "answer": 1, "explain": "The left operand is std::ostream, not your class, so << must be a non-member function."},
+        {"q": "Java's stance on operator overloading is:", "options": ["Fully supported for all types", "Not supported for user types (to avoid confusing code)", "Supported only for numbers", "Supported via friend functions"], "answer": 1, "explain": "Java omits user-defined operator overloading (only built-in + on Strings), prioritising readability."}
+      ]
+    },
+    "u:core-oop-15-templates-and-generic-programming": {
+      "title": "Templates and generic programming",
+      "summary": "Write code once that works for any type, with type safety and no duplication.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Templates** (C++) / **generics** (Java) let you write a class or function parameterised by a type, so one implementation serves many types with compile-time type safety."},
+        {"t": "code", "lang": "cpp", "text": "template<typename T>\nT maxOf(T a, T b) { return a > b ? a : b; }"},
+        {"t": "table", "headers": ["", "C++ templates", "Java generics"], "rows": [
+          ["Mechanism", "Instantiation — a separate version compiled per type", "Type erasure — one version, types checked at compile time then erased"],
+          ["Primitives", "Work directly", "Need boxing (no generic over int)"],
+          ["Runtime type info", "Preserved", "Erased at runtime"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The big difference: C++ generates real code per type (instantiation), so it's fast and works with primitives; Java erases the type parameter at runtime (type erasure), which is why you can't do `new T()` or check `instanceof List<String>`."}
+      ],
+      "mcqs": [
+        {"q": "C++ templates work by:", "options": ["Type erasure at runtime", "Instantiating a separate version of the code for each type used", "Boxing all values", "Reflection"], "answer": 1, "explain": "The compiler generates a concrete version per instantiated type, giving speed and primitive support."},
+        {"q": "Java generics use type erasure, which means:", "options": ["Type parameters exist at runtime", "The generic type information is removed after compile-time checks", "Primitives are supported directly", "Each type gets its own class"], "answer": 1, "explain": "Java erases generic types after compile-time checking, so runtime has no `T` information."},
+        {"q": "A consequence of Java's type erasure is that you cannot:", "options": ["Use generics with objects", "Do `new T()` or check `instanceof List<String>` at runtime", "Compile generic code", "Use bounded types"], "answer": 1, "explain": "Because the type is erased, runtime operations needing the actual type parameter aren't allowed."}
+      ]
+    },
+    "u:core-oop-16-virtual-functions-and-the-vtable": {
+      "title": "Virtual functions and the vtable",
+      "summary": "The mechanism behind runtime polymorphism: a per-class table of function pointers.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "A **virtual function** can be overridden by a derived class, and the correct version is chosen at **runtime** based on the object's actual type — this is **dynamic dispatch**. It's implemented with a **vtable**."},
+        {"t": "h", "text": "How the vtable works"},
+        {"t": "points", "items": [
+          "Each class with virtual functions has a **vtable**: an array of pointers to its virtual function implementations.",
+          "Each object holds a hidden **vptr** pointing to its class's vtable.",
+          "A virtual call becomes: follow the object's vptr → look up the function in the vtable → call it. So the object's real type decides which override runs."
+        ]},
+        {"t": "callout", "style": "key", "text": "The vtable is why `basePtr->speak()` calls the derived override: the lookup goes through the object's own vptr, which points to the derived class's table. This indirection is the (small) cost of runtime polymorphism."},
+        {"t": "callout", "style": "warn", "text": "Non-virtual calls are resolved at compile time by the pointer's static type — so forgetting `virtual` means the base version is always called, ignoring overrides."}
+      ],
+      "mcqs": [
+        {"q": "The vtable is:", "options": ["A per-object copy of all methods", "A per-class table of pointers to its virtual function implementations", "A cache of objects", "A list of fields"], "answer": 1, "explain": "Each polymorphic class has one vtable of virtual-function pointers; each object holds a vptr to it."},
+        {"q": "A virtual call is resolved by:", "options": ["The pointer's compile-time type", "Following the object's vptr to its class vtable at runtime", "The function name only", "The order of declaration"], "answer": 1, "explain": "Dynamic dispatch uses the object's vptr → vtable, so the actual object type selects the override."},
+        {"q": "If a method is NOT virtual, a call through a base pointer invokes:", "options": ["The derived override", "The base version (resolved by the static type)", "A random version", "Nothing"], "answer": 1, "explain": "Non-virtual methods bind at compile time to the pointer's static type, ignoring the actual object's overrides."}
+      ]
+    },
+    "u:core-oop-17-diamond-problem-and-virtual-inheritance": {
+      "title": "Diamond problem and virtual inheritance",
+      "summary": "When two base classes share a common ancestor, you can get two copies — virtual inheritance fixes it.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The **diamond problem** arises with multiple inheritance: if B and C both inherit A, and D inherits both B and C, then D ends up with **two copies** of A's members, creating ambiguity — which `A::x` does `D` mean?"},
+        {"t": "code", "lang": "text", "text": "    A\n   / \\\n  B   C\n   \\ /\n    D    // D has two A subobjects unless A is virtually inherited"},
+        {"t": "points", "items": [
+          "**Virtual inheritance** (`class B : virtual public A`) makes B and C share a single common A subobject, so D has just one A.",
+          "Java avoids the problem entirely by disallowing multiple inheritance of classes (interfaces have no state to duplicate)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two shared paths to a common base → duplicate base subobject → ambiguity. Virtual inheritance collapses them into one shared base. It's the reason C++ multiple inheritance needs `virtual`."}
+      ],
+      "mcqs": [
+        {"q": "The diamond problem occurs when:", "options": ["A class has too many methods", "A class inherits from two classes that share a common base, duplicating the base", "Two classes have the same name", "A method is overloaded"], "answer": 1, "explain": "Sharing a common ancestor through two paths yields two base subobjects and ambiguous access."},
+        {"q": "C++ resolves the diamond problem with:", "options": ["Function overloading", "Virtual inheritance, making a single shared base subobject", "Templates", "Static members"], "answer": 1, "explain": "Declaring the common base as virtual gives one shared instance of it in the most-derived class."},
+        {"q": "Java avoids the diamond problem by:", "options": ["Using virtual inheritance", "Disallowing multiple inheritance of classes (only interfaces)", "Copying the base twice", "Using generics"], "answer": 1, "explain": "Interfaces carry no state to duplicate, and classes can extend only one class, so the ambiguity can't arise."}
+      ]
+    },
+    "u:core-oop-18-raii-and-smart-pointers": {
+      "title": "RAII and smart pointers",
+      "summary": "Tie a resource's lifetime to an object's scope so cleanup is automatic and exception-safe.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**RAII (Resource Acquisition Is Initialization)** is the C++ idiom of wrapping a resource (memory, file, lock) in an object that acquires it in its constructor and releases it in its destructor. When the object goes out of scope, cleanup happens automatically — even if an exception is thrown."},
+        {"t": "h", "text": "Smart pointers apply RAII to memory"},
+        {"t": "table", "headers": ["Smart pointer", "Ownership", "Use"], "rows": [
+          ["unique_ptr", "Sole owner (non-copyable, movable)", "Default choice for single ownership"],
+          ["shared_ptr", "Shared (reference-counted)", "When ownership is genuinely shared"],
+          ["weak_ptr", "Non-owning observer of a shared_ptr", "Break reference cycles"]
+        ]},
+        {"t": "callout", "style": "key", "text": "RAII makes cleanup deterministic and exception-safe: the destructor runs on scope exit no matter how you leave. Smart pointers are RAII for heap memory, which is why modern C++ rarely uses raw new/delete."},
+        {"t": "callout", "style": "warn", "text": "Two shared_ptrs referencing each other form a cycle that never reaches refcount 0 — a leak. Break it with a weak_ptr on one side."}
+      ],
+      "mcqs": [
+        {"q": "RAII ties a resource's lifetime to:", "options": ["The program's lifetime", "An object's scope — released in its destructor", "A global variable", "A manual free call"], "answer": 1, "explain": "The resource is acquired in the constructor and released in the destructor, so scope exit guarantees cleanup."},
+        {"q": "Which smart pointer models sole ownership?", "options": ["shared_ptr", "unique_ptr", "weak_ptr", "auto_ptr"], "answer": 1, "explain": "unique_ptr is the non-copyable, movable single-owner pointer — the default for owning heap memory."},
+        {"q": "weak_ptr is used to:", "options": ["Own a resource exclusively", "Observe a shared_ptr without owning it, breaking reference cycles", "Copy raw pointers", "Disable RAII"], "answer": 1, "explain": "weak_ptr is a non-owning reference that doesn't affect the count, used to break shared_ptr cycles."}
+      ]
+    },
+    "u:core-oop-19-exception-handling": {
+      "title": "Exception handling",
+      "summary": "Separate error handling from normal flow with try/throw/catch, and clean up safely.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Exceptions** signal errors by transferring control from the point of failure (`throw`) to a handler (`catch`), unwinding the stack in between. This keeps error handling out of the normal code path."},
+        {"t": "points", "items": [
+          "`try` wraps code that might fail; `catch` handles specific exception types; `finally` (Java) always runs for cleanup.",
+          "**Stack unwinding**: as the exception propagates, destructors of local objects run — which is why RAII gives exception-safe cleanup in C++.",
+          "**Checked vs unchecked** (Java): checked exceptions must be declared/handled; unchecked (RuntimeException) need not be."
+        ]},
+        {"t": "callout", "style": "key", "text": "Exceptions decouple 'what went wrong' from 'where it's handled'. In C++, combine them with RAII so resources are released during unwinding; in Java, use finally or try-with-resources."},
+        {"t": "callout", "style": "warn", "text": "Don't use exceptions for normal control flow, and never let a destructor throw (C++) — an exception during unwinding calls std::terminate."}
+      ],
+      "mcqs": [
+        {"q": "During exception propagation, the stack is unwound, which in C++ means:", "options": ["Nothing happens", "Destructors of local objects run, enabling RAII cleanup", "Memory leaks are guaranteed", "The program restarts"], "answer": 1, "explain": "Stack unwinding destroys local objects, so RAII wrappers release their resources safely."},
+        {"q": "In Java, a checked exception:", "options": ["Never needs handling", "Must be caught or declared in the method signature", "Is the same as RuntimeException", "Cannot be thrown"], "answer": 1, "explain": "Checked exceptions are enforced by the compiler to be handled or declared; unchecked ones aren't."},
+        {"q": "A recommended practice is to:", "options": ["Use exceptions for ordinary control flow", "Reserve exceptions for exceptional error conditions, not normal flow", "Throw from destructors", "Catch and ignore everything"], "answer": 1, "explain": "Exceptions are for error conditions; using them for regular branching is slow and unclear."}
+      ]
+    }
+  }
+}

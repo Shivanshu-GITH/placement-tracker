@@ -104,42 +104,6 @@ class ActivityDays extends Table {
   Set<Column> get primaryKey => {day};
 }
 
-/// A phase of the generated roadmap.
-class RoadmapPhases extends Table {
-  IntColumn get id => integer().autoIncrement()();
-  TextColumn get title => text()();
-  TextColumn get subtitle => text().withDefault(const Constant(''))();
-  IntColumn get orderIndex => integer().withDefault(const Constant(0))();
-  DateTimeColumn get startDate => dateTime()();
-  DateTimeColumn get endDate => dateTime()();
-  TextColumn get focusAreas => text().withDefault(const Constant(''))();
-}
-
-/// A weekly objective inside a phase.
-class RoadmapTasks extends Table {
-  IntColumn get id => integer().autoIncrement()();
-  IntColumn get phaseId =>
-      integer().references(RoadmapPhases, #id, onDelete: KeyAction.cascade)();
-  IntColumn get weekIndex => integer().withDefault(const Constant(0))();
-  TextColumn get title => text()();
-  TextColumn get category => text().withDefault(const Constant('dsa'))();
-  IntColumn get targetProblems => integer().withDefault(const Constant(0))();
-  IntColumn get targetMinutes => integer().withDefault(const Constant(0))();
-  BoolColumn get done => boolean().withDefault(const Constant(false))();
-  IntColumn get orderIndex => integer().withDefault(const Constant(0))();
-}
-
-/// Auto-generated daily schedule items.
-class DailyPlanItems extends Table {
-  IntColumn get id => integer().autoIncrement()();
-  IntColumn get day => integer()();
-  TextColumn get title => text()();
-  TextColumn get category => text().withDefault(const Constant('dsa'))();
-  IntColumn get estimatedMinutes => integer().withDefault(const Constant(30))();
-  BoolColumn get done => boolean().withDefault(const Constant(false))();
-  IntColumn get orderIndex => integer().withDefault(const Constant(0))();
-}
-
 /// A curated external resource (free or paid). Paid entries carry an optional
 /// [affiliateUrl] the owner fills in; the app prefers it over [url] when set.
 class Resources extends Table {

@@ -7,6 +7,7 @@ import '../../core/theme/app_dimens.dart';
 import '../../core/theme/app_palette.dart';
 import '../../data/database/database.dart';
 import '../../providers/providers.dart';
+import '../leaderboard/college_picker.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -22,6 +23,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   // Collected answers.
   final _nameController = TextEditingController();
+  String? _college;
   TargetRole _role = TargetRole.product;
   SkillLevel _level = SkillLevel.beginner;
   int _months = 3;
@@ -50,11 +52,38 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       'aptitude', 'interview-hr',
       if (_role == TargetRole.product || _role == TargetRole.startup)
         'system-design',
+      if (_role == TargetRole.startup || _role == TargetRole.product)
+        'web-dev',
     };
     _activeSheets.clear();
     for (final s in sheets) {
       if (active.contains(s.slug)) _activeSheets.add(s.id);
       if (s.slug == primarySlug) _primarySheet = s.id;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Prefill the name & college from the signed-in Google identity, if any.
+    ref.read(lbIdentityProvider.future).then((id) {
+      if (!mounted) return;
+      final n = id.name.trim();
+      setState(() {
+        if (n.isNotEmpty && n != 'You' && _nameController.text.trim().isEmpty) {
+          _nameController.text = n;
+        }
+        _college ??= (id.college != null && id.college!.isNotEmpty)
+            ? id.college
+            : null;
+      });
+    });
+  }
+
+  Future<void> _pickCollege() async {
+    final picked = await showCollegePicker(context, current: _college);
+    if (picked != null) {
+      setState(() => _college = picked.isEmpty ? null : picked);
     }
   }
 
@@ -84,18 +113,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Future<void> _finish() async {
     setState(() => _submitting = true);
     try {
-      final profileRepo = ref.read(profileRepositoryProvider);
-      await profileRepo.completeOnboarding(
-        name: _nameController.text,
-        targetRole: _role.name,
-        targetCompanies: _companies.toList(),
-        skillLevel: _level.name,
-        dailyGoalMinutes: _dailyHours * 60,
-        dailyGoalProblems: (_dailyHours * 2).clamp(2, 12),
-        targetDate: DateTime.now().add(Duration(days: _months * 30)),
-      );
-      // Persist sheet selection BEFORE generating, so the roadmap uses the
-      // user's chosen primary sheet.
+      // Persist sheet selection and the primary DSA sheet FIRST — the planner
+      // reads the active sheets and the target date live, so they should be in
+      // place before onboarding flips and opens the app shell.
       final repo = ref.read(prepRepositoryProvider);
       final sheets = ref.read(sheetsProvider).valueOrNull ?? const [];
       for (final s in sheets) {
@@ -105,9 +125,33 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         await repo.setPrimarySheet(_primarySheet!);
       }
 
-      final profile = await profileRepo.get();
-      await ref.read(roadmapRepositoryProvider).generate(profile);
-      // profileProvider stream will flip onboarded → AppRoot shows the shell.
+      // Persist the leaderboard identity (name + college) for THIS account, and
+      // if signed in, push the initial stats so they appear on the boards.
+      final name = _nameController.text.trim().isEmpty
+          ? 'Aspirant'
+          : _nameController.text.trim();
+      await saveLbIdentity(ref, name, _college);
+      final board = ref.read(leaderboardRepositoryProvider);
+      if (ref.read(authUserProvider).valueOrNull != null && board.isLive) {
+        try {
+          await board.syncMyStats(ref.read(myStatsProvider),
+              name: name, college: _college);
+        } catch (_) {
+          // Non-fatal — stats sync will retry on next app open.
+        }
+      }
+
+      // Flip onboarded LAST — the profileProvider stream then advances the
+      // router to the shell, with sheets + deadline already set.
+      await ref.read(profileRepositoryProvider).completeOnboarding(
+            name: _nameController.text,
+            targetRole: _role.name,
+            targetCompanies: _companies.toList(),
+            skillLevel: _level.name,
+            dailyGoalMinutes: _dailyHours * 60,
+            dailyGoalProblems: (_dailyHours * 2).clamp(2, 12),
+            targetDate: DateTime.now().add(Duration(days: _months * 30)),
+          );
     } finally {
       if (mounted) setState(() => _submitting = false);
     }
@@ -133,7 +177,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 onPageChanged: (i) => setState(() => _page = i),
                 children: [
-                  _WelcomeStep(nameController: _nameController),
+                  _WelcomeStep(
+                    nameController: _nameController,
+                    college: _college,
+                    onPickCollege: _pickCollege,
+                  ),
                   _RoleStep(
                     selected: _role,
                     onSelect: (r) => setState(() => _role = r),
@@ -283,19 +331,62 @@ class _StepShell extends StatelessWidget {
 }
 
 class _WelcomeStep extends StatelessWidget {
-  const _WelcomeStep({required this.nameController});
+  const _WelcomeStep({
+    required this.nameController,
+    required this.college,
+    required this.onPickCollege,
+  });
   final TextEditingController nameController;
+  final String? college;
+  final Future<void> Function() onPickCollege;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return _StepShell(
       title: 'Welcome to PrepPilot 🚀',
-      subtitle: 'Let\'s set up a plan that gets you placement-ready. First, what should we call you?',
-      child: TextField(
-        controller: nameController,
-        textCapitalization: TextCapitalization.words,
-        decoration: const InputDecoration(hintText: 'Your name'),
-      ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.15, end: 0),
+      subtitle:
+          'Let\'s set up a plan that gets you placement-ready. First, tell us a bit about you.',
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            controller: nameController,
+            textCapitalization: TextCapitalization.words,
+            decoration: const InputDecoration(
+              labelText: 'Your name',
+              hintText: 'Your name',
+            ),
+          ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.15, end: 0),
+          const SizedBox(height: AppSpacing.lg),
+          InkWell(
+            borderRadius: BorderRadius.circular(AppRadius.sm),
+            onTap: onPickCollege,
+            child: InputDecorator(
+              decoration: const InputDecoration(
+                labelText: 'College',
+                suffixIcon: Icon(Icons.arrow_drop_down),
+              ),
+              child: Text(
+                college ?? 'Select your college',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: college == null
+                      ? theme.colorScheme.onSurfaceVariant
+                      : theme.colorScheme.onSurface,
+                ),
+              ),
+            ),
+          ).animate().fadeIn(delay: 300.ms).slideY(begin: 0.15, end: 0),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'Your college puts you on your college leaderboard. You can change these later in Profile.',
+            style: theme.textTheme.bodySmall
+                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+          ),
+        ],
+      ),
     );
   }
 }

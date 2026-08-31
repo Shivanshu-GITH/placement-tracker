@@ -229,6 +229,7 @@ class LeafTile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final repo = ref.read(prepRepositoryProvider);
+    final hasStudy = ref.watch(studyByCanonProvider).has(row.canon);
 
     final IconData icon;
     final Color color;
@@ -313,6 +314,12 @@ class LeafTile extends ConsumerWidget {
                   ],
                 ),
               ),
+              if (hasStudy)
+                Tooltip(
+                  message: 'In-app notes & quiz',
+                  child: Icon(Icons.menu_book_rounded,
+                      size: 17, color: theme.colorScheme.primary),
+                ),
               if (row.node.url.isNotEmpty)
                 IconButton(
                   visualDensity: VisualDensity.compact,

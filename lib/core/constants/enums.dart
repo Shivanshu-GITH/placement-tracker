@@ -8,6 +8,8 @@ enum PrepCategory {
   core('Core CS', 'OS, DBMS, CN, OOP', Icons.memory_rounded, AppPalette.catCore),
   aptitude('Aptitude', 'Quant, Logical, Verbal', Icons.calculate_rounded, AppPalette.catAptitude),
   system('System Design', 'HLD & LLD', Icons.account_tree_rounded, AppPalette.catSystem),
+  webdev('Web Dev', 'Frontend, backend & deployment', Icons.web_rounded, AppPalette.catWebdev),
+  cp('Competitive Prog', 'Contest patterns & strategy', Icons.emoji_events_rounded, AppPalette.catCp),
   interview('Interview', 'HR & Behavioural', Icons.record_voice_over_rounded, AppPalette.catInterview);
 
   const PrepCategory(this.label, this.description, this.icon, this.color);

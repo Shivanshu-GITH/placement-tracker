@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/constants/enums.dart';
 import '../../core/theme/app_dimens.dart';
 import '../../core/theme/app_palette.dart';
 import '../../core/utils/day_key.dart';
@@ -15,6 +14,9 @@ import '../../data/models/dtos.dart';
 import '../../providers/providers.dart';
 import '../achievements/achievements.dart';
 import '../analytics/analytics_screen.dart';
+import '../contests/contests_screen.dart';
+import '../planner/planner_models.dart';
+import '../tracker/sheet_detail_screen.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -24,25 +26,21 @@ class DashboardScreen extends ConsumerStatefulWidget {
 }
 
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
-  bool _planEnsured = false;
   int _achSynced = -1;
 
   @override
   Widget build(BuildContext context) {
     final profile = ref.watch(profileProvider).valueOrNull;
-    final rows = ref.watch(activeLeafRowsProvider);
     final stats = ref.watch(statsProvider);
     final streak = ref.watch(streakProvider);
     final activity = ref.watch(activityProvider).valueOrNull ?? const [];
-    final todayPlan = ref.watch(todayPlanProvider).valueOrNull ?? const [];
-
-    // Ensure today's plan exists once data is ready (side-effect, run once).
-    if (!_planEnsured && profile != null && rows.isNotEmpty) {
-      _planEnsured = true;
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        ref.read(roadmapRepositoryProvider).ensureTodayPlan(profile, rows);
-      });
-    }
+    // Today's plan comes live from the deadline engine — one flat list of
+    // targeted items across every subject, paired with its subject.
+    final plan = ref.watch(plannerOverviewProvider);
+    final todayEntries = <(SubjectPlan, PlanItem)>[
+      for (final s in plan.subjects)
+        for (final it in s.todayItems) (s, it),
+    ];
 
     // Unlock + celebrate achievements when the earned set grows.
     final achStats = ref.watch(achStatsProvider);
@@ -97,12 +95,18 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       ).entrance(index: 1),
                       const SizedBox(height: AppSpacing.lg),
                       _StatRow(stats: stats, streak: streak).entrance(index: 2),
+                      const SizedBox(height: AppSpacing.md),
+                      _AnalyticsCard(
+                        onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (_) => const AnalyticsScreen())),
+                      ).entrance(index: 3),
                       const SizedBox(height: AppSpacing.xl),
                       SectionHeader(
                         title: 'Today\'s plan',
-                        subtitle: todayPlan.isEmpty
-                            ? 'Building your schedule…'
-                            : '${todayPlan.where((e) => e.done).length}/${todayPlan.length} done',
+                        subtitle: plan.todayTarget == 0
+                            ? 'All caught up for today'
+                            : '${plan.todayDone}/${plan.todayTarget} done',
                         icon: Icons.today_rounded,
                       ).entrance(index: 3),
                       const SizedBox(height: AppSpacing.md),
@@ -110,7 +114,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   ),
                 ),
               ),
-              _TodayPlanList(items: todayPlan),
+              _TodayPlanList(entries: todayEntries),
+              const SliverToBoxAdapter(child: _ContestsCard()),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(AppSpacing.screenH,
@@ -144,6 +149,83 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 }
 
+/// Dashboard card for contests — shown only when the user has opted into
+/// contest prep. Surfaces today's contest (or the next upcoming one) and links
+/// to the full Contests screen.
+class _ContestsCard extends ConsumerWidget {
+  const _ContestsCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (!ref.watch(contestPrepProvider)) return const SizedBox.shrink();
+    final today = ref.watch(todaysContestsProvider);
+    final upcoming = ref.watch(upcomingContestsProvider);
+    final next = today.isNotEmpty
+        ? today.first
+        : (upcoming.isNotEmpty ? upcoming.first : null);
+    if (next == null) return const SizedBox.shrink();
+
+    final theme = Theme.of(context);
+    final isToday = today.isNotEmpty;
+    final when = isToday
+        ? 'Today · ${TimeOfDay.fromDateTime(next.startIst).format(context)} IST'
+        : '${_weekday(next.startIst)} · ${TimeOfDay.fromDateTime(next.startIst).format(context)} IST';
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+          AppSpacing.screenH, AppSpacing.xl, AppSpacing.screenH, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SectionHeader(
+            title: 'Contests',
+            subtitle: isToday ? 'A contest is scheduled today' : 'Coming up',
+            icon: Icons.emoji_events_rounded,
+          ),
+          const SizedBox(height: AppSpacing.md),
+          AppCard(
+            borderColor: isToday ? AppPalette.catCp : null,
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => const ContestsScreen())),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppPalette.catCp.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(AppRadius.sm),
+                  ),
+                  child: const Icon(Icons.emoji_events_rounded,
+                      color: AppPalette.catCp),
+                ),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${next.platform} · ${next.name}',
+                          style: theme.textTheme.titleSmall
+                              ?.copyWith(fontWeight: FontWeight.w700)),
+                      Text(when,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant)),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right_rounded,
+                    color: theme.colorScheme.onSurfaceVariant),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _weekday(DateTime d) =>
+      const ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][d.weekday - 1];
+}
+
 class _Greeting extends StatelessWidget {
   const _Greeting({required this.name, required this.streak});
   final String name;
@@ -171,12 +253,6 @@ class _Greeting extends StatelessWidget {
               Text('$name 👋', style: theme.textTheme.headlineSmall),
             ],
           ),
-        ),
-        IconButton(
-          tooltip: 'Analytics',
-          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => const AnalyticsScreen())),
-          icon: Icon(Icons.insights_rounded, color: theme.colorScheme.primary),
         ),
         _StreakChip(days: streak.current),
       ],
@@ -370,94 +446,128 @@ class _MiniStat extends StatelessWidget {
   }
 }
 
+class _AnalyticsCard extends StatelessWidget {
+  const _AnalyticsCard({required this.onTap});
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return AppCard(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppPalette.indigo.withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(AppRadius.sm),
+            ),
+            child: const Icon(Icons.insights_rounded, color: AppPalette.indigo),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Analytics',
+                    style: theme.textTheme.titleSmall
+                        ?.copyWith(fontWeight: FontWeight.w700)),
+                Text('Trends, activity heatmap & category insights',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant)),
+              ],
+            ),
+          ),
+          Icon(Icons.chevron_right_rounded,
+              color: theme.colorScheme.onSurfaceVariant),
+        ],
+      ),
+    );
+  }
+}
+
+/// Today's target pool, rendered exactly like the tracker: each topic is a full
+/// [LeafTile] (tap the status ring to tick/untick, tap the row to open the same
+/// detail sheet with notes, quiz, links, status and personal notes). Grouped by
+/// subject so the pool stays organised.
 class _TodayPlanList extends ConsumerWidget {
-  const _TodayPlanList({required this.items});
-  final List<DailyPlanItem> items;
+  const _TodayPlanList({required this.entries});
+
+  /// Each of today's targeted items paired with the subject it belongs to.
+  final List<(SubjectPlan, PlanItem)> entries;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (items.isEmpty) {
+    final theme = Theme.of(context);
+
+    if (entries.isEmpty) {
       return const SliverToBoxAdapter(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppSpacing.screenH),
           child: AppCard(
             child: Row(
               children: [
-                Icon(Icons.auto_awesome_rounded),
+                Icon(Icons.check_circle_rounded, color: AppPalette.success),
                 SizedBox(width: AppSpacing.md),
                 Expanded(
                     child: Text(
-                        'Your smart daily plan will appear here as you use the app.')),
+                        "You're all caught up. Adjust your targets in the Planner tab.")),
               ],
             ),
           ),
         ),
       );
     }
+
+    // Resolve each planned item to its leaf row, preferring the row from the
+    // item's own subject sheet so the tile opens with the right context.
+    final byCanon = <String, List<LeafRow>>{};
+    for (final r in ref.watch(leafRowsProvider)) {
+      (byCanon[r.canon] ??= []).add(r);
+    }
+    LeafRow? rowFor(SubjectPlan s, PlanItem it) {
+      final list = byCanon[it.leaf.canon];
+      if (list == null || list.isEmpty) return null;
+      for (final r in list) {
+        if (r.sheet.id == s.sheetId) return r;
+      }
+      return list.first;
+    }
+
+    final children = <Widget>[];
+    String? currentSlug;
+    for (final (subject, item) in entries) {
+      final row = rowFor(subject, item);
+      if (row == null) continue;
+      if (currentSlug != subject.slug) {
+        currentSlug = subject.slug;
+        children.add(Padding(
+          padding: EdgeInsets.only(
+              top: children.isEmpty ? 0 : AppSpacing.lg,
+              bottom: AppSpacing.sm),
+          child: Row(
+            children: [
+              Icon(subject.category.icon,
+                  size: 15, color: subject.category.color),
+              const SizedBox(width: 6),
+              Text(subject.title,
+                  style: theme.textTheme.labelMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontWeight: FontWeight.w700)),
+            ],
+          ),
+        ));
+      }
+      children.add(Padding(
+        padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+        child: LeafTile(row: row),
+      ));
+    }
+
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.screenH),
-      sliver: SliverList.separated(
-        itemCount: items.length,
-        separatorBuilder: (_, _) => const SizedBox(height: AppSpacing.sm),
-        itemBuilder: (context, i) {
-          final item = items[i];
-          final cat = PrepCategory.fromName(item.category);
-          return AppCard(
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.md, vertical: AppSpacing.xs),
-            onTap: () => ref
-                .read(roadmapRepositoryProvider)
-                .toggleDailyItem(item.id, !item.done),
-            child: Row(
-              children: [
-                _CheckDot(done: item.done, color: cat.color),
-                const SizedBox(width: AppSpacing.md),
-                Expanded(
-                  child: Text(
-                    item.title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      decoration:
-                          item.done ? TextDecoration.lineThrough : null,
-                      color: item.done
-                          ? Theme.of(context).colorScheme.onSurfaceVariant
-                          : null,
-                    ),
-                  ),
-                ),
-                Text('${item.estimatedMinutes}m',
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant)),
-              ],
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class _CheckDot extends StatelessWidget {
-  const _CheckDot({required this.done, required this.color});
-  final bool done;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: AppMotion.fast,
-      width: 26,
-      height: 26,
-      decoration: BoxDecoration(
-        color: done ? color : Colors.transparent,
-        shape: BoxShape.circle,
-        border: Border.all(
-            color: done ? color : Theme.of(context).colorScheme.outline,
-            width: 2),
-      ),
-      child: done
-          ? const Icon(Icons.check_rounded, color: Colors.white, size: 16)
-          : null,
+      sliver: SliverList.list(children: children),
     );
   }
 }
@@ -488,8 +598,13 @@ class _CategoryProgressCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(cp.category.label,
-                        style: theme.textTheme.titleSmall),
+                    Expanded(
+                      child: Text(cp.category.label,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.titleSmall),
+                    ),
+                    const SizedBox(width: AppSpacing.sm),
                     Text('${cp.done}/${cp.total}',
                         style: theme.textTheme.labelMedium?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant)),

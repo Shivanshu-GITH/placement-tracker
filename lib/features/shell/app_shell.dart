@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_dimens.dart';
+import '../../providers/providers.dart';
+import '../ads/ad_config.dart';
+import '../ads/ad_service.dart';
+import '../ads/banner_ad_widget.dart';
 import '../dashboard/dashboard_screen.dart';
 import '../leaderboard/leaderboard_screen.dart';
+import '../planner/planner_screen.dart';
 import '../profile/profile_screen.dart';
 import '../resources/resources_screen.dart';
-import '../roadmap/roadmap_screen.dart';
 import '../tracker/tracker_screen.dart';
 
 class AppShell extends ConsumerStatefulWidget {
@@ -16,13 +20,35 @@ class AppShell extends ConsumerStatefulWidget {
   ConsumerState<AppShell> createState() => _AppShellState();
 }
 
-class _AppShellState extends ConsumerState<AppShell> {
+class _AppShellState extends ConsumerState<AppShell>
+    with WidgetsBindingObserver {
   int _index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // Returning to the app from the background is a natural, policy-friendly
+    // moment for an app-open ad (frequency-capped inside the manager).
+    if (state == AppLifecycleState.resumed) {
+      AdService.instance.appOpen.maybeShow();
+    }
+  }
 
   static const _tabs = <_TabSpec>[
     _TabSpec('Home', Icons.home_rounded, Icons.home_outlined),
     _TabSpec('Tracker', Icons.checklist_rounded, Icons.checklist_outlined),
-    _TabSpec('Roadmap', Icons.map_rounded, Icons.map_outlined),
+    _TabSpec('Planner', Icons.flag_rounded, Icons.flag_outlined),
     _TabSpec('Ranks', Icons.leaderboard_rounded, Icons.leaderboard_outlined),
     _TabSpec('Resources', Icons.menu_book_rounded, Icons.menu_book_outlined),
     _TabSpec('Profile', Icons.person_rounded, Icons.person_outline_rounded),
@@ -31,15 +57,24 @@ class _AppShellState extends ConsumerState<AppShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _index,
-        children: const [
-          DashboardScreen(),
-          TrackerScreen(),
-          RoadmapScreen(),
-          LeaderboardScreen(),
-          ResourcesScreen(),
-          ProfileScreen(),
+      body: Column(
+        children: [
+          Expanded(
+            child: IndexedStack(
+              index: _index,
+              children: const [
+                DashboardScreen(),
+                TrackerScreen(),
+                PlannerScreen(),
+                LeaderboardScreen(),
+                ResourcesScreen(),
+                ProfileScreen(),
+              ],
+            ),
+          ),
+          // Banner only when ads are on and the user isn't premium.
+          if (AdConfig.enabled && !ref.watch(premiumProvider))
+            const BottomBannerAd(),
         ],
       ),
       bottomNavigationBar: _BottomNav(

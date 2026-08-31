@@ -36,6 +36,8 @@ class AppPalette {
   static const Color catAptitude = Color(0xFF14B8A6); // Aptitude & reasoning
   static const Color catSystem = Color(0xFFEC4899); // System design
   static const Color catInterview = Color(0xFFF97316); // HR / behavioural
+  static const Color catWebdev = Color(0xFF0EA5E9); // Web development
+  static const Color catCp = Color(0xFFEF4444); // Competitive programming
 
   // ---- Neutrals (light) ---------------------------------------------------
   static const Color lightBg = Color(0xFFF7F7FB);

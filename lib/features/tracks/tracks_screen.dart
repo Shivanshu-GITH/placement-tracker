@@ -83,12 +83,10 @@ class TracksScreen extends ConsumerWidget {
     }
     final primaryId = bySlug[track.primarySlug];
     if (primaryId != null) await prep.setPrimarySheet(primaryId);
-    final profile = await profileRepo.get();
-    await ref.read(roadmapRepositoryProvider).generate(profile);
 
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${track.name} track applied — roadmap updated')),
+        SnackBar(content: Text('${track.name} track applied')),
       );
       Navigator.of(context).pop();
     }

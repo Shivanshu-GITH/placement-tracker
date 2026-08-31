@@ -20,3 +20,14 @@
 
 # sqlite3 native bindings
 -keep class org.sqlite.** { *; }
+
+# WorkManager + Room (pulled in transitively by Google Mobile Ads / play-services
+# for offline ad pings). Room finds its generated DB implementation by name via
+# reflection; without these keeps R8 strips WorkDatabase_Impl and the app crashes
+# at startup ("Failed to create an instance of androidx.work.impl.WorkDatabase").
+-keep class androidx.work.impl.** { *; }
+-keep class * extends androidx.room.RoomDatabase { <init>(); }
+-keepclassmembers class * extends androidx.room.RoomDatabase { <init>(); }
+-keep class androidx.room.** { *; }
+-dontwarn androidx.work.**
+-dontwarn androidx.room.**

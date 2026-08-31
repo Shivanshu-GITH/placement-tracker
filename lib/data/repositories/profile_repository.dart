@@ -66,6 +66,14 @@ class ProfileRepository {
     ));
   }
 
+  /// Sets (or clears) the target/deadline date that drives the planner's pacing.
+  Future<void> setTargetDate(DateTime? date) async {
+    final profile = await get();
+    await (_db.update(_db.userProfiles)
+          ..where((t) => t.id.equals(profile.id)))
+        .write(UserProfilesCompanion(targetDate: Value(date)));
+  }
+
   Future<void> updateGoals({int? minutes, int? problems}) async {
     final profile = await get();
     await (_db.update(_db.userProfiles)

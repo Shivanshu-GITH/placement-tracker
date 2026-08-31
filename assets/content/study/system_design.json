@@ -1,0 +1,1194 @@
+{
+  "subject": "system-design",
+  "title": "System Design",
+  "topics": {
+    "u:sd-45-ood-process-requirements": {
+      "title": "OOD process & requirements",
+      "summary": "A repeatable method for low-level design: clarify, find nouns/verbs, model classes, iterate.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **low-level (object-oriented) design** interview asks you to model a system as classes. A repeatable process keeps you structured."},
+        {"t": "steps", "items": [
+          "**Clarify requirements** — ask about scope, features, and constraints; list functional + non-functional needs.",
+          "**Identify core objects** — nouns become **classes/entities**, verbs become **methods/interactions**.",
+          "**Define relationships** — is-a (inheritance) vs has-a (composition); associations and multiplicities.",
+          "**Apply SOLID + patterns** — choose patterns where they genuinely fit (Strategy for varying rules, Factory for creation).",
+          "**Walk a use case** — trace a scenario through your classes to validate the design; iterate."
+        ]},
+        {"t": "callout", "style": "key", "text": "The method: clarify → nouns=classes/verbs=methods → relationships → SOLID/patterns → validate with a use case. Voicing this process (and your trade-offs) matters more than the exact classes."}
+      ],
+      "mcqs": [
+        {"q": "In OOD, nouns in the requirements typically become:", "options": ["Methods", "Classes/entities", "Databases", "Threads"], "answer": 1, "explain": "Nouns map to classes; verbs map to methods/interactions between them."},
+        {"q": "The first step of a good LLD process is to:", "options": ["Write code immediately", "Clarify requirements and scope", "Pick a design pattern", "Draw the database"], "answer": 1, "explain": "Clarifying scope and requirements prevents designing the wrong thing."},
+        {"q": "You should apply a design pattern when:", "options": ["Always, everywhere", "It genuinely fits the problem (e.g. Strategy for interchangeable rules)", "Never", "The interviewer names it"], "answer": 1, "explain": "Patterns are tools for specific problems; forcing them adds needless complexity."}
+      ]
+    },
+    "u:sd-46-solid-principles-applied": {
+      "title": "SOLID Principles (applied)",
+      "summary": "The five design principles that keep object-oriented code flexible and maintainable.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["Principle", "Rule"], "rows": [
+          ["S — Single Responsibility", "A class has one reason to change"],
+          ["O — Open/Closed", "Open for extension, closed for modification"],
+          ["L — Liskov Substitution", "Subtypes must be substitutable for their base"],
+          ["I — Interface Segregation", "Prefer small, focused interfaces over fat ones"],
+          ["D — Dependency Inversion", "Depend on abstractions, not concretions"]
+        ]},
+        {"t": "callout", "style": "key", "text": "SOLID's payoff is code that's easy to change and test: SRP localises changes, OCP lets you add behaviour without editing tested code, LSP keeps polymorphism safe, ISP avoids forced dependencies, and DIP (with injection) decouples policy from implementation."},
+        {"t": "callout", "style": "tip", "text": "In an LLD interview, cite the specific principle when you make a choice — e.g. 'I'll inject the repository (DIP) so I can swap the DB and test with a fake.'"}
+      ],
+      "mcqs": [
+        {"q": "The Open/Closed Principle says code should be:", "options": ["Open for modification, closed for extension", "Open for extension, closed for modification", "Always modifiable", "Never extended"], "answer": 1, "explain": "Add new behaviour by extension (new classes) without modifying existing tested code."},
+        {"q": "The Dependency Inversion Principle recommends depending on:", "options": ["Concrete classes", "Abstractions (interfaces)", "Global variables", "Static methods"], "answer": 1, "explain": "High- and low-level modules should both depend on abstractions, decoupling them (often via injection)."},
+        {"q": "Splitting a fat interface into smaller role-specific ones follows:", "options": ["Single Responsibility", "Interface Segregation", "Liskov Substitution", "Open/Closed"], "answer": 1, "explain": "ISP says clients shouldn't be forced to depend on methods they don't use."}
+      ]
+    },
+    "u:sd-47-uml-class-sequence-diagrams": {
+      "title": "UML Class & Sequence Diagrams",
+      "summary": "Communicate a design visually: static structure (class) and dynamic interactions (sequence).",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "Two UML diagrams cover most LLD communication."},
+        {"t": "points", "items": [
+          "**Class diagram (static)** — classes with attributes/methods and their relationships: inheritance (hollow triangle), composition (filled diamond), aggregation (hollow diamond), association (line). Shows structure.",
+          "**Sequence diagram (dynamic)** — objects across the top, time flowing down, arrows showing the order of method calls between them for a scenario. Shows behaviour/interaction over time."
+        ]},
+        {"t": "callout", "style": "key", "text": "Class diagram = what the system IS (structure, relationships); sequence diagram = what the system DOES (the order of interactions for a use case). Knowing the relationship notations (composition vs aggregation vs inheritance) is the commonly tested detail."}
+      ],
+      "mcqs": [
+        {"q": "A sequence diagram primarily shows:", "options": ["Static class structure", "The time-ordered interactions (method calls) between objects for a scenario", "Database schema", "Deployment"], "answer": 1, "explain": "Sequence diagrams depict the dynamic order of messages between objects over time."},
+        {"q": "In a UML class diagram, a filled diamond denotes:", "options": ["Inheritance", "Composition (strong 'part-of' ownership)", "Association", "Dependency"], "answer": 1, "explain": "A filled diamond is composition (the part can't exist without the whole); a hollow diamond is aggregation."},
+        {"q": "A class diagram captures the system's:", "options": ["Runtime message order", "Static structure and relationships", "Network topology", "Thread schedule"], "answer": 1, "explain": "Class diagrams show classes, their members, and how they relate — the static design."}
+      ]
+    },
+    "u:sd-48-creational-patterns-singleton-factory-builder": {
+      "title": "Creational Patterns (Singleton/Factory/Builder)",
+      "summary": "Patterns that control how objects are created.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["Pattern", "Purpose"], "rows": [
+          ["Singleton", "Ensure a single shared instance with global access"],
+          ["Factory Method", "Encapsulate which concrete class to instantiate"],
+          ["Abstract Factory", "Create families of related objects"],
+          ["Builder", "Construct a complex object step by step (avoids telescoping constructors)"],
+          ["Prototype", "Create new objects by cloning an existing one"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Creational patterns decouple object creation from use. Factory hides which subclass is made (favours OCP); Builder handles many optional parameters readably; Singleton guarantees one instance (but is often a smell — hidden global state)."},
+        {"t": "callout", "style": "warn", "text": "Singleton is easy to overuse: it's global mutable state that hurts testability. Prefer dependency-injecting a single instance."}
+      ],
+      "mcqs": [
+        {"q": "The Builder pattern is used to:", "options": ["Ensure one instance", "Construct a complex object step by step, handling optional parameters cleanly", "Convert interfaces", "Clone objects"], "answer": 1, "explain": "Builder assembles objects via readable steps, avoiding unwieldy multi-argument constructors."},
+        {"q": "The Factory Method pattern encapsulates:", "options": ["Object cloning", "The decision of which concrete class to instantiate", "A single instance", "Interface conversion"], "answer": 1, "explain": "It centralises creation, returning a base type while hiding the concrete subtype chosen."},
+        {"q": "A common criticism of Singleton is that it:", "options": ["Is too fast", "Introduces hidden global mutable state, hurting testability", "Cannot be implemented", "Requires inheritance"], "answer": 1, "explain": "It acts as global state and makes substituting test doubles hard; DI is usually preferred."}
+      ]
+    },
+    "u:sd-49-structural-patterns-adapter-decorator-facade-proxy": {
+      "title": "Structural Patterns (Adapter/Decorator/Facade/Proxy)",
+      "summary": "Patterns that compose objects and classes into larger structures.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["Pattern", "Purpose"], "rows": [
+          ["Adapter", "Convert one interface into another a client expects"],
+          ["Decorator", "Add responsibilities to an object dynamically by wrapping it (same interface)"],
+          ["Facade", "Provide a simple unified interface to a complex subsystem"],
+          ["Proxy", "A stand-in controlling access to another object (lazy load, cache, protect)"],
+          ["Composite", "Treat individual objects and groups uniformly (trees)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Distinguish the wrappers: **Adapter** changes an interface; **Decorator** adds behaviour keeping the same interface; **Facade** simplifies a whole subsystem behind one interface; **Proxy** controls access to an object (same interface). All 'wrap' something but for different reasons."}
+      ],
+      "mcqs": [
+        {"q": "The Decorator pattern adds behaviour by:", "options": ["Changing the interface", "Wrapping an object with another of the same interface (stackable)", "Simplifying a subsystem", "Controlling access"], "answer": 1, "explain": "Decorators wrap a component, share its interface, and add responsibilities, and can be stacked."},
+        {"q": "A Facade provides:", "options": ["Access control", "A simplified unified interface to a complex subsystem", "Interface conversion", "Object cloning"], "answer": 1, "explain": "Facade hides subsystem complexity behind one easy interface."},
+        {"q": "Adapter differs from Decorator because Adapter:", "options": ["Adds responsibilities", "Converts/translates an interface rather than adding behaviour", "Creates objects", "Controls access"], "answer": 1, "explain": "Adapter reconciles incompatible interfaces; Decorator augments behaviour while preserving the interface."}
+      ]
+    },
+    "u:sd-50-behavioral-patterns-observer-strategy-state-command": {
+      "title": "Behavioral Patterns (Observer/Strategy/State/Command)",
+      "summary": "Patterns that manage algorithms, responsibilities, and communication between objects.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["Pattern", "Purpose"], "rows": [
+          ["Observer", "Notify dependents automatically when a subject changes (one-to-many)"],
+          ["Strategy", "Encapsulate interchangeable algorithms; swap at runtime"],
+          ["State", "Alter an object's behaviour as its internal state changes (state machine)"],
+          ["Command", "Encapsulate a request as an object (enables undo, queue, log)"],
+          ["Template Method", "Define an algorithm skeleton, defer steps to subclasses"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Common LLD picks: **Strategy** when behaviour varies (pricing, sorting); **State** for objects with distinct modes (vending machine, elevator, order status); **Observer** for events/notifications; **Command** when you need undo/redo, queuing, or logging of actions."}
+      ],
+      "mcqs": [
+        {"q": "The Strategy pattern is used to:", "options": ["Notify observers", "Encapsulate interchangeable algorithms and swap them at runtime", "Manage state transitions", "Wrap objects"], "answer": 1, "explain": "Strategy makes an algorithm a pluggable object the context delegates to."},
+        {"q": "The State pattern is well suited to modelling a:", "options": ["Pricing rule", "State machine where behaviour changes with internal state (e.g. vending machine)", "Notification broadcast", "Interface conversion"], "answer": 1, "explain": "State encapsulates each mode's behaviour, cleanly handling objects with distinct states."},
+        {"q": "Undo/redo functionality is naturally supported by the:", "options": ["Observer pattern", "Command pattern", "Facade pattern", "Adapter pattern"], "answer": 1, "explain": "Command objects encapsulate actions with an undo() method, enabling reversible operations."}
+      ]
+    },
+    "u:sd-51-design-a-parking-lot": {
+      "title": "Design a Parking Lot (LLD)",
+      "summary": "Model levels, spot sizes, vehicles, tickets, and pluggable pricing.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A classic OOD exercise. Clarify: multiple levels, spot sizes, vehicle types, ticketing, fees."},
+        {"t": "points", "items": [
+          "**Classes**: ParkingLot → ParkingFloor → ParkingSpot (with a size); Vehicle (abstract) → Car/Bike/Truck; Ticket; EntryGate/ExitGate.",
+          "**FeeStrategy** (interface) for pricing → **Strategy** pattern so rules can change.",
+          "**park(vehicle)** finds a free compatible spot (allocation policy behind the lot).",
+          "**Concurrency**: atomic spot assignment so two vehicles can't get one spot."
+        ]},
+        {"t": "callout", "style": "key", "text": "Voice these decisions: Strategy for fees, polymorphic Vehicle → spot compatibility, allocation encapsulated in the lot, and atomic spot assignment for concurrency."}
+      ],
+      "mcqs": [
+        {"q": "Configurable parking fee rules are best modelled with which pattern?", "options": ["Singleton", "Strategy (interchangeable pricing algorithms)", "Adapter", "Observer"], "answer": 1, "explain": "Different pricing schemes are interchangeable algorithms — a Strategy, so rules change without editing the lot."},
+        {"q": "Making Vehicle abstract with Car/Bike/Truck subclasses supports:", "options": ["Faster parsing", "Polymorphic spot-compatibility handling", "Removing tickets", "Global state"], "answer": 1, "explain": "Polymorphism lets allocation treat vehicles uniformly while respecting each type's size."},
+        {"q": "A concurrency concern in a parking lot is:", "options": ["Ticket colours", "Two vehicles being assigned the same spot without synchronization", "Floor names", "Fee currency"], "answer": 1, "explain": "Spot assignment is shared state needing atomic/locked updates to avoid double allocation."}
+      ]
+    },
+    "u:sd-52-design-an-elevator-system": {
+      "title": "Design an Elevator System (LLD)",
+      "summary": "Model cars as state machines, requests, and a dispatcher using elevator (SCAN) scheduling.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Model cars, requests, and dispatch."},
+        {"t": "points", "items": [
+          "**Elevator** state machine: current floor, direction (up/down/idle), target floors, doors.",
+          "**Request**: hall call (floor + direction) or car call (destination).",
+          "**Dispatcher**: assigns each hall call to the best elevator (nearest one moving the same direction).",
+          "**Scheduling**: serve requests in the current direction, then reverse — the SCAN (elevator) algorithm."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two design points: model each elevator as a **State machine** (idle/up/down/doors-open), and schedule like the **SCAN algorithm** (continue one way, then reverse) with a dispatcher choosing the best car by direction and proximity."}
+      ],
+      "mcqs": [
+        {"q": "An elevator serving requests in its current direction before reversing mirrors:", "options": ["FCFS", "The SCAN (elevator) algorithm", "Round Robin", "Banker's"], "answer": 1, "explain": "Continuing one way then reversing minimises direction changes — the SCAN approach."},
+        {"q": "An elevator's behaviour is well modelled as a:", "options": ["Single function", "State machine (idle, up, down, doors open)", "Static class", "Global variable"], "answer": 1, "explain": "Distinct states and transitions make a state machine (or State pattern) the natural model."},
+        {"q": "The dispatcher's role is to:", "options": ["Open doors", "Assign each hall call to the most suitable elevator", "Count floors", "Store requests forever"], "answer": 1, "explain": "It selects which car serves a call, typically the nearest one moving in the same direction."}
+      ]
+    },
+    "u:sd-53-design-a-vending-machine": {
+      "title": "Design a Vending Machine (LLD)",
+      "summary": "A textbook State-pattern problem: idle, has-money, dispensing states.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A vending machine is the canonical **State pattern** exercise. Its behaviour depends on its current state."},
+        {"t": "points", "items": [
+          "**States**: Idle → HasMoney (coin inserted) → Dispensing → back to Idle; plus a SoldOut state.",
+          "Each state defines how it responds to events (insert coin, select product, dispense, refund) — invalid actions are rejected per state.",
+          "**Classes**: VendingMachine (context holding current state), State (interface) with concrete states, Inventory, Product, Payment.",
+          "The State pattern replaces a giant conditional on a status flag with per-state classes."
+        ]},
+        {"t": "callout", "style": "key", "text": "Use the **State pattern**: each state (Idle, HasMoney, Dispensing, SoldOut) is a class defining how the machine reacts to events. This cleanly handles 'you can't select a product before inserting money' without sprawling if/else on a status variable."}
+      ],
+      "mcqs": [
+        {"q": "A vending machine is the textbook example of which pattern?", "options": ["Singleton", "State pattern", "Adapter", "Observer"], "answer": 1, "explain": "Its behaviour changes with its state (idle, has-money, dispensing), which the State pattern models cleanly."},
+        {"q": "Using the State pattern here replaces:", "options": ["The inventory", "A large conditional on a status flag with per-state classes", "The payment system", "The product list"], "answer": 1, "explain": "Each state's behaviour lives in its own class instead of branching on a status variable everywhere."},
+        {"q": "Selecting a product before inserting money should be:", "options": ["Allowed always", "Rejected by the Idle state's behaviour", "Cause a crash", "Dispense free product"], "answer": 1, "explain": "The current state defines valid actions; the Idle state rejects selection until money is inserted."}
+      ]
+    },
+    "u:sd-54-design-splitwise": {
+      "title": "Design Splitwise (LLD)",
+      "summary": "Track group expenses and balances with polymorphic split types.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Model users, groups, expenses, and balances with multiple split types."},
+        {"t": "points", "items": [
+          "**Classes**: User, Group, Expense (payer, amount, participants, split), BalanceSheet.",
+          "**Split** (abstract) → EqualSplit / ExactSplit / PercentSplit — a polymorphic hierarchy that validates the shares sum to the total.",
+          "**Balances**: a directed map (userA → userB → amount owed), updated per expense.",
+          "**Simplify debts**: optionally net out cycles to minimise transactions (a graph problem)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two points: model split types **polymorphically** (each validates it sums correctly), and store balances as a **net directed graph** so 'who owes whom' is fast and can be simplified."}
+      ],
+      "mcqs": [
+        {"q": "Equal/exact/percentage splits are best modelled as:", "options": ["Three unrelated methods", "A polymorphic Split hierarchy", "A single boolean", "Static fields"], "answer": 1, "explain": "Each split type is an interchangeable, self-validating algorithm — a polymorphic design."},
+        {"q": "Every split must be validated so that:", "options": ["It has a name", "The parts sum to the total expense", "It uses percentages", "It has two users"], "answer": 1, "explain": "Whatever the type, shares must add up to the full amount or balances become inconsistent."},
+        {"q": "Balances between users are stored as:", "options": ["A single number", "A directed map of (userA, userB) → amount owed", "A stack", "A queue"], "answer": 1, "explain": "A directed balance map makes reading and updating who owes whom efficient."}
+      ]
+    },
+    "u:sd-55-design-tic-tac-toe-chess": {
+      "title": "Design Tic-Tac-Toe / Chess (LLD)",
+      "summary": "Separate board state, players, move validation, and the game loop.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Board-game LLD tests clean separation of concerns."},
+        {"t": "points", "items": [
+          "**Classes**: Board (grid/cells), Piece (Chess: subclasses per piece type with their move rules), Player, Game (controller running the turn loop).",
+          "**Move validation**: each piece knows its legal moves (polymorphism); the board checks bounds and occupancy; the game checks win/draw/check conditions.",
+          "**Separation**: keep the game loop (turns), rules (validation/win), and state (board) apart so rules can change independently.",
+          "Chess adds piece-specific movement (Strategy/polymorphism) and special rules (castling, en passant)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The reusable lesson: separate the **loop** (whose turn, make move, check end), the **rules** (move legality, win condition), and the **state** (board/pieces). In chess, model per-piece movement polymorphically."}
+      ],
+      "mcqs": [
+        {"q": "Good board-game design separates:", "options": ["Nothing; one class does all", "The game loop, the rules, and the board state", "Only the UI", "Players from the dice only"], "answer": 1, "explain": "Separating loop, rules, and state keeps each concern independently changeable and testable."},
+        {"q": "In chess, per-piece movement rules are best handled via:", "options": ["A giant switch in the board", "Polymorphism — each piece subclass defines its legal moves", "A single global function", "The player class"], "answer": 1, "explain": "Each piece type overriding its move logic keeps rules localised and extensible."},
+        {"q": "Win/check conditions in the game are evaluated:", "options": ["Only at the start", "After each move", "Never", "On a draw only"], "answer": 1, "explain": "Each move can end or change the game state, so conditions are checked after every move."}
+      ]
+    },
+    "u:sd-56-design-a-rate-limiter-lld": {
+      "title": "Design a Rate Limiter (LLD)",
+      "summary": "Class-level design: a RateLimiter interface with pluggable algorithm strategies.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "At the class level, design a rate limiter with swappable algorithms."},
+        {"t": "points", "items": [
+          "**RateLimiter** interface with `allow(clientId): boolean`.",
+          "**Concrete strategies**: TokenBucketLimiter, SlidingWindowLimiter, FixedWindowLimiter — a **Strategy** pattern so the algorithm is pluggable.",
+          "**Per-client state** stored in a map (in-memory for LLD; Redis at scale). Each entry tracks tokens/timestamps.",
+          "**Thread-safety**: guard state updates (locks/atomics) since many requests hit concurrently."
+        ]},
+        {"t": "callout", "style": "key", "text": "Design it around a **RateLimiter interface + Strategy implementations** so you can swap token bucket / sliding window without changing callers. Keep per-client state thread-safe. This is the OOD mirror of the HLD rate-limiter question."}
+      ],
+      "mcqs": [
+        {"q": "Making the rate-limiting algorithm swappable uses which pattern?", "options": ["Singleton", "Strategy (RateLimiter interface + algorithm implementations)", "Observer", "Facade"], "answer": 1, "explain": "Encapsulating each algorithm behind a common interface lets you swap them freely — Strategy."},
+        {"q": "Per-client rate-limit state must be:", "options": ["Ignored", "Thread-safe (guarded), since concurrent requests update it", "Stored on the client", "Global for all clients"], "answer": 1, "explain": "Concurrent requests race on the counter/tokens, so updates need locking or atomics."},
+        {"q": "The RateLimiter interface's core method is:", "options": ["render()", "allow(clientId) returning whether the request is permitted", "connect()", "hash()"], "answer": 1, "explain": "The limiter's job is to decide allow/deny per client per request."}
+      ]
+    },
+    "u:sd-57-design-a-notification-logger-library": {
+      "title": "Design a Notification/Logger library (LLD)",
+      "summary": "Extensible logging/notification via levels, pluggable sinks, and the chain/observer patterns.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Design a reusable logger/notification library that's easy to extend with new outputs."},
+        {"t": "points", "items": [
+          "**Log levels**: DEBUG < INFO < WARN < ERROR; a threshold filters messages.",
+          "**Pluggable sinks/appenders**: Console, File, Network — an interface (`LogSink.write(entry)`) so new outputs plug in without changing the core (**Open/Closed**).",
+          "**Chain of Responsibility**: handlers for each level pass the message along until one handles it (a common logger design).",
+          "**Notification**: subscribers register interest (Observer) and receive relevant messages via their channel."
+        ]},
+        {"t": "callout", "style": "key", "text": "Design for extension: a **LogSink/appender interface** (add outputs without editing the core — OCP), **levels** with a threshold, and **Chain of Responsibility** to route by severity. Notifications add **Observer** so subscribers get what they care about."}
+      ],
+      "mcqs": [
+        {"q": "Adding a new output (e.g. a database sink) without changing the core follows:", "options": ["Singleton", "Open/Closed via a pluggable sink interface", "No principle", "Two-phase commit"], "answer": 1, "explain": "A common LogSink interface lets new appenders be added by extension, not modification."},
+        {"q": "Routing a message through handlers by severity until one handles it uses the:", "options": ["Observer pattern", "Chain of Responsibility pattern", "Adapter pattern", "Builder pattern"], "answer": 1, "explain": "Chain of Responsibility passes a request along handlers until an appropriate one processes it."},
+        {"q": "Log levels (DEBUG, INFO, WARN, ERROR) are used to:", "options": ["Encrypt logs", "Filter which messages are emitted via a threshold", "Shard logs", "Compress output"], "answer": 1, "explain": "A configured threshold suppresses messages below a given severity."}
+      ]
+    },
+    "u:sd-58-design-a-cab-booking-lld": {
+      "title": "Design a Cab Booking (LLD)",
+      "summary": "Class model for ride-hailing: riders, drivers, trips, matching, and state transitions.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "The object model behind Uber-style booking (the LLD counterpart to the HLD design)."},
+        {"t": "points", "items": [
+          "**Classes**: Rider, Driver (with location + availability), Trip (rider, driver, state, fare), Location.",
+          "**MatchingService**: finds nearby available drivers and assigns one (Strategy for the matching algorithm).",
+          "**Trip state machine**: Requested → Accepted → InProgress → Completed / Cancelled.",
+          "**PricingStrategy**: base + distance + surge (Strategy so pricing rules vary).",
+          "**Notifications**: Observer to alert rider/driver on state changes."
+        ]},
+        {"t": "callout", "style": "key", "text": "Model the **Trip as a state machine** (requested→accepted→in-progress→completed), use **Strategy** for both matching and pricing (surge), and **Observer** for status notifications. Drivers carry availability + location for the matching service."}
+      ],
+      "mcqs": [
+        {"q": "A Trip's lifecycle (requested → accepted → in-progress → completed) is modelled as a:", "options": ["Single boolean", "State machine", "Static class", "Cache"], "answer": 1, "explain": "Distinct trip stages with transitions are naturally a state machine (or State pattern)."},
+        {"q": "Surge and distance-based pricing rules are best handled with:", "options": ["A Singleton", "A PricingStrategy (Strategy pattern)", "An Adapter", "A Facade"], "answer": 1, "explain": "Interchangeable pricing algorithms fit the Strategy pattern, allowing surge/normal rules to swap."},
+        {"q": "Alerting the rider and driver when the trip state changes uses the:", "options": ["Builder pattern", "Observer pattern", "Proxy pattern", "Adapter pattern"], "answer": 1, "explain": "Observers subscribe to trip state changes and are notified automatically."}
+      ]
+    },
+    "u:sd-26-design-a-url-shortener-tinyurl": {
+      "title": "Design a URL Shortener (TinyURL)",
+      "summary": "Read-heavy service: generate unique short codes, store the mapping, redirect fast.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Classic warm-up. Functional: shorten a URL, redirect on the code. Non-functional: **read-heavy** (redirects >> creates), low latency, high availability."},
+        {"t": "points", "items": [
+          "**Code generation**: base62 of a unique id (from a distributed counter / Snowflake-like id) — collision-free, short. 7 base62 chars ≈ 3.5 trillion.",
+          "**Storage**: a KV store (code → longUrl), shards cleanly by code.",
+          "**Cache**: Redis in front for hot codes (redirects are highly cacheable).",
+          "**Scale**: stateless app servers behind a load balancer; 301 (permanent, browser-cached) vs 302 (temporary, lets you count clicks)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two decisions carry it: generate unique codes without collisions (base62 of a unique id, NOT a hash), and optimise the read path (cache + KV store + statelessness) because redirects dominate."}
+      ],
+      "mcqs": [
+        {"q": "A URL shortener's workload is:", "options": ["Write-heavy", "Read-heavy (redirects far exceed creations)", "Compute-heavy", "Balanced"], "answer": 1, "explain": "Redirects vastly outnumber shortenings, so the read path is optimised with caching."},
+        {"q": "To generate collision-free short codes, best is:", "options": ["Random 4 chars", "Base62 of a globally unique id", "The URL length", "Current time"], "answer": 1, "explain": "Encoding a unique id guarantees uniqueness without collision checks, unlike hashing/random."},
+        {"q": "Using a 302 redirect instead of 301 lets you:", "options": ["Cache forever in the browser", "Count each click (requests still reach your server)", "Skip the database", "Avoid HTTPS"], "answer": 1, "explain": "301 is browser-cached and bypasses your server; 302 reaches it, enabling click analytics."}
+      ]
+    },
+    "u:sd-27-design-a-rate-limiter": {
+      "title": "Design a Rate Limiter",
+      "summary": "A distributed service capping request rates per client, usually with token bucket in Redis.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: limit requests per client (per IP/user/API key) per window; low latency; work across many servers; fail open or closed gracefully."},
+        {"t": "points", "items": [
+          "**Algorithm**: token bucket (allows bursts) or sliding window (accurate). ",
+          "**Shared state**: store per-client counters/tokens in **Redis** so the limit is global across all app servers (not per-instance).",
+          "**Placement**: at the API gateway / a middleware, returning **429 Too Many Requests** with a Retry-After header when exceeded.",
+          "**Atomicity**: use Redis atomic ops / Lua scripts so concurrent requests don't race."
+        ]},
+        {"t": "callout", "style": "key", "text": "The distributed twist: a rate limiter must share state (Redis) so all servers enforce one global limit, and it must update counters atomically to avoid races. Token bucket is the default algorithm; return 429 on rejection."}
+      ],
+      "mcqs": [
+        {"q": "Why store rate-limit counters in Redis rather than each server's memory?", "options": ["Redis is slower", "To enforce a single global limit across all servers", "To avoid the token bucket", "For encryption"], "answer": 1, "explain": "Per-instance counters let a client exceed the global limit; a shared store enforces it cluster-wide."},
+        {"q": "The HTTP status returned when a client exceeds the limit is:", "options": ["404", "429 Too Many Requests", "500", "301"], "answer": 1, "explain": "429 signals rate-limit exceeded, usually with a Retry-After header."},
+        {"q": "Counter updates in a distributed rate limiter must be:", "options": ["Eventually consistent only", "Atomic (e.g. Redis Lua scripts) to avoid races", "Done on the client", "Ignored"], "answer": 1, "explain": "Concurrent requests can race on the counter; atomic operations keep the count correct."}
+      ]
+    },
+    "u:sd-28-design-twitter-news-feed": {
+      "title": "Design Twitter / News Feed",
+      "summary": "The fan-out problem: precompute feeds on write, or assemble on read — hybrid for celebrities.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Core challenge: generating each user's home timeline from the people they follow, at scale, with low read latency."},
+        {"t": "table", "headers": ["Approach", "How", "Trade-off"], "rows": [
+          ["Fan-out on write (push)", "When you post, push it into all followers' feed caches", "Fast reads; expensive for users with millions of followers"],
+          ["Fan-out on read (pull)", "Assemble the feed at read time by querying followees", "Cheap writes; slow, heavy reads"],
+          ["Hybrid", "Push for normal users; pull for celebrities", "Best of both — the real answer"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The famous problem is the **celebrity (hot user) fan-out**: pushing a tweet to 100M followers is infeasible. Solution: **hybrid** — precompute feeds (push) for most, but pull-merge posts from celebrities at read time. Feeds live in a fast cache (Redis)."},
+        {"t": "callout", "style": "tip", "text": "Components: post service, fan-out service, feed cache (Redis), and a timeline built by merging cached feed + on-the-fly celebrity posts, ranked."}
+      ],
+      "mcqs": [
+        {"q": "Fan-out on write (push) becomes problematic for:", "options": ["Users with few followers", "Celebrity users with millions of followers", "Read-heavy feeds", "New users"], "answer": 1, "explain": "Pushing each post to millions of follower feeds is prohibitively expensive."},
+        {"q": "The common real-world solution to the feed fan-out problem is:", "options": ["Pure push for everyone", "A hybrid: push for normal users, pull for celebrities", "No caching", "Assemble every feed on read"], "answer": 1, "explain": "Hybrid fan-out precomputes most feeds but merges high-follower users' posts at read time."},
+        {"q": "Precomputed feeds are typically stored in:", "options": ["A relational table scanned per read", "A fast cache like Redis", "Object storage", "DNS"], "answer": 1, "explain": "Home timelines are kept in an in-memory cache for low-latency reads."}
+      ]
+    },
+    "u:sd-29-design-whatsapp-messenger": {
+      "title": "Design WhatsApp / Messenger",
+      "summary": "Real-time messaging with persistent connections, delivery status, and offline handling.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: 1:1 and group messaging, real-time delivery, sent/delivered/read receipts, offline message storage, ideally end-to-end encryption."},
+        {"t": "points", "items": [
+          "**Persistent connections**: clients hold a **WebSocket** (or long-lived TCP) to a chat server so the server can push messages instantly.",
+          "**Message flow**: sender → server → (if recipient online) push over their connection; (if offline) store in a per-user message queue/DB and deliver on reconnect.",
+          "**Connection management**: a service maps user → which chat server holds their connection (so messages route to the right server).",
+          "**Delivery receipts**: acknowledgements flow back (delivered/read).",
+          "Groups fan a message out to each member."
+        ]},
+        {"t": "callout", "style": "key", "text": "The core is **persistent connections + a routing layer** that knows which server holds each online user, plus **offline storage** to hold messages until the recipient reconnects. WebSockets enable the instant server push HTTP request/response can't."}
+      ],
+      "mcqs": [
+        {"q": "For instant message delivery, clients typically maintain a:", "options": ["New HTTP request per message", "Persistent WebSocket/TCP connection to a chat server", "DNS query", "UDP broadcast"], "answer": 1, "explain": "A persistent connection lets the server push messages immediately without the client polling."},
+        {"q": "When a recipient is offline, messages are:", "options": ["Dropped", "Stored (in a queue/DB) and delivered when they reconnect", "Sent to everyone", "Returned to sender"], "answer": 1, "explain": "Offline messages are persisted and pushed once the user comes back online."},
+        {"q": "To route a message to an online user, the system needs to know:", "options": ["The user's password", "Which chat server currently holds that user's connection", "The user's IP history", "The database schema"], "answer": 1, "explain": "A mapping of user → connected server directs the message to the correct chat server."}
+      ]
+    },
+    "u:sd-30-design-instagram": {
+      "title": "Design Instagram",
+      "summary": "Photo sharing: object storage + CDN for media, a feed service, read-optimised at scale.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: upload photos, follow users, view a feed, like/comment. Read-heavy and media-heavy."},
+        {"t": "points", "items": [
+          "**Media storage**: photos/videos go in **object storage (S3)**; the database stores only **metadata + the media URL**. A **CDN** serves the media fast.",
+          "**Feed**: same fan-out design as Twitter (push/pull hybrid), feeds in a cache.",
+          "**Metadata DB**: users, posts, follows, likes. Denormalise/cache counts (likes) that are read constantly.",
+          "**Processing**: generate multiple image resolutions/thumbnails on upload (async via a queue)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Key decisions: never store media in the DB — use object storage + CDN, keeping only URLs/metadata relationally. The feed uses the same fan-out hybrid as Twitter. Image resizing is done asynchronously off the upload path."}
+      ],
+      "mcqs": [
+        {"q": "Where should Instagram store the actual photo files?", "options": ["In the relational database", "In object storage (S3) served via a CDN, with URLs in the DB", "In the cache only", "In DNS"], "answer": 1, "explain": "Large media belongs in object storage + CDN; the DB holds metadata and the media URL."},
+        {"q": "Generating multiple image sizes/thumbnails on upload should be:", "options": ["Done synchronously blocking the upload", "Done asynchronously via a queue", "Skipped", "Done on the client only"], "answer": 1, "explain": "Async processing keeps the upload fast and offloads heavy image work to background workers."},
+        {"q": "Instagram's home feed uses a design most similar to:", "options": ["A single SQL scan per view", "Twitter's fan-out (push/pull hybrid) with cached feeds", "DNS resolution", "A message queue only"], "answer": 1, "explain": "Feeds are generated with the same fan-out approaches as Twitter, cached for fast reads."}
+      ]
+    },
+    "u:sd-31-design-youtube-netflix": {
+      "title": "Design YouTube / Netflix",
+      "summary": "Video at scale: transcode into multiple bitrates, store in object storage, stream via CDN.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: upload/store huge videos, stream smoothly to millions across devices and network speeds. Extremely read/bandwidth-heavy."},
+        {"t": "points", "items": [
+          "**Transcoding**: on upload, a pipeline (via a queue + workers) converts the video into **multiple resolutions/bitrates** and segments it (HLS/DASH).",
+          "**Storage**: segments in **object storage**; metadata in a DB.",
+          "**Delivery**: a **CDN** serves segments from the edge — this is the crux of video streaming.",
+          "**Adaptive bitrate streaming**: the client picks the quality that matches its current bandwidth, switching segment-by-segment."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two pillars: **adaptive bitrate** (pre-transcode into many qualities; client adapts to its bandwidth) and **CDN delivery** (serve chunks from the edge near users). Transcoding is an async pipeline; the CDN is what makes global streaming feasible."}
+      ],
+      "mcqs": [
+        {"q": "Video is transcoded into multiple bitrates to support:", "options": ["Encryption", "Adaptive bitrate streaming (client picks quality per its bandwidth)", "Sharding", "DNS"], "answer": 1, "explain": "Multiple qualities let the player adapt to changing network conditions, segment by segment."},
+        {"q": "The key to delivering video globally at scale is:", "options": ["A single origin server", "A CDN serving video segments from edge locations", "A relational database", "A message queue"], "answer": 1, "explain": "CDNs cache and serve video chunks near users, providing the bandwidth and low latency needed."},
+        {"q": "Transcoding a newly uploaded video should be handled:", "options": ["Synchronously during upload", "Asynchronously via a queue and worker pipeline", "On the CDN", "By the client only"], "answer": 1, "explain": "Transcoding is heavy and slow, so it runs as an async background pipeline."}
+      ]
+    },
+    "u:sd-32-design-uber-lyft": {
+      "title": "Design Uber / Lyft",
+      "summary": "Real-time location matching: geospatial indexing to find nearby drivers fast.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: track driver locations in real time, match a rider to a nearby driver, handle trip lifecycle. Location-update-heavy."},
+        {"t": "points", "items": [
+          "**Location updates**: drivers stream GPS frequently; stored in an in-memory geospatial index.",
+          "**Geospatial indexing**: split the map into cells using **geohashing** / **QuadTree** / Uber's **H3** hexagons, so 'find drivers near X' is a fast lookup of nearby cells, not a scan of all drivers.",
+          "**Matching service**: query the rider's cell + neighbours, rank candidates (ETA), dispatch.",
+          "**Trip service + notifications**: manage state (requested → accepted → in-progress → complete)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The crux is **geospatial indexing**: dividing the world into cells (geohash/QuadTree/H3) turns 'nearest driver' into looking up a handful of cells instead of computing distance to every driver. Location updates are high-volume, so they're kept in fast in-memory stores."}
+      ],
+      "mcqs": [
+        {"q": "The key technique for efficiently finding nearby drivers is:", "options": ["Scanning all drivers each time", "Geospatial indexing (geohash / QuadTree / H3 cells)", "Sharding by name", "A message queue"], "answer": 1, "explain": "Dividing the map into cells lets you query only nearby cells instead of every driver."},
+        {"q": "High-frequency driver location updates are best kept in:", "options": ["A cold relational table", "An in-memory / fast geospatial store", "Object storage", "DNS"], "answer": 1, "explain": "Frequent location writes need fast in-memory structures for real-time matching."},
+        {"q": "Geohashing helps by:", "options": ["Encrypting coordinates", "Encoding a location into a cell id so nearby points share prefixes/cells", "Compressing video", "Routing packets"], "answer": 1, "explain": "Geohash encodes lat/long into cells; nearby locations map to nearby cells, enabling proximity queries."}
+      ]
+    },
+    "u:sd-33-design-a-web-crawler": {
+      "title": "Design a Web Crawler",
+      "summary": "Fetch the web at scale: a URL frontier, deduplication, and politeness.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: download pages starting from seeds, extract links, keep crawling — at massive scale, without abusing sites or looping."},
+        {"t": "points", "items": [
+          "**URL frontier**: a queue of URLs to fetch, prioritised; workers pull from it.",
+          "**Deduplication**: track already-seen URLs/content (a **Bloom filter** or hash set) to avoid re-crawling and loops.",
+          "**Politeness**: respect **robots.txt** and rate-limit per domain (don't hammer one site) — often a per-host queue.",
+          "**Storage**: save page content (object storage) + a link graph; distribute workers across machines."
+        ]},
+        {"t": "callout", "style": "key", "text": "The essentials: a **URL frontier** (prioritised queue), **dedup** to avoid re-crawling (Bloom filter), and **politeness** (robots.txt + per-domain rate limiting). Without dedup you loop forever; without politeness you get blocked."}
+      ],
+      "mcqs": [
+        {"q": "To avoid re-crawling the same URLs and infinite loops, a crawler uses:", "options": ["A CDN", "Deduplication (e.g. a Bloom filter / seen-set)", "A load balancer", "DNS only"], "answer": 1, "explain": "Tracking already-seen URLs/content prevents redundant fetches and loops; Bloom filters do this space-efficiently."},
+        {"q": "Politeness in a crawler means:", "options": ["Crawling as fast as possible", "Respecting robots.txt and rate-limiting requests per domain", "Ignoring links", "Encrypting pages"], "answer": 1, "explain": "Crawlers must honour robots.txt and avoid overloading any single site to remain well-behaved and unblocked."},
+        {"q": "The queue of URLs waiting to be fetched is called the:", "options": ["Index", "URL frontier", "Cache", "Shard"], "answer": 1, "explain": "The URL frontier holds and prioritises URLs to crawl; workers pull from it."}
+      ]
+    },
+    "u:sd-34-design-dropbox-google-drive": {
+      "title": "Design Dropbox / Google Drive",
+      "summary": "File sync and storage: chunking, deduplication, and metadata-driven sync.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: upload/store files, sync across devices, share, handle large files and edits efficiently."},
+        {"t": "points", "items": [
+          "**Chunking**: split files into fixed/variable-size **chunks**; only changed chunks are uploaded on edit (efficient sync, not re-uploading whole files).",
+          "**Deduplication**: hash each chunk; identical chunks (across users) are stored once.",
+          "**Storage**: chunks in **object storage**; a **metadata service** tracks files → chunk lists, versions, and permissions.",
+          "**Sync**: a notification/long-poll service tells clients when files change so they pull updates."
+        ]},
+        {"t": "callout", "style": "key", "text": "The efficiency comes from **chunking + dedup**: editing a big file re-uploads only the changed chunks, and identical chunks are stored once via content hashing. A metadata service (files→chunks) drives sync; chunks live in object storage."}
+      ],
+      "mcqs": [
+        {"q": "Editing a large file syncs efficiently because the system:", "options": ["Re-uploads the whole file", "Uploads only the changed chunks (chunking)", "Deletes the file", "Uses DNS"], "answer": 1, "explain": "Splitting files into chunks means only modified chunks are transferred on an edit."},
+        {"q": "Storing identical chunks only once across users is achieved via:", "options": ["Encryption", "Content-hash deduplication", "Sharding", "A CDN"], "answer": 1, "explain": "Hashing chunks lets the system detect and store duplicates a single time."},
+        {"q": "The service that tracks which chunks make up each file and its versions is the:", "options": ["CDN", "Metadata service", "Load balancer", "Rate limiter"], "answer": 1, "explain": "A metadata service maps files to their chunk lists, versions, and permissions, driving sync."}
+      ]
+    },
+    "u:sd-35-design-a-notification-system": {
+      "title": "Design a Notification System",
+      "summary": "Deliver push/SMS/email at scale via queues, provider adapters, and retries.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: send notifications across channels (push, SMS, email) reliably, at scale, without blocking the triggering service."},
+        {"t": "points", "items": [
+          "**Async via a queue**: services publish a notification event; workers consume and send — decoupling and buffering spikes.",
+          "**Channel adapters**: separate senders per provider (APNs/FCM for push, an SMS gateway, an email service).",
+          "**Reliability**: retries with backoff, a **dead-letter queue** for failures, and **idempotency** to avoid duplicate sends.",
+          "**Preferences & rate limiting**: respect user opt-outs and avoid spamming; template management."
+        ]},
+        {"t": "callout", "style": "key", "text": "Design it **async** (queue + workers) so a traffic spike or slow provider never blocks the app. Add per-channel adapters, retries/DLQ for reliability, and idempotency + user preferences so users aren't double-notified or spammed."}
+      ],
+      "mcqs": [
+        {"q": "A notification system should send messages:", "options": ["Synchronously in the request path", "Asynchronously via a queue and workers", "Only via email", "Without retries"], "answer": 1, "explain": "Async processing decouples sending from the triggering request and buffers spikes."},
+        {"q": "To handle provider failures reliably, the system uses:", "options": ["No retries", "Retries with backoff and a dead-letter queue", "A CDN", "Sharding"], "answer": 1, "explain": "Failed sends are retried and, if persistently failing, moved to a dead-letter queue for inspection."},
+        {"q": "To avoid sending the same notification twice, apply:", "options": ["Encryption", "Idempotency (dedup by an event key)", "Load balancing", "Compression"], "answer": 1, "explain": "Idempotency keys ensure a retried or duplicated event doesn't produce duplicate notifications."}
+      ]
+    },
+    "u:sd-36-design-an-e-commerce-amazon": {
+      "title": "Design an E-commerce (Amazon)",
+      "summary": "Catalog, cart, inventory, and orders — with careful consistency around stock and payment.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: browse a product catalog, add to cart, place orders, manage inventory and payments. Mixes read-heavy (catalog) and consistency-critical (inventory/orders) needs."},
+        {"t": "points", "items": [
+          "**Catalog / search**: read-heavy → cache + a search index (Elasticsearch). Product data in a DB.",
+          "**Inventory**: must be **consistent** — prevent overselling. Use transactions / reservations / atomic decrements when placing an order.",
+          "**Orders & payment**: an order service coordinates payment, inventory, and shipping — often a **saga** across services with compensations.",
+          "**Cart**: fast, session-scoped (cache/NoSQL)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The tension: catalog is read-heavy (cache/search index), but **inventory and orders demand strong consistency** to avoid overselling and double-charging. Order placement spans services (payment, inventory, shipping), commonly coordinated with a saga."}
+      ],
+      "mcqs": [
+        {"q": "The e-commerce component most needing strong consistency is:", "options": ["The product catalog", "Inventory/order placement (to prevent overselling)", "Product images", "Reviews"], "answer": 1, "explain": "Inventory and orders must be consistent so items aren't oversold or double-charged."},
+        {"q": "The product catalog/search is best served with:", "options": ["Strong global locks", "Caching and a search index (read-heavy)", "A message queue", "Two-phase commit"], "answer": 1, "explain": "Browsing is read-heavy, so caching and a search index (e.g. Elasticsearch) fit."},
+        {"q": "Coordinating payment, inventory, and shipping across services is often done with a:", "options": ["Single SQL transaction across all", "Saga (with compensating transactions)", "CDN", "Bloom filter"], "answer": 1, "explain": "Cross-service order flows use sagas with compensations, since a single distributed transaction is impractical."}
+      ]
+    },
+    "u:sd-37-design-search-autocomplete-typeahead": {
+      "title": "Design Search Autocomplete / Typeahead",
+      "summary": "Suggest completions in milliseconds using a trie of popular prefixes.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: as the user types, return the top few suggestions for the prefix, extremely fast (<100ms), based on popularity."},
+        {"t": "points", "items": [
+          "**Trie (prefix tree)**: store terms so any prefix lookup is fast; precompute and cache the **top-K** completions at each node.",
+          "**Ranking**: by frequency/popularity (and recency); update counts from search logs offline.",
+          "**Serving**: keep the trie in memory (or a cache) and shard by prefix for scale.",
+          "**Updates**: rebuild/merge the trie periodically from aggregated query logs (not on every keystroke)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The core structure is a **trie with precomputed top-K suggestions per node**, kept in memory for millisecond lookups. Popularity ranking comes from aggregating query logs offline; the serving path just reads cached suggestions."}
+      ],
+      "mcqs": [
+        {"q": "The data structure at the heart of autocomplete is a:", "options": ["Hash table", "Trie (prefix tree)", "Linked list", "B+ tree only"], "answer": 1, "explain": "A trie enables fast prefix lookups; nodes cache the top completions for that prefix."},
+        {"q": "Suggestions are typically ranked by:", "options": ["Alphabetical order only", "Popularity/frequency (from query logs)", "Length", "Random"], "answer": 1, "explain": "Top-K suggestions are ordered by how often terms are searched, computed from logs."},
+        {"q": "To meet millisecond latency, the trie is:", "options": ["Rebuilt on every keystroke", "Kept in memory with precomputed top-K per node", "Stored only on disk", "In a relational table"], "answer": 1, "explain": "An in-memory trie with cached suggestions serves lookups instantly; updates happen offline."}
+      ]
+    },
+    "u:sd-38-design-google-maps": {
+      "title": "Design Google Maps",
+      "summary": "Store a road graph, compute shortest paths, and serve map tiles at scale.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: render maps, find routes between points with ETAs, handle live traffic. Huge data and compute."},
+        {"t": "points", "items": [
+          "**Map tiles**: the map is pre-rendered into image **tiles** per zoom level, served via a **CDN** (like static assets).",
+          "**Routing**: model roads as a **weighted graph**; compute shortest paths with Dijkstra/A*, but precompute **contraction hierarchies** so continent-scale routing is fast.",
+          "**Geospatial partitioning**: split the world into regions/cells for parallelism.",
+          "**Live traffic**: aggregate anonymised location data to adjust edge weights (ETAs) in near real time."
+        ]},
+        {"t": "callout", "style": "key", "text": "Two subsystems: **tiles** (pre-rendered, CDN-served, like static content) and **routing** (a weighted road graph with precomputed shortcuts — contraction hierarchies — so A*/Dijkstra is fast over huge graphs). Live traffic reweights edges for ETAs."}
+      ],
+      "mcqs": [
+        {"q": "Map imagery is served efficiently as:", "options": ["A single huge image", "Pre-rendered tiles per zoom level via a CDN", "Database rows", "A message queue"], "answer": 1, "explain": "The map is split into cacheable tiles per zoom level and delivered by a CDN."},
+        {"q": "Road routing models the network as a:", "options": ["Hash table", "Weighted graph, with shortest-path algorithms (Dijkstra/A*)", "Trie", "Bloom filter"], "answer": 1, "explain": "Roads are edges with weights (time/distance); shortest-path algorithms find routes, sped up by precomputation."},
+        {"q": "Continent-scale routing stays fast by:", "options": ["Recomputing from scratch each time", "Precomputing shortcuts (e.g. contraction hierarchies)", "Using DNS", "Storing all routes in a cache"], "answer": 1, "explain": "Precomputed hierarchies/shortcuts let queries skip most of the graph, making long routes fast."}
+      ]
+    },
+    "u:sd-39-design-bookmyshow-ticketmaster": {
+      "title": "Design BookMyShow / Ticketmaster",
+      "summary": "Seat booking without double-booking under high concurrency — locking and reservations.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: browse shows, select seats, book — without ever double-booking a seat, even under flash-sale concurrency."},
+        {"t": "points", "items": [
+          "**Seat states**: available → **locked/reserved** (held during checkout with a timeout) → booked.",
+          "**Concurrency control**: acquire the seat lock **atomically** (DB row lock / transaction / distributed lock in Redis) so only one user wins a seat.",
+          "**Timeout**: release the lock if payment isn't completed in N minutes, returning the seat to available.",
+          "**Read-heavy browsing** (cache show/seat maps) vs **consistency-critical booking**."
+        ]},
+        {"t": "callout", "style": "key", "text": "The whole problem is the atomic temporary **reservation/lock** with a timeout: it stops two users buying the same seat while allowing abandoned checkouts to release seats. Booking needs strong consistency; browsing can be cached."},
+        {"t": "callout", "style": "warn", "text": "Flash sales cause huge contention on popular seats — use a queue/virtual waiting room to smooth the surge and prevent the DB from melting."}
+      ],
+      "mcqs": [
+        {"q": "Preventing two users from booking the same seat relies on:", "options": ["A faster database", "An atomic seat lock/reservation with a timeout", "More servers", "A CDN"], "answer": 1, "explain": "Atomically locking a seat during checkout ensures only one booking can proceed for it."},
+        {"q": "A held (reserved) seat should have a timeout so that:", "options": ["It is booked automatically", "Abandoned checkouts release the seat back to available", "It never expires", "It is deleted"], "answer": 1, "explain": "A timeout frees seats when users don't complete payment, avoiding permanently stuck inventory."},
+        {"q": "During a flash sale, contention is smoothed with:", "options": ["No controls", "A queue / virtual waiting room to throttle the surge", "Removing seat locks", "Disabling the database"], "answer": 1, "explain": "A waiting room/queue limits concurrent booking attempts, protecting the backend from overload."}
+      ]
+    },
+    "u:sd-40-design-a-payment-system": {
+      "title": "Design a Payment System",
+      "summary": "Money movement demands idempotency, a ledger, and reconciliation — correctness over speed.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: process payments correctly, never double-charge or lose money, integrate with external payment providers, and be auditable."},
+        {"t": "points", "items": [
+          "**Idempotency**: every payment request carries an **idempotency key** so retries don't double-charge — non-negotiable.",
+          "**Ledger**: record every transaction in an **append-only, double-entry ledger** (immutable audit trail); balances are derived, not overwritten.",
+          "**External providers**: talk to payment gateways asynchronously; handle their webhooks and eventual results.",
+          "**Reconciliation**: periodically compare your ledger with the provider's records to catch discrepancies.",
+          "Prioritise **consistency and correctness** over latency."
+        ]},
+        {"t": "callout", "style": "key", "text": "Payments are correctness-first: **idempotency** prevents double charges on retry; an **append-only ledger** (double-entry) gives an auditable, tamper-evident record; **reconciliation** catches mismatches with providers. Never mutate balances directly — derive them from immutable transactions."}
+      ],
+      "mcqs": [
+        {"q": "The essential property preventing double-charging on retries is:", "options": ["Caching", "Idempotency (idempotency keys)", "Sharding", "A CDN"], "answer": 1, "explain": "An idempotency key ensures a retried payment request is processed only once."},
+        {"q": "Payment records should be stored in a(n):", "options": ["Mutable balance field overwritten each time", "Append-only, double-entry ledger (immutable audit trail)", "Cache only", "Object storage"], "answer": 1, "explain": "An immutable ledger provides an auditable history; balances are derived from it, not overwritten."},
+        {"q": "Reconciliation in a payment system means:", "options": ["Encrypting cards", "Periodically comparing your ledger against the provider's records to catch discrepancies", "Load balancing", "Caching balances"], "answer": 1, "explain": "Reconciliation detects and resolves mismatches between internal records and external providers."}
+      ]
+    },
+    "u:sd-41-design-a-distributed-cache": {
+      "title": "Design a Distributed Cache",
+      "summary": "Spread cached data across nodes with consistent hashing, eviction, and replication.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: an in-memory cache (like Redis/Memcached) spanning many nodes, with fast get/set, sharding, and resilience."},
+        {"t": "points", "items": [
+          "**Sharding**: distribute keys across nodes using **consistent hashing** so adding/removing nodes moves minimal keys.",
+          "**Eviction**: an LRU/LFU policy per node when memory is full; TTLs for expiry.",
+          "**Replication**: replicate each shard for availability (survive a node failure).",
+          "**Consistency**: caches are usually best-effort; handle stale data via TTLs and invalidation on writes."
+        ]},
+        {"t": "callout", "style": "key", "text": "The building blocks: **consistent hashing** for key distribution (minimal remap on scaling), **LRU/TTL** for eviction, and **replication** for fault tolerance. Caches favour availability and speed over strong consistency."}
+      ],
+      "mcqs": [
+        {"q": "Keys are distributed across cache nodes using:", "options": ["Round robin", "Consistent hashing (minimal remap when nodes change)", "Random with full remap", "DNS"], "answer": 1, "explain": "Consistent hashing spreads keys and moves only ~1/N of them when the node set changes."},
+        {"q": "When a cache node runs out of memory, it applies:", "options": ["No policy", "An eviction policy like LRU/LFU (and TTL expiry)", "Sharding", "Replication"], "answer": 1, "explain": "Eviction (LRU/LFU) and TTLs decide what to remove when the cache is full."},
+        {"q": "Cache node failures are tolerated via:", "options": ["Nothing", "Replicating each shard to other nodes", "Bigger keys", "A CDN"], "answer": 1, "explain": "Replicas of a shard let the cache survive a node failure without losing that data."}
+      ]
+    },
+    "u:sd-42-design-a-key-value-store": {
+      "title": "Design a Key-Value Store",
+      "summary": "A distributed KV store: consistent hashing, replication, quorums, and conflict handling.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: store key→value at scale (like DynamoDB/Cassandra), with high availability, partition tolerance, and tunable consistency."},
+        {"t": "points", "items": [
+          "**Partitioning**: **consistent hashing** ring assigns keys to nodes.",
+          "**Replication**: each key replicated to N nodes (the next N on the ring) for durability/availability.",
+          "**Quorums**: tunable **R** (read) and **W** (write) replicas; **R + W > N** gives strong consistency, smaller values favour availability/latency.",
+          "**Conflict resolution**: for concurrent writes, use **vector clocks** / last-write-wins to detect/resolve conflicts (AP systems)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The Dynamo-style recipe: consistent hashing (partition) + N-way replication + **quorum reads/writes** (R + W > N ⇒ strong consistency, else eventual) + conflict resolution (vector clocks). Tuning R/W trades consistency against latency/availability — the CAP dial in practice."}
+      ],
+      "mcqs": [
+        {"q": "In a quorum-based KV store with N replicas, strong consistency is guaranteed when:", "options": ["R + W <= N", "R + W > N", "R = 1 and W = 1", "N = 1"], "answer": 1, "explain": "R + W > N ensures read and write quorums overlap, so a read sees the latest write."},
+        {"q": "Keys are assigned to nodes using:", "options": ["A single master", "Consistent hashing on a ring", "Round robin", "DNS"], "answer": 1, "explain": "Consistent hashing distributes keys and replicates each to the next N nodes on the ring."},
+        {"q": "Concurrent conflicting writes in an AP key-value store are handled with:", "options": ["Global locks", "Vector clocks / last-write-wins conflict resolution", "Two-phase commit", "A CDN"], "answer": 1, "explain": "AP stores detect concurrent versions (vector clocks) and resolve them (e.g. LWW) rather than blocking."}
+      ]
+    },
+    "u:sd-43-design-a-distributed-message-queue": {
+      "title": "Design a Distributed Message Queue",
+      "summary": "A partitioned, replicated log (Kafka-style) with ordering, offsets, and delivery guarantees.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "Requirements: durably accept messages from producers and deliver to consumers at high throughput, with ordering and fault tolerance (like Kafka)."},
+        {"t": "points", "items": [
+          "**Partitioned log**: a topic is split into **partitions**; each is an append-only, ordered log. Partitioning gives horizontal scale (order is guaranteed only within a partition).",
+          "**Offsets**: consumers track their position (offset) per partition and can replay by rewinding.",
+          "**Replication**: each partition replicated across brokers (a leader + followers) for durability; a leader handles reads/writes.",
+          "**Consumer groups**: partitions are split across a group so consumers scale; delivery is typically **at-least-once** (consumers must be idempotent)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Kafka-style design: **partitioned append-only logs** (scale + per-partition ordering), **consumer-tracked offsets** (replay), and **partition replication** (durability). Ordering is only within a partition, and at-least-once delivery means consumers should be idempotent."}
+      ],
+      "mcqs": [
+        {"q": "In a partitioned message log, message ordering is guaranteed:", "options": ["Globally across all partitions", "Only within a single partition", "Never", "Only for one consumer"], "answer": 1, "explain": "Each partition is an ordered log; there's no total order across partitions."},
+        {"q": "Consumers track their read position using:", "options": ["A timestamp only", "An offset per partition (enabling replay)", "A DNS record", "The message size"], "answer": 1, "explain": "Offsets let consumers know where they are and rewind to reprocess messages."},
+        {"q": "Durability of messages is provided by:", "options": ["A single broker", "Replicating each partition across multiple brokers", "A CDN", "Client caching"], "answer": 1, "explain": "Partition replication (leader + followers) survives broker failures without losing messages."}
+      ]
+    },
+    "u:sd-44-design-a-logging-metrics-system": {
+      "title": "Design a Logging/Metrics system",
+      "summary": "Ingest huge volumes of logs/metrics via a pipeline into time-series and search stores.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "Requirements: collect logs and metrics from thousands of services, store and query them, alert on problems. Extremely write-heavy."},
+        {"t": "points", "items": [
+          "**Ingestion pipeline**: agents ship logs/metrics → a **buffer (Kafka)** → processors → storage. The queue absorbs bursts and decouples producers from storage.",
+          "**Storage**: **time-series DB** (Prometheus/InfluxDB) for metrics; a search store (Elasticsearch) for logs. Both optimised for write throughput and time-range queries.",
+          "**Aggregation & retention**: downsample/roll up old data; expire raw data by TTL to control cost.",
+          "**Alerting**: rules evaluate metrics and fire notifications; dashboards visualise."
+        ]},
+        {"t": "callout", "style": "key", "text": "It's a **write-heavy ingestion pipeline**: buffer with a queue (Kafka) to absorb spikes, store metrics in a time-series DB and logs in a search index, then downsample + expire old data to manage cost. Alerting runs on top."}
+      ],
+      "mcqs": [
+        {"q": "A logging/metrics system is characterised as:", "options": ["Read-heavy", "Write-heavy (huge ingest volume)", "Compute-only", "Latency-insensitive"], "answer": 1, "explain": "Thousands of services emit constant logs/metrics, making ingestion write-heavy."},
+        {"q": "A message queue (e.g. Kafka) in the ingestion pipeline serves to:", "options": ["Store data permanently", "Buffer bursts and decouple producers from storage", "Render dashboards", "Encrypt logs"], "answer": 1, "explain": "The queue absorbs spikes and lets storage consume at its own pace, decoupling the two."},
+        {"q": "Metrics are typically stored in a:", "options": ["Relational OLTP database", "Time-series database optimised for time-range queries", "CDN", "Object store only"], "answer": 1, "explain": "Time-series databases handle high-volume timestamped data and time-range queries efficiently."}
+      ]
+    },
+    "u:sd-13-pub-sub-pattern": {
+      "title": "Pub-Sub Pattern",
+      "summary": "Publishers broadcast to topics; many subscribers receive independently — total decoupling.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "In **publish-subscribe (pub-sub)**, publishers send messages to **topics** without knowing who consumes them; subscribers register interest in topics and receive matching messages. A broker fans messages out to all subscribers."},
+        {"t": "points", "items": [
+          "**One-to-many**: one published message reaches every subscriber of that topic.",
+          "Fully decoupled — publishers and subscribers don't know each other; you can add subscribers without touching publishers.",
+          "Contrast with a queue (point-to-point, one consumer gets each message). Pub-sub broadcasts."
+        ]},
+        {"t": "callout", "style": "key", "text": "Pub-sub differs from a work queue: a queue delivers each message to ONE consumer (load sharing); pub-sub delivers each message to ALL subscribers (fan-out). It powers event-driven architectures and notifications."}
+      ],
+      "mcqs": [
+        {"q": "In pub-sub, a published message is delivered to:", "options": ["Exactly one consumer", "All subscribers of the topic", "The publisher", "No one"], "answer": 1, "explain": "Pub-sub fans out each message to every subscriber of the topic (one-to-many)."},
+        {"q": "How does pub-sub differ from a point-to-point queue?", "options": ["No difference", "A queue gives each message to one consumer; pub-sub broadcasts to all subscribers", "Pub-sub has one subscriber", "Queues broadcast"], "answer": 1, "explain": "Queues load-share (one consumer per message); pub-sub broadcasts to all interested subscribers."},
+        {"q": "A key benefit of pub-sub is:", "options": ["Tight coupling", "Publishers and subscribers are decoupled; subscribers can be added independently", "Only one subscriber allowed", "Synchronous calls"], "answer": 1, "explain": "Publishers don't know their subscribers, so consumers can be added/removed freely."}
+      ]
+    },
+    "u:sd-14-rate-limiting": {
+      "title": "Rate Limiting",
+      "summary": "Cap request rates to protect services — token bucket is the go-to algorithm.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Rate limiting** caps how many requests a client can make in a time window, protecting services from abuse, overload, and runaway costs."},
+        {"t": "table", "headers": ["Algorithm", "Idea", "Trait"], "rows": [
+          ["Token bucket", "Tokens refill at a rate; each request spends one", "Allows bursts; most popular"],
+          ["Leaky bucket", "Requests drain at a fixed rate", "Smooths output, no bursts"],
+          ["Fixed window", "Count per fixed window", "Simple; boundary burst issue"],
+          ["Sliding window log/counter", "Rolling window", "Accurate; more state"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Token bucket is the standard answer: refill tokens steadily, allow a request if a token is available — enforcing an average rate while permitting controlled bursts. At scale, store counters in Redis (shared across servers) so limits are global, not per-instance."}
+      ],
+      "mcqs": [
+        {"q": "The token bucket algorithm permits bursts because:", "options": ["It queues requests", "Accumulated tokens (up to capacity) can be spent quickly", "It has no limit", "It uses fixed windows"], "answer": 1, "explain": "Unused tokens accumulate up to the bucket size, allowing a burst while refill enforces the average rate."},
+        {"q": "The fixed-window counter's weakness is:", "options": ["It is too accurate", "Bursts across the window boundary can allow up to 2x the limit", "It cannot count", "It needs no state"], "answer": 1, "explain": "Requests at the end of one window and start of the next both count separately, briefly doubling throughput."},
+        {"q": "For rate limiting across many servers, counters are best stored in:", "options": ["Each server's memory", "A shared store like Redis for a global limit", "The client", "A CDN"], "answer": 1, "explain": "Per-instance counters let a client exceed the global limit; a shared store enforces it across all servers."}
+      ]
+    },
+    "u:sd-15-api-gateway": {
+      "title": "API Gateway",
+      "summary": "A single entry point that routes to services and centralises cross-cutting concerns.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "An **API Gateway** is a single entry point in front of backend services (especially microservices). Clients call the gateway, which routes each request to the right service and handles cross-cutting concerns."},
+        {"t": "points", "items": [
+          "**Routing** requests to the correct microservice.",
+          "**Cross-cutting concerns** in one place: authentication, rate limiting, SSL termination, logging/metrics, caching, request/response transformation.",
+          "**Aggregation** — combine responses from several services into one (reducing client round trips)."
+        ]},
+        {"t": "callout", "style": "key", "text": "The gateway centralises what would otherwise be duplicated in every service — auth, rate limiting, logging — and gives clients one endpoint instead of many. Risk: it can become a bottleneck or single point of failure, so run it redundantly."},
+        {"t": "callout", "style": "tip", "text": "Don't confuse it with a load balancer: an LB spreads traffic across identical servers; a gateway routes to different services and adds application-layer logic."}
+      ],
+      "mcqs": [
+        {"q": "An API gateway's primary role is to:", "options": ["Store data", "Be a single entry point that routes requests and handles cross-cutting concerns", "Replace the database", "Cache DNS"], "answer": 1, "explain": "It routes to backend services and centralises auth, rate limiting, logging, etc."},
+        {"q": "Which is a typical API-gateway responsibility?", "options": ["Running business logic for every service", "Authentication, rate limiting, and SSL termination", "Sharding the database", "DNS resolution"], "answer": 1, "explain": "Cross-cutting concerns like auth, rate limiting, and TLS termination are handled centrally at the gateway."},
+        {"q": "A risk of an API gateway is that it:", "options": ["Reduces routing", "Can become a bottleneck or single point of failure if not made redundant", "Removes microservices", "Slows only reads"], "answer": 1, "explain": "As the single entry point, it must be scaled and made highly available to avoid being a SPOF."}
+      ]
+    },
+    "u:sd-16-proxy-forward-reverse": {
+      "title": "Proxy (Forward & Reverse)",
+      "summary": "A forward proxy fronts clients; a reverse proxy fronts servers.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "table", "headers": ["", "Forward proxy", "Reverse proxy"], "rows": [
+          ["Sits in front of", "Clients", "Servers"],
+          ["Represents", "The client to the internet", "The server(s) to clients"],
+          ["Uses", "Filtering, caching, anonymity (client-side)", "Load balancing, SSL termination, caching, security (server-side)"],
+          ["Client aware of it?", "Yes (configured)", "No (transparent)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Direction is the distinguisher: a **forward** proxy acts on behalf of clients (hides/represents them, e.g. corporate web filter); a **reverse** proxy acts on behalf of servers (clients think they're talking to the server, e.g. Nginx doing TLS termination and load balancing). Reverse proxies are core to web architecture."}
+      ],
+      "mcqs": [
+        {"q": "A reverse proxy sits in front of:", "options": ["Clients", "Servers, representing them to clients", "The database only", "The DNS"], "answer": 1, "explain": "A reverse proxy fronts servers, handling load balancing, TLS termination, and caching transparently to clients."},
+        {"q": "A forward proxy typically represents:", "options": ["The server to clients", "The client to the internet (e.g. corporate filtering/anonymity)", "The database", "The CDN"], "answer": 1, "explain": "A forward proxy acts on behalf of clients, used for filtering, caching, or anonymity."},
+        {"q": "Which is a common reverse-proxy function?", "options": ["Client anonymity", "Load balancing and SSL termination for backend servers", "Client-side filtering", "DNS caching only"], "answer": 1, "explain": "Reverse proxies distribute traffic to servers and terminate TLS, among other server-side duties."}
+      ]
+    },
+    "u:sd-17-monolith-vs-microservices": {
+      "title": "Monolith vs Microservices",
+      "summary": "One deployable unit vs many independent services — a trade-off of simplicity vs flexibility.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["", "Monolith", "Microservices"], "rows": [
+          ["Structure", "One codebase / deployable", "Many small independent services"],
+          ["Deploy", "All together", "Each independently"],
+          ["Scaling", "Scale the whole app", "Scale each service separately"],
+          ["Complexity", "Simple to start; hard to scale teams", "Operationally complex (network, monitoring, data)"],
+          ["Failure", "One bug can affect all", "Isolated (with resilience patterns)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Monoliths are simpler to build, test, and deploy — the right start for most projects. Microservices enable independent scaling and team autonomy but add heavy operational complexity (distributed transactions, network failures, service discovery, monitoring). Don't adopt microservices prematurely."},
+        {"t": "callout", "style": "warn", "text": "Microservices trade in-process calls for network calls — introducing latency, partial failure, and eventual consistency across services. That complexity is only worth it at scale."}
+      ],
+      "mcqs": [
+        {"q": "A key advantage of microservices is:", "options": ["Simpler deployment", "Independent scaling and deployment of each service", "No network calls", "Guaranteed consistency"], "answer": 1, "explain": "Each service scales and deploys independently, enabling team autonomy — at the cost of operational complexity."},
+        {"q": "A monolith is often the better choice when:", "options": ["The system is at massive scale", "The project is early/small and simplicity matters", "You need per-service scaling", "You have hundreds of teams"], "answer": 1, "explain": "Monoliths are simpler to build and operate; microservices' complexity pays off mainly at scale."},
+        {"q": "Microservices introduce which challenge absent in a monolith?", "options": ["In-process calls", "Distributed concerns: network failures, latency, and cross-service consistency", "A single codebase", "Simple transactions"], "answer": 1, "explain": "Splitting into services turns local calls into network calls with partial failure and eventual consistency."}
+      ]
+    },
+    "u:sd-18-blob-object-storage": {
+      "title": "Blob / Object Storage",
+      "summary": "Store large unstructured files (images, video, backups) cheaply and at massive scale.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "**Object (blob) storage** (S3, GCS, Azure Blob) stores large **unstructured** files as objects with metadata, accessed via a key/URL over HTTP. It's built for scale, durability, and low cost — not for relational queries."},
+        {"t": "points", "items": [
+          "Ideal for **images, videos, backups, logs, static assets** — anything large and file-like.",
+          "**Flat namespace** (key → object), massively scalable, very durable (data replicated across zones).",
+          "Often paired with a **CDN** for fast delivery, and a database stores just the object's URL/metadata."
+        ]},
+        {"t": "callout", "style": "key", "text": "Don't store large files (images/video) in a relational database — store them in object storage and keep only the URL/metadata in the DB. Object storage is cheap, durable, and scales to petabytes; databases are for structured, queryable data."}
+      ],
+      "mcqs": [
+        {"q": "Object/blob storage is designed for:", "options": ["Relational queries", "Large unstructured files (images, video, backups)", "Transactions", "Indexing"], "answer": 1, "explain": "It stores big file-like objects at scale, accessed by key/URL — not for structured queries."},
+        {"q": "Where should a large user-uploaded video be stored?", "options": ["In the relational database as a blob column", "In object storage, with the URL/metadata kept in the database", "In the cache", "In DNS"], "answer": 1, "explain": "Store the file in object storage (cheap, durable, scalable) and reference it by URL from the DB."},
+        {"q": "Object storage is commonly paired with a CDN to:", "options": ["Add transactions", "Deliver the stored content quickly to users from the edge", "Index the files", "Shard the data"], "answer": 1, "explain": "A CDN caches objects at the edge for low-latency delivery and to offload the origin store."}
+      ]
+    },
+    "u:sd-19-bloom-filters": {
+      "title": "Bloom Filters",
+      "summary": "A tiny probabilistic structure that answers 'definitely not present' or 'maybe present'.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **Bloom filter** is a space-efficient probabilistic data structure that tests set membership. It can have **false positives** ('maybe present') but **never false negatives** ('definitely not present')."},
+        {"t": "points", "items": [
+          "A bit array + k hash functions. Adding an item sets k bits; checking tests those k bits.",
+          "If any of the k bits is 0 → **definitely not in the set**. If all are 1 → **probably in the set** (could be a false positive).",
+          "Cannot delete items (standard version); false-positive rate rises as it fills."
+        ]},
+        {"t": "callout", "style": "key", "text": "The killer use: avoid expensive lookups. Before a costly disk/DB/network check, a Bloom filter cheaply rules out definitely-absent keys — e.g. 'is this username taken?', or databases (Cassandra/HBase) skipping disk reads for keys not present. Tiny memory, no false negatives."}
+      ],
+      "mcqs": [
+        {"q": "A Bloom filter can produce:", "options": ["False negatives but not false positives", "False positives but never false negatives", "Neither error", "Both, unpredictably"], "answer": 1, "explain": "If it says 'not present' it's certain; if it says 'present' it might be a false positive."},
+        {"q": "A primary use of a Bloom filter is to:", "options": ["Store the full dataset", "Cheaply rule out definitely-absent items before an expensive lookup", "Sort data", "Encrypt keys"], "answer": 1, "explain": "It quickly filters out keys that are definitely not in the set, avoiding costly disk/DB checks."},
+        {"q": "In a standard Bloom filter, if any of an item's hashed bits is 0, the item is:", "options": ["Definitely in the set", "Definitely NOT in the set", "Possibly in the set", "Corrupt"], "answer": 1, "explain": "A 0 in any relevant bit means the item was never added — a guaranteed 'not present'."}
+      ]
+    },
+    "u:sd-20-leader-election-consensus-raft-paxos": {
+      "title": "Leader Election & Consensus (Raft / Paxos)",
+      "summary": "How distributed nodes agree on a value or a single leader despite failures.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Consensus** algorithms let a cluster of nodes agree on a single value (or ordered log) even when some nodes fail — the foundation of coordination in distributed systems. **Leader election** picks one node to coordinate."},
+        {"t": "points", "items": [
+          "**Raft** — designed for understandability: elects a **leader** that handles all writes and replicates a log to followers; a new leader is elected via timeouts and majority votes if the leader fails.",
+          "**Paxos** — the classic (harder to grasp) consensus algorithm Raft simplified.",
+          "**Quorum**: a majority (more than half) must agree, so the system tolerates failures of a minority (f failures need 2f+1 nodes)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Consensus requires a **majority quorum** to agree, which is why clusters have odd numbers of nodes (3, 5) — a 5-node cluster survives 2 failures. Raft (leader-based, replicated log) is the widely-used practical choice (etcd, Consul); Paxos is the theoretical ancestor."}
+      ],
+      "mcqs": [
+        {"q": "Consensus algorithms like Raft require agreement from:", "options": ["All nodes", "A majority quorum of nodes", "One node", "No nodes"], "answer": 1, "explain": "A majority must agree, letting the system tolerate a minority of failures."},
+        {"q": "A 5-node Raft cluster can tolerate how many node failures while staying available?", "options": ["4", "2", "3", "5"], "answer": 1, "explain": "It needs a majority (3 of 5), so it survives 2 failures (2f+1 nodes tolerate f failures)."},
+        {"q": "In Raft, writes are handled by:", "options": ["Any node", "The elected leader, which replicates the log to followers", "The client directly", "A random follower"], "answer": 1, "explain": "Raft funnels writes through a single leader that replicates an ordered log to followers."}
+      ]
+    },
+    "u:sd-21-distributed-transactions-2pc-saga": {
+      "title": "Distributed Transactions (2PC & Saga)",
+      "summary": "Keeping data consistent across services — blocking two-phase commit vs compensating sagas.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "When a transaction spans multiple services/databases, you need a way to keep them consistent. Two approaches:"},
+        {"t": "table", "headers": ["", "Two-Phase Commit (2PC)", "Saga"], "rows": [
+          ["Style", "Synchronous, strong consistency", "Async sequence of local transactions"],
+          ["How", "Coordinator: prepare → commit/abort all", "Each step commits; failures trigger compensating actions"],
+          ["Downside", "Blocking; coordinator is a SPOF; slow", "Complex compensation logic; only eventual consistency"]
+        ]},
+        {"t": "callout", "style": "key", "text": "**2PC** gives atomic all-or-nothing across nodes but is **blocking** (participants hold locks awaiting the coordinator) and doesn't scale well. **Saga** breaks the work into local transactions with **compensating transactions** to undo on failure — non-blocking and scalable, but only eventually consistent. Microservices favour sagas."},
+        {"t": "callout", "style": "tip", "text": "Saga compensation example: if 'charge payment' succeeds but 'reserve inventory' fails, run a compensating 'refund payment' step."}
+      ],
+      "mcqs": [
+        {"q": "The main drawback of two-phase commit (2PC) is:", "options": ["It is non-blocking", "It blocks participants (holding locks) and the coordinator is a single point of failure", "It gives only eventual consistency", "It needs no coordinator"], "answer": 1, "explain": "2PC's synchronous prepare/commit makes participants wait and hold resources, and the coordinator is a SPOF."},
+        {"q": "A Saga handles failures by:", "options": ["Rolling back everything atomically", "Running compensating transactions to undo completed steps", "Blocking all services", "Ignoring the failure"], "answer": 1, "explain": "Each local step has a compensating action to reverse it, providing eventual consistency without global locks."},
+        {"q": "Microservices typically prefer sagas over 2PC because sagas are:", "options": ["Strongly consistent and blocking", "Non-blocking and scalable (at the cost of only eventual consistency)", "Simpler to reason about", "Coordinator-based"], "answer": 1, "explain": "Sagas avoid distributed locking, scaling better for microservices, though they give eventual consistency."}
+      ]
+    },
+    "u:sd-22-idempotency": {
+      "title": "Idempotency",
+      "summary": "Design operations so repeating them has the same effect as doing them once — safe retries.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "An **idempotent** operation produces the **same result whether performed once or many times**. This is essential in distributed systems where retries (after timeouts/failures) can cause duplicate requests."},
+        {"t": "points", "items": [
+          "**GET, PUT, DELETE** are naturally idempotent; **POST** usually is not (each call creates a new resource).",
+          "Make writes idempotent with an **idempotency key**: the client sends a unique key; the server records it and ignores/returns the same result for duplicates.",
+          "Critical for payments (don't double-charge), message processing (at-least-once delivery), and any retryable request."
+        ]},
+        {"t": "callout", "style": "key", "text": "Idempotency makes retries safe. Since networks fail and clients retry, a 'charge card' request must not double-charge if sent twice — an idempotency key deduplicates it. It's the practical answer to at-least-once delivery."}
+      ],
+      "mcqs": [
+        {"q": "An idempotent operation:", "options": ["Fails on retry", "Produces the same result whether run once or multiple times", "Cannot be repeated", "Always creates new data"], "answer": 1, "explain": "Repeating it has no additional effect, making retries safe."},
+        {"q": "To make a payment API safe against duplicate requests, use:", "options": ["A faster server", "An idempotency key so duplicates return the same result without re-charging", "No retries ever", "A larger database"], "answer": 1, "explain": "The server records the idempotency key and deduplicates repeated requests, preventing double charges."},
+        {"q": "Which HTTP method is generally NOT idempotent?", "options": ["GET", "PUT", "DELETE", "POST"], "answer": 3, "explain": "POST typically creates a new resource each call; GET/PUT/DELETE are idempotent."}
+      ]
+    },
+    "u:sd-23-websockets-vs-long-polling-vs-sse": {
+      "title": "WebSockets vs Long Polling vs SSE",
+      "summary": "Techniques for real-time server-to-client updates, from polling to full-duplex sockets.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["Technique", "How", "Direction"], "rows": [
+          ["Long polling", "Server holds the request open until data is ready", "Client-pull"],
+          ["SSE", "Server streams events over one long-lived HTTP response", "Server→client"],
+          ["WebSocket", "Persistent full-duplex TCP connection (HTTP upgrade)", "Bidirectional"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Pick by need: **long polling** as a simple fallback; **SSE** for one-way server→client streams (notifications, live feeds) — lightweight and auto-reconnecting; **WebSockets** for true bidirectional real-time (chat, multiplayer, collaborative editing). WebSockets cost a persistent connection per client, which affects server scaling."}
+      ],
+      "mcqs": [
+        {"q": "WebSockets provide:", "options": ["One-way updates only", "A persistent, full-duplex (bidirectional) connection", "Only request-response", "No connection"], "answer": 1, "explain": "WebSockets keep one connection open for two-way real-time communication."},
+        {"q": "Server-Sent Events (SSE) are best for:", "options": ["Bidirectional chat", "One-way server-to-client streaming (feeds, notifications)", "File uploads", "DNS"], "answer": 1, "explain": "SSE streams events from server to client over a single HTTP connection — one-directional."},
+        {"q": "A scaling consideration for WebSockets is:", "options": ["They use no connections", "Each client holds a persistent connection, affecting server memory/scaling", "They can't be load balanced", "They only work on LANs"], "answer": 1, "explain": "Maintaining a persistent connection per client constrains how many a server can hold."}
+      ]
+    },
+    "u:sd-24-back-of-the-envelope-estimation": {
+      "title": "Back-of-the-Envelope Estimation",
+      "summary": "Quick capacity math to size a system: QPS, storage, and bandwidth.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Estimation** turns vague requirements into rough numbers that drive design decisions (how many servers, how much storage). Interviewers expect quick, reasonable math — not precision."},
+        {"t": "h", "text": "Useful anchors"},
+        {"t": "points", "items": [
+          "**QPS**: daily requests / 86,400 (~10^5 seconds/day). Peak ≈ 2-3× average.",
+          "**Storage**: items/day × size/item × retention (days). Multiply by replication factor.",
+          "**Read:write ratio** shapes the design (read-heavy → caching/replicas; write-heavy → sharding/queues)."
+        ]},
+        {"t": "h", "text": "Handy powers of 2 / 10"},
+        {"t": "table", "headers": ["Value", "Approx"], "rows": [
+          ["1 day", "~86,400 s (~10^5)"],
+          ["KB / MB / GB / TB", "10^3 / 10^6 / 10^9 / 10^12 bytes"],
+          ["1 million/day", "~12 QPS average"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The method: estimate QPS (daily/86400, ×peak factor), storage (volume × retention × replication), and bandwidth. These numbers justify choices — 'we need caching because reads are 100× writes at 50k QPS'. State assumptions out loud."}
+      ],
+      "mcqs": [
+        {"q": "To estimate average QPS from daily requests, divide by roughly:", "options": ["3,600", "86,400 (seconds per day)", "1,000,000", "60"], "answer": 1, "explain": "There are ~86,400 seconds in a day, so daily requests / 86,400 ≈ average QPS."},
+        {"q": "Peak QPS is commonly estimated as:", "options": ["Equal to average", "About 2-3x the average", "10x lower than average", "Irrelevant"], "answer": 1, "explain": "Traffic peaks above the average, so multiplying by ~2-3 estimates peak load."},
+        {"q": "A high read:write ratio suggests emphasising:", "options": ["Sharding for writes", "Caching and read replicas", "Message queues only", "Smaller storage"], "answer": 1, "explain": "Read-heavy systems benefit from caches and replicas; write-heavy ones lean on sharding/queues."}
+      ]
+    },
+    "u:sd-25-availability-reliability-slas": {
+      "title": "Availability, Reliability & SLAs",
+      "summary": "The 'nines' of uptime and the promises (SLA/SLO/SLI) a service makes.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Availability** = the fraction of time a system is operational, expressed in 'nines'. **Reliability** = it works correctly (not just up). These are backed by service promises."},
+        {"t": "table", "headers": ["Availability", "Downtime per year"], "rows": [
+          ["99% (two nines)", "~3.65 days"],
+          ["99.9% (three nines)", "~8.8 hours"],
+          ["99.99% (four nines)", "~52 minutes"],
+          ["99.999% (five nines)", "~5 minutes"]
+        ]},
+        {"t": "points", "items": [
+          "**SLA** (Agreement) — the contractual promise to customers (with penalties).",
+          "**SLO** (Objective) — the internal target (e.g. 99.9% availability).",
+          "**SLI** (Indicator) — the actual measured metric.",
+          "Availability is raised via **redundancy** (no single point of failure), **failover**, and **replication**."
+        ]},
+        {"t": "callout", "style": "key", "text": "Each extra 'nine' cuts downtime ~10× and costs much more (more redundancy). Know that four nines ≈ under an hour/year. SLA (promise) ⊃ SLO (target) measured by SLIs. Eliminating single points of failure is the core availability technique."}
+      ],
+      "mcqs": [
+        {"q": "'Four nines' (99.99%) availability allows roughly how much downtime per year?", "options": ["8.8 hours", "52 minutes", "5 minutes", "3.65 days"], "answer": 1, "explain": "99.99% permits about 52 minutes of downtime per year; each extra nine reduces it ~10×."},
+        {"q": "An SLA is:", "options": ["An internal target", "The contractual availability promise to customers (with penalties)", "A measured metric", "A load balancer"], "answer": 1, "explain": "The SLA is the external agreement; the SLO is the internal target and the SLI is the measured indicator."},
+        {"q": "The core technique to increase availability is:", "options": ["Fewer servers", "Redundancy and eliminating single points of failure", "Bigger databases", "Disabling failover"], "answer": 1, "explain": "Redundant components with failover prevent any single failure from causing an outage."}
+      ]
+    },
+    "u:sd-0-client-server-network-basics": {
+      "title": "Client-Server & Network basics",
+      "summary": "The request/response foundation every system is built on, plus the latency numbers to know.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "In the **client-server** model, clients send requests and servers process them and respond. Most systems layer on this: browser/app (client) → load balancer → application servers → databases/caches."},
+        {"t": "points", "items": [
+          "Communication is over the network via protocols (HTTP/HTTPS, gRPC, WebSockets).",
+          "**Latency** (delay) and **throughput** (requests/sec) are the two headline performance metrics.",
+          "Know rough **latency numbers**: memory ~100 ns, SSD ~100 us, network round trip within a datacentre ~0.5 ms, cross-continent ~100+ ms."
+        ]},
+        {"t": "callout", "style": "key", "text": "Everything in system design is a variation on request→process→respond, with layers (LB, app, cache, DB) added for scale and reliability. Reasoning about where latency comes from (disk vs memory vs network) guides every optimisation."},
+        {"t": "callout", "style": "tip", "text": "Memorise the orders of magnitude: RAM is ~1000x faster than SSD, and a cross-country network hop dwarfs both — which is why caching and locality matter so much."}
+      ],
+      "mcqs": [
+        {"q": "In the client-server model, the server's role is to:", "options": ["Only display data", "Process requests and return responses", "Generate network cables", "Cache on the client"], "answer": 1, "explain": "Servers receive requests, do work (compute, DB access), and send responses back to clients."},
+        {"q": "Roughly, which is fastest to access?", "options": ["SSD", "Main memory (RAM)", "Cross-continent network", "Spinning disk"], "answer": 1, "explain": "RAM (~100ns) is far faster than SSD (~100us) or any network round trip — the basis for caching."},
+        {"q": "The two headline performance metrics for a system are:", "options": ["Colour and size", "Latency and throughput", "Ports and IPs", "Rows and columns"], "answer": 1, "explain": "Latency (per-request delay) and throughput (requests handled per second) characterise performance."}
+      ]
+    },
+    "u:sd-1-scalability-vertical-vs-horizontal": {
+      "title": "Scalability: Vertical vs Horizontal",
+      "summary": "Bigger machine vs more machines — the fundamental scaling choice.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["", "Vertical (scale up)", "Horizontal (scale out)"], "rows": [
+          ["Method", "Add CPU/RAM to one server", "Add more servers"],
+          ["Ceiling", "Hardware limit", "Near-unlimited"],
+          ["Failure", "Single point of failure", "Redundant"],
+          ["Complexity", "Simple", "Needs load balancing + distributed state"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Vertical scaling is simplest but capped and a single point of failure; horizontal scaling is how large systems grow — effectively unlimited and fault-tolerant, but requires load balancing and handling distributed/stateless design. Horizontal is far easier when servers are stateless."},
+        {"t": "callout", "style": "tip", "text": "Keep application servers stateless (session/state in a shared cache/DB) so any request can hit any server — the enabler of easy horizontal scaling and auto-scaling."}
+      ],
+      "mcqs": [
+        {"q": "Horizontal scaling means:", "options": ["Upgrading one server's hardware", "Adding more servers to share load", "Deleting servers", "Using a faster CPU"], "answer": 1, "explain": "Scaling out adds machines; scaling up (vertical) enlarges a single machine."},
+        {"q": "A key limitation of vertical scaling is:", "options": ["Too many servers", "A hardware ceiling and single point of failure", "It needs a load balancer", "It is fault-tolerant"], "answer": 1, "explain": "One machine can only grow so far, and its failure takes down the service."},
+        {"q": "Horizontal scaling is easiest when application servers are:", "options": ["Stateful", "Stateless (state kept in a shared store)", "On one machine", "Vertical"], "answer": 1, "explain": "Statelessness lets any server handle any request, so adding machines is straightforward."}
+      ]
+    },
+    "u:sd-2-load-balancing-algorithms": {
+      "title": "Load Balancing & Algorithms",
+      "summary": "Distribute requests across servers for scale and availability, using a selection algorithm.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **load balancer** spreads traffic across backend servers, improving throughput and availability (routing around failed servers via health checks)."},
+        {"t": "table", "headers": ["Algorithm", "Picks the server by"], "rows": [
+          ["Round robin", "Next in rotation"],
+          ["Weighted round robin", "Rotation biased to bigger servers"],
+          ["Least connections", "Fewest active connections"],
+          ["Least response time", "Fastest to respond"],
+          ["IP hash / consistent hash", "Hash of client IP (stickiness)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "L4 load balancers route by IP/port (fast); L7 route by application data (URL, headers). Health checks provide availability by removing dead servers. Use least-connections for uneven request costs; consistent hashing for session affinity."}
+      ],
+      "mcqs": [
+        {"q": "A load balancer improves availability by:", "options": ["Storing data", "Using health checks to stop routing to failed servers", "Encrypting traffic", "Reducing servers"], "answer": 1, "explain": "Health checks let it route around unhealthy servers so failures don't cause outages."},
+        {"q": "Layer 7 load balancing can route based on:", "options": ["Only IP and port", "Application data like URL path and headers", "CPU temperature", "MAC address"], "answer": 1, "explain": "L7 sees HTTP details, enabling content-based routing; L4 only sees transport info."},
+        {"q": "The 'least connections' algorithm sends a new request to the server with:", "options": ["The most connections", "The fewest active connections", "The lowest IP", "A random pick"], "answer": 1, "explain": "It balances by current load, favouring the least busy server."}
+      ]
+    },
+    "u:sd-3-caching-cache-eviction-lru-lfu": {
+      "title": "Caching & Cache Eviction (LRU/LFU)",
+      "summary": "Store hot data in fast storage, and evict wisely when full.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Caching** keeps frequently used data in fast storage (memory, Redis, CDN) to cut latency and backend load. When the cache is full, an **eviction policy** decides what to remove."},
+        {"t": "table", "headers": ["Policy", "Evicts"], "rows": [
+          ["LRU (Least Recently Used)", "The item unused longest — assumes recent = future use"],
+          ["LFU (Least Frequently Used)", "The item accessed least often"],
+          ["FIFO", "The oldest inserted item"],
+          ["TTL", "Items past their time-to-live"]
+        ]},
+        {"t": "callout", "style": "key", "text": "LRU is the default for most caches (good for temporal locality). LFU keeps popular items longer but can hold stale 'once-popular' data. Cache writes strategies (cache-aside, write-through, write-back) and invalidation are the other half of caching design."},
+        {"t": "callout", "style": "warn", "text": "Watch for cache stampede: when a hot key expires, many requests hit the DB at once. Mitigate with locks, staggered TTLs, or stale-while-revalidate."}
+      ],
+      "mcqs": [
+        {"q": "The LRU eviction policy removes:", "options": ["The most recently used item", "The least recently used item", "A random item", "The largest item"], "answer": 1, "explain": "LRU evicts the item unused for the longest time, assuming recent use predicts future use."},
+        {"q": "LFU differs from LRU by evicting based on:", "options": ["Insertion time", "Access frequency (least frequently used)", "Item size", "Random choice"], "answer": 1, "explain": "LFU tracks how often items are accessed and evicts the least frequently used."},
+        {"q": "A cache stampede occurs when:", "options": ["The cache is empty at startup", "A hot key expires and many requests hit the backend simultaneously", "The cache never expires", "LRU is used"], "answer": 1, "explain": "Simultaneous misses on an expired popular key flood the backend; locks/staggered TTLs mitigate it."}
+      ]
+    },
+    "u:sd-4-cdn-content-delivery-network": {
+      "title": "CDN (Content Delivery Network)",
+      "summary": "Serve static content from edge servers near users to cut latency and origin load.",
+      "minutes": 3,
+      "blocks": [
+        {"t": "p", "text": "A **CDN** is a global network of **edge servers** caching static content (images, video, CSS/JS) close to users, so requests are served nearby instead of from the far origin."},
+        {"t": "points", "items": [
+          "**Lower latency** (shorter distance) and **reduced origin load** (edge absorbs most requests).",
+          "**Availability / DDoS cushioning** via the distributed edge.",
+          "Best for static/cacheable content; uses TTLs and cache invalidation. Push vs pull CDNs differ in how content reaches the edge."
+        ]},
+        {"t": "callout", "style": "key", "text": "A CDN is geographic caching for static assets — the standard answer for delivering images/video/JS at scale with low latency, while shielding the origin. Dynamic per-user content is harder to cache at the edge."}
+      ],
+      "mcqs": [
+        {"q": "A CDN reduces latency by:", "options": ["Compressing the database", "Serving cached content from edge servers near the user", "Adding origin servers", "Encrypting requests"], "answer": 1, "explain": "Edge caching shortens the distance data travels, lowering latency."},
+        {"q": "CDNs are most effective for:", "options": ["Per-user dynamic data", "Static, cacheable content (images, video, CSS/JS)", "Database writes", "Real-time trading"], "answer": 1, "explain": "Static assets cache well at the edge; highly dynamic per-user data is harder to cache."},
+        {"q": "Besides latency, a CDN also:", "options": ["Increases origin load", "Offloads the origin and helps absorb traffic spikes/DDoS", "Slows delivery", "Removes caching"], "answer": 1, "explain": "Serving most requests from the edge reduces origin load and cushions spikes."}
+      ]
+    },
+    "u:sd-5-sql-vs-nosql-choosing-a-db": {
+      "title": "SQL vs NoSQL: choosing a DB",
+      "summary": "Match the datastore to consistency needs, scale, and access patterns.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "table", "headers": ["", "SQL (relational)", "NoSQL"], "rows": [
+          ["Schema", "Fixed, structured", "Flexible"],
+          ["Consistency", "Strong ACID", "Often eventual (tunable)"],
+          ["Scaling", "Vertical / harder to shard", "Horizontal by design"],
+          ["Best for", "Transactions, complex queries/joins", "High scale, flexible data, simple access patterns"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Choose SQL for structured data needing strong consistency and complex queries (payments, orders). Choose NoSQL for massive scale, flexible schemas, or specific access patterns (feeds, catalogs, sessions). It's a fit decision; large systems are often polyglot."},
+        {"t": "callout", "style": "tip", "text": "In an interview, justify the DB choice from the requirements (consistency? scale? query shape?) rather than naming a favourite product."}
+      ],
+      "mcqs": [
+        {"q": "A workload needing strong consistency and complex multi-table joins suits:", "options": ["A key-value store", "A relational (SQL) database", "A CDN", "A message queue"], "answer": 1, "explain": "SQL databases provide ACID transactions and rich joins for structured, consistency-critical data."},
+        {"q": "NoSQL databases are typically chosen for:", "options": ["Complex joins", "Horizontal scalability and flexible/evolving schemas", "Strict ACID above all", "Small structured data only"], "answer": 1, "explain": "NoSQL targets scale and schema flexibility, often trading some consistency and join power."},
+        {"q": "The right SQL vs NoSQL choice is driven by:", "options": ["Whichever is newer", "The workload's consistency, scale, and query requirements", "The programming language", "Personal preference"], "answer": 1, "explain": "It's a requirements-driven fit decision, not a fashion choice."}
+      ]
+    },
+    "u:sd-6-database-indexing": {
+      "title": "Database Indexing",
+      "summary": "Trade write speed and storage for dramatically faster reads on indexed columns.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "An **index** is a data structure (usually a **B+ tree**) that speeds up lookups on a column, turning a full-table scan into a logarithmic search. It's the single biggest lever for query performance."},
+        {"t": "points", "items": [
+          "Great for columns in **WHERE**, **JOIN**, and **ORDER BY** clauses.",
+          "**Costs**: extra storage and slower writes (every write updates the indexes).",
+          "A **composite index** covers multiple columns (order matters — leftmost prefix rule); a **covering index** contains all columns a query needs (index-only scan)."
+        ]},
+        {"t": "callout", "style": "key", "text": "Index read-heavy query paths, not everything: indexes speed reads but slow writes and use space. Low-selectivity columns (few distinct values) and write-heavy tables often don't benefit. Wrapping a column in a function disables its index."}
+      ],
+      "mcqs": [
+        {"q": "Database indexes primarily improve:", "options": ["Write speed", "Read/query speed on the indexed columns", "Storage efficiency", "Backup time"], "answer": 1, "explain": "Indexes turn scans into fast lookups for reads, at the cost of write speed and storage."},
+        {"q": "A cost of adding many indexes is:", "options": ["Faster writes", "Slower writes (each write updates every index) and more storage", "Fewer reads", "Loss of the primary key"], "answer": 1, "explain": "Every insert/update/delete must maintain all indexes, and indexes consume space."},
+        {"q": "Most relational indexes are implemented as:", "options": ["Linked lists", "B+ trees", "Hash tables only", "Arrays"], "answer": 1, "explain": "B+ trees give logarithmic lookups and efficient range scans, the default index structure."}
+      ]
+    },
+    "u:sd-7-database-replication-master-slave-master-master": {
+      "title": "Database Replication (Master-Slave / Master-Master)",
+      "summary": "Copy data across nodes for read scaling and availability, with different write topologies.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**Replication** keeps copies of data on multiple nodes for **read scaling** and **high availability** (failover)."},
+        {"t": "table", "headers": ["Topology", "Writes", "Trait"], "rows": [
+          ["Master-Slave (primary-replica)", "One primary handles writes; replicas serve reads", "Simple; replicas can lag (eventual consistency)"],
+          ["Master-Master (multi-primary)", "Multiple nodes accept writes", "Higher write availability; risk of write conflicts"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Master-slave scales reads and gives failover but funnels writes to one primary (a bottleneck / single point for writes). Master-master allows writes on multiple nodes (better write availability) but must resolve conflicting concurrent writes. Replicas can lag, so reads may be slightly stale."},
+        {"t": "callout", "style": "warn", "text": "Replication lag means a just-written value may not appear on a replica immediately — handle 'read-your-writes' by reading from the primary when it matters."}
+      ],
+      "mcqs": [
+        {"q": "In master-slave replication, writes go to:", "options": ["Any node", "One primary (master); replicas serve reads", "Only replicas", "The load balancer"], "answer": 1, "explain": "A single primary accepts writes; replicas replicate and serve reads, scaling reads and enabling failover."},
+        {"q": "A challenge unique to master-master replication is:", "options": ["Read scaling", "Resolving conflicting concurrent writes on multiple primaries", "Failover", "Indexing"], "answer": 1, "explain": "Multiple write nodes can accept conflicting writes, requiring conflict resolution."},
+        {"q": "Replication lag can cause:", "options": ["Faster writes", "A recently written value not yet appearing on a replica (stale reads)", "Data loss always", "Index corruption"], "answer": 1, "explain": "Asynchronous replicas may briefly lag, so reads from them can be stale."}
+      ]
+    },
+    "u:sd-8-database-sharding-partitioning": {
+      "title": "Database Sharding & Partitioning",
+      "summary": "Split data across nodes to scale writes and storage — the shard key is everything.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "**Sharding (horizontal partitioning)** splits a large dataset across multiple nodes by a **shard key**, so each node holds a subset — scaling **writes** and **storage**."},
+        {"t": "table", "headers": ["Strategy", "How", "Risk"], "rows": [
+          ["Range-based", "Ranges of the key per shard", "Hotspots if data is skewed"],
+          ["Hash-based", "hash(key) picks the shard", "Even spread, but resharding is hard"],
+          ["Consistent hashing", "Hash ring", "Minimal movement when nodes change"],
+          ["Directory-based", "A lookup table maps keys to shards", "Flexible; the directory is a bottleneck/SPOF"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The shard key is the critical decision: it must spread load evenly (avoid **hotspots**) and keep most queries on a single shard. **Cross-shard queries and transactions** are expensive — a major cost of sharding. Vertical partitioning (splitting columns/tables) is a different technique."},
+        {"t": "callout", "style": "warn", "text": "Choosing a low-cardinality or monotonically increasing shard key (like timestamp) creates hotspots — one shard gets all the recent traffic."}
+      ],
+      "mcqs": [
+        {"q": "Sharding primarily scales:", "options": ["Reads via copies", "Writes and storage by splitting data across nodes", "Availability only", "Nothing"], "answer": 1, "explain": "Each shard holds a subset, distributing write and storage load."},
+        {"q": "The most critical decision in sharding is:", "options": ["The server brand", "Choosing a shard key that avoids hotspots and keeps queries on one shard", "The index type", "The cache size"], "answer": 1, "explain": "A poor shard key causes uneven load (hotspots) and forces expensive cross-shard operations."},
+        {"q": "A major downside of sharding is:", "options": ["Faster single-shard reads", "Cross-shard queries and transactions become complex and slow", "Reduced storage", "Automatic replication"], "answer": 1, "explain": "Operations spanning shards are expensive, so designs try to keep each query within one shard."}
+      ]
+    },
+    "u:sd-9-cap-theorem": {
+      "title": "CAP Theorem",
+      "summary": "During a network partition, choose consistency or availability — not both.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**CAP** says a distributed store can guarantee at most two of **Consistency**, **Availability**, and **Partition tolerance**. Since partitions are unavoidable in real networks, **P is mandatory** — so the real choice during a partition is **C vs A**."},
+        {"t": "table", "headers": ["Choice", "During a partition", "Example"], "rows": [
+          ["CP", "Stay consistent; reject/block some requests", "HBase, etcd, ZooKeeper"],
+          ["AP", "Stay available; may return stale data", "Cassandra, DynamoDB"]
+        ]},
+        {"t": "callout", "style": "key", "text": "The real reading: because partitions happen, you must pick — be consistent (CP, refuse possibly-stale answers) or available (AP, serve, accepting staleness). 'Pick 2 of 3' really means 'pick C or A when P occurs'."}
+      ],
+      "mcqs": [
+        {"q": "During a network partition, CAP forces a choice between:", "options": ["Consistency and Availability", "Speed and storage", "SQL and NoSQL", "Reads and writes"], "answer": 0, "explain": "Partition tolerance is required, so the trade-off during a partition is consistency vs availability."},
+        {"q": "A CP system during a partition will:", "options": ["Serve stale data", "Sacrifice availability to stay consistent (reject some requests)", "Ignore the partition", "Lose durability"], "answer": 1, "explain": "CP prioritises consistency, refusing to serve data it can't guarantee is current."},
+        {"q": "An AP system like Cassandra during a partition:", "options": ["Stops responding", "Stays available but may return stale (eventually consistent) data", "Guarantees the latest write", "Becomes CP"], "answer": 1, "explain": "AP keeps answering, accepting temporary inconsistency."}
+      ]
+    },
+    "u:sd-10-pacelc-consistency-models": {
+      "title": "PACELC & Consistency Models",
+      "summary": "Beyond CAP: even without a partition, you trade latency against consistency.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "**PACELC** extends CAP: **if Partition (P)**, choose Availability or Consistency (A/C); **Else (E)** — in normal operation — choose **Latency or Consistency (L/C)**. It captures the everyday trade-off CAP ignores."},
+        {"t": "h", "text": "Consistency models"},
+        {"t": "table", "headers": ["Model", "Guarantee"], "rows": [
+          ["Strong", "Every read sees the latest write (like a single copy)"],
+          ["Eventual", "Replicas converge over time; reads may be stale"],
+          ["Causal", "Causally-related operations are seen in order"],
+          ["Read-your-writes", "You always see your own updates"]
+        ]},
+        {"t": "callout", "style": "key", "text": "PACELC's insight: consistency has a cost even without failures — waiting for replicas to agree adds latency. So systems tune between strong consistency (slower) and eventual consistency (faster, possibly stale). Choose the weakest model that's still correct for your use case."}
+      ],
+      "mcqs": [
+        {"q": "PACELC adds to CAP the idea that, even without a partition, you trade:", "options": ["Storage vs speed", "Latency vs Consistency", "Reads vs writes", "SQL vs NoSQL"], "answer": 1, "explain": "The 'ELC' part: in normal operation, stronger consistency costs more latency."},
+        {"q": "Eventual consistency means:", "options": ["Reads always see the latest write", "Replicas converge over time and reads may be temporarily stale", "No consistency ever", "Strong consistency"], "answer": 1, "explain": "Updates propagate asynchronously; given no new writes, all replicas eventually agree."},
+        {"q": "Strong consistency typically costs:", "options": ["Nothing", "Higher latency (waiting for replicas to agree)", "Less storage", "More partitions"], "answer": 1, "explain": "Coordinating replicas to guarantee the latest value adds latency, per PACELC."}
+      ]
+    },
+    "u:sd-11-consistent-hashing": {
+      "title": "Consistent Hashing",
+      "summary": "Distribute keys so adding/removing a node moves only ~1/N of them.",
+      "minutes": 5,
+      "blocks": [
+        {"t": "p", "text": "With `hash(key) % N`, changing N remaps almost every key — disastrous for caches/shards. **Consistent hashing** maps both nodes and keys onto a hash **ring**; a key belongs to the first node clockwise. Adding/removing a node moves only the keys between it and its neighbour — about **1/N**."},
+        {"t": "points", "items": [
+          "**Minimal remapping** when the cluster scales — only ~K/N keys move.",
+          "**Virtual nodes** (each server at many ring positions) even out distribution and smooth load when a node fails.",
+          "Used by distributed caches, Cassandra, DynamoDB, and sharded systems."
+        ]},
+        {"t": "callout", "style": "key", "text": "Consistent hashing lets nodes join/leave with minimal reshuffling — the key reason it underpins distributed caches and databases. Virtual nodes fix uneven distribution and hotspots."}
+      ],
+      "mcqs": [
+        {"q": "The main advantage of consistent hashing is that adding/removing a node:", "options": ["Remaps all keys", "Remaps only about 1/N of keys", "Requires no hashing", "Doubles capacity"], "answer": 1, "explain": "Only keys near the changed node move (~K/N), versus remapping nearly everything with modulo hashing."},
+        {"q": "Virtual nodes in consistent hashing are used to:", "options": ["Reduce servers", "Even out key distribution and avoid hotspots", "Encrypt keys", "Remove the ring"], "answer": 1, "explain": "Placing each server at many ring points balances load and smooths redistribution."},
+        {"q": "In consistent hashing, a key is assigned to:", "options": ["A random node", "The first node clockwise on the ring", "The lowest-id node", "All nodes"], "answer": 1, "explain": "Keys map to the next node clockwise from their position on the ring."}
+      ]
+    },
+    "u:sd-12-message-queues-kafka-rabbitmq": {
+      "title": "Message Queues (Kafka / RabbitMQ)",
+      "summary": "Decouple producers and consumers with an async buffer; know the log vs broker distinction.",
+      "minutes": 4,
+      "blocks": [
+        {"t": "p", "text": "A **message queue** lets producers send messages that consumers process asynchronously, **decoupling** them for independent scaling, reliability, and load smoothing."},
+        {"t": "table", "headers": ["", "RabbitMQ (broker)", "Kafka (log)"], "rows": [
+          ["Model", "Smart broker routes/deletes messages after ack", "Distributed append-only log; consumers track offsets"],
+          ["Best for", "Task queues, complex routing", "High-throughput streaming, event sourcing, replay"],
+          ["Retention", "Until consumed/acked", "Configurable (messages persist; can re-read)"]
+        ]},
+        {"t": "callout", "style": "key", "text": "Queues turn synchronous coupling into resilient async flow: producers/consumers scale separately, spikes are buffered, and work survives consumer crashes. Kafka (a partitioned log) excels at high-throughput streaming and replay; RabbitMQ (a broker) excels at flexible routing and task queues."},
+        {"t": "callout", "style": "tip", "text": "Delivery guarantees: at-least-once (may duplicate → make consumers idempotent) is most common; exactly-once is hardest."}
+      ],
+      "mcqs": [
+        {"q": "A message queue's primary benefit is:", "options": ["Faster CPUs", "Asynchronous decoupling of producers and consumers with buffering", "Encryption", "A cache"], "answer": 1, "explain": "It lets producers and consumers operate independently, smoothing load and improving reliability."},
+        {"q": "Kafka differs from a traditional broker by:", "options": ["Deleting messages immediately", "Being a distributed append-only log where consumers track offsets and can replay", "Not persisting data", "Having no partitions"], "answer": 1, "explain": "Kafka retains a partitioned log; consumers read at their own offset and can re-read, enabling streaming/replay."},
+        {"q": "With at-least-once delivery, consumers should be:", "options": ["Stateful", "Idempotent (safe against duplicate messages)", "Synchronous", "Single-threaded"], "answer": 1, "explain": "At-least-once may deliver duplicates, so processing must be idempotent."}
+      ]
+    }
+  }
+}

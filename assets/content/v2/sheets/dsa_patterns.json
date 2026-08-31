@@ -1,0 +1,589 @@
+{
+  "slug": "dsa-patterns",
+  "title": "DSA Patterns",
+  "category": "dsa",
+  "description": "The core data-structure & algorithm patterns behind coding interviews - complexity, two pointers, binary search, trees, graphs, DP and more, with notes + quizzes.",
+  "source": "Curated (interview DSA patterns)",
+  "tree": [
+    {
+      "slug": "dsa-foundations",
+      "title": "Complexity & Foundations",
+      "children": [
+        {
+          "slug": "dsa-foundations-0-big-o-notation",
+          "title": "Big-O notation",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-foundations-0-big-o-notation",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-foundations-1-time-vs-space-complexity",
+          "title": "Time vs space complexity",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-foundations-1-time-vs-space-complexity",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-foundations-2-analysing-recursion",
+          "title": "Analysing recursion",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-foundations-2-analysing-recursion",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-foundations-3-amortized-analysis",
+          "title": "Amortized analysis",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-foundations-3-amortized-analysis",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-arrays",
+      "title": "Arrays, Hashing & Two Pointers",
+      "children": [
+        {
+          "slug": "dsa-arrays-0-prefix-sums",
+          "title": "Prefix sums",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-arrays-0-prefix-sums",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-arrays-1-two-pointers",
+          "title": "Two pointers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-arrays-1-two-pointers",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-arrays-2-sliding-window-fixed-size",
+          "title": "Sliding window (fixed size)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-arrays-2-sliding-window-fixed-size",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-arrays-3-sliding-window-variable-size",
+          "title": "Sliding window (variable size)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-arrays-3-sliding-window-variable-size",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-arrays-4-hashing-and-frequency-maps",
+          "title": "Hashing & frequency maps",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-arrays-4-hashing-and-frequency-maps",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-arrays-5-kadane-s-algorithm",
+          "title": "Kadane's algorithm",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-arrays-5-kadane-s-algorithm",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-binary-search",
+      "title": "Binary Search",
+      "children": [
+        {
+          "slug": "dsa-binary-search-0-binary-search-fundamentals",
+          "title": "Binary search fundamentals",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-binary-search-0-binary-search-fundamentals",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-binary-search-1-lower-and-upper-bound",
+          "title": "Lower & upper bound",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-binary-search-1-lower-and-upper-bound",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-binary-search-2-binary-search-on-the-answer",
+          "title": "Binary search on the answer",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-binary-search-2-binary-search-on-the-answer",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-binary-search-3-search-in-rotated-sorted-array",
+          "title": "Search in rotated sorted array",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-binary-search-3-search-in-rotated-sorted-array",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-sorting",
+      "title": "Sorting",
+      "children": [
+        {
+          "slug": "dsa-sorting-0-sorting-algorithms-overview",
+          "title": "Sorting algorithms overview",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-sorting-0-sorting-algorithms-overview",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-sorting-1-merge-sort-and-divide-and-conquer",
+          "title": "Merge sort & divide and conquer",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-sorting-1-merge-sort-and-divide-and-conquer",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-sorting-2-quick-sort-and-quickselect",
+          "title": "Quick sort & quickselect",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-sorting-2-quick-sort-and-quickselect",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-sorting-3-non-comparison-sorts",
+          "title": "Non-comparison sorts",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-sorting-3-non-comparison-sorts",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-sorting-4-custom-comparators-and-stability",
+          "title": "Custom comparators & stability",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-sorting-4-custom-comparators-and-stability",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-linked-lists",
+      "title": "Linked Lists",
+      "children": [
+        {
+          "slug": "dsa-linked-lists-0-linked-list-fundamentals",
+          "title": "Linked list fundamentals",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-linked-lists-0-linked-list-fundamentals",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-linked-lists-1-reversing-a-linked-list",
+          "title": "Reversing a linked list",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-linked-lists-1-reversing-a-linked-list",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-linked-lists-2-fast-and-slow-pointers",
+          "title": "Fast & slow pointers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-linked-lists-2-fast-and-slow-pointers",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-linked-lists-3-merging-and-dummy-nodes",
+          "title": "Merging & dummy nodes",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-linked-lists-3-merging-and-dummy-nodes",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-stacks-queues",
+      "title": "Stacks & Queues",
+      "children": [
+        {
+          "slug": "dsa-stacks-queues-0-stacks-lifo",
+          "title": "Stacks (LIFO)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-stacks-queues-0-stacks-lifo",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-stacks-queues-1-queues-and-deques-fifo",
+          "title": "Queues & deques (FIFO)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-stacks-queues-1-queues-and-deques-fifo",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-stacks-queues-2-monotonic-stack",
+          "title": "Monotonic stack",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-stacks-queues-2-monotonic-stack",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-stacks-queues-3-next-greater-element",
+          "title": "Next greater element",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-stacks-queues-3-next-greater-element",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-backtracking",
+      "title": "Recursion & Backtracking",
+      "children": [
+        {
+          "slug": "dsa-backtracking-0-backtracking-template",
+          "title": "Backtracking template",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-backtracking-0-backtracking-template",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-backtracking-1-subsets-and-combinations",
+          "title": "Subsets & combinations",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-backtracking-1-subsets-and-combinations",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-backtracking-2-permutations",
+          "title": "Permutations",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-backtracking-2-permutations",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-backtracking-3-constraint-backtracking-n-queens",
+          "title": "Constraint backtracking (N-Queens)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-backtracking-3-constraint-backtracking-n-queens",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-trees",
+      "title": "Trees",
+      "children": [
+        {
+          "slug": "dsa-trees-0-binary-tree-traversals-dfs",
+          "title": "Binary tree traversals (DFS)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-trees-0-binary-tree-traversals-dfs",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-trees-1-level-order-traversal-bfs",
+          "title": "Level-order traversal (BFS)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-trees-1-level-order-traversal-bfs",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-trees-2-binary-search-trees",
+          "title": "Binary search trees",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-trees-2-binary-search-trees",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-trees-3-lowest-common-ancestor",
+          "title": "Lowest common ancestor",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-trees-3-lowest-common-ancestor",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-trees-4-height-depth-and-diameter",
+          "title": "Height, depth & diameter",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-trees-4-height-depth-and-diameter",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-heaps",
+      "title": "Heaps & Priority Queues",
+      "children": [
+        {
+          "slug": "dsa-heaps-0-heap-fundamentals",
+          "title": "Heap fundamentals",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-heaps-0-heap-fundamentals",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-heaps-1-top-k-pattern",
+          "title": "Top-K pattern",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-heaps-1-top-k-pattern",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-heaps-2-two-heaps-running-median",
+          "title": "Two heaps (running median)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-heaps-2-two-heaps-running-median",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-graphs",
+      "title": "Graphs",
+      "children": [
+        {
+          "slug": "dsa-graphs-0-graph-representations",
+          "title": "Graph representations",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-graphs-0-graph-representations",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-graphs-1-breadth-first-search-bfs",
+          "title": "Breadth-first search (BFS)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-graphs-1-breadth-first-search-bfs",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-graphs-2-depth-first-search-dfs",
+          "title": "Depth-first search (DFS)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-graphs-2-depth-first-search-dfs",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-graphs-3-topological-sort",
+          "title": "Topological sort",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-graphs-3-topological-sort",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-graphs-4-shortest-paths-dijkstra-and-friends",
+          "title": "Shortest paths (Dijkstra & friends)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-graphs-4-shortest-paths-dijkstra-and-friends",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-graphs-5-union-find-dsu",
+          "title": "Union-Find (DSU)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-graphs-5-union-find-dsu",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-graphs-6-minimum-spanning-tree",
+          "title": "Minimum spanning tree",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-graphs-6-minimum-spanning-tree",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-dp",
+      "title": "Dynamic Programming",
+      "children": [
+        {
+          "slug": "dsa-dp-0-dp-fundamentals",
+          "title": "DP fundamentals",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-dp-0-dp-fundamentals",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-dp-1-1d-dp-patterns",
+          "title": "1D DP patterns",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-dp-1-1d-dp-patterns",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-dp-2-0-1-knapsack",
+          "title": "0/1 Knapsack",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-dp-2-0-1-knapsack",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-dp-3-unbounded-knapsack-and-coin-change",
+          "title": "Unbounded knapsack & coin change",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-dp-3-unbounded-knapsack-and-coin-change",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-dp-4-longest-common-subsequence",
+          "title": "Longest common subsequence",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-dp-4-longest-common-subsequence",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-dp-5-longest-increasing-subsequence",
+          "title": "Longest increasing subsequence",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-dp-5-longest-increasing-subsequence",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-dp-6-grid-dp",
+          "title": "Grid DP",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-dp-6-grid-dp",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-greedy",
+      "title": "Greedy",
+      "children": [
+        {
+          "slug": "dsa-greedy-0-greedy-fundamentals",
+          "title": "Greedy fundamentals",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-greedy-0-greedy-fundamentals",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-greedy-1-interval-scheduling-and-merging",
+          "title": "Interval scheduling & merging",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-greedy-1-interval-scheduling-and-merging",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-bits",
+      "title": "Bit Manipulation",
+      "children": [
+        {
+          "slug": "dsa-bits-0-bitwise-basics",
+          "title": "Bitwise basics",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-bits-0-bitwise-basics",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-bits-1-common-bit-tricks",
+          "title": "Common bit tricks",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-bits-1-common-bit-tricks",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-bits-2-xor-patterns",
+          "title": "XOR patterns",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-bits-2-xor-patterns",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "slug": "dsa-strings",
+      "title": "Strings",
+      "children": [
+        {
+          "slug": "dsa-strings-0-string-fundamentals",
+          "title": "String fundamentals",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-strings-0-string-fundamentals",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-strings-1-palindromes-and-two-pointers",
+          "title": "Palindromes & two pointers",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-strings-1-palindromes-and-two-pointers",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-strings-2-pattern-matching-kmp",
+          "title": "Pattern matching (KMP)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-strings-2-pattern-matching-kmp",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dsa-strings-3-tries-prefix-trees",
+          "title": "Tries (prefix trees)",
+          "leaf": true,
+          "leafType": "concept",
+          "canon": "u:dsa-strings-3-tries-prefix-trees",
+          "difficulty": "medium"
+        }
+      ]
+    }
+  ]
+}

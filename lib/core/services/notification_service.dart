@@ -3,6 +3,8 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../../features/contests/contest_models.dart';
+
 /// Thin wrapper around flutter_local_notifications for local (offline) study
 /// reminders. No network, no third-party service.
 class NotificationService {
@@ -15,6 +17,10 @@ class NotificationService {
 
   static const int _dailyReminderId = 1001;
   static const String _channelId = 'daily_reminder';
+
+  static const int _contestIdBase = 3000;
+  static const int _contestIdMax = 40; // cap on scheduled contest reminders
+  static const String _contestChannelId = 'contest_reminders';
 
   Future<void> init() async {
     if (_ready) return;
@@ -85,6 +91,51 @@ class NotificationService {
   Future<void> cancelDailyReminder() async {
     await init();
     await _plugin.cancel(id: _dailyReminderId);
+  }
+
+  /// Schedules a one-off reminder [leadMinutes] before each upcoming contest.
+  /// Replaces any previously scheduled contest reminders. Skips occurrences
+  /// whose reminder time is already past.
+  Future<void> scheduleContestReminders(
+    List<ContestOccurrence> upcoming, {
+    int leadMinutes = 60,
+  }) async {
+    await init();
+    await cancelContestReminders();
+    final nowUtc = DateTime.now().toUtc();
+    var slot = 0;
+    for (final o in upcoming) {
+      if (slot >= _contestIdMax) break;
+      final fireUtc = o.startUtc.subtract(Duration(minutes: leadMinutes));
+      if (!fireUtc.isAfter(nowUtc)) continue;
+      await _plugin.zonedSchedule(
+        id: _contestIdBase + slot,
+        title: '${o.platform} ${o.name} soon 🏆',
+        body:
+            'Starts around ${o.series.timeIst} IST. Warm up and give it a shot!',
+        scheduledDate: tz.TZDateTime.from(fireUtc, tz.local),
+        notificationDetails: const NotificationDetails(
+          android: AndroidNotificationDetails(
+            _contestChannelId,
+            'Contest reminders',
+            channelDescription:
+                'Reminders before competitive programming contests',
+            importance: Importance.high,
+            priority: Priority.high,
+          ),
+          iOS: DarwinNotificationDetails(),
+        ),
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      );
+      slot++;
+    }
+  }
+
+  Future<void> cancelContestReminders() async {
+    await init();
+    for (var i = 0; i < _contestIdMax; i++) {
+      await _plugin.cancel(id: _contestIdBase + i);
+    }
   }
 
   /// Fires an immediate notification — used to verify notifications work on
