@@ -343,6 +343,7 @@ class _WelcomeStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
     return _StepShell(
       title: 'Welcome to PrepPilot 🚀',
       subtitle:
@@ -350,42 +351,175 @@ class _WelcomeStep extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextField(
-            controller: nameController,
-            textCapitalization: TextCapitalization.words,
-            decoration: const InputDecoration(
-              labelText: 'Your name',
-              hintText: 'Your name',
-            ),
-          ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.15, end: 0),
-          const SizedBox(height: AppSpacing.lg),
-          InkWell(
-            borderRadius: BorderRadius.circular(AppRadius.sm),
-            onTap: onPickCollege,
-            child: InputDecorator(
-              decoration: const InputDecoration(
-                labelText: 'College',
-                suffixIcon: Icon(Icons.arrow_drop_down),
-              ),
-              child: Text(
-                college ?? 'Select your college',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: college == null
-                      ? theme.colorScheme.onSurfaceVariant
-                      : theme.colorScheme.onSurface,
+          // Friendly gradient hero.
+          Container(
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            decoration: BoxDecoration(
+              gradient: AppPalette.brandGradient,
+              borderRadius: BorderRadius.circular(AppRadius.lg),
+              boxShadow: [
+                BoxShadow(
+                  color: AppPalette.indigo.withValues(alpha: 0.3),
+                  blurRadius: 24,
+                  offset: const Offset(0, 10),
                 ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.2),
+                    borderRadius: BorderRadius.circular(AppRadius.sm),
+                  ),
+                  child: const Icon(Icons.waving_hand_rounded,
+                      color: Colors.white, size: 26),
+                ),
+                const SizedBox(width: AppSpacing.lg),
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Just two quick things',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800)),
+                      SizedBox(height: 2),
+                      Text(
+                          'They personalize your roadmap and put you on your leaderboards.',
+                          style:
+                              TextStyle(color: Colors.white70, fontSize: 12.5)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ).animate().fadeIn(duration: 400.ms).slideY(begin: 0.12, end: 0),
+          const SizedBox(height: AppSpacing.xxl),
+          _FieldLabel('YOUR NAME'),
+          const SizedBox(height: AppSpacing.sm),
+          _FieldCard(
+            icon: Icons.person_rounded,
+            child: TextField(
+              controller: nameController,
+              textCapitalization: TextCapitalization.words,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                isCollapsed: true,
+                hintText: 'e.g. Shivanshu Tiwari',
               ),
             ),
-          ).animate().fadeIn(delay: 300.ms).slideY(begin: 0.15, end: 0),
+          ).animate().fadeIn(delay: 150.ms).slideY(begin: 0.12, end: 0),
+          const SizedBox(height: AppSpacing.lg),
+          _FieldLabel('COLLEGE'),
           const SizedBox(height: AppSpacing.sm),
-          Text(
-            'Your college puts you on your college leaderboard. You can change these later in Profile.',
-            style: theme.textTheme.bodySmall
-                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
-          ),
+          _FieldCard(
+            icon: Icons.school_rounded,
+            onTap: onPickCollege,
+            trailing: Icon(Icons.expand_more_rounded,
+                color: scheme.onSurfaceVariant),
+            child: Text(
+              college ?? 'Select your college',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 16,
+                color: college == null
+                    ? scheme.onSurfaceVariant
+                    : scheme.onSurface,
+              ),
+            ),
+          ).animate().fadeIn(delay: 250.ms).slideY(begin: 0.12, end: 0),
+          const SizedBox(height: AppSpacing.lg),
+          Container(
+            padding: const EdgeInsets.all(AppSpacing.md),
+            decoration: BoxDecoration(
+              color: scheme.primaryContainer.withValues(alpha: 0.4),
+              borderRadius: BorderRadius.circular(AppRadius.sm),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.lightbulb_outline_rounded,
+                    size: 18, color: scheme.primary),
+                const SizedBox(width: AppSpacing.sm),
+                Expanded(
+                  child: Text(
+                    'You can change your name and college anytime in Profile.',
+                    style: theme.textTheme.bodySmall
+                        ?.copyWith(color: scheme.onSurfaceVariant),
+                  ),
+                ),
+              ],
+            ),
+          ).animate().fadeIn(delay: 350.ms),
         ],
+      ),
+    );
+  }
+}
+
+/// Small uppercase field label used in the onboarding welcome step.
+class _FieldLabel extends StatelessWidget {
+  const _FieldLabel(this.text);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Text(
+      text,
+      style: theme.textTheme.labelSmall?.copyWith(
+        color: theme.colorScheme.onSurfaceVariant,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 1,
+      ),
+    );
+  }
+}
+
+/// A filled, rounded field container with a leading icon — used for both the
+/// name input and the tappable college picker so they read as a matching set.
+class _FieldCard extends StatelessWidget {
+  const _FieldCard({
+    required this.icon,
+    required this.child,
+    this.onTap,
+    this.trailing,
+  });
+  final IconData icon;
+  final Widget child;
+  final VoidCallback? onTap;
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Material(
+      color: scheme.surfaceContainerHighest.withValues(alpha: 0.5),
+      borderRadius: BorderRadius.circular(AppRadius.md),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.md, vertical: AppSpacing.lg),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppRadius.md),
+            border: Border.all(color: scheme.outlineVariant),
+          ),
+          child: Row(
+            children: [
+              Icon(icon, size: 20, color: scheme.primary),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(child: child),
+              ?trailing,
+            ],
+          ),
+        ),
       ),
     );
   }

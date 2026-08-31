@@ -224,12 +224,8 @@ class _StudySection extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: AppSpacing.md),
-        ] else ...[
-          Text('In-app notes for this topic are coming soon.',
-              style: theme.textTheme.bodySmall
-                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
+        ] else
           const SizedBox(height: AppSpacing.sm),
-        ],
         Row(
           children: [
             _LinkChip(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/services/app_update_service.dart';
 import 'core/services/notification_service.dart';
 import 'core/theme/app_theme.dart';
 import 'features/leaderboard/invite_links.dart';
@@ -55,6 +56,11 @@ class _AppRootState extends ConsumerState<_AppRoot> {
   void initState() {
     super.initState();
     _invites = InviteLinks(ref, navigatorKey)..init();
+    // Once per launch: if a newer build is live on Play, show the immediate
+    // (blocking) update flow so stale installs are brought up to date.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AppUpdateService.maybePromptImmediateUpdate();
+    });
   }
 
   /// Once per app open, silently refresh the signed-in user's platform stats.
