@@ -137,7 +137,7 @@ class _RewardedAdScreenState extends State<_RewardedAdScreen> {
         if (done || await _confirmSkip()) nav.pop(false);
       },
       child: Scaffold(
-        backgroundColor: const Color(0xFF0E0E16),
+        backgroundColor: AppPalette.darkBg,
         body: SafeArea(
           child: Column(
             children: [

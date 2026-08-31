@@ -5,6 +5,7 @@ import '../../core/constants/enums.dart';
 import '../../core/theme/app_dimens.dart';
 import '../../core/widgets/app_card.dart';
 import '../../core/widgets/entrance.dart';
+import '../../core/widgets/filter_bar.dart';
 import '../../core/widgets/pill.dart';
 import '../../core/widgets/progress_ring.dart';
 import '../../data/models/dtos.dart';
@@ -22,6 +23,10 @@ class TrackerScreen extends ConsumerStatefulWidget {
 class _TrackerScreenState extends ConsumerState<TrackerScreen> {
   PrepCategory? _filter;
   bool _activeOnly = true;
+
+  /// True once the sheet list has scrolled under the filter header, which then
+  /// grows a hairline so the cards don't look joined to it.
+  bool _scrolled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,35 +52,46 @@ class _TrackerScreenState extends ConsumerState<TrackerScreen> {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-                AppSpacing.screenH, 0, AppSpacing.screenH, AppSpacing.sm),
-            child: SegmentedButton<bool>(
-              segments: const [
-                ButtonSegment(value: true, label: Text('My sheets')),
-                ButtonSegment(value: false, label: Text('All sheets')),
+          ScrolledUnderHeader(
+            scrolled: _scrolled,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      AppSpacing.screenH, 0, AppSpacing.screenH, AppSpacing.sm),
+                  child: SegmentedButton<bool>(
+                    segments: const [
+                      ButtonSegment(value: true, label: Text('My sheets')),
+                      ButtonSegment(value: false, label: Text('All sheets')),
+                    ],
+                    selected: {_activeOnly},
+                    onSelectionChanged: (s) =>
+                        setState(() => _activeOnly = s.first),
+                    showSelectedIcon: false,
+                  ),
+                ),
+                _CategoryFilter(
+                  selected: _filter,
+                  onSelect: (c) => setState(() => _filter = c),
+                ),
               ],
-              selected: {_activeOnly},
-              onSelectionChanged: (s) =>
-                  setState(() => _activeOnly = s.first),
-              showSelectedIcon: false,
             ),
-          ),
-          _CategoryFilter(
-            selected: _filter,
-            onSelect: (c) => setState(() => _filter = c),
           ),
           Expanded(
             child: filtered.isEmpty
                 ? _EmptyTracker(activeOnly: _activeOnly)
-                : ListView.separated(
-                    padding: const EdgeInsets.fromLTRB(AppSpacing.screenH,
-                        AppSpacing.md, AppSpacing.screenH, AppSpacing.huge),
-                    itemCount: filtered.length,
-                    separatorBuilder: (_, _) =>
-                        const SizedBox(height: AppSpacing.md),
-                    itemBuilder: (context, i) => _SheetCard(summary: filtered[i])
-                        .entrance(index: i),
+                : ScrollAwareHeaderController(
+                    scrolled: _scrolled,
+                    onChanged: (v) => setState(() => _scrolled = v),
+                    child: ListView.separated(
+                      padding: const EdgeInsets.fromLTRB(AppSpacing.screenH,
+                          AppSpacing.md, AppSpacing.screenH, AppSpacing.huge),
+                      itemCount: filtered.length,
+                      separatorBuilder: (_, _) =>
+                          const SizedBox(height: AppSpacing.md),
+                      itemBuilder: (context, i) =>
+                          _SheetCard(summary: filtered[i]).entrance(index: i),
+                    ),
                   ),
           ),
         ],
@@ -114,27 +130,22 @@ class _CategoryFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 46,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.screenH),
-        children: [
+    return FilterChipBar(
+      children: [
+        _Chip(
+          label: 'All',
+          selected: selected == null,
+          onTap: () => onSelect(null),
+        ),
+        for (final c in PrepCategory.values)
           _Chip(
-            label: 'All',
-            selected: selected == null,
-            onTap: () => onSelect(null),
+            label: c.label,
+            icon: c.icon,
+            color: c.color,
+            selected: selected == c,
+            onTap: () => onSelect(c),
           ),
-          for (final c in PrepCategory.values)
-            _Chip(
-              label: c.label,
-              icon: c.icon,
-              color: c.color,
-              selected: selected == c,
-              onTap: () => onSelect(c),
-            ),
-        ],
-      ),
+      ],
     );
   }
 }
@@ -234,19 +245,21 @@ class _SheetCard extends StatelessWidget {
                     style: theme.textTheme.bodySmall?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant)),
                 const SizedBox(height: AppSpacing.sm),
-                Row(
+                // Wrap, not Row: at larger font scales two pills no longer fit
+                // side by side on a narrow phone and would overflow.
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 6,
                   children: [
                     Pill(
                         label: '${summary.done}/${summary.total} done',
                         color: cat.color,
                         dense: true),
-                    if (summary.revisit > 0) ...[
-                      const SizedBox(width: 6),
+                    if (summary.revisit > 0)
                       Pill(
                           label: '${summary.revisit} revisit',
                           color: theme.colorScheme.tertiary,
                           dense: true),
-                    ],
                   ],
                 ),
               ],

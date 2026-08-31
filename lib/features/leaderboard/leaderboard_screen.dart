@@ -503,8 +503,10 @@ class _RankRow extends StatelessWidget {
       ),
       child: Row(
         children: [
-          SizedBox(
-            width: 28,
+          // A minimum width keeps the ranks aligned, but four-digit ranks (and
+          // larger font scales) are allowed to widen instead of clipping.
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 28),
             child: Text('${entry.rank}',
                 textAlign: TextAlign.center,
                 style: theme.textTheme.titleSmall?.copyWith(

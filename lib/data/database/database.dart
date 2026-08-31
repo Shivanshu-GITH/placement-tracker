@@ -20,6 +20,7 @@ part 'database.g.dart';
     ActivityDays,
     Resources,
     Achievements,
+    TimetableBlocks,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -31,7 +32,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(super.executor);
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   /// Deletes every row from every table (content + all user progress) on the
   /// live connection. Used by the account/data-deletion flow so the user's data
@@ -77,6 +78,8 @@ class AppDatabase extends _$AppDatabase {
               await customStatement('DROP TABLE IF EXISTS roadmap_phases');
               await customStatement('DROP TABLE IF EXISTS daily_plan_items');
             }
+            // v5 -> v6 adds the daily timetable.
+            if (from < 6) await m.createTable(timetableBlocks);
           }
         },
         beforeOpen: (details) async {

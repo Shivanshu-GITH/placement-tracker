@@ -4539,6 +4539,574 @@ class AchievementsCompanion extends UpdateCompanion<Achievement> {
   }
 }
 
+class $TimetableBlocksTable extends TimetableBlocks
+    with TableInfo<$TimetableBlocksTable, TimetableBlock> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TimetableBlocksTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(''),
+  );
+  static const VerificationMeta _startMinuteMeta = const VerificationMeta(
+    'startMinute',
+  );
+  @override
+  late final GeneratedColumn<int> startMinute = GeneratedColumn<int>(
+    'start_minute',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _durationMinutesMeta = const VerificationMeta(
+    'durationMinutes',
+  );
+  @override
+  late final GeneratedColumn<int> durationMinutes = GeneratedColumn<int>(
+    'duration_minutes',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(60),
+  );
+  static const VerificationMeta _daysMaskMeta = const VerificationMeta(
+    'daysMask',
+  );
+  @override
+  late final GeneratedColumn<int> daysMask = GeneratedColumn<int>(
+    'days_mask',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(127),
+  );
+  static const VerificationMeta _reminderMeta = const VerificationMeta(
+    'reminder',
+  );
+  @override
+  late final GeneratedColumn<bool> reminder = GeneratedColumn<bool>(
+    'reminder',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("reminder" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  static const VerificationMeta _leadMinutesMeta = const VerificationMeta(
+    'leadMinutes',
+  );
+  @override
+  late final GeneratedColumn<int> leadMinutes = GeneratedColumn<int>(
+    'lead_minutes',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _enabledMeta = const VerificationMeta(
+    'enabled',
+  );
+  @override
+  late final GeneratedColumn<bool> enabled = GeneratedColumn<bool>(
+    'enabled',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    title,
+    category,
+    startMinute,
+    durationMinutes,
+    daysMask,
+    reminder,
+    leadMinutes,
+    enabled,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'timetable_blocks';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TimetableBlock> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
+    }
+    if (data.containsKey('start_minute')) {
+      context.handle(
+        _startMinuteMeta,
+        startMinute.isAcceptableOrUnknown(
+          data['start_minute']!,
+          _startMinuteMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_startMinuteMeta);
+    }
+    if (data.containsKey('duration_minutes')) {
+      context.handle(
+        _durationMinutesMeta,
+        durationMinutes.isAcceptableOrUnknown(
+          data['duration_minutes']!,
+          _durationMinutesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('days_mask')) {
+      context.handle(
+        _daysMaskMeta,
+        daysMask.isAcceptableOrUnknown(data['days_mask']!, _daysMaskMeta),
+      );
+    }
+    if (data.containsKey('reminder')) {
+      context.handle(
+        _reminderMeta,
+        reminder.isAcceptableOrUnknown(data['reminder']!, _reminderMeta),
+      );
+    }
+    if (data.containsKey('lead_minutes')) {
+      context.handle(
+        _leadMinutesMeta,
+        leadMinutes.isAcceptableOrUnknown(
+          data['lead_minutes']!,
+          _leadMinutesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('enabled')) {
+      context.handle(
+        _enabledMeta,
+        enabled.isAcceptableOrUnknown(data['enabled']!, _enabledMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TimetableBlock map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TimetableBlock(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      )!,
+      startMinute: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}start_minute'],
+      )!,
+      durationMinutes: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}duration_minutes'],
+      )!,
+      daysMask: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}days_mask'],
+      )!,
+      reminder: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}reminder'],
+      )!,
+      leadMinutes: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}lead_minutes'],
+      )!,
+      enabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}enabled'],
+      )!,
+    );
+  }
+
+  @override
+  $TimetableBlocksTable createAlias(String alias) {
+    return $TimetableBlocksTable(attachedDatabase, alias);
+  }
+}
+
+class TimetableBlock extends DataClass implements Insertable<TimetableBlock> {
+  final int id;
+  final String title;
+
+  /// A [PrepCategory] name to tie the block to a subject, or '' for a free-form
+  /// habit block (gym, revision, sleep…).
+  final String category;
+
+  /// Start time as minutes from midnight (e.g. 7:30 => 450). Stored this way so
+  /// it sorts and compares trivially and has no timezone baggage.
+  final int startMinute;
+  final int durationMinutes;
+
+  /// Which weekdays it repeats on, as a bitmask: bit 0 = Monday … bit 6 =
+  /// Sunday. 127 = every day.
+  final int daysMask;
+
+  /// Whether to fire a reminder, and how many minutes before the start.
+  final bool reminder;
+  final int leadMinutes;
+  final bool enabled;
+  const TimetableBlock({
+    required this.id,
+    required this.title,
+    required this.category,
+    required this.startMinute,
+    required this.durationMinutes,
+    required this.daysMask,
+    required this.reminder,
+    required this.leadMinutes,
+    required this.enabled,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['title'] = Variable<String>(title);
+    map['category'] = Variable<String>(category);
+    map['start_minute'] = Variable<int>(startMinute);
+    map['duration_minutes'] = Variable<int>(durationMinutes);
+    map['days_mask'] = Variable<int>(daysMask);
+    map['reminder'] = Variable<bool>(reminder);
+    map['lead_minutes'] = Variable<int>(leadMinutes);
+    map['enabled'] = Variable<bool>(enabled);
+    return map;
+  }
+
+  TimetableBlocksCompanion toCompanion(bool nullToAbsent) {
+    return TimetableBlocksCompanion(
+      id: Value(id),
+      title: Value(title),
+      category: Value(category),
+      startMinute: Value(startMinute),
+      durationMinutes: Value(durationMinutes),
+      daysMask: Value(daysMask),
+      reminder: Value(reminder),
+      leadMinutes: Value(leadMinutes),
+      enabled: Value(enabled),
+    );
+  }
+
+  factory TimetableBlock.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TimetableBlock(
+      id: serializer.fromJson<int>(json['id']),
+      title: serializer.fromJson<String>(json['title']),
+      category: serializer.fromJson<String>(json['category']),
+      startMinute: serializer.fromJson<int>(json['startMinute']),
+      durationMinutes: serializer.fromJson<int>(json['durationMinutes']),
+      daysMask: serializer.fromJson<int>(json['daysMask']),
+      reminder: serializer.fromJson<bool>(json['reminder']),
+      leadMinutes: serializer.fromJson<int>(json['leadMinutes']),
+      enabled: serializer.fromJson<bool>(json['enabled']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'title': serializer.toJson<String>(title),
+      'category': serializer.toJson<String>(category),
+      'startMinute': serializer.toJson<int>(startMinute),
+      'durationMinutes': serializer.toJson<int>(durationMinutes),
+      'daysMask': serializer.toJson<int>(daysMask),
+      'reminder': serializer.toJson<bool>(reminder),
+      'leadMinutes': serializer.toJson<int>(leadMinutes),
+      'enabled': serializer.toJson<bool>(enabled),
+    };
+  }
+
+  TimetableBlock copyWith({
+    int? id,
+    String? title,
+    String? category,
+    int? startMinute,
+    int? durationMinutes,
+    int? daysMask,
+    bool? reminder,
+    int? leadMinutes,
+    bool? enabled,
+  }) => TimetableBlock(
+    id: id ?? this.id,
+    title: title ?? this.title,
+    category: category ?? this.category,
+    startMinute: startMinute ?? this.startMinute,
+    durationMinutes: durationMinutes ?? this.durationMinutes,
+    daysMask: daysMask ?? this.daysMask,
+    reminder: reminder ?? this.reminder,
+    leadMinutes: leadMinutes ?? this.leadMinutes,
+    enabled: enabled ?? this.enabled,
+  );
+  TimetableBlock copyWithCompanion(TimetableBlocksCompanion data) {
+    return TimetableBlock(
+      id: data.id.present ? data.id.value : this.id,
+      title: data.title.present ? data.title.value : this.title,
+      category: data.category.present ? data.category.value : this.category,
+      startMinute: data.startMinute.present
+          ? data.startMinute.value
+          : this.startMinute,
+      durationMinutes: data.durationMinutes.present
+          ? data.durationMinutes.value
+          : this.durationMinutes,
+      daysMask: data.daysMask.present ? data.daysMask.value : this.daysMask,
+      reminder: data.reminder.present ? data.reminder.value : this.reminder,
+      leadMinutes: data.leadMinutes.present
+          ? data.leadMinutes.value
+          : this.leadMinutes,
+      enabled: data.enabled.present ? data.enabled.value : this.enabled,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TimetableBlock(')
+          ..write('id: $id, ')
+          ..write('title: $title, ')
+          ..write('category: $category, ')
+          ..write('startMinute: $startMinute, ')
+          ..write('durationMinutes: $durationMinutes, ')
+          ..write('daysMask: $daysMask, ')
+          ..write('reminder: $reminder, ')
+          ..write('leadMinutes: $leadMinutes, ')
+          ..write('enabled: $enabled')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    title,
+    category,
+    startMinute,
+    durationMinutes,
+    daysMask,
+    reminder,
+    leadMinutes,
+    enabled,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TimetableBlock &&
+          other.id == this.id &&
+          other.title == this.title &&
+          other.category == this.category &&
+          other.startMinute == this.startMinute &&
+          other.durationMinutes == this.durationMinutes &&
+          other.daysMask == this.daysMask &&
+          other.reminder == this.reminder &&
+          other.leadMinutes == this.leadMinutes &&
+          other.enabled == this.enabled);
+}
+
+class TimetableBlocksCompanion extends UpdateCompanion<TimetableBlock> {
+  final Value<int> id;
+  final Value<String> title;
+  final Value<String> category;
+  final Value<int> startMinute;
+  final Value<int> durationMinutes;
+  final Value<int> daysMask;
+  final Value<bool> reminder;
+  final Value<int> leadMinutes;
+  final Value<bool> enabled;
+  const TimetableBlocksCompanion({
+    this.id = const Value.absent(),
+    this.title = const Value.absent(),
+    this.category = const Value.absent(),
+    this.startMinute = const Value.absent(),
+    this.durationMinutes = const Value.absent(),
+    this.daysMask = const Value.absent(),
+    this.reminder = const Value.absent(),
+    this.leadMinutes = const Value.absent(),
+    this.enabled = const Value.absent(),
+  });
+  TimetableBlocksCompanion.insert({
+    this.id = const Value.absent(),
+    required String title,
+    this.category = const Value.absent(),
+    required int startMinute,
+    this.durationMinutes = const Value.absent(),
+    this.daysMask = const Value.absent(),
+    this.reminder = const Value.absent(),
+    this.leadMinutes = const Value.absent(),
+    this.enabled = const Value.absent(),
+  }) : title = Value(title),
+       startMinute = Value(startMinute);
+  static Insertable<TimetableBlock> custom({
+    Expression<int>? id,
+    Expression<String>? title,
+    Expression<String>? category,
+    Expression<int>? startMinute,
+    Expression<int>? durationMinutes,
+    Expression<int>? daysMask,
+    Expression<bool>? reminder,
+    Expression<int>? leadMinutes,
+    Expression<bool>? enabled,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (title != null) 'title': title,
+      if (category != null) 'category': category,
+      if (startMinute != null) 'start_minute': startMinute,
+      if (durationMinutes != null) 'duration_minutes': durationMinutes,
+      if (daysMask != null) 'days_mask': daysMask,
+      if (reminder != null) 'reminder': reminder,
+      if (leadMinutes != null) 'lead_minutes': leadMinutes,
+      if (enabled != null) 'enabled': enabled,
+    });
+  }
+
+  TimetableBlocksCompanion copyWith({
+    Value<int>? id,
+    Value<String>? title,
+    Value<String>? category,
+    Value<int>? startMinute,
+    Value<int>? durationMinutes,
+    Value<int>? daysMask,
+    Value<bool>? reminder,
+    Value<int>? leadMinutes,
+    Value<bool>? enabled,
+  }) {
+    return TimetableBlocksCompanion(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      category: category ?? this.category,
+      startMinute: startMinute ?? this.startMinute,
+      durationMinutes: durationMinutes ?? this.durationMinutes,
+      daysMask: daysMask ?? this.daysMask,
+      reminder: reminder ?? this.reminder,
+      leadMinutes: leadMinutes ?? this.leadMinutes,
+      enabled: enabled ?? this.enabled,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (startMinute.present) {
+      map['start_minute'] = Variable<int>(startMinute.value);
+    }
+    if (durationMinutes.present) {
+      map['duration_minutes'] = Variable<int>(durationMinutes.value);
+    }
+    if (daysMask.present) {
+      map['days_mask'] = Variable<int>(daysMask.value);
+    }
+    if (reminder.present) {
+      map['reminder'] = Variable<bool>(reminder.value);
+    }
+    if (leadMinutes.present) {
+      map['lead_minutes'] = Variable<int>(leadMinutes.value);
+    }
+    if (enabled.present) {
+      map['enabled'] = Variable<bool>(enabled.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TimetableBlocksCompanion(')
+          ..write('id: $id, ')
+          ..write('title: $title, ')
+          ..write('category: $category, ')
+          ..write('startMinute: $startMinute, ')
+          ..write('durationMinutes: $durationMinutes, ')
+          ..write('daysMask: $daysMask, ')
+          ..write('reminder: $reminder, ')
+          ..write('leadMinutes: $leadMinutes, ')
+          ..write('enabled: $enabled')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -4551,6 +5119,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ActivityDaysTable activityDays = $ActivityDaysTable(this);
   late final $ResourcesTable resources = $ResourcesTable(this);
   late final $AchievementsTable achievements = $AchievementsTable(this);
+  late final $TimetableBlocksTable timetableBlocks = $TimetableBlocksTable(
+    this,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -4565,6 +5136,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     activityDays,
     resources,
     achievements,
+    timetableBlocks,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -7319,6 +7891,288 @@ typedef $$AchievementsTableProcessedTableManager =
       Achievement,
       PrefetchHooks Function()
     >;
+typedef $$TimetableBlocksTableCreateCompanionBuilder =
+    TimetableBlocksCompanion Function({
+      Value<int> id,
+      required String title,
+      Value<String> category,
+      required int startMinute,
+      Value<int> durationMinutes,
+      Value<int> daysMask,
+      Value<bool> reminder,
+      Value<int> leadMinutes,
+      Value<bool> enabled,
+    });
+typedef $$TimetableBlocksTableUpdateCompanionBuilder =
+    TimetableBlocksCompanion Function({
+      Value<int> id,
+      Value<String> title,
+      Value<String> category,
+      Value<int> startMinute,
+      Value<int> durationMinutes,
+      Value<int> daysMask,
+      Value<bool> reminder,
+      Value<int> leadMinutes,
+      Value<bool> enabled,
+    });
+
+class $$TimetableBlocksTableFilterComposer
+    extends Composer<_$AppDatabase, $TimetableBlocksTable> {
+  $$TimetableBlocksTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get startMinute => $composableBuilder(
+    column: $table.startMinute,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get durationMinutes => $composableBuilder(
+    column: $table.durationMinutes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get daysMask => $composableBuilder(
+    column: $table.daysMask,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get reminder => $composableBuilder(
+    column: $table.reminder,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get leadMinutes => $composableBuilder(
+    column: $table.leadMinutes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get enabled => $composableBuilder(
+    column: $table.enabled,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TimetableBlocksTableOrderingComposer
+    extends Composer<_$AppDatabase, $TimetableBlocksTable> {
+  $$TimetableBlocksTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get startMinute => $composableBuilder(
+    column: $table.startMinute,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get durationMinutes => $composableBuilder(
+    column: $table.durationMinutes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get daysMask => $composableBuilder(
+    column: $table.daysMask,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get reminder => $composableBuilder(
+    column: $table.reminder,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get leadMinutes => $composableBuilder(
+    column: $table.leadMinutes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get enabled => $composableBuilder(
+    column: $table.enabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TimetableBlocksTableAnnotationComposer
+    extends Composer<_$AppDatabase, $TimetableBlocksTable> {
+  $$TimetableBlocksTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<int> get startMinute => $composableBuilder(
+    column: $table.startMinute,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get durationMinutes => $composableBuilder(
+    column: $table.durationMinutes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get daysMask =>
+      $composableBuilder(column: $table.daysMask, builder: (column) => column);
+
+  GeneratedColumn<bool> get reminder =>
+      $composableBuilder(column: $table.reminder, builder: (column) => column);
+
+  GeneratedColumn<int> get leadMinutes => $composableBuilder(
+    column: $table.leadMinutes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get enabled =>
+      $composableBuilder(column: $table.enabled, builder: (column) => column);
+}
+
+class $$TimetableBlocksTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $TimetableBlocksTable,
+          TimetableBlock,
+          $$TimetableBlocksTableFilterComposer,
+          $$TimetableBlocksTableOrderingComposer,
+          $$TimetableBlocksTableAnnotationComposer,
+          $$TimetableBlocksTableCreateCompanionBuilder,
+          $$TimetableBlocksTableUpdateCompanionBuilder,
+          (
+            TimetableBlock,
+            BaseReferences<
+              _$AppDatabase,
+              $TimetableBlocksTable,
+              TimetableBlock
+            >,
+          ),
+          TimetableBlock,
+          PrefetchHooks Function()
+        > {
+  $$TimetableBlocksTableTableManager(
+    _$AppDatabase db,
+    $TimetableBlocksTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TimetableBlocksTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TimetableBlocksTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$TimetableBlocksTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<int> startMinute = const Value.absent(),
+                Value<int> durationMinutes = const Value.absent(),
+                Value<int> daysMask = const Value.absent(),
+                Value<bool> reminder = const Value.absent(),
+                Value<int> leadMinutes = const Value.absent(),
+                Value<bool> enabled = const Value.absent(),
+              }) => TimetableBlocksCompanion(
+                id: id,
+                title: title,
+                category: category,
+                startMinute: startMinute,
+                durationMinutes: durationMinutes,
+                daysMask: daysMask,
+                reminder: reminder,
+                leadMinutes: leadMinutes,
+                enabled: enabled,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String title,
+                Value<String> category = const Value.absent(),
+                required int startMinute,
+                Value<int> durationMinutes = const Value.absent(),
+                Value<int> daysMask = const Value.absent(),
+                Value<bool> reminder = const Value.absent(),
+                Value<int> leadMinutes = const Value.absent(),
+                Value<bool> enabled = const Value.absent(),
+              }) => TimetableBlocksCompanion.insert(
+                id: id,
+                title: title,
+                category: category,
+                startMinute: startMinute,
+                durationMinutes: durationMinutes,
+                daysMask: daysMask,
+                reminder: reminder,
+                leadMinutes: leadMinutes,
+                enabled: enabled,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TimetableBlocksTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $TimetableBlocksTable,
+      TimetableBlock,
+      $$TimetableBlocksTableFilterComposer,
+      $$TimetableBlocksTableOrderingComposer,
+      $$TimetableBlocksTableAnnotationComposer,
+      $$TimetableBlocksTableCreateCompanionBuilder,
+      $$TimetableBlocksTableUpdateCompanionBuilder,
+      (
+        TimetableBlock,
+        BaseReferences<_$AppDatabase, $TimetableBlocksTable, TimetableBlock>,
+      ),
+      TimetableBlock,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -7341,4 +8195,6 @@ class $AppDatabaseManager {
       $$ResourcesTableTableManager(_db, _db.resources);
   $$AchievementsTableTableManager get achievements =>
       $$AchievementsTableTableManager(_db, _db.achievements);
+  $$TimetableBlocksTableTableManager get timetableBlocks =>
+      $$TimetableBlocksTableTableManager(_db, _db.timetableBlocks);
 }

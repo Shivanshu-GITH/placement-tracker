@@ -5,13 +5,14 @@ import 'package:preppilot/data/database/database.dart';
 // ignore: depend_on_referenced_packages
 import 'package:sqlite3/sqlite3.dart';
 
-/// The v4 -> v5 migration retires the old phase-roadmap and daily-plan tables.
-/// It must drop exactly those three and leave every other table (and its data)
-/// untouched.
+/// Upgrading an old v4 database must retire the three phase-roadmap/daily-plan
+/// tables, add everything introduced since (the v6 timetable), and leave every
+/// other table and its data untouched.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('v4 -> v5 drops the retired tables and keeps unrelated data', () async {
+  test('v4 -> current drops the retired tables and keeps unrelated data',
+      () async {
     // Hand-build a v4-shaped database: the three retired tables plus one
     // unrelated table with a row to prove the migration is surgical.
     final raw = sqlite3.openInMemory();
@@ -44,9 +45,12 @@ void main() {
     expect(kept, hasLength(1));
     expect(kept.first.read<String>('status'), 'solved');
 
-    // The schema version advanced.
+    // Tables added after v4 are created by the same upgrade.
+    expect(tables, contains('timetable_blocks'));
+
+    // The schema version advanced to the current one.
     final version = (await db.customSelect('PRAGMA user_version').getSingle())
         .read<int>('user_version');
-    expect(version, 5);
+    expect(version, db.schemaVersion);
   });
 }

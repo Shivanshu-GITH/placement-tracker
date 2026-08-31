@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -5,6 +7,7 @@ import '../../../core/constants/enums.dart';
 import '../../../core/theme/app_dimens.dart';
 import '../../../core/widgets/pill.dart';
 import '../../../data/models/dtos.dart';
+import '../../../data/repositories/prep_repository.dart';
 import '../../../providers/providers.dart';
 import '../../study/study_actions.dart';
 import '../../study/study_links.dart';
@@ -30,8 +33,33 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
   final _noteController = TextEditingController();
   bool _noteInit = false;
 
+  // Notes save on a short debounce rather than on every keystroke, so typing
+  // doesn't fire a database write per character. The repository and canon are
+  // captured during build so a pending edit can still be flushed from
+  // dispose() without touching `ref` after the widget is deactivated.
+  Timer? _noteDebounce;
+  PrepRepository? _repo;
+  String? _noteCanon;
+  bool _noteDirty = false;
+
+  void _onNoteChanged(String _) {
+    _noteDirty = true;
+    _noteDebounce?.cancel();
+    _noteDebounce = Timer(const Duration(milliseconds: 400), _flushNote);
+  }
+
+  /// Writes the pending note, if any. Safe to call repeatedly.
+  void _flushNote() {
+    final canon = _noteCanon;
+    if (!_noteDirty || canon == null) return;
+    _noteDirty = false;
+    _repo?.saveNote(canon, _noteController.text);
+  }
+
   @override
   void dispose() {
+    _noteDebounce?.cancel();
+    _flushNote(); // don't lose what was typed just before closing
     _noteController.dispose();
     super.dispose();
   }
@@ -50,6 +78,9 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
       _noteController.text = row.progress?.note ?? '';
     }
     final repo = ref.read(prepRepositoryProvider);
+    // Kept for the debounced save + the dispose-time flush.
+    _repo = repo;
+    _noteCanon = row.canon;
 
     return Padding(
       padding: EdgeInsets.only(
@@ -81,13 +112,16 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
             ],
           ),
           const SizedBox(height: AppSpacing.sm),
-          Row(
+          // Wraps so a long section title (or a larger font scale) pushes onto
+          // the next line instead of overflowing the sheet.
+          Wrap(
+            spacing: 8,
+            runSpacing: 6,
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               if (!row.isConcept)
                 Pill(label: row.difficulty.label, color: row.difficulty.color),
-              const SizedBox(width: 8),
               Pill(label: row.category.label, color: row.category.color),
-              const SizedBox(width: 8),
               Text(row.sectionTitle,
                   style: theme.textTheme.labelSmall
                       ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
@@ -131,7 +165,7 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
             decoration: const InputDecoration(
               hintText: 'Approach, edge cases, complexity…',
             ),
-            onChanged: (v) => repo.saveNote(row.canon, v),
+            onChanged: _onNoteChanged,
           ),
           const SizedBox(height: AppSpacing.lg),
           if (row.progress?.nextReviewAt != null)

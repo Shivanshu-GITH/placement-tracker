@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../core/config/app_config.dart';
 import '../core/constants/enums.dart';
+import '../core/services/notification_service.dart';
 import '../core/utils/day_key.dart';
 import '../data/database/database.dart';
 import '../data/models/dtos.dart';
@@ -16,6 +17,7 @@ import '../data/repositories/profile_repository.dart';
 import '../data/repositories/seed_service.dart';
 import '../features/ads/ad_config.dart';
 import '../features/ads/rewarded_ad_gate.dart';
+import '../features/planner/planner_effort.dart';
 import '../features/planner/planner_engine.dart';
 import '../features/planner/planner_models.dart';
 import '../features/planner/planner_settings.dart';
@@ -23,6 +25,8 @@ import '../features/premium/premium_service.dart';
 import '../features/study/ad_gate.dart';
 import '../features/study/study_models.dart';
 import '../features/study/study_repository.dart';
+import '../features/timetable/timetable_models.dart';
+import '../features/timetable/timetable_repository.dart';
 
 export '../features/contests/contest_prefs.dart'
     show contestPrepProvider, todaysContestsProvider, upcomingContestsProvider;
@@ -285,6 +289,75 @@ final recentSessionsProvider = StreamProvider<List<StudySession>>(
 
 // ---- Deadline planner -----------------------------------------------------
 
+// ---- Daily timetable ------------------------------------------------------
+
+final timetableRepositoryProvider =
+    Provider((ref) => TimetableRepository(ref.watch(databaseProvider)));
+
+/// Every timetable block, ordered by start time.
+final timetableProvider = StreamProvider<List<TimetableBlock>>(
+    (ref) => ref.watch(timetableRepositoryProvider).watchBlocks());
+
+/// The blocks that run today, in order.
+final todayTimetableProvider = Provider<List<TimetableBlock>>((ref) {
+  final all = ref.watch(timetableProvider).valueOrNull ?? const [];
+  final now = DateTime.now();
+  return [
+    for (final b in all)
+      if (b.enabled && Weekdays.runsOn(b.daysMask, now)) b,
+  ];
+});
+
+/// Today's block that is either running now or is the next one due.
+final currentBlockProvider = Provider<TimetableBlock?>((ref) {
+  final today = ref.watch(todayTimetableProvider);
+  if (today.isEmpty) return null;
+  final now = DateTime.now();
+  final minute = now.hour * 60 + now.minute;
+  for (final b in today) {
+    if (minute < b.startMinute + b.durationMinutes) return b;
+  }
+  return null;
+});
+
+/// Re-schedules every timetable reminder from the current blocks. Call after
+/// any edit; safe to call when notifications aren't permitted (it no-ops at the
+/// OS level rather than throwing).
+Future<void> syncTimetableReminders(WidgetRef ref) async {
+  final blocks = await ref.read(timetableRepositoryProvider).allBlocks();
+  await NotificationService.instance.syncTimetableReminders(blocks);
+}
+
+/// Item count and estimated effort for one sheet.
+class SheetEffort {
+  const SheetEffort({required this.items, required this.minutes});
+  final int items;
+  final int minutes;
+
+  double get hours => minutes / 60.0;
+}
+
+/// Items + estimated minutes for EVERY sheet, keyed by sheet id.
+///
+/// Lets the onboarding and sheet pickers show the real cost of a selection
+/// ("455 problems · ~202 h") before the user commits to it, instead of
+/// discovering months later that the plan never fit.
+final sheetEffortProvider = Provider<Map<int, SheetEffort>>((ref) {
+  final rows = ref.watch(leafRowsProvider);
+  final items = <int, int>{};
+  final minutes = <int, int>{};
+  for (final r in rows) {
+    final id = r.sheet.id;
+    items[id] = (items[id] ?? 0) + 1;
+    minutes[id] = (minutes[id] ?? 0) +
+        PlanEffort.forLeaf(isConcept: r.isConcept, difficulty: r.difficulty);
+  }
+  return {
+    for (final id in items.keys)
+      id: SheetEffort(items: items[id]!, minutes: minutes[id]!),
+  };
+});
+
 /// Each active sheet as a planner "subject", with its leaves flattened into the
 /// sheet's real tree (section → sub-section) order so "next in sequence" is
 /// correct. Grouped/ordered by the sheet's own order index.
@@ -362,6 +435,9 @@ final plannerOverviewProvider = Provider<PlanOverview>((ref) {
     deadline: deadline,
     now: now,
     plannedPaceFor: (slug) => paces[slug],
+    // The daily study budget turns this into an effort-based plan: targets are
+    // sized by real minutes of work, not by counting unequal items.
+    dailyMinutes: profile?.dailyGoalMinutes ?? 120,
   );
 });
 

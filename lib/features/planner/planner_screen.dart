@@ -10,6 +10,7 @@ import '../../core/widgets/entrance.dart';
 import '../../core/widgets/section_header.dart';
 import '../../providers/providers.dart';
 import '../tracker/sheet_detail_screen.dart';
+import 'planner_effort.dart';
 import 'planner_engine.dart';
 import 'planner_models.dart';
 
@@ -49,6 +50,20 @@ class PlannerScreen extends ConsumerWidget {
                   plan: plan,
                   onEdit: () => _editDeadline(context, ref, plan.deadline),
                 ).entrance(index: 0),
+                // Only shown when the maths doesn't work — with the two fixes
+                // that actually resolve it.
+                if (!plan.feasible) ...[
+                  const SizedBox(height: AppSpacing.md),
+                  _FeasibilityCard(
+                    plan: plan,
+                    onExtend: () async {
+                      final d = plan.suggestedDeadline;
+                      if (d == null) return;
+                      await ref.read(profileRepositoryProvider).setTargetDate(d);
+                    },
+                    onEditHours: () => _editDailyHours(context, ref, plan),
+                  ).entrance(index: 0),
+                ],
                 const SizedBox(height: AppSpacing.xl),
                 SectionHeader(
                   title: "Today's targets",
@@ -101,6 +116,136 @@ class PlannerScreen extends ConsumerWidget {
     if (picked != null) {
       await ref.read(profileRepositoryProvider).setTargetDate(picked);
     }
+  }
+
+  /// Lets the user raise their daily study time until the plan fits.
+  Future<void> _editDailyHours(
+      BuildContext context, WidgetRef ref, PlanOverview plan) async {
+    var hours = (plan.capacityMinutes / 60).clamp(1, 12).round();
+    final needed = plan.requiredHoursPerDay;
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setSheet) => Padding(
+          padding: EdgeInsets.only(
+            left: AppSpacing.xl,
+            right: AppSpacing.xl,
+            top: AppSpacing.lg,
+            bottom: MediaQuery.of(ctx).viewInsets.bottom + AppSpacing.xl,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Daily study time',
+                  style: Theme.of(ctx)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.w800)),
+              const SizedBox(height: 4),
+              Text(
+                'You need about ${needed.toStringAsFixed(1)} h/day to finish '
+                'everything by your target date.',
+                style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(ctx).colorScheme.onSurfaceVariant),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              Text('$hours ${hours == 1 ? 'hour' : 'hours'} a day',
+                  style: Theme.of(ctx).textTheme.titleMedium),
+              Slider(
+                value: hours.toDouble(),
+                min: 1,
+                max: 12,
+                divisions: 11,
+                label: '$hours h',
+                onChanged: (v) => setSheet(() => hours = v.round()),
+              ),
+              const SizedBox(height: AppSpacing.md),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: () async {
+                    await ref
+                        .read(profileRepositoryProvider)
+                        .updateGoals(minutes: hours * 60, problems: hours * 2);
+                    if (ctx.mounted) Navigator.pop(ctx);
+                  },
+                  child: const Text('Save'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Shown when the plan cannot fit: states the gap plainly and offers the only
+/// two things that actually fix it — more time per day, or a later deadline.
+class _FeasibilityCard extends StatelessWidget {
+  const _FeasibilityCard({
+    required this.plan,
+    required this.onExtend,
+    required this.onEditHours,
+  });
+  final PlanOverview plan;
+  final Future<void> Function() onExtend;
+  final VoidCallback onEditHours;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final df = DateFormat('d MMM yyyy');
+    final have = (plan.capacityMinutes / 60);
+    final need = plan.requiredHoursPerDay;
+    final suggested = plan.suggestedDeadline;
+
+    return AppCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.warning_amber_rounded, color: AppPalette.warning),
+              const SizedBox(width: AppSpacing.sm),
+              Expanded(
+                child: Text("This plan doesn't fit",
+                    style: theme.textTheme.titleSmall
+                        ?.copyWith(fontWeight: FontWeight.w800)),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            '${PlanEffort.format(plan.minutesLeft)} of work is left. Finishing '
+            'by ${df.format(plan.deadline)} needs ${need.toStringAsFixed(1)} h/day, '
+            'but you planned for ${have.toStringAsFixed(1)} h/day.',
+            style: theme.textTheme.bodySmall
+                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          Wrap(
+            spacing: AppSpacing.sm,
+            runSpacing: AppSpacing.sm,
+            children: [
+              FilledButton.tonalIcon(
+                onPressed: onEditHours,
+                icon: const Icon(Icons.schedule_rounded, size: 18),
+                label: const Text('Study more per day'),
+              ),
+              if (suggested != null)
+                FilledButton.tonalIcon(
+                  onPressed: onExtend,
+                  icon: const Icon(Icons.event_repeat_rounded, size: 18),
+                  label: Text('Move to ${df.format(suggested)}'),
+                ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -400,9 +545,12 @@ class _SubjectCard extends ConsumerWidget {
                   child: _MetricPill(
                     label: 'Per day',
                     value: '${subject.dailyTarget}',
+                    // In effort mode the target is sized by minutes, so a
+                    // count-based "need N" would contradict it — show the time
+                    // this actually costs instead.
                     hint: subject.isPaceCustom
                         ? 'custom'
-                        : 'need ${subject.requiredPace}',
+                        : '~${PlanEffort.format(subject.todayMinutes)}',
                     accent: accent,
                   ),
                 ),
@@ -565,7 +713,8 @@ class _PaceSheetState extends ConsumerState<_PaceSheet> {
               style: theme.textTheme.titleMedium
                   ?.copyWith(fontWeight: FontWeight.w800)),
           const SizedBox(height: AppSpacing.xs),
-          Text('${s.left} items left • need ${s.requiredPace}/day to hit your deadline',
+          Text('${s.left} items left • about '
+              '${PlanEffort.format(s.minutesLeft)} of work',
               style: theme.textTheme.bodySmall
                   ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
           const SizedBox(height: AppSpacing.lg),

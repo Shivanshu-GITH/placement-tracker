@@ -33,6 +33,9 @@ class _WelcomeAuthScreenState extends ConsumerState<WelcomeAuthScreen> {
   Future<void> _guest() async {
     setState(() => _busy = true);
     await setGuestMode(ref, true);
+    // Normally the router has already swapped this screen out; reset anyway so
+    // the buttons can't stay stuck disabled if it hasn't.
+    if (mounted) setState(() => _busy = false);
   }
 
   void _toast(String msg) {
@@ -46,11 +49,18 @@ class _WelcomeAuthScreenState extends ConsumerState<WelcomeAuthScreen> {
     final theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
-          child: Column(
-            children: [
-              const Spacer(flex: 2),
+        // Spacers keep the airy layout when there's room, but the content can
+        // exceed the screen on small devices or at large accessibility text
+        // sizes — so it scrolls instead of overflowing.
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: IntrinsicHeight(
+                child: Column(
+                  children: [
+                    const Spacer(flex: 2),
               Container(
                 width: 96,
                 height: 96,
@@ -111,8 +121,11 @@ class _WelcomeAuthScreenState extends ConsumerState<WelcomeAuthScreen> {
                 style: theme.textTheme.labelSmall
                     ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
               ),
-              const SizedBox(height: AppSpacing.lg),
-            ],
+                    const SizedBox(height: AppSpacing.lg),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),

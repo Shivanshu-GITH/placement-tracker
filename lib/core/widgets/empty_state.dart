@@ -22,12 +22,15 @@ class EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.xxl),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
+    // Scrollable so the content can still be reached on a short screen or at a
+    // large accessibility font size instead of overflowing.
+    return SingleChildScrollView(
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.xxl),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
             Container(
               padding: const EdgeInsets.all(AppSpacing.xl),
               decoration: BoxDecoration(
@@ -53,11 +56,12 @@ class EmptyState extends StatelessWidget {
                 ),
               ),
             ],
-            if (actionLabel != null && onAction != null) ...[
-              const SizedBox(height: AppSpacing.xl),
-              FilledButton(onPressed: onAction, child: Text(actionLabel!)),
+              if (actionLabel != null && onAction != null) ...[
+                const SizedBox(height: AppSpacing.xl),
+                FilledButton(onPressed: onAction, child: Text(actionLabel!)),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );

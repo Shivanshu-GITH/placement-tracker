@@ -15,7 +15,10 @@ import '../../providers/providers.dart';
 import '../achievements/achievements.dart';
 import '../analytics/analytics_screen.dart';
 import '../contests/contests_screen.dart';
+import '../planner/planner_effort.dart';
 import '../planner/planner_models.dart';
+import '../timetable/timetable_models.dart';
+import '../timetable/timetable_screen.dart';
 import '../tracker/sheet_detail_screen.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
@@ -65,10 +68,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     final today = activity
         .where((a) => a.day == DayKey.today())
         .fold<ActivityDay?>(null, (p, e) => e);
-    final solvedToday = today?.problemsSolved ?? 0;
-    final goalProblems = profile?.dailyGoalProblems ?? 4;
+    // The block running now (or next up) from the user's timetable, if any.
+    final nextBlock = ref.watch(currentBlockProvider);
+
+    // Today's goal comes from the planner, so the hero card and the "Today's
+    // plan" list below it always agree. It counts every kind of task (problems,
+    // theory topics, aptitude…) across all active subjects — not just problems.
+    final tasksToday = plan.todayTarget;
+    final tasksDone = plan.todayDone;
     final dailyProgress =
-        goalProblems == 0 ? 0.0 : (solvedToday / goalProblems).clamp(0.0, 1.0);
+        tasksToday == 0 ? 1.0 : (tasksDone / tasksToday).clamp(0.0, 1.0);
 
     return Scaffold(
       body: SafeArea(
@@ -89,8 +98,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       const SizedBox(height: AppSpacing.lg),
                       _TodayFocusCard(
                         progress: dailyProgress.toDouble(),
-                        solved: solvedToday,
-                        goal: goalProblems,
+                        done: tasksDone,
+                        goal: tasksToday,
+                        estimatedMinutes: plan.todayMinutes,
                         minutesToday: today?.minutes ?? 0,
                       ).entrance(index: 1),
                       const SizedBox(height: AppSpacing.lg),
@@ -101,6 +111,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             MaterialPageRoute(
                                 builder: (_) => const AnalyticsScreen())),
                       ).entrance(index: 3),
+                      if (nextBlock != null) ...[
+                        const SizedBox(height: AppSpacing.md),
+                        _NextBlockCard(
+                          block: nextBlock,
+                          onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (_) => const TimetableScreen())),
+                        ).entrance(index: 3),
+                      ],
                       const SizedBox(height: AppSpacing.xl),
                       SectionHeader(
                         title: 'Today\'s plan',
@@ -292,21 +311,99 @@ class _StreakChip extends StatelessWidget {
   }
 }
 
+/// "Up next" from the user's timetable — the block running now or the next one
+/// due today. Only rendered when a timetable exists.
+class _NextBlockCard extends StatelessWidget {
+  const _NextBlockCard({required this.block, required this.onTap});
+  final TimetableBlock block;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cat = categoryFromName(block.category);
+    final accent = cat?.color ?? AppPalette.indigo;
+    final now = DateTime.now();
+    final minute = now.hour * 60 + now.minute;
+    final running =
+        minute >= block.startMinute && minute < block.startMinute + block.durationMinutes;
+
+    return AppCard(
+      padding: EdgeInsets.zero,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: accent.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(AppRadius.sm),
+                ),
+                child: Icon(cat?.icon ?? Icons.schedule_rounded,
+                    color: accent, size: 20),
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(running ? 'Happening now' : 'Up next',
+                        style: theme.textTheme.labelSmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.5)),
+                    const SizedBox(height: 2),
+                    Text(block.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w700)),
+                    Text(
+                      '${formatMinuteOfDay(block.startMinute)} · '
+                      '${block.durationMinutes} min',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded,
+                  color: theme.colorScheme.onSurfaceVariant),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _TodayFocusCard extends StatelessWidget {
   const _TodayFocusCard({
     required this.progress,
-    required this.solved,
+    required this.done,
     required this.goal,
+    required this.estimatedMinutes,
     required this.minutesToday,
   });
   final double progress;
-  final int solved;
+
+  /// Tasks completed today, across every active subject.
+  final int done;
+
+  /// Tasks the planner is asking for today.
   final int goal;
+
+  /// Estimated minutes for what is still left on today's list.
+  final int estimatedMinutes;
   final int minutesToday;
 
   @override
   Widget build(BuildContext context) {
-    final done = progress >= 1;
+    final allDone = goal == 0 || done >= goal;
     return GradientHeroCard(
       gradient: AppPalette.brandGradient,
       child: Row(
@@ -316,7 +413,7 @@ class _TodayFocusCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  done ? 'Daily goal smashed! 🎉' : 'Today\'s goal',
+                  allDone ? 'Today\'s plan done! 🎉' : 'Today\'s plan',
                   style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 14,
@@ -324,7 +421,9 @@ class _TodayFocusCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  done ? 'You\'re on a roll' : 'Solve $goal problems',
+                  allDone
+                      ? 'You\'re all caught up'
+                      : '$goal ${goal == 1 ? 'task' : 'tasks'} today',
                   style: const TextStyle(
                       color: Colors.white,
                       fontSize: 22,
@@ -336,8 +435,20 @@ class _TodayFocusCard extends StatelessWidget {
                     const Icon(Icons.timer_outlined,
                         color: Colors.white70, size: 16),
                     const SizedBox(width: 4),
-                    Text('$minutesToday min today',
-                        style: const TextStyle(color: Colors.white70)),
+                    Flexible(
+                      child: Text(
+                        // Kept short so it never truncates on narrow screens.
+                        allDone
+                            ? '$minutesToday min studied today'
+                            : minutesToday > 0
+                                ? '~${PlanEffort.format(estimatedMinutes)} left · '
+                                    '$minutesToday done'
+                                : '~${PlanEffort.format(estimatedMinutes)} of work',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(color: Colors.white70),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -353,12 +464,12 @@ class _TodayFocusCard extends StatelessWidget {
             center: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('$solved/$goal',
+                Text('$done/$goal',
                     style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
                         fontSize: 18)),
-                const Text('solved',
+                const Text('tasks',
                     style: TextStyle(color: Colors.white70, fontSize: 11)),
               ],
             ),

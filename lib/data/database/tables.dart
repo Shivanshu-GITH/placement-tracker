@@ -120,6 +120,32 @@ class Resources extends Table {
   IntColumn get orderIndex => integer().withDefault(const Constant(0))();
 }
 
+/// A recurring block in the user's daily timetable (e.g. "DSA practice,
+/// 7:00–8:30, Mon–Fri"). Drives the day view and the per-block reminders.
+class TimetableBlocks extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get title => text()();
+
+  /// A [PrepCategory] name to tie the block to a subject, or '' for a free-form
+  /// habit block (gym, revision, sleep…).
+  TextColumn get category => text().withDefault(const Constant(''))();
+
+  /// Start time as minutes from midnight (e.g. 7:30 => 450). Stored this way so
+  /// it sorts and compares trivially and has no timezone baggage.
+  IntColumn get startMinute => integer()();
+  IntColumn get durationMinutes => integer().withDefault(const Constant(60))();
+
+  /// Which weekdays it repeats on, as a bitmask: bit 0 = Monday … bit 6 =
+  /// Sunday. 127 = every day.
+  IntColumn get daysMask => integer().withDefault(const Constant(127))();
+
+  /// Whether to fire a reminder, and how many minutes before the start.
+  BoolColumn get reminder => boolean().withDefault(const Constant(true))();
+  IntColumn get leadMinutes => integer().withDefault(const Constant(0))();
+
+  BoolColumn get enabled => boolean().withDefault(const Constant(true))();
+}
+
 /// Unlocked achievements/badges.
 class Achievements extends Table {
   TextColumn get key => text()();

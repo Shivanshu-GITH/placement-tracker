@@ -20,7 +20,10 @@ Future<bool> showSignUpFlow(BuildContext context, WidgetRef ref) async {
   final nameCtl = TextEditingController(text: id.name);
   String? selectedCollege =
       (id.college != null && id.college!.isNotEmpty) ? id.college : null;
-  if (!context.mounted) return false;
+  if (!context.mounted) {
+    nameCtl.dispose();
+    return false;
+  }
 
   // Already signed in? This becomes a plain "edit profile" sheet — no Google
   // button, since there's nothing to connect.
@@ -98,12 +101,15 @@ Future<bool> showSignUpFlow(BuildContext context, WidgetRef ref) async {
       ),
     ),
   );
+  // The sheet is closed now, so capture the typed value and release the
+  // controller (it can't be disposed from inside the builder).
+  final typed = nameCtl.text.trim();
+  nameCtl.dispose();
   if (ok != true) return false;
 
   try {
     String? googleName;
     if (!auth.isSignedIn) googleName = await auth.signInWithGoogle();
-    final typed = nameCtl.text.trim();
     final name = typed.isNotEmpty
         ? typed
         : ((googleName != null && googleName.trim().isNotEmpty)

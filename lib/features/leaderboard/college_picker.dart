@@ -85,25 +85,33 @@ class _CollegePickerSheetState extends State<_CollegePickerSheet> {
 
   Future<void> _enterManually() async {
     final ctl = TextEditingController(text: _searchCtl.text.trim());
-    final typed = await showDialog<String>(
-      context: context,
-      builder: (dctx) => AlertDialog(
-        title: const Text('Enter your college'),
-        content: TextField(
-          controller: ctl,
-          autofocus: true,
-          textCapitalization: TextCapitalization.words,
-          decoration: const InputDecoration(hintText: 'College / University name'),
+    final String? typed;
+    try {
+      typed = await showDialog<String>(
+        context: context,
+        builder: (dctx) => AlertDialog(
+          title: const Text('Enter your college'),
+          content: TextField(
+            controller: ctl,
+            autofocus: true,
+            textCapitalization: TextCapitalization.words,
+            decoration:
+                const InputDecoration(hintText: 'College / University name'),
+            onSubmitted: (v) => Navigator.pop(dctx, v.trim()),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(dctx),
+                child: const Text('Cancel')),
+            FilledButton(
+                onPressed: () => Navigator.pop(dctx, ctl.text.trim()),
+                child: const Text('Use this')),
+          ],
         ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(dctx), child: const Text('Cancel')),
-          FilledButton(
-              onPressed: () => Navigator.pop(dctx, ctl.text.trim()),
-              child: const Text('Use this')),
-        ],
-      ),
-    );
+      );
+    } finally {
+      ctl.dispose();
+    }
     if (typed != null && typed.isNotEmpty && mounted) {
       Navigator.pop(context, typed);
     }

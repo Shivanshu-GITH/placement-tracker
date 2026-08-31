@@ -51,6 +51,7 @@ class _AppRootState extends ConsumerState<_AppRoot> {
   InviteLinks? _invites;
   bool _bgSynced = false;
   bool _contestSynced = false;
+  bool _timetableSynced = false;
 
   @override
   void initState() {
@@ -94,6 +95,17 @@ class _AppRootState extends ConsumerState<_AppRoot> {
       final upcoming = ref.read(upcomingContestsProvider);
       WidgetsBinding.instance.addPostFrameCallback((_) {
         NotificationService.instance.scheduleContestReminders(upcoming);
+      });
+    }
+
+    // Re-arm the timetable reminders once per launch. Android drops scheduled
+    // alarms on reboot (and after an app update), so rebuilding them from the
+    // saved blocks is what keeps the reminders reliable.
+    final blocks = ref.watch(timetableProvider).valueOrNull;
+    if (blocks != null && blocks.isNotEmpty && !_timetableSynced) {
+      _timetableSynced = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        NotificationService.instance.syncTimetableReminders(blocks);
       });
     }
 

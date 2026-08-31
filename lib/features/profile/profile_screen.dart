@@ -15,6 +15,7 @@ import '../leaderboard/coding_portfolio_screen.dart';
 import '../leaderboard/coding_profiles_screen.dart';
 import '../leaderboard/signup_flow.dart';
 import '../premium/premium_screen.dart';
+import '../timetable/timetable_screen.dart';
 import '../tracks/tracks_screen.dart';
 import 'mysheets_screen.dart';
 import 'widgets/reminder_tile.dart';
@@ -206,6 +207,13 @@ class ProfileScreen extends ConsumerWidget {
                 subtitle: 'Today\'s & upcoming contests + reminders',
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => const ContestsScreen())),
+              ),
+              _SettingTile(
+                icon: Icons.schedule_rounded,
+                title: 'My timetable',
+                subtitle: 'Plan your day & get reminders per subject',
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => const TimetableScreen())),
               ),
               _SettingTile(
                 icon: Icons.timer_rounded,
@@ -686,10 +694,21 @@ class _ThemeTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.md),
       child: SegmentedButton<int>(
+        // Labels must not wrap ("Syste/m") when the icon + text are tight or
+        // the user has scaled their font up.
         segments: const [
-          ButtonSegment(value: 0, label: Text('System'), icon: Icon(Icons.brightness_auto_rounded)),
-          ButtonSegment(value: 1, label: Text('Light'), icon: Icon(Icons.light_mode_rounded)),
-          ButtonSegment(value: 2, label: Text('Dark'), icon: Icon(Icons.dark_mode_rounded)),
+          ButtonSegment(
+              value: 0,
+              label: Text('System', maxLines: 1, softWrap: false),
+              icon: Icon(Icons.brightness_auto_rounded)),
+          ButtonSegment(
+              value: 1,
+              label: Text('Light', maxLines: 1, softWrap: false),
+              icon: Icon(Icons.light_mode_rounded)),
+          ButtonSegment(
+              value: 2,
+              label: Text('Dark', maxLines: 1, softWrap: false),
+              icon: Icon(Icons.dark_mode_rounded)),
         ],
         selected: {selected},
         onSelectionChanged: (s) => onSelect(s.first),

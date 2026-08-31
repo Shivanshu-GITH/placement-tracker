@@ -8,6 +8,7 @@ import '../../core/theme/app_palette.dart';
 import '../../data/database/database.dart';
 import '../../providers/providers.dart';
 import '../leaderboard/college_picker.dart';
+import '../planner/planner_effort.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -80,7 +81,24 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     });
   }
 
+  /// Dismisses the soft keyboard. The first step has text fields; without this
+  /// the keyboard stays up over the later selection steps.
+  void _dismissKeyboard() => FocusScope.of(context).unfocus();
+
+  /// Estimated minutes of work in the currently-selected sheets.
+  int _selectedMinutes(WidgetRef ref) {
+    final effort = ref.watch(sheetEffortProvider);
+    var total = 0;
+    for (final id in _activeSheets) {
+      total += effort[id]?.minutes ?? 0;
+    }
+    return total;
+  }
+
   Future<void> _pickCollege() async {
+    // Drop focus from the name field so its keyboard doesn't fight with the
+    // picker's own search field.
+    _dismissKeyboard();
     final picked = await showCollegePicker(context, current: _college);
     if (picked != null) {
       setState(() => _college = picked.isEmpty ? null : picked);
@@ -95,6 +113,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   }
 
   void _next() {
+    _dismissKeyboard();
     if (_page < _totalPages - 1) {
       _controller.nextPage(
           duration: AppMotion.medium, curve: AppMotion.emphasized);
@@ -104,6 +123,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   }
 
   void _back() {
+    _dismissKeyboard();
     if (_page > 0) {
       _controller.previousPage(
           duration: AppMotion.medium, curve: AppMotion.emphasized);
@@ -204,6 +224,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     dailyHours: _dailyHours,
                     onMonths: (v) => setState(() => _months = v),
                     onHours: (v) => setState(() => _dailyHours = v),
+                    // Real workload of the sheets picked so far, so the pace
+                    // they choose is checked against actual content.
+                    selectedMinutes: _selectedMinutes(ref),
                   ),
                   _SheetsStep(
                     sheets: sheets,
@@ -306,6 +329,8 @@ class _StepShell extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SingleChildScrollView(
+      // Dragging the form dismisses the keyboard, as users expect.
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -642,15 +667,18 @@ class _GoalStep extends StatelessWidget {
     required this.dailyHours,
     required this.onMonths,
     required this.onHours,
+    required this.selectedMinutes,
   });
   final int months;
   final int dailyHours;
   final ValueChanged<int> onMonths;
   final ValueChanged<int> onHours;
 
+  /// Estimated minutes of work in the sheets chosen for this plan.
+  final int selectedMinutes;
+
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return _StepShell(
       title: 'Set your pace',
       subtitle: 'We\'ll build phases and a daily schedule around this.',
@@ -677,27 +705,87 @@ class _GoalStep extends StatelessWidget {
             accent: AppPalette.mint,
           ),
           const SizedBox(height: AppSpacing.xxl),
-          Container(
-            padding: const EdgeInsets.all(AppSpacing.lg),
-            decoration: BoxDecoration(
-              color: theme.colorScheme.primaryContainer.withValues(alpha: 0.5),
-              borderRadius: BorderRadius.circular(AppRadius.md),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.auto_awesome_rounded,
-                    color: theme.colorScheme.primary),
-                const SizedBox(width: AppSpacing.md),
-                Expanded(
-                  child: Text(
-                    'That\'s about ${dailyHours * 2} problems a day and '
-                    '${(dailyHours * 60 * 6 * months * 4.3 / 60).round()}+ study hours before your target.',
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                ),
-              ],
-            ),
+          _PaceReality(
+            months: months,
+            dailyHours: dailyHours,
+            selectedMinutes: selectedMinutes,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The honesty check on the pace step: measures the chosen sheets against the
+/// chosen timeframe and says plainly whether the plan is achievable, instead of
+/// generating a roadmap that can never be finished.
+class _PaceReality extends StatelessWidget {
+  const _PaceReality({
+    required this.months,
+    required this.dailyHours,
+    required this.selectedMinutes,
+  });
+  final int months;
+  final int dailyHours;
+  final int selectedMinutes;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    if (selectedMinutes <= 0) {
+      // Content still loading — say nothing rather than guess.
+      return const SizedBox.shrink();
+    }
+    final days = months * 30;
+    final capacity = dailyHours * 60;
+    final neededPerDay = selectedMinutes / days; // minutes
+    final fits = neededPerDay <= capacity;
+    final daysAtPace = (selectedMinutes / capacity).ceil();
+
+    final color = fits ? AppPalette.success : AppPalette.warning;
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.lg),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        border: Border.all(color: color.withValues(alpha: 0.4)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(fits ? Icons.check_circle_rounded : Icons.info_rounded,
+                  color: color, size: 20),
+              const SizedBox(width: AppSpacing.sm),
+              Expanded(
+                child: Text(
+                  fits ? 'This plan fits' : 'That\'s a tight plan',
+                  style: theme.textTheme.titleSmall
+                      ?.copyWith(fontWeight: FontWeight.w800),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'Your selected sheets are about '
+            '${PlanEffort.format(selectedMinutes)} of study. '
+            '${fits ? 'At' : 'Finishing in $months ${months == 1 ? 'month' : 'months'} needs '
+                '${(neededPerDay / 60).toStringAsFixed(1)} h/day — at'} '
+            '$dailyHours h/day you\'d finish in about $daysAtPace days.',
+            style: theme.textTheme.bodySmall
+                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+          ),
+          if (!fits) ...[
+            const SizedBox(height: AppSpacing.sm),
+            Text(
+              'Raise your daily hours, allow more months, or pick fewer sheets '
+              'on the next step — you can change all of it later.',
+              style: theme.textTheme.bodySmall
+                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+            ),
+          ],
         ],
       ),
     );

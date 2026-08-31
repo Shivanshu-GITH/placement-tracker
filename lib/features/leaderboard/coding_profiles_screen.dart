@@ -109,25 +109,30 @@ class _CodingProfilesScreenState extends ConsumerState<CodingProfilesScreen> {
 
   Future<String?> _askHandle(String label) async {
     final ctl = TextEditingController();
-    return showDialog<String>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text('Link $label'),
-        content: TextField(
-          controller: ctl,
-          autofocus: true,
-          decoration: InputDecoration(hintText: 'Your $label username'),
-          onSubmitted: (v) => Navigator.pop(ctx, v),
+    try {
+      return await showDialog<String>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('Link $label'),
+          content: TextField(
+            controller: ctl,
+            autofocus: true,
+            decoration: InputDecoration(hintText: 'Your $label username'),
+            onSubmitted: (v) => Navigator.pop(ctx, v),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(ctx),
+                child: const Text('Cancel')),
+            FilledButton(
+                onPressed: () => Navigator.pop(ctx, ctl.text),
+                child: const Text('Continue')),
+          ],
         ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx), child: const Text('Cancel')),
-          FilledButton(
-              onPressed: () => Navigator.pop(ctx, ctl.text),
-              child: const Text('Continue')),
-        ],
-      ),
-    );
+      );
+    } finally {
+      ctl.dispose();
+    }
   }
 
   void _toast(String m) {

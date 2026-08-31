@@ -177,6 +177,10 @@ class _NavItem extends StatelessWidget {
             spec.label,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
+            // The bar is a fixed 64dp tall; cap label scaling so very large
+            // accessibility font sizes can't overflow it.
+            textScaler:
+                MediaQuery.textScalerOf(context).clamp(maxScaleFactor: 1.3),
             style: TextStyle(
               fontSize: 10,
               fontWeight: selected ? FontWeight.w700 : FontWeight.w500,

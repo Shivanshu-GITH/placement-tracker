@@ -6,15 +6,33 @@ import 'planner_models.dart';
 /// The deadline-driven planning engine.
 ///
 /// Given the user's active subjects (each an ordered list of leaves), a start
-/// date and a target deadline, it computes for every subject: the pace needed
-/// to finish on time, today's target (with automatic catch-up for missed days,
-/// capped at one extra day), the projected finish date, whether it is on track,
-/// and today's concrete list of items.
+/// date, a target deadline and — crucially — how many minutes a day they can
+/// actually study, it computes for every subject: the pace needed to finish on
+/// time, today's target, the projected finish date, whether it is on track, and
+/// today's concrete list of items.
+///
+/// ## Why effort, not item counts
+/// Planning by item count alone is what makes a roadmap lie: 20 aptitude
+/// concepts and 20 hard DSA problems are both "20 items" but differ ~5x in real
+/// work. When [compute] is given a [dailyMinutes] budget it switches to
+/// EFFORT-BASED planning:
+///
+///  * every remaining item is costed in minutes (see `PlanEffort`),
+///  * the day's budget is `min(capacity, minutes needed per day to hit the
+///    deadline)` — so the user is never asked for more than they said they have,
+///    and never padded beyond what the deadline requires,
+///  * that budget is split across subjects **in proportion to the work each has
+///    left**, so every subject advances together and they all land near the same
+///    finish date instead of one subject starving the others,
+///  * the projected finish comes from real capacity, which is what makes
+///    `feasible` / `suggestedDeadline` on [PlanOverview] trustworthy.
+///
+/// Omitting [dailyMinutes] keeps the original count-based behaviour.
 ///
 /// It is a pure function of its inputs — no I/O, no Drift — so it recomputes
-/// live as progress changes and is trivially unit-testable. The design mirrors
-/// the reference "Unnati" tracker's `plan.ts` (dailyTarget / todayList /
-/// trackStats), adapted to PrepPilot's per-sheet, canon-keyed data model.
+/// live as progress changes and is trivially unit-testable. Because it derives
+/// everything from the CURRENT set of active subjects and what is left in them,
+/// adding or finishing sheets re-plans automatically with no extra bookkeeping.
 class PlannerEngine {
   const PlannerEngine._();
 
@@ -34,14 +52,16 @@ class PlannerEngine {
   /// Computes the full plan.
   ///
   /// [plannedPaceFor] returns a user's per-day override for a subject (by slug),
-  /// or null to use the auto pace (whatever is needed to finish by the
-  /// deadline). [now] defaults to [DateTime.now].
+  /// or null to use the auto pace. [dailyMinutes] is the user's daily study
+  /// capacity; supplying it enables effort-based planning (see the class doc).
+  /// [now] defaults to [DateTime.now].
   static PlanOverview compute({
     required List<SubjectInput> subjects,
     required DateTime start,
     required DateTime deadline,
     int? Function(String slug)? plannedPaceFor,
     DateTime? now,
+    int? dailyMinutes,
   }) {
     final today = dateOnly(now ?? DateTime.now());
     final startD = dateOnly(start);
@@ -52,13 +72,16 @@ class PlannerEngine {
     final closed = math.max(0, diffDays(startD, today));
     final daysToDeadline = math.max(0, diffDays(today, deadlineD));
 
-    final plans = <SubjectPlan>[];
+    final capacity = (dailyMinutes != null && dailyMinutes > 0) ? dailyMinutes : 0;
+    final timeAware = capacity > 0;
+
+    // ---- Pass 1: per-subject facts, required/planned pace, work done today.
+    final facts = <_Facts>[];
     for (final s in subjects) {
       final total = s.leaves.length;
       final done = s.leaves.where((l) => l.isDone).length;
       final left = total - done;
 
-      // Pace needed to still clear what's left by the deadline.
       final int requiredPace;
       if (left == 0) {
         requiredPace = 0;
@@ -68,63 +91,168 @@ class PlannerEngine {
         requiredPace = math.max(1, (left / daysToDeadline).ceil());
       }
 
-      // Planned steady pace: a user override wins, else the auto (required) pace
-      // so a fresh plan sits exactly on schedule.
       final override = plannedPaceFor?.call(s.slug);
       final isCustom = override != null && override >= 1;
-      final int plannedPace = left == 0
+      final plannedPace = left == 0
           ? 0
           : isCustom
               ? override
               : math.max(1, requiredPace);
 
-      // Today's target = planned pace plus catch-up for days missed, capped at
-      // one extra day and never more than what's left. Catch-up applies only to
-      // a fixed custom pace; the auto pace already absorbs lost time by rising
-      // as fewer days remain, so it needs no extra spike.
-      final int deficit =
-          isCustom ? math.max(0, plannedPace * closed - done) : 0;
-      int dailyTarget = plannedPace + math.min(deficit, plannedPace);
-      if (dailyTarget > left) dailyTarget = left;
-      if (left == 0) dailyTarget = 0;
+      final doneToday = <PlanItem>[
+        for (final l in s.leaves)
+          if (l.isDone && _sameDay(l.solvedAt, today)) PlanItem(l, doneToday: true),
+      ];
 
-      // Projection at the planned pace.
-      final DateTime? projected = left == 0
-          ? null
-          : plannedPace > 0
-              ? addDays(today, (left / plannedPace).ceil())
-              : null;
+      facts.add(_Facts(
+        input: s,
+        total: total,
+        done: done,
+        left: left,
+        minutesLeft: s.minutesLeft,
+        requiredPace: requiredPace,
+        plannedPace: plannedPace,
+        isCustom: isCustom,
+        doneToday: doneToday,
+      ));
+    }
 
-      // Today's list: done-today first, then next unsolved up to the target.
-      final doneToday = <PlanItem>[];
-      for (final l in s.leaves) {
-        if (l.isDone && _sameDay(l.solvedAt, today)) {
-          doneToday.add(PlanItem(l, doneToday: true));
-        }
-      }
-      final need = math.max(0, dailyTarget - doneToday.length);
-      final next = <PlanItem>[];
-      for (final l in s.leaves) {
+    // ---- Pass 2: today's target for each subject.
+    final totalMinutesLeft = facts.fold(0, (s, f) => s + f.minutesLeft);
+    final requiredMinutesPerDay = totalMinutesLeft == 0
+        ? 0
+        : daysToDeadline <= 0
+            ? totalMinutesLeft
+            : (totalMinutesLeft / daysToDeadline).ceil();
+    // Never ask for more than the user has, nor more than the deadline needs.
+    final todayBudget =
+        timeAware ? math.min(capacity, requiredMinutesPerDay) : 0;
+
+    // Count-based catch-up target, used for custom-pace subjects in both modes
+    // and for every subject when no time budget was supplied.
+    int countTarget(_Facts f) {
+      final deficit =
+          f.isCustom ? math.max(0, f.plannedPace * closed - f.done) : 0;
+      var t = f.plannedPace + math.min<int>(deficit, f.plannedPace);
+      if (t > f.left) t = f.left;
+      if (f.left == 0) t = 0;
+      return t;
+    }
+
+    // How many of a subject's next undone items fit inside [budgetMinutes].
+    // Only whole items that actually fit are counted, so the day is never
+    // over-promised — with one exception: a subject that has done nothing today
+    // always gets at least one item, otherwise a subject whose next item costs
+    // more than its slice of the budget would stall forever.
+    int fitCount(_Facts f, double budgetMinutes) {
+      if (budgetMinutes <= 0) return 0;
+      var used = 0.0;
+      var count = 0;
+      for (final l in f.input.leaves) {
         if (l.isDone) continue;
-        next.add(PlanItem(l));
+        if (used + l.estimatedMinutes > budgetMinutes) break;
+        used += l.estimatedMinutes;
+        count++;
+      }
+      if (count == 0 && f.left > 0 && f.doneToday.isEmpty) return 1;
+      return count;
+    }
+
+    final targets = <int>[];
+    int autoBudget = 0;
+    int autoMinutesLeft = 0;
+
+    if (!timeAware) {
+      for (final f in facts) {
+        targets.add(countTarget(f));
+      }
+    } else {
+      // Custom-pace subjects keep their pinned pace and consume their share of
+      // the day's budget first; the rest is shared by the auto subjects.
+      var customMinutes = 0;
+      for (final f in facts) {
+        if (!f.isCustom) continue;
+        final t = countTarget(f);
+        var m = 0, taken = 0;
+        for (final l in f.input.leaves) {
+          if (l.isDone) continue;
+          if (taken >= t) break;
+          m += l.estimatedMinutes;
+          taken++;
+        }
+        customMinutes += m;
+      }
+      autoBudget = math.max(0, todayBudget - customMinutes);
+      autoMinutesLeft = facts
+          .where((f) => !f.isCustom)
+          .fold(0, (s, f) => s + f.minutesLeft);
+
+      for (final f in facts) {
+        if (f.isCustom) {
+          targets.add(countTarget(f));
+          continue;
+        }
+        if (f.left == 0 || autoMinutesLeft == 0) {
+          targets.add(0);
+          continue;
+        }
+        // Proportional share of the day's remaining budget, minus whatever the
+        // user already completed in this subject today.
+        final share = f.minutesLeft / autoMinutesLeft;
+        final doneMinutes = f.doneToday
+            .fold<int>(0, (s, i) => s + i.leaf.estimatedMinutes);
+        final remaining = autoBudget * share - doneMinutes;
+        targets.add(f.doneToday.length + fitCount(f, remaining));
+      }
+    }
+
+    // Days the auto-paced subjects need at the sustained budget — they advance
+    // proportionally, so they all finish together.
+    final int? autoDays = (timeAware && autoMinutesLeft > 0)
+        ? (autoBudget > 0 ? (autoMinutesLeft / autoBudget).ceil() : null)
+        : null;
+
+    // ---- Pass 3: today's list + projection per subject.
+    final plans = <SubjectPlan>[];
+    for (var i = 0; i < facts.length; i++) {
+      final f = facts[i];
+      final dailyTarget = targets[i];
+
+      final need = math.max(0, dailyTarget - f.doneToday.length);
+      final next = <PlanItem>[];
+      for (final l in f.input.leaves) {
+        if (l.isDone) continue;
         if (next.length >= need) break;
+        next.add(PlanItem(l));
+      }
+
+      final DateTime? projected;
+      if (f.left == 0) {
+        projected = null; // complete
+      } else if (timeAware && !f.isCustom) {
+        projected = autoDays == null ? null : addDays(today, autoDays);
+      } else {
+        projected = f.plannedPace > 0
+            ? addDays(today, (f.left / f.plannedPace).ceil())
+            : null;
       }
 
       plans.add(SubjectPlan(
-        slug: s.slug,
-        title: s.title,
-        category: s.category,
-        sheetId: s.sheetId,
-        total: total,
-        done: done,
-        doneTodayCount: doneToday.length,
-        plannedPace: plannedPace,
-        requiredPace: requiredPace,
+        slug: f.input.slug,
+        title: f.input.title,
+        category: f.input.category,
+        sheetId: f.input.sheetId,
+        total: f.total,
+        done: f.done,
+        doneTodayCount: f.doneToday.length,
+        plannedPace: f.plannedPace,
+        requiredPace: f.requiredPace,
         dailyTarget: dailyTarget,
         projectedFinish: projected,
         deadline: deadlineD,
-        todayItems: [...doneToday, ...next],
-        isPaceCustom: isCustom,
+        todayItems: [...f.doneToday, ...next],
+        isPaceCustom: f.isCustom,
+        minutesLeft: f.minutesLeft,
       ));
     }
 
@@ -152,7 +280,8 @@ class PlannerEngine {
         projectedFinish = null;
         break;
       }
-      if (projectedFinish == null || p.projectedFinish!.isAfter(projectedFinish)) {
+      if (projectedFinish == null ||
+          p.projectedFinish!.isAfter(projectedFinish)) {
         projectedFinish = p.projectedFinish;
       }
     }
@@ -166,6 +295,34 @@ class PlannerEngine {
       categories: categories,
       projectedFinish: projectedFinish,
       canFinish: canFinish,
+      capacityMinutes: capacity,
+      requiredMinutesPerDay: requiredMinutesPerDay,
+      todayBudgetMinutes: todayBudget,
     );
   }
+}
+
+/// Per-subject working values shared between the engine's passes.
+class _Facts {
+  _Facts({
+    required this.input,
+    required this.total,
+    required this.done,
+    required this.left,
+    required this.minutesLeft,
+    required this.requiredPace,
+    required this.plannedPace,
+    required this.isCustom,
+    required this.doneToday,
+  });
+
+  final SubjectInput input;
+  final int total;
+  final int done;
+  final int left;
+  final int minutesLeft;
+  final int requiredPace;
+  final int plannedPace;
+  final bool isCustom;
+  final List<PlanItem> doneToday;
 }

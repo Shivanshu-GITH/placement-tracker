@@ -33,11 +33,16 @@ class AchievementsScreen extends ConsumerWidget {
             padding: const EdgeInsets.fromLTRB(AppSpacing.screenH, 0,
                 AppSpacing.screenH, AppSpacing.huge),
             sliver: SliverGrid(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+              // Adaptive: the column count follows the available width (2 on a
+              // phone, more on a tablet/landscape) instead of being pinned to
+              // 2, and tiles grow taller as the user's font scale grows so the
+              // badge text never overflows its cell.
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 220,
                 mainAxisSpacing: AppSpacing.md,
                 crossAxisSpacing: AppSpacing.md,
-                childAspectRatio: 0.82,
+                childAspectRatio:
+                    0.82 / MediaQuery.textScalerOf(context).scale(1).clamp(1.0, 1.6),
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, i) =>

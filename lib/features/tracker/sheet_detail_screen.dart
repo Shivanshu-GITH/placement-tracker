@@ -291,24 +291,25 @@ class LeafTile extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Row(
+                    // Wraps so a long platform name or a larger font scale
+                    // reflows instead of overflowing the row.
+                    Wrap(
+                      spacing: 6,
+                      runSpacing: 4,
+                      crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
                         if (!row.isConcept)
                           Pill(
                               label: row.difficulty.label,
                               color: row.difficulty.color,
                               dense: true),
-                        if (row.node.platform.isNotEmpty) ...[
-                          const SizedBox(width: 6),
+                        if (row.node.platform.isNotEmpty)
                           Text(row.node.platform,
                               style: theme.textTheme.labelSmall?.copyWith(
                                   color: theme.colorScheme.onSurfaceVariant)),
-                        ],
-                        if (row.isBookmarked) ...[
-                          const SizedBox(width: 6),
+                        if (row.isBookmarked)
                           Icon(Icons.bookmark_rounded,
                               size: 14, color: theme.colorScheme.primary),
-                        ],
                       ],
                     ),
                   ],

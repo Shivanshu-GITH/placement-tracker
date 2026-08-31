@@ -7,6 +7,7 @@ import '../../core/theme/app_dimens.dart';
 import '../../core/theme/app_palette.dart';
 import '../../core/widgets/app_card.dart';
 import '../../core/widgets/entrance.dart';
+import '../../core/widgets/filter_bar.dart';
 import '../../data/database/database.dart';
 import '../../providers/providers.dart';
 import '../ads/ad_config.dart';
@@ -40,6 +41,9 @@ class _ResourcesScreenState extends ConsumerState<ResourcesScreen> {
   String _tier = 'free';
   String? _category;
 
+  /// True once the list has scrolled under the filter header.
+  bool _scrolled = false;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -57,66 +61,73 @@ class _ResourcesScreenState extends ConsumerState<ResourcesScreen> {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-                AppSpacing.screenH, 0, AppSpacing.screenH, AppSpacing.sm),
-            child: SegmentedButton<String>(
-              segments: const [
-                ButtonSegment(
-                    value: 'free',
-                    label: Text('Free'),
-                    icon: Icon(Icons.public_rounded)),
-                ButtonSegment(
-                    value: 'paid',
-                    label: Text('Paid'),
-                    icon: Icon(Icons.workspace_premium_rounded)),
-              ],
-              selected: {_tier},
-              onSelectionChanged: (s) =>
-                  setState(() { _tier = s.first; _category = null; }),
-              showSelectedIcon: false,
-            ),
-          ),
-          SizedBox(
-            height: 44,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: AppSpacing.screenH),
+          ScrolledUnderHeader(
+            scrolled: _scrolled,
+            child: Column(
               children: [
-                _catChip('All', _category == null, () => setState(() => _category = null)),
-                for (final c in categories)
-                  _catChip(_label(c), _category == c,
-                      () => setState(() => _category = c)),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(AppSpacing.screenH, 0,
+                      AppSpacing.screenH, AppSpacing.sm),
+                  child: SegmentedButton<String>(
+                    segments: const [
+                      ButtonSegment(
+                          value: 'free',
+                          label: Text('Free'),
+                          icon: Icon(Icons.public_rounded)),
+                      ButtonSegment(
+                          value: 'paid',
+                          label: Text('Paid'),
+                          icon: Icon(Icons.workspace_premium_rounded)),
+                    ],
+                    selected: {_tier},
+                    onSelectionChanged: (s) =>
+                        setState(() { _tier = s.first; _category = null; }),
+                    showSelectedIcon: false,
+                  ),
+                ),
+                FilterChipBar(
+                  children: [
+                    _catChip('All', _category == null,
+                        () => setState(() => _category = null)),
+                    for (final c in categories)
+                      _catChip(_label(c), _category == c,
+                          () => setState(() => _category = c)),
+                  ],
+                ),
+                if (_tier == 'paid')
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(AppSpacing.screenH,
+                        AppSpacing.sm, AppSpacing.screenH, 0),
+                    padding: const EdgeInsets.all(AppSpacing.md),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surfaceContainerHighest,
+                      borderRadius: BorderRadius.circular(AppRadius.sm),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.info_outline_rounded,
+                            size: 18,
+                            color: theme.colorScheme.onSurfaceVariant),
+                        const SizedBox(width: AppSpacing.sm),
+                        Expanded(
+                          child: Text(_disclosure,
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                  color: theme.colorScheme.onSurfaceVariant)),
+                        ),
+                      ],
+                    ),
+                  ),
               ],
             ),
           ),
-          if (_tier == 'paid')
-            Container(
-              margin: const EdgeInsets.fromLTRB(AppSpacing.screenH,
-                  AppSpacing.sm, AppSpacing.screenH, 0),
-              padding: const EdgeInsets.all(AppSpacing.md),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.surfaceContainerHighest,
-                borderRadius: BorderRadius.circular(AppRadius.sm),
-              ),
-              child: Row(
-                children: [
-                  Icon(Icons.info_outline_rounded,
-                      size: 18, color: theme.colorScheme.onSurfaceVariant),
-                  const SizedBox(width: AppSpacing.sm),
-                  Expanded(
-                    child: Text(_disclosure,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant)),
-                  ),
-                ],
-              ),
-            ),
           Expanded(
             child: items.isEmpty
                 ? const Center(child: CircularProgressIndicator())
-                : _buildList(items),
+                : ScrollAwareHeaderController(
+                    scrolled: _scrolled,
+                    onChanged: (v) => setState(() => _scrolled = v),
+                    child: _buildList(items),
+                  ),
           ),
         ],
       ),
