@@ -479,19 +479,33 @@ Deno.serve(async (req: Request) => {
 
   const { data: link } = await admin
     .from("platform_links")
-    .select("verify_token")
+    .select("handle, verify_token")
     .eq("user_id", uid)
     .eq("platform", platform)
     .maybeSingle();
   const token: string | null = link?.verify_token ?? null;
+  const linkedHandle: string = (link?.handle ?? "").trim();
+
+  // The caller may only sync the handle they actually linked. `handle` arrives
+  // in the request body, so without this an authenticated user could ask for
+  // any account's numbers.
+  if (!linkedHandle || linkedHandle.toLowerCase() !== handle.toLowerCase()) {
+    return json({ error: "Link this handle first, then verify." }, 403);
+  }
 
   const { data: existing } = await admin
     .from("platform_stats")
-    .select("verified")
+    .select("verified, handle")
     .eq("user_id", uid)
     .eq("platform", platform)
     .maybeSingle();
-  const alreadyVerified = existing?.verified === true;
+  // Skipping the token on re-sync is only safe for the exact handle that was
+  // token-verified before. Pointing the link at a new handle must re-prove
+  // ownership, otherwise a verified user could inherit a stranger's stats.
+  const verifiedHandle: string = (existing?.handle ?? "").trim();
+  const alreadyVerified = existing?.verified === true &&
+    !!verifiedHandle &&
+    verifiedHandle.toLowerCase() === handle.toLowerCase();
 
   const fetched = await fetcher(handle);
   if (!fetched) return json({ error: "Could not reach platform or handle not found" }, 502);
@@ -514,6 +528,7 @@ Deno.serve(async (req: Request) => {
     user_id: uid,
     platform,
     verified: true,
+    handle,
     solved: fetched.solved,
     rating: fetched.rating,
     streak: fetched.streak,

@@ -379,60 +379,15 @@ class ProfileScreen extends ConsumerWidget {
     required String body,
     required String confirmLabel,
   }) async {
-    final controller = TextEditingController();
-    try {
-      final res = await showDialog<bool>(
-        context: context,
-        builder: (ctx) => StatefulBuilder(
-          builder: (ctx, setState) {
-            final canDelete =
-                controller.text.trim().toUpperCase() == 'DELETE';
-            final scheme = Theme.of(ctx).colorScheme;
-            return AlertDialog(
-              title: Text(title),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(body),
-                  const SizedBox(height: AppSpacing.lg),
-                  Text('Type DELETE to confirm',
-                      style: Theme.of(ctx).textTheme.labelMedium),
-                  const SizedBox(height: AppSpacing.sm),
-                  TextField(
-                    controller: controller,
-                    autofocus: true,
-                    textCapitalization: TextCapitalization.characters,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'DELETE',
-                    ),
-                    onChanged: (_) => setState(() {}),
-                  ),
-                ],
-              ),
-              actions: [
-                TextButton(
-                    onPressed: () => Navigator.pop(ctx, false),
-                    child: const Text('Cancel')),
-                FilledButton(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: scheme.error,
-                    foregroundColor: scheme.onError,
-                  ),
-                  onPressed:
-                      canDelete ? () => Navigator.pop(ctx, true) : null,
-                  child: Text(confirmLabel),
-                ),
-              ],
-            );
-          },
-        ),
-      );
-      return res ?? false;
-    } finally {
-      controller.dispose();
-    }
+    final res = await showDialog<bool>(
+      context: context,
+      builder: (_) => _TypeToConfirmDialog(
+        title: title,
+        body: body,
+        confirmLabel: confirmLabel,
+      ),
+    );
+    return res ?? false;
   }
 
   /// Edits the daily study budget. This single number is what the planner
@@ -737,6 +692,78 @@ class _ThemeTile extends StatelessWidget {
         onSelectionChanged: (s) => onSelect(s.first),
         showSelectedIcon: false,
       ),
+    );
+  }
+}
+
+
+/// Destructive confirm that requires typing DELETE. Owns its controller so the
+/// dispose happens when the route leaves the tree — disposing in a `finally`
+/// around showDialog runs while the dialog is still animating out, and the
+/// rebuild then touches a disposed controller.
+class _TypeToConfirmDialog extends StatefulWidget {
+  const _TypeToConfirmDialog({
+    required this.title,
+    required this.body,
+    required this.confirmLabel,
+  });
+  final String title;
+  final String body;
+  final String confirmLabel;
+
+  @override
+  State<_TypeToConfirmDialog> createState() => _TypeToConfirmDialogState();
+}
+
+class _TypeToConfirmDialogState extends State<_TypeToConfirmDialog> {
+  final _ctl = TextEditingController();
+
+  @override
+  void dispose() {
+    _ctl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final canDelete = _ctl.text.trim().toUpperCase() == 'DELETE';
+    return AlertDialog(
+      title: Text(widget.title),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(widget.body),
+          const SizedBox(height: AppSpacing.lg),
+          Text('Type DELETE to confirm',
+              style: Theme.of(context).textTheme.labelMedium),
+          const SizedBox(height: AppSpacing.sm),
+          TextField(
+            controller: _ctl,
+            autofocus: true,
+            textCapitalization: TextCapitalization.characters,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'DELETE',
+            ),
+            onChanged: (_) => setState(() {}),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel')),
+        FilledButton(
+          style: FilledButton.styleFrom(
+            backgroundColor: scheme.error,
+            foregroundColor: scheme.onError,
+          ),
+          onPressed: canDelete ? () => Navigator.pop(context, true) : null,
+          child: Text(widget.confirmLabel),
+        ),
+      ],
     );
   }
 }

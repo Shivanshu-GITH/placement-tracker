@@ -84,34 +84,10 @@ class _CollegePickerSheetState extends State<_CollegePickerSheet> {
   }
 
   Future<void> _enterManually() async {
-    final ctl = TextEditingController(text: _searchCtl.text.trim());
-    final String? typed;
-    try {
-      typed = await showDialog<String>(
-        context: context,
-        builder: (dctx) => AlertDialog(
-          title: const Text('Enter your college'),
-          content: TextField(
-            controller: ctl,
-            autofocus: true,
-            textCapitalization: TextCapitalization.words,
-            decoration:
-                const InputDecoration(hintText: 'College / University name'),
-            onSubmitted: (v) => Navigator.pop(dctx, v.trim()),
-          ),
-          actions: [
-            TextButton(
-                onPressed: () => Navigator.pop(dctx),
-                child: const Text('Cancel')),
-            FilledButton(
-                onPressed: () => Navigator.pop(dctx, ctl.text.trim()),
-                child: const Text('Use this')),
-          ],
-        ),
-      );
-    } finally {
-      ctl.dispose();
-    }
+    final typed = await showDialog<String>(
+      context: context,
+      builder: (_) => _CollegeEntryDialog(initial: _searchCtl.text.trim()),
+    );
     if (typed != null && typed.isNotEmpty && mounted) {
       Navigator.pop(context, typed);
     }
@@ -194,6 +170,50 @@ class _CollegePickerSheetState extends State<_CollegePickerSheet> {
           ],
         ),
       ),
+    );
+  }
+}
+
+
+/// Owns its own controller so it lives exactly as long as the dialog route.
+/// See _HandleDialog in coding_profiles_screen.dart for why a `finally`
+/// dispose around showDialog fires too early.
+class _CollegeEntryDialog extends StatefulWidget {
+  const _CollegeEntryDialog({required this.initial});
+  final String initial;
+
+  @override
+  State<_CollegeEntryDialog> createState() => _CollegeEntryDialogState();
+}
+
+class _CollegeEntryDialogState extends State<_CollegeEntryDialog> {
+  late final _ctl = TextEditingController(text: widget.initial);
+
+  @override
+  void dispose() {
+    _ctl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Enter your college'),
+      content: TextField(
+        controller: _ctl,
+        autofocus: true,
+        textCapitalization: TextCapitalization.words,
+        decoration:
+            const InputDecoration(hintText: 'College / University name'),
+        onSubmitted: (v) => Navigator.pop(context, v.trim()),
+      ),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
+        FilledButton(
+            onPressed: () => Navigator.pop(context, _ctl.text.trim()),
+            child: const Text('Use this')),
+      ],
     );
   }
 }

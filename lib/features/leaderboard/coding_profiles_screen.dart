@@ -107,33 +107,10 @@ class _CodingProfilesScreenState extends ConsumerState<CodingProfilesScreen> {
     }
   }
 
-  Future<String?> _askHandle(String label) async {
-    final ctl = TextEditingController();
-    try {
-      return await showDialog<String>(
+  Future<String?> _askHandle(String label) => showDialog<String>(
         context: context,
-        builder: (ctx) => AlertDialog(
-          title: Text('Link $label'),
-          content: TextField(
-            controller: ctl,
-            autofocus: true,
-            decoration: InputDecoration(hintText: 'Your $label username'),
-            onSubmitted: (v) => Navigator.pop(ctx, v),
-          ),
-          actions: [
-            TextButton(
-                onPressed: () => Navigator.pop(ctx),
-                child: const Text('Cancel')),
-            FilledButton(
-                onPressed: () => Navigator.pop(ctx, ctl.text),
-                child: const Text('Continue')),
-          ],
-        ),
+        builder: (_) => _HandleDialog(label: label),
       );
-    } finally {
-      ctl.dispose();
-    }
-  }
 
   void _toast(String m) {
     if (!mounted) return;
@@ -454,4 +431,47 @@ class _Spin extends StatelessWidget {
       width: 18,
       height: 18,
       child: CircularProgressIndicator(strokeWidth: 2.3, color: Colors.white));
+}
+
+
+/// Owns its own controller so it is disposed when the dialog route actually
+/// leaves the tree. Disposing in a `finally` around `showDialog` is too early:
+/// that future completes when the pop *starts*, while the dialog is still
+/// animating out and rebuilding against the controller.
+class _HandleDialog extends StatefulWidget {
+  const _HandleDialog({required this.label});
+  final String label;
+
+  @override
+  State<_HandleDialog> createState() => _HandleDialogState();
+}
+
+class _HandleDialogState extends State<_HandleDialog> {
+  final _ctl = TextEditingController();
+
+  @override
+  void dispose() {
+    _ctl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Link ${widget.label}'),
+      content: TextField(
+        controller: _ctl,
+        autofocus: true,
+        decoration: InputDecoration(hintText: 'Your ${widget.label} username'),
+        onSubmitted: (v) => Navigator.pop(context, v),
+      ),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
+        FilledButton(
+            onPressed: () => Navigator.pop(context, _ctl.text),
+            child: const Text('Continue')),
+      ],
+    );
+  }
 }

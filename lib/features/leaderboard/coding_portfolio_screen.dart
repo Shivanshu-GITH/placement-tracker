@@ -167,25 +167,22 @@ class _PortfolioState extends ConsumerState<CodingPortfolioScreen>
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                _Header(
-                  entry: _entry,
-                  social: _social,
-                  isOwn: _isOwn,
-                  onOpenLink: _openUrl,
-                  onEditLinks: _isOwn ? _editSocialLinks : null,
-                ),
-                Expanded(
-                  child: TabBarView(
-                    controller: _tab,
-                    children: [_problemTab(theme), _devTab(theme)],
-                  ),
-                ),
-              ],
+          : TabBarView(
+              controller: _tab,
+              children: [_problemTab(theme), _devTab(theme)],
             ),
     );
   }
+
+  /// The profile card. It lives *inside* each tab's list so it scrolls away
+  /// with the content instead of staying pinned under the tab bar.
+  Widget get _headerCard => _Header(
+        entry: _entry,
+        social: _social,
+        isOwn: _isOwn,
+        onOpenLink: _openUrl,
+        onEditLinks: _isOwn ? _editSocialLinks : null,
+      );
 
   // ---------------------------------------------------------------- PS tab
   Widget _problemTab(ThemeData theme) {
@@ -202,6 +199,7 @@ class _PortfolioState extends ConsumerState<CodingPortfolioScreen>
       padding: const EdgeInsets.fromLTRB(
           AppSpacing.screenH, AppSpacing.md, AppSpacing.screenH, AppSpacing.huge),
       children: [
+        _headerCard,
         Row(children: [
           Expanded(child: _Tile('Solved', '$solved', Icons.verified_rounded, AppPalette.success)),
           const SizedBox(width: AppSpacing.sm),
@@ -276,8 +274,13 @@ class _PortfolioState extends ConsumerState<CodingPortfolioScreen>
     }
     if (gh == null) {
       return ListView(
-        padding: const EdgeInsets.all(AppSpacing.screenH),
-        children: [_linkPrompt('Link GitHub to show your development stats, languages and projects.')],
+        padding: const EdgeInsets.fromLTRB(AppSpacing.screenH, AppSpacing.md,
+            AppSpacing.screenH, AppSpacing.huge),
+        children: [
+          _headerCard,
+          _linkPrompt(
+              'Link GitHub to show your development stats, languages and projects.'),
+        ],
       );
     }
     final g = gh;
@@ -285,6 +288,7 @@ class _PortfolioState extends ConsumerState<CodingPortfolioScreen>
       padding: const EdgeInsets.fromLTRB(
           AppSpacing.screenH, AppSpacing.md, AppSpacing.screenH, AppSpacing.huge),
       children: [
+        _headerCard,
         Row(children: [
           Expanded(child: _Tile('Contributions', '${g.contributions}', Icons.grid_view_rounded, AppPalette.success)),
           const SizedBox(width: AppSpacing.sm),
@@ -515,8 +519,7 @@ class _Header extends StatelessWidget {
   Widget build(BuildContext context) {
     final name = entry?.name ?? 'Aspirant';
     return Container(
-      margin: const EdgeInsets.fromLTRB(
-          AppSpacing.screenH, AppSpacing.md, AppSpacing.screenH, 0),
+      margin: const EdgeInsets.only(bottom: AppSpacing.md),
       padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
         gradient: AppPalette.brandGradient,
