@@ -22,9 +22,6 @@ class ProfileRepository {
 
   Future<void> completeOnboarding({
     required String name,
-    required String targetRole,
-    required List<String> targetCompanies,
-    required String skillLevel,
     required int dailyGoalMinutes,
     DateTime? targetDate,
   }) async {
@@ -33,9 +30,6 @@ class ProfileRepository {
           ..where((t) => t.id.equals(profile.id)))
         .write(UserProfilesCompanion(
       name: Value(name.trim().isEmpty ? 'Aspirant' : name.trim()),
-      targetRole: Value(targetRole),
-      targetCompanies: Value(targetCompanies.join(',')),
-      skillLevel: Value(skillLevel),
       dailyGoalMinutes: Value(dailyGoalMinutes),
       targetDate: Value(targetDate),
       onboarded: const Value(true),
@@ -47,19 +41,6 @@ class ProfileRepository {
     await (_db.update(_db.userProfiles)
           ..where((t) => t.id.equals(profile.id)))
         .write(UserProfilesCompanion(xp: Value(profile.xp + amount)));
-  }
-
-  /// Applies a preparation track's role + daily study time.
-  Future<void> applyTrackPlan({
-    required String role,
-    required int minutes,
-  }) async {
-    final profile = await get();
-    await (_db.update(_db.userProfiles)..where((t) => t.id.equals(profile.id)))
-        .write(UserProfilesCompanion(
-      targetRole: Value(role),
-      dailyGoalMinutes: Value(minutes),
-    ));
   }
 
   /// Sets (or clears) the target/deadline date that drives the planner's pacing.

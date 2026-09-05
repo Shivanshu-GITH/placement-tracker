@@ -77,6 +77,7 @@ class _FocusTimerScreenState extends ConsumerState<FocusTimerScreen> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
+        scrollable: true,
         icon: const Icon(Icons.celebration_rounded,
             color: AppPalette.mint, size: 40),
         title: const Text('Session complete!'),

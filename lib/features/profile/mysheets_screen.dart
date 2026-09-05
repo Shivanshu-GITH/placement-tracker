@@ -46,11 +46,15 @@ class MySheetsScreen extends ConsumerWidget {
                 children: [
                   Icon(cat.icon, size: 18, color: cat.color),
                   const SizedBox(width: 8),
-                  Text(cat.label,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(fontWeight: FontWeight.w700)),
+                  Expanded(
+                    child: Text(cat.label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w700)),
+                  ),
                 ],
               ),
             ),

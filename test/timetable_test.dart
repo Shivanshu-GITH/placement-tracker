@@ -123,7 +123,6 @@ void main() {
     expect(profile.dailyGoalMinutes, 300);
     expect(profile.xp, 1250);
     expect(profile.onboarded, isTrue);
-    expect(profile.targetRole, 'product');
 
     // The retired column is gone from the rebuilt table.
     final cols = (await db
@@ -132,7 +131,13 @@ void main() {
         .map((r) => r.read<String>('name'))
         .toSet();
     expect(cols, isNot(contains('daily_goal_problems')));
+    // v8 retired the role / level / companies answers with the onboarding steps
+    // that collected them.
+    expect(cols, isNot(contains('target_role')));
+    expect(cols, isNot(contains('skill_level')));
+    expect(cols, isNot(contains('target_companies')));
     expect(cols, contains('daily_goal_minutes'));
+    expect(cols, contains('target_date'));
   });
 
   test('v5 -> v6 migration adds the timetable and keeps existing data', () async {

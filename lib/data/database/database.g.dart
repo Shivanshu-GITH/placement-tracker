@@ -32,42 +32,6 @@ class $UserProfilesTable extends UserProfiles
     requiredDuringInsert: false,
     defaultValue: const Constant('Aspirant'),
   );
-  static const VerificationMeta _targetRoleMeta = const VerificationMeta(
-    'targetRole',
-  );
-  @override
-  late final GeneratedColumn<String> targetRole = GeneratedColumn<String>(
-    'target_role',
-    aliasedName,
-    false,
-    type: DriftSqlType.string,
-    requiredDuringInsert: false,
-    defaultValue: const Constant('product'),
-  );
-  static const VerificationMeta _targetCompaniesMeta = const VerificationMeta(
-    'targetCompanies',
-  );
-  @override
-  late final GeneratedColumn<String> targetCompanies = GeneratedColumn<String>(
-    'target_companies',
-    aliasedName,
-    false,
-    type: DriftSqlType.string,
-    requiredDuringInsert: false,
-    defaultValue: const Constant(''),
-  );
-  static const VerificationMeta _skillLevelMeta = const VerificationMeta(
-    'skillLevel',
-  );
-  @override
-  late final GeneratedColumn<String> skillLevel = GeneratedColumn<String>(
-    'skill_level',
-    aliasedName,
-    false,
-    type: DriftSqlType.string,
-    requiredDuringInsert: false,
-    defaultValue: const Constant('beginner'),
-  );
   static const VerificationMeta _dailyGoalMinutesMeta = const VerificationMeta(
     'dailyGoalMinutes',
   );
@@ -132,9 +96,6 @@ class $UserProfilesTable extends UserProfiles
   List<GeneratedColumn> get $columns => [
     id,
     name,
-    targetRole,
-    targetCompanies,
-    skillLevel,
     dailyGoalMinutes,
     targetDate,
     xp,
@@ -160,27 +121,6 @@ class $UserProfilesTable extends UserProfiles
       context.handle(
         _nameMeta,
         name.isAcceptableOrUnknown(data['name']!, _nameMeta),
-      );
-    }
-    if (data.containsKey('target_role')) {
-      context.handle(
-        _targetRoleMeta,
-        targetRole.isAcceptableOrUnknown(data['target_role']!, _targetRoleMeta),
-      );
-    }
-    if (data.containsKey('target_companies')) {
-      context.handle(
-        _targetCompaniesMeta,
-        targetCompanies.isAcceptableOrUnknown(
-          data['target_companies']!,
-          _targetCompaniesMeta,
-        ),
-      );
-    }
-    if (data.containsKey('skill_level')) {
-      context.handle(
-        _skillLevelMeta,
-        skillLevel.isAcceptableOrUnknown(data['skill_level']!, _skillLevelMeta),
       );
     }
     if (data.containsKey('daily_goal_minutes')) {
@@ -230,18 +170,6 @@ class $UserProfilesTable extends UserProfiles
         DriftSqlType.string,
         data['${effectivePrefix}name'],
       )!,
-      targetRole: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}target_role'],
-      )!,
-      targetCompanies: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}target_companies'],
-      )!,
-      skillLevel: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}skill_level'],
-      )!,
       dailyGoalMinutes: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}daily_goal_minutes'],
@@ -274,9 +202,6 @@ class $UserProfilesTable extends UserProfiles
 class UserProfile extends DataClass implements Insertable<UserProfile> {
   final int id;
   final String name;
-  final String targetRole;
-  final String targetCompanies;
-  final String skillLevel;
 
   /// The daily study budget. This is the planner's capacity and the bar a day
   /// must clear to count towards the streak. (A separate "problems per day"
@@ -290,9 +215,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
   const UserProfile({
     required this.id,
     required this.name,
-    required this.targetRole,
-    required this.targetCompanies,
-    required this.skillLevel,
     required this.dailyGoalMinutes,
     this.targetDate,
     required this.xp,
@@ -304,9 +226,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['name'] = Variable<String>(name);
-    map['target_role'] = Variable<String>(targetRole);
-    map['target_companies'] = Variable<String>(targetCompanies);
-    map['skill_level'] = Variable<String>(skillLevel);
     map['daily_goal_minutes'] = Variable<int>(dailyGoalMinutes);
     if (!nullToAbsent || targetDate != null) {
       map['target_date'] = Variable<DateTime>(targetDate);
@@ -321,9 +240,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     return UserProfilesCompanion(
       id: Value(id),
       name: Value(name),
-      targetRole: Value(targetRole),
-      targetCompanies: Value(targetCompanies),
-      skillLevel: Value(skillLevel),
       dailyGoalMinutes: Value(dailyGoalMinutes),
       targetDate: targetDate == null && nullToAbsent
           ? const Value.absent()
@@ -342,9 +258,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     return UserProfile(
       id: serializer.fromJson<int>(json['id']),
       name: serializer.fromJson<String>(json['name']),
-      targetRole: serializer.fromJson<String>(json['targetRole']),
-      targetCompanies: serializer.fromJson<String>(json['targetCompanies']),
-      skillLevel: serializer.fromJson<String>(json['skillLevel']),
       dailyGoalMinutes: serializer.fromJson<int>(json['dailyGoalMinutes']),
       targetDate: serializer.fromJson<DateTime?>(json['targetDate']),
       xp: serializer.fromJson<int>(json['xp']),
@@ -358,9 +271,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'name': serializer.toJson<String>(name),
-      'targetRole': serializer.toJson<String>(targetRole),
-      'targetCompanies': serializer.toJson<String>(targetCompanies),
-      'skillLevel': serializer.toJson<String>(skillLevel),
       'dailyGoalMinutes': serializer.toJson<int>(dailyGoalMinutes),
       'targetDate': serializer.toJson<DateTime?>(targetDate),
       'xp': serializer.toJson<int>(xp),
@@ -372,9 +282,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
   UserProfile copyWith({
     int? id,
     String? name,
-    String? targetRole,
-    String? targetCompanies,
-    String? skillLevel,
     int? dailyGoalMinutes,
     Value<DateTime?> targetDate = const Value.absent(),
     int? xp,
@@ -383,9 +290,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
   }) => UserProfile(
     id: id ?? this.id,
     name: name ?? this.name,
-    targetRole: targetRole ?? this.targetRole,
-    targetCompanies: targetCompanies ?? this.targetCompanies,
-    skillLevel: skillLevel ?? this.skillLevel,
     dailyGoalMinutes: dailyGoalMinutes ?? this.dailyGoalMinutes,
     targetDate: targetDate.present ? targetDate.value : this.targetDate,
     xp: xp ?? this.xp,
@@ -396,15 +300,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     return UserProfile(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
-      targetRole: data.targetRole.present
-          ? data.targetRole.value
-          : this.targetRole,
-      targetCompanies: data.targetCompanies.present
-          ? data.targetCompanies.value
-          : this.targetCompanies,
-      skillLevel: data.skillLevel.present
-          ? data.skillLevel.value
-          : this.skillLevel,
       dailyGoalMinutes: data.dailyGoalMinutes.present
           ? data.dailyGoalMinutes.value
           : this.dailyGoalMinutes,
@@ -422,9 +317,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     return (StringBuffer('UserProfile(')
           ..write('id: $id, ')
           ..write('name: $name, ')
-          ..write('targetRole: $targetRole, ')
-          ..write('targetCompanies: $targetCompanies, ')
-          ..write('skillLevel: $skillLevel, ')
           ..write('dailyGoalMinutes: $dailyGoalMinutes, ')
           ..write('targetDate: $targetDate, ')
           ..write('xp: $xp, ')
@@ -438,9 +330,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
   int get hashCode => Object.hash(
     id,
     name,
-    targetRole,
-    targetCompanies,
-    skillLevel,
     dailyGoalMinutes,
     targetDate,
     xp,
@@ -453,9 +342,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
       (other is UserProfile &&
           other.id == this.id &&
           other.name == this.name &&
-          other.targetRole == this.targetRole &&
-          other.targetCompanies == this.targetCompanies &&
-          other.skillLevel == this.skillLevel &&
           other.dailyGoalMinutes == this.dailyGoalMinutes &&
           other.targetDate == this.targetDate &&
           other.xp == this.xp &&
@@ -466,9 +352,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
 class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
   final Value<int> id;
   final Value<String> name;
-  final Value<String> targetRole;
-  final Value<String> targetCompanies;
-  final Value<String> skillLevel;
   final Value<int> dailyGoalMinutes;
   final Value<DateTime?> targetDate;
   final Value<int> xp;
@@ -477,9 +360,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
   const UserProfilesCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
-    this.targetRole = const Value.absent(),
-    this.targetCompanies = const Value.absent(),
-    this.skillLevel = const Value.absent(),
     this.dailyGoalMinutes = const Value.absent(),
     this.targetDate = const Value.absent(),
     this.xp = const Value.absent(),
@@ -489,9 +369,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
   UserProfilesCompanion.insert({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
-    this.targetRole = const Value.absent(),
-    this.targetCompanies = const Value.absent(),
-    this.skillLevel = const Value.absent(),
     this.dailyGoalMinutes = const Value.absent(),
     this.targetDate = const Value.absent(),
     this.xp = const Value.absent(),
@@ -501,9 +378,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
   static Insertable<UserProfile> custom({
     Expression<int>? id,
     Expression<String>? name,
-    Expression<String>? targetRole,
-    Expression<String>? targetCompanies,
-    Expression<String>? skillLevel,
     Expression<int>? dailyGoalMinutes,
     Expression<DateTime>? targetDate,
     Expression<int>? xp,
@@ -513,9 +387,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (name != null) 'name': name,
-      if (targetRole != null) 'target_role': targetRole,
-      if (targetCompanies != null) 'target_companies': targetCompanies,
-      if (skillLevel != null) 'skill_level': skillLevel,
       if (dailyGoalMinutes != null) 'daily_goal_minutes': dailyGoalMinutes,
       if (targetDate != null) 'target_date': targetDate,
       if (xp != null) 'xp': xp,
@@ -527,9 +398,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
   UserProfilesCompanion copyWith({
     Value<int>? id,
     Value<String>? name,
-    Value<String>? targetRole,
-    Value<String>? targetCompanies,
-    Value<String>? skillLevel,
     Value<int>? dailyGoalMinutes,
     Value<DateTime?>? targetDate,
     Value<int>? xp,
@@ -539,9 +407,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     return UserProfilesCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
-      targetRole: targetRole ?? this.targetRole,
-      targetCompanies: targetCompanies ?? this.targetCompanies,
-      skillLevel: skillLevel ?? this.skillLevel,
       dailyGoalMinutes: dailyGoalMinutes ?? this.dailyGoalMinutes,
       targetDate: targetDate ?? this.targetDate,
       xp: xp ?? this.xp,
@@ -558,15 +423,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     }
     if (name.present) {
       map['name'] = Variable<String>(name.value);
-    }
-    if (targetRole.present) {
-      map['target_role'] = Variable<String>(targetRole.value);
-    }
-    if (targetCompanies.present) {
-      map['target_companies'] = Variable<String>(targetCompanies.value);
-    }
-    if (skillLevel.present) {
-      map['skill_level'] = Variable<String>(skillLevel.value);
     }
     if (dailyGoalMinutes.present) {
       map['daily_goal_minutes'] = Variable<int>(dailyGoalMinutes.value);
@@ -591,9 +447,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     return (StringBuffer('UserProfilesCompanion(')
           ..write('id: $id, ')
           ..write('name: $name, ')
-          ..write('targetRole: $targetRole, ')
-          ..write('targetCompanies: $targetCompanies, ')
-          ..write('skillLevel: $skillLevel, ')
           ..write('dailyGoalMinutes: $dailyGoalMinutes, ')
           ..write('targetDate: $targetDate, ')
           ..write('xp: $xp, ')
@@ -5115,9 +4968,6 @@ typedef $$UserProfilesTableCreateCompanionBuilder =
     UserProfilesCompanion Function({
       Value<int> id,
       Value<String> name,
-      Value<String> targetRole,
-      Value<String> targetCompanies,
-      Value<String> skillLevel,
       Value<int> dailyGoalMinutes,
       Value<DateTime?> targetDate,
       Value<int> xp,
@@ -5128,9 +4978,6 @@ typedef $$UserProfilesTableUpdateCompanionBuilder =
     UserProfilesCompanion Function({
       Value<int> id,
       Value<String> name,
-      Value<String> targetRole,
-      Value<String> targetCompanies,
-      Value<String> skillLevel,
       Value<int> dailyGoalMinutes,
       Value<DateTime?> targetDate,
       Value<int> xp,
@@ -5154,21 +5001,6 @@ class $$UserProfilesTableFilterComposer
 
   ColumnFilters<String> get name => $composableBuilder(
     column: $table.name,
-    builder: (column) => ColumnFilters(column),
-  );
-
-  ColumnFilters<String> get targetRole => $composableBuilder(
-    column: $table.targetRole,
-    builder: (column) => ColumnFilters(column),
-  );
-
-  ColumnFilters<String> get targetCompanies => $composableBuilder(
-    column: $table.targetCompanies,
-    builder: (column) => ColumnFilters(column),
-  );
-
-  ColumnFilters<String> get skillLevel => $composableBuilder(
-    column: $table.skillLevel,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -5217,21 +5049,6 @@ class $$UserProfilesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get targetRole => $composableBuilder(
-    column: $table.targetRole,
-    builder: (column) => ColumnOrderings(column),
-  );
-
-  ColumnOrderings<String> get targetCompanies => $composableBuilder(
-    column: $table.targetCompanies,
-    builder: (column) => ColumnOrderings(column),
-  );
-
-  ColumnOrderings<String> get skillLevel => $composableBuilder(
-    column: $table.skillLevel,
-    builder: (column) => ColumnOrderings(column),
-  );
-
   ColumnOrderings<int> get dailyGoalMinutes => $composableBuilder(
     column: $table.dailyGoalMinutes,
     builder: (column) => ColumnOrderings(column),
@@ -5272,21 +5089,6 @@ class $$UserProfilesTableAnnotationComposer
 
   GeneratedColumn<String> get name =>
       $composableBuilder(column: $table.name, builder: (column) => column);
-
-  GeneratedColumn<String> get targetRole => $composableBuilder(
-    column: $table.targetRole,
-    builder: (column) => column,
-  );
-
-  GeneratedColumn<String> get targetCompanies => $composableBuilder(
-    column: $table.targetCompanies,
-    builder: (column) => column,
-  );
-
-  GeneratedColumn<String> get skillLevel => $composableBuilder(
-    column: $table.skillLevel,
-    builder: (column) => column,
-  );
 
   GeneratedColumn<int> get dailyGoalMinutes => $composableBuilder(
     column: $table.dailyGoalMinutes,
@@ -5341,9 +5143,6 @@ class $$UserProfilesTableTableManager
               ({
                 Value<int> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
-                Value<String> targetRole = const Value.absent(),
-                Value<String> targetCompanies = const Value.absent(),
-                Value<String> skillLevel = const Value.absent(),
                 Value<int> dailyGoalMinutes = const Value.absent(),
                 Value<DateTime?> targetDate = const Value.absent(),
                 Value<int> xp = const Value.absent(),
@@ -5352,9 +5151,6 @@ class $$UserProfilesTableTableManager
               }) => UserProfilesCompanion(
                 id: id,
                 name: name,
-                targetRole: targetRole,
-                targetCompanies: targetCompanies,
-                skillLevel: skillLevel,
                 dailyGoalMinutes: dailyGoalMinutes,
                 targetDate: targetDate,
                 xp: xp,
@@ -5365,9 +5161,6 @@ class $$UserProfilesTableTableManager
               ({
                 Value<int> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
-                Value<String> targetRole = const Value.absent(),
-                Value<String> targetCompanies = const Value.absent(),
-                Value<String> skillLevel = const Value.absent(),
                 Value<int> dailyGoalMinutes = const Value.absent(),
                 Value<DateTime?> targetDate = const Value.absent(),
                 Value<int> xp = const Value.absent(),
@@ -5376,9 +5169,6 @@ class $$UserProfilesTableTableManager
               }) => UserProfilesCompanion.insert(
                 id: id,
                 name: name,
-                targetRole: targetRole,
-                targetCompanies: targetCompanies,
-                skillLevel: skillLevel,
                 dailyGoalMinutes: dailyGoalMinutes,
                 targetDate: targetDate,
                 xp: xp,

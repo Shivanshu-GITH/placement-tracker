@@ -32,7 +32,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(super.executor);
 
   @override
-  int get schemaVersion => 7;
+  int get schemaVersion => 8;
 
   /// Deletes every row from every table (content + all user progress) on the
   /// live connection. Used by the account/data-deletion flow so the user's data
@@ -84,6 +84,16 @@ class AppDatabase extends _$AppDatabase {
             // column in place, so Drift rebuilds the table and copies the rows;
             // every other profile field is preserved.
             if (from < 7) {
+              await m.alterTable(
+                TableMigration(userProfiles),
+              );
+            }
+            // v7 -> v8 retires targetRole / skillLevel / targetCompanies. The
+            // onboarding no longer asks for a role, an experience level or
+            // dream companies, and nothing else read them. SQLite can't drop a
+            // column in place, so Drift rebuilds the table and copies the rows;
+            // every other profile field is preserved.
+            if (from < 8) {
               await m.alterTable(
                 TableMigration(userProfiles),
               );

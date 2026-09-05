@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/constants/enums.dart';
 import '../../core/theme/app_dimens.dart';
 import '../../core/theme/app_palette.dart';
 import '../../core/widgets/app_card.dart';
@@ -16,7 +15,6 @@ import '../leaderboard/coding_profiles_screen.dart';
 import '../leaderboard/signup_flow.dart';
 import '../premium/premium_screen.dart';
 import '../timetable/timetable_screen.dart';
-import '../tracks/tracks_screen.dart';
 import 'mysheets_screen.dart';
 import 'widgets/reminder_tile.dart';
 
@@ -49,7 +47,6 @@ class ProfileScreen extends ConsumerWidget {
         children: [
           _ProfileHeader(
             name: profile?.name ?? 'Aspirant',
-            role: TargetRole.fromName(profile?.targetRole ?? 'product'),
             level: level,
             xp: xp,
             xpIntoLevel: xpIntoLevel,
@@ -188,13 +185,6 @@ class ProfileScreen extends ConsumerWidget {
             title: 'Study',
             children: [
               _SettingTile(
-                icon: Icons.explore_rounded,
-                title: 'Prep Tracks',
-                subtitle: 'One-tap presets for product, service, CP & more',
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => const TracksScreen())),
-              ),
-              _SettingTile(
                 icon: Icons.library_books_rounded,
                 title: 'My Sheets',
                 subtitle: 'Choose active sheets & your primary DSA sheet',
@@ -276,6 +266,7 @@ class ProfileScreen extends ConsumerWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        scrollable: true,
         title: const Text('Back to welcome?'),
         content: const Text(
             'You\'ll return to the welcome screen to choose a sign-in option. '
@@ -299,6 +290,7 @@ class ProfileScreen extends ConsumerWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        scrollable: true,
         title: const Text('Log out?'),
         content: const Text(
             'You\'ll be signed out and returned to the welcome screen. Your '
@@ -473,13 +465,11 @@ String _hoursLabel(int minutes) {
 class _ProfileHeader extends StatelessWidget {
   const _ProfileHeader({
     required this.name,
-    required this.role,
     required this.level,
     required this.xp,
     required this.xpIntoLevel,
   });
   final String name;
-  final TargetRole role;
   final int level;
   final int xp;
   final int xpIntoLevel;
@@ -514,8 +504,6 @@ class _ProfileHeader extends StatelessWidget {
                             color: Colors.white,
                             fontSize: 22,
                             fontWeight: FontWeight.w800)),
-                    Text(role.label,
-                        style: const TextStyle(color: Colors.white70)),
                   ],
                 ),
               ),
@@ -729,6 +717,7 @@ class _TypeToConfirmDialogState extends State<_TypeToConfirmDialog> {
     final scheme = Theme.of(context).colorScheme;
     final canDelete = _ctl.text.trim().toUpperCase() == 'DELETE';
     return AlertDialog(
+      scrollable: true,
       title: Text(widget.title),
       content: Column(
         mainAxisSize: MainAxisSize.min,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'app_dimens.dart';
 import 'app_palette.dart';
@@ -11,8 +10,16 @@ import 'app_palette.dart';
 class AppTheme {
   AppTheme._();
 
-  static ThemeData light() => _build(Brightness.light);
-  static ThemeData dark() => _build(Brightness.dark);
+  static const _fontFamily = 'Plus Jakarta Sans';
+
+  // Built once and reused. A ThemeData carries a full TextTheme resolved through
+  // google_fonts; rebuilding it on every MaterialApp.build made switching
+  // light <-> dark re-resolve every text style and janked the transition.
+  static final ThemeData _light = _build(Brightness.light);
+  static final ThemeData _dark = _build(Brightness.dark);
+
+  static ThemeData light() => _light;
+  static ThemeData dark() => _dark;
 
   static ThemeData _build(Brightness brightness) {
     final isDark = brightness == Brightness.dark;
@@ -53,9 +60,12 @@ class AppTheme {
       surfaceTint: Colors.transparent,
     );
 
-    final baseTextTheme = GoogleFonts.plusJakartaSansTextTheme(
-      isDark ? ThemeData.dark().textTheme : ThemeData.light().textTheme,
-    );
+    // Plus Jakarta Sans is bundled in assets/fonts (see pubspec). It used to be
+    // pulled at runtime by google_fonts, which needed the network on first
+    // launch and swapped the typeface in mid-frame once it arrived.
+    final baseTextTheme =
+        (isDark ? ThemeData.dark().textTheme : ThemeData.light().textTheme)
+            .apply(fontFamily: _fontFamily);
     final textTheme = _applyTextColors(baseTextTheme, colorScheme.onSurface);
 
     final scaffoldBg = isDark ? AppPalette.darkBg : AppPalette.lightBg;

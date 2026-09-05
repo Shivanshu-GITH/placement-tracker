@@ -458,6 +458,7 @@ class _HandleDialogState extends State<_HandleDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      scrollable: true,
       title: Text('Link ${widget.label}'),
       content: TextField(
         controller: _ctl,

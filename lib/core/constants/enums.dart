@@ -101,29 +101,3 @@ enum Difficulty {
 }
 
 /// Target role influences the generated roadmap weighting.
-enum TargetRole {
-  product('Product-based (SDE)', 'FAANG, unicorns — heavy DSA + system design'),
-  service('Service-based', 'TCS, Infosys, Wipro — aptitude + core + basic DSA'),
-  startup('Startup / Full-stack', 'Projects + DSA + practical skills'),
-  core('Core / Non-CS', 'Domain + aptitude + basic programming');
-
-  const TargetRole(this.label, this.description);
-  final String label;
-  final String description;
-
-  static TargetRole fromName(String name) =>
-      TargetRole.values.firstWhere((e) => e.name == name, orElse: () => TargetRole.product);
-}
-
-enum SkillLevel {
-  beginner('Beginner', 'New to coding / just starting prep'),
-  intermediate('Intermediate', 'Know basics, solved some problems'),
-  advanced('Advanced', 'Comfortable, polishing for interviews');
-
-  const SkillLevel(this.label, this.description);
-  final String label;
-  final String description;
-
-  static SkillLevel fromName(String name) =>
-      SkillLevel.values.firstWhere((e) => e.name == name, orElse: () => SkillLevel.beginner);
-}

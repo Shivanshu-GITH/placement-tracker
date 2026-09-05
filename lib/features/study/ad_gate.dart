@@ -109,6 +109,7 @@ class _RewardedAdScreenState extends State<_RewardedAdScreen> {
     final skip = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        scrollable: true,
         title: const Text('Skip the ad?'),
         content: Text(
             'Watch the short ad to unlock ${widget.rewardLabel}. Ads keep '

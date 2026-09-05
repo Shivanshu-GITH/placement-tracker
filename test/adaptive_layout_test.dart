@@ -107,6 +107,34 @@ void main() {
               Pill(label: '12 revisit', color: Colors.teal, dense: true),
             ],
           ),
+      // A label next to a leading icon, as used for the category headers in
+      // My Sheets and the onboarding sheet picker.
+      'section label row': () => const AppCard(
+            child: Row(
+              children: [
+                Icon(Icons.code_rounded, size: 18),
+                SizedBox(width: 8),
+                Expanded(
+                  child: Text('Competitive Programming',
+                      maxLines: 1, overflow: TextOverflow.ellipsis),
+                ),
+              ],
+            ),
+          ),
+      // A title followed by a trailing badge. This is the shape that overflowed
+      // on the old Prep Tracks card ("Service / Mass Recruiter" + CURRENT).
+      'title with trailing badge': () => const AppCard(
+            child: Row(
+              children: [
+                Flexible(
+                  child: Text('Service / Mass Recruiter',
+                      maxLines: 1, overflow: TextOverflow.ellipsis),
+                ),
+                SizedBox(width: 8),
+                Icon(Icons.verified_rounded, size: 14),
+              ],
+            ),
+          ),
       'empty state': () => const EmptyState(
             icon: Icons.flag_rounded,
             title: 'No subjects to plan yet',

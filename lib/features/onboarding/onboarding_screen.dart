@@ -25,36 +25,24 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   // Collected answers.
   final _nameController = TextEditingController();
   String? _college;
-  TargetRole _role = TargetRole.product;
-  SkillLevel _level = SkillLevel.beginner;
   int _months = 3;
   int _dailyHours = 2;
-  final Set<String> _companies = {};
 
   // Sheet selection (populated from a smart default once sheets load).
   final Set<int> _activeSheets = {};
   int? _primarySheet;
   bool _sheetsInit = false;
 
-  static const _companyOptions = [
-    'Google', 'Amazon', 'Microsoft', 'Adobe', 'Atlassian', 'Uber',
-    'Flipkart', 'Swiggy', 'TCS', 'Infosys', 'Wipro', 'Accenture',
-  ];
+  static const _totalPages = 3;
 
-  static const _totalPages = 6;
-
-  /// Recommended default active sheets given the chosen role/skill.
+  /// A sensible starting set. The user tunes it on the sheets step, and can
+  /// change it later in Profile -> My Sheets.
   void _computeDefaultSelection(List<Sheet> sheets) {
-    final primarySlug =
-        _level == SkillLevel.beginner ? 'apna-college' : 'striver-a2z';
+    const primarySlug = 'striver-a2z';
     final active = <String>{
       primarySlug,
       'core-os', 'core-dbms', 'core-cn', 'core-oop',
       'aptitude', 'interview-hr',
-      if (_role == TargetRole.product || _role == TargetRole.startup)
-        'system-design',
-      if (_role == TargetRole.startup || _role == TargetRole.product)
-        'web-dev',
     };
     _activeSheets.clear();
     for (final s in sheets) {
@@ -165,9 +153,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       // router to the shell, with sheets + deadline already set.
       await ref.read(profileRepositoryProvider).completeOnboarding(
             name: _nameController.text,
-            targetRole: _role.name,
-            targetCompanies: _companies.toList(),
-            skillLevel: _level.name,
             dailyGoalMinutes: _dailyHours * 60,
             targetDate: DateTime.now().add(Duration(days: _months * 30)),
           );
@@ -200,23 +185,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     nameController: _nameController,
                     college: _college,
                     onPickCollege: _pickCollege,
-                  ),
-                  _RoleStep(
-                    selected: _role,
-                    onSelect: (r) => setState(() => _role = r),
-                  ),
-                  _LevelStep(
-                    selected: _level,
-                    onSelect: (l) => setState(() => _level = l),
-                  ),
-                  _CompaniesStep(
-                    options: _companyOptions,
-                    selected: _companies,
-                    onToggle: (c) => setState(() {
-                      _companies.contains(c)
-                          ? _companies.remove(c)
-                          : _companies.add(c);
-                    }),
                   ),
                   _GoalStep(
                     months: _months,
@@ -549,117 +517,6 @@ class _FieldCard extends StatelessWidget {
   }
 }
 
-class _RoleStep extends StatelessWidget {
-  const _RoleStep({required this.selected, required this.onSelect});
-  final TargetRole selected;
-  final ValueChanged<TargetRole> onSelect;
-
-  @override
-  Widget build(BuildContext context) {
-    return _StepShell(
-      title: 'What are you targeting?',
-      subtitle: 'This shapes how we weight DSA, aptitude and system design.',
-      child: Column(
-        children: [
-          for (var i = 0; i < TargetRole.values.length; i++)
-            Padding(
-              padding: const EdgeInsets.only(bottom: AppSpacing.md),
-              child: _SelectCard(
-                title: TargetRole.values[i].label,
-                subtitle: TargetRole.values[i].description,
-                selected: selected == TargetRole.values[i],
-                onTap: () => onSelect(TargetRole.values[i]),
-              ).animate().fadeIn(delay: (80 * i).ms).slideX(begin: 0.1, end: 0),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class _LevelStep extends StatelessWidget {
-  const _LevelStep({required this.selected, required this.onSelect});
-  final SkillLevel selected;
-  final ValueChanged<SkillLevel> onSelect;
-
-  @override
-  Widget build(BuildContext context) {
-    return _StepShell(
-      title: 'Where are you right now?',
-      subtitle: 'Be honest — we\'ll calibrate the plan\'s starting point.',
-      child: Column(
-        children: [
-          for (var i = 0; i < SkillLevel.values.length; i++)
-            Padding(
-              padding: const EdgeInsets.only(bottom: AppSpacing.md),
-              child: _SelectCard(
-                title: SkillLevel.values[i].label,
-                subtitle: SkillLevel.values[i].description,
-                selected: selected == SkillLevel.values[i],
-                onTap: () => onSelect(SkillLevel.values[i]),
-              ).animate().fadeIn(delay: (80 * i).ms).slideX(begin: 0.1, end: 0),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class _CompaniesStep extends StatelessWidget {
-  const _CompaniesStep({
-    required this.options,
-    required this.selected,
-    required this.onToggle,
-  });
-  final List<String> options;
-  final Set<String> selected;
-  final ValueChanged<String> onToggle;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return _StepShell(
-      title: 'Any dream companies?',
-      subtitle: 'Optional — pick a few to keep yourself motivated.',
-      child: Wrap(
-        spacing: AppSpacing.sm,
-        runSpacing: AppSpacing.sm,
-        children: [
-          for (var i = 0; i < options.length; i++)
-            GestureDetector(
-              onTap: () => onToggle(options[i]),
-              child: AnimatedContainer(
-                duration: AppMotion.fast,
-                padding: const EdgeInsets.symmetric(
-                    horizontal: AppSpacing.lg, vertical: AppSpacing.md),
-                decoration: BoxDecoration(
-                  color: selected.contains(options[i])
-                      ? scheme.primary
-                      : scheme.surfaceContainer,
-                  borderRadius: BorderRadius.circular(AppRadius.pill),
-                  border: Border.all(
-                    color: selected.contains(options[i])
-                        ? scheme.primary
-                        : scheme.outline,
-                  ),
-                ),
-                child: Text(
-                  options[i],
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: selected.contains(options[i])
-                        ? Colors.white
-                        : scheme.onSurface,
-                  ),
-                ),
-              ),
-            ).animate().fadeIn(delay: (40 * i).ms).scaleXY(begin: 0.9, end: 1),
-        ],
-      ),
-    );
-  }
-}
-
 class _GoalStep extends StatelessWidget {
   const _GoalStep({
     required this.months,
@@ -828,10 +685,14 @@ class _SheetsStep extends StatelessWidget {
                 children: [
                   Icon(cat.icon, size: 16, color: cat.color),
                   const SizedBox(width: 6),
-                  Text(cat.label,
-                      style: theme.textTheme.labelMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          fontWeight: FontWeight.w700)),
+                  Expanded(
+                    child: Text(cat.label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.labelMedium?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            fontWeight: FontWeight.w700)),
+                  ),
                 ],
               ),
             ),
@@ -974,61 +835,3 @@ class _SliderTile extends StatelessWidget {
   }
 }
 
-class _SelectCard extends StatelessWidget {
-  const _SelectCard({
-    required this.title,
-    required this.subtitle,
-    required this.selected,
-    required this.onTap,
-  });
-  final String title;
-  final String subtitle;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final theme = Theme.of(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: AnimatedContainer(
-        duration: AppMotion.fast,
-        padding: const EdgeInsets.all(AppSpacing.lg),
-        decoration: BoxDecoration(
-          color: selected
-              ? scheme.primaryContainer.withValues(alpha: 0.6)
-              : scheme.surface,
-          borderRadius: BorderRadius.circular(AppRadius.lg),
-          border: Border.all(
-            color: selected ? scheme.primary : scheme.outline,
-            width: selected ? 2 : 1,
-          ),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title,
-                      style: theme.textTheme.titleMedium
-                          ?.copyWith(fontWeight: FontWeight.w700)),
-                  const SizedBox(height: 2),
-                  Text(subtitle,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                          color: scheme.onSurfaceVariant)),
-                ],
-              ),
-            ),
-            AnimatedScale(
-              duration: AppMotion.fast,
-              scale: selected ? 1 : 0,
-              child: Icon(Icons.check_circle_rounded, color: scheme.primary),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

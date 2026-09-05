@@ -4,9 +4,6 @@ import 'package:drift/drift.dart';
 class UserProfiles extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get name => text().withDefault(const Constant('Aspirant'))();
-  TextColumn get targetRole => text().withDefault(const Constant('product'))();
-  TextColumn get targetCompanies => text().withDefault(const Constant(''))(); // csv
-  TextColumn get skillLevel => text().withDefault(const Constant('beginner'))();
   /// The daily study budget. This is the planner's capacity and the bar a day
   /// must clear to count towards the streak. (A separate "problems per day"
   /// goal was retired in v7 — items differ too much in effort for a raw count

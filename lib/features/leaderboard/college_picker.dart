@@ -198,6 +198,7 @@ class _CollegeEntryDialogState extends State<_CollegeEntryDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      scrollable: true,
       title: const Text('Enter your college'),
       content: TextField(
         controller: _ctl,

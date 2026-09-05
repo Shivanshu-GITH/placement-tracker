@@ -707,9 +707,13 @@ class _PlatformRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(children: [
-                Text(p.label,
-                    style: theme.textTheme.titleSmall
-                        ?.copyWith(fontWeight: FontWeight.w700)),
+                Flexible(
+                  child: Text(p.label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleSmall
+                          ?.copyWith(fontWeight: FontWeight.w700)),
+                ),
                 if (p.verified) ...[
                   const SizedBox(width: 4),
                   Icon(Icons.verified_rounded, size: 14, color: scheme.primary),
