@@ -173,6 +173,21 @@ Future<void> backgroundSyncPlatforms(WidgetRef ref) async {
   final repo = ref.read(leaderboardRepositoryProvider);
   if (!repo.isLive) return;
   if (ref.read(authUserProvider).valueOrNull == null) return;
+
+  // Throttle. Verified platform stats change slowly, and each re-verify hits an
+  // Edge Function that pulls the user's FULL submission history — the single
+  // most expensive thing the backend does. Auto-syncing at most once every 8h
+  // keeps us deep inside the free tier with no visible difference to the user;
+  // the "Re-sync" button in Coding profiles bypasses this for an on-demand
+  // refresh. The check runs before myPlatforms() so a quiet open costs zero
+  // network calls.
+  final prefs = await SharedPreferences.getInstance();
+  final key = 'platform_sync_at_${ref.read(dbKeyProvider)}';
+  final last = prefs.getInt(key) ?? 0;
+  final now = DateTime.now().millisecondsSinceEpoch;
+  const minGapMs = 8 * 60 * 60 * 1000; // 8 hours
+  if (now - last < minGapMs) return;
+
   final platforms = await repo.myPlatforms();
   var synced = false;
   for (final p in platforms) {
@@ -182,6 +197,9 @@ Future<void> backgroundSyncPlatforms(WidgetRef ref) async {
       synced = true;
     } catch (_) {}
   }
+  // Record the attempt regardless, so a user with nothing verified doesn't even
+  // re-query myPlatforms() on every launch.
+  await prefs.setInt(key, now);
   if (synced) {
     ref.invalidate(boardPoolProvider);
     ref.invalidate(myPlatformsProvider);

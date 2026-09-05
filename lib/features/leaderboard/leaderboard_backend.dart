@@ -161,7 +161,7 @@ class SupabaseLeaderboardRepository implements LeaderboardRepository {
               .from('leaderboard')
               .select()
               .order('prep_score', ascending: false)
-              .limit(200);
+              .limit(100); // 100 is plenty to display + keeps egress low
         case LeaderboardScope.country:
           String country = 'India';
           if (uid != null) {
@@ -179,7 +179,7 @@ class SupabaseLeaderboardRepository implements LeaderboardRepository {
               .select()
               .eq('country', country)
               .order('prep_score', ascending: false)
-              .limit(200);
+              .limit(100); // 100 is plenty to display + keeps egress low
         case LeaderboardScope.college:
           if (myCollege == null || myCollege.isEmpty) {
             rows = const [];
@@ -189,7 +189,7 @@ class SupabaseLeaderboardRepository implements LeaderboardRepository {
                 .select()
                 .eq('college', myCollege)
                 .order('prep_score', ascending: false)
-                .limit(200);
+                .limit(100); // 100 is plenty to display + keeps egress low
           }
         case LeaderboardScope.friends:
           if (uid == null) {

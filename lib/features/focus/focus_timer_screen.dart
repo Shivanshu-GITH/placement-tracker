@@ -159,24 +159,30 @@ class _FocusTimerScreenState extends ConsumerState<FocusTimerScreen> {
                 ],
               ),
               const Spacer(),
+              // Reset gets a fair share of the row and its label is pinned to a
+              // single line — at flex 1 it was too narrow and wrapped to
+              // "Rese/t".
               Row(
                 children: [
                   Expanded(
+                    flex: 3,
                     child: OutlinedButton.icon(
                       onPressed: _reset,
                       icon: const Icon(Icons.stop_rounded),
-                      label: const Text('Reset'),
+                      label: const Text('Reset',
+                          maxLines: 1, softWrap: false),
                     ),
                   ),
                   const SizedBox(width: AppSpacing.md),
                   Expanded(
-                    flex: 2,
+                    flex: 4,
                     child: FilledButton.icon(
                       onPressed: _toggle,
                       icon: Icon(_running
                           ? Icons.pause_rounded
                           : Icons.play_arrow_rounded),
-                      label: Text(_running ? 'Pause' : 'Start'),
+                      label: Text(_running ? 'Pause' : 'Start',
+                          maxLines: 1, softWrap: false),
                     ),
                   ),
                 ],

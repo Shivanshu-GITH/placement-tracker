@@ -5,11 +5,15 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app.dart';
 import 'core/config/app_config.dart';
+import 'core/services/crash_reporter.dart';
 import 'core/services/notification_service.dart';
 import 'features/ads/ad_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Crash reporting first, so failures in the inits below are captured too.
+  // Inert until a Firebase google-services.json is added (see CrashReporter).
+  await CrashReporter.instance.init();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

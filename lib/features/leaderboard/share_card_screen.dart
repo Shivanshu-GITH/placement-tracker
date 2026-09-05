@@ -55,8 +55,16 @@ class _ShareCardScreenState extends ConsumerState<ShareCardScreen> {
     final theme = Theme.of(context);
     final profile = ref.watch(profileProvider).valueOrNull;
     final lbId = ref.watch(lbIdentityProvider).valueOrNull;
-    final me = ref.watch(myEntryProvider).valueOrNull;
-    final platforms = ref.watch(myPlatformsProvider).valueOrNull ?? const [];
+    final meAsync = ref.watch(myEntryProvider);
+    final platformsAsync = ref.watch(myPlatformsProvider);
+
+    // On a cold start these are still in flight. Rendering the card early shows
+    // a problem-only layout that visibly re-flows into the full card a second
+    // later, so hold the placeholder until the real numbers are in.
+    final loading = meAsync.isLoading || platformsAsync.isLoading;
+
+    final me = meAsync.valueOrNull;
+    final platforms = platformsAsync.valueOrNull ?? const <PlatformInfo>[];
     final verified = platforms.where((p) => p.verified).toList();
 
     final name = lbId?.name ?? profile?.name ?? 'Aspirant';
@@ -86,25 +94,27 @@ class _ShareCardScreenState extends ConsumerState<ShareCardScreen> {
         children: [
           Expanded(
             child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(AppSpacing.xl),
-                child: RepaintBoundary(
-                  key: _cardKey,
-                  child: _Card(
-                    name: name,
-                    college: college,
-                    score: score,
-                    solved: solved,
-                    rating: rating,
-                    streak: streak,
-                    hasDev: hasDev,
-                    contributions: contributions,
-                    stars: stars,
-                    repos: repos,
-                    platforms: [for (final p in verified) p.label],
-                  ),
-                ),
-              ),
+              child: loading
+                  ? const CircularProgressIndicator()
+                  : Padding(
+                      padding: const EdgeInsets.all(AppSpacing.xl),
+                      child: RepaintBoundary(
+                        key: _cardKey,
+                        child: _Card(
+                          name: name,
+                          college: college,
+                          score: score,
+                          solved: solved,
+                          rating: rating,
+                          streak: streak,
+                          hasDev: hasDev,
+                          contributions: contributions,
+                          stars: stars,
+                          repos: repos,
+                          platforms: [for (final p in verified) p.label],
+                        ),
+                      ),
+                    ),
             ),
           ),
           SafeArea(
@@ -115,7 +125,8 @@ class _ShareCardScreenState extends ConsumerState<ShareCardScreen> {
               child: SizedBox(
                 width: double.infinity,
                 child: FilledButton.icon(
-                  onPressed: _sharing ? null : _share,
+                  // Can't capture a card that hasn't rendered yet.
+                  onPressed: (_sharing || loading) ? null : _share,
                   icon: _sharing
                       ? const SizedBox(
                           width: 20,

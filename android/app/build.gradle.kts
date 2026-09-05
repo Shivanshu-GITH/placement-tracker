@@ -7,6 +7,17 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// Firebase Crashlytics is applied ONLY when its config file is present, so a
+// fresh clone (or this repo before Firebase is set up) still builds. Drop
+// android/app/google-services.json in — from a Firebase project with
+// applicationId com.shivanshu.preppilot, or via `flutterfire configure` — and
+// crash reporting activates on the next build with no code changes.
+val hasFirebaseConfig = file("google-services.json").exists()
+if (hasFirebaseConfig) {
+    apply(plugin = "com.google.gms.google-services")
+    apply(plugin = "com.google.firebase.crashlytics")
+}
+
 // Release signing credentials live in android/key.properties (gitignored, never
 // committed). When absent (e.g. CI or a fresh clone) the build falls back to the
 // debug key so `flutter run --release` still works locally.

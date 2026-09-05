@@ -332,13 +332,15 @@ class PrepRepository {
     final profile =
         await (_db.select(_db.userProfiles)..limit(1)).getSingleOrNull();
     final goalMin = profile?.dailyGoalMinutes ?? 120;
-    final goalProb = profile?.dailyGoalProblems ?? 4;
 
     final problems =
         ((existing?.problemsSolved ?? 0) + problemsDelta).clamp(0, 1 << 30);
     final minutes = ((existing?.minutes ?? 0) + minutesDelta).clamp(0, 1 << 30);
     final xp = ((existing?.xpEarned ?? 0) + xpDelta).clamp(0, 1 << 30);
-    final goalMet = problems >= goalProb || minutes >= goalMin;
+    // A day counts once the user has put in their planned study time. The old
+    // "or N problems" arm is gone with the retired problems goal — items differ
+    // too much in effort for a raw count to mean anything.
+    final goalMet = minutes >= goalMin;
 
     await _db.into(_db.activityDays).insertOnConflictUpdate(ActivityDaysCompanion(
       day: Value(today),

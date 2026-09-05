@@ -14,7 +14,6 @@ class PrepTrack {
     required this.role,
     required this.primarySlug,
     required this.activeSlugs,
-    required this.dailyProblems,
     required this.dailyMinutes,
     required this.icon,
     required this.color,
@@ -27,7 +26,8 @@ class PrepTrack {
   final TargetRole role;
   final String primarySlug;
   final Set<String> activeSlugs;
-  final int dailyProblems;
+
+  /// Suggested daily study budget in minutes (the planner sizes the day to it).
   final int dailyMinutes;
   final IconData icon;
   final Color color;
@@ -44,8 +44,9 @@ const List<PrepTrack> kPrepTracks = [
         'DSA-heavy with system design and CS core. Built around Striver A2Z.',
     role: TargetRole.product,
     primarySlug: 'striver-a2z',
-    activeSlugs: {'striver-a2z', ..._coreAll, 'system-design', 'interview-hr'},
-    dailyProblems: 5,
+    activeSlugs: {
+      'striver-a2z', 'dsa-patterns', ..._coreAll, 'system-design', 'interview-hr',
+    },
     dailyMinutes: 180,
     icon: Icons.rocket_launch_rounded,
     color: AppPalette.indigo,
@@ -59,7 +60,6 @@ const List<PrepTrack> kPrepTracks = [
     role: TargetRole.service,
     primarySlug: 'apna-college',
     activeSlugs: {'apna-college', 'aptitude', ..._coreAll, 'interview-hr'},
-    dailyProblems: 3,
     dailyMinutes: 120,
     icon: Icons.apartment_rounded,
     color: AppPalette.mint,
@@ -69,11 +69,14 @@ const List<PrepTrack> kPrepTracks = [
     name: 'Startup / Full-stack',
     tagline: 'Fast-moving product startups',
     description:
-        'A focused fast-track (Striver SDE) plus DBMS, OOP and system-design basics.',
+        'A focused DSA fast-track (Striver SDE) plus full web development, '
+        'DBMS, OOP and system-design basics.',
     role: TargetRole.startup,
     primarySlug: 'striver-sde',
-    activeSlugs: {'striver-sde', 'core-dbms', 'core-oop', 'system-design', 'interview-hr'},
-    dailyProblems: 4,
+    activeSlugs: {
+      'striver-sde', 'dsa-patterns', 'web-dev', 'core-dbms', 'core-oop',
+      'system-design', 'interview-hr',
+    },
     dailyMinutes: 150,
     icon: Icons.bolt_rounded,
     color: AppPalette.violet,
@@ -86,7 +89,6 @@ const List<PrepTrack> kPrepTracks = [
     role: TargetRole.core,
     primarySlug: 'apna-college',
     activeSlugs: {'apna-college', 'aptitude', 'core-os', 'core-dbms', 'interview-hr'},
-    dailyProblems: 3,
     dailyMinutes: 90,
     icon: Icons.memory_rounded,
     color: AppPalette.catAptitude,
@@ -95,11 +97,12 @@ const List<PrepTrack> kPrepTracks = [
     key: 'cp',
     name: 'Competitive Programming',
     tagline: 'Contests & off-campus by rating',
-    description: 'Codeforces-style CP ladder alongside the A2Z fundamentals.',
+    description:
+        'Codeforces-style CP ladder with contest techniques, alongside the '
+        'A2Z fundamentals.',
     role: TargetRole.product,
     primarySlug: 'striver-cp',
-    activeSlugs: {'striver-cp', 'striver-a2z'},
-    dailyProblems: 6,
+    activeSlugs: {'striver-cp', 'cp-prep', 'striver-a2z'},
     dailyMinutes: 180,
     icon: Icons.emoji_events_rounded,
     color: AppPalette.warning,
@@ -113,7 +116,6 @@ const List<PrepTrack> kPrepTracks = [
     role: TargetRole.product,
     primarySlug: 'striver-sde79',
     activeSlugs: {'striver-sde79', ..._coreAll, 'interview-hr'},
-    dailyProblems: 6,
     dailyMinutes: 180,
     icon: Icons.timer_rounded,
     color: AppPalette.danger,

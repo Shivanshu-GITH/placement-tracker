@@ -22,6 +22,25 @@ void main() {
     raw.execute("INSERT INTO roadmap_phases (title) VALUES ('Foundation');");
     raw.execute('CREATE TABLE leaf_progress (canon TEXT PRIMARY KEY, status TEXT);');
     raw.execute("INSERT INTO leaf_progress VALUES ('lc:two-sum', 'solved');");
+    // A real v4 database always carries the profile row; later migrations
+    // rebuild this table, so it has to be here for the chain to be realistic.
+    raw.execute('''
+      CREATE TABLE user_profiles (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL DEFAULT 'Aspirant',
+        target_role TEXT NOT NULL DEFAULT 'product',
+        target_companies TEXT NOT NULL DEFAULT '',
+        skill_level TEXT NOT NULL DEFAULT 'beginner',
+        daily_goal_minutes INTEGER NOT NULL DEFAULT 120,
+        daily_goal_problems INTEGER NOT NULL DEFAULT 4,
+        target_date INTEGER NULL,
+        xp INTEGER NOT NULL DEFAULT 0,
+        onboarded INTEGER NOT NULL DEFAULT 0,
+        created_at INTEGER NOT NULL DEFAULT (strftime('%s','now'))
+      );
+    ''');
+    raw.execute(
+        "INSERT INTO user_profiles (name, daily_goal_minutes, xp) VALUES ('Shivanshu', 240, 900);");
     raw.execute('PRAGMA user_version = 4;');
 
     final db = AppDatabase.forTesting(NativeDatabase.opened(raw));
@@ -47,6 +66,12 @@ void main() {
 
     // Tables added after v4 are created by the same upgrade.
     expect(tables, contains('timetable_blocks'));
+
+    // The profile survives the v7 table rebuild intact.
+    final profile = (await db.select(db.userProfiles).get()).single;
+    expect(profile.name, 'Shivanshu');
+    expect(profile.dailyGoalMinutes, 240);
+    expect(profile.xp, 900);
 
     // The schema version advanced to the current one.
     final version = (await db.customSelect('PRAGMA user_version').getSingle())

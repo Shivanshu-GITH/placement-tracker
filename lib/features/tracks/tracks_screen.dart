@@ -76,7 +76,6 @@ class TracksScreen extends ConsumerWidget {
     await profileRepo.applyTrackPlan(
       role: track.role.name,
       minutes: track.dailyMinutes,
-      problems: track.dailyProblems,
     );
     for (final s in sheets) {
       await prep.setSheetActive(s.id, track.activeSlugs.contains(s.slug));
@@ -161,12 +160,14 @@ class _TrackCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.md),
           Text(track.description, style: theme.textTheme.bodyMedium),
           const SizedBox(height: AppSpacing.md),
-          Row(
+          Wrap(
+            spacing: AppSpacing.sm,
+            runSpacing: AppSpacing.sm,
             children: [
-              _pill(context, Icons.flag_rounded,
-                  '${track.dailyProblems}/day · ${track.dailyMinutes}m'),
-              const SizedBox(width: AppSpacing.sm),
+              _pill(context, Icons.schedule_rounded, _hoursLabel(track.dailyMinutes)),
               _pill(context, Icons.star_rounded, _primaryName(track.primarySlug)),
+              _pill(context, Icons.library_books_rounded,
+                  '${track.activeSlugs.length} sheets'),
             ],
           ),
         ],
@@ -194,6 +195,13 @@ class _TrackCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _hoursLabel(int minutes) {
+    if (minutes < 60) return '$minutes min/day';
+    final h = minutes ~/ 60;
+    final m = minutes % 60;
+    return m == 0 ? '${h}h/day' : '${h}h ${m}m/day';
   }
 
   String _primaryName(String slug) => switch (slug) {

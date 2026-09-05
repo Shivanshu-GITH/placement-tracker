@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/constants/enums.dart';
 import '../../../core/theme/app_dimens.dart';
+import '../../../core/theme/app_palette.dart';
 import '../../../core/widgets/pill.dart';
 import '../../../data/models/dtos.dart';
 import '../../../data/repositories/prep_repository.dart';
@@ -38,28 +39,62 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
   // captured during build so a pending edit can still be flushed from
   // dispose() without touching `ref` after the widget is deactivated.
   Timer? _noteDebounce;
+  Timer? _savedFlash;
   PrepRepository? _repo;
   String? _noteCanon;
   bool _noteDirty = false;
 
+  /// Drives the note box's "Saved" state: the border turns green and a tick
+  /// appears for a moment after an auto-save, then it settles back.
+  bool _noteSaved = false;
+
+  /// Focus is tracked so the box can highlight while it's being written in.
+  final _noteFocus = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _noteFocus.addListener(() => setState(() {}));
+  }
+
   void _onNoteChanged(String _) {
     _noteDirty = true;
+    // A fresh keystroke clears the "Saved" tick — it belongs to the previous
+    // save, not to what is being typed now.
+    if (_noteSaved) {
+      _savedFlash?.cancel();
+      setState(() => _noteSaved = false);
+    }
     _noteDebounce?.cancel();
-    _noteDebounce = Timer(const Duration(milliseconds: 400), _flushNote);
+    // Fires once typing pauses, so a save marks a finished thought.
+    _noteDebounce = Timer(const Duration(milliseconds: 700), _flushNote);
   }
 
   /// Writes the pending note, if any. Safe to call repeatedly.
-  void _flushNote() {
+  void _flushNote({bool showFeedback = true}) {
     final canon = _noteCanon;
     if (!_noteDirty || canon == null) return;
     _noteDirty = false;
-    _repo?.saveNote(canon, _noteController.text);
+    // Store a whitespace-only note as genuinely empty so it doesn't linger as
+    // invisible junk (and the placeholder comes back).
+    final text = _noteController.text;
+    _repo?.saveNote(canon, text.trim().isEmpty ? '' : text);
+    if (!showFeedback || !mounted) return;
+    setState(() => _noteSaved = true);
+    _savedFlash?.cancel();
+    _savedFlash = Timer(const Duration(milliseconds: 1600), () {
+      if (mounted) setState(() => _noteSaved = false);
+    });
   }
 
   @override
   void dispose() {
     _noteDebounce?.cancel();
-    _flushNote(); // don't lose what was typed just before closing
+    _savedFlash?.cancel();
+    // Don't lose what was typed just before closing. No feedback here — the
+    // widget is going away.
+    _flushNote(showFeedback: false);
+    _noteFocus.dispose();
     _noteController.dispose();
     super.dispose();
   }
@@ -75,21 +110,30 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
 
     if (!_noteInit) {
       _noteInit = true;
-      _noteController.text = row.progress?.note ?? '';
+      final stored = row.progress?.note ?? '';
+      // A note of nothing but whitespace carries no information, and it would
+      // suppress the placeholder while looking identical to an empty box.
+      _noteController.text = stored.trim().isEmpty ? '' : stored;
     }
     final repo = ref.read(prepRepositoryProvider);
     // Kept for the debounced save + the dispose-time flush.
     _repo = repo;
     _noteCanon = row.canon;
 
-    return Padding(
-      padding: EdgeInsets.only(
-        left: AppSpacing.xl,
-        right: AppSpacing.xl,
-        top: AppSpacing.sm,
-        bottom: MediaQuery.of(context).viewInsets.bottom + AppSpacing.xl,
+    // The sheet scrolls and is capped below full height: with the note box open
+    // and the keyboard up, the content is easily taller than the screen.
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.92,
       ),
-      child: Column(
+      child: SingleChildScrollView(
+        padding: EdgeInsets.only(
+          left: AppSpacing.xl,
+          right: AppSpacing.xl,
+          top: AppSpacing.sm,
+          bottom: MediaQuery.of(context).viewInsets.bottom + AppSpacing.xl,
+        ),
+        child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -157,14 +201,35 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
                   ],
           ),
           const SizedBox(height: AppSpacing.xl),
-          Text('Notes', style: theme.textTheme.titleSmall),
+          Row(
+            children: [
+              Text('Notes', style: theme.textTheme.titleSmall),
+              const Spacer(),
+              // Confirms the auto-save without needing a button.
+              AnimatedOpacity(
+                opacity: _noteSaved ? 1 : 0,
+                duration: AppMotion.fast,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.check_circle_rounded,
+                        size: 14, color: AppPalette.success),
+                    const SizedBox(width: 4),
+                    Text('Saved',
+                        style: theme.textTheme.labelSmall?.copyWith(
+                            color: AppPalette.success,
+                            fontWeight: FontWeight.w700)),
+                  ],
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: AppSpacing.sm),
-          TextField(
+          _NoteBox(
             controller: _noteController,
-            maxLines: 3,
-            decoration: const InputDecoration(
-              hintText: 'Approach, edge cases, complexity…',
-            ),
+            focusNode: _noteFocus,
+            saved: _noteSaved,
+            hintText: _noteHint(row),
             onChanged: _onNoteChanged,
           ),
           const SizedBox(height: AppSpacing.lg),
@@ -179,7 +244,8 @@ class _LeafSheetState extends ConsumerState<_LeafSheet> {
                         color: theme.colorScheme.onSurfaceVariant)),
               ],
             ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -279,6 +345,107 @@ class _StudySection extends ConsumerWidget {
         ),
         const SizedBox(height: AppSpacing.xl),
       ],
+    );
+  }
+}
+
+/// A prompt that fits what the user is actually studying — "edge cases and
+/// complexity" is meaningless on an HR question or an aptitude formula.
+String _noteHint(LeafRow row) {
+  // Coding problems, whatever sheet they came from.
+  if (!row.isConcept) {
+    return 'Approach, edge cases, complexity…';
+  }
+  return switch (row.category) {
+    PrepCategory.aptitude =>
+      'Formula, shortcut, traps to avoid…',
+    PrepCategory.interview =>
+      'Your story, the STAR points, what to improve…',
+    PrepCategory.system =>
+      'Trade-offs, bottlenecks, how you\'d scale it…',
+    PrepCategory.webdev =>
+      'Syntax, gotchas, where you\'d use it…',
+    PrepCategory.cp => 'Pattern, when it applies, template…',
+    PrepCategory.dsa => 'Intuition, pattern, complexity…',
+    PrepCategory.core => 'Definition, example, why it matters…',
+  };
+}
+
+/// The personal-notes box.
+///
+/// Roomier than a plain field, with a border that reflects its state: neutral
+/// at rest, brand-coloured while being written in, and green for a moment right
+/// after an auto-save so the user can see their note was kept.
+class _NoteBox extends StatelessWidget {
+  const _NoteBox({
+    required this.controller,
+    required this.focusNode,
+    required this.saved,
+    required this.hintText,
+    required this.onChanged,
+  });
+
+  final TextEditingController controller;
+  final FocusNode focusNode;
+  final bool saved;
+
+  /// Subject-appropriate prompt — see [_noteHint].
+  final String hintText;
+  final ValueChanged<String> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final focused = focusNode.hasFocus;
+    final borderColor = saved
+        ? AppPalette.success
+        : focused
+            ? scheme.primary
+            : scheme.outlineVariant;
+
+    return AnimatedContainer(
+      duration: AppMotion.fast,
+      curve: AppMotion.enter,
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.md, vertical: AppSpacing.sm),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerHighest.withValues(alpha: 0.4),
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        border: Border.all(
+          color: borderColor,
+          width: (saved || focused) ? 1.6 : 1,
+        ),
+      ),
+      child: TextField(
+        controller: controller,
+        focusNode: focusNode,
+        minLines: 4,
+        maxLines: 8,
+        textCapitalization: TextCapitalization.sentences,
+        keyboardType: TextInputType.multiline,
+        textInputAction: TextInputAction.newline,
+        style: theme.textTheme.bodyMedium,
+        decoration: InputDecoration(
+          // The container draws the border and background, so the field itself
+          // must be completely bare. The app theme sets filled + enabled/
+          // focused borders, so EVERY state has to be cleared here or the
+          // field paints a second border inside this one.
+          filled: false,
+          border: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          focusedErrorBorder: InputBorder.none,
+          contentPadding: EdgeInsets.zero,
+          isCollapsed: true,
+          hintText: hintText,
+          hintStyle: theme.textTheme.bodySmall
+              ?.copyWith(color: scheme.onSurfaceVariant),
+        ),
+        onChanged: onChanged,
+      ),
     );
   }
 }

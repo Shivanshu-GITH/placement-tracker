@@ -169,7 +169,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             targetCompanies: _companies.toList(),
             skillLevel: _level.name,
             dailyGoalMinutes: _dailyHours * 60,
-            dailyGoalProblems: (_dailyHours * 2).clamp(2, 12),
             targetDate: DateTime.now().add(Duration(days: _months * 30)),
           );
     } finally {

@@ -26,7 +26,6 @@ class ProfileRepository {
     required List<String> targetCompanies,
     required String skillLevel,
     required int dailyGoalMinutes,
-    required int dailyGoalProblems,
     DateTime? targetDate,
   }) async {
     final profile = await get();
@@ -38,7 +37,6 @@ class ProfileRepository {
       targetCompanies: Value(targetCompanies.join(',')),
       skillLevel: Value(skillLevel),
       dailyGoalMinutes: Value(dailyGoalMinutes),
-      dailyGoalProblems: Value(dailyGoalProblems),
       targetDate: Value(targetDate),
       onboarded: const Value(true),
     ));
@@ -51,18 +49,16 @@ class ProfileRepository {
         .write(UserProfilesCompanion(xp: Value(profile.xp + amount)));
   }
 
-  /// Applies a preparation track's role + daily goal.
+  /// Applies a preparation track's role + daily study time.
   Future<void> applyTrackPlan({
     required String role,
     required int minutes,
-    required int problems,
   }) async {
     final profile = await get();
     await (_db.update(_db.userProfiles)..where((t) => t.id.equals(profile.id)))
         .write(UserProfilesCompanion(
       targetRole: Value(role),
       dailyGoalMinutes: Value(minutes),
-      dailyGoalProblems: Value(problems),
     ));
   }
 
@@ -74,14 +70,12 @@ class ProfileRepository {
         .write(UserProfilesCompanion(targetDate: Value(date)));
   }
 
-  Future<void> updateGoals({int? minutes, int? problems}) async {
+  /// Sets the daily study budget in minutes — the planner's capacity, and what
+  /// a day has to hit to count towards the streak.
+  Future<void> updateGoals({required int minutes}) async {
     final profile = await get();
     await (_db.update(_db.userProfiles)
           ..where((t) => t.id.equals(profile.id)))
-        .write(UserProfilesCompanion(
-      dailyGoalMinutes: minutes == null ? const Value.absent() : Value(minutes),
-      dailyGoalProblems:
-          problems == null ? const Value.absent() : Value(problems),
-    ));
+        .write(UserProfilesCompanion(dailyGoalMinutes: Value(minutes)));
   }
 }

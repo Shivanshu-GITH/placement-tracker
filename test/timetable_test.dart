@@ -88,6 +88,53 @@ void main() {
     });
   });
 
+  test('v6 -> v7 drops the problems goal and preserves the rest of the profile',
+      () async {
+    // A v6 profile row, including the retired daily_goal_problems column.
+    final native = sqlite3.openInMemory();
+    native.execute('''
+      CREATE TABLE user_profiles (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL DEFAULT 'Aspirant',
+        target_role TEXT NOT NULL DEFAULT 'product',
+        target_companies TEXT NOT NULL DEFAULT '',
+        skill_level TEXT NOT NULL DEFAULT 'beginner',
+        daily_goal_minutes INTEGER NOT NULL DEFAULT 120,
+        daily_goal_problems INTEGER NOT NULL DEFAULT 4,
+        target_date INTEGER NULL,
+        xp INTEGER NOT NULL DEFAULT 0,
+        onboarded INTEGER NOT NULL DEFAULT 0,
+        created_at INTEGER NOT NULL DEFAULT (strftime('%s','now'))
+      );
+    ''');
+    native.execute('''
+      INSERT INTO user_profiles
+        (name, target_role, daily_goal_minutes, daily_goal_problems, xp, onboarded)
+      VALUES ('Shivanshu', 'product', 300, 10, 1250, 1);
+    ''');
+    native.execute('PRAGMA user_version = 6;');
+
+    final db = AppDatabase.forTesting(NativeDatabase.opened(native));
+    addTearDown(db.close);
+
+    final profile = (await db.select(db.userProfiles).get()).single;
+    // Everything that still matters survived the table rebuild.
+    expect(profile.name, 'Shivanshu');
+    expect(profile.dailyGoalMinutes, 300);
+    expect(profile.xp, 1250);
+    expect(profile.onboarded, isTrue);
+    expect(profile.targetRole, 'product');
+
+    // The retired column is gone from the rebuilt table.
+    final cols = (await db
+            .customSelect("SELECT name FROM pragma_table_info('user_profiles')")
+            .get())
+        .map((r) => r.read<String>('name'))
+        .toSet();
+    expect(cols, isNot(contains('daily_goal_problems')));
+    expect(cols, contains('daily_goal_minutes'));
+  });
+
   test('v5 -> v6 migration adds the timetable and keeps existing data', () async {
     // Build a v5 database, then open it at v6 and check the upgrade path.
     final native = sqlite3.openInMemory();

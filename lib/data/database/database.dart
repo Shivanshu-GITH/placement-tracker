@@ -32,7 +32,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(super.executor);
 
   @override
-  int get schemaVersion => 6;
+  int get schemaVersion => 7;
 
   /// Deletes every row from every table (content + all user progress) on the
   /// live connection. Used by the account/data-deletion flow so the user's data
@@ -80,6 +80,14 @@ class AppDatabase extends _$AppDatabase {
             }
             // v5 -> v6 adds the daily timetable.
             if (from < 6) await m.createTable(timetableBlocks);
+            // v6 -> v7 retires the per-day "problems" goal. SQLite can't drop a
+            // column in place, so Drift rebuilds the table and copies the rows;
+            // every other profile field is preserved.
+            if (from < 7) {
+              await m.alterTable(
+                TableMigration(userProfiles),
+              );
+            }
           }
         },
         beforeOpen: (details) async {

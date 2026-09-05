@@ -80,18 +80,6 @@ class $UserProfilesTable extends UserProfiles
     requiredDuringInsert: false,
     defaultValue: const Constant(120),
   );
-  static const VerificationMeta _dailyGoalProblemsMeta = const VerificationMeta(
-    'dailyGoalProblems',
-  );
-  @override
-  late final GeneratedColumn<int> dailyGoalProblems = GeneratedColumn<int>(
-    'daily_goal_problems',
-    aliasedName,
-    false,
-    type: DriftSqlType.int,
-    requiredDuringInsert: false,
-    defaultValue: const Constant(4),
-  );
   static const VerificationMeta _targetDateMeta = const VerificationMeta(
     'targetDate',
   );
@@ -148,7 +136,6 @@ class $UserProfilesTable extends UserProfiles
     targetCompanies,
     skillLevel,
     dailyGoalMinutes,
-    dailyGoalProblems,
     targetDate,
     xp,
     onboarded,
@@ -202,15 +189,6 @@ class $UserProfilesTable extends UserProfiles
         dailyGoalMinutes.isAcceptableOrUnknown(
           data['daily_goal_minutes']!,
           _dailyGoalMinutesMeta,
-        ),
-      );
-    }
-    if (data.containsKey('daily_goal_problems')) {
-      context.handle(
-        _dailyGoalProblemsMeta,
-        dailyGoalProblems.isAcceptableOrUnknown(
-          data['daily_goal_problems']!,
-          _dailyGoalProblemsMeta,
         ),
       );
     }
@@ -268,10 +246,6 @@ class $UserProfilesTable extends UserProfiles
         DriftSqlType.int,
         data['${effectivePrefix}daily_goal_minutes'],
       )!,
-      dailyGoalProblems: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}daily_goal_problems'],
-      )!,
       targetDate: attachedDatabase.typeMapping.read(
         DriftSqlType.dateTime,
         data['${effectivePrefix}target_date'],
@@ -303,8 +277,12 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
   final String targetRole;
   final String targetCompanies;
   final String skillLevel;
+
+  /// The daily study budget. This is the planner's capacity and the bar a day
+  /// must clear to count towards the streak. (A separate "problems per day"
+  /// goal was retired in v7 — items differ too much in effort for a raw count
+  /// to be meaningful.)
   final int dailyGoalMinutes;
-  final int dailyGoalProblems;
   final DateTime? targetDate;
   final int xp;
   final bool onboarded;
@@ -316,7 +294,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     required this.targetCompanies,
     required this.skillLevel,
     required this.dailyGoalMinutes,
-    required this.dailyGoalProblems,
     this.targetDate,
     required this.xp,
     required this.onboarded,
@@ -331,7 +308,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     map['target_companies'] = Variable<String>(targetCompanies);
     map['skill_level'] = Variable<String>(skillLevel);
     map['daily_goal_minutes'] = Variable<int>(dailyGoalMinutes);
-    map['daily_goal_problems'] = Variable<int>(dailyGoalProblems);
     if (!nullToAbsent || targetDate != null) {
       map['target_date'] = Variable<DateTime>(targetDate);
     }
@@ -349,7 +325,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
       targetCompanies: Value(targetCompanies),
       skillLevel: Value(skillLevel),
       dailyGoalMinutes: Value(dailyGoalMinutes),
-      dailyGoalProblems: Value(dailyGoalProblems),
       targetDate: targetDate == null && nullToAbsent
           ? const Value.absent()
           : Value(targetDate),
@@ -371,7 +346,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
       targetCompanies: serializer.fromJson<String>(json['targetCompanies']),
       skillLevel: serializer.fromJson<String>(json['skillLevel']),
       dailyGoalMinutes: serializer.fromJson<int>(json['dailyGoalMinutes']),
-      dailyGoalProblems: serializer.fromJson<int>(json['dailyGoalProblems']),
       targetDate: serializer.fromJson<DateTime?>(json['targetDate']),
       xp: serializer.fromJson<int>(json['xp']),
       onboarded: serializer.fromJson<bool>(json['onboarded']),
@@ -388,7 +362,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
       'targetCompanies': serializer.toJson<String>(targetCompanies),
       'skillLevel': serializer.toJson<String>(skillLevel),
       'dailyGoalMinutes': serializer.toJson<int>(dailyGoalMinutes),
-      'dailyGoalProblems': serializer.toJson<int>(dailyGoalProblems),
       'targetDate': serializer.toJson<DateTime?>(targetDate),
       'xp': serializer.toJson<int>(xp),
       'onboarded': serializer.toJson<bool>(onboarded),
@@ -403,7 +376,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     String? targetCompanies,
     String? skillLevel,
     int? dailyGoalMinutes,
-    int? dailyGoalProblems,
     Value<DateTime?> targetDate = const Value.absent(),
     int? xp,
     bool? onboarded,
@@ -415,7 +387,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     targetCompanies: targetCompanies ?? this.targetCompanies,
     skillLevel: skillLevel ?? this.skillLevel,
     dailyGoalMinutes: dailyGoalMinutes ?? this.dailyGoalMinutes,
-    dailyGoalProblems: dailyGoalProblems ?? this.dailyGoalProblems,
     targetDate: targetDate.present ? targetDate.value : this.targetDate,
     xp: xp ?? this.xp,
     onboarded: onboarded ?? this.onboarded,
@@ -437,9 +408,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
       dailyGoalMinutes: data.dailyGoalMinutes.present
           ? data.dailyGoalMinutes.value
           : this.dailyGoalMinutes,
-      dailyGoalProblems: data.dailyGoalProblems.present
-          ? data.dailyGoalProblems.value
-          : this.dailyGoalProblems,
       targetDate: data.targetDate.present
           ? data.targetDate.value
           : this.targetDate,
@@ -458,7 +426,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
           ..write('targetCompanies: $targetCompanies, ')
           ..write('skillLevel: $skillLevel, ')
           ..write('dailyGoalMinutes: $dailyGoalMinutes, ')
-          ..write('dailyGoalProblems: $dailyGoalProblems, ')
           ..write('targetDate: $targetDate, ')
           ..write('xp: $xp, ')
           ..write('onboarded: $onboarded, ')
@@ -475,7 +442,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
     targetCompanies,
     skillLevel,
     dailyGoalMinutes,
-    dailyGoalProblems,
     targetDate,
     xp,
     onboarded,
@@ -491,7 +457,6 @@ class UserProfile extends DataClass implements Insertable<UserProfile> {
           other.targetCompanies == this.targetCompanies &&
           other.skillLevel == this.skillLevel &&
           other.dailyGoalMinutes == this.dailyGoalMinutes &&
-          other.dailyGoalProblems == this.dailyGoalProblems &&
           other.targetDate == this.targetDate &&
           other.xp == this.xp &&
           other.onboarded == this.onboarded &&
@@ -505,7 +470,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
   final Value<String> targetCompanies;
   final Value<String> skillLevel;
   final Value<int> dailyGoalMinutes;
-  final Value<int> dailyGoalProblems;
   final Value<DateTime?> targetDate;
   final Value<int> xp;
   final Value<bool> onboarded;
@@ -517,7 +481,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     this.targetCompanies = const Value.absent(),
     this.skillLevel = const Value.absent(),
     this.dailyGoalMinutes = const Value.absent(),
-    this.dailyGoalProblems = const Value.absent(),
     this.targetDate = const Value.absent(),
     this.xp = const Value.absent(),
     this.onboarded = const Value.absent(),
@@ -530,7 +493,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     this.targetCompanies = const Value.absent(),
     this.skillLevel = const Value.absent(),
     this.dailyGoalMinutes = const Value.absent(),
-    this.dailyGoalProblems = const Value.absent(),
     this.targetDate = const Value.absent(),
     this.xp = const Value.absent(),
     this.onboarded = const Value.absent(),
@@ -543,7 +505,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     Expression<String>? targetCompanies,
     Expression<String>? skillLevel,
     Expression<int>? dailyGoalMinutes,
-    Expression<int>? dailyGoalProblems,
     Expression<DateTime>? targetDate,
     Expression<int>? xp,
     Expression<bool>? onboarded,
@@ -556,7 +517,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
       if (targetCompanies != null) 'target_companies': targetCompanies,
       if (skillLevel != null) 'skill_level': skillLevel,
       if (dailyGoalMinutes != null) 'daily_goal_minutes': dailyGoalMinutes,
-      if (dailyGoalProblems != null) 'daily_goal_problems': dailyGoalProblems,
       if (targetDate != null) 'target_date': targetDate,
       if (xp != null) 'xp': xp,
       if (onboarded != null) 'onboarded': onboarded,
@@ -571,7 +531,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     Value<String>? targetCompanies,
     Value<String>? skillLevel,
     Value<int>? dailyGoalMinutes,
-    Value<int>? dailyGoalProblems,
     Value<DateTime?>? targetDate,
     Value<int>? xp,
     Value<bool>? onboarded,
@@ -584,7 +543,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
       targetCompanies: targetCompanies ?? this.targetCompanies,
       skillLevel: skillLevel ?? this.skillLevel,
       dailyGoalMinutes: dailyGoalMinutes ?? this.dailyGoalMinutes,
-      dailyGoalProblems: dailyGoalProblems ?? this.dailyGoalProblems,
       targetDate: targetDate ?? this.targetDate,
       xp: xp ?? this.xp,
       onboarded: onboarded ?? this.onboarded,
@@ -613,9 +571,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
     if (dailyGoalMinutes.present) {
       map['daily_goal_minutes'] = Variable<int>(dailyGoalMinutes.value);
     }
-    if (dailyGoalProblems.present) {
-      map['daily_goal_problems'] = Variable<int>(dailyGoalProblems.value);
-    }
     if (targetDate.present) {
       map['target_date'] = Variable<DateTime>(targetDate.value);
     }
@@ -640,7 +595,6 @@ class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
           ..write('targetCompanies: $targetCompanies, ')
           ..write('skillLevel: $skillLevel, ')
           ..write('dailyGoalMinutes: $dailyGoalMinutes, ')
-          ..write('dailyGoalProblems: $dailyGoalProblems, ')
           ..write('targetDate: $targetDate, ')
           ..write('xp: $xp, ')
           ..write('onboarded: $onboarded, ')
@@ -5165,7 +5119,6 @@ typedef $$UserProfilesTableCreateCompanionBuilder =
       Value<String> targetCompanies,
       Value<String> skillLevel,
       Value<int> dailyGoalMinutes,
-      Value<int> dailyGoalProblems,
       Value<DateTime?> targetDate,
       Value<int> xp,
       Value<bool> onboarded,
@@ -5179,7 +5132,6 @@ typedef $$UserProfilesTableUpdateCompanionBuilder =
       Value<String> targetCompanies,
       Value<String> skillLevel,
       Value<int> dailyGoalMinutes,
-      Value<int> dailyGoalProblems,
       Value<DateTime?> targetDate,
       Value<int> xp,
       Value<bool> onboarded,
@@ -5222,11 +5174,6 @@ class $$UserProfilesTableFilterComposer
 
   ColumnFilters<int> get dailyGoalMinutes => $composableBuilder(
     column: $table.dailyGoalMinutes,
-    builder: (column) => ColumnFilters(column),
-  );
-
-  ColumnFilters<int> get dailyGoalProblems => $composableBuilder(
-    column: $table.dailyGoalProblems,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -5290,11 +5237,6 @@ class $$UserProfilesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get dailyGoalProblems => $composableBuilder(
-    column: $table.dailyGoalProblems,
-    builder: (column) => ColumnOrderings(column),
-  );
-
   ColumnOrderings<DateTime> get targetDate => $composableBuilder(
     column: $table.targetDate,
     builder: (column) => ColumnOrderings(column),
@@ -5351,11 +5293,6 @@ class $$UserProfilesTableAnnotationComposer
     builder: (column) => column,
   );
 
-  GeneratedColumn<int> get dailyGoalProblems => $composableBuilder(
-    column: $table.dailyGoalProblems,
-    builder: (column) => column,
-  );
-
   GeneratedColumn<DateTime> get targetDate => $composableBuilder(
     column: $table.targetDate,
     builder: (column) => column,
@@ -5408,7 +5345,6 @@ class $$UserProfilesTableTableManager
                 Value<String> targetCompanies = const Value.absent(),
                 Value<String> skillLevel = const Value.absent(),
                 Value<int> dailyGoalMinutes = const Value.absent(),
-                Value<int> dailyGoalProblems = const Value.absent(),
                 Value<DateTime?> targetDate = const Value.absent(),
                 Value<int> xp = const Value.absent(),
                 Value<bool> onboarded = const Value.absent(),
@@ -5420,7 +5356,6 @@ class $$UserProfilesTableTableManager
                 targetCompanies: targetCompanies,
                 skillLevel: skillLevel,
                 dailyGoalMinutes: dailyGoalMinutes,
-                dailyGoalProblems: dailyGoalProblems,
                 targetDate: targetDate,
                 xp: xp,
                 onboarded: onboarded,
@@ -5434,7 +5369,6 @@ class $$UserProfilesTableTableManager
                 Value<String> targetCompanies = const Value.absent(),
                 Value<String> skillLevel = const Value.absent(),
                 Value<int> dailyGoalMinutes = const Value.absent(),
-                Value<int> dailyGoalProblems = const Value.absent(),
                 Value<DateTime?> targetDate = const Value.absent(),
                 Value<int> xp = const Value.absent(),
                 Value<bool> onboarded = const Value.absent(),
@@ -5446,7 +5380,6 @@ class $$UserProfilesTableTableManager
                 targetCompanies: targetCompanies,
                 skillLevel: skillLevel,
                 dailyGoalMinutes: dailyGoalMinutes,
-                dailyGoalProblems: dailyGoalProblems,
                 targetDate: targetDate,
                 xp: xp,
                 onboarded: onboarded,

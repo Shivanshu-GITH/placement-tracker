@@ -24,16 +24,12 @@ class PlannerScreen extends ConsumerWidget {
     final plan = ref.watch(plannerOverviewProvider);
 
     return Scaffold(
+      // The target date is edited by tapping the deadline hero (which shows the
+      // pencil), so no separate AppBar action is needed — that was two controls
+      // for one action.
       appBar: AppBar(
         title: const Text('Planner'),
         titleTextStyle: Theme.of(context).textTheme.headlineSmall,
-        actions: [
-          IconButton(
-            tooltip: 'Set target date',
-            onPressed: () => _editDeadline(context, ref, plan.deadline),
-            icon: const Icon(Icons.event_rounded),
-          ),
-        ],
       ),
       body: plan.isEmpty
           ? EmptyState(
@@ -168,7 +164,7 @@ class PlannerScreen extends ConsumerWidget {
                   onPressed: () async {
                     await ref
                         .read(profileRepositoryProvider)
-                        .updateGoals(minutes: hours * 60, problems: hours * 2);
+                        .updateGoals(minutes: hours * 60);
                     if (ctx.mounted) Navigator.pop(ctx);
                   },
                   child: const Text('Save'),

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kReleaseMode;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -118,30 +119,35 @@ class _ReminderTileState extends State<ReminderTile> {
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.w700)),
           ),
-        ListTile(
-          onTap: () async {
-            final granted =
-                await NotificationService.instance.requestPermission();
-            if (!granted) {
+        // A developer aid for confirming notifications fire on a given device
+        // (some vendors block them until whitelisted). Hidden in release builds.
+        if (!kReleaseMode)
+          ListTile(
+            onTap: () async {
+              final granted =
+                  await NotificationService.instance.requestPermission();
+              if (!granted) {
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content:
+                          Text('Allow notifications to receive reminders.')));
+                }
+                return;
+              }
+              await NotificationService.instance.showTest();
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Allow notifications to receive reminders.')));
+                    content:
+                        Text('Test sent — check your notification shade.')));
               }
-              return;
-            }
-            await NotificationService.instance.showTest();
-            if (context.mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('Test sent — check your notification shade.')));
-            }
-          },
-          leading: const SizedBox(width: 36),
-          title: Text('Send a test notification',
-              style: theme.textTheme.bodyMedium
-                  ?.copyWith(color: theme.colorScheme.primary)),
-          trailing: Icon(Icons.send_rounded,
-              size: 18, color: theme.colorScheme.primary),
-        ),
+            },
+            leading: const SizedBox(width: 36),
+            title: Text('Send a test notification',
+                style: theme.textTheme.bodyMedium
+                    ?.copyWith(color: theme.colorScheme.primary)),
+            trailing: Icon(Icons.send_rounded,
+                size: 18, color: theme.colorScheme.primary),
+          ),
       ],
     );
   }

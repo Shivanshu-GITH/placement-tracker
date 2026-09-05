@@ -224,9 +224,9 @@ class ProfileScreen extends ConsumerWidget {
               ),
               _SettingTile(
                 icon: Icons.flag_rounded,
-                title: 'Daily goal',
+                title: 'Daily study time',
                 subtitle:
-                    '${profile?.dailyGoalProblems ?? 4} problems · ${profile?.dailyGoalMinutes ?? 120} min',
+                    '${_hoursLabel(profile?.dailyGoalMinutes ?? 120)} a day · sets your plan\'s pace',
                 onTap: () => _editGoals(context, ref),
               ),
               const Divider(height: 1, indent: 16, endIndent: 16),
@@ -435,9 +435,12 @@ class ProfileScreen extends ConsumerWidget {
     }
   }
 
+  /// Edits the daily study budget. This single number is what the planner
+  /// spends each day and what a day must reach to count towards the streak —
+  /// the old "problems per day" goal was retired because items differ far too
+  /// much in effort for a raw count to mean anything.
   Future<void> _editGoals(BuildContext context, WidgetRef ref) async {
     final profile = await ref.read(profileRepositoryProvider).get();
-    var problems = profile.dailyGoalProblems;
     var minutes = profile.dailyGoalMinutes;
     if (!context.mounted) return;
     await showModalBottomSheet(
@@ -455,35 +458,46 @@ class ProfileScreen extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Daily goal',
-                  style: Theme.of(context).textTheme.titleLarge),
-              const SizedBox(height: AppSpacing.lg),
-              Text('Problems per day: $problems'),
-              Slider(
-                value: problems.toDouble(),
-                min: 1,
-                max: 15,
-                divisions: 14,
-                onChanged: (v) => setState(() => problems = v.round()),
+              Text('Daily study time',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.w800)),
+              const SizedBox(height: 4),
+              Text(
+                'How long you can study on a normal day. The planner sizes '
+                'each day\'s tasks to fit this, and a day counts towards your '
+                'streak once you reach it.',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              Text('Minutes per day: $minutes'),
+              const SizedBox(height: AppSpacing.lg),
+              Text(_hoursLabel(minutes),
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(fontWeight: FontWeight.w700)),
               Slider(
                 value: minutes.toDouble(),
                 min: 30,
                 max: 600,
                 divisions: 19,
+                label: _hoursLabel(minutes),
                 onChanged: (v) =>
                     setState(() => minutes = (v / 30).round() * 30),
               ),
               const SizedBox(height: AppSpacing.md),
-              FilledButton(
-                onPressed: () async {
-                  await ref
-                      .read(profileRepositoryProvider)
-                      .updateGoals(minutes: minutes, problems: problems);
-                  if (context.mounted) Navigator.pop(context);
-                },
-                child: const Text('Save'),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: () async {
+                    await ref
+                        .read(profileRepositoryProvider)
+                        .updateGoals(minutes: minutes);
+                    if (context.mounted) Navigator.pop(context);
+                  },
+                  child: const Text('Save'),
+                ),
               ),
             ],
           ),
@@ -491,6 +505,14 @@ class ProfileScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+/// "90 min" / "2h" / "2h 30m" for a daily-minutes value.
+String _hoursLabel(int minutes) {
+  if (minutes < 60) return '$minutes min';
+  final h = minutes ~/ 60;
+  final m = minutes % 60;
+  return m == 0 ? '${h}h' : '${h}h ${m}m';
 }
 
 class _ProfileHeader extends StatelessWidget {
@@ -694,12 +716,13 @@ class _ThemeTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.md),
       child: SegmentedButton<int>(
-        // Labels must not wrap ("Syste/m") when the icon + text are tight or
-        // the user has scaled their font up.
+        // "System" + an icon doesn't fit a third of the row, so it clipped to
+        // "Systen". Use the shorter, conventional "Auto" label instead, which
+        // fits comfortably with the icon at any font scale.
         segments: const [
           ButtonSegment(
               value: 0,
-              label: Text('System', maxLines: 1, softWrap: false),
+              label: Text('Auto', maxLines: 1, softWrap: false),
               icon: Icon(Icons.brightness_auto_rounded)),
           ButtonSegment(
               value: 1,

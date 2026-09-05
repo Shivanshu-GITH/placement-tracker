@@ -7,8 +7,11 @@ class UserProfiles extends Table {
   TextColumn get targetRole => text().withDefault(const Constant('product'))();
   TextColumn get targetCompanies => text().withDefault(const Constant(''))(); // csv
   TextColumn get skillLevel => text().withDefault(const Constant('beginner'))();
+  /// The daily study budget. This is the planner's capacity and the bar a day
+  /// must clear to count towards the streak. (A separate "problems per day"
+  /// goal was retired in v7 — items differ too much in effort for a raw count
+  /// to be meaningful.)
   IntColumn get dailyGoalMinutes => integer().withDefault(const Constant(120))();
-  IntColumn get dailyGoalProblems => integer().withDefault(const Constant(4))();
   DateTimeColumn get targetDate => dateTime().nullable()();
   IntColumn get xp => integer().withDefault(const Constant(0))();
   BoolColumn get onboarded => boolean().withDefault(const Constant(false))();
