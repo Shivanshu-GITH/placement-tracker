@@ -179,70 +179,81 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         setState(() => _computeDefaultSelection(sheets));
       });
     }
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            _ProgressBar(
-              page: _page,
-              total: _totalPages,
-              onBack: _back,
-              canLeave: canLeave,
-            ),
-            Expanded(
-              child: PageView(
-                controller: _controller,
-                physics: const NeverScrollableScrollPhysics(),
-                onPageChanged: (i) => setState(() => _page = i),
-                children: [
-                  _WelcomeStep(
-                    nameController: _nameController,
-                    college: _college,
-                    onPickCollege: _pickCollege,
-                  ),
-                  _GoalStep(
-                    months: _months,
-                    dailyHours: _dailyHours,
-                    onMonths: (v) => setState(() => _months = v),
-                    onHours: (v) => setState(() => _dailyHours = v),
-                    // Real workload of the sheets picked so far, so the pace
-                    // they choose is checked against actual content.
-                    selectedMinutes: _selectedMinutes(ref),
-                  ),
-                  _SheetsStep(
-                    sheets: sheets,
-                    active: _activeSheets,
-                    primary: _primarySheet,
-                    onToggle: (id) => setState(() {
-                      _activeSheets.contains(id)
-                          ? _activeSheets.remove(id)
-                          : _activeSheets.add(id);
-                    }),
-                    onPrimary: (id) => setState(() {
-                      _primarySheet = id;
-                      _activeSheets.add(id);
-                    }),
-                  ),
-                ],
+    return PopScope(
+      // Android's back gesture should walk back through the steps exactly as
+      // the arrow does, and only leave the app when there is genuinely nothing
+      // behind: the first step, for someone who did not arrive here as a guest.
+      // Without this, back exited from ANY step and threw away everything
+      // entered so far.
+      canPop: _page == 0 && !canLeave,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _back();
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              _ProgressBar(
+                page: _page,
+                total: _totalPages,
+                onBack: _back,
+                canLeave: canLeave,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(AppSpacing.xl),
-              child: FilledButton(
-                onPressed: _submitting ? null : _next,
-                child: _submitting
-                    ? const SizedBox(
-                        height: 22,
-                        width: 22,
-                        child: CircularProgressIndicator(
-                            strokeWidth: 2.5, color: Colors.white),
-                      )
-                    : Text(_page == _totalPages - 1
-                        ? 'Generate my roadmap'
-                        : 'Continue'),
+              Expanded(
+                child: PageView(
+                  controller: _controller,
+                  physics: const NeverScrollableScrollPhysics(),
+                  onPageChanged: (i) => setState(() => _page = i),
+                  children: [
+                    _WelcomeStep(
+                      nameController: _nameController,
+                      college: _college,
+                      onPickCollege: _pickCollege,
+                    ),
+                    _GoalStep(
+                      months: _months,
+                      dailyHours: _dailyHours,
+                      onMonths: (v) => setState(() => _months = v),
+                      onHours: (v) => setState(() => _dailyHours = v),
+                      // Real workload of the sheets picked so far, so the pace
+                      // they choose is checked against actual content.
+                      selectedMinutes: _selectedMinutes(ref),
+                    ),
+                    _SheetsStep(
+                      sheets: sheets,
+                      active: _activeSheets,
+                      primary: _primarySheet,
+                      onToggle: (id) => setState(() {
+                        _activeSheets.contains(id)
+                            ? _activeSheets.remove(id)
+                            : _activeSheets.add(id);
+                      }),
+                      onPrimary: (id) => setState(() {
+                        _primarySheet = id;
+                        _activeSheets.add(id);
+                      }),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(AppSpacing.xl),
+                child: FilledButton(
+                  onPressed: _submitting ? null : _next,
+                  child: _submitting
+                      ? const SizedBox(
+                          height: 22,
+                          width: 22,
+                          child: CircularProgressIndicator(
+                              strokeWidth: 2.5, color: Colors.white),
+                        )
+                      : Text(_page == _totalPages - 1
+                          ? 'Generate my roadmap'
+                          : 'Continue'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

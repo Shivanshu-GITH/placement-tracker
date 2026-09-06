@@ -60,6 +60,66 @@ void main() {
     expect(container.read(sessionStateProvider), SessionState.needsAuth);
   });
 
+  /// The Android back gesture, as the framework delivers it.
+  Future<void> systemBack(WidgetTester tester) async {
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+  }
+
+  ProviderContainer containerOf(WidgetTester tester) =>
+      ProviderScope.containerOf(tester.element(find.byType(OnboardingScreen)));
+
+  /// PopScope is generic, so find.byType(PopScope) matches nothing. Take the
+  /// nearest one wrapping the screen's Scaffold — ours.
+  bool canPopOf(WidgetTester tester) {
+    final finder = find.ancestor(
+      of: find.byType(Scaffold),
+      matching: find.byWidgetPredicate((w) => w is PopScope),
+    );
+    return ((tester.widgetList(finder).first) as PopScope).canPop;
+  }
+
+  testWidgets('system back on a later step returns to the previous one',
+      (tester) async {
+    // Onboarding is the root screen, so there is no route to pop: back used to
+    // leave the app from ANY step, discarding everything entered so far.
+    await pumpOnboarding(tester, guest: true);
+    // Walk to the last step, where the button label changes.
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('Generate my roadmap'), findsOneWidget);
+    expect(canPopOf(tester), isFalse,
+        reason: 'back is handled in-app while there are steps behind');
+
+    await systemBack(tester);
+
+    expect(find.text('Generate my roadmap'), findsNothing,
+        reason: 'back stepped to the previous page');
+    expect(containerOf(tester).read(guestModeProvider), isTrue,
+        reason: 'stepping back must not drop the guest session');
+  });
+
+  testWidgets('system back on step 1 as a guest returns to the welcome screen',
+      (tester) async {
+    await pumpOnboarding(tester, guest: true);
+
+    await systemBack(tester);
+
+    expect(containerOf(tester).read(guestModeProvider), isFalse,
+        reason: 'same destination the back arrow reaches');
+  });
+
+  testWidgets('system back on step 1 leaves the app when not a guest',
+      (tester) async {
+    // Nothing sits behind onboarding for a signed-in user, so the gesture must
+    // fall through to the platform rather than being swallowed.
+    await pumpOnboarding(tester, guest: false);
+
+    expect(canPopOf(tester), isTrue);
+  });
+
   testWidgets('the arrow stays disabled on step 1 when not a guest',
       (tester) async {
     await pumpOnboarding(tester, guest: false);
