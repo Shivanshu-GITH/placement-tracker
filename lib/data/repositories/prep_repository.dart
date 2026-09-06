@@ -169,11 +169,43 @@ class PrepRepository {
 
   // ---- Mutations: progress ------------------------------------------------
 
-  Future<int> setLeafStatus(String canon, String statusName) async {
-    return _db.transaction(() async {
+  Future<int> setLeafStatus(String canon, String statusName) =>
+      _db.transaction(() => _applyLeafStatus(canon, (_) => statusName));
+
+  /// Advances the status one step around its cycle.
+  ///
+  /// The next value is derived from the row that is actually stored, read
+  /// inside the transaction - NOT from whatever the UI last rendered. Deciding
+  /// it in the widget meant a second tap landing before the stream re-emitted
+  /// would recompute from the stale status and write the same value twice, so
+  /// the tap was silently lost (an item could sit in "revisit" and keep being
+  /// counted after the user had cycled it away).
+  Future<int> cycleLeafStatus(String canon, {required bool isConcept}) =>
+      _db.transaction(() => _applyLeafStatus(canon, (current) {
+            final name = current ?? (isConcept ? 'notStarted' : 'todo');
+            return isConcept
+                ? ConceptStatus.fromName(name).next.name
+                : ProblemStatus.fromName(name).next.name;
+          }));
+
+  /// Flips a leaf between done and not-done, again based on what is stored.
+  Future<int> toggleLeafDone(String canon, {required bool isConcept}) =>
+      _db.transaction(() => _applyLeafStatus(canon, (current) {
+            final isDone = _doneStatuses.contains(current);
+            if (isConcept) return isDone ? 'notStarted' : 'done';
+            return isDone ? 'todo' : 'solved';
+          }));
+
+  /// Shared write path. [resolve] receives the currently stored status (null if
+  /// the leaf has none yet) and returns the status to persist. Must be called
+  /// inside a transaction so the read and the write cannot interleave.
+  Future<int> _applyLeafStatus(
+      String canon, String Function(String? current) resolve) async {
+    {
       final existing = await (_db.select(_db.leafProgress)
             ..where((t) => t.canon.equals(canon)))
           .getSingleOrNull();
+      final statusName = resolve(existing?.status);
       final was = _doneStatuses.contains(existing?.status);
       final now = _doneStatuses.contains(statusName);
       final dt = DateTime.now();
@@ -211,7 +243,7 @@ class PrepRepository {
         await _bumpActivity(problemsDelta: -1, xpDelta: 0);
       }
       return xp;
-    });
+    }
   }
 
   Future<void> toggleBookmark(String canon) async {

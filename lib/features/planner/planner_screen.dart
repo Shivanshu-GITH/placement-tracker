@@ -117,7 +117,10 @@ class PlannerScreen extends ConsumerWidget {
   /// Lets the user raise their daily study time until the plan fits.
   Future<void> _editDailyHours(
       BuildContext context, WidgetRef ref, PlanOverview plan) async {
-    var hours = (plan.capacityMinutes / 60).clamp(1, 12).round();
+    // Same scale as Profile > Daily study time. They edit ONE stored value, so
+    // an hours-only slider here would silently round a 90-minute setting up to
+    // 2 h the moment this sheet was saved.
+    var minutes = plan.capacityMinutes.clamp(30, 600);
     final needed = plan.requiredHoursPerDay;
     await showModalBottomSheet<void>(
       context: context,
@@ -147,15 +150,16 @@ class PlannerScreen extends ConsumerWidget {
                     color: Theme.of(ctx).colorScheme.onSurfaceVariant),
               ),
               const SizedBox(height: AppSpacing.lg),
-              Text('$hours ${hours == 1 ? 'hour' : 'hours'} a day',
+              Text('${PlanEffort.format(minutes)} a day',
                   style: Theme.of(ctx).textTheme.titleMedium),
               Slider(
-                value: hours.toDouble(),
-                min: 1,
-                max: 12,
-                divisions: 11,
-                label: '$hours h',
-                onChanged: (v) => setSheet(() => hours = v.round()),
+                value: minutes.toDouble(),
+                min: 30,
+                max: 600,
+                divisions: 19,
+                label: PlanEffort.format(minutes),
+                onChanged: (v) =>
+                    setSheet(() => minutes = (v / 30).round() * 30),
               ),
               const SizedBox(height: AppSpacing.md),
               SizedBox(
@@ -164,7 +168,7 @@ class PlannerScreen extends ConsumerWidget {
                   onPressed: () async {
                     await ref
                         .read(profileRepositoryProvider)
-                        .updateGoals(minutes: hours * 60);
+                        .updateGoals(minutes: minutes);
                     if (ctx.mounted) Navigator.pop(ctx);
                   },
                   child: const Text('Save'),
@@ -414,10 +418,9 @@ class _PlanItemRow extends ConsumerWidget {
       borderRadius: BorderRadius.circular(AppRadius.sm),
       onTap: () {
         final repo = ref.read(prepRepositoryProvider);
-        repo.setLeafStatus(
-          item.leaf.canon,
-          done ? item.leaf.todoStatus : item.leaf.doneStatus,
-        );
+        // Resolve done/not-done from the stored row, so a second tap landing
+        // before the stream re-emits can't recompute from a stale value.
+        repo.toggleLeafDone(item.leaf.canon, isConcept: item.leaf.isConcept);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 6),
@@ -539,14 +542,13 @@ class _SubjectCard extends ConsumerWidget {
               children: [
                 Expanded(
                   child: _MetricPill(
-                    label: 'Per day',
+                    // This is TODAY's target, which is the steady pace plus any
+                    // catch-up for days missed — not the pace itself. Labelling
+                    // it "Per day" made it read as a second, contradictory pace
+                    // next to the "Pace: N/day" row below.
+                    label: 'Today',
                     value: '${subject.dailyTarget}',
-                    // In effort mode the target is sized by minutes, so a
-                    // count-based "need N" would contradict it — show the time
-                    // this actually costs instead.
-                    hint: subject.isPaceCustom
-                        ? 'custom'
-                        : '~${PlanEffort.format(subject.todayMinutes)}',
+                    hint: _todayHint(subject),
                     accent: accent,
                   ),
                 ),
@@ -570,9 +572,8 @@ class _SubjectCard extends ConsumerWidget {
               child: TextButton.icon(
                 onPressed: () => _editPace(context, ref, subject),
                 icon: const Icon(Icons.speed_rounded, size: 18),
-                label: Text(subject.isPaceCustom
-                    ? 'Pace: ${subject.plannedPace}/day (custom)'
-                    : 'Adjust daily pace'),
+                label: Text('Pace: ${subject.plannedPace}/day '
+                    '(${subject.isPaceCustom ? 'custom' : 'auto'})'),
                 style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                     minimumSize: const Size(0, 32),
@@ -583,6 +584,15 @@ class _SubjectCard extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  /// Names the difference between today's target and the steady pace, so a
+  /// user who pinned "1 a day" and is shown 2 can see the extra is catch-up for
+  /// days missed rather than the app ignoring their setting.
+  String _todayHint(SubjectPlan s) {
+    final extra = s.dailyTarget - s.plannedPace;
+    if (extra > 0) return '${s.plannedPace} + $extra catch-up';
+    return '~${PlanEffort.format(s.todayMinutes)}';
   }
 
   String _slackHint(SubjectPlan s) {

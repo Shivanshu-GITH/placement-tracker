@@ -229,8 +229,7 @@ class ProfileScreen extends ConsumerWidget {
             children: [
               _ThemeTile(
                 selected: themeMode,
-                onSelect: (v) =>
-                    ref.read(themeModeProvider.notifier).state = v,
+                onSelect: (v) => setThemeMode(ref, v),
               ),
             ],
           ).entrance(index: 3),
@@ -582,7 +581,14 @@ class _SettingsGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      // stretch, not start. Under start the card gets LOOSE width constraints
+      // and sizes itself to its content: every other group's tiles are Rows,
+      // which fill the width anyway, but the Appearance group holds a
+      // SegmentedButton, which takes its intrinsic width — so that one card
+      // rendered visibly narrower than the cards above and below it. Stretching
+      // makes the card span the group regardless of what is inside, and leaves
+      // the Row-based groups exactly as they were.
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 4, bottom: AppSpacing.sm),
@@ -593,6 +599,8 @@ class _SettingsGroup extends StatelessWidget {
         ),
         AppCard(
           padding: EdgeInsets.zero,
+          // Left as the default centre alignment: Row-based tiles still fill
+          // the card, while the segmented button sits centred in it.
           child: Column(children: children),
         ),
       ],

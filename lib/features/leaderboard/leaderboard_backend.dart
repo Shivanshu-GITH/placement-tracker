@@ -17,6 +17,13 @@ int weekKeyOf(DateTime d) {
 }
 
 /// Locally-remembered leaderboard identity (display name + college).
+/// Signals that the user dismissed the Google sign-in flow.
+class SignInCancelled implements Exception {
+  const SignInCancelled();
+  @override
+  String toString() => 'Sign-in cancelled by the user';
+}
+
 class LbIdentity {
   const LbIdentity({required this.name, this.college});
   final String name;
@@ -73,6 +80,11 @@ class LeaderboardAuth {
   /// Signs in with Google and exchanges the returned ID token for a Supabase
   /// session. Returns the Google display name (if any) so the caller can
   /// prefill it. Throws with a readable message on failure.
+  /// Thrown when the user backs out of the Google account picker. Callers
+  /// should return quietly: the user chose not to sign in, so there is nothing
+  /// to report and nothing for them to act on.
+  static const cancelled = SignInCancelled();
+
   Future<String?> signInWithGoogle() async {
     final serverClientId = AppConfig.googleServerClientId;
     if (serverClientId.isEmpty) {
@@ -83,7 +95,19 @@ class LeaderboardAuth {
       await google.initialize(serverClientId: serverClientId);
       _googleReady = true;
     }
-    final account = await google.authenticate();
+    final GoogleSignInAccount account;
+    try {
+      account = await google.authenticate();
+    } on GoogleSignInException catch (e) {
+      // `canceled` is a deliberate dismissal; `interrupted` is how a swipe-back
+      // out of the credential sheet surfaces on some devices. Neither is an
+      // error the user caused or can fix, so both become the quiet signal.
+      if (e.code == GoogleSignInExceptionCode.canceled ||
+          e.code == GoogleSignInExceptionCode.interrupted) {
+        throw cancelled;
+      }
+      rethrow;
+    }
     final idToken = account.authentication.idToken;
     if (idToken == null) {
       throw 'Google did not return an ID token.';

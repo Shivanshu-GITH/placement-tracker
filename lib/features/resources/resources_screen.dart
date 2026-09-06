@@ -13,8 +13,20 @@ import '../../providers/providers.dart';
 import '../ads/ad_config.dart';
 import '../ads/native_ad_card.dart';
 
+/// Affiliate disclosure for the Paid tab.
+///
+/// MUST stay visible without any interaction. Folding it into an info button
+/// that opens a dialog is tempting — it takes real space — but a material
+/// connection has to be disclosed clearly and conspicuously, and the FTC's
+/// Endorsement Guides call out disclosures placed behind a hyperlink, a pop-up
+/// or an extra tap as inadequate; Play's deceptive-behaviour policy takes the
+/// same line. The space is bought back by shortening the wording instead:
+/// affiliate + commission + no extra cost is the whole substance, and the
+/// editorial "we only list resources we'd genuinely recommend" sentence that
+/// used to follow was never part of the disclosure.
 const _disclosure =
-    'Some links in Paid are affiliate links — if you buy through them we may earn a small commission at no extra cost to you. We only list resources we\'d genuinely recommend.';
+    'Some links here are affiliate links — we may earn a commission, '
+    'at no extra cost to you.';
 
 IconData _typeIcon(String type) => switch (type) {
       'sheet' => Icons.checklist_rounded,
@@ -98,7 +110,8 @@ class _ResourcesScreenState extends ConsumerState<ResourcesScreen> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(AppSpacing.screenH,
                         AppSpacing.sm, AppSpacing.screenH, 0),
-                    padding: const EdgeInsets.all(AppSpacing.md),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.md, vertical: AppSpacing.sm),
                     decoration: BoxDecoration(
                       color: theme.colorScheme.surfaceContainerHighest,
                       borderRadius: BorderRadius.circular(AppRadius.sm),

@@ -37,6 +37,14 @@ enum ProblemStatus {
 
   bool get isDone => this == ProblemStatus.solved;
 
+  /// The next state when the user taps the status button.
+  ProblemStatus get next => switch (this) {
+        ProblemStatus.todo => ProblemStatus.attempted,
+        ProblemStatus.attempted => ProblemStatus.solved,
+        ProblemStatus.solved => ProblemStatus.revisit,
+        ProblemStatus.revisit => ProblemStatus.todo,
+      };
+
   static ProblemStatus fromName(String name) =>
       ProblemStatus.values.firstWhere((e) => e.name == name, orElse: () => ProblemStatus.todo);
 
@@ -68,6 +76,14 @@ enum ConceptStatus {
   final IconData icon;
 
   bool get isDone => this == ConceptStatus.done;
+
+  /// The next state when the user taps the status button.
+  ConceptStatus get next => switch (this) {
+        ConceptStatus.notStarted => ConceptStatus.learning,
+        ConceptStatus.learning => ConceptStatus.done,
+        ConceptStatus.done => ConceptStatus.revise,
+        ConceptStatus.revise => ConceptStatus.notStarted,
+      };
 
   static ConceptStatus fromName(String name) => ConceptStatus.values
       .firstWhere((e) => e.name == name, orElse: () => ConceptStatus.notStarted);

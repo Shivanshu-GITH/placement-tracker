@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/services/app_update_service.dart';
@@ -33,6 +34,13 @@ class PrepPilotApp extends ConsumerWidget {
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: themeMode,
+      // MaterialApp wraps the app in an AnimatedTheme. Every frame of that
+      // animation lerps the whole ThemeData AND rebuilds every widget that
+      // reads Theme.of(context) - which here is essentially the entire tree.
+      // The default 200ms therefore costs ~12 full rebuilds and stutters, so
+      // keep the crossfade but make it short enough to stay smooth.
+      themeAnimationDuration: const Duration(milliseconds: 150),
+      themeAnimationCurve: Curves.easeOut,
       home: const _AppRoot(),
     );
   }
@@ -50,6 +58,7 @@ class _AppRoot extends ConsumerStatefulWidget {
 class _AppRootState extends ConsumerState<_AppRoot> {
   InviteLinks? _invites;
   bool _bgSynced = false;
+  bool _splashRemoved = false;
   bool _contestSynced = false;
   bool _timetableSynced = false;
 
@@ -62,6 +71,15 @@ class _AppRootState extends ConsumerState<_AppRoot> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       AppUpdateService.maybePromptImmediateUpdate();
     });
+  }
+
+  /// Drop the OS launch screen once the real destination has been built. Called
+  /// after the frame so the user never sees a blank gap between the two.
+  void _removeSplashOnce() {
+    if (_splashRemoved) return;
+    _splashRemoved = true;
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => FlutterNativeSplash.remove());
   }
 
   /// Once per app open, silently refresh the signed-in user's platform stats.
@@ -109,13 +127,30 @@ class _AppRootState extends ConsumerState<_AppRoot> {
       });
     }
 
+    // While loading, paint just the themed background: the OS launch screen is
+    // still covering the window on first run, so a second in-app splash would
+    // only be a redundant extra screen. Using the scaffold colour (rather than
+    // an empty box) means that if this branch is ever hit again after startup
+    // it reads as the app, not as a black flash.
+    Widget hold() => ColoredBox(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          child: const SizedBox.expand(),
+        );
+
     return bootstrap.when(
-      loading: () => const SplashScreen(),
-      error: (e, _) => SplashScreen(error: e.toString()),
+      loading: hold,
+      error: (e, _) {
+        _removeSplashOnce();
+        return SplashScreen(error: e.toString());
+      },
       data: (_) => profile.when(
-        loading: () => const SplashScreen(),
-        error: (e, _) => SplashScreen(error: e.toString()),
+        loading: hold,
+        error: (e, _) {
+          _removeSplashOnce();
+          return SplashScreen(error: e.toString());
+        },
         data: (p) {
+          _removeSplashOnce();
           final session = ref.watch(sessionStateProvider);
           final onboarded = p?.onboarded ?? false;
           final Widget child;

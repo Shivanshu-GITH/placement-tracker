@@ -238,12 +238,12 @@ class LeafTile extends ConsumerWidget {
       final s = row.conceptStatus;
       icon = s.icon;
       color = s.color(context);
-      onCycle = () => repo.setLeafStatus(row.canon, _nextConcept(s).name);
+      onCycle = () => repo.cycleLeafStatus(row.canon, isConcept: true);
     } else {
       final s = row.problemStatus;
       icon = s.icon;
       color = s.color(context);
-      onCycle = () => repo.setLeafStatus(row.canon, _nextProblem(s).name);
+      onCycle = () => repo.cycleLeafStatus(row.canon, isConcept: false);
     }
 
     return Material(
@@ -335,17 +335,5 @@ class LeafTile extends ConsumerWidget {
     );
   }
 
-  ProblemStatus _nextProblem(ProblemStatus s) => switch (s) {
-        ProblemStatus.todo => ProblemStatus.attempted,
-        ProblemStatus.attempted => ProblemStatus.solved,
-        ProblemStatus.solved => ProblemStatus.revisit,
-        ProblemStatus.revisit => ProblemStatus.todo,
-      };
 
-  ConceptStatus _nextConcept(ConceptStatus s) => switch (s) {
-        ConceptStatus.notStarted => ConceptStatus.learning,
-        ConceptStatus.learning => ConceptStatus.done,
-        ConceptStatus.done => ConceptStatus.revise,
-        ConceptStatus.revise => ConceptStatus.notStarted,
-      };
 }

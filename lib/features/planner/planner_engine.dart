@@ -22,10 +22,13 @@ import 'planner_models.dart';
 ///    deadline)` — so the user is never asked for more than they said they have,
 ///    and never padded beyond what the deadline requires,
 ///  * that budget is split across subjects **in proportion to the work each has
-///    left**, so every subject advances together and they all land near the same
-///    finish date instead of one subject starving the others,
-///  * the projected finish comes from real capacity, which is what makes
-///    `feasible` / `suggestedDeadline` on [PlanOverview] trustworthy.
+///    left**, so every subject advances together instead of one starving the
+///    others,
+///  * each subject's projected finish is then `ceil(left / its sustained rate)`
+///    — the SAME rate reported as its pace — so pace, daily target and finish
+///    date always describe one plan rather than three,
+///  * plan-level capacity is what makes `feasible` / `suggestedDeadline` on
+///    [PlanOverview] trustworthy.
 ///
 /// Omitting [dailyMinutes] keeps the original count-based behaviour.
 ///
@@ -141,30 +144,37 @@ class PlannerEngine {
 
     // How many of a subject's next undone items fit inside [budgetMinutes].
     // Only whole items that actually fit are counted, so the day is never
-    // over-promised — with one exception: a subject that has done nothing today
-    // always gets at least one item, otherwise a subject whose next item costs
-    // more than its slice of the budget would stall forever.
-    int fitCount(_Facts f, double budgetMinutes) {
-      if (budgetMinutes <= 0) return 0;
+    // over-promised — with one exception: when [floorOne] is set an unfinished
+    // subject always gets at least one item, otherwise a subject whose next
+    // item costs more than its slice of the budget would stall forever.
+    int fitCount(_Facts f, double budgetMinutes, {required bool floorOne}) {
       var used = 0.0;
       var count = 0;
-      for (final l in f.input.leaves) {
-        if (l.isDone) continue;
-        if (used + l.estimatedMinutes > budgetMinutes) break;
-        used += l.estimatedMinutes;
-        count++;
+      if (budgetMinutes > 0) {
+        for (final l in f.input.leaves) {
+          if (l.isDone) continue;
+          if (used + l.estimatedMinutes > budgetMinutes) break;
+          used += l.estimatedMinutes;
+          count++;
+        }
       }
-      if (count == 0 && f.left > 0 && f.doneToday.isEmpty) return 1;
+      if (count == 0 && floorOne && f.left > 0) return 1;
       return count;
     }
 
     final targets = <int>[];
+    // The rate each subject sustains from tomorrow on. Today's target can be
+    // higher (catch-up) or lower (some of it already done), so the projection
+    // has to come from THIS, not from the target — otherwise a card can print
+    // "1 per day, 50 left" next to a finish date six months out.
+    final steadyPace = <int>[];
     int autoBudget = 0;
     int autoMinutesLeft = 0;
 
     if (!timeAware) {
       for (final f in facts) {
         targets.add(countTarget(f));
+        steadyPace.add(f.plannedPace);
       }
     } else {
       // Custom-pace subjects keep their pinned pace and consume their share of
@@ -190,33 +200,36 @@ class PlannerEngine {
       for (final f in facts) {
         if (f.isCustom) {
           targets.add(countTarget(f));
+          steadyPace.add(f.plannedPace);
           continue;
         }
         if (f.left == 0 || autoMinutesLeft == 0) {
           targets.add(0);
+          steadyPace.add(0);
           continue;
         }
-        // Proportional share of the day's remaining budget, minus whatever the
-        // user already completed in this subject today.
-        final share = f.minutesLeft / autoMinutesLeft;
+        // This subject's steady slice of the day: its share of the auto budget,
+        // in proportion to the work it has left.
+        final slice = autoBudget * (f.minutesLeft / autoMinutesLeft);
+        // The rate it advances at every day. This is what "pace" means for an
+        // auto-paced subject, and the projection is derived from it, so the
+        // pace, the daily target and the finish date all describe one plan.
+        steadyPace.add(fitCount(f, slice, floorOne: true));
+        // Today's target is that same slice, minus whatever the user already
+        // completed in this subject today.
         final doneMinutes = f.doneToday
             .fold<int>(0, (s, i) => s + i.leaf.estimatedMinutes);
-        final remaining = autoBudget * share - doneMinutes;
-        targets.add(f.doneToday.length + fitCount(f, remaining));
+        targets.add(f.doneToday.length +
+            fitCount(f, slice - doneMinutes, floorOne: f.doneToday.isEmpty));
       }
     }
-
-    // Days the auto-paced subjects need at the sustained budget — they advance
-    // proportionally, so they all finish together.
-    final int? autoDays = (timeAware && autoMinutesLeft > 0)
-        ? (autoBudget > 0 ? (autoMinutesLeft / autoBudget).ceil() : null)
-        : null;
 
     // ---- Pass 3: today's list + projection per subject.
     final plans = <SubjectPlan>[];
     for (var i = 0; i < facts.length; i++) {
       final f = facts[i];
       final dailyTarget = targets[i];
+      final pace = steadyPace[i];
 
       final need = math.max(0, dailyTarget - f.doneToday.length);
       final next = <PlanItem>[];
@@ -226,16 +239,13 @@ class PlannerEngine {
         next.add(PlanItem(l));
       }
 
-      final DateTime? projected;
-      if (f.left == 0) {
-        projected = null; // complete
-      } else if (timeAware && !f.isCustom) {
-        projected = autoDays == null ? null : addDays(today, autoDays);
-      } else {
-        projected = f.plannedPace > 0
-            ? addDays(today, (f.left / f.plannedPace).ceil())
-            : null;
-      }
+      // One rule for every subject: at [pace] a day, [left] items take
+      // ceil(left / pace) days. A card can now be read straight through.
+      final DateTime? projected = f.left == 0
+          ? null // complete
+          : pace > 0
+              ? addDays(today, (f.left / pace).ceil())
+              : null;
 
       plans.add(SubjectPlan(
         slug: f.input.slug,
@@ -245,7 +255,7 @@ class PlannerEngine {
         total: f.total,
         done: f.done,
         doneTodayCount: f.doneToday.length,
-        plannedPace: f.plannedPace,
+        plannedPace: pace,
         requiredPace: f.requiredPace,
         dailyTarget: dailyTarget,
         projectedFinish: projected,

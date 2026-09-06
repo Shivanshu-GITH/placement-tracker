@@ -115,7 +115,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     if (_page > 0) {
       _controller.previousPage(
           duration: AppMotion.medium, curve: AppMotion.emphasized);
+      return;
     }
+    // Nothing earlier in the flow. For a guest, back out of the guest session
+    // instead: that returns to the welcome screen, which is where "Continue
+    // with Google" lives. A signed-in user has nothing behind onboarding, so
+    // the arrow stays disabled for them.
+    setGuestMode(ref, false);
   }
 
   Future<void> _finish() async {
@@ -164,6 +170,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     final sheets = ref.watch(sheetsProvider).valueOrNull ?? const [];
+    // Guests arrived here from the welcome screen and can go back to it to sign
+    // in with Google instead.
+    final canLeave = ref.watch(sessionStateProvider) == SessionState.guest;
     if (!_sheetsInit && sheets.isNotEmpty) {
       _sheetsInit = true;
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -174,7 +183,12 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            _ProgressBar(page: _page, total: _totalPages, onBack: _back),
+            _ProgressBar(
+              page: _page,
+              total: _totalPages,
+              onBack: _back,
+              canLeave: canLeave,
+            ),
             Expanded(
               child: PageView(
                 controller: _controller,
@@ -237,10 +251,18 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
 class _ProgressBar extends StatelessWidget {
   const _ProgressBar(
-      {required this.page, required this.total, required this.onBack});
+      {required this.page,
+      required this.total,
+      required this.onBack,
+      required this.canLeave});
   final int page;
   final int total;
   final VoidCallback onBack;
+
+  /// Whether the FIRST step can be left backwards. True for a guest, who
+  /// returns to the welcome screen; false when signed in, where onboarding is
+  /// the first screen and there is nothing behind it.
+  final bool canLeave;
 
   @override
   Widget build(BuildContext context) {
@@ -251,7 +273,7 @@ class _ProgressBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            onPressed: page == 0 ? null : onBack,
+            onPressed: page == 0 && !canLeave ? null : onBack,
             icon: const Icon(Icons.arrow_back_rounded),
           ),
           Expanded(

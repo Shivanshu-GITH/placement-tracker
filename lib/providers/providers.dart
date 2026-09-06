@@ -25,6 +25,7 @@ import '../features/premium/premium_service.dart';
 import '../features/study/ad_gate.dart';
 import '../features/study/study_models.dart';
 import '../features/study/study_repository.dart';
+import '../features/tracker/company_tags.dart';
 import '../features/timetable/timetable_models.dart';
 import '../features/timetable/timetable_repository.dart';
 
@@ -91,6 +92,9 @@ final bootstrapProvider = FutureProvider<void>((ref) async {
   // decided, so returning guests don't flash the welcome screen.
   final p = await SharedPreferences.getInstance();
   ref.read(guestModeProvider.notifier).state = p.getBool('guest_mode') ?? false;
+  // Restore the remembered light/dark choice before the first frame paints, so
+  // the app doesn't start in one theme and snap to the other.
+  ref.read(themeModeProvider.notifier).state = p.getInt('theme_mode') ?? 0;
 });
 
 // ---- Session / auth gate --------------------------------------------------
@@ -116,8 +120,36 @@ Future<String?> signInWithGoogleFlow(WidgetRef ref) async {
     await auth.signInWithGoogle();
     await setGuestMode(ref, false);
     return null;
+  } on SignInCancelled {
+    // Backing out of the account picker is a normal choice. Showing an error
+    // for it blamed the user for something they meant to do, and there was no
+    // action for them to take.
+    return null;
   } catch (e) {
     return 'Could not sign in: $e';
+  }
+}
+
+/// Re-seeds whichever bucket the app is pointing at right now.
+///
+/// wipeAllData() empties the LIVE connection, and that clears the shipped
+/// catalogue (sheets, nodes, resources, the default sheet selection) along with
+/// the user's own rows. Nothing repairs a live connection on its own:
+/// [bootstrapProvider] runs the seeder once and only re-runs when the account
+/// bucket (dbKey) changes, which a wipe does not do. Without this the app kept
+/// rendering as though it had booted, over an empty database: onboarding with
+/// no sheets to pick, a dashboard with no topics and an empty planner, until
+/// the next launch re-ran the seeder and it all came back.
+///
+/// Idempotent: on a bucket that is already populated the seeder is a no-op, so
+/// this is safe even when the bucket is about to switch and bootstrap will seed
+/// the new one itself.
+Future<void> _reseedCurrentBucket(WidgetRef ref) async {
+  try {
+    await ref.read(seedServiceProvider).ensureSeeded();
+  } catch (_) {
+    // Non-fatal - the next launch runs the seeder again. Never surface this as
+    // a deletion failure: the deletion itself has already succeeded.
   }
 }
 
@@ -149,10 +181,15 @@ Future<String?> deleteAccountAndData(WidgetRef ref) async {
     await setGuestMode(ref, false);
     ref.invalidate(lbIdentityProvider);
     ref.invalidate(boardPoolProvider);
-    return null;
   } catch (e) {
     return 'Could not delete account: $e';
   }
+  // 7. Put the catalogue back. Sign-out reaches the provider graph a few event
+  //    loop turns later, so until it does the UI would paint the bucket we just
+  //    wiped; once it does, this is the guest bucket and the seeder skips
+  //    whatever is already there.
+  await _reseedCurrentBucket(ref);
+  return null;
 }
 
 /// Wipes all on-device data for a guest (no cloud account exists) and returns to
@@ -164,6 +201,9 @@ Future<void> deleteGuestData(WidgetRef ref) async {
   await setGuestMode(ref, false);
   ref.invalidate(lbIdentityProvider);
   ref.invalidate(boardPoolProvider);
+  // The guest bucket is reused rather than dropped, so it has to be repopulated
+  // here - nothing else will until the app is next launched.
+  await _reseedCurrentBucket(ref);
 }
 
 /// Silently re-syncs all verified coding platforms in the background (no UI /
@@ -462,20 +502,48 @@ final plannerOverviewProvider = Provider<PlanOverview>((ref) {
 final resourcesProvider = StreamProvider<List<Resource>>(
     (ref) => ref.watch(prepRepositoryProvider).watchResources());
 
-/// Company → number of tagged problems, across active sheets.
-final companyCountsProvider = Provider<Map<String, int>>((ref) {
-  final rows = ref.watch(activeLeafRowsProvider);
-  final m = <String, int>{};
+/// Company → its tagged problems, drawn from the WHOLE catalogue.
+///
+/// Company prep is a POOL, not a view of the current sheet selection. The tags
+/// live on only two of the seventeen sheets (Apna College and Arsh Goyal) and
+/// neither is active by default, so keying this off the active sheets left the
+/// "By company" screen empty for almost everyone — and made the list of
+/// employers grow and shrink as sheets were toggled, which is not something a
+/// company's interview history does.
+///
+/// Deduplicated by canon: 95 of the tagged problems are carried by both sheets,
+/// and progress is stored per canon, so a duplicate would be the same tick
+/// listed twice. Tags from every copy are merged, so a problem keeps all the
+/// companies either sheet knew about.
+final companyPoolProvider = Provider<Map<String, List<LeafRow>>>((ref) {
+  final rows = ref.watch(leafRowsProvider);
+  final byCanon = <String, LeafRow>{};
+  final tagsByCanon = <String, Set<String>>{};
   for (final r in rows) {
-    final c = r.node.companies;
-    if (c.isEmpty) continue;
-    for (final raw in c.split(',')) {
-      final name = raw.trim();
-      if (name.length < 2) continue;
-      m.update(name, (v) => v + 1, ifAbsent: () => 1);
+    if (r.node.companies.isEmpty) continue;
+    final names = CompanyTags.parse(r.node.companies);
+    if (names.isEmpty) continue;
+    byCanon.putIfAbsent(r.canon, () => r);
+    tagsByCanon.putIfAbsent(r.canon, () => <String>{}).addAll(names);
+  }
+
+  final pool = <String, List<LeafRow>>{};
+  for (final entry in tagsByCanon.entries) {
+    final row = byCanon[entry.key]!;
+    for (final company in entry.value) {
+      pool.putIfAbsent(company, () => <LeafRow>[]).add(row);
     }
   }
-  return m;
+  for (final list in pool.values) {
+    list.sort((a, b) => a.node.title.compareTo(b.node.title));
+  }
+  return pool;
+});
+
+/// Company → number of tagged problems in the pool.
+final companyCountsProvider = Provider<Map<String, int>>((ref) {
+  final pool = ref.watch(companyPoolProvider);
+  return {for (final e in pool.entries) e.key: e.value.length};
 });
 
 final achStatsProvider = Provider<AchStats>((ref) {
@@ -613,5 +681,13 @@ final boardPoolProvider =
   return repo.pool(scope, me: me, myName: id.name, myCollege: id.college);
 });
 
-/// UI theme mode: 0=system, 1=light, 2=dark.
+/// UI theme mode: 0=system, 1=light, 2=dark (persisted in shared_prefs, so the
+/// choice survives a restart). Stored on-device only.
 final themeModeProvider = StateProvider<int>((ref) => 0);
+
+/// Persists and updates the theme choice.
+Future<void> setThemeMode(WidgetRef ref, int value) async {
+  ref.read(themeModeProvider.notifier).state = value;
+  final p = await SharedPreferences.getInstance();
+  await p.setInt('theme_mode', value);
+}

@@ -179,7 +179,15 @@ void main() {
       }
     });
 
-    test('subjects finish together rather than one starving the others', () {
+    test('the day is split by work left, and every projection matches its pace',
+        () {
+      // This used to assert that both subjects showed the SAME projected
+      // finish. That only held because the projection was an aggregate — the
+      // days the whole auto group needed at the shared budget — which ignored
+      // the one-item-a-day floor the daily target actually applies. A 20-item
+      // subject could therefore print "1 per day" beside a date two months out.
+      // A subject is now projected from its own sustained pace, so the two
+      // agree; what proportional splitting still guarantees is below.
       final p = PlannerEngine.compute(
         subjects: [
           subject('dsa', total: 20),
@@ -191,9 +199,36 @@ void main() {
         now: today,
         dailyMinutes: 120,
       );
-      final finishes =
-          p.subjects.map((s) => s.projectedFinish).toSet();
-      expect(finishes.length, 1); // same projected finish for both
+      for (final s in p.subjects) {
+        expect(s.dailyTarget, greaterThanOrEqualTo(1),
+            reason: '${s.slug} was starved');
+        expect(PlannerEngine.diffDays(today, s.projectedFinish!),
+            (s.left / s.plannedPace).ceil(),
+            reason: '${s.slug} must finish when its own pace says it does');
+      }
+    });
+
+    test('with room to spare, the subject with more work left gets more of it',
+        () {
+      // The point of splitting by minutes left: nobody starves and the heavier
+      // subject moves faster. Budget is generous here so the one-item floor
+      // never binds and the proportional share is actually observable.
+      final p = PlannerEngine.compute(
+        subjects: [
+          subject('dsa', total: 200),
+          subject('os',
+              total: 20, isConcept: true, category: PrepCategory.core),
+        ],
+        start: start,
+        deadline: DateTime(2026, 3, 1),
+        now: today,
+        dailyMinutes: 600,
+      );
+      final dsa = p.subjects.firstWhere((s) => s.slug == 'dsa');
+      final os = p.subjects.firstWhere((s) => s.slug == 'os');
+      expect(dsa.minutesLeft, greaterThan(os.minutesLeft));
+      expect(dsa.todayMinutes, greaterThan(os.todayMinutes),
+          reason: 'the heavier subject takes the larger share of the day');
     });
   });
 

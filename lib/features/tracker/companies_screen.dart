@@ -6,15 +6,12 @@ import '../../core/theme/app_palette.dart';
 import '../../core/widgets/app_card.dart';
 import '../../core/widgets/empty_state.dart';
 import '../../core/widgets/entrance.dart';
+import '../../data/models/dtos.dart';
 import '../../providers/providers.dart';
 import 'sheet_detail_screen.dart' show LeafTile;
 
-String _titleCase(String s) => s
-    .split(' ')
-    .map((w) => w.isEmpty ? w : '${w[0].toUpperCase()}${w.substring(1)}')
-    .join(' ');
-
-/// Lists companies (from tagged problems in active sheets) with counts.
+/// Lists every company in the catalogue's tagged-problem pool, with counts.
+/// The pool is independent of which sheets are active — see companyPoolProvider.
 class CompaniesScreen extends ConsumerWidget {
   const CompaniesScreen({super.key});
 
@@ -31,7 +28,9 @@ class CompaniesScreen extends ConsumerWidget {
               icon: Icons.business_rounded,
               title: 'No company tags yet',
               message:
-                  'Activate a company-tagged sheet (Arsh Goyal or Apna College) in My Sheets to prep by company.',
+                  'Company-tagged problems load with the app content. If this '
+                  'stays empty, reopen the app so the catalogue can finish '
+                  'loading.',
             )
           : ListView.separated(
               padding: const EdgeInsets.fromLTRB(AppSpacing.screenH,
@@ -56,7 +55,7 @@ class CompaniesScreen extends ConsumerWidget {
                       ),
                       const SizedBox(width: AppSpacing.md),
                       Expanded(
-                        child: Text(_titleCase(e.key),
+                        child: Text(e.key,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
@@ -78,23 +77,20 @@ class CompaniesScreen extends ConsumerWidget {
   }
 }
 
-/// Shows the problems tagged with a given company (from active sheets).
+/// Shows every problem tagged with a given company, from the catalogue-wide
+/// pool rather than the active sheets.
 class CompanyProblemsScreen extends ConsumerWidget {
   const CompanyProblemsScreen({super.key, required this.company});
   final String company;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final rows = ref.watch(activeLeafRowsProvider).where((r) {
-      final c = r.node.companies;
-      if (c.isEmpty) return false;
-      return c.split(',').map((e) => e.trim()).contains(company);
-    }).toList();
+    final rows = ref.watch(companyPoolProvider)[company] ?? const <LeafRow>[];
     final done = rows.where((r) => r.isDone).length;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_titleCase(company)),
+        title: Text(company),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(28),
           child: Padding(
